@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Users.getpresence
+  description: Gets user presence information.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Users.getpresence
+      description: Gets user presence information.
+    paths:
+      /users.getPresence:
+        get:
+          summary: Get Users.getpresence
+          description: Gets user presence information.
+          operationId: usersgetPresence
+          responses:
+            default:
+              description: Typical error response
+              content:
+                application/json:
+                  schema:
+                    title: users.counts error schema
+                    required:
+                      - error
+                      - ok
+                    type: object
+                    properties:
+                      error:
+                        type: string
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                    additionalProperties:
+                      type: object
+                      properties: {}
+                    description: Schema for error response users.getPresence method
+                  example:
+                    error: invalid_auth
+                    ok: false

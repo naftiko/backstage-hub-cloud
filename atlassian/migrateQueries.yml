@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Convert User Identifiers To Account Ids In Jql Queries
+  description: >-
+    Converts one or more JQL queries with user identifiers (username or user
+    key) to equivalent JQL queries with account IDs.You may wish to use this
+    operation if your system stores JQL queries and you want to make them
+    GDPR-compliant. For more information about GDPR-related changes, see the
+    [migration
+    guide](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/).**[Permissions](#permissions)
+    required:** Permission to access Jira.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Convert User Identifiers To Account Ids In Jql Queries
+      description: >-
+        Converts one or more JQL queries with user identifiers (username or user
+        key) to equivalent JQL queries with account IDs.You may wish to use this
+        operation if your system stores JQL queries and you want to make them
+        GDPR-compliant. For more information about GDPR-related changes, see the
+        [migration
+        guide](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/).**[Permissions](#permissions)
+        required:** Permission to access Jira.
+    paths:
+      /rest/api/3/jql/pdcleaner:
+        post:
+          summary: Convert User Identifiers To Account Ids In Jql Queries
+          description: >-
+            Converts one or more JQL queries with user identifiers (username or user
+            key) to equivalent JQL queries with account IDs.You may wish to use this
+            operation if your system stores JQL queries and you want to make them
+            GDPR-compliant. For more information about GDPR-related changes, see the
+            [migration
+            guide](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/).**[Permissions](#permissions)
+            required:** Permission to access Jira.
+          operationId: migrateQueries
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  queryStrings:
+                    - assignee = mia
+                    - >-
+                      issuetype = Bug AND assignee in (mia) AND reporter in (alana)
+                      order by lastViewed DESC
+                schema:
+                  $ref: '#/components/schemas/JQLPersonalDataMigrationRequest'
+          responses:
+            '401':
+              content:
+                application/json:
+                  schema:
+                    type: string
+              description: Returned if the authentication credentials are incorrect or missing.

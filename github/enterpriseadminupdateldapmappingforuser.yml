@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Ldap Mapping For A User
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Ldap Mapping For A User
+      description: Needs a more full description created.
+    paths:
+      /admin/ldap/users/{username}/mapping:
+        patch:
+          summary: Update Ldap Mapping For A User
+          description: Needs a more full description created.
+          operationId: enterpriseadminupdateldapmappingforuser
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    ldap_dn:
+                      type: string
+                      description: >-
+                        The [distinguished
+                        name](https://www.ldap.com/ldap-dns-and-rdns) (DN) of the
+                        LDAP entry to map to a team.
+                  required:
+                    - ldap_dn
+                examples:
+                  default:
+                    value:
+                      ldap_dn: uid=asdf,ou=users,dc=github,dc=com
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ldap-mapping-user'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/ldap-mapping-user'

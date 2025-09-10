@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getrestapis
+  description: Lists the RestApis resources for your collection.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getrestapis
+      description: Lists the RestApis resources for your collection.
+    paths:
+      /restapis:
+        GET:
+          summary: Getrestapis
+          description: Lists the RestApis resources for your collection.
+          operationId: getRestApis

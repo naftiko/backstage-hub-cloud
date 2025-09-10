@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Disable A Selected Organization For Github Actions In An Enterprise
+  description: >-
+    Removes an organization from the list of selected organizations that are
+    enabled for GitHub Actions in an enterprise. To use this endpoint, the
+    enterprise permission policy for `enabled_organizations` must be configured
+    to `selected`. For more information, see "[Set GitHub Actions permissions
+    for an enterprise](#set-github-actions-permissions-for-an-enterprise)."OAuth
+    app tokens and personal access tokens (classic) need the `admin:enterprise`
+    scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disable A Selected Organization For Github Actions In An Enterprise
+      description: >-
+        Removes an organization from the list of selected organizations that are
+        enabled for GitHub Actions in an enterprise. To use this endpoint, the
+        enterprise permission policy for `enabled_organizations` must be configured
+        to `selected`. For more information, see "[Set GitHub Actions permissions
+        for an enterprise](#set-github-actions-permissions-for-an-enterprise)."OAuth
+        app tokens and personal access tokens (classic) need the `admin:enterprise`
+        scope to use this endpoint.
+    paths:
+      /enterprises/{enterprise}/actions/permissions/organizations/{org_id}:
+        delete:
+          summary: Disable A Selected Organization For Github Actions In An Enterprise
+          description: >-
+            Removes an organization from the list of selected organizations that are
+            enabled for GitHub Actions in an enterprise. To use this endpoint, the
+            enterprise permission policy for `enabled_organizations` must be
+            configured to `selected`. For more information, see "[Set GitHub Actions
+            permissions for an
+            enterprise](#set-github-actions-permissions-for-an-enterprise)."OAuth
+            app tokens and personal access tokens (classic) need the
+            `admin:enterprise` scope to use this endpoint.
+          operationId: enterpriseadmindisableselectedorganizationgithubactionsenterprise
+          responses:
+            '204':
+              description: Response

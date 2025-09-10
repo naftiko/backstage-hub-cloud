@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Verify Certificate's Private Key Possession.
+  description: >-
+    Verifies the certificate's private key possession by providing the leaf cert
+    issued by the verifying pre uploaded certificate.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Verify Certificate's Private Key Possession.
+      description: >-
+        Verifies the certificate's private key possession by providing the leaf cert
+        issued by the verifying pre uploaded certificate.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/certificates/{certificateName}/verify:
+        post:
+          summary: Verify Certificate's Private Key Possession.
+          description: >-
+            Verifies the certificate's private key possession by providing the leaf
+            cert issued by the verifying pre uploaded certificate.
+          operationId: certificatesVerify
+          responses:
+            default:
+              description: DefaultErrorResponse
+              schema:
+                $ref: '#/definitions/ErrorDetails'

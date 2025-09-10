@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get An Organization Installation For The Authenticated App
+  description: >-
+    Enables an authenticated GitHub App to find the organization's installation
+    information.You must use a
+    [JWT](https://docs.github.com/enterprise-server@3.9/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)
+    to access this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get An Organization Installation For The Authenticated App
+      description: >-
+        Enables an authenticated GitHub App to find the organization's installation
+        information.You must use a
+        [JWT](https://docs.github.com/enterprise-server@3.9/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)
+        to access this endpoint.
+    paths:
+      /orgs/{org}/installation:
+        get:
+          summary: Get An Organization Installation For The Authenticated App
+          description: >-
+            Enables an authenticated GitHub App to find the organization's
+            installation information.You must use a
+            [JWT](https://docs.github.com/enterprise-server@3.9/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)
+            to access this endpoint.
+          operationId: appsgetorginstallation
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/installation'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/installation'

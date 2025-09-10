@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Reset All Recommendation Opt-out Settings For A Subscription.
+  description: >-
+    Description for Reset all recommendation opt-out settings for a
+    subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Reset All Recommendation Opt-out Settings For A Subscription.
+      description: >-
+        Description for Reset all recommendation opt-out settings for a
+        subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Web/recommendations/reset:
+        post:
+          summary: Reset All Recommendation Opt-out Settings For A Subscription.
+          description: >-
+            Description for Reset all recommendation opt-out settings for a
+            subscription.
+          operationId: recommendationsResetAllFilters
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

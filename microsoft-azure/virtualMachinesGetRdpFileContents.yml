@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.devtestlab Labs Labname Virtualmachines Name Getrdpfilecontents
+  description: >-
+    Gets a string that represents the contents of the RDP file for the virtual
+    machine
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.devtestlab Labs Labname Virtualmachines Name Getrdpfilecontents
+      description: >-
+        Gets a string that represents the contents of the RDP file for the virtual
+        machine
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/getRdpFileContents:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.devtestlab Labs Labname Virtualmachines Name
+            Getrdpfilecontents
+          description: >-
+            Gets a string that represents the contents of the RDP file for the
+            virtual machine
+          operationId: virtualMachinesGetRdpFileContents
+          responses:
+            default:
+              description: BadRequest
+              schema:
+                $ref: '#/definitions/CloudError'

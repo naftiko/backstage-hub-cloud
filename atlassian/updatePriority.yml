@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Priority
+  description: >-
+    Updates an issue priority.**[Permissions](#permissions) required:**
+    *Administer Jira* [global
+    permission](https://confluence.atlassian.com/x/x4dKLg).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Priority
+      description: >-
+        Updates an issue priority.**[Permissions](#permissions) required:**
+        *Administer Jira* [global
+        permission](https://confluence.atlassian.com/x/x4dKLg).
+    paths:
+      /rest/api/3/priority/{id}:
+        put:
+          summary: Update Priority
+          description: >-
+            Updates an issue priority.**[Permissions](#permissions) required:**
+            *Administer Jira* [global
+            permission](https://confluence.atlassian.com/x/x4dKLg).
+          operationId: updatePriority
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  description: My updated priority description
+                  iconUrl: images/icons/priorities/minor.png
+                  name: My updated priority
+                  statusColor: '#123456'
+                schema:
+                  $ref: '#/components/schemas/UpdatePriorityDetails'
+          responses:
+            '404':
+              content:
+                application/json:
+                  example: >-
+                    {"errorMessages":["Priority with ID 10000 not
+                    found."],"errors":{}}
+                  schema:
+                    $ref: '#/components/schemas/ErrorCollection'
+              description: Returned if the issue priority isn't found.

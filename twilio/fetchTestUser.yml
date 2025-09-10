@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Flows Sid Testusers
+  description: Fetch flow test users
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Flows Sid Testusers
+      description: Fetch flow test users
+    paths:
+      /v2/Flows/{Sid}/TestUsers:
+        get:
+          summary: Get Flows Sid Testusers
+          description: Fetch flow test users
+          operationId: fetchTestUser
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/studio.v2.flow.test_user'
+              description: OK

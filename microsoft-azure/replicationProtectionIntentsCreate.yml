@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Protection Intent Resource.
+  description: The operation to create an ASR replication protection intent item.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Protection Intent Resource.
+      description: The operation to create an ASR replication protection intent item.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectionIntents/{intentObjectName}:
+        put:
+          summary: Create Protection Intent Resource.
+          description: The operation to create an ASR replication protection intent item.
+          operationId: replicationProtectionIntentsCreate
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/ReplicationProtectionIntent'

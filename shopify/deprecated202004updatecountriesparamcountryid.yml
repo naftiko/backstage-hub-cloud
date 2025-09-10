@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: |-
+    Caution
+     As Of Version 2020-10, The Tax Field Is Deprecated.
+
+    updates An Existing Country.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/store-properties/country#update-2020-04
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: |-
+        Caution
+         As Of Version 2020-10, The Tax Field Is Deprecated.
+
+        updates An Existing Country.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/store-properties/country#update-2020-04
+    paths:
+      /admin/api/2020-04/countries/{country_id}.json:
+        put:
+          summary: |-
+            Caution
+             As Of Version 2020-10, The Tax Field Is Deprecated.
+
+            updates An Existing Country.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/store-properties/country#update-2020-04
+          operationId: deprecated202004updatecountriesparamcountryid
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      country:
+                        id: 879921427
+                        tax: 0.05
+                    summary: Update a country's tax rate
+          responses:
+            '200':
+              description: ''

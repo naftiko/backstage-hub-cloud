@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Associateinstancestorageconfig
+  description: >-
+    This API is in preview release for Amazon Connect and is subject to change.
+    Associates a storage resource type for the first time. You can only
+    associate one type of storage configuration in a single call. This means,
+    for example, that you can't define an instance with multiple S3 buckets for
+    storing chat transcripts. This API does not create a resource that doesn't
+    exist. It only associates it to the instance. Ensure that the resource being
+    specified in the storage configuration, like an S3 bucket, exists when being
+    used for association.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Associateinstancestorageconfig
+      description: >-
+        This API is in preview release for Amazon Connect and is subject to change.
+        Associates a storage resource type for the first time. You can only
+        associate one type of storage configuration in a single call. This means,
+        for example, that you can't define an instance with multiple S3 buckets for
+        storing chat transcripts. This API does not create a resource that doesn't
+        exist. It only associates it to the instance. Ensure that the resource being
+        specified in the storage configuration, like an S3 bucket, exists when being
+        used for association.
+    paths:
+      /instance/{InstanceId}/storage-config:
+        PUT:
+          summary: Associateinstancestorageconfig
+          description: >-
+            This API is in preview release for Amazon Connect and is subject to
+            change. Associates a storage resource type for the first time. You can
+            only associate one type of storage configuration in a single call. This
+            means, for example, that you can't define an instance with multiple S3
+            buckets for storing chat transcripts. This API does not create a
+            resource that doesn't exist. It only associates it to the instance.
+            Ensure that the resource being specified in the storage configuration,
+            like an S3 bucket, exists when being used for association.
+          operationId: associateInstanceStorageConfig

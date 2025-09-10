@@ -1,0 +1,84 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Tag Configuration
+  description: >-
+    Create and define a list of queryable tag keys for an existing
+    count/gauge/rate/distribution metric.Optionally, include percentile
+    aggregations on any distribution metric or configure custom aggregationson
+    any count, rate, or gauge metric. By setting `exclude_tags_mode` to true the
+    behavior is changedfrom an allow-list to a deny-list, and tags in the
+    defined list will not be queryable.Can only be used with application keys of
+    users with the `Manage Tags for Metrics` permission.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Tag Configuration
+      description: >-
+        Create and define a list of queryable tag keys for an existing
+        count/gauge/rate/distribution metric.Optionally, include percentile
+        aggregations on any distribution metric or configure custom aggregationson
+        any count, rate, or gauge metric. By setting `exclude_tags_mode` to true the
+        behavior is changedfrom an allow-list to a deny-list, and tags in the
+        defined list will not be queryable.Can only be used with application keys of
+        users with the `Manage Tags for Metrics` permission.
+    paths:
+      /api/v2/metrics/{metric_name}/tags:
+        post:
+          summary: Create A Tag Configuration
+          description: >-
+            Create and define a list of queryable tag keys for an existing
+            count/gauge/rate/distribution metric.Optionally, include percentile
+            aggregations on any distribution metric or configure custom
+            aggregationson any count, rate, or gauge metric. By setting
+            `exclude_tags_mode` to true the behavior is changedfrom an allow-list to
+            a deny-list, and tags in the defined list will not be queryable.Can only
+            be used with application keys of users with the `Manage Tags for
+            Metrics` permission.
+          operationId: createatagconfiguration
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      id: test.metric.latency
+                      type: manage_tags
+                      attributes:
+                        tags:
+                          - app
+                          - datacenter
+                        metric_type: count
+                        aggregations:
+                          - space: sum
+                            time: sum
+                          - space: sum
+                            time: count
+                        exclude_tags_mode: false
+                        include_percentiles: true
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

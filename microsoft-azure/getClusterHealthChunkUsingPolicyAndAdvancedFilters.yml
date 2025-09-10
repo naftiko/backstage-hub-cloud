@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Gets The Health Of A Service Fabric Cluster Using Health Chunks.
+  description: >-
+    Gets the health of a Service Fabric cluster using health chunks. The health
+    evaluation is done based on the input cluster health chunk query
+    description.The query description allows users to specify health policies
+    for evaluating the cluster and its children.Users can specify very flexible
+    filters to select which cluster entities to return. The selection can be
+    done based on the entities health state and based on the hierarchy.The query
+    can return multi-level children of the entities based on the specified
+    filters. For example, it can return one application with a specified name,
+    and for this application, returnonly services that are in Error or Warning,
+    and all partitions and replicas for one of these services.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The Health Of A Service Fabric Cluster Using Health Chunks.
+      description: >-
+        Gets the health of a Service Fabric cluster using health chunks. The health
+        evaluation is done based on the input cluster health chunk query
+        description.The query description allows users to specify health policies
+        for evaluating the cluster and its children.Users can specify very flexible
+        filters to select which cluster entities to return. The selection can be
+        done based on the entities health state and based on the hierarchy.The query
+        can return multi-level children of the entities based on the specified
+        filters. For example, it can return one application with a specified name,
+        and for this application, returnonly services that are in Error or Warning,
+        and all partitions and replicas for one of these services.
+    paths:
+      /$/GetClusterHealthChunk:
+        post:
+          summary: Gets The Health Of A Service Fabric Cluster Using Health Chunks.
+          description: >-
+            Gets the health of a Service Fabric cluster using health chunks. The
+            health evaluation is done based on the input cluster health chunk query
+            description.The query description allows users to specify health
+            policies for evaluating the cluster and its children.Users can specify
+            very flexible filters to select which cluster entities to return. The
+            selection can be done based on the entities health state and based on
+            the hierarchy.The query can return multi-level children of the entities
+            based on the specified filters. For example, it can return one
+            application with a specified name, and for this application, returnonly
+            services that are in Error or Warning, and all partitions and replicas
+            for one of these services.
+          operationId: getClusterHealthChunkUsingPolicyAndAdvancedFilters
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Dashboard
+  description: >-
+    Returns a dashboard.This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** None.However, to get a
+    dashboard, the dashboard must be shared with the user or the user must own
+    it. Note, users with the *Administer Jira* [global
+    permission](https://confluence.atlassian.com/x/x4dKLg) are considered owners
+    of the System dashboard. The System dashboard is considered to be shared
+    with all other users.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Dashboard
+      description: >-
+        Returns a dashboard.This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** None.However, to get a
+        dashboard, the dashboard must be shared with the user or the user must own
+        it. Note, users with the *Administer Jira* [global
+        permission](https://confluence.atlassian.com/x/x4dKLg) are considered owners
+        of the System dashboard. The System dashboard is considered to be shared
+        with all other users.
+    paths:
+      /rest/api/3/dashboard/{id}:
+        get:
+          summary: Get Dashboard
+          description: >-
+            Returns a dashboard.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** None.However, to
+            get a dashboard, the dashboard must be shared with the user or the user
+            must own it. Note, users with the *Administer Jira* [global
+            permission](https://confluence.atlassian.com/x/x4dKLg) are considered
+            owners of the System dashboard. The System dashboard is considered to be
+            shared with all other users.
+          operationId: getDashboard
+          responses:
+            '404':
+              description: >-
+                Returned if the dashboard is not found or the dashboard is not owned
+                by or shared with the user.

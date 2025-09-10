@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Putaccountsendingattributes
+  description: Enable or disable the ability of your account to send email.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putaccountsendingattributes
+      description: Enable or disable the ability of your account to send email.
+    paths:
+      /v2/email/account/sending:
+        PUT:
+          summary: Putaccountsendingattributes
+          description: Enable or disable the ability of your account to send email.
+          operationId: putAccountSendingAttributes

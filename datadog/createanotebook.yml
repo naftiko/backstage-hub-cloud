@@ -1,0 +1,81 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Notebook
+  description: Create a notebook using the specified options.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Notebook
+      description: Create a notebook using the specified options.
+    paths:
+      /api/v1/notebooks:
+        post:
+          summary: Create A Notebook
+          description: Create a notebook using the specified options.
+          operationId: createanotebook
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      attributes:
+                        cells:
+                          - attributes:
+                              definition:
+                                text: |-
+                                  ## Some test markdown
+
+                                  With some example content.
+                                type: markdown
+                            type: notebook_cells
+                          - attributes:
+                              definition:
+                                requests:
+                                  - display_type: line
+                                    q: avg:system.load.1{*}
+                                    style:
+                                      line_type: solid
+                                      line_width: normal
+                                      palette: dog_classic
+                                show_legend: true
+                                type: timeseries
+                                yaxis:
+                                  scale: linear
+                              graph_size: m
+                              split_by:
+                                keys: []
+                                tags: []
+                              time: null
+                            type: notebook_cells
+                        name: Example Notebook
+                        time:
+                          live_span: 1h
+                      type: notebooks
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

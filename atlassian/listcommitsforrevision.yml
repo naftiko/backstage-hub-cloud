@@ -1,0 +1,111 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Commits For Revision
+  description: >-
+    These are the repository's commits. They are paginated and returnedin
+    reverse chronological order, similar to the output of `git log`.Like these
+    tools, the DAG can be filtered.#### GET
+    /repositories/{workspace}/{repo_slug}/commits/masterReturns all commits on
+    ref `master` (similar to `git log master`).#### GET
+    /repositories/{workspace}/{repo_slug}/commits/dev?include=foo&exclude=masterReturns
+    all commits on ref `dev` or `foo`, except those that are reachable
+    on`master` (similar to `git log dev foo ^master`).An optional `path`
+    parameter can be specified that will limit theresults to commits that affect
+    that path. `path` can either be a fileor a directory. If a directory is
+    specified, commits are returned thathave modified any file in the directory
+    tree rooted by `path`. It isimportant to note that if the `path` parameter
+    is specified, the commitsreturned by this endpoint may no longer be a DAG,
+    parent commits thatdo not modify the path will be omitted from the
+    response.#### GET
+    /repositories/{workspace}/{repo_slug}/commits/dev?path=README.md&include=foo&include=bar&exclude=masterReturns
+    all commits that are on refs `dev` or `foo` or `bar`, but not on
+    `master`that changed the file README.md.#### GET
+    /repositories/{workspace}/{repo_slug}/commits/dev?path=src/&include=foo&exclude=masterReturns
+    all commits that are on refs `dev` or `foo`, but not on `master`that changed
+    to a file in any file in the directory src or its children.Because the
+    response could include a very large number of commits, itis paginated.
+    Follow the 'next' link in the response to navigate to thenext page of
+    commits. As with other paginated resources, do notconstruct your own
+    links.When the include and exclude parameters are more than can fit in
+    aquery string, clients can use a `x-www-form-urlencoded` POST instead.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Commits For Revision
+      description: >-
+        These are the repository's commits. They are paginated and returnedin
+        reverse chronological order, similar to the output of `git log`.Like these
+        tools, the DAG can be filtered.#### GET
+        /repositories/{workspace}/{repo_slug}/commits/masterReturns all commits on
+        ref `master` (similar to `git log master`).#### GET
+        /repositories/{workspace}/{repo_slug}/commits/dev?include=foo&exclude=masterReturns
+        all commits on ref `dev` or `foo`, except those that are reachable
+        on`master` (similar to `git log dev foo ^master`).An optional `path`
+        parameter can be specified that will limit theresults to commits that affect
+        that path. `path` can either be a fileor a directory. If a directory is
+        specified, commits are returned thathave modified any file in the directory
+        tree rooted by `path`. It isimportant to note that if the `path` parameter
+        is specified, the commitsreturned by this endpoint may no longer be a DAG,
+        parent commits thatdo not modify the path will be omitted from the
+        response.#### GET
+        /repositories/{workspace}/{repo_slug}/commits/dev?path=README.md&include=foo&include=bar&exclude=masterReturns
+        all commits that are on refs `dev` or `foo` or `bar`, but not on
+        `master`that changed the file README.md.#### GET
+        /repositories/{workspace}/{repo_slug}/commits/dev?path=src/&include=foo&exclude=masterReturns
+        all commits that are on refs `dev` or `foo`, but not on `master`that changed
+        to a file in any file in the directory src or its children.Because the
+        response could include a very large number of commits, itis paginated.
+        Follow the 'next' link in the response to navigate to thenext page of
+        commits. As with other paginated resources, do notconstruct your own
+        links.When the include and exclude parameters are more than can fit in
+        aquery string, clients can use a `x-www-form-urlencoded` POST instead.
+    paths:
+      /repositories/{workspace}/{repo_slug}/commits/{revision}:
+        get:
+          summary: List Commits For Revision
+          description: >-
+            These are the repository's commits. They are paginated and returnedin
+            reverse chronological order, similar to the output of `git log`.Like
+            these tools, the DAG can be filtered.#### GET
+            /repositories/{workspace}/{repo_slug}/commits/masterReturns all commits
+            on ref `master` (similar to `git log master`).#### GET
+            /repositories/{workspace}/{repo_slug}/commits/dev?include=foo&exclude=masterReturns
+            all commits on ref `dev` or `foo`, except those that are reachable
+            on`master` (similar to `git log dev foo ^master`).An optional `path`
+            parameter can be specified that will limit theresults to commits that
+            affect that path. `path` can either be a fileor a directory. If a
+            directory is specified, commits are returned thathave modified any file
+            in the directory tree rooted by `path`. It isimportant to note that if
+            the `path` parameter is specified, the commitsreturned by this endpoint
+            may no longer be a DAG, parent commits thatdo not modify the path will
+            be omitted from the response.#### GET
+            /repositories/{workspace}/{repo_slug}/commits/dev?path=README.md&include=foo&include=bar&exclude=masterReturns
+            all commits that are on refs `dev` or `foo` or `bar`, but not on
+            `master`that changed the file README.md.#### GET
+            /repositories/{workspace}/{repo_slug}/commits/dev?path=src/&include=foo&exclude=masterReturns
+            all commits that are on refs `dev` or `foo`, but not on `master`that
+            changed to a file in any file in the directory src or its
+            children.Because the response could include a very large number of
+            commits, itis paginated. Follow the 'next' link in the response to
+            navigate to thenext page of commits. As with other paginated resources,
+            do notconstruct your own links.When the include and exclude parameters
+            are more than can fit in aquery string, clients can use a
+            `x-www-form-urlencoded` POST instead.
+          operationId: listcommitsforrevision
+          responses:
+            '404':
+              description: If the specified revision does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Content Template
+  description: >-
+    Updates a content template. Note, blueprint templates cannot be updatedvia
+    the REST API.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:'Admin' permission for the space to update a space template or
+    'Confluence Administrator'global permission to update a global template.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Content Template
+      description: >-
+        Updates a content template. Note, blueprint templates cannot be updatedvia
+        the REST API.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:'Admin' permission for the space to update a space template or
+        'Confluence Administrator'global permission to update a global template.
+    paths:
+      /wiki/rest/api/template:
+        put:
+          summary: Update Content Template
+          description: >-
+            Updates a content template. Note, blueprint templates cannot be
+            updatedvia the REST
+            API.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:'Admin' permission for the space to update a space template
+            or 'Confluence Administrator'global permission to update a global
+            template.
+          operationId: updateContentTemplate
+          requestBody:
+            description: The updated content template.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ContentTemplateUpdate'
+          responses:
+            '404':
+              description: |-
+                Returned if the calling user does not have permission to update the
+                template or if the template doesn't exist.
+              content: {}

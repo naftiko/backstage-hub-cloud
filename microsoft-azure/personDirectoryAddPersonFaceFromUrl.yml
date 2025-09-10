@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add A New Face To Person.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add A New Face To Person.
+      description: Needs a more full description created.
+    paths:
+      /persons/{personId}/recognitionModels/{recognitionModel}/persistedFaces:
+        post:
+          summary: Add A New Face To Person.
+          description: Needs a more full description created.
+          operationId: personDirectoryAddPersonFaceFromUrl
+          responses:
+            default:
+              description: >-
+                Response entity accompanying non-successful responses containing
+                additional details about the error.
+              schema:
+                $ref: '#/definitions/Error'

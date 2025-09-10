@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Configurelogsforchannel
+  description: Configures Amazon CloudWatch log settings for a channel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Configurelogsforchannel
+      description: Configures Amazon CloudWatch log settings for a channel.
+    paths:
+      /configureLogs/channel:
+        PUT:
+          summary: Configurelogsforchannel
+          description: Configures Amazon CloudWatch log settings for a channel.
+          operationId: configureLogsForChannel

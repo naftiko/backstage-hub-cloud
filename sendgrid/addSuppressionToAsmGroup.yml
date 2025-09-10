@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add Suppressions To A Suppression Group
+  description: >-
+    **This endpoint allows you to add email addresses to an unsubscribe
+    group.**If you attempt to add suppressions to a group that has been deleted
+    or does not exist, the suppressions will be added to the global suppressions
+    list.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add Suppressions To A Suppression Group
+      description: >-
+        **This endpoint allows you to add email addresses to an unsubscribe
+        group.**If you attempt to add suppressions to a group that has been deleted
+        or does not exist, the suppressions will be added to the global suppressions
+        list.
+    paths:
+      /v3/asm/groups/{group_id}/suppressions:
+        post:
+          summary: Add Suppressions To A Suppression Group
+          description: >-
+            **This endpoint allows you to add email addresses to an unsubscribe
+            group.**If you attempt to add suppressions to a group that has been
+            deleted or does not exist, the suppressions will be added to the global
+            suppressions list.
+          operationId: addSuppressionToAsmGroup
+          requestBody: {}
+          responses:
+            '201':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      recipient_emails:
+                        type: array
+                        description: The email addresses you added to the unsubscribe group
+                        items:
+                          type: string
+                          format: email
+                  examples:
+                    response:
+                      value:
+                        recipient_emails:
+                          - test1@example.com
+                          - test2@example.com

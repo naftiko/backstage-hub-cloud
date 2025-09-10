@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Browse
+  description: Browse entities by path or entity type.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Browse
+      description: Browse entities by path or entity type.
+    paths:
+      /browse:
+        post:
+          summary: Post Browse
+          description: Browse entities by path or entity type.
+          operationId: discoveryBrowse
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

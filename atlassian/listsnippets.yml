@@ -1,0 +1,78 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Snippets
+  description: >-
+    Returns all snippets. Like pull requests, repositories and workspaces,
+    thefull set of snippets is defined by what the current user has access
+    to.This includes all snippets owned by any of the workspaces the user is a
+    member of,or snippets by other users that the current user is either
+    watching or has collaboratedon (for instance by commenting on it).To limit
+    the set of returned snippets, apply the`?role=[owner|contributor|member]`
+    query parameter where the roles aredefined as follows:* `owner`: all
+    snippets owned by the current user* `contributor`: all snippets owned by, or
+    watched by the current user* `member`: created in a workspaces or watched by
+    the current userWhen no role is specified, all public snippets are returned,
+    as well as allprivately owned snippets watched or commented on.The returned
+    response is a normal paginated JSON list. This endpointonly supports
+    `application/json` responses and no`multipart/form-data` or
+    `multipart/related`. As a result, it is notpossible to include the file
+    contents.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Snippets
+      description: >-
+        Returns all snippets. Like pull requests, repositories and workspaces,
+        thefull set of snippets is defined by what the current user has access
+        to.This includes all snippets owned by any of the workspaces the user is a
+        member of,or snippets by other users that the current user is either
+        watching or has collaboratedon (for instance by commenting on it).To limit
+        the set of returned snippets, apply the`?role=[owner|contributor|member]`
+        query parameter where the roles aredefined as follows:* `owner`: all
+        snippets owned by the current user* `contributor`: all snippets owned by, or
+        watched by the current user* `member`: created in a workspaces or watched by
+        the current userWhen no role is specified, all public snippets are returned,
+        as well as allprivately owned snippets watched or commented on.The returned
+        response is a normal paginated JSON list. This endpointonly supports
+        `application/json` responses and no`multipart/form-data` or
+        `multipart/related`. As a result, it is notpossible to include the file
+        contents.
+    paths:
+      /snippets:
+        get:
+          summary: List Snippets
+          description: >-
+            Returns all snippets. Like pull requests, repositories and workspaces,
+            thefull set of snippets is defined by what the current user has access
+            to.This includes all snippets owned by any of the workspaces the user is
+            a member of,or snippets by other users that the current user is either
+            watching or has collaboratedon (for instance by commenting on it).To
+            limit the set of returned snippets, apply
+            the`?role=[owner|contributor|member]` query parameter where the roles
+            aredefined as follows:* `owner`: all snippets owned by the current user*
+            `contributor`: all snippets owned by, or watched by the current user*
+            `member`: created in a workspaces or watched by the current userWhen no
+            role is specified, all public snippets are returned, as well as
+            allprivately owned snippets watched or commented on.The returned
+            response is a normal paginated JSON list. This endpointonly supports
+            `application/json` responses and no`multipart/form-data` or
+            `multipart/related`. As a result, it is notpossible to include the file
+            contents.
+          operationId: listsnippets
+          responses:
+            '404':
+              description: If the snippet does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

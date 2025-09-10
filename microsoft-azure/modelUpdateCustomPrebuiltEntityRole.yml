@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Role For A Given Prebuilt Entity In A Version Of The Application.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Role For A Given Prebuilt Entity In A Version Of The Application.
+      description: Needs a more full description created.
+    paths:
+      /apps/{appId}/versions/{versionId}/customprebuiltentities/{entityId}/roles/{roleId}:
+        put:
+          summary: >-
+            Update A Role For A Given Prebuilt Entity In A Version Of The
+            Application.
+          description: Needs a more full description created.
+          operationId: modelUpdateCustomPrebuiltEntityRole
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

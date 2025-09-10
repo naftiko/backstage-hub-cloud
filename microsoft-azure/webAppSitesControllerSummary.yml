@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.offazure Mastersites Sitename Webappsites Webappsitename Summary
+  description: Method to get site usage/summary.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.offazure Mastersites Sitename Webappsites Webappsitename Summary
+      description: Method to get site usage/summary.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/webAppSites/{webAppSiteName}/summary:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.offazure Mastersites Sitename Webappsites
+            Webappsitename Summary
+          description: Method to get site usage/summary.
+          operationId: webAppSitesControllerSummary
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

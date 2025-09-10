@@ -1,0 +1,71 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Tax Zones
+  description: >-
+    Retrieve a selection of tax zones when you provide a list of tax zone IDs.
+    Otherwise, retrieve all tax zones defined on the store.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Tax Zones
+      description: >-
+        Retrieve a selection of tax zones when you provide a list of tax zone IDs.
+        Otherwise, retrieve all tax zones defined on the store.
+    paths:
+      /tax/zones:
+        get:
+          summary: Get Tax Zones
+          description: >-
+            Retrieve a selection of tax zones when you provide a list of tax zone
+            IDs. Otherwise, retrieve all tax zones defined on the store.
+          operationId: getTaxZones
+          responses:
+            '200':
+              description: OK
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Tax_Zone'
+                      meta:
+                        $ref: '#/components/schemas/MetaOpen'
+                  examples:
+                    Example 1:
+                      value:
+                        data:
+                          - id: 2
+                            name: example zone
+                            enabled: false
+                            price_display_settings:
+                              show_inclusive: false
+                              show_both_on_detail_view: false
+                              show_both_on_list_view: false
+                            shopper_target_settings:
+                              locations:
+                                - country_code: AR
+                                  subdivision_codes:
+                                    - T
+                                    - V
+                                  postal_codes: []
+                                - country_code: AU
+                                  subdivision_codes:
+                                    - WA
+                                    - VIC
+                                  postal_codes: []
+                              customer_groups:
+                                - 2
+                        meta: {}

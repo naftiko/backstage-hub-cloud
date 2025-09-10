@@ -1,0 +1,85 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post User List
+  description: List all the users on Zoom
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post User List
+      description: List all the users on Zoom
+    paths:
+      /user/list:
+        post:
+          summary: Post User List
+          description: List all the users on Zoom
+          operationId: userList
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  type: object
+                  properties:
+                    page_size:
+                      type: string
+                      description: >-
+                        The amount of records returns within a single API call. Max
+                        of 300 users.
+                      default: '30'
+                    page_number:
+                      type: string
+                      description: Current page number of returned records. Default to 1.
+                      default: '1'
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    page_count: 5
+                    total_records: 235
+                    page_number: 1
+                    page_size: 50
+                    users:
+                      - email: email_address
+                        id: unique_id
+                        created_at: '2012-11-25T12:00:00.000Z'
+                        first_name: Zoomie
+                        last_name: Userton
+                        type: 1
+                        pic_url: https://www.zoom.us/p/bNsPi
+                        disable_chat: false
+                        enable_e2e_encryption: false
+                        enable_silent_mode: true
+                        disable_group_hd: false
+                        disable_recording: false
+                        enable_cmr: false
+                        enable_auto_recording: false
+                        enable_cloud_auto_recording: false
+                        verified: 0
+                        pmi: 2035134243
+                        meeting_capacity: 0
+                        enable_webinar: true
+                        webinar_capacity: 100
+                        enable_large: false
+                        large_capacity: 0
+                        disable_feedback: false
+                        disable_jbh_reminder: true
+                        enable_breakout_room: false
+                        dept: Engineer
+                        timezone: America/Los_Angeles
+                        lastClientVersion: 3.5.44664.0321(mac)
+                        lastLoginTime: '2016-03-23T09:54:41.000Z'
+                        status: 0
+                        token: ''
+                        zpk: ''
+                        zak: ''

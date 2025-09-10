@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Search
+  description: >-
+    Searches for resources and displays details about all resources that match
+    the specified criteria. You must specify a query string. All search queries
+    must use a view. If you don't explicitly specify a view, then Amazon Web
+    Services Resource Explorer uses the default view for the Amazon Web Services
+    Region in which you call this operation. The results are the logical
+    intersection of the results that match both the QueryString parameter
+    supplied to this operation and the SearchFilter parameter attached to the
+    view. For the complete syntax supported by the QueryString parameter, see
+    Search query syntax reference for Resource Explorer. If your search results
+    are empty, or are missing results that you think should be there, see
+    Troubleshooting Resource Explorer search.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Search
+      description: >-
+        Searches for resources and displays details about all resources that match
+        the specified criteria. You must specify a query string. All search queries
+        must use a view. If you don't explicitly specify a view, then Amazon Web
+        Services Resource Explorer uses the default view for the Amazon Web Services
+        Region in which you call this operation. The results are the logical
+        intersection of the results that match both the QueryString parameter
+        supplied to this operation and the SearchFilter parameter attached to the
+        view. For the complete syntax supported by the QueryString parameter, see
+        Search query syntax reference for Resource Explorer. If your search results
+        are empty, or are missing results that you think should be there, see
+        Troubleshooting Resource Explorer search.
+    paths:
+      /Search:
+        POST:
+          summary: Search
+          description: >-
+            Searches for resources and displays details about all resources that
+            match the specified criteria. You must specify a query string. All
+            search queries must use a view. If you don't explicitly specify a view,
+            then Amazon Web Services Resource Explorer uses the default view for the
+            Amazon Web Services Region in which you call this operation. The results
+            are the logical intersection of the results that match both the
+            QueryString parameter supplied to this operation and the SearchFilter
+            parameter attached to the view. For the complete syntax supported by the
+            QueryString parameter, see Search query syntax reference for Resource
+            Explorer. If your search results are empty, or are missing results that
+            you think should be there, see Troubleshooting Resource Explorer search.
+          operationId: search

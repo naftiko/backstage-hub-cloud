@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Enable Git Lfs For A Repository
+  description: >-
+    Enables Git LFS for a repository.OAuth app tokens and personal access tokens
+    (classic) need the `admin:enterprise` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Enable Git Lfs For A Repository
+      description: >-
+        Enables Git LFS for a repository.OAuth app tokens and personal access tokens
+        (classic) need the `admin:enterprise` scope to use this endpoint.
+    paths:
+      /repos/{owner}/{repo}/lfs:
+        put:
+          summary: Enable Git Lfs For A Repository
+          description: >-
+            Enables Git LFS for a repository.OAuth app tokens and personal access
+            tokens (classic) need the `admin:enterprise` scope to use this endpoint.
+          operationId: enableGitLFSForARepository
+          responses:
+            '403':
+              description: >-
+                We will return a 403 with one of the following messages:
+
+
+                - Git LFS support not enabled because Git LFS is globally disabled.
+
+                - Git LFS support not enabled because Git LFS is disabled for the
+                root repository in the network.
+
+                - Git LFS support not enabled because Git LFS is disabled for
+                <owner>.

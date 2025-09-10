@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getaccessgrantsinstance
+  description: >-
+    Retrieves the S3 Access Grants instance for a Region in your account.  
+    Permissions  You must have the s3:GetAccessGrantsInstance permission to use
+    this operation.   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getaccessgrantsinstance
+      description: >-
+        Retrieves the S3 Access Grants instance for a Region in your account.  
+        Permissions  You must have the s3:GetAccessGrantsInstance permission to use
+        this operation.   
+    paths:
+      /v20180820/accessgrantsinstance:
+        GET:
+          summary: Getaccessgrantsinstance
+          description: >-
+            Retrieves the S3 Access Grants instance for a Region in your account.  
+            Permissions  You must have the s3:GetAccessGrantsInstance permission to
+            use this operation.   
+          operationId: getAccessGrantsInstance

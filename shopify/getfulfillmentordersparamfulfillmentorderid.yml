@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieves A Specific Fulfillment Order.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillmentorder#show-2020-10
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves A Specific Fulfillment Order.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillmentorder#show-2020-10
+    paths:
+      /admin/api/2020-10/fulfillment_orders/{fulfillment_order_id}.json:
+        get:
+          summary: Retrieves A Specific Fulfillment Order.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillmentorder#show-2020-10
+          operationId: getfulfillmentordersparamfulfillmentorderid
+          responses:
+            '200':
+              description: ''

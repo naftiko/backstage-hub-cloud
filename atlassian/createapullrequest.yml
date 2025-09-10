@@ -1,0 +1,113 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Pull Request
+  description: >-
+    Creates a new pull request where the destination repository isthis
+    repository and the author is the authenticated user.The minimum required
+    fields to create a pull request are `title` and`source`, specified by a
+    branch name.```curl
+    https://api.bitbucket.org/2.0/repositories/my-workspace/my-repository/pullrequests
+    \    -u my-username:my-password \    --request POST \    --header
+    'Content-Type: application/json' \    --data '{        "title": "My
+    Title",        "source": {            "branch": {                "name":
+    "staging"            }        }    }'```If the pull request's `destination`
+    is not specified, it will defaultto the `repository.mainbranch`. To open a
+    pull request to adifferent branch, say from a feature branch to a staging
+    branch,specify a `destination` (same format as the `source`):```{   
+    "title": "My Title",    "source": {        "branch": {            "name":
+    "my-feature-branch"        }    },    "destination": {        "branch":
+    {            "name": "staging"        }    }}```Reviewers can be specified
+    by adding an array of user objects as the`reviewers` property.```{   
+    "title": "My Title",    "source": {        "branch": {            "name":
+    "my-feature-branch"        }    },    "reviewers": [        {           
+    "uuid": "{504c3b62-8120-4f0c-a7bc-87800b9d6f70}"        }    ]}```Other
+    fields:* `description` - a string* `close_source_branch` - boolean that
+    specifies if the source branch should be closed upon merging
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Pull Request
+      description: >-
+        Creates a new pull request where the destination repository isthis
+        repository and the author is the authenticated user.The minimum required
+        fields to create a pull request are `title` and`source`, specified by a
+        branch name.```curl
+        https://api.bitbucket.org/2.0/repositories/my-workspace/my-repository/pullrequests
+        \    -u my-username:my-password \    --request POST \    --header
+        'Content-Type: application/json' \    --data '{        "title": "My
+        Title",        "source": {            "branch": {                "name":
+        "staging"            }        }    }'```If the pull request's `destination`
+        is not specified, it will defaultto the `repository.mainbranch`. To open a
+        pull request to adifferent branch, say from a feature branch to a staging
+        branch,specify a `destination` (same format as the `source`):```{   
+        "title": "My Title",    "source": {        "branch": {            "name":
+        "my-feature-branch"        }    },    "destination": {        "branch":
+        {            "name": "staging"        }    }}```Reviewers can be specified
+        by adding an array of user objects as the`reviewers` property.```{   
+        "title": "My Title",    "source": {        "branch": {            "name":
+        "my-feature-branch"        }    },    "reviewers": [        {           
+        "uuid": "{504c3b62-8120-4f0c-a7bc-87800b9d6f70}"        }    ]}```Other
+        fields:* `description` - a string* `close_source_branch` - boolean that
+        specifies if the source branch should be closed upon merging
+    paths:
+      /repositories/{workspace}/{repo_slug}/pullrequests:
+        post:
+          summary: Create A Pull Request
+          description: >-
+            Creates a new pull request where the destination repository isthis
+            repository and the author is the authenticated user.The minimum required
+            fields to create a pull request are `title` and`source`, specified by a
+            branch name.```curl
+            https://api.bitbucket.org/2.0/repositories/my-workspace/my-repository/pullrequests
+            \    -u my-username:my-password \    --request POST \    --header
+            'Content-Type: application/json' \    --data '{        "title": "My
+            Title",        "source": {            "branch": {                "name":
+            "staging"            }        }    }'```If the pull request's
+            `destination` is not specified, it will defaultto the
+            `repository.mainbranch`. To open a pull request to adifferent branch,
+            say from a feature branch to a staging branch,specify a `destination`
+            (same format as the `source`):```{    "title": "My Title",    "source":
+            {        "branch": {            "name": "my-feature-branch"        }   
+            },    "destination": {        "branch": {            "name":
+            "staging"        }    }}```Reviewers can be specified by adding an array
+            of user objects as the`reviewers` property.```{    "title": "My
+            Title",    "source": {        "branch": {            "name":
+            "my-feature-branch"        }    },    "reviewers": [        {           
+            "uuid": "{504c3b62-8120-4f0c-a7bc-87800b9d6f70}"        }    ]}```Other
+            fields:* `description` - a string* `close_source_branch` - boolean that
+            specifies if the source branch should be closed upon merging
+          operationId: createapullrequest
+          requestBody:
+            description: >-
+              The new pull request.
+
+
+              The request URL you POST to becomes the destination repository URL.
+              For this reason, you must specify an explicit source repository in the
+              request object if you want to pull from a different repository (fork).
+
+
+              Since not all elements are required or even mutable, you only need to
+              include the elements you want to initialize, such as the source branch
+              and the title.
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/pullrequest'
+          responses:
+            '401':
+              description: If the request was not authenticated.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

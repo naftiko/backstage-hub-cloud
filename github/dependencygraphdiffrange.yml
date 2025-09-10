@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Diff Of The Dependencies Between Commits
+  description: >-
+    Gets the diff of the dependency changes between two commits of a repository,
+    based on the changes to the dependency manifests made in those commits.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Diff Of The Dependencies Between Commits
+      description: >-
+        Gets the diff of the dependency changes between two commits of a repository,
+        based on the changes to the dependency manifests made in those commits.
+    paths:
+      /repos/{owner}/{repo}/dependency-graph/compare/{basehead}:
+        get:
+          summary: Get A Diff Of The Dependencies Between Commits
+          description: >-
+            Gets the diff of the dependency changes between two commits of a
+            repository, based on the changes to the dependency manifests made in
+            those commits.
+          operationId: dependencygraphdiffrange
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

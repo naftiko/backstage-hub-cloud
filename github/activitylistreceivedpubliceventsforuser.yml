@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Public Events Received By A User
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Public Events Received By A User
+      description: Needs a more full description created.
+    paths:
+      /users/{username}/received_events/public:
+        get:
+          summary: List Public Events Received By A User
+          description: Needs a more full description created.
+          operationId: activitylistreceivedpubliceventsforuser
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/event'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/user-received-public-events-items'

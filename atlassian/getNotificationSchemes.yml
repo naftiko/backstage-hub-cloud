@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Notification Schemes Paginated
+  description: >-
+    Returns a [paginated](#pagination) list of [notification
+    schemes](https://confluence.atlassian.com/x/8YdKLg) ordered by the display
+    name.*Note that you should allow for events without recipients to appear in
+    responses.***[Permissions](#permissions) required:** Permission to access
+    Jira, however, the user must have permission to administer at least one
+    project associated with a notification scheme for it to be returned.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Notification Schemes Paginated
+      description: >-
+        Returns a [paginated](#pagination) list of [notification
+        schemes](https://confluence.atlassian.com/x/8YdKLg) ordered by the display
+        name.*Note that you should allow for events without recipients to appear in
+        responses.***[Permissions](#permissions) required:** Permission to access
+        Jira, however, the user must have permission to administer at least one
+        project associated with a notification scheme for it to be returned.
+    paths:
+      /rest/api/3/notificationscheme:
+        get:
+          summary: Get Notification Schemes Paginated
+          description: >-
+            Returns a [paginated](#pagination) list of [notification
+            schemes](https://confluence.atlassian.com/x/8YdKLg) ordered by the
+            display name.*Note that you should allow for events without recipients
+            to appear in responses.***[Permissions](#permissions) required:**
+            Permission to access Jira, however, the user must have permission to
+            administer at least one project associated with a notification scheme
+            for it to be returned.
+          operationId: getNotificationSchemes
+          responses:
+            '401':
+              description: Returned if the authentication credentials are incorrect or missing.

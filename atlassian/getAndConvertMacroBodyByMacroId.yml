@@ -1,0 +1,75 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Macro Body By Macro Id And Convert The Representation Synchronously
+  description: >-
+    Returns the body of a macro in format specified in path, for the given macro
+    ID.This includes information like the name of the macro, the body of the
+    macro,and any macro parameters.About the macro ID: When a macro is created
+    in a new version of content,Confluence will generate a random ID for it,
+    unless an ID is specified(by an app). The macro ID will look similar to
+    this: '50884bd9-0cb8-41d5-98be-f80943c14f96'.The ID is then persisted as new
+    versions of content are created, and isonly modified by Confluence if there
+    are conflicting IDs.Note, to preserve backwards compatibility this resource
+    will also match onthe hash of the macro body, even if a macro ID is found.
+    This check willeventually become redundant, as macro IDs are generated for
+    pages andtransparently propagate out to all
+    instances.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to view the content that the macro is in.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Macro Body By Macro Id And Convert The Representation Synchronously
+      description: >-
+        Returns the body of a macro in format specified in path, for the given macro
+        ID.This includes information like the name of the macro, the body of the
+        macro,and any macro parameters.About the macro ID: When a macro is created
+        in a new version of content,Confluence will generate a random ID for it,
+        unless an ID is specified(by an app). The macro ID will look similar to
+        this: '50884bd9-0cb8-41d5-98be-f80943c14f96'.The ID is then persisted as new
+        versions of content are created, and isonly modified by Confluence if there
+        are conflicting IDs.Note, to preserve backwards compatibility this resource
+        will also match onthe hash of the macro body, even if a macro ID is found.
+        This check willeventually become redundant, as macro IDs are generated for
+        pages andtransparently propagate out to all
+        instances.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to view the content that the macro is in.
+    paths:
+      /wiki/rest/api/content/{id}/history/{version}/macro/id/{macroId}/convert/{to}:
+        get:
+          summary: Get Macro Body By Macro Id And Convert The Representation Synchronously
+          description: >-
+            Returns the body of a macro in format specified in path, for the given
+            macro ID.This includes information like the name of the macro, the body
+            of the macro,and any macro parameters.About the macro ID: When a macro
+            is created in a new version of content,Confluence will generate a random
+            ID for it, unless an ID is specified(by an app). The macro ID will look
+            similar to this: '50884bd9-0cb8-41d5-98be-f80943c14f96'.The ID is then
+            persisted as new versions of content are created, and isonly modified by
+            Confluence if there are conflicting IDs.Note, to preserve backwards
+            compatibility this resource will also match onthe hash of the macro
+            body, even if a macro ID is found. This check willeventually become
+            redundant, as macro IDs are generated for pages andtransparently
+            propagate out to all
+            instances.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to view the content that the macro is in.
+          operationId: getAndConvertMacroBodyByMacroId
+          responses:
+            '404':
+              description: |-
+                Returned if;
+
+                - There is no content with the given ID.
+                - The calling user does not have permission to view the content.
+                - The macro does not exist in the specified version.
+                - There is no macro matching the given macro ID or hash.
+              content: {}

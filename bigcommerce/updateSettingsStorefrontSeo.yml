@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Storefront Seo Settings
+  description: >-
+    Updates SEO settings. - Channel ID can be used as a query parameter for
+    updating channel-specific setting. If omitted, you will interact with the
+    global setting only.  - `null` should be supplied to delete overrides per
+    given channel and to inherit values from global level. Partial updates are
+    not supported and all settings should be supplied with `null` value in order
+    to delete overrides per channel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Storefront Seo Settings
+      description: >-
+        Updates SEO settings. - Channel ID can be used as a query parameter for
+        updating channel-specific setting. If omitted, you will interact with the
+        global setting only.  - `null` should be supplied to delete overrides per
+        given channel and to inherit values from global level. Partial updates are
+        not supported and all settings should be supplied with `null` value in order
+        to delete overrides per channel.
+    paths:
+      /settings/storefront/seo:
+        put:
+          summary: Update Storefront Seo Settings
+          description: >-
+            Updates SEO settings. - Channel ID can be used as a query parameter for
+            updating channel-specific setting. If omitted, you will interact with
+            the global setting only.  - `null` should be supplied to delete
+            overrides per given channel and to inherit values from global level.
+            Partial updates are not supported and all settings should be supplied
+            with `null` value in order to delete overrides per channel.
+          operationId: updateSettingsStorefrontSeo
+          requestBody:
+            content:
+              application/json:
+                examples:
+                  example-1:
+                    value:
+                      meta_description: Your BigCommerce Store
+                      meta_keywords: ''
+                      page_title: New BigCommerce Store
+                      www_redirect: no-www
+                schema:
+                  $ref: '#/components/schemas/SEOSettings'
+          responses:
+            '422':
+              $ref: '#/components/responses/422ErrorResp'

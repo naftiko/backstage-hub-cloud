@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Mute A Monitor
+  description: Mute the specified monitor.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Mute A Monitor
+      description: Mute the specified monitor.
+    paths:
+      /api/v1/monitor/{monitor_id}/mute:
+        post:
+          summary: Mute A Monitor
+          description: Mute the specified monitor.
+          operationId: muteamonitor
+          requestBody:
+            content: {}
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

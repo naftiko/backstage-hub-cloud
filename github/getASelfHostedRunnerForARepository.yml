@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Self-hosted Runner For A Repository
+  description: >-
+    Gets a specific self-hosted runner configured in a repository.Authenticated
+    users must have admin access to the repository to use this endpoint.OAuth
+    app tokens and personal access tokens (classic) need the `repo` scope to use
+    this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Self-hosted Runner For A Repository
+      description: >-
+        Gets a specific self-hosted runner configured in a repository.Authenticated
+        users must have admin access to the repository to use this endpoint.OAuth
+        app tokens and personal access tokens (classic) need the `repo` scope to use
+        this endpoint.
+    paths:
+      /repos/{owner}/{repo}/actions/runners/{runner_id}:
+        get:
+          summary: Get A Self-hosted Runner For A Repository
+          description: >-
+            Gets a specific self-hosted runner configured in a
+            repository.Authenticated users must have admin access to the repository
+            to use this endpoint.OAuth app tokens and personal access tokens
+            (classic) need the `repo` scope to use this endpoint.
+          operationId: getASelfHostedRunnerForARepository
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/runner'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/runner'

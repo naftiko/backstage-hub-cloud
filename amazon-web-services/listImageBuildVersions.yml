@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listimagebuildversions
+  description: Returns a list of image build versions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listimagebuildversions
+      description: Returns a list of image build versions.
+    paths:
+      /ListImageBuildVersions:
+        POST:
+          summary: Listimagebuildversions
+          description: Returns a list of image build versions.
+          operationId: listImageBuildVersions

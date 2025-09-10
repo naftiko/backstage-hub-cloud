@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Stops A Particular Rendering Session.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Stops A Particular Rendering Session.
+      description: Needs a more full description created.
+    paths:
+      /accounts/{account_id}/sessions/{session_id}/:stop:
+        post:
+          summary: Stops A Particular Rendering Session.
+          description: Needs a more full description created.
+          operationId: remoteRenderingStopSession
+          responses:
+            '500':
+              description: >-
+                Internal Error. Server has encountered an internal error. Retrying
+                the request may produce successful results.
+              x-ms-error-response: true
+              headers:
+                MS-CV:
+                  description: >-
+                    Microsoft Correlation Vector. Include this value when reporting
+                    issues.
+                  type: string
+              schema:
+                $ref: '#/definitions/error_response'

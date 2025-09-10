@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Server Metrics Config For A Given Name In Query Param.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Server Metrics Config For A Given Name In Query Param.
+      description: Needs a more full description created.
+    paths:
+      /serverMetricsConfig/{name}:
+        get:
+          summary: Get Server Metrics Config For A Given Name In Query Param.
+          description: Needs a more full description created.
+          operationId: serverMetricsGetServerMetricsByName
+          responses:
+            default:
+              description: |-
+                ***Error Responses: ***
+
+                 * "400", "InvalidHostOrResourceName", "Host name or domain is not valid".
+
+                  * "400", "RequiredServerMetricsName", "name field is required"
+
+                 * "400", "InvalidServerMetricsConfigName", "name field should be valid"
+
+                 * "500", "InternalServerError", "Unable to process the request, please retry"
+              schema:
+                $ref: '#/definitions/DefaultErrorResponseBody'
+              headers:
+                x-ms-error-code:
+                  description: The error code for specific error that occurred.
+                  type: string

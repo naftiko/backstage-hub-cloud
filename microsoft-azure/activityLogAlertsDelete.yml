@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+    Providers Microsoft.insights Activitylogalerts Activitylogalertname
+  description: Delete an Activity Log Alert rule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.insights Activitylogalerts Activitylogalertname
+      description: Delete an Activity Log Alert rule.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/activityLogAlerts/{activityLogAlertName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.insights Activitylogalerts Activitylogalertname
+          description: Delete an Activity Log Alert rule.
+          operationId: activityLogAlertsDelete
+          responses:
+            default:
+              description: >-
+                An error occurred and the Activity Log Alert rule could not be
+                deleted.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

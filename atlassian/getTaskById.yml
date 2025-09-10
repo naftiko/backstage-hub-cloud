@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Inline Task Based On Global Id
+  description: >-
+    Deprecated, use [Confluence's v2
+    API](https://developer.atlassian.com/cloud/confluence/rest/v2/intro/).Returns
+    inline task based on the global
+    ID.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to view the content associated with the task.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Inline Task Based On Global Id
+      description: >-
+        Deprecated, use [Confluence's v2
+        API](https://developer.atlassian.com/cloud/confluence/rest/v2/intro/).Returns
+        inline task based on the global
+        ID.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to view the content associated with the task.
+    paths:
+      /wiki/rest/api/inlinetasks/{inlineTaskId}:
+        get:
+          summary: Get Inline Task Based On Global Id
+          description: >-
+            Deprecated, use [Confluence's v2
+            API](https://developer.atlassian.com/cloud/confluence/rest/v2/intro/).Returns
+            inline task based on the global
+            ID.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to view the content associated with the task.
+          operationId: getTaskById
+          responses:
+            '404':
+              description: Returned if task could not be found with the given global ID.

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Services Servicesid Sessions Sessionsid Participants
+  description: Add a new Participant to the Session
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Services Servicesid Sessions Sessionsid Participants
+      description: Add a new Participant to the Session
+    paths:
+      /v1/Services/{ServiceSid}/Sessions/{SessionSid}/Participants:
+        post:
+          summary: Post Services Servicesid Sessions Sessionsid Participants
+          description: Add a new Participant to the Session
+          operationId: createParticipant
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateParticipantRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/proxy.v1.service.session.participant'
+              description: Created

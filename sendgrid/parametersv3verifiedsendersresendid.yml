@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Parameters  Verified_senders Resend Id
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Parameters  Verified_senders Resend Id
+      description: Needs a more full description created.
+    paths:
+      /v3/verified_senders/resend/{id}:
+        parameters:
+          summary: Parameters  Verified_senders Resend Id
+          description: Needs a more full description created.
+          operationId: parametersv3verifiedsendersresendid

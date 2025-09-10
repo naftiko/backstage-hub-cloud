@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.compute Virtualmachinescalesets Vmssname Providers
+    Microsoft.guestconfiguration Guestconfigurationassignments Name
+  description: Creates an association between a VMSS and guest configuration
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.compute Virtualmachinescalesets Vmssname Providers
+        Microsoft.guestconfiguration Guestconfigurationassignments Name
+      description: Creates an association between a VMSS and guest configuration
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{name}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.compute Virtualmachinescalesets Vmssname Providers
+            Microsoft.guestconfiguration Guestconfigurationassignments Name
+          description: Creates an association between a VMSS and guest configuration
+          operationId: guestConfigurationAssignmentsVMSSCreateOrUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ../../common/v1/definitions.json#/definitions/ErrorResponse

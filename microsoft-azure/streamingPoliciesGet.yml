@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Streaming Policy
+  description: Get the details of a Streaming Policy in the Media Services account
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Streaming Policy
+      description: Get the details of a Streaming Policy in the Media Services account
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/streamingPolicies/{streamingPolicyName}:
+        get:
+          summary: Get A Streaming Policy
+          description: Get the details of a Streaming Policy in the Media Services account
+          operationId: streamingPoliciesGet
+          responses:
+            default:
+              description: Detailed error information.
+              schema:
+                $ref: '#/definitions/ApiError'

@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Customers Search
+  description: >-
+    Search for customers you’ve previously created using Stripe’s Search Query
+    Language.Don’t use search in read-after-write flows where strict consistency
+    is necessary. Under normal operatingconditions, data is searchable in less
+    than a minute. Occasionally, propagation of new or updated data can be upto
+    an hour behind during outages. Search functionality is not available to
+    merchants in India.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Customers Search
+      description: >-
+        Search for customers you’ve previously created using Stripe’s Search Query
+        Language.Don’t use search in read-after-write flows where strict consistency
+        is necessary. Under normal operatingconditions, data is searchable in less
+        than a minute. Occasionally, propagation of new or updated data can be upto
+        an hour behind during outages. Search functionality is not available to
+        merchants in India.
+    paths:
+      /v1/customers/search:
+        get:
+          summary: Get Customers Search
+          description: >-
+            Search for customers you’ve previously created using Stripe’s Search
+            Query Language.Don’t use search in read-after-write flows where strict
+            consistency is necessary. Under normal operatingconditions, data is
+            searchable in less than a minute. Occasionally, propagation of new or
+            updated data can be upto an hour behind during outages. Search
+            functionality is not available to merchants in India.
+          operationId: getCustomersSearch
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetCustomersSearchRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

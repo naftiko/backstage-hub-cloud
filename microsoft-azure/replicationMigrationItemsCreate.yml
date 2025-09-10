@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Enables Migration.
+  description: The operation to create an ASR migration item (enable migration).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Enables Migration.
+      description: The operation to create an ASR migration item (enable migration).
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationMigrationItems/{migrationItemName}:
+        put:
+          summary: Enables Migration.
+          description: The operation to create an ASR migration item (enable migration).
+          operationId: replicationMigrationItemsCreate
+          responses:
+            '202':
+              description: Accepted

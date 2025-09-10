@@ -1,0 +1,142 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Branch Restriction Rule
+  description: >-
+    Creates a new branch restriction rule for a repository.`kind` describes what
+    will be restricted. Allowed values include:`push`, `force`, `delete`,
+    `restrict_merges`,
+    `require_tasks_to_be_completed`,`require_approvals_to_merge`,
+    `require_default_reviewer_approvals_to_merge`,`require_no_changes_requested`,
+    `require_passing_builds_to_merge`,
+    `require_commits_behind`,`reset_pullrequest_approvals_on_change`,
+    `smart_reset_pullrequest_approvals`,`reset_pullrequest_changes_requested_on_change`,
+    `require_all_dependencies_merged`,`enforce_merge_checks`, and
+    `allow_auto_merge_when_builds_pass`.Different kinds of branch restrictions
+    have different requirements:* `push` and `restrict_merges` require `users`
+    and `groups` to be  specified. Empty lists are allowed, in which case
+    permission is  denied for everybody.The restriction applies to all branches
+    that match. There aretwo ways to match a branch. It is configured in
+    `branch_match_kind`:1. `glob`: Matches a branch against the `pattern`. A
+    `'*'` in   `pattern` will expand to match zero or more characters, and
+    every   other character matches itself. For example, `'foo*'` will match  
+    `'foo'` and `'foobar'`, but not `'barfoo'`. `'*'` will match all  
+    branches.2. `branching_model`: Matches a branch against the repository's  
+    branching model. The `branch_type` controls the type of branch   to match.
+    Allowed values include: `production`, `development`,   `bugfix`, `release`,
+    `feature` and `hotfix`.The combination of `kind` and match must be unique.
+    This means thattwo `glob` restrictions in a repository cannot have the same
+    `kind` and`pattern`. Additionally, two `branching_model` restrictions in
+    arepository cannot have the same `kind` and `branch_type`.`users` and
+    `groups` are lists of users and groups that are except fromthe restriction.
+    They can only be configured in `push` and`restrict_merges` restrictions. The
+    `push` restriction stops a userpushing to matching branches unless that user
+    is in `users` or is amember of a group in `groups`. The `restrict_merges`
+    stops a usermerging pull requests to matching branches unless that user is
+    in`users` or is a member of a group in `groups`. Adding new users orgroups
+    to an existing restriction should be done via `PUT`.Note that branch
+    restrictions with overlapping matchers is allowed,but the resulting behavior
+    may be surprising.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Branch Restriction Rule
+      description: >-
+        Creates a new branch restriction rule for a repository.`kind` describes what
+        will be restricted. Allowed values include:`push`, `force`, `delete`,
+        `restrict_merges`,
+        `require_tasks_to_be_completed`,`require_approvals_to_merge`,
+        `require_default_reviewer_approvals_to_merge`,`require_no_changes_requested`,
+        `require_passing_builds_to_merge`,
+        `require_commits_behind`,`reset_pullrequest_approvals_on_change`,
+        `smart_reset_pullrequest_approvals`,`reset_pullrequest_changes_requested_on_change`,
+        `require_all_dependencies_merged`,`enforce_merge_checks`, and
+        `allow_auto_merge_when_builds_pass`.Different kinds of branch restrictions
+        have different requirements:* `push` and `restrict_merges` require `users`
+        and `groups` to be  specified. Empty lists are allowed, in which case
+        permission is  denied for everybody.The restriction applies to all branches
+        that match. There aretwo ways to match a branch. It is configured in
+        `branch_match_kind`:1. `glob`: Matches a branch against the `pattern`. A
+        `'*'` in   `pattern` will expand to match zero or more characters, and
+        every   other character matches itself. For example, `'foo*'` will match  
+        `'foo'` and `'foobar'`, but not `'barfoo'`. `'*'` will match all  
+        branches.2. `branching_model`: Matches a branch against the repository's  
+        branching model. The `branch_type` controls the type of branch   to match.
+        Allowed values include: `production`, `development`,   `bugfix`, `release`,
+        `feature` and `hotfix`.The combination of `kind` and match must be unique.
+        This means thattwo `glob` restrictions in a repository cannot have the same
+        `kind` and`pattern`. Additionally, two `branching_model` restrictions in
+        arepository cannot have the same `kind` and `branch_type`.`users` and
+        `groups` are lists of users and groups that are except fromthe restriction.
+        They can only be configured in `push` and`restrict_merges` restrictions. The
+        `push` restriction stops a userpushing to matching branches unless that user
+        is in `users` or is amember of a group in `groups`. The `restrict_merges`
+        stops a usermerging pull requests to matching branches unless that user is
+        in`users` or is a member of a group in `groups`. Adding new users orgroups
+        to an existing restriction should be done via `PUT`.Note that branch
+        restrictions with overlapping matchers is allowed,but the resulting behavior
+        may be surprising.
+    paths:
+      /repositories/{workspace}/{repo_slug}/branch-restrictions:
+        post:
+          summary: Create A Branch Restriction Rule
+          description: >-
+            Creates a new branch restriction rule for a repository.`kind` describes
+            what will be restricted. Allowed values include:`push`, `force`,
+            `delete`, `restrict_merges`,
+            `require_tasks_to_be_completed`,`require_approvals_to_merge`,
+            `require_default_reviewer_approvals_to_merge`,`require_no_changes_requested`,
+            `require_passing_builds_to_merge`,
+            `require_commits_behind`,`reset_pullrequest_approvals_on_change`,
+            `smart_reset_pullrequest_approvals`,`reset_pullrequest_changes_requested_on_change`,
+            `require_all_dependencies_merged`,`enforce_merge_checks`, and
+            `allow_auto_merge_when_builds_pass`.Different kinds of branch
+            restrictions have different requirements:* `push` and `restrict_merges`
+            require `users` and `groups` to be  specified. Empty lists are allowed,
+            in which case permission is  denied for everybody.The restriction
+            applies to all branches that match. There aretwo ways to match a branch.
+            It is configured in `branch_match_kind`:1. `glob`: Matches a branch
+            against the `pattern`. A `'*'` in   `pattern` will expand to match zero
+            or more characters, and every   other character matches itself. For
+            example, `'foo*'` will match   `'foo'` and `'foobar'`, but not
+            `'barfoo'`. `'*'` will match all   branches.2. `branching_model`:
+            Matches a branch against the repository's   branching model. The
+            `branch_type` controls the type of branch   to match. Allowed values
+            include: `production`, `development`,   `bugfix`, `release`, `feature`
+            and `hotfix`.The combination of `kind` and match must be unique. This
+            means thattwo `glob` restrictions in a repository cannot have the same
+            `kind` and`pattern`. Additionally, two `branching_model` restrictions in
+            arepository cannot have the same `kind` and `branch_type`.`users` and
+            `groups` are lists of users and groups that are except fromthe
+            restriction. They can only be configured in `push` and`restrict_merges`
+            restrictions. The `push` restriction stops a userpushing to matching
+            branches unless that user is in `users` or is amember of a group in
+            `groups`. The `restrict_merges` stops a usermerging pull requests to
+            matching branches unless that user is in`users` or is a member of a
+            group in `groups`. Adding new users orgroups to an existing restriction
+            should be done via `PUT`.Note that branch restrictions with overlapping
+            matchers is allowed,but the resulting behavior may be surprising.
+          operationId: createabranchrestrictionrule
+          requestBody:
+            description: The new rule
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/branchrestriction'
+          responses:
+            '404':
+              description: If the repository does not exist
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

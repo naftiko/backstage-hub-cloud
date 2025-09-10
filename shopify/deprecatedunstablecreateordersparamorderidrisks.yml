@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Creates An Order Risk For An Order
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/orders/order-risk#create-unstable
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Creates An Order Risk For An Order
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/orders/order-risk#create-unstable
+    paths:
+      /admin/api/unstable/orders/{order_id}/risks.json:
+        post:
+          summary: Creates An Order Risk For An Order
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/orders/order-risk#create-unstable
+          operationId: deprecatedunstablecreateordersparamorderidrisks
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      risk:
+                        message: This order came from an anonymous proxy
+                        recommendation: cancel
+                        score: 1
+                        source: External
+                        cause_cancel: true
+                        display: true
+                    summary: Create an order risk showing a fraud risk for proxy detection
+          responses:
+            '200':
+              description: ''

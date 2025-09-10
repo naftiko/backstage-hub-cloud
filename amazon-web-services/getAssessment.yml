@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getassessment
+  description: ' Retrieves the status of an on-going assessment. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getassessment
+      description: ' Retrieves the status of an on-going assessment. '
+    paths:
+      /get-assessment/{id}:
+        GET:
+          summary: Getassessment
+          description: ' Retrieves the status of an on-going assessment. '
+          operationId: getAssessment

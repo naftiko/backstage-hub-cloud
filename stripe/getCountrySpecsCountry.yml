@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Country_specs Country
+  description: Returns a Country Spec for a given Country code.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Country_specs Country
+      description: Returns a Country Spec for a given Country code.
+    paths:
+      /v1/country_specs/{country}:
+        get:
+          summary: Get Country_specs Country
+          description: Returns a Country Spec for a given Country code.
+          operationId: getCountrySpecsCountry
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetCountrySpecsCountryRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

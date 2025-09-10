@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.storsimple Managers Managername Devices Devicename Timesettings
+    Default
+  description: Creates or updates the time settings of the specified device.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.storsimple Managers Managername Devices Devicename Timesettings
+        Default
+      description: Creates or updates the time settings of the specified device.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorSimple/managers/{managerName}/devices/{deviceName}/timeSettings/default:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.storsimple Managers Managername Devices Devicename
+            Timesettings Default
+          description: Creates or updates the time settings of the specified device.
+          operationId: deviceSettingsCreateOrUpdateTimeSettings
+          responses:
+            '202':
+              description: Accepted the request to create or update the time settings.

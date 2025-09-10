@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Registercertificatewithoutca
+  description: >-
+    Register a certificate that does not have a certificate authority (CA). For
+    supported certificates, consult  Certificate signing algorithms supported by
+    IoT. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Registercertificatewithoutca
+      description: >-
+        Register a certificate that does not have a certificate authority (CA). For
+        supported certificates, consult  Certificate signing algorithms supported by
+        IoT. 
+    paths:
+      /certificate/register-no-ca:
+        POST:
+          summary: Registercertificatewithoutca
+          description: >-
+            Register a certificate that does not have a certificate authority (CA).
+            For supported certificates, consult  Certificate signing algorithms
+            supported by IoT. 
+          operationId: registerCertificateWithoutCA

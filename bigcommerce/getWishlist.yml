@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Wishlist
+  description: Returns a single wishlist.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Wishlist
+      description: Returns a single wishlist.
+    paths:
+      /wishlists/{wishlist_id}:
+        get:
+          summary: Get A Wishlist
+          description: Returns a single wishlist.
+          operationId: getWishlist
+          responses:
+            '500':
+              description: Internal server error.
+              content:
+                application/json:
+                  schema:
+                    title: Error
+                    type: object
+                    properties:
+                      status:
+                        type: integer
+                        format: int32
+                      title:
+                        type: string
+                      type:
+                        type: string

@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+    Providers Microsoft.search Searchservices Searchservicename Deletequerykey
+    Key
+  description: >-
+    Deletes the specified query key. Unlike admin keys, query keys are not
+    regenerated. The process for regenerating a query key is to delete and then
+    recreate it.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.search Searchservices Searchservicename Deletequerykey
+        Key
+      description: >-
+        Deletes the specified query key. Unlike admin keys, query keys are not
+        regenerated. The process for regenerating a query key is to delete and then
+        recreate it.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/deleteQueryKey/{key}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.search Searchservices Searchservicename
+            Deletequerykey Key
+          description: >-
+            Deletes the specified query key. Unlike admin keys, query keys are not
+            regenerated. The process for regenerating a query key is to delete and
+            then recreate it.
+          operationId: queryKeysDelete
+          responses:
+            default:
+              description: 'HTTP 409 (Conflict): The specified subscription is disabled.'
+              schema:
+                $ref: '#/definitions/CloudError'

@@ -1,0 +1,361 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve Email Statistics By Country And State/province.
+  description: >-
+    **This endpoint allows you to retrieve your email statistics segmented by
+    country and state/province.****We only store up to 7 days of email activity
+    in our database.** By default, 500 items will be returned per request via
+    the Advanced Stats API endpoints.Advanced Stats provide a more in-depth view
+    of your email statistics and the actions taken by your recipients. You can
+    segment these statistics by geographic location, device type, client type,
+    browser, and mailbox provider. For more information about statistics, please
+    see our [User
+    Guide](https://wwww.twilio.com/docs/sendgrid/ui/analytics-and-reporting/stats-overview).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve Email Statistics By Country And State/province.
+      description: >-
+        **This endpoint allows you to retrieve your email statistics segmented by
+        country and state/province.****We only store up to 7 days of email activity
+        in our database.** By default, 500 items will be returned per request via
+        the Advanced Stats API endpoints.Advanced Stats provide a more in-depth view
+        of your email statistics and the actions taken by your recipients. You can
+        segment these statistics by geographic location, device type, client type,
+        browser, and mailbox provider. For more information about statistics, please
+        see our [User
+        Guide](https://wwww.twilio.com/docs/sendgrid/ui/analytics-and-reporting/stats-overview).
+    paths:
+      /v3/geo/stats:
+        get:
+          summary: Retrieve Email Statistics By Country And State/province.
+          description: >-
+            **This endpoint allows you to retrieve your email statistics segmented
+            by country and state/province.****We only store up to 7 days of email
+            activity in our database.** By default, 500 items will be returned per
+            request via the Advanced Stats API endpoints.Advanced Stats provide a
+            more in-depth view of your email statistics and the actions taken by
+            your recipients. You can segment these statistics by geographic
+            location, device type, client type, browser, and mailbox provider. For
+            more information about statistics, please see our [User
+            Guide](https://wwww.twilio.com/docs/sendgrid/ui/analytics-and-reporting/stats-overview).
+          operationId: listGeoStat
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        date:
+                          type: string
+                          description: The date that the statistics were gathered.
+                        stats:
+                          type: array
+                          description: The list of statistics.
+                          items:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                                description: The type of segmentation.
+                              name:
+                                type: string
+                                description: The name of the specific segmentation.
+                              metrics:
+                                $ref: '#/components/schemas/AdvancedStatsClicksOpens'
+                  examples:
+                    response:
+                      value:
+                        - date: '2015-10-11'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-12'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-13'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-14'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-15'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-16'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-17'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-18'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-19'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-20'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-21'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 1
+                                unique_clicks: 0
+                                unique_opens: 1
+                        - date: '2015-10-22'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-23'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-24'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-25'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-26'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-27'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-28'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-29'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-30'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-10-31'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-11-01'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-11-02'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-11-03'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-11-04'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-11-05'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-11-06'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-11-07'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-11-08'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-11-09'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0
+                        - date: '2015-11-10'
+                          stats:
+                            - type: province
+                              name: TX
+                              metrics:
+                                clicks: 0
+                                opens: 0
+                                unique_clicks: 0
+                                unique_opens: 0

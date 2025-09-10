@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Set Github Actions Permissions For A Repository
+  description: >-
+    Sets the GitHub Actions permissions policy for enabling GitHub Actions and
+    allowed actions in the repository.If the repository belongs to an
+    organization or enterprise that has set restrictive permissions at the
+    organization or enterprise levels, such as `allowed_actions` to `selected`
+    actions, then you cannot override them for the repository.OAuth app tokens
+    and personal access tokens (classic) need the `repo` scope to use this
+    endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Set Github Actions Permissions For A Repository
+      description: >-
+        Sets the GitHub Actions permissions policy for enabling GitHub Actions and
+        allowed actions in the repository.If the repository belongs to an
+        organization or enterprise that has set restrictive permissions at the
+        organization or enterprise levels, such as `allowed_actions` to `selected`
+        actions, then you cannot override them for the repository.OAuth app tokens
+        and personal access tokens (classic) need the `repo` scope to use this
+        endpoint.
+    paths:
+      /repos/{owner}/{repo}/actions/permissions:
+        put:
+          summary: Set Github Actions Permissions For A Repository
+          description: >-
+            Sets the GitHub Actions permissions policy for enabling GitHub Actions
+            and allowed actions in the repository.If the repository belongs to an
+            organization or enterprise that has set restrictive permissions at the
+            organization or enterprise levels, such as `allowed_actions` to
+            `selected` actions, then you cannot override them for the
+            repository.OAuth app tokens and personal access tokens (classic) need
+            the `repo` scope to use this endpoint.
+          operationId: actionssetgithubactionspermissionsrepository
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    enabled:
+                      $ref: '#/components/schemas/actions-enabled'
+                    allowed_actions:
+                      $ref: '#/components/schemas/allowed-actions'
+                  required:
+                    - enabled
+                examples:
+                  default:
+                    value:
+                      enabled: true
+                      allowed_actions: selected
+          responses:
+            '204':
+              description: Response

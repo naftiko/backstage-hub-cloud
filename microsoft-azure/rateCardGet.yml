@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Subscriptions Subscriptionid Providers Microsoft.commerce Ratecard
+  description: >-
+    Enables you to query for the resource/meter metadata and related prices used
+    in a given subscription by Offer ID, Currency, Locale and Region. The
+    metadata associated with the billing meters, including but not limited to
+    service names, types, resources, units of measure, and regions, is subject
+    to change at any time and without notice. If you intend to use this billing
+    data in an automated fashion, please use the billing meter GUID to uniquely
+    identify each billable item. If the billing meter GUID is scheduled to
+    change due to a new billing model, you will be notified in advance of the
+    change. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Subscriptions Subscriptionid Providers Microsoft.commerce Ratecard
+      description: >-
+        Enables you to query for the resource/meter metadata and related prices used
+        in a given subscription by Offer ID, Currency, Locale and Region. The
+        metadata associated with the billing meters, including but not limited to
+        service names, types, resources, units of measure, and regions, is subject
+        to change at any time and without notice. If you intend to use this billing
+        data in an automated fashion, please use the billing meter GUID to uniquely
+        identify each billable item. If the billing meter GUID is scheduled to
+        change due to a new billing model, you will be notified in advance of the
+        change. 
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Commerce/RateCard:
+        get:
+          summary: Get Subscriptions Subscriptionid Providers Microsoft.commerce Ratecard
+          description: >-
+            Enables you to query for the resource/meter metadata and related prices
+            used in a given subscription by Offer ID, Currency, Locale and Region.
+            The metadata associated with the billing meters, including but not
+            limited to service names, types, resources, units of measure, and
+            regions, is subject to change at any time and without notice. If you
+            intend to use this billing data in an automated fashion, please use the
+            billing meter GUID to uniquely identify each billable item. If the
+            billing meter GUID is scheduled to change due to a new billing model,
+            you will be notified in advance of the change. 
+          operationId: rateCardGet
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

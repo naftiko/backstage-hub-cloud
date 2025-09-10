@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Screen
+  description: >-
+    Creates a screen with a default field tab.**[Permissions](#permissions)
+    required:** *Administer Jira* [global
+    permission](https://confluence.atlassian.com/x/x4dKLg).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Screen
+      description: >-
+        Creates a screen with a default field tab.**[Permissions](#permissions)
+        required:** *Administer Jira* [global
+        permission](https://confluence.atlassian.com/x/x4dKLg).
+    paths:
+      /rest/api/3/screens:
+        post:
+          summary: Create Screen
+          description: >-
+            Creates a screen with a default field tab.**[Permissions](#permissions)
+            required:** *Administer Jira* [global
+            permission](https://confluence.atlassian.com/x/x4dKLg).
+          operationId: createScreen
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  description: Enables changes to resolution and linked issues.
+                  name: Resolve Security Issue Screen
+                schema:
+                  $ref: '#/components/schemas/ScreenDetails'
+          responses:
+            '403':
+              content:
+                application/json:
+                  example: >-
+                    {"errorMessages":["Only Jira administrators can manage
+                    screens."],"errors":{}}
+              description: Returned if the user does not have the required permissions.

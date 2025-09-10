@@ -1,0 +1,70 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Click Tracking Settings
+  description: >-
+    **This endpoint allows you to enable or disable your current click tracking
+    setting.**Click Tracking overrides all the links and URLs in your emails and
+    points them to either SendGrid’s servers or the domain with which you
+    branded your link. When a customer clicks a link, SendGrid tracks those
+    [clicks](https://sendgrid.com/docs/glossary/clicks/).Click tracking helps
+    you understand how users are engaging with your communications. SendGrid can
+    track up to 1000 links per email
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Click Tracking Settings
+      description: >-
+        **This endpoint allows you to enable or disable your current click tracking
+        setting.**Click Tracking overrides all the links and URLs in your emails and
+        points them to either SendGrid’s servers or the domain with which you
+        branded your link. When a customer clicks a link, SendGrid tracks those
+        [clicks](https://sendgrid.com/docs/glossary/clicks/).Click tracking helps
+        you understand how users are engaging with your communications. SendGrid can
+        track up to 1000 links per email
+    paths:
+      /v3/tracking_settings/click:
+        patch:
+          summary: Update Click Tracking Settings
+          description: >-
+            **This endpoint allows you to enable or disable your current click
+            tracking setting.**Click Tracking overrides all the links and URLs in
+            your emails and points them to either SendGrid’s servers or the domain
+            with which you branded your link. When a customer clicks a link,
+            SendGrid tracks those
+            [clicks](https://sendgrid.com/docs/glossary/clicks/).Click tracking
+            helps you understand how users are engaging with your communications.
+            SendGrid can track up to 1000 links per email
+          operationId: updateClickTrackingSetting
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    enabled:
+                      type: boolean
+                      description: The setting you want to use for click tracking.
+                  example:
+                    enabled: true
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ClickTracking'
+                  examples:
+                    response:
+                      value:
+                        enable_text: false
+                        enabled: true

@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Terminal Locations
+  description: >-
+    Creates a new Location object.For further details, including which address
+    fields are required in each country, see the Manage locations guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Terminal Locations
+      description: >-
+        Creates a new Location object.For further details, including which address
+        fields are required in each country, see the Manage locations guide.
+    paths:
+      /v1/terminal/locations:
+        post:
+          summary: Post Terminal Locations
+          description: >-
+            Creates a new Location object.For further details, including which
+            address fields are required in each country, see the Manage locations
+            guide.
+          operationId: postTerminalLocations
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  address:
+                    explode: true
+                    style: deepObject
+                  expand:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostTerminalLocationsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

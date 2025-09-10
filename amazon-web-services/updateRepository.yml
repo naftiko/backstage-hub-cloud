@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updaterepository
+  description: ' Update the properties of a repository. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updaterepository
+      description: ' Update the properties of a repository. '
+    paths:
+      /v1/repository:
+        PUT:
+          summary: Updaterepository
+          description: ' Update the properties of a repository. '
+          operationId: updateRepository

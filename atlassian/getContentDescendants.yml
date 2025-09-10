@@ -1,0 +1,72 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Content Descendants
+  description: >-
+    Returns a map of the descendants of a piece of content. This is similarto
+    [Get content children](#api-content-id-child-get), except that thismethod
+    returns child pages at all levels, rather than just the directchild pages.A
+    piece of content has different types of descendants, depending on its type:-
+    `page`: descendant is `page`, `comment`, `attachment`- `blogpost`:
+    descendant is `comment`, `attachment`- `attachment`: descendant is
+    `comment`- `comment`: descendant is `attachment`The map will always include
+    all descendant types that are valid for the content.However, if the content
+    has no instances of a descendant type, the map willcontain an empty array
+    for that descendant
+    type.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:'View' permission for the space, and permission to view the
+    content if itis a page.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Content Descendants
+      description: >-
+        Returns a map of the descendants of a piece of content. This is similarto
+        [Get content children](#api-content-id-child-get), except that thismethod
+        returns child pages at all levels, rather than just the directchild pages.A
+        piece of content has different types of descendants, depending on its type:-
+        `page`: descendant is `page`, `comment`, `attachment`- `blogpost`:
+        descendant is `comment`, `attachment`- `attachment`: descendant is
+        `comment`- `comment`: descendant is `attachment`The map will always include
+        all descendant types that are valid for the content.However, if the content
+        has no instances of a descendant type, the map willcontain an empty array
+        for that descendant
+        type.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:'View' permission for the space, and permission to view the
+        content if itis a page.
+    paths:
+      /wiki/rest/api/content/{id}/descendant:
+        get:
+          summary: Get Content Descendants
+          description: >-
+            Returns a map of the descendants of a piece of content. This is
+            similarto [Get content children](#api-content-id-child-get), except that
+            thismethod returns child pages at all levels, rather than just the
+            directchild pages.A piece of content has different types of descendants,
+            depending on its type:- `page`: descendant is `page`, `comment`,
+            `attachment`- `blogpost`: descendant is `comment`, `attachment`-
+            `attachment`: descendant is `comment`- `comment`: descendant is
+            `attachment`The map will always include all descendant types that are
+            valid for the content.However, if the content has no instances of a
+            descendant type, the map willcontain an empty array for that descendant
+            type.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:'View' permission for the space, and permission to view the
+            content if itis a page.
+          operationId: getContentDescendants
+          responses:
+            '404':
+              description: |-
+                Returned if;
+
+                - There is no content with the given ID.
+                - The calling user does not have permission to view the content.
+              content: {}

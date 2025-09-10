@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.appconfiguration Configurationstores Configstorename Replicas
+  description: Lists the replicas for a given configuration store.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.appconfiguration Configurationstores Configstorename Replicas
+      description: Lists the replicas for a given configuration store.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}/replicas:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.appconfiguration Configurationstores Configstorename
+            Replicas
+          description: Lists the replicas for a given configuration store.
+          operationId: replicasListByConfigurationStore
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

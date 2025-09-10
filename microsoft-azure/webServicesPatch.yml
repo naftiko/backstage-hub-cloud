@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+    Providers Microsoft.machinelearning Webservices Webservicename
+  description: >-
+    Modifies an existing web service resource. The PATCH API call is an
+    asynchronous operation. To determine whether it has completed successfully,
+    you must perform a Get operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.machinelearning Webservices Webservicename
+      description: >-
+        Modifies an existing web service resource. The PATCH API call is an
+        asynchronous operation. To determine whether it has completed successfully,
+        you must perform a Get operation.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearning/webServices/{webServiceName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.machinelearning Webservices Webservicename
+          description: >-
+            Modifies an existing web service resource. The PATCH API call is an
+            asynchronous operation. To determine whether it has completed
+            successfully, you must perform a Get operation.
+          operationId: webServicesPatch
+          responses:
+            '200':
+              description: >-
+                Success. The response payload is identical to the response payload
+                that is returned by the GET operation. The response includes the
+                Provisioning State and the Azure-AsyncOperation header. To get the
+                progress of the operation, call GET operation on the URL in
+                Azure-AsyncOperation header field. For more information about
+                Asynchronous Operations, see
+                https://msdn.microsoft.com/en-us/library/mt742920.aspx.
+              schema:
+                $ref: '#/definitions/WebService'

@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Multiple Metafields
+  description: Create multiple metafields.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Multiple Metafields
+      description: Create multiple metafields.
+    paths:
+      /channels/metafields:
+        post:
+          summary: Create Multiple Metafields
+          description: Create multiple metafields.
+          operationId: createChannelsMetafields
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/MetafieldPost'
+          responses:
+            '500':
+              description: Internal Server Error

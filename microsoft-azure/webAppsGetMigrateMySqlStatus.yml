@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Returns The Status Of Mysql In App Migration, If One Is Active, And Whether
+    Or Not Mysql In App Is Enabled
+  description: >-
+    Description for Returns the status of MySql in app migration, if one is
+    active, and whether or not MySql in app is enabled
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Returns The Status Of Mysql In App Migration, If One Is Active, And Whether
+        Or Not Mysql In App Is Enabled
+      description: >-
+        Description for Returns the status of MySql in app migration, if one is
+        active, and whether or not MySql in app is enabled
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/migratemysql/status:
+        get:
+          summary: >-
+            Returns The Status Of Mysql In App Migration, If One Is Active, And
+            Whether Or Not Mysql In App Is Enabled
+          description: >-
+            Description for Returns the status of MySql in app migration, if one is
+            active, and whether or not MySql in app is enabled
+          operationId: webAppsGetMigrateMySqlStatus
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

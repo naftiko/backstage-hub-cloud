@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Span-based Metric
+  description: >-
+    Create a metric based on your ingested spans in your organization.Returns
+    the span-based metric object from the request body when the request is
+    successful.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Span-based Metric
+      description: >-
+        Create a metric based on your ingested spans in your organization.Returns
+        the span-based metric object from the request body when the request is
+        successful.
+    paths:
+      /api/v2/apm/config/metrics:
+        post:
+          summary: Create A Span-based Metric
+          description: >-
+            Create a metric based on your ingested spans in your
+            organization.Returns the span-based metric object from the request body
+            when the request is successful.
+          operationId: createSpansMetric
+          requestBody:
+            description: The definition of the new span-based metric.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/SpansMetricCreateRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

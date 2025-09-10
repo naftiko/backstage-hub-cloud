@@ -1,0 +1,84 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Scanning Group
+  description: >-
+    Create a scanning group.The request MAY include a configuration
+    relationship.A rules relationship can be omitted entirely, but if it is
+    included it MUST benull or an empty array (rules cannot be created at the
+    same time).The new group will be ordered last within the configuration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Scanning Group
+      description: >-
+        Create a scanning group.The request MAY include a configuration
+        relationship.A rules relationship can be omitted entirely, but if it is
+        included it MUST benull or an empty array (rules cannot be created at the
+        same time).The new group will be ordered last within the configuration.
+    paths:
+      /api/v2/sensitive-data-scanner/config/groups:
+        post:
+          summary: Create Scanning Group
+          description: >-
+            Create a scanning group.The request MAY include a configuration
+            relationship.A rules relationship can be omitted entirely, but if it is
+            included it MUST benull or an empty array (rules cannot be created at
+            the same time).The new group will be ordered last within the
+            configuration.
+          operationId: createScanningGroup
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      type: sensitive_data_scanner_group
+                      attributes:
+                        description: aute volupta
+                        filter:
+                          query: nisi
+                        is_enabled: false
+                        name: non officia velit
+                        product_list:
+                          - logs
+                          - logs
+                      relationships:
+                        configuration:
+                          data:
+                            id: dolor nisi culpa
+                            type: sensitive_data_scanner_configuration
+                        rules:
+                          data:
+                            - id: nostrud tempor
+                              type: sensitive_data_scanner_rule
+                            - id: eu sed dolore
+                              type: sensitive_data_scanner_rule
+                    meta:
+                      version: 0
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

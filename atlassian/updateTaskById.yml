@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Inline Task Given Global Id
+  description: >-
+    Updates an inline tasks status given its global
+    ID**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to update the content associated with the task.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Inline Task Given Global Id
+      description: >-
+        Updates an inline tasks status given its global
+        ID**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to update the content associated with the task.
+    paths:
+      /wiki/rest/api/inlinetasks/{inlineTaskId}:
+        put:
+          summary: Update Inline Task Given Global Id
+          description: >-
+            Updates an inline tasks status given its global
+            ID**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to update the content associated with the task.
+          operationId: updateTaskById
+          requestBody:
+            description: The updated task status.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/TaskStatusUpdate'
+          responses:
+            '404':
+              description: Returned if task could not be found with given global ID.

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listdatasetimporthistory
+  description: Lists the data set imports for the specified application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listdatasetimporthistory
+      description: Lists the data set imports for the specified application.
+    paths:
+      /applications/{applicationId}/dataset-import-tasks:
+        GET:
+          summary: Listdatasetimporthistory
+          description: Lists the data set imports for the specified application.
+          operationId: listDataSetImportHistory

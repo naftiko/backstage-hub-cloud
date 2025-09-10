@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Channel Cart Settings
+  description: Returns the per-channel overrides for the cart settings of a store.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Channel Cart Settings
+      description: Returns the per-channel overrides for the cart settings of a store.
+    paths:
+      /carts/settings/channels/{channel_id}:
+        get:
+          summary: Get Channel Cart Settings
+          description: Returns the per-channel overrides for the cart settings of a store.
+          operationId: getChannelCartSettings
+          responses:
+            '401':
+              description: Unauthorized
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'

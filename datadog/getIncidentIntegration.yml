@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Incident Integration Metadata Details
+  description: Get incident integration metadata details.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Incident Integration Metadata Details
+      description: Get incident integration metadata details.
+    paths:
+      /api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}:
+        get:
+          summary: Get Incident Integration Metadata Details
+          description: Get incident integration metadata details.
+          operationId: getIncidentIntegration
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

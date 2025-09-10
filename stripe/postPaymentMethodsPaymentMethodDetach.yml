@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Payment_methods Payment_method Detach
+  description: >-
+    Detaches a PaymentMethod object from a Customer. After a PaymentMethod is
+    detached, it can no longer be used for a payment or re-attached to a
+    Customer.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Payment_methods Payment_method Detach
+      description: >-
+        Detaches a PaymentMethod object from a Customer. After a PaymentMethod is
+        detached, it can no longer be used for a payment or re-attached to a
+        Customer.
+    paths:
+      /v1/payment_methods/{payment_method}/detach:
+        post:
+          summary: Post Payment_methods Payment_method Detach
+          description: >-
+            Detaches a PaymentMethod object from a Customer. After a PaymentMethod
+            is detached, it can no longer be used for a payment or re-attached to a
+            Customer.
+          operationId: postPaymentMethodsPaymentMethodDetach
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: >-
+                    #/components/schemas/PostPaymentMethodsPaymentMethodDetachRequest
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

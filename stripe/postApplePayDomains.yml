@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Apple_pay Domains
+  description: Create an apple pay domain.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Apple_pay Domains
+      description: Create an apple pay domain.
+    paths:
+      /v1/apple_pay/domains:
+        post:
+          summary: Post Apple_pay Domains
+          description: Create an apple pay domain.
+          operationId: postApplePayDomains
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  properties:
+                    domain_name:
+                      type: string
+                    expand:
+                      description: Specifies which fields in the response should be expanded.
+                      items:
+                        maxLength: 5000
+                        type: string
+                      type: array
+                  required:
+                    - domain_name
+                  type: object
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

@@ -1,0 +1,63 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve A Branded Link
+  description: >-
+    **This endpoint allows you to retrieve a specific branded link by providing
+    its ID.**You can submit this request as one of your subusers if you include
+    their ID in the `on-behalf-of` header in the request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve A Branded Link
+      description: >-
+        **This endpoint allows you to retrieve a specific branded link by providing
+        its ID.**You can submit this request as one of your subusers if you include
+        their ID in the `on-behalf-of` header in the request.
+    paths:
+      /v3/whitelabel/links/{id}:
+        get:
+          summary: Retrieve A Branded Link
+          description: >-
+            **This endpoint allows you to retrieve a specific branded link by
+            providing its ID.**You can submit this request as one of your subusers
+            if you include their ID in the `on-behalf-of` header in the request.
+          operationId: getBrandedLink
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/LinkBranding200'
+                  examples:
+                    response:
+                      value:
+                        id: 1
+                        domain: example.com
+                        subdomain: mail
+                        username: john@example.com
+                        user_id: 7
+                        default: false
+                        valid: true
+                        legacy: false
+                        dns:
+                          domain_cname:
+                            valid: true
+                            type: cname
+                            host: mail.example.com
+                            data: sendgrid.net
+                          owner_cname:
+                            valid: true
+                            type: cname
+                            host: 7.example.com
+                            data: sendgrid.net

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Collections Collection Entity Movehere
+  description: Move existing entities to the target collection.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Collections Collection Entity Movehere
+      description: Move existing entities to the target collection.
+    paths:
+      /collections/{collection}/entity/moveHere:
+        post:
+          summary: Post Collections Collection Entity Movehere
+          description: Move existing entities to the target collection.
+          operationId: collectionMoveEntitiesToCollection
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

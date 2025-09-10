@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Startdevenvironment
+  description: 'Starts a specified Dev Environment and puts it into an active state. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startdevenvironment
+      description: 'Starts a specified Dev Environment and puts it into an active state. '
+    paths:
+      /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/start:
+        PUT:
+          summary: Startdevenvironment
+          description: 'Starts a specified Dev Environment and puts it into an active state. '
+          operationId: startDevEnvironment

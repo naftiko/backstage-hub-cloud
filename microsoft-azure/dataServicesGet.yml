@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.hybriddata Datamanagers Datamanagername Dataservices
+    Dataservicename
+  description: Gets the data service that match the data service name given.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.hybriddata Datamanagers Datamanagername Dataservices
+        Dataservicename
+      description: Gets the data service that match the data service name given.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridData/dataManagers/{dataManagerName}/dataServices/{dataServiceName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.hybriddata Datamanagers Datamanagername Dataservices
+            Dataservicename
+          description: Gets the data service that match the data service name given.
+          operationId: dataServicesGet
+          responses:
+            '200':
+              description: The data service that matches the name.
+              schema:
+                $ref: '#/definitions/DataService'

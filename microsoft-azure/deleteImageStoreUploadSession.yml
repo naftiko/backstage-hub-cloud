@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Cancels An Image Store Upload Session.
+  description: >-
+    The DELETE request will cause the existing upload session to expire and
+    remove any previously uploaded file chunks.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Cancels An Image Store Upload Session.
+      description: >-
+        The DELETE request will cause the existing upload session to expire and
+        remove any previously uploaded file chunks.
+    paths:
+      /ImageStore/$/DeleteUploadSession:
+        delete:
+          summary: Cancels An Image Store Upload Session.
+          description: >-
+            The DELETE request will cause the existing upload session to expire and
+            remove any previously uploaded file chunks.
+          operationId: deleteImageStoreUploadSession
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

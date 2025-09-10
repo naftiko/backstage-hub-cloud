@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Dashboard Item Property Keys
+  description: >-
+    Returns the keys of all properties for a dashboard item.This operation can
+    be accessed anonymously.**[Permissions](#permissions) required:** The user
+    must be the owner of the dashboard or have the dashboard shared with them.
+    Note, users with the *Administer Jira* [global
+    permission](https://confluence.atlassian.com/x/x4dKLg) are considered owners
+    of the System dashboard. The System dashboard is considered to be shared
+    with all other users, and is accessible to anonymous users when Jira\\u2019s
+    anonymous access is permitted.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Dashboard Item Property Keys
+      description: >-
+        Returns the keys of all properties for a dashboard item.This operation can
+        be accessed anonymously.**[Permissions](#permissions) required:** The user
+        must be the owner of the dashboard or have the dashboard shared with them.
+        Note, users with the *Administer Jira* [global
+        permission](https://confluence.atlassian.com/x/x4dKLg) are considered owners
+        of the System dashboard. The System dashboard is considered to be shared
+        with all other users, and is accessible to anonymous users when Jira\\u2019s
+        anonymous access is permitted.
+    paths:
+      /rest/api/3/dashboard/{dashboardId}/items/{itemId}/properties:
+        get:
+          summary: Get Dashboard Item Property Keys
+          description: >-
+            Returns the keys of all properties for a dashboard item.This operation
+            can be accessed anonymously.**[Permissions](#permissions) required:**
+            The user must be the owner of the dashboard or have the dashboard shared
+            with them. Note, users with the *Administer Jira* [global
+            permission](https://confluence.atlassian.com/x/x4dKLg) are considered
+            owners of the System dashboard. The System dashboard is considered to be
+            shared with all other users, and is accessible to anonymous users when
+            Jira\\u2019s anonymous access is permitted.
+          operationId: getDashboardItemPropertyKeys
+          responses:
+            '404':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorCollection'
+              description: >-
+                Returned if the dashboard or dashboard item is not found, or the
+                dashboard is not owned by or shared with the user.

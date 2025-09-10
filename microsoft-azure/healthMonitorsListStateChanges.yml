@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get The Health State Changes Of A Monitor Of A Virtual Machine Within The
+    Provided Time Window (default Is The Last 24 Hours). Optional Parameters:
+    $expand (retrieve The Monitor's Evidence And Configuration) And $filter
+    (filter By Heartbeat Condition).
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get The Health State Changes Of A Monitor Of A Virtual Machine Within The
+        Provided Time Window (default Is The Last 24 Hours). Optional Parameters:
+        $expand (retrieve The Monitor's Evidence And Configuration) And $filter
+        (filter By Heartbeat Condition).
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{providerName}/{resourceCollectionName}/{resourceName}/providers/Microsoft.WorkloadMonitor/monitors/{monitorId}/history:
+        get:
+          summary: >-
+            Get The Health State Changes Of A Monitor Of A Virtual Machine Within
+            The Provided Time Window (default Is The Last 24 Hours). Optional
+            Parameters: $expand (retrieve The Monitor's Evidence And Configuration)
+            And $filter (filter By Heartbeat Condition).
+          description: Needs a more full description created.
+          operationId: healthMonitorsListStateChanges
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

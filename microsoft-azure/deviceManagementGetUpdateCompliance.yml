@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Deviceupdate Instanceid Management Updatecompliance
+  description: >-
+    Gets the breakdown of how many devices are on their latest update, have new
+    updates available, or are in progress receiving new updates.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Deviceupdate Instanceid Management Updatecompliance
+      description: >-
+        Gets the breakdown of how many devices are on their latest update, have new
+        updates available, or are in progress receiving new updates.
+    paths:
+      /deviceUpdate/{instanceId}/management/updateCompliance:
+        get:
+          summary: Get Deviceupdate Instanceid Management Updatecompliance
+          description: >-
+            Gets the breakdown of how many devices are on their latest update, have
+            new updates available, or are in progress receiving new updates.
+          operationId: deviceManagementGetUpdateCompliance
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

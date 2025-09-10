@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Createprovisioningclaim
+  description: >-
+    Creates a provisioning claim. Requires permission to access the
+    CreateProvisioningClaim action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createprovisioningclaim
+      description: >-
+        Creates a provisioning claim. Requires permission to access the
+        CreateProvisioningClaim action.
+    paths:
+      /provisioning-templates/{templateName}/provisioning-claim:
+        POST:
+          summary: Createprovisioningclaim
+          description: >-
+            Creates a provisioning claim. Requires permission to access the
+            CreateProvisioningClaim action.
+          operationId: createProvisioningClaim

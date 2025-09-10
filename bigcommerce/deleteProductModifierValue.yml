@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Product Modifier Value
+  description: Deletes a *Modifier Value*.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Product Modifier Value
+      description: Deletes a *Modifier Value*.
+    paths:
+      /catalog/products/{product_id}/modifiers/{modifier_id}/values/{value_id}:
+        delete:
+          summary: Delete Product Modifier Value
+          description: Deletes a *Modifier Value*.
+          operationId: deleteProductModifierValue
+          responses:
+            '204':
+              description: ''
+              content: {}

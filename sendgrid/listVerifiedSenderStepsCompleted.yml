@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Completed Steps
+  description: >-
+    **This endpoint allows you to determine which of SendGrid’s verification
+    processes have been completed for an account**.This endpoint returns boolean
+    values, `true` and `false`, for [Domain
+    Authentication](https://sendgrid.com/docs/for-developers/sending-email/sender-identity/#domain-authentication),
+    `domain_verified`, and [Single Sender
+    Verification](https://sendgrid.com/docs/for-developers/sending-email/sender-identity/#single-sender-verification),
+    `sender_verified`, for the account.An account may have one, both, or neither
+    verification steps completed. If you need to authenticate a domain rather
+    than a Single Sender, see the "Authenticate a domain" endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Completed Steps
+      description: >-
+        **This endpoint allows you to determine which of SendGrid’s verification
+        processes have been completed for an account**.This endpoint returns boolean
+        values, `true` and `false`, for [Domain
+        Authentication](https://sendgrid.com/docs/for-developers/sending-email/sender-identity/#domain-authentication),
+        `domain_verified`, and [Single Sender
+        Verification](https://sendgrid.com/docs/for-developers/sending-email/sender-identity/#single-sender-verification),
+        `sender_verified`, for the account.An account may have one, both, or neither
+        verification steps completed. If you need to authenticate a domain rather
+        than a Single Sender, see the "Authenticate a domain" endpoint.
+    paths:
+      /v3/verified_senders/steps_completed:
+        get:
+          summary: Completed Steps
+          description: >-
+            **This endpoint allows you to determine which of SendGrid’s verification
+            processes have been completed for an account**.This endpoint returns
+            boolean values, `true` and `false`, for [Domain
+            Authentication](https://sendgrid.com/docs/for-developers/sending-email/sender-identity/#domain-authentication),
+            `domain_verified`, and [Single Sender
+            Verification](https://sendgrid.com/docs/for-developers/sending-email/sender-identity/#single-sender-verification),
+            `sender_verified`, for the account.An account may have one, both, or
+            neither verification steps completed. If you need to authenticate a
+            domain rather than a Single Sender, see the "Authenticate a domain"
+            endpoint.
+          operationId: listVerifiedSenderStepsCompleted
+          responses:
+            '500':
+              $ref: '#/components/responses/VerifiedSenders500'

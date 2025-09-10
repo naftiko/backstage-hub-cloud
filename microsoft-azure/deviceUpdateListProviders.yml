@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Deviceupdate Instanceid Updates Providers
+  description: >-
+    Get a list of all update providers that have been imported to Device Update
+    for IoT Hub.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Deviceupdate Instanceid Updates Providers
+      description: >-
+        Get a list of all update providers that have been imported to Device Update
+        for IoT Hub.
+    paths:
+      /deviceUpdate/{instanceId}/updates/providers:
+        get:
+          summary: Get Deviceupdate Instanceid Updates Providers
+          description: >-
+            Get a list of all update providers that have been imported to Device
+            Update for IoT Hub.
+          operationId: deviceUpdateListProviders
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getfunctiondefinitionversion
+  description: >-
+    Retrieves information about a Lambda function definition version, including
+    which Lambda functions are included in the version and their configurations.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getfunctiondefinitionversion
+      description: >-
+        Retrieves information about a Lambda function definition version, including
+        which Lambda functions are included in the version and their configurations.
+    paths:
+      /greengrass/definition/functions/{FunctionDefinitionId}/versions/{FunctionDefinitionVersionId}:
+        GET:
+          summary: Getfunctiondefinitionversion
+          description: >-
+            Retrieves information about a Lambda function definition version,
+            including which Lambda functions are included in the version and their
+            configurations.
+          operationId: getFunctionDefinitionVersion

@@ -1,0 +1,64 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Cart Metafield
+  description: >-
+    Create a cart `Metafield`. If you create an order from a Cart, you can
+    continue referencing the Cart Metafields even if you delete the original
+    Cart. Use the `cart_id` field on the Order to construct the Cart Metafield
+    endpoint. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Cart Metafield
+      description: >-
+        Create a cart `Metafield`. If you create an order from a Cart, you can
+        continue referencing the Cart Metafields even if you delete the original
+        Cart. Use the `cart_id` field on the Order to construct the Cart Metafield
+        endpoint. 
+    paths:
+      /carts/{cart_id}/metafields:
+        post:
+          summary: Create A Cart Metafield
+          description: >-
+            Create a cart `Metafield`. If you create an order from a Cart, you can
+            continue referencing the Cart Metafields even if you delete the original
+            Cart. Use the `cart_id` field on the Order to construct the Cart
+            Metafield endpoint. 
+          operationId: createCartMetafield
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/MetafieldBase_Post'
+                example:
+                  permission_set: app_only
+                  namespace: Sales Department
+                  key: Staff Name
+                  value: Sam
+                  description: Name of staff member
+          responses:
+            '404':
+              description: |
+                The resource was not found.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/NotFound'
+                  examples:
+                    example-1:
+                      value:
+                        status: 404
+                        title: There was no order found with ID 1010
+                        type: >-
+                          https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes

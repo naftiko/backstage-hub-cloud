@@ -1,0 +1,63 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve All Blocks
+  description: >-
+    **This endpoint allows you to retrieve a paginated list of all email
+    addresses that are currently on your blocks list.**You can use the `limit`
+    query parameter to set the page size. If your list contains more items than
+    the page size permits, you can make multiple requests. Use the `offset`
+    query parameter to control the position in the list from which to start
+    retrieving additional items.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve All Blocks
+      description: >-
+        **This endpoint allows you to retrieve a paginated list of all email
+        addresses that are currently on your blocks list.**You can use the `limit`
+        query parameter to set the page size. If your list contains more items than
+        the page size permits, you can make multiple requests. Use the `offset`
+        query parameter to control the position in the list from which to start
+        retrieving additional items.
+    paths:
+      /v3/suppression/blocks:
+        get:
+          summary: Retrieve All Blocks
+          description: >-
+            **This endpoint allows you to retrieve a paginated list of all email
+            addresses that are currently on your blocks list.**You can use the
+            `limit` query parameter to set the page size. If your list contains more
+            items than the page size permits, you can make multiple requests. Use
+            the `offset` query parameter to control the position in the list from
+            which to start retrieving additional items.
+          operationId: listSuppressionBlock
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/BlocksResponse'
+                  examples:
+                    response:
+                      value:
+                        - created: 1443651154
+                          email: example@example.com
+                          reason: >-
+                            error dialing remote address: dial tcp 10.57.152.165:25:
+                            no route to host
+                          status: 4.0.0
+                        - created: 1443651155
+                          email: example1@example.com
+                          reason: 'unable to resolve MX record for example.com: servfail'
+                          status: 4.0.0

@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Field Auto Complete Suggestions
+  description: >-
+    Returns the JQL search auto complete suggestions for a field.Suggestions can
+    be obtained by providing: *  `fieldName` to get a list of all values for the
+    field. *  `fieldName` and `fieldValue` to get a list of values containing
+    the text in `fieldValue`. *  `fieldName` and `predicateName` to get a list
+    of all predicate values for the field. *  `fieldName`, `predicateName`, and
+    `predicateValue` to get a list of predicate values containing the text in
+    `predicateValue`.This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** None.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Field Auto Complete Suggestions
+      description: >-
+        Returns the JQL search auto complete suggestions for a field.Suggestions can
+        be obtained by providing: *  `fieldName` to get a list of all values for the
+        field. *  `fieldName` and `fieldValue` to get a list of values containing
+        the text in `fieldValue`. *  `fieldName` and `predicateName` to get a list
+        of all predicate values for the field. *  `fieldName`, `predicateName`, and
+        `predicateValue` to get a list of predicate values containing the text in
+        `predicateValue`.This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** None.
+    paths:
+      /rest/api/3/jql/autocompletedata/suggestions:
+        get:
+          summary: Get Field Auto Complete Suggestions
+          description: >-
+            Returns the JQL search auto complete suggestions for a field.Suggestions
+            can be obtained by providing: *  `fieldName` to get a list of all values
+            for the field. *  `fieldName` and `fieldValue` to get a list of values
+            containing the text in `fieldValue`. *  `fieldName` and `predicateName`
+            to get a list of all predicate values for the field. *  `fieldName`,
+            `predicateName`, and `predicateValue` to get a list of predicate values
+            containing the text in `predicateValue`.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** None.
+          operationId: getFieldAutoCompleteForQueryString
+          responses:
+            '401':
+              description: Returned if the authentication credentials are incorrect.

@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Refresh Database Replications.
+  description: >-
+    Refreshes a secondary database from a snapshot of its primary database. A
+    snapshot includes changes to the objects and data.If you call this endpoint
+    while another refresh for the same replica database is running, it fails and
+    returns an error. Snowflake ensures only one refresh is executed at any
+    given time.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Refresh Database Replications.
+      description: >-
+        Refreshes a secondary database from a snapshot of its primary database. A
+        snapshot includes changes to the objects and data.If you call this endpoint
+        while another refresh for the same replica database is running, it fails and
+        returns an error. Snowflake ensures only one refresh is executed at any
+        given time.
+    paths:
+      /api/v2/databases/{name}/replication:refresh:
+        post:
+          summary: Refresh Database Replications.
+          description: >-
+            Refreshes a secondary database from a snapshot of its primary database.
+            A snapshot includes changes to the objects and data.If you call this
+            endpoint while another refresh for the same replica database is running,
+            it fails and returns an error. Snowflake ensures only one refresh is
+            executed at any given time.
+          operationId: refreshDatabaseReplication
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

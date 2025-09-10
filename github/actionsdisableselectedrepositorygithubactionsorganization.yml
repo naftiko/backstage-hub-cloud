@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Disable A Selected Repository For Github Actions In An Organization
+  description: >-
+    Removes a repository from the list of selected repositories that are enabled
+    for GitHub Actions in an organization. To use this endpoint, the
+    organization permission policy for `enabled_repositories` must be configured
+    to `selected`. For more information, see "[Set GitHub Actions permissions
+    for an
+    organization](#set-github-actions-permissions-for-an-organization)."OAuth
+    tokens and personal access tokens (classic) need the `admin:org` scope to
+    use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disable A Selected Repository For Github Actions In An Organization
+      description: >-
+        Removes a repository from the list of selected repositories that are enabled
+        for GitHub Actions in an organization. To use this endpoint, the
+        organization permission policy for `enabled_repositories` must be configured
+        to `selected`. For more information, see "[Set GitHub Actions permissions
+        for an
+        organization](#set-github-actions-permissions-for-an-organization)."OAuth
+        tokens and personal access tokens (classic) need the `admin:org` scope to
+        use this endpoint.
+    paths:
+      /orgs/{org}/actions/permissions/repositories/{repository_id}:
+        delete:
+          summary: Disable A Selected Repository For Github Actions In An Organization
+          description: >-
+            Removes a repository from the list of selected repositories that are
+            enabled for GitHub Actions in an organization. To use this endpoint, the
+            organization permission policy for `enabled_repositories` must be
+            configured to `selected`. For more information, see "[Set GitHub Actions
+            permissions for an
+            organization](#set-github-actions-permissions-for-an-organization)."OAuth
+            tokens and personal access tokens (classic) need the `admin:org` scope
+            to use this endpoint.
+          operationId: actionsdisableselectedrepositorygithubactionsorganization
+          responses:
+            '204':
+              description: Response

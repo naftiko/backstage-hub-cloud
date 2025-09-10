@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deletes A Job.
+  description: >-
+    Deleting a Job also deletes all Tasks that are part of that Job, and all
+    Jobstatistics. This also overrides the retention period for Task data; that
+    is, ifthe Job contains Tasks which are still retained on Compute Nodes, the
+    Batchservices deletes those Tasks' working directories and all their
+    contents.  Whena Delete Job request is received, the Batch service sets the
+    Job to thedeleting state. All update operations on a Job that is in deleting
+    state willfail with status code 409 (Conflict), with additional information
+    indicatingthat the Job is being deleted.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes A Job.
+      description: >-
+        Deleting a Job also deletes all Tasks that are part of that Job, and all
+        Jobstatistics. This also overrides the retention period for Task data; that
+        is, ifthe Job contains Tasks which are still retained on Compute Nodes, the
+        Batchservices deletes those Tasks' working directories and all their
+        contents.  Whena Delete Job request is received, the Batch service sets the
+        Job to thedeleting state. All update operations on a Job that is in deleting
+        state willfail with status code 409 (Conflict), with additional information
+        indicatingthat the Job is being deleted.
+    paths:
+      /jobs/{jobId}:
+        delete:
+          summary: Deletes A Job.
+          description: >-
+            Deleting a Job also deletes all Tasks that are part of that Job, and all
+            Jobstatistics. This also overrides the retention period for Task data;
+            that is, ifthe Job contains Tasks which are still retained on Compute
+            Nodes, the Batchservices deletes those Tasks' working directories and
+            all their contents.  Whena Delete Job request is received, the Batch
+            service sets the Job to thedeleting state. All update operations on a
+            Job that is in deleting state willfail with status code 409 (Conflict),
+            with additional information indicatingthat the Job is being deleted.
+          operationId: batchDeleteJob
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

@@ -1,0 +1,81 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Workflow Transition Rule Configurations
+  description: >-
+    Returns a [paginated](#pagination) list of workflows with transition rules.
+    The workflows can be filtered to return only those containing workflow
+    transition rules: *  of one or more transition rule types, such as [workflow
+    post
+    functions](https://developer.atlassian.com/cloud/jira/platform/modules/workflow-post-function/).
+    *  matching one or more transition rule keys.Only workflows containing
+    transition rules created by the calling
+    [Connect](https://developer.atlassian.com/cloud/jira/platform/index/#connect-apps)
+    or
+    [Forge](https://developer.atlassian.com/cloud/jira/platform/index/#forge-apps)
+    app are returned.Due to server-side optimizations, workflows with an empty
+    list of rules may be returned; these workflows can be
+    ignored.**[Permissions](#permissions) required:** Only
+    [Connect](https://developer.atlassian.com/cloud/jira/platform/index/#connect-apps)
+    or
+    [Forge](https://developer.atlassian.com/cloud/jira/platform/index/#forge-apps)
+    apps can use this operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Workflow Transition Rule Configurations
+      description: >-
+        Returns a [paginated](#pagination) list of workflows with transition rules.
+        The workflows can be filtered to return only those containing workflow
+        transition rules: *  of one or more transition rule types, such as [workflow
+        post
+        functions](https://developer.atlassian.com/cloud/jira/platform/modules/workflow-post-function/).
+        *  matching one or more transition rule keys.Only workflows containing
+        transition rules created by the calling
+        [Connect](https://developer.atlassian.com/cloud/jira/platform/index/#connect-apps)
+        or
+        [Forge](https://developer.atlassian.com/cloud/jira/platform/index/#forge-apps)
+        app are returned.Due to server-side optimizations, workflows with an empty
+        list of rules may be returned; these workflows can be
+        ignored.**[Permissions](#permissions) required:** Only
+        [Connect](https://developer.atlassian.com/cloud/jira/platform/index/#connect-apps)
+        or
+        [Forge](https://developer.atlassian.com/cloud/jira/platform/index/#forge-apps)
+        apps can use this operation.
+    paths:
+      /rest/api/3/workflow/rule/config:
+        get:
+          summary: Get Workflow Transition Rule Configurations
+          description: >-
+            Returns a [paginated](#pagination) list of workflows with transition
+            rules. The workflows can be filtered to return only those containing
+            workflow transition rules: *  of one or more transition rule types, such
+            as [workflow post
+            functions](https://developer.atlassian.com/cloud/jira/platform/modules/workflow-post-function/).
+            *  matching one or more transition rule keys.Only workflows containing
+            transition rules created by the calling
+            [Connect](https://developer.atlassian.com/cloud/jira/platform/index/#connect-apps)
+            or
+            [Forge](https://developer.atlassian.com/cloud/jira/platform/index/#forge-apps)
+            app are returned.Due to server-side optimizations, workflows with an
+            empty list of rules may be returned; these workflows can be
+            ignored.**[Permissions](#permissions) required:** Only
+            [Connect](https://developer.atlassian.com/cloud/jira/platform/index/#connect-apps)
+            or
+            [Forge](https://developer.atlassian.com/cloud/jira/platform/index/#forge-apps)
+            apps can use this operation.
+          operationId: getWorkflowTransitionRuleConfigurations
+          responses:
+            '503':
+              description: >-
+                Returned if we encounter a problem while trying to access the
+                required data.

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updateresourceprofile
+  description: Updates the sensitivity score for an S3 bucket.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateresourceprofile
+      description: Updates the sensitivity score for an S3 bucket.
+    paths:
+      /resource-profiles:
+        PATCH:
+          summary: Updateresourceprofile
+          description: Updates the sensitivity score for an S3 bucket.
+          operationId: updateResourceProfile

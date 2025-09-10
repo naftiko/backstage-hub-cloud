@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Data Policy For Projects (eap)
+  description: Returns data policies for the projects specified in the request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Data Policy For Projects (eap)
+      description: Returns data policies for the projects specified in the request.
+    paths:
+      /rest/api/3/data-policy/project:
+        get:
+          summary: Get Data Policy For Projects (eap)
+          description: Returns data policies for the projects specified in the request.
+          operationId: getPolicies
+          responses:
+            '403':
+              content:
+                application/json:
+                  example: '{"errorMessages":[""],"errors":{}}'
+                  schema:
+                    $ref: '#/components/schemas/ErrorCollection'
+              description: Returned if the client is not authorized to make the request.

@@ -1,0 +1,76 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Admin.conversations.unarchive
+  description: Unarchive a public or private channel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Admin.conversations.unarchive
+      description: Unarchive a public or private channel.
+    paths:
+      /admin.conversations.unarchive:
+        post:
+          summary: Post Admin.conversations.unarchive
+          description: Unarchive a public or private channel.
+          operationId: adminconversationsunarchive
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - channel_id
+                  type: object
+                  properties:
+                    channel_id:
+                      type: string
+                      description: The channel to unarchive.
+              application/json:
+                schema:
+                  required:
+                    - channel_id
+                  type: object
+                  properties:
+                    channel_id:
+                      type: string
+                      description: The channel to unarchive.
+          responses:
+            default:
+              description: Typical error response
+              content:
+                application/json:
+                  schema:
+                    title: admin.conversations.unarchive error schema
+                    required:
+                      - error
+                      - ok
+                    type: object
+                    properties:
+                      error:
+                        type: string
+                        enum:
+                          - feature_not_enabled
+                          - channel_not_found
+                          - channel_not_archived
+                          - channel_type_not_supported
+                          - restricted_action
+                          - could_not_unarchive_channel
+                          - default_org_wide_channel
+                          - missing_scope
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                    additionalProperties: false
+                    description: Schema for error response from admin.conversations.unarchive
+                  example:
+                    error: invalid_auth
+                    ok: false

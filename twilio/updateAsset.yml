@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Services Servicesid Assets Sid
+  description: Update a specific Asset resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Services Servicesid Assets Sid
+      description: Update a specific Asset resource.
+    paths:
+      /v1/Services/{ServiceSid}/Assets/{Sid}:
+        post:
+          summary: Post Services Servicesid Assets Sid
+          description: Update a specific Asset resource.
+          operationId: updateAsset
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/UpdateAssetRequest'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/serverless.v1.service.asset'
+              description: OK

@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Patch A Synthetic Test
+  description: Patch the configuration of a Synthetic test with partial data.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Patch A Synthetic Test
+      description: Patch the configuration of a Synthetic test with partial data.
+    paths:
+      /api/v1/synthetics/tests/{public_id}:
+        patch:
+          summary: Patch A Synthetic Test
+          description: Patch the configuration of a Synthetic test with partial data.
+          operationId: patchaSynthetictest
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      - op: replace
+                        path: /name
+                        value: New test name
+                      - op: remove
+                        path: /config/assertions/0
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

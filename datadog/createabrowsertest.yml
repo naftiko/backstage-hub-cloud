@@ -1,0 +1,174 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Browser Test
+  description: Create a Synthetic browser test.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Browser Test
+      description: Create a Synthetic browser test.
+    paths:
+      /api/v1/synthetics/tests/browser:
+        post:
+          summary: Create A Browser Test
+          description: Create a Synthetic browser test.
+          operationId: createabrowsertest
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    config:
+                      request:
+                        allow_insecure: false
+                        basicAuth:
+                          password: PaSSw0RD!
+                          username: my_username
+                          type: web
+                        body: id occaecat eiusmod
+                        bodyType: text/plain
+                        callType: unary
+                        certificate:
+                          cert:
+                            content: cupidatat qui
+                            filename: nisi minim amet
+                            updatedAt: deserunt et aliqua mollit sunt
+                          key:
+                            content: sunt sit irure Lor
+                            filename: ullamco nulla incididunt eiusmod sit
+                            updatedAt: Lorem fugiat veniam eu pariatur
+                        compressedJsonDescriptor: adipisicing
+                        compressedProtoFile: consectetur esse dolore
+                        dnsServer: in eiusmod deserunt in fugiat
+                        dnsServerPort: 37494
+                        follow_redirects: false
+                        headers:
+                          cupidatat77d: Duis aliqua sint
+                          sit1: consectetur Duis aliquip nisi
+                          sit4: ipsum quis proident elit
+                        host: cupidatat
+                        httpVersion: any
+                        message: ex incididunt irure
+                        metadata:
+                          aliquip4ae: in non proident reprehenderit adipisicing
+                          culpa_d: eu in laborum
+                          cupidatat7a7: sint ut ullamco enim
+                        method: et exercitation sit culpa
+                        noSavingResponseBody: true
+                        numberOfPackets: 0
+                        persistCookies: true
+                        port: -30133525
+                        proxy:
+                          url: https://example.com
+                          headers:
+                            doloreeae: esse proident
+                        query: {}
+                        servername: Lorem ex
+                        service: Greeter
+                        shouldTrackHops: false
+                        timeout: 12837321.416178986
+                        url: https://example.com
+                      configVariables:
+                        - description: Example for the variable.
+                          type: string
+                        - description: Example for the variable.
+                          type: string
+                      setCookie: quis irure velit cupidatat
+                      variables:
+                        - description: Example for the variable.
+                          type: string
+                        - description: Example for the variable.
+                          type: string
+                    locations:
+                      - aws:eu-west-3
+                    name: Example test name
+                    options:
+                      accept_self_signed: true
+                      allow_insecure: true
+                      checkCertificateRevocation: true
+                      ci:
+                        executionRule: non_blocking
+                      device_ids:
+                        - chrome.laptop_large
+                        - chrome.laptop_large
+                      disableCors: false
+                      disableCsp: false
+                      follow_redirects: false
+                      httpVersion: any
+                      ignoreServerCertificateError: false
+                      initialNavigationTimeout: 88407554
+                      min_failure_duration: 58974361
+                      min_location_failed: 18089504
+                      monitor_name: anim in tempor
+                      monitor_options:
+                        renotify_interval: 287
+                      monitor_priority: 3
+                      noScreenshot: true
+                      restricted_roles:
+                        - xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+                      retry:
+                        count: -7254805
+                        interval: -2097545.1785587072
+                      rumSettings:
+                        applicationId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+                        clientTokenId: 12345
+                        isEnabled: true
+                      scheduling:
+                        timeframes:
+                          - day: 1
+                            from: '07:00'
+                            to: '16:00'
+                          - day: 3
+                            from: '07:00'
+                            to: '16:00'
+                        timezone: America/New_York
+                      tick_every: 355063
+                    type: browser
+                    message: ''
+                    monitor_id: -39539775
+                    public_id: adipisicing sit ipsum
+                    status: live
+                    steps:
+                      - allowFailure: true
+                        isCritical: true
+                        name: dolor occaecat elit reprehenderit sed
+                        noScreenshot: false
+                        params: {}
+                        timeout: -76937205
+                        type: assertElementContent
+                      - allowFailure: false
+                        isCritical: false
+                        name: consectetur laborum
+                        noScreenshot: false
+                        params: {}
+                        timeout: -5409357
+                        type: assertElementContent
+                    tags:
+                      - env:prod
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

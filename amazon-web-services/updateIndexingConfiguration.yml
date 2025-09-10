@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updateindexingconfiguration
+  description: >-
+    Updates the search configuration. Requires permission to access the
+    UpdateIndexingConfiguration action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateindexingconfiguration
+      description: >-
+        Updates the search configuration. Requires permission to access the
+        UpdateIndexingConfiguration action.
+    paths:
+      /indexing/config:
+        POST:
+          summary: Updateindexingconfiguration
+          description: >-
+            Updates the search configuration. Requires permission to access the
+            UpdateIndexingConfiguration action.
+          operationId: updateIndexingConfiguration

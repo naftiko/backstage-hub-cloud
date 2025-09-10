@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Repository Deploy Key
+  description: This deletes a deploy key from a repository.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Repository Deploy Key
+      description: This deletes a deploy key from a repository.
+    paths:
+      /repositories/{workspace}/{repo_slug}/deploy-keys/{key_id}:
+        delete:
+          summary: Delete A Repository Deploy Key
+          description: This deletes a deploy key from a repository.
+          operationId: deletearepositorydeploykey
+          responses:
+            '404':
+              description: If the specified user, repository, or deploy key does not exist
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

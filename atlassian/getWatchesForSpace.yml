@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Watches For Space
+  description: >-
+    Returns all space watches for the space that the content is in. A user
+    thatwatches a space will receive receive notifications when any content in
+    thespace is updated.If you want to manage watches for a space, use the
+    following `user` methods:- [Get space watch status for
+    user](#api-user-watch-space-spaceKey-get)- [Add space
+    watch](#api-user-watch-space-spaceKey-post)- [Remove space
+    watch](#api-user-watch-space-spaceKey-delete)**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to access the Confluence site ('Can use' global
+    permission).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Watches For Space
+      description: >-
+        Returns all space watches for the space that the content is in. A user
+        thatwatches a space will receive receive notifications when any content in
+        thespace is updated.If you want to manage watches for a space, use the
+        following `user` methods:- [Get space watch status for
+        user](#api-user-watch-space-spaceKey-get)- [Add space
+        watch](#api-user-watch-space-spaceKey-post)- [Remove space
+        watch](#api-user-watch-space-spaceKey-delete)**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to access the Confluence site ('Can use' global
+        permission).
+    paths:
+      /wiki/rest/api/content/{id}/notification/created:
+        get:
+          summary: Get Watches For Space
+          description: >-
+            Returns all space watches for the space that the content is in. A user
+            thatwatches a space will receive receive notifications when any content
+            in thespace is updated.If you want to manage watches for a space, use
+            the following `user` methods:- [Get space watch status for
+            user](#api-user-watch-space-spaceKey-get)- [Add space
+            watch](#api-user-watch-space-spaceKey-post)- [Remove space
+            watch](#api-user-watch-space-spaceKey-delete)**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to access the Confluence site ('Can use' global
+            permission).
+          operationId: getWatchesForSpace
+          responses:
+            '401':
+              description: |-
+                Returned if the authentication credentials are incorrect or missing
+                from the request.
+              content: {}

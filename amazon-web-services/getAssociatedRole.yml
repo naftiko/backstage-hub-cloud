@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getassociatedrole
+  description: Retrieves the role associated with a particular group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getassociatedrole
+      description: Retrieves the role associated with a particular group.
+    paths:
+      /greengrass/groups/{GroupId}/role:
+        GET:
+          summary: Getassociatedrole
+          description: Retrieves the role associated with a particular group.
+          operationId: getAssociatedRole

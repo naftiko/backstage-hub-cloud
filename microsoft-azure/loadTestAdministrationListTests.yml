@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get All Load Tests By The Fully Qualified Resource Id E.g
+
+    subscriptions/{subid}/resourcegroups/{rg}/providers/microsoft.loadtestservice/loadtests/{resname}.
+  description: >-
+    Get all load tests by the fully qualified resource Id
+    e.gsubscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.LoadTestService/loadtests/{resName}.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get All Load Tests By The Fully Qualified Resource Id E.g
+
+        subscriptions/{subid}/resourcegroups/{rg}/providers/microsoft.loadtestservice/loadtests/{resname}.
+      description: >-
+        Get all load tests by the fully qualified resource Id
+        e.gsubscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.LoadTestService/loadtests/{resName}.
+    paths:
+      /tests:
+        get:
+          summary: >-
+            Get All Load Tests By The Fully Qualified Resource Id E.g
+
+            subscriptions/{subid}/resourcegroups/{rg}/providers/microsoft.loadtestservice/loadtests/{resname}.
+          description: >-
+            Get all load tests by the fully qualified resource Id
+            e.gsubscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.LoadTestService/loadtests/{resName}.
+          operationId: loadTestAdministrationListTests
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/Azure.Core.Foundations.ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: String error code indicating what went wrong.

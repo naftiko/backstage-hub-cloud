@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getinsights
+  description: Lists and describes insights for the specified insight ARNs.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getinsights
+      description: Lists and describes insights for the specified insight ARNs.
+    paths:
+      /insights/get:
+        POST:
+          summary: Getinsights
+          description: Lists and describes insights for the specified insight ARNs.
+          operationId: getInsights

@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Createchattoken
+  description: >-
+    Creates an encrypted token that is used by a chat participant to establish
+    an individual WebSocket chat connection to a room. When the token is used to
+    connect to chat, the connection is valid for the session duration specified
+    in the request. The token becomes invalid at the token-expiration timestamp
+    included in the response. Use the capabilities field to permit an end user
+    to send messages or moderate a room. The attributes field securely attaches
+    structured data to the chat session; the data is included within each
+    message sent by the end user and received by other participants in the room.
+    Common use cases for attributes include passing end-user profile data like
+    an icon, display name, colors, badges, and other display features.
+    Encryption keys are owned by Amazon IVS Chat and never used directly by your
+    application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createchattoken
+      description: >-
+        Creates an encrypted token that is used by a chat participant to establish
+        an individual WebSocket chat connection to a room. When the token is used to
+        connect to chat, the connection is valid for the session duration specified
+        in the request. The token becomes invalid at the token-expiration timestamp
+        included in the response. Use the capabilities field to permit an end user
+        to send messages or moderate a room. The attributes field securely attaches
+        structured data to the chat session; the data is included within each
+        message sent by the end user and received by other participants in the room.
+        Common use cases for attributes include passing end-user profile data like
+        an icon, display name, colors, badges, and other display features.
+        Encryption keys are owned by Amazon IVS Chat and never used directly by your
+        application.
+    paths:
+      /CreateChatToken:
+        POST:
+          summary: Createchattoken
+          description: >-
+            Creates an encrypted token that is used by a chat participant to
+            establish an individual WebSocket chat connection to a room. When the
+            token is used to connect to chat, the connection is valid for the
+            session duration specified in the request. The token becomes invalid at
+            the token-expiration timestamp included in the response. Use the
+            capabilities field to permit an end user to send messages or moderate a
+            room. The attributes field securely attaches structured data to the chat
+            session; the data is included within each message sent by the end user
+            and received by other participants in the room. Common use cases for
+            attributes include passing end-user profile data like an icon, display
+            name, colors, badges, and other display features. Encryption keys are
+            owned by Amazon IVS Chat and never used directly by your application.
+          operationId: createChatToken

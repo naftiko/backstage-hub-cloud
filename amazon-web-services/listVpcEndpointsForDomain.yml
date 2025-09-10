@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listvpcendpointsfordomain
+  description: >-
+    Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated
+    with a particular domain.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listvpcendpointsfordomain
+      description: >-
+        Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated
+        with a particular domain.
+    paths:
+      /2021-01-01/opensearch/domain/{DomainName}/vpcEndpoints:
+        GET:
+          summary: Listvpcendpointsfordomain
+          description: >-
+            Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated
+            with a particular domain.
+          operationId: listVpcEndpointsForDomain

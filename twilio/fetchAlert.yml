@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Alerts Sid
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Alerts Sid
+      description: Needs a more full description created.
+    paths:
+      /v1/Alerts/{Sid}:
+        get:
+          summary: Get Alerts Sid
+          description: Needs a more full description created.
+          operationId: fetchAlert
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/monitor.v1.alert-instance'
+              description: OK

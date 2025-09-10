@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listappcomponentrecommendations
+  description: Lists the recommendations for an Resilience Hub Application Component.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listappcomponentrecommendations
+      description: Lists the recommendations for an Resilience Hub Application Component.
+    paths:
+      /list-app-component-recommendations:
+        POST:
+          summary: Listappcomponentrecommendations
+          description: Lists the recommendations for an Resilience Hub Application Component.
+          operationId: listAppComponentRecommendations

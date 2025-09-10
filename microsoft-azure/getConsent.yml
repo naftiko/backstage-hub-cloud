@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Single Consent With Operator For Current User
+  description: This endpoint gets single Consent with Operator for current user
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Single Consent With Operator For Current User
+      description: This endpoint gets single Consent with Operator for current user
+    paths:
+      /operatorconnect/consents/{operatorId}:
+        get:
+          summary: Get Single Consent With Operator For Current User
+          description: This endpoint gets single Consent with Operator for current user
+          operationId: getConsent
+          responses:
+            default:
+              description: Failure
+              schema:
+                $ref: >-
+                  ../../../Common/stable/2021-03-07/common.json#/definitions/CommunicationErrorResponse
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: Error code

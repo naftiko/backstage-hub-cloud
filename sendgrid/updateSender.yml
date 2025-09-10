@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Sender
+  description: >-
+    **This endpoint allows you to update an existing Sender.**Updates to
+    `from.email` require re-verification. If your domain has been authenticated,
+    a new Sender will auto verify on creation. Otherwise, an email will be sent
+    to the `from.email`.Partial updates are allowed, but fields that are marked
+    as "required" in the `POST` (create) endpoint must not be nil if that field
+    is included in the `PATCH` request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Sender
+      description: >-
+        **This endpoint allows you to update an existing Sender.**Updates to
+        `from.email` require re-verification. If your domain has been authenticated,
+        a new Sender will auto verify on creation. Otherwise, an email will be sent
+        to the `from.email`.Partial updates are allowed, but fields that are marked
+        as "required" in the `POST` (create) endpoint must not be nil if that field
+        is included in the `PATCH` request.
+    paths:
+      /v3/marketing/senders/{id}:
+        patch:
+          summary: Update A Sender
+          description: >-
+            **This endpoint allows you to update an existing Sender.**Updates to
+            `from.email` require re-verification. If your domain has been
+            authenticated, a new Sender will auto verify on creation. Otherwise, an
+            email will be sent to the `from.email`.Partial updates are allowed, but
+            fields that are marked as "required" in the `POST` (create) endpoint
+            must not be nil if that field is included in the `PATCH` request.
+          operationId: updateSender
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/SenderRequest'
+          responses:
+            '404':
+              $ref: '#/components/responses/Senders404'

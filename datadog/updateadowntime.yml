@@ -1,0 +1,72 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Downtime
+  description: Update a downtime by `downtime_id`.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Downtime
+      description: Update a downtime by `downtime_id`.
+    paths:
+      /api/v2/downtime/{downtime_id}:
+        patch:
+          summary: Update A Downtime
+          description: Update a downtime by `downtime_id`.
+          operationId: updateadowntime
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      id: 00000000-0000-1234-0000-000000000000
+                      type: downtime
+                      attributes:
+                        display_timezone: America/New_York
+                        message: Message about the downtime
+                        monitor_identifier:
+                          monitor_id: 123
+                        mute_first_recovery_notification: false
+                        notify_end_states:
+                          - alert
+                          - warn
+                        notify_end_types:
+                          - canceled
+                          - expired
+                        schedule:
+                          recurrences:
+                            - duration: 123d
+                              rrule: FREQ=MONTHLY;BYSETPOS=3;BYDAY=WE;INTERVAL=1
+                              start: 2020-01-02T03:04
+                            - duration: 123d
+                              rrule: FREQ=MONTHLY;BYSETPOS=3;BYDAY=WE;INTERVAL=1
+                              start: 2020-01-02T03:04
+                          timezone: America/New_York
+                        scope: env:(staging OR prod) AND datacenter:us-east-1
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

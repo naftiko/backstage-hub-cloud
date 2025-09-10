@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Capture Order Payment
+  description: >-
+    Capture the payment for an order. When there are no payment method
+    validation issues, the capture process is successful, the `payment_status`
+    updates to `capture pending`, and the payment request is scheduled. The
+    payment request itself occurs asynchronously.Requires at least one of the
+    following scopes:* `store_v2_orders`* `store_v2_transactions`
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Capture Order Payment
+      description: >-
+        Capture the payment for an order. When there are no payment method
+        validation issues, the capture process is successful, the `payment_status`
+        updates to `capture pending`, and the payment request is scheduled. The
+        payment request itself occurs asynchronously.Requires at least one of the
+        following scopes:* `store_v2_orders`* `store_v2_transactions`
+    paths:
+      /orders/{order_id}/payment_actions/capture:
+        post:
+          summary: Capture Order Payment
+          description: >-
+            Capture the payment for an order. When there are no payment method
+            validation issues, the capture process is successful, the
+            `payment_status` updates to `capture pending`, and the payment request
+            is scheduled. The payment request itself occurs asynchronously.Requires
+            at least one of the following scopes:* `store_v2_orders`*
+            `store_v2_transactions`
+          operationId: captureOrderPayment
+          responses:
+            '504':
+              $ref: '#/components/responses/504_GatewayTimeout'

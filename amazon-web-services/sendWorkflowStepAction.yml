@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Sendworkflowstepaction
+  description: >-
+    Pauses or resumes image creation when the associated workflow runs a
+    WaitForAction step.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Sendworkflowstepaction
+      description: >-
+        Pauses or resumes image creation when the associated workflow runs a
+        WaitForAction step.
+    paths:
+      /SendWorkflowStepAction:
+        PUT:
+          summary: Sendworkflowstepaction
+          description: >-
+            Pauses or resumes image creation when the associated workflow runs a
+            WaitForAction step.
+          operationId: sendWorkflowStepAction

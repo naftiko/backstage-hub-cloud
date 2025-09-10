@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Hosts For Your Organization
+  description: >-
+    This endpoint allows searching for hosts by name, alias, or tag.Hosts live
+    within the past 3 hours are included by default.Retention is 7 days.Results
+    are paginated with a max of 1000 results at a time.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Hosts For Your Organization
+      description: >-
+        This endpoint allows searching for hosts by name, alias, or tag.Hosts live
+        within the past 3 hours are included by default.Retention is 7 days.Results
+        are paginated with a max of 1000 results at a time.
+    paths:
+      /api/v1/hosts:
+        get:
+          summary: Get All Hosts For Your Organization
+          description: >-
+            This endpoint allows searching for hosts by name, alias, or tag.Hosts
+            live within the past 3 hours are included by default.Retention is 7
+            days.Results are paginated with a max of 1000 results at a time.
+          operationId: getallhostsforyourorganization
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

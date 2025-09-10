@@ -1,0 +1,80 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Caution
+     This Endpoint Is No Longer Required And Is Deprecated As Of
+     Api Version 2021-01.
+
+    activates A Previously Accepted Recurring Application Charge. Recurring
+    Charges Are Now
+
+    immediately Activated When Approved By A Merchant.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/billing/recurringapplicationcharge#activate-2020-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Caution
+         This Endpoint Is No Longer Required And Is Deprecated As Of
+         Api Version 2021-01.
+
+        activates A Previously Accepted Recurring Application Charge. Recurring
+        Charges Are Now
+
+        immediately Activated When Approved By A Merchant.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/billing/recurringapplicationcharge#activate-2020-01
+    paths:
+      /admin/api/2020-01/recurring_application_charges/{recurring_application_charge_id}/activate.json:
+        post:
+          summary: >-
+            Caution
+             This Endpoint Is No Longer Required And Is Deprecated As Of
+             Api Version 2021-01.
+
+            activates A Previously Accepted Recurring Application Charge. Recurring
+            Charges Are Now
+
+            immediately Activated When Approved By A Merchant.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/billing/recurringapplicationcharge#activate-2020-01
+          operationId: >-
+            deprecated202001createrecurringapplicationchargesparamrecurringapplicationchargeidactivate
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      recurring_application_charge:
+                        id: 455696195
+                        name: Super Mega Plan
+                        api_client_id: 755357713
+                        price: '15.00'
+                        status: accepted
+                        return_url: http://yourapp.com
+                        billing_on: '2020-12-07'
+                        created_at: '2020-12-07T15:53:44-05:00'
+                        updated_at: '2020-12-06T19:00:00-05:00'
+                        test: null
+                        activated_on: null
+                        cancelled_on: null
+                        trial_days: 0
+                        trial_ends_on: null
+                        decorated_return_url: http://yourapp.com?charge_id=455696195
+                    summary: Activate a recurring application charge
+          responses:
+            '200':
+              description: ''

@@ -1,0 +1,88 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Product Modifier Values
+  description: >-
+    Returns a list of all product *Modifier Values*. Optional parameters can be
+    passed in.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Product Modifier Values
+      description: >-
+        Returns a list of all product *Modifier Values*. Optional parameters can be
+        passed in.
+    paths:
+      /catalog/products/{product_id}/modifiers/{modifier_id}/values:
+        get:
+          summary: Get All Product Modifier Values
+          description: >-
+            Returns a list of all product *Modifier Values*. Optional parameters can
+            be passed in.
+          operationId: getProductModifierValues
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    title: Modifier Value Collection Response
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/productModifierOptionValue_Full'
+                      meta:
+                        $ref: '#/components/schemas/metaCollection_Full'
+                    description: Returns for GET All Modifier Values on a Product
+                  example:
+                    data:
+                      - id: 190
+                        option_id: 222
+                        label: 'Yes'
+                        sort_order: 0
+                        value_data:
+                          checked_value: true
+                        is_default: false
+                        adjusters:
+                          price:
+                            adjuster: relative
+                            adjuster_value: 5
+                          weight: {}
+                          image_url: ''
+                          purchasing_disabled:
+                            status: false
+                            message: ''
+                      - id: 191
+                        option_id: 222
+                        label: 'No'
+                        sort_order: 1
+                        value_data:
+                          checked_value: false
+                        is_default: true
+                        adjusters:
+                          price: {}
+                          weight: {}
+                          image_url: ''
+                          purchasing_disabled:
+                            status: false
+                            message: ''
+                    meta:
+                      pagination:
+                        total: 2
+                        count: 2
+                        per_page: 50
+                        current_page: 1
+                        total_pages: 1
+                        links:
+                          current: '?page=1&limit=50'

@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Blueprint Templates
+  description: >-
+    Returns all templates provided by blueprints. Use this method to retrieveall
+    global blueprint templates or all blueprint templates in a space.Note, all
+    global blueprints are inherited by each space. Space blueprintscan be
+    customised without affecting the global
+    blueprints.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:'View' permission for the space to view blueprints for the space
+    and permissionto access the Confluence site ('Can use' global permission) to
+    view global blueprints.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Blueprint Templates
+      description: >-
+        Returns all templates provided by blueprints. Use this method to retrieveall
+        global blueprint templates or all blueprint templates in a space.Note, all
+        global blueprints are inherited by each space. Space blueprintscan be
+        customised without affecting the global
+        blueprints.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:'View' permission for the space to view blueprints for the space
+        and permissionto access the Confluence site ('Can use' global permission) to
+        view global blueprints.
+    paths:
+      /wiki/rest/api/template/blueprint:
+        get:
+          summary: Get Blueprint Templates
+          description: >-
+            Returns all templates provided by blueprints. Use this method to
+            retrieveall global blueprint templates or all blueprint templates in a
+            space.Note, all global blueprints are inherited by each space. Space
+            blueprintscan be customised without affecting the global
+            blueprints.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:'View' permission for the space to view blueprints for the
+            space and permissionto access the Confluence site ('Can use' global
+            permission) to view global blueprints.
+          operationId: getBlueprintTemplates
+          responses:
+            '403':
+              description: |-
+                Returned if the calling user does not have permission to view
+                blueprint templates.
+              content: {}

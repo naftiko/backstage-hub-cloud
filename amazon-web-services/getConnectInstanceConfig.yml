@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getconnectinstanceconfig
+  description: Get the specific Connect instance config.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getconnectinstanceconfig
+      description: Get the specific Connect instance config.
+    paths:
+      /connect-instance/{connectInstanceId}/config:
+        GET:
+          summary: Getconnectinstanceconfig
+          description: Get the specific Connect instance config.
+          operationId: getConnectInstanceConfig

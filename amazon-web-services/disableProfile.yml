@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Disableprofile
+  description: >-
+    Disables a profile. When disabled, temporary credential requests with this
+    profile fail.  Required permissions:  rolesanywhere:DisableProfile. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disableprofile
+      description: >-
+        Disables a profile. When disabled, temporary credential requests with this
+        profile fail.  Required permissions:  rolesanywhere:DisableProfile. 
+    paths:
+      /profile/{profileId}/disable:
+        POST:
+          summary: Disableprofile
+          description: >-
+            Disables a profile. When disabled, temporary credential requests with
+            this profile fail.  Required permissions: 
+            rolesanywhere:DisableProfile. 
+          operationId: disableProfile

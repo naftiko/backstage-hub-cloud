@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Content Watch Status
+  description: >-
+    Returns whether a user is watching a piece of content. Choose the user
+    bydoing one of the following:- Specify a user via a query parameter: Use the
+    `accountId` to identify the user.- Do not specify a user: The currently
+    logged-in user will be
+    used.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:'Confluence Administrator' global permission if specifying a
+    user, otherwisepermission to access the Confluence site ('Can use' global
+    permission).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Content Watch Status
+      description: >-
+        Returns whether a user is watching a piece of content. Choose the user
+        bydoing one of the following:- Specify a user via a query parameter: Use the
+        `accountId` to identify the user.- Do not specify a user: The currently
+        logged-in user will be
+        used.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:'Confluence Administrator' global permission if specifying a
+        user, otherwisepermission to access the Confluence site ('Can use' global
+        permission).
+    paths:
+      /wiki/rest/api/user/watch/content/{contentId}:
+        get:
+          summary: Get Content Watch Status
+          description: >-
+            Returns whether a user is watching a piece of content. Choose the user
+            bydoing one of the following:- Specify a user via a query parameter: Use
+            the `accountId` to identify the user.- Do not specify a user: The
+            currently logged-in user will be
+            used.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:'Confluence Administrator' global permission if specifying a
+            user, otherwisepermission to access the Confluence site ('Can use'
+            global permission).
+          operationId: getContentWatchStatus
+          responses:
+            '404':
+              description: Returned if no `contentId` is specified.
+              content: {}

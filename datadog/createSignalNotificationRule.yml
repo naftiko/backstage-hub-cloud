@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A New Signal-based Notification Rule
+  description: >-
+    Create a new notification rule for security signals and return the created
+    rule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A New Signal-based Notification Rule
+      description: >-
+        Create a new notification rule for security signals and return the created
+        rule.
+    paths:
+      /api/v2/security/signals/notification_rules:
+        post:
+          summary: Create A New Signal-based Notification Rule
+          description: >-
+            Create a new notification rule for security signals and return the
+            created rule.
+          operationId: createSignalNotificationRule
+          requestBody:
+            description: >
+              The body of the create notification rule request is composed of the
+              rule type and the rule attributes:
+
+              the rule name, the selectors, the notification targets, and the rule
+              enabled status.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/CreateNotificationRuleParameters'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Generate A Presigned Url And Optionally Encryption Materials.
+  description: >-
+    Generate a presigned url and optionally encryption materials for uploading
+    and downloading files.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Generate A Presigned Url And Optionally Encryption Materials.
+      description: >-
+        Generate a presigned url and optionally encryption materials for uploading
+        and downloading files.
+    paths:
+      /api/v2/databases/{database}/schemas/{schema}/stages/{name}/files/{filePath}:presigned-url:
+        post:
+          summary: Generate A Presigned Url And Optionally Encryption Materials.
+          description: >-
+            Generate a presigned url and optionally encryption materials for
+            uploading and downloading files.
+          operationId: getPresignedUrl
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/PresignedUrlRequest'
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

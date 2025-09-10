@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getpipelineblueprint
+  description: >-
+    Retrieves information about a specific blueprint for OpenSearch Ingestion.
+    Blueprints are templates for the configuration needed for a CreatePipeline
+    request. For more information, see Using blueprints to create a pipeline.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getpipelineblueprint
+      description: >-
+        Retrieves information about a specific blueprint for OpenSearch Ingestion.
+        Blueprints are templates for the configuration needed for a CreatePipeline
+        request. For more information, see Using blueprints to create a pipeline.
+    paths:
+      /2022-01-01/osis/getPipelineBlueprint/{BlueprintName}:
+        GET:
+          summary: Getpipelineblueprint
+          description: >-
+            Retrieves information about a specific blueprint for OpenSearch
+            Ingestion. Blueprints are templates for the configuration needed for a
+            CreatePipeline request. For more information, see Using blueprints to
+            create a pipeline.
+          operationId: getPipelineBlueprint

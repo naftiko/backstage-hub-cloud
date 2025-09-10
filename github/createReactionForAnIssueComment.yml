@@ -1,0 +1,68 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Reaction For An Issue Comment
+  description: >-
+    Create a reaction to an [issue
+    comment](https://docs.github.com/enterprise-server@3.9/rest/issues/comments#get-an-issue-comment).
+    A response with an HTTP `200` status means that you already added the
+    reaction type to this issue comment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Reaction For An Issue Comment
+      description: >-
+        Create a reaction to an [issue
+        comment](https://docs.github.com/enterprise-server@3.9/rest/issues/comments#get-an-issue-comment).
+        A response with an HTTP `200` status means that you already added the
+        reaction type to this issue comment.
+    paths:
+      /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions:
+        post:
+          summary: Create Reaction For An Issue Comment
+          description: >-
+            Create a reaction to an [issue
+            comment](https://docs.github.com/enterprise-server@3.9/rest/issues/comments#get-an-issue-comment).
+            A response with an HTTP `200` status means that you already added the
+            reaction type to this issue comment.
+          operationId: createReactionForAnIssueComment
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    content:
+                      type: string
+                      description: >-
+                        The [reaction
+                        type](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#about-reactions)
+                        to add to the issue comment.
+                      enum:
+                        - '+1'
+                        - '-1'
+                        - laugh
+                        - confused
+                        - heart
+                        - hooray
+                        - rocket
+                        - eyes
+                  required:
+                    - content
+                examples:
+                  default:
+                    value:
+                      content: heart
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

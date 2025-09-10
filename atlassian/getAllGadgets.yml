@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Gadgets
+  description: >-
+    Returns a list of dashboard gadgets on a dashboard.This operation returns:
+    *  Gadgets from a list of IDs, when `id` is set. *  Gadgets with a module
+    key, when `moduleKey` is set. *  Gadgets from a list of URIs, when `uri` is
+    set. *  All gadgets, when no other parameters are set.This operation can be
+    accessed anonymously.**[Permissions](#permissions) required:** None.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Gadgets
+      description: >-
+        Returns a list of dashboard gadgets on a dashboard.This operation returns:
+        *  Gadgets from a list of IDs, when `id` is set. *  Gadgets with a module
+        key, when `moduleKey` is set. *  Gadgets from a list of URIs, when `uri` is
+        set. *  All gadgets, when no other parameters are set.This operation can be
+        accessed anonymously.**[Permissions](#permissions) required:** None.
+    paths:
+      /rest/api/3/dashboard/{dashboardId}/gadget:
+        get:
+          summary: Get Gadgets
+          description: >-
+            Returns a list of dashboard gadgets on a dashboard.This operation
+            returns: *  Gadgets from a list of IDs, when `id` is set. *  Gadgets
+            with a module key, when `moduleKey` is set. *  Gadgets from a list of
+            URIs, when `uri` is set. *  All gadgets, when no other parameters are
+            set.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** None.
+          operationId: getAllGadgets
+          responses:
+            '404':
+              content:
+                application/json:
+                  example: >-
+                    {"errorMessages":["The dashboard you requested either does not
+                    exist or you don't have the required permissions to perform this
+                    action."],"errors":{}}
+                  schema:
+                    $ref: '#/components/schemas/ErrorCollection'
+              description: Returned if the dashboard is not found.

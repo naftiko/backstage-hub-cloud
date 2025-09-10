@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: "Delete An Existing Dynamic Person Group. \r\nnote That Persons Are Not Deleted With This Operation. To Delete Person Call Person Delete."
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: "Delete An Existing Dynamic Person Group. \r\nnote That Persons Are Not Deleted With This Operation. To Delete Person Call Person Delete."
+      description: Needs a more full description created.
+    paths:
+      /dynamicpersongroups/{dynamicPersonGroupId}:
+        delete:
+          summary: "Delete An Existing Dynamic Person Group. \r\nnote That Persons Are Not Deleted With This Operation. To Delete Person Call Person Delete."
+          description: Needs a more full description created.
+          operationId: personDirectoryDeleteDynamicPersonGroup
+          responses:
+            default:
+              description: >-
+                Response entity accompanying non-successful responses containing
+                additional details about the error.
+              schema:
+                $ref: '#/definitions/Error'

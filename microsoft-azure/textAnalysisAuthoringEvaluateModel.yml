@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Authoring Analyze-text Projects Projectname Models Trainedmodellabel
+    :evaluate
+  description: Triggers evaluation operation on a trained model.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Authoring Analyze-text Projects Projectname Models Trainedmodellabel
+        :evaluate
+      description: Triggers evaluation operation on a trained model.
+    paths:
+      /authoring/analyze-text/projects/{projectName}/models/{trainedModelLabel}/:evaluate:
+        post:
+          summary: >-
+            Post Authoring Analyze-text Projects Projectname Models
+            Trainedmodellabel :evaluate
+          description: Triggers evaluation operation on a trained model.
+          operationId: textAnalysisAuthoringEvaluateModel
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: common.json#/definitions/ErrorResponse

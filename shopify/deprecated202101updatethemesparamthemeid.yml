@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updates An Existing Theme.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/online-store/theme#update-2021-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updates An Existing Theme.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/online-store/theme#update-2021-01
+    paths:
+      /admin/api/2021-01/themes/{theme_id}.json:
+        put:
+          summary: Updates An Existing Theme.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/online-store/theme#update-2021-01
+          operationId: deprecated202101updatethemesparamthemeid
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      theme:
+                        id: 752253240
+                        name: Experimental
+                    summary: Update a theme's name
+                  example2:
+                    value:
+                      theme:
+                        id: 752253240
+                        role: main
+                    summary: Publish an unpublished theme
+          responses:
+            '200':
+              description: ''

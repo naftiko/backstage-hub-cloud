@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieves A Previous Version Of A Blog Post
+  description: Retrieves a previous version of a blog post.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves A Previous Version Of A Blog Post
+      description: Retrieves a previous version of a blog post.
+    paths:
+      /cms/v3/blogs/posts/{objectId}/revisions/{revisionId}:
+        get:
+          summary: Retrieves A Previous Version Of A Blog Post
+          description: Retrieves a previous version of a blog post.
+          operationId: getcmsv3blogsposts{ObjectId}Revisions{RevisionId}GetPreviousVersion
+          responses:
+            default:
+              $ref: '#/components/responses/Error'

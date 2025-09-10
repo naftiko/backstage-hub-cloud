@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: "It Will Validate Followings\r\n1. Vault Capacity\r\n2. Vm Is Already Protected\r\n3. Any Vm Related Configuration Passed In Properties."
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: "It Will Validate Followings\r\n1. Vault Capacity\r\n2. Vm Is Already Protected\r\n3. Any Vm Related Configuration Passed In Properties."
+      description: Needs a more full description created.
+    paths:
+      /Subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{azureRegion}/backupPreValidateProtection:
+        post:
+          summary: "It Will Validate Followings\r\n1. Vault Capacity\r\n2. Vm Is Already Protected\r\n3. Any Vm Related Configuration Passed In Properties."
+          description: Needs a more full description created.
+          operationId: protectionIntentValidate
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/PreValidateEnableBackupResponse'

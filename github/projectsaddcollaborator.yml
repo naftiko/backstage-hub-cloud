@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add Project Collaborator
+  description: >-
+    Adds a collaborator to an organization project and sets their permission
+    level. You must be an organization owner or a project `admin` to add a
+    collaborator.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add Project Collaborator
+      description: >-
+        Adds a collaborator to an organization project and sets their permission
+        level. You must be an organization owner or a project `admin` to add a
+        collaborator.
+    paths:
+      /projects/{project_id}/collaborators/{username}:
+        put:
+          summary: Add Project Collaborator
+          description: >-
+            Adds a collaborator to an organization project and sets their permission
+            level. You must be an organization owner or a project `admin` to add a
+            collaborator.
+          operationId: projectsaddcollaborator
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    permission:
+                      description: The permission to grant the collaborator.
+                      enum:
+                        - read
+                        - write
+                        - admin
+                      default: write
+                      example: write
+                      type: string
+                  nullable: true
+                examples:
+                  default:
+                    summary: Applying write permissions for the new collaborator
+                    value:
+                      permission: write
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

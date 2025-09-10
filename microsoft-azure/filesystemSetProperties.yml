@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Set Filesystem Properties
+  description: >-
+    Set properties for the filesystem.  This operation supports conditional HTTP
+    requests.  For more information, see [Specifying Conditional Headers for
+    Blob Service
+    Operations](https://docs.microsoft.com/en-us/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Set Filesystem Properties
+      description: >-
+        Set properties for the filesystem.  This operation supports conditional HTTP
+        requests.  For more information, see [Specifying Conditional Headers for
+        Blob Service
+        Operations](https://docs.microsoft.com/en-us/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).
+    paths:
+      /{filesystem}:
+        patch:
+          summary: Set Filesystem Properties
+          description: >-
+            Set properties for the filesystem.  This operation supports conditional
+            HTTP requests.  For more information, see [Specifying Conditional
+            Headers for Blob Service
+            Operations](https://docs.microsoft.com/en-us/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).
+          operationId: filesystemSetProperties
+          responses:
+            default:
+              $ref: '#/responses/ErrorResponse'

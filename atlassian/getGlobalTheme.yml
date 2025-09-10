@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Global Theme
+  description: >-
+    Returns the globally assigned
+    theme.**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:
+    None
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Global Theme
+      description: >-
+        Returns the globally assigned
+        theme.**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:
+        None
+    paths:
+      /wiki/rest/api/settings/theme/selected:
+        get:
+          summary: Get Global Theme
+          description: >-
+            Returns the globally assigned
+            theme.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**: None
+          operationId: getGlobalTheme
+          responses:
+            '404':
+              description: |-
+                Returned if Confluence does not have a global theme assigned, i.e.
+                the default theme is used.
+              content: {}

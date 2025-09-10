@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Items Of A Dashboard List
+  description: Update dashboards of an existing dashboard list.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Items Of A Dashboard List
+      description: Update dashboards of an existing dashboard list.
+    paths:
+      /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards:
+        put:
+          summary: Update Items Of A Dashboard List
+          description: Update dashboards of an existing dashboard list.
+          operationId: updateDashboardListItems
+          requestBody:
+            description: New dashboards of the dashboard list.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/DashboardListUpdateItemsRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

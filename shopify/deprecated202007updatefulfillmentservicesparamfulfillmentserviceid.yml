@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Put Admin Api 2020-07 Fulfillment_services Fulfillment_service_id.json
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillmentservice#update-2020-07
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Admin Api 2020-07 Fulfillment_services Fulfillment_service_id.json
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillmentservice#update-2020-07
+    paths:
+      /admin/api/2020-07/fulfillment_services/{fulfillment_service_id}.json:
+        put:
+          summary: Put Admin Api 2020-07 Fulfillment_services Fulfillment_service_id.json
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillmentservice#update-2020-07
+          operationId: deprecated202007updatefulfillmentservicesparamfulfillmentserviceid
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      fulfillment_service:
+                        id: 755357713
+                        name: New Fulfillment Service Name
+                    summary: Update a fulfillment service
+          responses:
+            '200':
+              description: ''

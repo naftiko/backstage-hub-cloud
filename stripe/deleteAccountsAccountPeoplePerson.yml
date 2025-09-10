@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Accounts Account People Person
+  description: >-
+    Deletes an existing person’s relationship to the account’s legal entity. Any
+    person with a relationship for an account can be deleted through the API,
+    except if the person is the account_opener. If your integration is using the
+    executive parameter, you cannot delete the only verified executive on file.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Accounts Account People Person
+      description: >-
+        Deletes an existing person’s relationship to the account’s legal entity. Any
+        person with a relationship for an account can be deleted through the API,
+        except if the person is the account_opener. If your integration is using the
+        executive parameter, you cannot delete the only verified executive on file.
+    paths:
+      /v1/accounts/{account}/people/{person}:
+        delete:
+          summary: Delete Accounts Account People Person
+          description: >-
+            Deletes an existing person’s relationship to the account’s legal entity.
+            Any person with a relationship for an account can be deleted through the
+            API, except if the person is the account_opener. If your integration is
+            using the executive parameter, you cannot delete the only verified
+            executive on file.
+          operationId: deleteAccountsAccountPeoplePerson
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/DeleteAccountsAccountPeoplePersonRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

@@ -1,0 +1,382 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Createmultipartupload
+  description: >-
+    This action initiates a multipart upload and returns an upload ID. This
+    upload ID is used to associate all of the parts in the specific multipart
+    upload. You specify this upload ID in each of your subsequent upload part
+    requests (see UploadPart). You also include this upload ID in the final
+    request to either complete or abort the multipart upload request. For more
+    information about multipart uploads, see Multipart Upload Overview in the
+    Amazon S3 User Guide.  After you initiate a multipart upload and upload one
+    or more parts, to stop being charged for storing the uploaded parts, you
+    must either complete or abort the multipart upload. Amazon S3 frees up the
+    space used to store the parts and stops charging you for storing them only
+    after you either complete or abort a multipart upload.   If you have
+    configured a lifecycle rule to abort incomplete multipart uploads, the
+    created multipart upload must be completed within the number of days
+    specified in the bucket lifecycle configuration. Otherwise, the incomplete
+    multipart upload becomes eligible for an abort action and Amazon S3 aborts
+    the multipart upload. For more information, see Aborting Incomplete
+    Multipart Uploads Using a Bucket Lifecycle Configuration.     Directory
+    buckets  - S3 Lifecycle is not supported by directory buckets.    Directory
+    buckets  - For directory buckets, you must make requests for this API
+    operation to the Zonal endpoint. These endpoints support
+    virtual-hosted-style requests in the format
+    https://bucket_name.s3express-az_id.region.amazonaws.com/key-name .
+    Path-style requests are not supported. For more information, see Regional
+    and Zonal endpoints in the Amazon S3 User Guide.     Request signing  For
+    request signing, multipart upload is just a series of regular requests. You
+    initiate a multipart upload, send one or more requests to upload parts, and
+    then complete the multipart upload process. You sign each request
+    individually. There is nothing special about signing multipart upload
+    requests. For more information about signing, see Authenticating Requests
+    (Amazon Web Services Signature Version 4) in the Amazon S3 User Guide. 
+    Permissions     General purpose bucket permissions - For information about
+    the permissions required to use the multipart upload API, see Multipart
+    upload and permissions in the Amazon S3 User Guide.  To perform a multipart
+    upload with encryption by using an Amazon Web Services KMS key, the
+    requester must have permission to the kms:Decrypt and kms:GenerateDataKey*
+    actions on the key. These permissions are required because Amazon S3 must
+    decrypt and read data from the encrypted file parts before it completes the
+    multipart upload. For more information, see Multipart upload API and
+    permissions and Protecting data using server-side encryption with Amazon Web
+    Services KMS in the Amazon S3 User Guide.    Directory bucket permissions -
+    To grant access to this API operation on a directory bucket, we recommend
+    that you use the  CreateSession  API operation for session-based
+    authorization. Specifically, you grant the s3express:CreateSession
+    permission to the directory bucket in a bucket policy or an IAM
+    identity-based policy. Then, you make the CreateSession API call on the
+    bucket to obtain a session token. With the session token in your request
+    header, you can make API requests to this operation. After the session token
+    expires, you make another CreateSession API call to generate a new session
+    token for use. Amazon Web Services CLI or SDKs create session and refresh
+    the session token automatically to avoid service interruptions when a
+    session expires. For more information about authorization, see 
+    CreateSession .    Encryption     General purpose buckets - Server-side
+    encryption is for data encryption at rest. Amazon S3 encrypts your data as
+    it writes it to disks in its data centers and decrypts it when you access
+    it. Amazon S3 automatically encrypts all new objects that are uploaded to an
+    S3 bucket. When doing a multipart upload, if you don't specify encryption
+    information in your request, the encryption setting of the uploaded parts is
+    set to the default encryption configuration of the destination bucket. By
+    default, all buckets have a base level of encryption configuration that uses
+    server-side encryption with Amazon S3 managed keys (SSE-S3). If the
+    destination bucket has a default encryption configuration that uses
+    server-side encryption with an Key Management Service (KMS) key (SSE-KMS),
+    or a customer-provided encryption key (SSE-C), Amazon S3 uses the
+    corresponding KMS key, or a customer-provided key to encrypt the uploaded
+    parts. When you perform a CreateMultipartUpload operation, if you want to
+    use a different type of encryption setting for the uploaded parts, you can
+    request that Amazon S3 encrypts the object with a different encryption key
+    (such as an Amazon S3 managed key, a KMS key, or a customer-provided key).
+    When the encryption setting in your request is different from the default
+    encryption configuration of the destination bucket, the encryption setting
+    in your request takes precedence. If you choose to provide your own
+    encryption key, the request headers you provide in UploadPart and
+    UploadPartCopy requests must match the headers you used in the
+    CreateMultipartUpload request.   Use KMS keys (SSE-KMS) that include the
+    Amazon Web Services managed key (aws/s3) and KMS customer managed keys
+    stored in Key Management Service (KMS) – If you want Amazon Web Services to
+    manage the keys used to encrypt data, specify the following headers in the
+    request.    x-amz-server-side-encryption    
+    x-amz-server-side-encryption-aws-kms-key-id    
+    x-amz-server-side-encryption-context       If you specify
+    x-amz-server-side-encryption:aws:kms, but don't provide
+    x-amz-server-side-encryption-aws-kms-key-id, Amazon S3 uses the Amazon Web
+    Services managed key (aws/s3 key) in KMS to protect the data.   To perform a
+    multipart upload with encryption by using an Amazon Web Services KMS key,
+    the requester must have permission to the kms:Decrypt and
+    kms:GenerateDataKey* actions on the key. These permissions are required
+    because Amazon S3 must decrypt and read data from the encrypted file parts
+    before it completes the multipart upload. For more information, see
+    Multipart upload API and permissions and Protecting data using server-side
+    encryption with Amazon Web Services KMS in the Amazon S3 User Guide.   If
+    your Identity and Access Management (IAM) user or role is in the same Amazon
+    Web Services account as the KMS key, then you must have these permissions on
+    the key policy. If your IAM user or role is in a different account from the
+    key, then you must have the permissions on both the key policy and your IAM
+    user or role.   All GET and PUT requests for an object protected by KMS fail
+    if you don't make them by using Secure Sockets Layer (SSL), Transport Layer
+    Security (TLS), or Signature Version 4. For information about configuring
+    any of the officially supported Amazon Web Services SDKs and Amazon Web
+    Services CLI, see Specifying the Signature Version in Request Authentication
+    in the Amazon S3 User Guide.    For more information about server-side
+    encryption with KMS keys (SSE-KMS), see Protecting Data Using Server-Side
+    Encryption with KMS keys in the Amazon S3 User Guide.   Use
+    customer-provided encryption keys (SSE-C) – If you want to manage your own
+    encryption keys, provide all the following headers in the request.   
+    x-amz-server-side-encryption-customer-algorithm    
+    x-amz-server-side-encryption-customer-key    
+    x-amz-server-side-encryption-customer-key-MD5    For more information about
+    server-side encryption with customer-provided encryption keys (SSE-C), see 
+    Protecting data using server-side encryption with customer-provided
+    encryption keys (SSE-C) in the Amazon S3 User Guide.      Directory buckets
+    -For directory buckets, only server-side encryption with Amazon S3 managed
+    keys (SSE-S3) (AES256) is supported.    HTTP Host header syntax   Directory
+    buckets  - The HTTP Host header syntax is 
+    Bucket_name.s3express-az_id.region.amazonaws.com.   The following operations
+    are related to CreateMultipartUpload:    UploadPart    
+    CompleteMultipartUpload     AbortMultipartUpload     ListParts    
+    ListMultipartUploads   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createmultipartupload
+      description: >-
+        This action initiates a multipart upload and returns an upload ID. This
+        upload ID is used to associate all of the parts in the specific multipart
+        upload. You specify this upload ID in each of your subsequent upload part
+        requests (see UploadPart). You also include this upload ID in the final
+        request to either complete or abort the multipart upload request. For more
+        information about multipart uploads, see Multipart Upload Overview in the
+        Amazon S3 User Guide.  After you initiate a multipart upload and upload one
+        or more parts, to stop being charged for storing the uploaded parts, you
+        must either complete or abort the multipart upload. Amazon S3 frees up the
+        space used to store the parts and stops charging you for storing them only
+        after you either complete or abort a multipart upload.   If you have
+        configured a lifecycle rule to abort incomplete multipart uploads, the
+        created multipart upload must be completed within the number of days
+        specified in the bucket lifecycle configuration. Otherwise, the incomplete
+        multipart upload becomes eligible for an abort action and Amazon S3 aborts
+        the multipart upload. For more information, see Aborting Incomplete
+        Multipart Uploads Using a Bucket Lifecycle Configuration.     Directory
+        buckets  - S3 Lifecycle is not supported by directory buckets.    Directory
+        buckets  - For directory buckets, you must make requests for this API
+        operation to the Zonal endpoint. These endpoints support
+        virtual-hosted-style requests in the format
+        https://bucket_name.s3express-az_id.region.amazonaws.com/key-name .
+        Path-style requests are not supported. For more information, see Regional
+        and Zonal endpoints in the Amazon S3 User Guide.     Request signing  For
+        request signing, multipart upload is just a series of regular requests. You
+        initiate a multipart upload, send one or more requests to upload parts, and
+        then complete the multipart upload process. You sign each request
+        individually. There is nothing special about signing multipart upload
+        requests. For more information about signing, see Authenticating Requests
+        (Amazon Web Services Signature Version 4) in the Amazon S3 User Guide. 
+        Permissions     General purpose bucket permissions - For information about
+        the permissions required to use the multipart upload API, see Multipart
+        upload and permissions in the Amazon S3 User Guide.  To perform a multipart
+        upload with encryption by using an Amazon Web Services KMS key, the
+        requester must have permission to the kms:Decrypt and kms:GenerateDataKey*
+        actions on the key. These permissions are required because Amazon S3 must
+        decrypt and read data from the encrypted file parts before it completes the
+        multipart upload. For more information, see Multipart upload API and
+        permissions and Protecting data using server-side encryption with Amazon Web
+        Services KMS in the Amazon S3 User Guide.    Directory bucket permissions -
+        To grant access to this API operation on a directory bucket, we recommend
+        that you use the  CreateSession  API operation for session-based
+        authorization. Specifically, you grant the s3express:CreateSession
+        permission to the directory bucket in a bucket policy or an IAM
+        identity-based policy. Then, you make the CreateSession API call on the
+        bucket to obtain a session token. With the session token in your request
+        header, you can make API requests to this operation. After the session token
+        expires, you make another CreateSession API call to generate a new session
+        token for use. Amazon Web Services CLI or SDKs create session and refresh
+        the session token automatically to avoid service interruptions when a
+        session expires. For more information about authorization, see 
+        CreateSession .    Encryption     General purpose buckets - Server-side
+        encryption is for data encryption at rest. Amazon S3 encrypts your data as
+        it writes it to disks in its data centers and decrypts it when you access
+        it. Amazon S3 automatically encrypts all new objects that are uploaded to an
+        S3 bucket. When doing a multipart upload, if you don't specify encryption
+        information in your request, the encryption setting of the uploaded parts is
+        set to the default encryption configuration of the destination bucket. By
+        default, all buckets have a base level of encryption configuration that uses
+        server-side encryption with Amazon S3 managed keys (SSE-S3). If the
+        destination bucket has a default encryption configuration that uses
+        server-side encryption with an Key Management Service (KMS) key (SSE-KMS),
+        or a customer-provided encryption key (SSE-C), Amazon S3 uses the
+        corresponding KMS key, or a customer-provided key to encrypt the uploaded
+        parts. When you perform a CreateMultipartUpload operation, if you want to
+        use a different type of encryption setting for the uploaded parts, you can
+        request that Amazon S3 encrypts the object with a different encryption key
+        (such as an Amazon S3 managed key, a KMS key, or a customer-provided key).
+        When the encryption setting in your request is different from the default
+        encryption configuration of the destination bucket, the encryption setting
+        in your request takes precedence. If you choose to provide your own
+        encryption key, the request headers you provide in UploadPart and
+        UploadPartCopy requests must match the headers you used in the
+        CreateMultipartUpload request.   Use KMS keys (SSE-KMS) that include the
+        Amazon Web Services managed key (aws/s3) and KMS customer managed keys
+        stored in Key Management Service (KMS) – If you want Amazon Web Services to
+        manage the keys used to encrypt data, specify the following headers in the
+        request.    x-amz-server-side-encryption    
+        x-amz-server-side-encryption-aws-kms-key-id    
+        x-amz-server-side-encryption-context       If you specify
+        x-amz-server-side-encryption:aws:kms, but don't provide
+        x-amz-server-side-encryption-aws-kms-key-id, Amazon S3 uses the Amazon Web
+        Services managed key (aws/s3 key) in KMS to protect the data.   To perform a
+        multipart upload with encryption by using an Amazon Web Services KMS key,
+        the requester must have permission to the kms:Decrypt and
+        kms:GenerateDataKey* actions on the key. These permissions are required
+        because Amazon S3 must decrypt and read data from the encrypted file parts
+        before it completes the multipart upload. For more information, see
+        Multipart upload API and permissions and Protecting data using server-side
+        encryption with Amazon Web Services KMS in the Amazon S3 User Guide.   If
+        your Identity and Access Management (IAM) user or role is in the same Amazon
+        Web Services account as the KMS key, then you must have these permissions on
+        the key policy. If your IAM user or role is in a different account from the
+        key, then you must have the permissions on both the key policy and your IAM
+        user or role.   All GET and PUT requests for an object protected by KMS fail
+        if you don't make them by using Secure Sockets Layer (SSL), Transport Layer
+        Security (TLS), or Signature Version 4. For information about configuring
+        any of the officially supported Amazon Web Services SDKs and Amazon Web
+        Services CLI, see Specifying the Signature Version in Request Authentication
+        in the Amazon S3 User Guide.    For more information about server-side
+        encryption with KMS keys (SSE-KMS), see Protecting Data Using Server-Side
+        Encryption with KMS keys in the Amazon S3 User Guide.   Use
+        customer-provided encryption keys (SSE-C) – If you want to manage your own
+        encryption keys, provide all the following headers in the request.   
+        x-amz-server-side-encryption-customer-algorithm    
+        x-amz-server-side-encryption-customer-key    
+        x-amz-server-side-encryption-customer-key-MD5    For more information about
+        server-side encryption with customer-provided encryption keys (SSE-C), see 
+        Protecting data using server-side encryption with customer-provided
+        encryption keys (SSE-C) in the Amazon S3 User Guide.      Directory buckets
+        -For directory buckets, only server-side encryption with Amazon S3 managed
+        keys (SSE-S3) (AES256) is supported.    HTTP Host header syntax   Directory
+        buckets  - The HTTP Host header syntax is 
+        Bucket_name.s3express-az_id.region.amazonaws.com.   The following operations
+        are related to CreateMultipartUpload:    UploadPart    
+        CompleteMultipartUpload     AbortMultipartUpload     ListParts    
+        ListMultipartUploads   
+    paths:
+      /{Bucket}/{Key+}?uploads:
+        POST:
+          summary: Createmultipartupload
+          description: >-
+            This action initiates a multipart upload and returns an upload ID. This
+            upload ID is used to associate all of the parts in the specific
+            multipart upload. You specify this upload ID in each of your subsequent
+            upload part requests (see UploadPart). You also include this upload ID
+            in the final request to either complete or abort the multipart upload
+            request. For more information about multipart uploads, see Multipart
+            Upload Overview in the Amazon S3 User Guide.  After you initiate a
+            multipart upload and upload one or more parts, to stop being charged for
+            storing the uploaded parts, you must either complete or abort the
+            multipart upload. Amazon S3 frees up the space used to store the parts
+            and stops charging you for storing them only after you either complete
+            or abort a multipart upload.   If you have configured a lifecycle rule
+            to abort incomplete multipart uploads, the created multipart upload must
+            be completed within the number of days specified in the bucket lifecycle
+            configuration. Otherwise, the incomplete multipart upload becomes
+            eligible for an abort action and Amazon S3 aborts the multipart upload.
+            For more information, see Aborting Incomplete Multipart Uploads Using a
+            Bucket Lifecycle Configuration.     Directory buckets  - S3 Lifecycle is
+            not supported by directory buckets.    Directory buckets  - For
+            directory buckets, you must make requests for this API operation to the
+            Zonal endpoint. These endpoints support virtual-hosted-style requests in
+            the format
+            https://bucket_name.s3express-az_id.region.amazonaws.com/key-name .
+            Path-style requests are not supported. For more information, see
+            Regional and Zonal endpoints in the Amazon S3 User Guide.     Request
+            signing  For request signing, multipart upload is just a series of
+            regular requests. You initiate a multipart upload, send one or more
+            requests to upload parts, and then complete the multipart upload
+            process. You sign each request individually. There is nothing special
+            about signing multipart upload requests. For more information about
+            signing, see Authenticating Requests (Amazon Web Services Signature
+            Version 4) in the Amazon S3 User Guide.  Permissions     General purpose
+            bucket permissions - For information about the permissions required to
+            use the multipart upload API, see Multipart upload and permissions in
+            the Amazon S3 User Guide.  To perform a multipart upload with encryption
+            by using an Amazon Web Services KMS key, the requester must have
+            permission to the kms:Decrypt and kms:GenerateDataKey* actions on the
+            key. These permissions are required because Amazon S3 must decrypt and
+            read data from the encrypted file parts before it completes the
+            multipart upload. For more information, see Multipart upload API and
+            permissions and Protecting data using server-side encryption with Amazon
+            Web Services KMS in the Amazon S3 User Guide.    Directory bucket
+            permissions - To grant access to this API operation on a directory
+            bucket, we recommend that you use the  CreateSession  API operation for
+            session-based authorization. Specifically, you grant the
+            s3express:CreateSession permission to the directory bucket in a bucket
+            policy or an IAM identity-based policy. Then, you make the CreateSession
+            API call on the bucket to obtain a session token. With the session token
+            in your request header, you can make API requests to this operation.
+            After the session token expires, you make another CreateSession API call
+            to generate a new session token for use. Amazon Web Services CLI or SDKs
+            create session and refresh the session token automatically to avoid
+            service interruptions when a session expires. For more information about
+            authorization, see  CreateSession .    Encryption     General purpose
+            buckets - Server-side encryption is for data encryption at rest. Amazon
+            S3 encrypts your data as it writes it to disks in its data centers and
+            decrypts it when you access it. Amazon S3 automatically encrypts all new
+            objects that are uploaded to an S3 bucket. When doing a multipart
+            upload, if you don't specify encryption information in your request, the
+            encryption setting of the uploaded parts is set to the default
+            encryption configuration of the destination bucket. By default, all
+            buckets have a base level of encryption configuration that uses
+            server-side encryption with Amazon S3 managed keys (SSE-S3). If the
+            destination bucket has a default encryption configuration that uses
+            server-side encryption with an Key Management Service (KMS) key
+            (SSE-KMS), or a customer-provided encryption key (SSE-C), Amazon S3 uses
+            the corresponding KMS key, or a customer-provided key to encrypt the
+            uploaded parts. When you perform a CreateMultipartUpload operation, if
+            you want to use a different type of encryption setting for the uploaded
+            parts, you can request that Amazon S3 encrypts the object with a
+            different encryption key (such as an Amazon S3 managed key, a KMS key,
+            or a customer-provided key). When the encryption setting in your request
+            is different from the default encryption configuration of the
+            destination bucket, the encryption setting in your request takes
+            precedence. If you choose to provide your own encryption key, the
+            request headers you provide in UploadPart and UploadPartCopy requests
+            must match the headers you used in the CreateMultipartUpload request.  
+            Use KMS keys (SSE-KMS) that include the Amazon Web Services managed key
+            (aws/s3) and KMS customer managed keys stored in Key Management Service
+            (KMS) – If you want Amazon Web Services to manage the keys used to
+            encrypt data, specify the following headers in the request.   
+            x-amz-server-side-encryption    
+            x-amz-server-side-encryption-aws-kms-key-id    
+            x-amz-server-side-encryption-context       If you specify
+            x-amz-server-side-encryption:aws:kms, but don't provide
+            x-amz-server-side-encryption-aws-kms-key-id, Amazon S3 uses the Amazon
+            Web Services managed key (aws/s3 key) in KMS to protect the data.   To
+            perform a multipart upload with encryption by using an Amazon Web
+            Services KMS key, the requester must have permission to the kms:Decrypt
+            and kms:GenerateDataKey* actions on the key. These permissions are
+            required because Amazon S3 must decrypt and read data from the encrypted
+            file parts before it completes the multipart upload. For more
+            information, see Multipart upload API and permissions and Protecting
+            data using server-side encryption with Amazon Web Services KMS in the
+            Amazon S3 User Guide.   If your Identity and Access Management (IAM)
+            user or role is in the same Amazon Web Services account as the KMS key,
+            then you must have these permissions on the key policy. If your IAM user
+            or role is in a different account from the key, then you must have the
+            permissions on both the key policy and your IAM user or role.   All GET
+            and PUT requests for an object protected by KMS fail if you don't make
+            them by using Secure Sockets Layer (SSL), Transport Layer Security
+            (TLS), or Signature Version 4. For information about configuring any of
+            the officially supported Amazon Web Services SDKs and Amazon Web
+            Services CLI, see Specifying the Signature Version in Request
+            Authentication in the Amazon S3 User Guide.    For more information
+            about server-side encryption with KMS keys (SSE-KMS), see Protecting
+            Data Using Server-Side Encryption with KMS keys in the Amazon S3 User
+            Guide.   Use customer-provided encryption keys (SSE-C) – If you want to
+            manage your own encryption keys, provide all the following headers in
+            the request.    x-amz-server-side-encryption-customer-algorithm    
+            x-amz-server-side-encryption-customer-key    
+            x-amz-server-side-encryption-customer-key-MD5    For more information
+            about server-side encryption with customer-provided encryption keys
+            (SSE-C), see  Protecting data using server-side encryption with
+            customer-provided encryption keys (SSE-C) in the Amazon S3 User
+            Guide.      Directory buckets -For directory buckets, only server-side
+            encryption with Amazon S3 managed keys (SSE-S3) (AES256) is
+            supported.    HTTP Host header syntax   Directory buckets  - The HTTP
+            Host header syntax is 
+            Bucket_name.s3express-az_id.region.amazonaws.com.   The following
+            operations are related to CreateMultipartUpload:    UploadPart    
+            CompleteMultipartUpload     AbortMultipartUpload     ListParts    
+            ListMultipartUploads   
+          operationId: createMultipartUpload

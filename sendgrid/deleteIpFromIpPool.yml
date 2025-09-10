@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Remove An Ip Address From A Pool
+  description: '**This endpoint allows you to remove an IP address from an IP pool.**'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Remove An Ip Address From A Pool
+      description: '**This endpoint allows you to remove an IP address from an IP pool.**'
+    paths:
+      /v3/ips/pools/{pool_name}/ips/{ip}:
+        delete:
+          summary: Remove An Ip Address From A Pool
+          description: '**This endpoint allows you to remove an IP address from an IP pool.**'
+          operationId: deleteIpFromIpPool
+          responses:
+            '404':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      error:
+                        type: string
+                        description: >-
+                          An error explaining why the IP address could not be
+                          removed from the IP pool.
+                  examples:
+                    response:
+                      value:
+                        error: Unable to locate specified IPs Pool

@@ -1,0 +1,93 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Customer Address
+  description: >-
+    Creates a Customer Address. Multiple customer addresses can be created in
+    one call.**Required Fields*** **customer_id*** **first_name***
+    **last_name*** **city*** **country_code*** **address1****Notes*** A unique
+    customer address is a combination of the following core address fields:  *
+    **customer_id**  * **first_name**  * **last_name**  * **company**  *
+    **phone**  * **address_type**  * **address1**  * **address2**  * **city**  *
+    **country_code**  * **state_or_province**  * **postal_code*** An attempt to
+    create an address that already exists will result in no change to the
+    address or custom form field values, an HTTP 200 return code, and the
+    address will be absent from the response body.* The default rate limit for
+    this endpoint is 10 concurrent requests.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Customer Address
+      description: >-
+        Creates a Customer Address. Multiple customer addresses can be created in
+        one call.**Required Fields*** **customer_id*** **first_name***
+        **last_name*** **city*** **country_code*** **address1****Notes*** A unique
+        customer address is a combination of the following core address fields:  *
+        **customer_id**  * **first_name**  * **last_name**  * **company**  *
+        **phone**  * **address_type**  * **address1**  * **address2**  * **city**  *
+        **country_code**  * **state_or_province**  * **postal_code*** An attempt to
+        create an address that already exists will result in no change to the
+        address or custom form field values, an HTTP 200 return code, and the
+        address will be absent from the response body.* The default rate limit for
+        this endpoint is 10 concurrent requests.
+    paths:
+      /customers/addresses:
+        post:
+          summary: Create A Customer Address
+          description: >-
+            Creates a Customer Address. Multiple customer addresses can be created
+            in one call.**Required Fields*** **customer_id*** **first_name***
+            **last_name*** **city*** **country_code*** **address1****Notes*** A
+            unique customer address is a combination of the following core address
+            fields:  * **customer_id**  * **first_name**  * **last_name**  *
+            **company**  * **phone**  * **address_type**  * **address1**  *
+            **address2**  * **city**  * **country_code**  * **state_or_province**  *
+            **postal_code*** An attempt to create an address that already exists
+            will result in no change to the address or custom form field values, an
+            HTTP 200 return code, and the address will be absent from the response
+            body.* The default rate limit for this endpoint is 10 concurrent
+            requests.
+          operationId: createCustomersAddresses
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/address_Post'
+                examples:
+                  example-1:
+                    value:
+                      - first_name: John
+                        last_name: Doe
+                        address1: 111 E West Street
+                        address2: '654'
+                        city: Akron
+                        state_or_province: Ohio
+                        postal_code: '44325'
+                        country_code: US
+                        phone: '1234567890'
+                        address_type: residential
+                        customer_id: 11
+                        form_fields:
+                          - name: test
+                            value: test
+          responses:
+            '422':
+              description: >
+                The `Address` was not valid. This is the result of missing required
+                fields, or of invalid data. See the response for more details.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'

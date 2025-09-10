@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getasset
+  description: Gets an Amazon DataZone asset.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getasset
+      description: Gets an Amazon DataZone asset.
+    paths:
+      /v2/domains/{domainIdentifier}/assets/{identifier}:
+        GET:
+          summary: Getasset
+          description: Gets an Amazon DataZone asset.
+          operationId: getAsset

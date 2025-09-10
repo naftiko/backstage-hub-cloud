@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Copies Image Store Content Internally
+  description: >-
+    Copies the image store content from the source image store relative path to
+    the destination image store relative path.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Copies Image Store Content Internally
+      description: >-
+        Copies the image store content from the source image store relative path to
+        the destination image store relative path.
+    paths:
+      /ImageStore/$/Copy:
+        post:
+          summary: Copies Image Store Content Internally
+          description: >-
+            Copies the image store content from the source image store relative path
+            to the destination image store relative path.
+          operationId: copyImageStoreContent
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

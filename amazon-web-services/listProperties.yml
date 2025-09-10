@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listproperties
+  description: This API lists the properties of a component.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listproperties
+      description: This API lists the properties of a component.
+    paths:
+      /workspaces/{workspaceId}/properties-list:
+        POST:
+          summary: Listproperties
+          description: This API lists the properties of a component.
+          operationId: listProperties

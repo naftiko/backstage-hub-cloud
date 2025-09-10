@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listauthorizers
+  description: >-
+    Lists the authorizers registered in your account. Requires permission to
+    access the ListAuthorizers action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listauthorizers
+      description: >-
+        Lists the authorizers registered in your account. Requires permission to
+        access the ListAuthorizers action.
+    paths:
+      /authorizers/:
+        GET:
+          summary: Listauthorizers
+          description: >-
+            Lists the authorizers registered in your account. Requires permission to
+            access the ListAuthorizers action.
+          operationId: listAuthorizers

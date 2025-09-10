@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updateproxysession
+  description: >-
+    Updates the specified proxy session details, such as voice or SMS
+    capabilities.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateproxysession
+      description: >-
+        Updates the specified proxy session details, such as voice or SMS
+        capabilities.
+    paths:
+      /voice-connectors/{voiceConnectorId}/proxy-sessions/{proxySessionId}:
+        POST:
+          summary: Updateproxysession
+          description: >-
+            Updates the specified proxy session details, such as voice or SMS
+            capabilities.
+          operationId: updateProxySession

@@ -1,0 +1,101 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Featurestatesets
+  description: >-
+    **Applies to:** see pricing
+    [tiers](https://aka.ms/AzureMapsPricingTier).Creator makes it possible to
+    develop applications based on your private indoor map data using Azure Maps
+    API and SDK.
+    [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+    article introduces concepts and tools that apply to Azure Maps Creator.This
+    POST API allows the user to create a new Stateset and define stateset style
+    using request body.Creator makes it possible to develop applications based
+    on your private indoor map data using Azure Maps API and SDK. The Feature
+    State API is part of Creator. The Feature State service allows the user to
+    update the states of a feature and query them to be used in other services.
+    The dynamic properties of a feature that don't belong to the dataset are
+    referred to as *states* here.This Feature State service pivot on the
+    Stateset. Like Tileset, Stateset encapsulates the storage mechanism for
+    feature states for a dataset.Once the stateset is created, users can use
+    that statesetId to post feature state updates and retrieve the current
+    feature states. A feature can have only one state at a given point in time.
+    Feature state is defined by the key name, value and the timestamp. When a
+    feature state update is posted to Azure Maps, the state value gets updated
+    only if the provided state’s timestamp is later than the stored timestamp.
+    Azure Maps MapControl provides a way to use these feature states to style
+    the features. Please refer to the [State Tile
+    documentation](https://docs.microsoft.com/en-us/rest/api/maps/render/get-map-state-tile-preview)
+    for more information.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Featurestatesets
+      description: >-
+        **Applies to:** see pricing
+        [tiers](https://aka.ms/AzureMapsPricingTier).Creator makes it possible to
+        develop applications based on your private indoor map data using Azure Maps
+        API and SDK.
+        [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+        article introduces concepts and tools that apply to Azure Maps Creator.This
+        POST API allows the user to create a new Stateset and define stateset style
+        using request body.Creator makes it possible to develop applications based
+        on your private indoor map data using Azure Maps API and SDK. The Feature
+        State API is part of Creator. The Feature State service allows the user to
+        update the states of a feature and query them to be used in other services.
+        The dynamic properties of a feature that don't belong to the dataset are
+        referred to as *states* here.This Feature State service pivot on the
+        Stateset. Like Tileset, Stateset encapsulates the storage mechanism for
+        feature states for a dataset.Once the stateset is created, users can use
+        that statesetId to post feature state updates and retrieve the current
+        feature states. A feature can have only one state at a given point in time.
+        Feature state is defined by the key name, value and the timestamp. When a
+        feature state update is posted to Azure Maps, the state value gets updated
+        only if the provided state’s timestamp is later than the stored timestamp.
+        Azure Maps MapControl provides a way to use these feature states to style
+        the features. Please refer to the [State Tile
+        documentation](https://docs.microsoft.com/en-us/rest/api/maps/render/get-map-state-tile-preview)
+        for more information.
+    paths:
+      /featureStateSets:
+        post:
+          summary: Post Featurestatesets
+          description: >-
+            **Applies to:** see pricing
+            [tiers](https://aka.ms/AzureMapsPricingTier).Creator makes it possible
+            to develop applications based on your private indoor map data using
+            Azure Maps API and SDK.
+            [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+            article introduces concepts and tools that apply to Azure Maps
+            Creator.This POST API allows the user to create a new Stateset and
+            define stateset style using request body.Creator makes it possible to
+            develop applications based on your private indoor map data using Azure
+            Maps API and SDK. The Feature State API is part of Creator. The Feature
+            State service allows the user to update the states of a feature and
+            query them to be used in other services. The dynamic properties of a
+            feature that don't belong to the dataset are referred to as *states*
+            here.This Feature State service pivot on the Stateset. Like Tileset,
+            Stateset encapsulates the storage mechanism for feature states for a
+            dataset.Once the stateset is created, users can use that statesetId to
+            post feature state updates and retrieve the current feature states. A
+            feature can have only one state at a given point in time. Feature state
+            is defined by the key name, value and the timestamp. When a feature
+            state update is posted to Azure Maps, the state value gets updated only
+            if the provided state’s timestamp is later than the stored timestamp.
+            Azure Maps MapControl provides a way to use these feature states to
+            style the features. Please refer to the [State Tile
+            documentation](https://docs.microsoft.com/en-us/rest/api/maps/render/get-map-state-tile-preview)
+            for more information.
+          operationId: featureStateCreateStateset
+          responses:
+            '500':
+              $ref: '#/responses/500'

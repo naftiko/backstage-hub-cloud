@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listbotversions
+  description: >-
+    Gets information about all of the versions of a bot. The ListBotVersions
+    operation returns a summary of each version of a bot. For example, if a bot
+    has three numbered versions, the ListBotVersions operation returns for
+    summaries, one for each numbered version and one for the DRAFT version. The
+    ListBotVersions operation always returns at least one version, the DRAFT
+    version.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listbotversions
+      description: >-
+        Gets information about all of the versions of a bot. The ListBotVersions
+        operation returns a summary of each version of a bot. For example, if a bot
+        has three numbered versions, the ListBotVersions operation returns for
+        summaries, one for each numbered version and one for the DRAFT version. The
+        ListBotVersions operation always returns at least one version, the DRAFT
+        version.
+    paths:
+      /bots/{botId}/botversions/:
+        POST:
+          summary: Listbotversions
+          description: >-
+            Gets information about all of the versions of a bot. The ListBotVersions
+            operation returns a summary of each version of a bot. For example, if a
+            bot has three numbered versions, the ListBotVersions operation returns
+            for summaries, one for each numbered version and one for the DRAFT
+            version. The ListBotVersions operation always returns at least one
+            version, the DRAFT version.
+          operationId: listBotVersions

@@ -1,0 +1,68 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Version
+  description: >-
+    Deletes a project version.Deprecated, use [ Delete and replace
+    version](#api-rest-api-3-version-id-removeAndSwap-post) that supports
+    swapping version values in custom fields, in addition to the swapping for
+    `fixVersion` and `affectedVersion` provided in this resource.Alternative
+    versions can be provided to update issues that use the deleted version in
+    `fixVersion` or `affectedVersion`. If alternatives are not provided,
+    occurrences of `fixVersion` and `affectedVersion` that contain the deleted
+    version are cleared.This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** *Administer Jira*
+    [global permission](https://confluence.atlassian.com/x/x4dKLg) or
+    *Administer Projects* [project
+    permission](https://confluence.atlassian.com/x/yodKLg) for the project that
+    contains the version.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Version
+      description: >-
+        Deletes a project version.Deprecated, use [ Delete and replace
+        version](#api-rest-api-3-version-id-removeAndSwap-post) that supports
+        swapping version values in custom fields, in addition to the swapping for
+        `fixVersion` and `affectedVersion` provided in this resource.Alternative
+        versions can be provided to update issues that use the deleted version in
+        `fixVersion` or `affectedVersion`. If alternatives are not provided,
+        occurrences of `fixVersion` and `affectedVersion` that contain the deleted
+        version are cleared.This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** *Administer Jira*
+        [global permission](https://confluence.atlassian.com/x/x4dKLg) or
+        *Administer Projects* [project
+        permission](https://confluence.atlassian.com/x/yodKLg) for the project that
+        contains the version.
+    paths:
+      /rest/api/3/version/{id}:
+        delete:
+          summary: Delete Version
+          description: >-
+            Deletes a project version.Deprecated, use [ Delete and replace
+            version](#api-rest-api-3-version-id-removeAndSwap-post) that supports
+            swapping version values in custom fields, in addition to the swapping
+            for `fixVersion` and `affectedVersion` provided in this
+            resource.Alternative versions can be provided to update issues that use
+            the deleted version in `fixVersion` or `affectedVersion`. If
+            alternatives are not provided, occurrences of `fixVersion` and
+            `affectedVersion` that contain the deleted version are cleared.This
+            operation can be accessed anonymously.**[Permissions](#permissions)
+            required:** *Administer Jira* [global
+            permission](https://confluence.atlassian.com/x/x4dKLg) or *Administer
+            Projects* [project
+            permission](https://confluence.atlassian.com/x/yodKLg) for the project
+            that contains the version.
+          operationId: deleteVersion
+          responses:
+            '404':
+              description: Returned if the version is not found.

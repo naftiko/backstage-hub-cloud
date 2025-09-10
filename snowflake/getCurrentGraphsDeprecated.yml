@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get The Graph Runs That Are Executing Or Scheduled For The Task For The Next
+    8 Days.
+  description: >-
+    This function returns details for graph runs that are currently executing or
+    are next scheduled to run within the next 8 days.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get The Graph Runs That Are Executing Or Scheduled For The Task For The Next
+        8 Days.
+      description: >-
+        This function returns details for graph runs that are currently executing or
+        are next scheduled to run within the next 8 days.
+    paths:
+      /api/v2/databases/{database}/schemas/{schema}/tasks/{name}/current_graphs:
+        get:
+          summary: >-
+            Get The Graph Runs That Are Executing Or Scheduled For The Task For The
+            Next 8 Days.
+          description: >-
+            This function returns details for graph runs that are currently
+            executing or are next scheduled to run within the next 8 days.
+          operationId: getCurrentGraphsDeprecated
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Status
+  description: >-
+    Returns a status. The status must be associated with an active workflow to
+    be returned.If a name is used on more than one status, only the status found
+    first is returned. Therefore, identifying the status by its ID may be
+    preferable.This operation can be accessed
+    anonymously.[Permissions](#permissions) required: None.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Status
+      description: >-
+        Returns a status. The status must be associated with an active workflow to
+        be returned.If a name is used on more than one status, only the status found
+        first is returned. Therefore, identifying the status by its ID may be
+        preferable.This operation can be accessed
+        anonymously.[Permissions](#permissions) required: None.
+    paths:
+      /rest/api/3/status/{idOrName}:
+        get:
+          summary: Get Status
+          description: >-
+            Returns a status. The status must be associated with an active workflow
+            to be returned.If a name is used on more than one status, only the
+            status found first is returned. Therefore, identifying the status by its
+            ID may be preferable.This operation can be accessed
+            anonymously.[Permissions](#permissions) required: None.
+          operationId: getStatus
+          responses:
+            '404':
+              description: |-
+                Returned if:
+
+                 *  the status is not found.
+                 *  the status is not associated with a workflow.
+                 *  the user does not have the required permissions.

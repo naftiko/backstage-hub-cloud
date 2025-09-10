@@ -1,0 +1,73 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Ips Assigned To A Subuser
+  description: >-
+    **This endpoint allows you update your subusers' assigned IP.**Each subuser
+    should be assigned to an IP address from which all of this subuser's mail
+    will be sent. Often, this is the same IP as the parent account, but each
+    subuser can have one or more of their own IP addresses as well. More
+    information:* [How to request more
+    IPs](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/)*
+    [Setup Reverse
+    DNS](https://sendgrid.com/docs/ui/account-and-settings/how-to-set-up-reverse-dns/)
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Ips Assigned To A Subuser
+      description: >-
+        **This endpoint allows you update your subusers' assigned IP.**Each subuser
+        should be assigned to an IP address from which all of this subuser's mail
+        will be sent. Often, this is the same IP as the parent account, but each
+        subuser can have one or more of their own IP addresses as well. More
+        information:* [How to request more
+        IPs](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/)*
+        [Setup Reverse
+        DNS](https://sendgrid.com/docs/ui/account-and-settings/how-to-set-up-reverse-dns/)
+    paths:
+      /v3/subusers/{subuser_name}/ips:
+        put:
+          summary: Update Ips Assigned To A Subuser
+          description: >-
+            **This endpoint allows you update your subusers' assigned IP.**Each
+            subuser should be assigned to an IP address from which all of this
+            subuser's mail will be sent. Often, this is the same IP as the parent
+            account, but each subuser can have one or more of their own IP addresses
+            as well. More information:* [How to request more
+            IPs](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/)*
+            [Setup Reverse
+            DNS](https://sendgrid.com/docs/ui/account-and-settings/how-to-set-up-reverse-dns/)
+          operationId: updateSubuserIp
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: array
+                  description: The IP addresses you would like to assign to the subuser.
+                  items:
+                    type: string
+                    format: ipv4
+                  example:
+                    - 127.0.0.1
+          responses:
+            '401':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - field: null
+                            message: authorization required

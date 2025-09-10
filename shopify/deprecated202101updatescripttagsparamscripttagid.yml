@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updates A Script Tag
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/online-store/scripttag#update-2021-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updates A Script Tag
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/online-store/scripttag#update-2021-01
+    paths:
+      /admin/api/2021-01/script_tags/{script_tag_id}.json:
+        put:
+          summary: Updates A Script Tag
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/online-store/scripttag#update-2021-01
+          operationId: deprecated202101updatescripttagsparamscripttagid
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      script_tag:
+                        id: 596726825
+                        src: https://somewhere-else.com/another.js
+                    summary: Update a script tag's URL
+          responses:
+            '200':
+              description: ''

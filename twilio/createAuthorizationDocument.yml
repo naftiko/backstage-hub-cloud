@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Hostednumber Authorizationdocuments
+  description: >-
+    Create an AuthorizationDocument for authorizing the hosting of phone number
+    capabilities on Twilio's platform.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Hostednumber Authorizationdocuments
+      description: >-
+        Create an AuthorizationDocument for authorizing the hosting of phone number
+        capabilities on Twilio's platform.
+    paths:
+      /v2/HostedNumber/AuthorizationDocuments:
+        post:
+          summary: Post Hostednumber Authorizationdocuments
+          description: >-
+            Create an AuthorizationDocument for authorizing the hosting of phone
+            number capabilities on Twilio's platform.
+          operationId: createAuthorizationDocument
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateAuthorizationDocumentRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/numbers.v2.authorization_document'
+              description: Created

@@ -1,0 +1,117 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Issue Link
+  description: >-
+    Creates a link between two issues. Use this operation to indicate a
+    relationship between two issues and optionally add a comment to the from
+    (outward) issue. To use this resource the site must have [Issue
+    Linking](https://confluence.atlassian.com/x/yoXKM) enabled.This resource
+    returns nothing on the creation of an issue link. To obtain the ID of the
+    issue link, use `https://your-domain.atlassian.net/rest/api/3/issue/[linked
+    issue key]?fields=issuelinks`.If the link request duplicates a link, the
+    response indicates that the issue link was created. If the request included
+    a comment, the comment is added.This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** *  *Browse project*
+    [project permission](https://confluence.atlassian.com/x/yodKLg) for all the
+    projects containing the issues to be linked, *  *Link issues* [project
+    permission](https://confluence.atlassian.com/x/yodKLg) on the project
+    containing the from (outward) issue, *  If [issue-level
+    security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+    issue-level security permission to view the issue. *  If the comment has
+    visibility restrictions, belongs to the group or has the role visibility is
+    restricted to.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Issue Link
+      description: >-
+        Creates a link between two issues. Use this operation to indicate a
+        relationship between two issues and optionally add a comment to the from
+        (outward) issue. To use this resource the site must have [Issue
+        Linking](https://confluence.atlassian.com/x/yoXKM) enabled.This resource
+        returns nothing on the creation of an issue link. To obtain the ID of the
+        issue link, use `https://your-domain.atlassian.net/rest/api/3/issue/[linked
+        issue key]?fields=issuelinks`.If the link request duplicates a link, the
+        response indicates that the issue link was created. If the request included
+        a comment, the comment is added.This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** *  *Browse project*
+        [project permission](https://confluence.atlassian.com/x/yodKLg) for all the
+        projects containing the issues to be linked, *  *Link issues* [project
+        permission](https://confluence.atlassian.com/x/yodKLg) on the project
+        containing the from (outward) issue, *  If [issue-level
+        security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+        issue-level security permission to view the issue. *  If the comment has
+        visibility restrictions, belongs to the group or has the role visibility is
+        restricted to.
+    paths:
+      /rest/api/3/issueLink:
+        post:
+          summary: Create Issue Link
+          description: >-
+            Creates a link between two issues. Use this operation to indicate a
+            relationship between two issues and optionally add a comment to the from
+            (outward) issue. To use this resource the site must have [Issue
+            Linking](https://confluence.atlassian.com/x/yoXKM) enabled.This resource
+            returns nothing on the creation of an issue link. To obtain the ID of
+            the issue link, use
+            `https://your-domain.atlassian.net/rest/api/3/issue/[linked issue
+            key]?fields=issuelinks`.If the link request duplicates a link, the
+            response indicates that the issue link was created. If the request
+            included a comment, the comment is added.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** *  *Browse
+            project* [project permission](https://confluence.atlassian.com/x/yodKLg)
+            for all the projects containing the issues to be linked, *  *Link
+            issues* [project permission](https://confluence.atlassian.com/x/yodKLg)
+            on the project containing the from (outward) issue, *  If [issue-level
+            security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+            issue-level security permission to view the issue. *  If the comment has
+            visibility restrictions, belongs to the group or has the role visibility
+            is restricted to.
+          operationId: linkIssues
+          requestBody:
+            description: The issue link request.
+            required: true
+            content:
+              application/json:
+                example:
+                  comment:
+                    body:
+                      content:
+                        - content:
+                            - text: Linked related issue!
+                              type: text
+                          type: paragraph
+                      type: doc
+                      version: 1
+                    visibility:
+                      identifier: 276f955c-63d7-42c8-9520-92d01dca0625
+                      type: group
+                      value: jira-software-users
+                  inwardIssue:
+                    key: HSP-1
+                  outwardIssue:
+                    key: MKY-1
+                  type:
+                    name: Duplicate
+                schema:
+                  $ref: '#/components/schemas/LinkIssueRequestJsonBean'
+          responses:
+            '404':
+              description: |-
+                Returned if:
+
+                 *  issue linking is disabled.
+                 *  the user cannot view one or both of the issues. For example, the user doesn't have *Browse project* project permission for a project containing one of the issues.
+                 *  the user does not have *link issues* project permission.
+                 *  either of the link issues are not found.
+                 *  the issue link type is not found.

@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Host Tags
+  description: >-
+    This endpoint allows you to update/replace all tags inan integration source
+    with those supplied in the request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Host Tags
+      description: >-
+        This endpoint allows you to update/replace all tags inan integration source
+        with those supplied in the request.
+    paths:
+      /api/v1/tags/hosts/{host_name}:
+        put:
+          summary: Update Host Tags
+          description: >-
+            This endpoint allows you to update/replace all tags inan integration
+            source with those supplied in the request.
+          operationId: updatehosttags
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    host: test.host
+                    tags:
+                      - environment:production
+                      - environment:production
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

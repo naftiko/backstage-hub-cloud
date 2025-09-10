@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Apps With Access To The Protected Branch
+  description: >-
+    Protected branches are available in public repositories with GitHub Free and
+    GitHub Free for organizations, and in public and private repositories with
+    GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise
+    Server. For more information, see [GitHub's
+    products](https://docs.github.com/enterprise-server@3.9/github/getting-started-with-github/githubs-products)
+    in the GitHub Help documentation.Lists the GitHub Apps that have push access
+    to this branch. Only GitHub Apps that are installed on the repository and
+    that have been granted write access to the repository contents can be added
+    as authorized actors on a protected branch.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Apps With Access To The Protected Branch
+      description: >-
+        Protected branches are available in public repositories with GitHub Free and
+        GitHub Free for organizations, and in public and private repositories with
+        GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise
+        Server. For more information, see [GitHub's
+        products](https://docs.github.com/enterprise-server@3.9/github/getting-started-with-github/githubs-products)
+        in the GitHub Help documentation.Lists the GitHub Apps that have push access
+        to this branch. Only GitHub Apps that are installed on the repository and
+        that have been granted write access to the repository contents can be added
+        as authorized actors on a protected branch.
+    paths:
+      /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps:
+        get:
+          summary: Get Apps With Access To The Protected Branch
+          description: >-
+            Protected branches are available in public repositories with GitHub Free
+            and GitHub Free for organizations, and in public and private
+            repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and
+            GitHub Enterprise Server. For more information, see [GitHub's
+            products](https://docs.github.com/enterprise-server@3.9/github/getting-started-with-github/githubs-products)
+            in the GitHub Help documentation.Lists the GitHub Apps that have push
+            access to this branch. Only GitHub Apps that are installed on the
+            repository and that have been granted write access to the repository
+            contents can be added as authorized actors on a protected branch.
+          operationId: getAppsWithAccessToTheProtectedBranch
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

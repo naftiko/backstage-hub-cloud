@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Customs Information
+  description: >-
+    Deletes customs information objects for a product.## ExampleThis is a batch
+    operation. The `product_id:in` query parameter is required.```httpDELETE
+    /shipping/products/customs-information?product_id:in=4,5,6```
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Customs Information
+      description: >-
+        Deletes customs information objects for a product.## ExampleThis is a batch
+        operation. The `product_id:in` query parameter is required.```httpDELETE
+        /shipping/products/customs-information?product_id:in=4,5,6```
+    paths:
+      /shipping/products/customs-information:
+        delete:
+          summary: Delete Customs Information
+          description: >-
+            Deletes customs information objects for a product.## ExampleThis is a
+            batch operation. The `product_id:in` query parameter is
+            required.```httpDELETE
+            /shipping/products/customs-information?product_id:in=4,5,6```
+          operationId: deleteCustomsInformation
+          responses:
+            '204':
+              description: No Content

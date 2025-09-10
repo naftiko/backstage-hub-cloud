@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add Repository Access To A Self-hosted Runner Group In An Organization
+  description: >-
+    Adds a repository to the list of repositories that can access a self-hosted
+    runner group. The runner group must have `visibility` set to `selected`. For
+    more information, see "[Create a self-hosted runner group for an
+    organization](#create-a-self-hosted-runner-group-for-an-organization)."OAuth
+    tokens and personal access tokens (classic) need the `admin:org` scope to
+    use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add Repository Access To A Self-hosted Runner Group In An Organization
+      description: >-
+        Adds a repository to the list of repositories that can access a self-hosted
+        runner group. The runner group must have `visibility` set to `selected`. For
+        more information, see "[Create a self-hosted runner group for an
+        organization](#create-a-self-hosted-runner-group-for-an-organization)."OAuth
+        tokens and personal access tokens (classic) need the `admin:org` scope to
+        use this endpoint.
+    paths:
+      /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}:
+        put:
+          summary: Add Repository Access To A Self-hosted Runner Group In An Organization
+          description: >-
+            Adds a repository to the list of repositories that can access a
+            self-hosted runner group. The runner group must have `visibility` set to
+            `selected`. For more information, see "[Create a self-hosted runner
+            group for an
+            organization](#create-a-self-hosted-runner-group-for-an-organization)."OAuth
+            tokens and personal access tokens (classic) need the `admin:org` scope
+            to use this endpoint.
+          operationId: actionsaddrepoaccesstoselfhostedrunnergroupinorg
+          responses:
+            '204':
+              description: Response

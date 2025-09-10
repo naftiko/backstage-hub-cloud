@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Download Csv
+  description: >-
+    **This endpoint will return a presigned URL that can be used to download the
+    CSV that was requested from the "Request a CSV" endpoint.**
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Download Csv
+      description: >-
+        **This endpoint will return a presigned URL that can be used to download the
+        CSV that was requested from the "Request a CSV" endpoint.**
+    paths:
+      /v3/messages/download/{download_uuid}:
+        get:
+          summary: Download Csv
+          description: >-
+            **This endpoint will return a presigned URL that can be used to download
+            the CSV that was requested from the "Request a CSV" endpoint.**
+          operationId: downloadCsv
+          responses:
+            '500':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      errors:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            message:
+                              type: string
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - message: internal server error

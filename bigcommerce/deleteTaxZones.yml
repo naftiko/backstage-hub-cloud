@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Tax Zones
+  description: >-
+    Delete one or more tax zones. Deleting a tax zone removes all associated tax
+    rates.> You must specify which zone(s) to delete using the `id:in` query
+    parameter.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Tax Zones
+      description: >-
+        Delete one or more tax zones. Deleting a tax zone removes all associated tax
+        rates.> You must specify which zone(s) to delete using the `id:in` query
+        parameter.
+    paths:
+      /tax/zones:
+        delete:
+          summary: Delete Tax Zones
+          description: >-
+            Delete one or more tax zones. Deleting a tax zone removes all associated
+            tax rates.> You must specify which zone(s) to delete using the `id:in`
+            query parameter.
+          operationId: deleteTaxZones
+          responses:
+            '204':
+              description: No Content

@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Dashboard
+  description: >-
+    Updates a dashboard, replacing all the dashboard details with those
+    provided.**[Permissions](#permissions) required:** NoneThe dashboard to be
+    updated must be owned by the user.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Dashboard
+      description: >-
+        Updates a dashboard, replacing all the dashboard details with those
+        provided.**[Permissions](#permissions) required:** NoneThe dashboard to be
+        updated must be owned by the user.
+    paths:
+      /rest/api/3/dashboard/{id}:
+        put:
+          summary: Update Dashboard
+          description: >-
+            Updates a dashboard, replacing all the dashboard details with those
+            provided.**[Permissions](#permissions) required:** NoneThe dashboard to
+            be updated must be owned by the user.
+          operationId: updateDashboard
+          requestBody:
+            description: Replacement dashboard details.
+            required: true
+            content:
+              application/json:
+                example:
+                  description: A dashboard to help auditors identify sample of issues to check.
+                  editPermissions: []
+                  name: Auditors dashboard
+                  sharePermissions:
+                    - type: global
+                schema:
+                  $ref: '#/components/schemas/DashboardDetails'
+          responses:
+            '404':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorCollection'
+              description: >-
+                Returned if the dashboard is not found or the dashboard is not owned
+                by the user.

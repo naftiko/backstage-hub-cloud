@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Account Ids For Users
+  description: >-
+    Returns the account IDs for the users specified in the `key` or `username`
+    parameters. Note that multiple `key` or `username` parameters can be
+    specified.**[Permissions](#permissions) required:** Permission to access
+    Jira.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Account Ids For Users
+      description: >-
+        Returns the account IDs for the users specified in the `key` or `username`
+        parameters. Note that multiple `key` or `username` parameters can be
+        specified.**[Permissions](#permissions) required:** Permission to access
+        Jira.
+    paths:
+      /rest/api/3/user/bulk/migration:
+        get:
+          summary: Get Account Ids For Users
+          description: >-
+            Returns the account IDs for the users specified in the `key` or
+            `username` parameters. Note that multiple `key` or `username` parameters
+            can be specified.**[Permissions](#permissions) required:** Permission to
+            access Jira.
+          operationId: bulkGetUsersMigration
+          responses:
+            '401':
+              description: Returned if the authentication credentials are incorrect or missing.

@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.mobilepacketcore Observabilityservices Observabilityservicename
+  description: Get a ObservabilityServiceResource
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.mobilepacketcore Observabilityservices Observabilityservicename
+      description: Get a ObservabilityServiceResource
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobilePacketCore/observabilityServices/{observabilityServiceName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.mobilepacketcore Observabilityservices
+            Observabilityservicename
+          description: Get a ObservabilityServiceResource
+          operationId: observabilityServicesGet
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

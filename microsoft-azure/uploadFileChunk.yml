@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Uploads A File Chunk To The Image Store Relative Path.
+  description: >-
+    Uploads a file chunk to the image store with the specified upload session ID
+    and image store relative path. This API allows user to resume the file
+    upload operation. user doesn't have to restart the file upload from scratch
+    whenever there is a network interruption. Use this option if the file size
+    is large.To perform a resumable file upload, user need to break the file
+    into multiple chunks and upload these chunks to the image store one-by-one.
+    Chunks don't have to be uploaded in order. If the file represented by the
+    image store relative path already exists, it will be overwritten when the
+    upload session commits.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Uploads A File Chunk To The Image Store Relative Path.
+      description: >-
+        Uploads a file chunk to the image store with the specified upload session ID
+        and image store relative path. This API allows user to resume the file
+        upload operation. user doesn't have to restart the file upload from scratch
+        whenever there is a network interruption. Use this option if the file size
+        is large.To perform a resumable file upload, user need to break the file
+        into multiple chunks and upload these chunks to the image store one-by-one.
+        Chunks don't have to be uploaded in order. If the file represented by the
+        image store relative path already exists, it will be overwritten when the
+        upload session commits.
+    paths:
+      /ImageStore/{contentPath}/$/UploadChunk:
+        put:
+          summary: Uploads A File Chunk To The Image Store Relative Path.
+          description: >-
+            Uploads a file chunk to the image store with the specified upload
+            session ID and image store relative path. This API allows user to resume
+            the file upload operation. user doesn't have to restart the file upload
+            from scratch whenever there is a network interruption. Use this option
+            if the file size is large.To perform a resumable file upload, user need
+            to break the file into multiple chunks and upload these chunks to the
+            image store one-by-one. Chunks don't have to be uploaded in order. If
+            the file represented by the image store relative path already exists, it
+            will be overwritten when the upload session commits.
+          operationId: uploadFileChunk
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

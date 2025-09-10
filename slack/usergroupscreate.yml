@@ -1,0 +1,124 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Usergroups.create
+  description: Create a User Group
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Usergroups.create
+      description: Create a User Group
+    paths:
+      /usergroups.create:
+        post:
+          summary: Post Usergroups.create
+          description: Create a User Group
+          operationId: usergroupscreate
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - name
+                  type: object
+                  properties:
+                    channels:
+                      type: string
+                      description: >-
+                        A comma separated string of encoded channel IDs for which
+                        the User Group uses as a default.
+                    description:
+                      type: string
+                      description: A short description of the User Group.
+                    handle:
+                      type: string
+                      description: >-
+                        A mention handle. Must be unique among channels, users and
+                        User Groups.
+                    include_count:
+                      type: boolean
+                      description: Include the number of users in each User Group.
+                    name:
+                      type: string
+                      description: A name for the User Group. Must be unique among User Groups.
+              application/json:
+                schema:
+                  required:
+                    - name
+                  type: object
+                  properties:
+                    channels:
+                      type: string
+                      description: >-
+                        A comma separated string of encoded channel IDs for which
+                        the User Group uses as a default.
+                    description:
+                      type: string
+                      description: A short description of the User Group.
+                    handle:
+                      type: string
+                      description: >-
+                        A mention handle. Must be unique among channels, users and
+                        User Groups.
+                    include_count:
+                      type: boolean
+                      description: Include the number of users in each User Group.
+                    name:
+                      type: string
+                      description: A name for the User Group. Must be unique among User Groups.
+          responses:
+            default:
+              description: Typical error response
+              content:
+                application/json:
+                  schema:
+                    title: usergroups.create error schema
+                    required:
+                      - error
+                      - ok
+                    type: object
+                    properties:
+                      callstack:
+                        type: string
+                        description: 'Note: PHP callstack is only visible in dev/qa'
+                      error:
+                        type: string
+                        enum:
+                          - permission_denied
+                          - not_authed
+                          - invalid_auth
+                          - account_inactive
+                          - token_revoked
+                          - no_permission
+                          - org_login_required
+                          - user_is_bot
+                          - user_is_restricted
+                          - invalid_arg_name
+                          - invalid_array_arg
+                          - invalid_charset
+                          - invalid_form_data
+                          - invalid_post_type
+                          - missing_post_type
+                          - team_added_to_org
+                          - invalid_json
+                          - json_not_object
+                          - request_timeout
+                          - upgrade_required
+                          - fatal_error
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                    additionalProperties: false
+                    description: Schema for error response from usergroups.create method
+                  example:
+                    error: invalid_auth
+                    ok: false

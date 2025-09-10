@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Sims Sid
+  description: Delete a Sim resource on your Account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Sims Sid
+      description: Delete a Sim resource on your Account.
+    paths:
+      /v1/Sims/{Sid}:
+        delete:
+          summary: Delete Sims Sid
+          description: Delete a Sim resource on your Account.
+          operationId: deleteSim
+          responses:
+            '204':
+              description: The resource was deleted successfully.

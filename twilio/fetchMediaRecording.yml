@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Mediarecordings Sid
+  description: Returns a single MediaRecording resource identified by a SID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Mediarecordings Sid
+      description: Returns a single MediaRecording resource identified by a SID.
+    paths:
+      /v1/MediaRecordings/{Sid}:
+        get:
+          summary: Get Mediarecordings Sid
+          description: Returns a single MediaRecording resource identified by a SID.
+          operationId: fetchMediaRecording
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/media.v1.media_recording'
+              description: OK

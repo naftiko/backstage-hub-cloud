@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Uri To Download Attachment
+  description: Redirects the client to a URL that serves an attachment's binary data.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Uri To Download Attachment
+      description: Redirects the client to a URL that serves an attachment's binary data.
+    paths:
+      /wiki/rest/api/content/{id}/child/attachment/{attachmentId}/download:
+        get:
+          summary: Get Uri To Download Attachment
+          description: Redirects the client to a URL that serves an attachment's binary data.
+          operationId: downloadAttatchment
+          responses:
+            '404':
+              description: >-
+                Returned if;
+
+
+                - No content is found with the specified content ID.
+
+                - The specified content does not contain an attachment with the
+                specified attachment ID.
+
+                - The calling user does not have permission to view the attachment.

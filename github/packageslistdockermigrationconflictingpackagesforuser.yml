@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get List Of Conflicting Packages During Docker Migration For User
+  description: >-
+    Lists all packages that are in a specific user's namespace, that the
+    requesting user has access to, and that encountered a conflict during Docker
+    migration.OAuth app tokens and personal access tokens (classic) need the
+    `read:packages` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get List Of Conflicting Packages During Docker Migration For User
+      description: >-
+        Lists all packages that are in a specific user's namespace, that the
+        requesting user has access to, and that encountered a conflict during Docker
+        migration.OAuth app tokens and personal access tokens (classic) need the
+        `read:packages` scope to use this endpoint.
+    paths:
+      /users/{username}/docker/conflicts:
+        get:
+          summary: Get List Of Conflicting Packages During Docker Migration For User
+          description: >-
+            Lists all packages that are in a specific user's namespace, that the
+            requesting user has access to, and that encountered a conflict during
+            Docker migration.OAuth app tokens and personal access tokens (classic)
+            need the `read:packages` scope to use this endpoint.
+          operationId: packageslistdockermigrationconflictingpackagesforuser
+          responses:
+            '403':
+              $ref: '#/components/responses/forbidden'

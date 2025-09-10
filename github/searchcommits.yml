@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Search Commits
+  description: >-
+    Find commits via various criteria on the default branch (usually `main`).
+    This method returns up to 100 results [per
+    page](https://docs.github.com/enterprise-server@3.9/rest/guides/using-pagination-in-the-rest-api).When
+    searching for commits, you can get text match metadata for the **message**
+    field when you provide the `text-match` media type. For more details about
+    how to receive highlighted search results, see [Text
+    matchmetadata](https://docs.github.com/enterprise-server@3.9/rest/search/search#text-match-metadata).For
+    example, if you want to find commits related to CSS in the
+    [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
+    Your query would look something like this:`q=repo:octocat/Spoon-Knife+css`
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Search Commits
+      description: >-
+        Find commits via various criteria on the default branch (usually `main`).
+        This method returns up to 100 results [per
+        page](https://docs.github.com/enterprise-server@3.9/rest/guides/using-pagination-in-the-rest-api).When
+        searching for commits, you can get text match metadata for the **message**
+        field when you provide the `text-match` media type. For more details about
+        how to receive highlighted search results, see [Text
+        matchmetadata](https://docs.github.com/enterprise-server@3.9/rest/search/search#text-match-metadata).For
+        example, if you want to find commits related to CSS in the
+        [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
+        Your query would look something like this:`q=repo:octocat/Spoon-Knife+css`
+    paths:
+      /search/commits:
+        get:
+          summary: Search Commits
+          description: >-
+            Find commits via various criteria on the default branch (usually
+            `main`). This method returns up to 100 results [per
+            page](https://docs.github.com/enterprise-server@3.9/rest/guides/using-pagination-in-the-rest-api).When
+            searching for commits, you can get text match metadata for the
+            **message** field when you provide the `text-match` media type. For more
+            details about how to receive highlighted search results, see [Text
+            matchmetadata](https://docs.github.com/enterprise-server@3.9/rest/search/search#text-match-metadata).For
+            example, if you want to find commits related to CSS in the
+            [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife)
+            repository. Your query would look something like
+            this:`q=repo:octocat/Spoon-Knife+css`
+          operationId: searchcommits
+          responses:
+            '304':
+              $ref: '#/components/responses/not_modified'

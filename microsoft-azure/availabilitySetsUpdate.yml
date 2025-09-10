@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Implements The Availabilitysets Patch Method.
+  description: Updates the AvailabilitySets resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Implements The Availabilitysets Patch Method.
+      description: Updates the AvailabilitySets resource.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/availabilitySets/{availabilitySetName}:
+        patch:
+          summary: Implements The Availabilitysets Patch Method.
+          description: Updates the AvailabilitySets resource.
+          operationId: availabilitySetsUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

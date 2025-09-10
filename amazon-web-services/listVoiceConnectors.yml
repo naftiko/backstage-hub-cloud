@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listvoiceconnectors
+  description: >-
+    Lists the Amazon Chime SDK Voice Connectors in the administrators AWS
+    account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listvoiceconnectors
+      description: >-
+        Lists the Amazon Chime SDK Voice Connectors in the administrators AWS
+        account.
+    paths:
+      /voice-connectors:
+        GET:
+          summary: Listvoiceconnectors
+          description: >-
+            Lists the Amazon Chime SDK Voice Connectors in the administrators AWS
+            account.
+          operationId: listVoiceConnectors

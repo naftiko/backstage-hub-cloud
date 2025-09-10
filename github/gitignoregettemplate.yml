@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Gitignore Template
+  description: >-
+    Get the content of a gitignore template.This endpoint supports the following
+    custom media types. For more information, see "[Media
+    types](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types)."-
+    **`application/vnd.github.raw+json`**: Returns the raw .gitignore contents.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Gitignore Template
+      description: >-
+        Get the content of a gitignore template.This endpoint supports the following
+        custom media types. For more information, see "[Media
+        types](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types)."-
+        **`application/vnd.github.raw+json`**: Returns the raw .gitignore contents.
+    paths:
+      /gitignore/templates/{name}:
+        get:
+          summary: Get A Gitignore Template
+          description: >-
+            Get the content of a gitignore template.This endpoint supports the
+            following custom media types. For more information, see "[Media
+            types](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types)."-
+            **`application/vnd.github.raw+json`**: Returns the raw .gitignore
+            contents.
+          operationId: gitignoregettemplate
+          responses:
+            '304':
+              $ref: '#/components/responses/not_modified'

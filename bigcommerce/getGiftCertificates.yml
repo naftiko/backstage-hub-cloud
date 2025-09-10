@@ -1,0 +1,95 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Gift Certificates
+  description: >-
+    Returns a list of *Gift Certificates*. Optional filter parameters can be
+    passed in.Default sorting is by gift-certificate id, from lowest to
+    highest.The maximum limit is 250. If a limit isn’t provided, up to 50
+    gift_certificates are returned by default.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Gift Certificates
+      description: >-
+        Returns a list of *Gift Certificates*. Optional filter parameters can be
+        passed in.Default sorting is by gift-certificate id, from lowest to
+        highest.The maximum limit is 250. If a limit isn’t provided, up to 50
+        gift_certificates are returned by default.
+    paths:
+      /gift_certificates:
+        get:
+          summary: Get All Gift Certificates
+          description: >-
+            Returns a list of *Gift Certificates*. Optional filter parameters can be
+            passed in.Default sorting is by gift-certificate id, from lowest to
+            highest.The maximum limit is 250. If a limit isn’t provided, up to 50
+            gift_certificates are returned by default.
+          operationId: getGiftCertificates
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/giftCertificate_Full'
+                  example:
+                    - id: 24
+                      code: 10R-5E2-BO4-RWT
+                      amount: '1000.0000'
+                      status: active
+                      balance: '500.0000'
+                      to_name: Alyss
+                      order_id: 1281
+                      template: celebration.html
+                      message: Celebrate
+                      to_email: test@test.com
+                      from_name: Noland
+                      from_email: test1@test.com
+                      customer_id: 0
+                      expiry_date: Mon, 2 Jan 2023 08:45:38 CST
+                      purchase_date: Tue, 20 Jan 1970 08:45:38 CST
+                      currency_code: USD
+                    - id: 25
+                      code: 10R-6E3-AO4-RST
+                      amount: '700.0000'
+                      status: active
+                      balance: '700.0000'
+                      to_name: Alyss
+                      order_id: 0
+                      template: general.html
+                      message: Test
+                      to_email: test@test.com
+                      from_name: Noland
+                      from_email: test1@test.com
+                      customer_id: 0
+                      expiry_date: Mon, 2 Jan 2023 08:45:38 CST
+                      purchase_date: Tue, 20 Jan 1970 08:45:38 CST
+                      currency_code: USD
+                    - id: 27
+                      code: 15R-6E3-AO4-RST
+                      amount: '50.0000'
+                      status: active
+                      balance: '50.0000'
+                      to_name: Lyss
+                      order_id: 0
+                      template: celebration.html
+                      message: Celebrate
+                      to_email: test5@test.com
+                      from_name: Somethingelse
+                      from_email: test15@test.com
+                      customer_id: 0
+                      expiry_date: Mon, 2 Jan 2023 08:45:38 CST
+                      purchase_date: Tue, 20 Jan 1970 08:45:38 CST
+                      currency_code: USD

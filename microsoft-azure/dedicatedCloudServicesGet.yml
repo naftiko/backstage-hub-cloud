@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Implements Dedicatedcloudservice Get Method
+  description: Returns Dedicate Cloud Service
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Implements Dedicatedcloudservice Get Method
+      description: Returns Dedicate Cloud Service
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMwareCloudSimple/dedicatedCloudServices/{dedicatedCloudServiceName}:
+        get:
+          summary: Implements Dedicatedcloudservice Get Method
+          description: Returns Dedicate Cloud Service
+          operationId: dedicatedCloudServicesGet
+          responses:
+            default:
+              description: General Error
+              schema:
+                $ref: '#/definitions/CSRPError'

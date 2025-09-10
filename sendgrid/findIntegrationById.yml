@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getintegration
+  description: This endpoint returns the data for a specific Integration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getintegration
+      description: This endpoint returns the data for a specific Integration.
+    paths:
+      /v3/marketing/integrations/{id}:
+        get:
+          summary: Getintegration
+          description: This endpoint returns the data for a specific Integration.
+          operationId: findIntegrationById
+          responses:
+            '500':
+              description: Internal Error
+              content:
+                application/json:
+                  schema:
+                    properties:
+                      errors:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/InternalError'

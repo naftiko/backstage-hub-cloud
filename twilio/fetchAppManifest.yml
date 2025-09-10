@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Apps Appsid Manifest
+  description: Retrieve the Manifest for an App.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Apps Appsid Manifest
+      description: Retrieve the Manifest for an App.
+    paths:
+      /v1/Apps/{AppSid}/Manifest:
+        get:
+          summary: Get Apps Appsid Manifest
+          description: Retrieve the Manifest for an App.
+          operationId: fetchAppManifest
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/microvisor.v1.app.app_manifest'
+              description: OK

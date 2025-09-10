@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Tax Transactions Transaction Line_items
+  description: >-
+    Retrieves the line items of a committed standalone transaction as a
+    collection.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Tax Transactions Transaction Line_items
+      description: >-
+        Retrieves the line items of a committed standalone transaction as a
+        collection.
+    paths:
+      /v1/tax/transactions/{transaction}/line_items:
+        get:
+          summary: Get Tax Transactions Transaction Line_items
+          description: >-
+            Retrieves the line items of a committed standalone transaction as a
+            collection.
+          operationId: getTaxTransactionsTransactionLineItems
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: >-
+                    #/components/schemas/GetTaxTransactionsTransactionLineItemsRequest
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

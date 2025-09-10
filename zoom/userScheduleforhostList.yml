@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post User Scheduleforhost List
+  description: List assigned schedule privilege for host users.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post User Scheduleforhost List
+      description: List assigned schedule privilege for host users.
+    paths:
+      /user/scheduleforhost/list:
+        post:
+          summary: Post User Scheduleforhost List
+          description: List assigned schedule privilege for host users.
+          operationId: userScheduleforhostList
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: The host’s user id.
+                    host_email:
+                      type: string
+                      description: The host’s email address.
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    total_records: 1
+                    users:
+                      - id: unique_id
+                        email: email_address
+                        first_name: Zoomie
+                        last_name: Userton

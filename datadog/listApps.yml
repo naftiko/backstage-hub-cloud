@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Apps
+  description: >-
+    List all apps, with optional filters and sorting. This endpoint is
+    paginated. Only basic app information such as the app ID, name, and
+    description is returned by this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Apps
+      description: >-
+        List all apps, with optional filters and sorting. This endpoint is
+        paginated. Only basic app information such as the app ID, name, and
+        description is returned by this endpoint.
+    paths:
+      /api/v2/app-builder/apps:
+        get:
+          summary: List Apps
+          description: >-
+            List all apps, with optional filters and sorting. This endpoint is
+            paginated. Only basic app information such as the app ID, name, and
+            description is returned by this endpoint.
+          operationId: listApps
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

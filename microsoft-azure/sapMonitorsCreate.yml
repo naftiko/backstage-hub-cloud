@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Creates A Sap Monitor.
+  description: >-
+    The product Microsoft.Workloads/sapMonitors (AMS Classic) is officially
+    retired as of May 31, 2023.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Creates A Sap Monitor.
+      description: >-
+        The product Microsoft.Workloads/sapMonitors (AMS Classic) is officially
+        retired as of May 31, 2023.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HanaOnAzure/sapMonitors/{sapMonitorName}:
+        put:
+          summary: Creates A Sap Monitor.
+          description: >-
+            The product Microsoft.Workloads/sapMonitors (AMS Classic) is officially
+            retired as of May 31, 2023.
+          operationId: sapMonitorsCreate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Compose Trained With Labels Models Into One Composed Model.
+  description: >-
+    Compose request would include list of models ids.It would validate what all
+    models either trained with labels model or composed model.It would validate
+    limit of models put together.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Compose Trained With Labels Models Into One Composed Model.
+      description: >-
+        Compose request would include list of models ids.It would validate what all
+        models either trained with labels model or composed model.It would validate
+        limit of models put together.
+    paths:
+      /custom/models/compose:
+        post:
+          summary: Compose Trained With Labels Models Into One Composed Model.
+          description: >-
+            Compose request would include list of models ids.It would validate what
+            all models either trained with labels model or composed model.It would
+            validate limit of models put together.
+          operationId: composeCustomModelsAsync
+          responses:
+            default:
+              description: >-
+                Response entity accompanying non-successful responses containing
+                additional details about the error.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Disassociatelenses
+  description: >-
+    Disassociate a lens from a workload. Up to 10 lenses can be disassociated
+    from a workload in a single API operation.  The Amazon Web Services
+    Well-Architected Framework lens (wellarchitected) cannot be removed from a
+    workload. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disassociatelenses
+      description: >-
+        Disassociate a lens from a workload. Up to 10 lenses can be disassociated
+        from a workload in a single API operation.  The Amazon Web Services
+        Well-Architected Framework lens (wellarchitected) cannot be removed from a
+        workload. 
+    paths:
+      /workloads/{WorkloadId}/disassociateLenses:
+        PATCH:
+          summary: Disassociatelenses
+          description: >-
+            Disassociate a lens from a workload. Up to 10 lenses can be
+            disassociated from a workload in a single API operation.  The Amazon Web
+            Services Well-Architected Framework lens (wellarchitected) cannot be
+            removed from a workload. 
+          operationId: disassociateLenses

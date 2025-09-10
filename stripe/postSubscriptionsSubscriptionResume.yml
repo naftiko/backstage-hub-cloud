@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Subscriptions Subscription Resume
+  description: >-
+    Initiates resumption of a paused subscription, optionally resetting the
+    billing cycle anchor and creating prorations. If a resumption invoice is
+    generated, it must be paid or marked uncollectible before the subscription
+    will be unpaused. If payment succeeds the subscription will become active,
+    and if payment fails the subscription will be past_due. The resumption
+    invoice will void automatically if not paid by the expiration date.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Subscriptions Subscription Resume
+      description: >-
+        Initiates resumption of a paused subscription, optionally resetting the
+        billing cycle anchor and creating prorations. If a resumption invoice is
+        generated, it must be paid or marked uncollectible before the subscription
+        will be unpaused. If payment succeeds the subscription will become active,
+        and if payment fails the subscription will be past_due. The resumption
+        invoice will void automatically if not paid by the expiration date.
+    paths:
+      /v1/subscriptions/{subscription}/resume:
+        post:
+          summary: Post Subscriptions Subscription Resume
+          description: >-
+            Initiates resumption of a paused subscription, optionally resetting the
+            billing cycle anchor and creating prorations. If a resumption invoice is
+            generated, it must be paid or marked uncollectible before the
+            subscription will be unpaused. If payment succeeds the subscription will
+            become active, and if payment fails the subscription will be past_due.
+            The resumption invoice will void automatically if not paid by the
+            expiration date.
+          operationId: postSubscriptionsSubscriptionResume
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostSubscriptionsSubscriptionResumeRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

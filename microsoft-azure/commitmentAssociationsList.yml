@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.machinelearning Commitmentplans Commitmentplanname
+    Commitmentassociations
+  description: Get all commitment associations for a parent commitment plan.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.machinelearning Commitmentplans Commitmentplanname
+        Commitmentassociations
+      description: Get all commitment associations for a parent commitment plan.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearning/commitmentPlans/{commitmentPlanName}/commitmentAssociations:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.machinelearning Commitmentplans Commitmentplanname
+            Commitmentassociations
+          description: Get all commitment associations for a parent commitment plan.
+          operationId: commitmentAssociationsList
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/CommitmentAssociationListResult'

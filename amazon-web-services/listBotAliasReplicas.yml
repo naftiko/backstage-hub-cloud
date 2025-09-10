@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listbotaliasreplicas
+  description: The action to list the replicated bots created from the source bot alias.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listbotaliasreplicas
+      description: The action to list the replicated bots created from the source bot alias.
+    paths:
+      /bots/{botId}/replicas/{replicaRegion}/botaliases/:
+        POST:
+          summary: Listbotaliasreplicas
+          description: >-
+            The action to list the replicated bots created from the source bot
+            alias.
+          operationId: listBotAliasReplicas

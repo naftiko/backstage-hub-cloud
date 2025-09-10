@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Flows Sid
+  description: Update a Flow.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Flows Sid
+      description: Update a Flow.
+    paths:
+      /v2/Flows/{Sid}:
+        post:
+          summary: Post Flows Sid
+          description: Update a Flow.
+          operationId: updateFlow
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/UpdateFlowRequest'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/studio.v2.flow'
+              description: OK

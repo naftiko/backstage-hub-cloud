@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Importplaybackkeypair
+  description: >-
+    Imports the public portion of a new key pair and returns its arn and
+    fingerprint. The privateKey can then be used to generate viewer
+    authorization tokens, to grant viewers access to private channels. For more
+    information, see Setting Up Private Channels in the Amazon IVS User Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Importplaybackkeypair
+      description: >-
+        Imports the public portion of a new key pair and returns its arn and
+        fingerprint. The privateKey can then be used to generate viewer
+        authorization tokens, to grant viewers access to private channels. For more
+        information, see Setting Up Private Channels in the Amazon IVS User Guide.
+    paths:
+      /ImportPlaybackKeyPair:
+        POST:
+          summary: Importplaybackkeypair
+          description: >-
+            Imports the public portion of a new key pair and returns its arn and
+            fingerprint. The privateKey can then be used to generate viewer
+            authorization tokens, to grant viewers access to private channels. For
+            more information, see Setting Up Private Channels in the Amazon IVS User
+            Guide.
+          operationId: importPlaybackKeyPair

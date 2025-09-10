@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Gets The Health Summary For The Vault.
+  description: Gets the health details of the vault.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The Health Summary For The Vault.
+      description: Gets the health details of the vault.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationVaultHealth:
+        get:
+          summary: Gets The Health Summary For The Vault.
+          description: Gets the health details of the vault.
+          operationId: replicationVaultHealthGet
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/VaultHealthDetails'

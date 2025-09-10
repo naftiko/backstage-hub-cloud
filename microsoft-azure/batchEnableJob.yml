@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Enables The Specified Job, Allowing New Tasks To Run.
+  description: >-
+    When you call this API, the Batch service sets a disabled Job to the
+    enablingstate. After the this operation is completed, the Job moves to the
+    activestate, and scheduling of new Tasks under the Job resumes. The Batch
+    servicedoes not allow a Task to remain in the active state for more than 180
+    days.Therefore, if you enable a Job containing active Tasks which were added
+    morethan 180 days ago, those Tasks will not run.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Enables The Specified Job, Allowing New Tasks To Run.
+      description: >-
+        When you call this API, the Batch service sets a disabled Job to the
+        enablingstate. After the this operation is completed, the Job moves to the
+        activestate, and scheduling of new Tasks under the Job resumes. The Batch
+        servicedoes not allow a Task to remain in the active state for more than 180
+        days.Therefore, if you enable a Job containing active Tasks which were added
+        morethan 180 days ago, those Tasks will not run.
+    paths:
+      /jobs/{jobId}/enable:
+        post:
+          summary: Enables The Specified Job, Allowing New Tasks To Run.
+          description: >-
+            When you call this API, the Batch service sets a disabled Job to the
+            enablingstate. After the this operation is completed, the Job moves to
+            the activestate, and scheduling of new Tasks under the Job resumes. The
+            Batch servicedoes not allow a Task to remain in the active state for
+            more than 180 days.Therefore, if you enable a Job containing active
+            Tasks which were added morethan 180 days ago, those Tasks will not run.
+          operationId: batchEnableJob
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

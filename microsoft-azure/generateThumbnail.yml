@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Generatethumbnail
+  description: >-
+    This operation generates a thumbnail image with the user-specified width and
+    height. By default, the service analyzes the image, identifies the region of
+    interest (ROI), and generates smart cropping coordinates based on the ROI.
+    Smart cropping helps when you specify an aspect ratio that differs from that
+    of the input image. A successful response contains the thumbnail image
+    binary. If the request failed, the response contains an error code and a
+    message to help determine what went wrong.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Generatethumbnail
+      description: >-
+        This operation generates a thumbnail image with the user-specified width and
+        height. By default, the service analyzes the image, identifies the region of
+        interest (ROI), and generates smart cropping coordinates based on the ROI.
+        Smart cropping helps when you specify an aspect ratio that differs from that
+        of the input image. A successful response contains the thumbnail image
+        binary. If the request failed, the response contains an error code and a
+        message to help determine what went wrong.
+    paths:
+      /generateThumbnail:
+        post:
+          summary: Post Generatethumbnail
+          description: >-
+            This operation generates a thumbnail image with the user-specified width
+            and height. By default, the service analyzes the image, identifies the
+            region of interest (ROI), and generates smart cropping coordinates based
+            on the ROI. Smart cropping helps when you specify an aspect ratio that
+            differs from that of the input image. A successful response contains the
+            thumbnail image binary. If the request failed, the response contains an
+            error code and a message to help determine what went wrong.
+          operationId: generateThumbnail
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/ComputerVisionError'

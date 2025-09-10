@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.operationalinsights Workspaces Workspacename Features Servicemap
+    Machinegroups Machinegroupname
+  description: >-
+    Returns the specified machine group as it existed during the specified time
+    interval.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.operationalinsights Workspaces Workspacename Features Servicemap
+        Machinegroups Machinegroupname
+      description: >-
+        Returns the specified machine group as it existed during the specified time
+        interval.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/serviceMap/machineGroups/{machineGroupName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.operationalinsights Workspaces Workspacename
+            Features Servicemap Machinegroups Machinegroupname
+          description: >-
+            Returns the specified machine group as it existed during the specified
+            time interval.
+          operationId: machineGroupsGet
+          responses:
+            default:
+              description: >-
+                An error occurred while processing the request. See the error.code
+                parameter to identify the specific error.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

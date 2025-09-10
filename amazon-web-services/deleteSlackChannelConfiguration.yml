@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deleteslackchannelconfiguration
+  description: >-
+    Deletes a Slack channel configuration from your Amazon Web Services account.
+    This operation doesn't delete your Slack channel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deleteslackchannelconfiguration
+      description: >-
+        Deletes a Slack channel configuration from your Amazon Web Services account.
+        This operation doesn't delete your Slack channel.
+    paths:
+      /control/delete-slack-channel-configuration:
+        POST:
+          summary: Deleteslackchannelconfiguration
+          description: >-
+            Deletes a Slack channel configuration from your Amazon Web Services
+            account. This operation doesn't delete your Slack channel.
+          operationId: deleteSlackChannelConfiguration

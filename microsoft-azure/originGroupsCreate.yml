@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.cdn Profiles Profilename Endpoints Endpointname Origingroups
+    Origingroupname
+  description: Creates a new origin group within the specified endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.cdn Profiles Profilename Endpoints Endpointname Origingroups
+        Origingroupname
+      description: Creates a new origin group within the specified endpoint.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}/originGroups/{originGroupName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.cdn Profiles Profilename Endpoints Endpointname
+            Origingroups Origingroupname
+          description: Creates a new origin group within the specified endpoint.
+          operationId: originGroupsCreate
+          responses:
+            default:
+              description: CDN error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

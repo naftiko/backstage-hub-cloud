@@ -1,0 +1,87 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Metrics Meetings
+  description: Get Live Meetings and past meetings for a specified period
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Metrics Meetings
+      description: Get Live Meetings and past meetings for a specified period
+    paths:
+      /metrics/meetings:
+        post:
+          summary: Post Metrics Meetings
+          description: Get Live Meetings and past meetings for a specified period
+          operationId: dashboardMeetings
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - from
+                    - to
+                    - type
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      description: >-
+                        Meeting list type. 1 means live meetings. 2 means past
+                        meetings.
+                      default: '1'
+                    from:
+                      type: string
+                      description: Start date. Only for past meetings.
+                    to:
+                      type: string
+                      description: End date. Only for past meetings.
+                    page_size:
+                      type: string
+                      description: >-
+                        The amount of records returns within a single API call.
+                        Defaults to 30. Max of 100 meetings.
+                      default: '30'
+                    page_number:
+                      type: string
+                      description: Current page number of returned records. Default to 1.
+                      default: '1'
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    from: 2015-08-02T00:00:00.000Z
+                    to: 2015-09-02T00:00:00.000Z
+                    page_count: 2
+                    page_number: 1
+                    page_size: 30
+                    total_records: 49
+                    type: Past Meetings
+                    meetings:
+                      - uuid: unique_id
+                        id: '123456789'
+                        host: Zoomie Userton
+                        email: email_address
+                        user_type: Pro
+                        start_time: 2015-08-29T05:36:56.000Z
+                        end_time: 2015-08-29T06:36:56.000Z
+                        duration: 4 mins
+                        participants: 2
+                        has_pstn: false
+                        has_voip: true
+                        has_3rd_party_audio: false
+                        has_video: true
+                        has_screen_share: false
+                        recording: 0

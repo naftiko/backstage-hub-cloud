@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listwebexperiences
+  description: Lists one or more Amazon Q Web Experiences.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listwebexperiences
+      description: Lists one or more Amazon Q Web Experiences.
+    paths:
+      /applications/{applicationId}/experiences:
+        GET:
+          summary: Listwebexperiences
+          description: Lists one or more Amazon Q Web Experiences.
+          operationId: listWebExperiences

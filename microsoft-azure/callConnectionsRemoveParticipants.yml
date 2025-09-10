@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Remove Participant From The Call Using Identifier.
+  description: Remove participant from the call using identifier.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Remove Participant From The Call Using Identifier.
+      description: Remove participant from the call using identifier.
+    paths:
+      /calling/callConnections/{callConnectionId}/participants:remove:
+        post:
+          summary: Remove Participant From The Call Using Identifier.
+          description: Remove participant from the call using identifier.
+          operationId: callConnectionsRemoveParticipants
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/CommunicationErrorResponse'

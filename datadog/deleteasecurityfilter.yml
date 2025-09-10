@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Security Filter
+  description: Delete a specific security filter.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Security Filter
+      description: Delete a specific security filter.
+    paths:
+      /api/v2/security_monitoring/configuration/security_filters/{security_filter_id}:
+        delete:
+          summary: Delete A Security Filter
+          description: Delete a specific security filter.
+          operationId: deleteasecurityfilter
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

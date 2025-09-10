@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get The Diff Stat For A Pull Request
+  description: >-
+    Redirects to the [repository
+    diffstat](/cloud/bitbucket/rest/api-group-commits/#api-repositories-workspace-repo-slug-diffstat-spec-get)with
+    the revspec that corresponds to the pull request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get The Diff Stat For A Pull Request
+      description: >-
+        Redirects to the [repository
+        diffstat](/cloud/bitbucket/rest/api-group-commits/#api-repositories-workspace-repo-slug-diffstat-spec-get)with
+        the revspec that corresponds to the pull request.
+    paths:
+      /repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/diffstat:
+        get:
+          summary: Get The Diff Stat For A Pull Request
+          description: >-
+            Redirects to the [repository
+            diffstat](/cloud/bitbucket/rest/api-group-commits/#api-repositories-workspace-repo-slug-diffstat-spec-get)with
+            the revspec that corresponds to the pull request.
+          operationId: getthediffstatforapullrequest
+          responses:
+            '302':
+              description: >
+                Redirects to the [repository
+                diffstat](/cloud/bitbucket/rest/api-group-commits/#api-repositories-workspace-repo-slug-diffstat-spec-get)
+                with
+
+                the revspec that corresponds to pull request.

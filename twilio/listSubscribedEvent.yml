@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Subscriptions Subscriptionsid Subscribedevents
+  description: Retrieve a list of all Subscribed Event types for a Subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Subscriptions Subscriptionsid Subscribedevents
+      description: Retrieve a list of all Subscribed Event types for a Subscription.
+    paths:
+      /v1/Subscriptions/{SubscriptionSid}/SubscribedEvents:
+        get:
+          summary: Get Subscriptions Subscriptionsid Subscribedevents
+          description: Retrieve a list of all Subscribed Event types for a Subscription.
+          operationId: listSubscribedEvent
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ListSubscribedEventResponse'
+              description: OK

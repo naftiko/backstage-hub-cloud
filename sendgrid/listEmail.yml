@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve Your Account Email Address
+  description: >-
+    **This endpoint allows you to retrieve the email address currently on file
+    for your account.**
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve Your Account Email Address
+      description: >-
+        **This endpoint allows you to retrieve the email address currently on file
+        for your account.**
+    paths:
+      /v3/user/email:
+        get:
+          summary: Retrieve Your Account Email Address
+          description: >-
+            **This endpoint allows you to retrieve the email address currently on
+            file for your account.**
+          operationId: listEmail
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        description: The email address currently on file for your account.
+                        format: email
+                    required:
+                      - email
+                  examples:
+                    response:
+                      value:
+                        email: test@example.com

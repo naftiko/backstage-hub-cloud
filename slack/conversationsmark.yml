@@ -1,0 +1,99 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Conversations.mark
+  description: Sets the read cursor in a channel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Conversations.mark
+      description: Sets the read cursor in a channel.
+    paths:
+      /conversations.mark:
+        post:
+          summary: Post Conversations.mark
+          description: Sets the read cursor in a channel.
+          operationId: conversationsmark
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  type: object
+                  properties:
+                    channel:
+                      type: string
+                      description: Channel or conversation to set the read cursor for.
+                    ts:
+                      type: number
+                      description: >-
+                        Unique identifier of message you want marked as most
+                        recently seen in this conversation.
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    channel:
+                      type: string
+                      description: Channel or conversation to set the read cursor for.
+                    ts:
+                      type: number
+                      description: >-
+                        Unique identifier of message you want marked as most
+                        recently seen in this conversation.
+          responses:
+            default:
+              description: Typical error response
+              content:
+                application/json:
+                  schema:
+                    title: conversations.mark error schema
+                    required:
+                      - error
+                      - ok
+                    type: object
+                    properties:
+                      callstack:
+                        type: string
+                        description: 'Note: PHP callstack is only visible in dev/qa'
+                      error:
+                        type: string
+                        enum:
+                          - method_not_supported_for_channel_type
+                          - missing_scope
+                          - channel_not_found
+                          - invalid_timestamp
+                          - not_in_channel
+                          - not_authed
+                          - invalid_auth
+                          - account_inactive
+                          - invalid_arg_name
+                          - invalid_array_arg
+                          - invalid_charset
+                          - invalid_form_data
+                          - invalid_post_type
+                          - missing_post_type
+                          - invalid_json
+                          - json_not_object
+                          - request_timeout
+                          - upgrade_required
+                          - not_allowed_token_type
+                      needed:
+                        type: string
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                      provided:
+                        type: string
+                    additionalProperties: false
+                    description: Schema for error response from conversations.mark method
+                  example:
+                    error: invalid_auth
+                    ok: false

@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Creates A New Script Tag
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/online-store/scripttag#create-2020-10
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Creates A New Script Tag
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/online-store/scripttag#create-2020-10
+    paths:
+      /admin/api/2020-10/script_tags.json:
+        post:
+          summary: Creates A New Script Tag
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/online-store/scripttag#create-2020-10
+          operationId: createscripttags
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      script_tag:
+                        event: onload
+                        src: https://djavaskripped.org/fancy.js
+                    summary: Create a new script tag
+                  example2:
+                    value:
+                      script_tag:
+                        body: foobar
+                    summary: >-
+                      Creating a script tag without a src and event will return an
+                      error
+          responses:
+            '200':
+              description: ''

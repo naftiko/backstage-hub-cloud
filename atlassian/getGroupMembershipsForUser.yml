@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Group Memberships For User
+  description: >-
+    Returns the groups that a user is a member
+    of.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to access the Confluence site ('Can use' global
+    permission).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Group Memberships For User
+      description: >-
+        Returns the groups that a user is a member
+        of.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to access the Confluence site ('Can use' global
+        permission).
+    paths:
+      /wiki/rest/api/user/memberof:
+        get:
+          summary: Get Group Memberships For User
+          description: >-
+            Returns the groups that a user is a member
+            of.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to access the Confluence site ('Can use' global
+            permission).
+          operationId: getGroupMembershipsForUser
+          responses:
+            '403':
+              description: |-
+                Returned if the calling user does not have permission to use
+                Confluence.
+              content: {}

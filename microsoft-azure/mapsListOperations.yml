@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Providers Microsoft.maps Operations
+  description: List operations available for the Maps Resource Provider
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Providers Microsoft.maps Operations
+      description: List operations available for the Maps Resource Provider
+    paths:
+      /providers/Microsoft.Maps/operations:
+        get:
+          summary: Get Providers Microsoft.maps Operations
+          description: List operations available for the Maps Resource Provider
+          operationId: mapsListOperations
+          responses:
+            default:
+              description: An unexpected error occurred.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

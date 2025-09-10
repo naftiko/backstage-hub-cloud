@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Tax Rates
+  description: >-
+    Create one or more tax rates. Tax rates must be associated with a
+    `tax_zone_id`.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Tax Rates
+      description: >-
+        Create one or more tax rates. Tax rates must be associated with a
+        `tax_zone_id`.
+    paths:
+      /tax/rates:
+        post:
+          summary: Create Tax Rates
+          description: >-
+            Create one or more tax rates. Tax rates must be associated with a
+            `tax_zone_id`.
+          operationId: createTaxRates
+          requestBody: {}
+          responses:
+            '200':
+              description: OK
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Tax_Rate'
+                      meta:
+                        $ref: '#/components/schemas/MetaOpen'
+                  examples:
+                    Example 1:
+                      value:
+                        data:
+                          - id: 3
+                            tax_zone_id: 2
+                            name: Sales Tax
+                            enabled: true
+                            priority: 1
+                            class_rates:
+                              - rate: 5
+                                tax_class_id: 0
+                        meta: {}

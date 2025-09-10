@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+    Providers Microsoft.servicenetworking Trafficcontrollers
+    Trafficcontrollername Frontends Frontendname
+  description: Delete a Frontend
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.servicenetworking Trafficcontrollers
+        Trafficcontrollername Frontends Frontendname
+      description: Delete a Frontend
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceNetworking/trafficControllers/{trafficControllerName}/frontends/{frontendName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.servicenetworking Trafficcontrollers
+            Trafficcontrollername Frontends Frontendname
+          description: Delete a Frontend
+          operationId: frontendsInterfaceDelete
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getcompatibleversions
+  description: >-
+    Returns a map of OpenSearch or Elasticsearch versions and the versions you
+    can upgrade them to.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getcompatibleversions
+      description: >-
+        Returns a map of OpenSearch or Elasticsearch versions and the versions you
+        can upgrade them to.
+    paths:
+      /2021-01-01/opensearch/compatibleVersions:
+        GET:
+          summary: Getcompatibleversions
+          description: >-
+            Returns a map of OpenSearch or Elasticsearch versions and the versions
+            you can upgrade them to.
+          operationId: getCompatibleVersions

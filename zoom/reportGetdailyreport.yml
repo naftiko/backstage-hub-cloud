@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Report Getdailyreport
+  description: >-
+    Get daily report for one month, can only get daily report for recent 3
+    months.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Report Getdailyreport
+      description: >-
+        Get daily report for one month, can only get daily report for recent 3
+        months.
+    paths:
+      /report/getdailyreport:
+        post:
+          summary: Post Report Getdailyreport
+          description: >-
+            Get daily report for one month, can only get daily report for recent 3
+            months.
+          operationId: reportGetdailyreport
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - month
+                    - year
+                  type: object
+                  properties:
+                    year:
+                      type: string
+                      description: Year for this report.
+                    month:
+                      type: string
+                      description: Month for this report.
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    year: 2013
+                    month: 5
+                    dates:
+                      - meetings: 0
+                        date: '2013-05-01T00:00:00.000Z'
+                        new_user: 0
+                        participants: 0
+                        meeting_minutes: 0

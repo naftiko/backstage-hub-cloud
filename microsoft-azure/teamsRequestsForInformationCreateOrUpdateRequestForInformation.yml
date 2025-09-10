@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Or Update Request For Information.
+  description: Create of update the details of a Request for Information.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Or Update Request For Information.
+      description: Create of update the details of a Request for Information.
+    paths:
+      /teamsRequestsForInformation/{tenantId}:
+        patch:
+          summary: Create Or Update Request For Information.
+          description: Create of update the details of a Request for Information.
+          operationId: teamsRequestsForInformationCreateOrUpdateRequestForInformation
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/Azure.Core.Foundations.ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: String error code indicating what went wrong.

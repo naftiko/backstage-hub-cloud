@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Providers Microsoft.subscriptions.admin
+    Subscriptions
+  description: Get the list of subscriptions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft.subscriptions.admin
+        Subscriptions
+      description: Get the list of subscriptions.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Subscriptions.Admin/subscriptions:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft.subscriptions.admin
+            Subscriptions
+          description: Get the list of subscriptions.
+          operationId: subscriptionsList
+          responses:
+            default:
+              description: Unexpected Error
+              schema:
+                $ref: Subscriptions.json#/definitions/Error

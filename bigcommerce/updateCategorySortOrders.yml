@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Product Sort Order
+  description: Updates sort order of products within a specific category.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Product Sort Order
+      description: Updates sort order of products within a specific category.
+    paths:
+      /catalog/categories/{category_id}/products/sort-order:
+        put:
+          summary: Update Product Sort Order
+          description: Updates sort order of products within a specific category.
+          operationId: updateCategorySortOrders
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  title: Product Sort Order Request
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/productSortOrder'
+          responses:
+            '422':
+              description: >-
+                Unprocessable entity.
+
+
+                Please verify if all requested products are assigned to the
+                category.
+
+
+                Please verify if all required fields are present in the request body
+                and are filled with values correctly.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error_Base'

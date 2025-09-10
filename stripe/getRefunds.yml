@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Refunds
+  description: >-
+    Returns a list of all refunds you created. We return the refunds in sorted
+    order, with the most recent refunds appearing first The 10 most recent
+    refunds are always available by default on the Charge object.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Refunds
+      description: >-
+        Returns a list of all refunds you created. We return the refunds in sorted
+        order, with the most recent refunds appearing first The 10 most recent
+        refunds are always available by default on the Charge object.
+    paths:
+      /v1/refunds:
+        get:
+          summary: Get Refunds
+          description: >-
+            Returns a list of all refunds you created. We return the refunds in
+            sorted order, with the most recent refunds appearing first The 10 most
+            recent refunds are always available by default on the Charge object.
+          operationId: getRefunds
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetRefundsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

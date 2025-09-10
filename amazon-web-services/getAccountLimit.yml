@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getaccountlimit
+  description: >-
+    Gets the specified limit for the current account, for example, the maximum
+    number of health checks that you can create using the account. For the
+    default limit, see Limits in the Amazon Route 53 Developer Guide. To request
+    a higher limit, open a case.  You can also view account limits in Amazon Web
+    Services Trusted Advisor. Sign in to the Amazon Web Services Management
+    Console and open the Trusted Advisor console at
+    https://console.aws.amazon.com/trustedadvisor/. Then choose Service limits
+    in the navigation pane. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getaccountlimit
+      description: >-
+        Gets the specified limit for the current account, for example, the maximum
+        number of health checks that you can create using the account. For the
+        default limit, see Limits in the Amazon Route 53 Developer Guide. To request
+        a higher limit, open a case.  You can also view account limits in Amazon Web
+        Services Trusted Advisor. Sign in to the Amazon Web Services Management
+        Console and open the Trusted Advisor console at
+        https://console.aws.amazon.com/trustedadvisor/. Then choose Service limits
+        in the navigation pane. 
+    paths:
+      /2013-04-01/accountlimit/{Type}:
+        GET:
+          summary: Getaccountlimit
+          description: >-
+            Gets the specified limit for the current account, for example, the
+            maximum number of health checks that you can create using the account.
+            For the default limit, see Limits in the Amazon Route 53 Developer
+            Guide. To request a higher limit, open a case.  You can also view
+            account limits in Amazon Web Services Trusted Advisor. Sign in to the
+            Amazon Web Services Management Console and open the Trusted Advisor
+            console at https://console.aws.amazon.com/trustedadvisor/. Then choose
+            Service limits in the navigation pane. 
+          operationId: getAccountLimit

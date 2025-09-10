@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listworkerconfigurations
+  description: >-
+    Returns a list of all of the worker configurations in this account and
+    Region.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listworkerconfigurations
+      description: >-
+        Returns a list of all of the worker configurations in this account and
+        Region.
+    paths:
+      /v1/worker-configurations:
+        GET:
+          summary: Listworkerconfigurations
+          description: >-
+            Returns a list of all of the worker configurations in this account and
+            Region.
+          operationId: listWorkerConfigurations

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Dialingpermissions Countries
+  description: Retrieve all voice dialing country permissions for this account
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Dialingpermissions Countries
+      description: Retrieve all voice dialing country permissions for this account
+    paths:
+      /v1/DialingPermissions/Countries:
+        get:
+          summary: Get Dialingpermissions Countries
+          description: Retrieve all voice dialing country permissions for this account
+          operationId: listDialingPermissionsCountry
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ListDialingPermissionsCountryResponse'
+              description: OK

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A List Of Available Ase Regions And Its Supported Skus.
+  description: Description for get a list of available ASE regions and its supported Skus.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A List Of Available Ase Regions And Its Supported Skus.
+      description: Description for get a list of available ASE regions and its supported Skus.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Web/aseRegions:
+        get:
+          summary: Get A List Of Available Ase Regions And Its Supported Skus.
+          description: >-
+            Description for get a list of available ASE regions and its supported
+            Skus.
+          operationId: listAseRegions
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

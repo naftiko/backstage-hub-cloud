@@ -1,0 +1,79 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Check Permissions For Log Services
+  description: >-
+    Test if permissions are present to add log-forwarding triggers for thegiven
+    services and AWS account. Input is the same as for
+    `EnableAWSLogServices`.Done async, so can be repeatedly polled in a
+    non-blocking fashion untilthe async request completes.- Returns a status of
+    `created` when it's checking if the permissions exists  in the AWS account.-
+    Returns a status of `waiting` while checking.- Returns a status of `checked
+    and ok` if the Lambda exists.- Returns a status of `error` if the Lambda
+    does not exist.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Check Permissions For Log Services
+      description: >-
+        Test if permissions are present to add log-forwarding triggers for thegiven
+        services and AWS account. Input is the same as for
+        `EnableAWSLogServices`.Done async, so can be repeatedly polled in a
+        non-blocking fashion untilthe async request completes.- Returns a status of
+        `created` when it's checking if the permissions exists  in the AWS account.-
+        Returns a status of `waiting` while checking.- Returns a status of `checked
+        and ok` if the Lambda exists.- Returns a status of `error` if the Lambda
+        does not exist.
+    paths:
+      /api/v1/integration/aws/logs/services_async:
+        post:
+          summary: Check Permissions For Log Services
+          description: >-
+            Test if permissions are present to add log-forwarding triggers for
+            thegiven services and AWS account. Input is the same as for
+            `EnableAWSLogServices`.Done async, so can be repeatedly polled in a
+            non-blocking fashion untilthe async request completes.- Returns a status
+            of `created` when it's checking if the permissions exists  in the AWS
+            account.- Returns a status of `waiting` while checking.- Returns a
+            status of `checked and ok` if the Lambda exists.- Returns a status of
+            `error` if the Lambda does not exist.
+          operationId: checkpermissionsforlogservices
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    account_id: '1234567'
+                    services:
+                      - s3
+                      - elb
+                      - elbv2
+                      - cloudfront
+                      - redshift
+                      - lambda
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

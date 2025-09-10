@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Suspend A Running Task.
+  description: Suspends a running task. This is equivalent to an ALTER TASK ... SUSPEND.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Suspend A Running Task.
+      description: Suspends a running task. This is equivalent to an ALTER TASK ... SUSPEND.
+    paths:
+      /api/v2/databases/{database}/schemas/{schema}/tasks/{name}:suspend:
+        post:
+          summary: Suspend A Running Task.
+          description: >-
+            Suspends a running task. This is equivalent to an ALTER TASK ...
+            SUSPEND.
+          operationId: suspendTask
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

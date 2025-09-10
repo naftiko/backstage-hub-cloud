@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Identity Verification_sessions Session Cancel
+  description: >-
+    A VerificationSession object can be canceled when it is in requires_input
+    status.Once canceled, future submission attempts are disabled. This cannot
+    be undone. Learn more.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Identity Verification_sessions Session Cancel
+      description: >-
+        A VerificationSession object can be canceled when it is in requires_input
+        status.Once canceled, future submission attempts are disabled. This cannot
+        be undone. Learn more.
+    paths:
+      /v1/identity/verification_sessions/{session}/cancel:
+        post:
+          summary: Post Identity Verification_sessions Session Cancel
+          description: >-
+            A VerificationSession object can be canceled when it is in
+            requires_input status.Once canceled, future submission attempts are
+            disabled. This cannot be undone. Learn more.
+          operationId: postIdentityVerificationSessionsSessionCancel
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: >-
+                    #/components/schemas/PostIdentityVerificationSessionsSessionCancelRequest
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

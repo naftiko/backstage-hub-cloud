@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Climate Orders
+  description: >-
+    Creates a Climate order object for a given Climate product. The order will
+    be processed immediatelyafter creation and payment will be deducted your
+    Stripe balance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Climate Orders
+      description: >-
+        Creates a Climate order object for a given Climate product. The order will
+        be processed immediatelyafter creation and payment will be deducted your
+        Stripe balance.
+    paths:
+      /v1/climate/orders:
+        post:
+          summary: Post Climate Orders
+          description: >-
+            Creates a Climate order object for a given Climate product. The order
+            will be processed immediatelyafter creation and payment will be deducted
+            your Stripe balance.
+          operationId: postClimateOrders
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  beneficiary:
+                    explode: true
+                    style: deepObject
+                  expand:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostClimateOrdersRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

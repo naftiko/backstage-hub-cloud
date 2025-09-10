@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Detect Anomalies For The Entire Series In Batch.
+  description: >-
+    This operation generates a model with an entire series. Each point is
+    detectedwith the same model. With this method, points before and after a
+    certain pointare used to determine whether it's an anomaly. The entire
+    detection can give theuser an overall status of the time series.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Detect Anomalies For The Entire Series In Batch.
+      description: >-
+        This operation generates a model with an entire series. Each point is
+        detectedwith the same model. With this method, points before and after a
+        certain pointare used to determine whether it's an anomaly. The entire
+        detection can give theuser an overall status of the time series.
+    paths:
+      /timeseries/entire/detect:
+        post:
+          summary: Detect Anomalies For The Entire Series In Batch.
+          description: >-
+            This operation generates a model with an entire series. Each point is
+            detectedwith the same model. With this method, points before and after a
+            certain pointare used to determine whether it's an anomaly. The entire
+            detection can give theuser an overall status of the time series.
+          operationId: univariateDetectUnivariateEntireSeries
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/Univariate.AnomalyDetectorError'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: Error code.

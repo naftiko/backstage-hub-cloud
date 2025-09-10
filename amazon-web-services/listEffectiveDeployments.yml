@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listeffectivedeployments
+  description: >-
+    Retrieves a paginated list of deployment jobs that IoT Greengrass sends to
+    Greengrass core devices.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listeffectivedeployments
+      description: >-
+        Retrieves a paginated list of deployment jobs that IoT Greengrass sends to
+        Greengrass core devices.
+    paths:
+      /greengrass/v2/coreDevices/{coreDeviceThingName}/effectiveDeployments:
+        GET:
+          summary: Listeffectivedeployments
+          description: >-
+            Retrieves a paginated list of deployment jobs that IoT Greengrass sends
+            to Greengrass core devices.
+          operationId: listEffectiveDeployments

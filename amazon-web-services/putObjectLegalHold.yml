@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Putobjectlegalhold
+  description: ' This operation is not supported by directory buckets.  Applies a legal hold configuration to the specified object. For more information, see Locking Objects. This functionality is not supported for Amazon S3 on Outposts.'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putobjectlegalhold
+      description: ' This operation is not supported by directory buckets.  Applies a legal hold configuration to the specified object. For more information, see Locking Objects. This functionality is not supported for Amazon S3 on Outposts.'
+    paths:
+      /{Bucket}/{Key+}?legal-hold:
+        PUT:
+          summary: Putobjectlegalhold
+          description: ' This operation is not supported by directory buckets.  Applies a legal hold configuration to the specified object. For more information, see Locking Objects. This functionality is not supported for Amazon S3 on Outposts.'
+          operationId: putObjectLegalHold

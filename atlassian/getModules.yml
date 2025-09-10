@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Modules
+  description: >-
+    Returns all modules registered dynamically by the calling
+    app.**[Permissions](#permissions) required:** Only Connect apps can make
+    this request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Modules
+      description: >-
+        Returns all modules registered dynamically by the calling
+        app.**[Permissions](#permissions) required:** Only Connect apps can make
+        this request.
+    paths:
+      /atlassian-connect/1/app/module/dynamic:
+        get:
+          summary: Get Modules
+          description: >-
+            Returns all modules registered dynamically by the calling
+            app.**[Permissions](#permissions) required:** Only Connect apps can make
+            this request.
+          operationId: getModules
+          responses:
+            '401':
+              description: Returned if the call is not from a Connect app.
+              content:
+                '*/*':
+                  schema:
+                    $ref: '#/components/schemas/DynamicModulesErrorMessage'
+                message:
+                  example: The request is not from a Connect app.

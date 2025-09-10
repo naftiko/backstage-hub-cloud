@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Rateplans
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Rateplans
+      description: Needs a more full description created.
+    paths:
+      /v1/RatePlans:
+        post:
+          summary: Post Rateplans
+          description: Needs a more full description created.
+          operationId: createRatePlan
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateRatePlanRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/wireless.v1.rate_plan'
+              description: Created

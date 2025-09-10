@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Gets The List Of Vcenter Registered Under A Fabric.
+  description: Lists the vCenter servers registered in a fabric.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The List Of Vcenter Registered Under A Fabric.
+      description: Lists the vCenter servers registered in a fabric.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationvCenters:
+        get:
+          summary: Gets The List Of Vcenter Registered Under A Fabric.
+          description: Lists the vCenter servers registered in a fabric.
+          operationId: replicationvCentersListByReplicationFabrics
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/VCenterCollection'

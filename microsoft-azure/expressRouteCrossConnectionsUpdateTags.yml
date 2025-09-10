@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+    Providers Microsoft.network Expressroutecrossconnections Crossconnectionname
+  description: Updates an express route cross connection tags.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.network Expressroutecrossconnections Crossconnectionname
+      description: Updates an express route cross connection tags.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.network Expressroutecrossconnections
+            Crossconnectionname
+          description: Updates an express route cross connection tags.
+          operationId: expressRouteCrossConnectionsUpdateTags
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./network.json#/definitions/CloudError

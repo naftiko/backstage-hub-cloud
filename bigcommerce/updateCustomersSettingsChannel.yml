@@ -1,0 +1,77 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Customer Settings Per Channel
+  description: >-
+    Update the customer settings per channel**Required Fields*** `channel_id`:
+    Provide a `channel_id` array containing one or more channel IDs. Customers
+    will have access to these channels and no others. This array cannot be
+    empty.**Notes*** Setting `null` will delete override per given channel, and
+    values will be inherited from the global level. Make sure the channel has
+    `allow_global_logins` enabled.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Customer Settings Per Channel
+      description: >-
+        Update the customer settings per channel**Required Fields*** `channel_id`:
+        Provide a `channel_id` array containing one or more channel IDs. Customers
+        will have access to these channels and no others. This array cannot be
+        empty.**Notes*** Setting `null` will delete override per given channel, and
+        values will be inherited from the global level. Make sure the channel has
+        `allow_global_logins` enabled.
+    paths:
+      /customers/settings/channels/{channel_id}:
+        put:
+          summary: Update Customer Settings Per Channel
+          description: >-
+            Update the customer settings per channel**Required Fields***
+            `channel_id`: Provide a `channel_id` array containing one or more
+            channel IDs. Customers will have access to these channels and no others.
+            This array cannot be empty.**Notes*** Setting `null` will delete
+            override per given channel, and values will be inherited from the global
+            level. Make sure the channel has `allow_global_logins` enabled.
+          operationId: updateCustomersSettingsChannel
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/CustomerChannelSettingsObject'
+                examples:
+                  example-1:
+                    value:
+                      privacy_settings:
+                        ask_shopper_for_tracking_consent: true
+                        policy_url: https://bigcommmerce.com/policy
+                      customer_group_settings:
+                        guest_customer_group_id: 0
+                        default_customer_group_id: 0
+                      allow_global_logins: true
+          responses:
+            '200':
+              description: Customer settings are returned.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/CustomerSettingsObject'
+                  examples:
+                    example:
+                      value:
+                        privacy_settings:
+                          ask_shopper_for_tracking_consent: true
+                          policy_url: https://bigcommmerce.com/policy
+                          ask_shopper_for_tracking_consent_on_checkout: null
+                        customer_group_settings:
+                          guest_customer_group_id: 0
+                          default_customer_group_id: 0
+                        allow_global_logins: true

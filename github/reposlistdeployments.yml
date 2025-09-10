@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Deployments
+  description: 'Simple filtering of deployments is available via query parameters:'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Deployments
+      description: 'Simple filtering of deployments is available via query parameters:'
+    paths:
+      /repos/{owner}/{repo}/deployments:
+        get:
+          summary: List Deployments
+          description: 'Simple filtering of deployments is available via query parameters:'
+          operationId: reposlistdeployments
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/deployment'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/deployment-items'
+              headers:
+                Link:
+                  $ref: '#/components/headers/link'

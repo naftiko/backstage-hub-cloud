@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve The Attributes Of Service Registries
+  description: >-
+    Retrieve the attributes of given service
+    registries.**[Permissions](#permissions) required:** Only Connect apps can
+    make this request and the servicesIds belong to the tenant you are
+    requesting
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve The Attributes Of Service Registries
+      description: >-
+        Retrieve the attributes of given service
+        registries.**[Permissions](#permissions) required:** Only Connect apps can
+        make this request and the servicesIds belong to the tenant you are
+        requesting
+    paths:
+      /rest/atlassian-connect/1/service-registry:
+        get:
+          summary: Retrieve The Attributes Of Service Registries
+          description: >-
+            Retrieve the attributes of given service
+            registries.**[Permissions](#permissions) required:** Only Connect apps
+            can make this request and the servicesIds belong to the tenant you are
+            requesting
+          operationId: serviceRegistryResource.Servicesget
+          responses:
+            '504':
+              description: The upstream service is busy.

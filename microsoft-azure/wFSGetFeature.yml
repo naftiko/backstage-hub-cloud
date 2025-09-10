@@ -1,0 +1,71 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Wfs Datasets Datasetid Collections Collectionid Items Featureid
+  description: >-
+    **Applies to:** see pricing
+    [tiers](https://aka.ms/AzureMapsPricingTier).Creator makes it possible to
+    develop applications based on your private indoor map data using Azure Maps
+    API and SDK.
+    [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+    article introduces concepts and tools that apply to Azure Maps Creator. The
+    Web Feature Service (WFS) API is part of  Creator. WFS API follows the [Open
+    Geospatial Consortium API standard for
+    Features](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) to query
+    [Datasets](https://docs.microsoft.com/en-us/rest/api/maps/v2/dataset/create).
+    A dataset consists of multiple feature collections. A feature collection is
+    a collection of features of a similar type, based on a common schema.The Get
+    Feature API returns the feature identified by the provided id in the given
+    collection.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Wfs Datasets Datasetid Collections Collectionid Items Featureid
+      description: >-
+        **Applies to:** see pricing
+        [tiers](https://aka.ms/AzureMapsPricingTier).Creator makes it possible to
+        develop applications based on your private indoor map data using Azure Maps
+        API and SDK.
+        [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+        article introduces concepts and tools that apply to Azure Maps Creator. The
+        Web Feature Service (WFS) API is part of  Creator. WFS API follows the [Open
+        Geospatial Consortium API standard for
+        Features](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) to query
+        [Datasets](https://docs.microsoft.com/en-us/rest/api/maps/v2/dataset/create).
+        A dataset consists of multiple feature collections. A feature collection is
+        a collection of features of a similar type, based on a common schema.The Get
+        Feature API returns the feature identified by the provided id in the given
+        collection.
+    paths:
+      /wfs/datasets/{datasetid}/collections/{collectionId}/items/{featureId}:
+        get:
+          summary: Get Wfs Datasets Datasetid Collections Collectionid Items Featureid
+          description: >-
+            **Applies to:** see pricing
+            [tiers](https://aka.ms/AzureMapsPricingTier).Creator makes it possible
+            to develop applications based on your private indoor map data using
+            Azure Maps API and SDK.
+            [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+            article introduces concepts and tools that apply to Azure Maps Creator.
+            The Web Feature Service (WFS) API is part of  Creator. WFS API follows
+            the [Open Geospatial Consortium API standard for
+            Features](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) to
+            query
+            [Datasets](https://docs.microsoft.com/en-us/rest/api/maps/v2/dataset/create).
+            A dataset consists of multiple feature collections. A feature collection
+            is a collection of features of a similar type, based on a common
+            schema.The Get Feature API returns the feature identified by the
+            provided id in the given collection.
+          operationId: wFSGetFeature
+          responses:
+            '500':
+              $ref: '#/responses/500'

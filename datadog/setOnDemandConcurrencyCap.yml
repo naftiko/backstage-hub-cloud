@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Save New Value For On-demand Concurrency Cap
+  description: Save new value for on-demand concurrency cap.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Save New Value For On-demand Concurrency Cap
+      description: Save new value for on-demand concurrency cap.
+    paths:
+      /api/v2/synthetics/settings/on_demand_concurrency_cap:
+        post:
+          summary: Save New Value For On-demand Concurrency Cap
+          description: Save new value for on-demand concurrency cap.
+          operationId: setOnDemandConcurrencyCap
+          requestBody:
+            description: .
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/OnDemandConcurrencyCapAttributes'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

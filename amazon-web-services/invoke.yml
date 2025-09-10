@@ -1,0 +1,120 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Invoke
+  description: >-
+    Invokes a Lambda function. You can invoke a function synchronously (and wait
+    for the response), or asynchronously. By default, Lambda invokes your
+    function synchronously (i.e. theInvocationType is RequestResponse). To
+    invoke a function asynchronously, set InvocationType to Event. Lambda passes
+    the ClientContext object to your function for synchronous invocations only.
+    For synchronous invocation, details about the function response, including
+    errors, are included in the response body and headers. For either invocation
+    type, you can find more information in the execution log and trace. When an
+    error occurs, your function may be invoked multiple times. Retry behavior
+    varies by error type, client, event source, and invocation type. For
+    example, if you invoke a function asynchronously and it returns an error,
+    Lambda executes the function up to two more times. For more information, see
+    Error handling and automatic retries in Lambda. For asynchronous invocation,
+    Lambda adds events to a queue before sending them to your function. If your
+    function does not have enough capacity to keep up with the queue, events may
+    be lost. Occasionally, your function may receive the same event multiple
+    times, even if no error occurs. To retain events that were not processed,
+    configure your function with a dead-letter queue. The status code in the API
+    response doesn't reflect function errors. Error codes are reserved for
+    errors that prevent your function from executing, such as permissions
+    errors, quota errors, or issues with your function's code and configuration.
+    For example, Lambda returns TooManyRequestsException if running the function
+    would cause you to exceed a concurrency limit at either the account level
+    (ConcurrentInvocationLimitExceeded) or function level
+    (ReservedFunctionConcurrentInvocationLimitExceeded). For functions with a
+    long timeout, your client might disconnect during synchronous invocation
+    while it waits for a response. Configure your HTTP client, SDK, firewall,
+    proxy, or operating system to allow for long connections with timeout or
+    keep-alive settings. This operation requires permission for the
+    lambda:InvokeFunction action. For details on how to set up permissions for
+    cross-account invocations, see Granting function access to other accounts.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Invoke
+      description: >-
+        Invokes a Lambda function. You can invoke a function synchronously (and wait
+        for the response), or asynchronously. By default, Lambda invokes your
+        function synchronously (i.e. theInvocationType is RequestResponse). To
+        invoke a function asynchronously, set InvocationType to Event. Lambda passes
+        the ClientContext object to your function for synchronous invocations only.
+        For synchronous invocation, details about the function response, including
+        errors, are included in the response body and headers. For either invocation
+        type, you can find more information in the execution log and trace. When an
+        error occurs, your function may be invoked multiple times. Retry behavior
+        varies by error type, client, event source, and invocation type. For
+        example, if you invoke a function asynchronously and it returns an error,
+        Lambda executes the function up to two more times. For more information, see
+        Error handling and automatic retries in Lambda. For asynchronous invocation,
+        Lambda adds events to a queue before sending them to your function. If your
+        function does not have enough capacity to keep up with the queue, events may
+        be lost. Occasionally, your function may receive the same event multiple
+        times, even if no error occurs. To retain events that were not processed,
+        configure your function with a dead-letter queue. The status code in the API
+        response doesn't reflect function errors. Error codes are reserved for
+        errors that prevent your function from executing, such as permissions
+        errors, quota errors, or issues with your function's code and configuration.
+        For example, Lambda returns TooManyRequestsException if running the function
+        would cause you to exceed a concurrency limit at either the account level
+        (ConcurrentInvocationLimitExceeded) or function level
+        (ReservedFunctionConcurrentInvocationLimitExceeded). For functions with a
+        long timeout, your client might disconnect during synchronous invocation
+        while it waits for a response. Configure your HTTP client, SDK, firewall,
+        proxy, or operating system to allow for long connections with timeout or
+        keep-alive settings. This operation requires permission for the
+        lambda:InvokeFunction action. For details on how to set up permissions for
+        cross-account invocations, see Granting function access to other accounts.
+    paths:
+      /2015-03-31/functions/{FunctionName}/invocations:
+        POST:
+          summary: Invoke
+          description: >-
+            Invokes a Lambda function. You can invoke a function synchronously (and
+            wait for the response), or asynchronously. By default, Lambda invokes
+            your function synchronously (i.e. theInvocationType is RequestResponse).
+            To invoke a function asynchronously, set InvocationType to Event. Lambda
+            passes the ClientContext object to your function for synchronous
+            invocations only. For synchronous invocation, details about the function
+            response, including errors, are included in the response body and
+            headers. For either invocation type, you can find more information in
+            the execution log and trace. When an error occurs, your function may be
+            invoked multiple times. Retry behavior varies by error type, client,
+            event source, and invocation type. For example, if you invoke a function
+            asynchronously and it returns an error, Lambda executes the function up
+            to two more times. For more information, see Error handling and
+            automatic retries in Lambda. For asynchronous invocation, Lambda adds
+            events to a queue before sending them to your function. If your function
+            does not have enough capacity to keep up with the queue, events may be
+            lost. Occasionally, your function may receive the same event multiple
+            times, even if no error occurs. To retain events that were not
+            processed, configure your function with a dead-letter queue. The status
+            code in the API response doesn't reflect function errors. Error codes
+            are reserved for errors that prevent your function from executing, such
+            as permissions errors, quota errors, or issues with your function's code
+            and configuration. For example, Lambda returns TooManyRequestsException
+            if running the function would cause you to exceed a concurrency limit at
+            either the account level (ConcurrentInvocationLimitExceeded) or function
+            level (ReservedFunctionConcurrentInvocationLimitExceeded). For functions
+            with a long timeout, your client might disconnect during synchronous
+            invocation while it waits for a response. Configure your HTTP client,
+            SDK, firewall, proxy, or operating system to allow for long connections
+            with timeout or keep-alive settings. This operation requires permission
+            for the lambda:InvokeFunction action. For details on how to set up
+            permissions for cross-account invocations, see Granting function access
+            to other accounts.
+          operationId: invoke

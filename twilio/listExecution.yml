@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Flows Flowsid Executions
+  description: Retrieve a list of all Executions for the Flow.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Flows Flowsid Executions
+      description: Retrieve a list of all Executions for the Flow.
+    paths:
+      /v2/Flows/{FlowSid}/Executions:
+        get:
+          summary: Get Flows Flowsid Executions
+          description: Retrieve a list of all Executions for the Flow.
+          operationId: listExecution
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ListExecutionResponse'
+              description: OK

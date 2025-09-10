@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Remove Group From Content Restriction
+  description: >-
+    Removes a group from a content restriction. That is, remove read or
+    updatepermission for the group for a piece of
+    content.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to edit the content.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Remove Group From Content Restriction
+      description: >-
+        Removes a group from a content restriction. That is, remove read or
+        updatepermission for the group for a piece of
+        content.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to edit the content.
+    paths:
+      /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/byGroupId/{groupId}:
+        delete:
+          summary: Remove Group From Content Restriction
+          description: >-
+            Removes a group from a content restriction. That is, remove read or
+            updatepermission for the group for a piece of
+            content.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to edit the content.
+          operationId: removeGroupFromContentRestriction
+          responses:
+            '404':
+              description: |-
+                Returned if;
+
+                - There is no content with the given ID.
+                - The calling user does not have permission to view the content.
+                - The restriction to be deleted does not exist.
+              content: {}

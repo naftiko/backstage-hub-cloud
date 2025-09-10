@@ -1,0 +1,145 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve All Of Your Event Webhooks.
+  description: >-
+    **This endpoint allows you to retrieve all of your Event Webhooks.**Each
+    webhook will be returned as an object in the `webhooks` array with the
+    webhook's configuration details and ID. You can use a webhook's ID to
+    [update the webhook's
+    settings](https://docs.sendgrid.com/api-reference/webhooks/update-an-event-webhook),
+    [delete the
+    webhook](https://docs.sendgrid.com/api-reference/webhooks/delete-an-event-webhook),
+    [enable or disable signature verification for the
+    webhook](https://docs.sendgrid.com/api-reference/webhooks/toggle-signature-verification-for-an-event-webhook),
+    and, if signature verification is enabled, [retrieve the webhook's public
+    key](https://docs.sendgrid.com/api-reference/webhooks/get-signed-event-webhooks-public-key)
+    when signature verification is enabled.### Event settingsEach webhook's
+    settings determine which events will be included in the POST request by the
+    webhook and the URL where the request will be sent. See the [**Event Webhook
+    Reference**](https://docs.sendgrid.com/for-developers/tracking-events/event#delivery-events)
+    for details about each event type.### Signature verificationThe `public_key`
+    property will be returned only for webhooks with signature verification
+    enabled.### OAuthYou may share one OAuth configuration across all your
+    webhooks or create unique credentials for each. The OAuth properties will be
+    returned only for webhooks with OAuth configured.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve All Of Your Event Webhooks.
+      description: >-
+        **This endpoint allows you to retrieve all of your Event Webhooks.**Each
+        webhook will be returned as an object in the `webhooks` array with the
+        webhook's configuration details and ID. You can use a webhook's ID to
+        [update the webhook's
+        settings](https://docs.sendgrid.com/api-reference/webhooks/update-an-event-webhook),
+        [delete the
+        webhook](https://docs.sendgrid.com/api-reference/webhooks/delete-an-event-webhook),
+        [enable or disable signature verification for the
+        webhook](https://docs.sendgrid.com/api-reference/webhooks/toggle-signature-verification-for-an-event-webhook),
+        and, if signature verification is enabled, [retrieve the webhook's public
+        key](https://docs.sendgrid.com/api-reference/webhooks/get-signed-event-webhooks-public-key)
+        when signature verification is enabled.### Event settingsEach webhook's
+        settings determine which events will be included in the POST request by the
+        webhook and the URL where the request will be sent. See the [**Event Webhook
+        Reference**](https://docs.sendgrid.com/for-developers/tracking-events/event#delivery-events)
+        for details about each event type.### Signature verificationThe `public_key`
+        property will be returned only for webhooks with signature verification
+        enabled.### OAuthYou may share one OAuth configuration across all your
+        webhooks or create unique credentials for each. The OAuth properties will be
+        returned only for webhooks with OAuth configured.
+    paths:
+      /v3/user/webhooks/event/settings/all:
+        get:
+          summary: Retrieve All Of Your Event Webhooks.
+          description: >-
+            **This endpoint allows you to retrieve all of your Event Webhooks.**Each
+            webhook will be returned as an object in the `webhooks` array with the
+            webhook's configuration details and ID. You can use a webhook's ID to
+            [update the webhook's
+            settings](https://docs.sendgrid.com/api-reference/webhooks/update-an-event-webhook),
+            [delete the
+            webhook](https://docs.sendgrid.com/api-reference/webhooks/delete-an-event-webhook),
+            [enable or disable signature verification for the
+            webhook](https://docs.sendgrid.com/api-reference/webhooks/toggle-signature-verification-for-an-event-webhook),
+            and, if signature verification is enabled, [retrieve the webhook's
+            public
+            key](https://docs.sendgrid.com/api-reference/webhooks/get-signed-event-webhooks-public-key)
+            when signature verification is enabled.### Event settingsEach webhook's
+            settings determine which events will be included in the POST request by
+            the webhook and the URL where the request will be sent. See the [**Event
+            Webhook
+            Reference**](https://docs.sendgrid.com/for-developers/tracking-events/event#delivery-events)
+            for details about each event type.### Signature verificationThe
+            `public_key` property will be returned only for webhooks with signature
+            verification enabled.### OAuthYou may share one OAuth configuration
+            across all your webhooks or create unique credentials for each. The
+            OAuth properties will be returned only for webhooks with OAuth
+            configured.
+          operationId: listEventWebhook
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/EventWebhookAllResponse'
+                  examples:
+                    Two Webhooks:
+                      value:
+                        max_allowed: 5
+                        webhooks:
+                          - enabled: true
+                            url: https://emailengagment.example.com
+                            group_resubscribe: true
+                            delivered: true
+                            group_unsubscribe: true
+                            spam_report: true
+                            bounce: true
+                            deferred: true
+                            unsubscribe: true
+                            processed: false
+                            open: true
+                            click: true
+                            dropped: true
+                            friendly_name: Engagment Webhook
+                            id: 77d4a5da-7015-11ed-a1eb-0242ac120002
+                            oauth_client_id: a835e7210bbb47edbfa71bdfc909b2d7
+                            oauth_token_url: https://oauthservice.example.com
+                            public_key: 123publickeyabc
+                            created_date: '2023-01-01T12:00:00Z'
+                            updated_date: '2023-02-15T10:00:00Z'
+                          - enabled: true
+                            url: https://emaildelivery.example.com
+                            group_resubscribe: false
+                            delivered: true
+                            group_unsubscribe: false
+                            spam_report: false
+                            bounce: true
+                            deferred: true
+                            unsubscribe: false
+                            processed: true
+                            open: false
+                            click: false
+                            dropped: true
+                            friendly_name: Delivery Webhook
+                            id: 77d4a5da-7015-11ed-a1eb-0242ac120003
+                            oauth_client_id: a835e7210bbb47edbfa71bdfc909b2d7
+                            oauth_token_url: https://oauthservice.example.com
+                            public_key: 123publickeydef
+                            created_date: '2023-01-01T12:00:00Z'
+                            updated_date: '2023-02-15T10:00:00Z'
+                    Zero Webhooks:
+                      value:
+                        max_allowed: 5
+                        webhooks:
+                          - {}

@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Abandoned Cart Email Templates
+  description: An array of abandoned cart emails pertaining to a store.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Abandoned Cart Email Templates
+      description: An array of abandoned cart emails pertaining to a store.
+    paths:
+      /marketing/abandoned-cart-emails:
+        get:
+          summary: Get All Abandoned Cart Email Templates
+          description: An array of abandoned cart emails pertaining to a store.
+          operationId: getAbandonedCartEmailTemplates
+          responses:
+            '200':
+              description: OK
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/AbandondedCartEmail'
+                      meta:
+                        $ref: '#/components/schemas/metaCollection_open'
+                  examples:
+                    List of abandoned cart templates:
+                      value:
+                        data:
+                          - id: 1
+                            notify_at_minutes: 60
+                            coupon_code: FF11-22X4
+                            template:
+                              subject: Complete your purchase at {{ store.name }}
+                              body: >-
+                                Complete your purchase <a href="{{
+                                notification.checkout_link
+                                }}">{{notification.checkout.link}}
+                              translations:
+                                - locale: en
+                                  keys:
+                                    hello_phrase: Welcome back,
+                        meta: {}

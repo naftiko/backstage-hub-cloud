@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Cloud Cost Management Aws Cur Config
+  description: Create a Cloud Cost Management account for an AWS CUR config.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Cloud Cost Management Aws Cur Config
+      description: Create a Cloud Cost Management account for an AWS CUR config.
+    paths:
+      /api/v2/cost/aws_cur_config:
+        post:
+          summary: Create Cloud Cost Management Aws Cur Config
+          description: Create a Cloud Cost Management account for an AWS CUR config.
+          operationId: createCloudCostManagementAWSCURconfig
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      attributes:
+                        account_id: '123456789123'
+                        bucket_name: dd-cost-bucket
+                        report_name: dd-report-name
+                        report_prefix: dd-report-prefix
+                        bucket_region: us-east-1
+                        is_enabled: true
+                        months: -19136611
+                      type: aws_cur_config_post_request
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

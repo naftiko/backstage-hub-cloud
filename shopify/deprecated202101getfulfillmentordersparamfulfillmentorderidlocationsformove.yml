@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Retrieves A List Of Locations That A Fulfillment Order Can Potentially Move
+    To.
+      The Resulting List Is Sorted Alphabetically In Ascending Order By Location Name.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/locationsformove#index-2021-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Retrieves A List Of Locations That A Fulfillment Order Can Potentially Move
+        To.
+          The Resulting List Is Sorted Alphabetically In Ascending Order By Location Name.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/locationsformove#index-2021-01
+    paths:
+      /admin/api/2021-01/fulfillment_orders/{fulfillment_order_id}/locations_for_move.json:
+        get:
+          summary: >-
+            Retrieves A List Of Locations That A Fulfillment Order Can Potentially
+            Move To.
+              The Resulting List Is Sorted Alphabetically In Ascending Order By Location Name.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/locationsformove#index-2021-01
+          operationId: >-
+            deprecated202101getfulfillmentordersparamfulfillmentorderidlocationsformove
+          responses:
+            '200':
+              description: ''

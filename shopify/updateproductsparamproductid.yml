@@ -1,0 +1,150 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: |-
+    Updates A Product And Its Variants And Images.
+      If You Want To Update The Product's Seo Information, Then You Can Use The Following Properties:
+      
+      Metafields_global_title_tag: The Name Of The Product Used For Seo Purposes. Generally Added To The <meta Name='title'> Tag.
+      Metafields_global_description_tag: A Description Of The Product Used For Seo Purposes. Generally Added To The <meta Name='description'> Tag.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/products/product#update-2020-10
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: |-
+        Updates A Product And Its Variants And Images.
+          If You Want To Update The Product's Seo Information, Then You Can Use The Following Properties:
+          
+          Metafields_global_title_tag: The Name Of The Product Used For Seo Purposes. Generally Added To The <meta Name='title'> Tag.
+          Metafields_global_description_tag: A Description Of The Product Used For Seo Purposes. Generally Added To The <meta Name='description'> Tag.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/products/product#update-2020-10
+    paths:
+      /admin/api/2020-10/products/{product_id}.json:
+        put:
+          summary: |-
+            Updates A Product And Its Variants And Images.
+              If You Want To Update The Product's Seo Information, Then You Can Use The Following Properties:
+              
+              Metafields_global_title_tag: The Name Of The Product Used For Seo Purposes. Generally Added To The <meta Name='title'> Tag.
+              Metafields_global_description_tag: A Description Of The Product Used For Seo Purposes. Generally Added To The <meta Name='description'> Tag.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/products/product#update-2020-10
+          operationId: updateproductsparamproductid
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      product:
+                        id: 632910392
+                        title: New product title
+                    summary: Update a product's title
+                  example2:
+                    value:
+                      product:
+                        id: 632910392
+                        status: draft
+                    summary: Update a product's status
+                  example3:
+                    value:
+                      product:
+                        id: 632910392
+                        tags: Barnes & Noble, John's Fav
+                    summary: Update a product's tags
+                  example4:
+                    value:
+                      product:
+                        id: 632910392
+                        images: []
+                    summary: Update a product by clearing product images
+                  example5:
+                    value:
+                      product:
+                        id: 632910392
+                        images:
+                          - id: 850703190
+                          - id: 562641783
+                          - src: http://example.com/rails_logo.gif
+                    summary: Update a product by adding a new product image
+                  example6:
+                    value:
+                      product:
+                        id: 632910392
+                        images:
+                          - id: 850703190
+                            position: 2
+                          - id: 562641783
+                            position: 1
+                    summary: Update a product by reordering product image
+                  example7:
+                    value:
+                      product:
+                        id: 632910392
+                        variants:
+                          - id: 457924702
+                          - id: 39072856
+                          - id: 49148385
+                          - id: 808950810
+                    summary: Update a product by reordering the product variants
+                  example8:
+                    value:
+                      product:
+                        id: 632910392
+                        title: Updated Product Title
+                        variants:
+                          - id: 808950810
+                            price: '2000.00'
+                            sku: Updating the Product SKU
+                          - id: 49148385
+                          - id: 39072856
+                          - id: 457924702
+                    summary: Update a product and one of its variants
+                  example9:
+                    value:
+                      product:
+                        id: 632910392
+                        metafields_global_title_tag: Brand new title
+                        metafields_global_description_tag: Brand new description
+                    summary: Update a product's SEO title and description
+                  example10:
+                    value:
+                      product:
+                        id: 632910392
+                        published: true
+                    summary: >-
+                      Show a hidden product by changing the published attribute to
+                      true
+                  example11:
+                    value:
+                      product:
+                        id: 632910392
+                        published: false
+                    summary: >-
+                      Hide a published product by changing the published attribute
+                      to false
+                  example12:
+                    value:
+                      product:
+                        id: 632910392
+                        metafields:
+                          - key: new
+                            value: newvalue
+                            value_type: string
+                            namespace: global
+                    summary: Add a metafield to an existing product
+          responses:
+            '200':
+              description: ''

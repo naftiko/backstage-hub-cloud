@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Services Servicesid Ratelimits Ratelimitsid Buckets
+  description: Create a new Bucket for a Rate Limit
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Services Servicesid Ratelimits Ratelimitsid Buckets
+      description: Create a new Bucket for a Rate Limit
+    paths:
+      /v2/Services/{ServiceSid}/RateLimits/{RateLimitSid}/Buckets:
+        post:
+          summary: Post Services Servicesid Ratelimits Ratelimitsid Buckets
+          description: Create a new Bucket for a Rate Limit
+          operationId: createBucket
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateBucketRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/verify.v2.service.rate_limit.bucket'
+              description: Created

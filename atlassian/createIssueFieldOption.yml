@@ -1,0 +1,82 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Issue Field Option
+  description: >-
+    Creates an option for a select list issue field.Note that this operation
+    **only works for issue field select list options added by Connect apps**, it
+    cannot be used with issue field select list options created in Jira or using
+    operations from the [Issue custom field
+    options](#api-group-Issue-custom-field-options) resource.Each field can have
+    a maximum of 10000 options, and each option can have a maximum of 10000
+    scopes.**[Permissions](#permissions) required:** *Administer Jira* [global
+    permission](https://confluence.atlassian.com/x/x4dKLg). Jira permissions are
+    not required for the app providing the field.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Issue Field Option
+      description: >-
+        Creates an option for a select list issue field.Note that this operation
+        **only works for issue field select list options added by Connect apps**, it
+        cannot be used with issue field select list options created in Jira or using
+        operations from the [Issue custom field
+        options](#api-group-Issue-custom-field-options) resource.Each field can have
+        a maximum of 10000 options, and each option can have a maximum of 10000
+        scopes.**[Permissions](#permissions) required:** *Administer Jira* [global
+        permission](https://confluence.atlassian.com/x/x4dKLg). Jira permissions are
+        not required for the app providing the field.
+    paths:
+      /rest/api/3/field/{fieldKey}/option:
+        post:
+          summary: Create Issue Field Option
+          description: >-
+            Creates an option for a select list issue field.Note that this operation
+            **only works for issue field select list options added by Connect
+            apps**, it cannot be used with issue field select list options created
+            in Jira or using operations from the [Issue custom field
+            options](#api-group-Issue-custom-field-options) resource.Each field can
+            have a maximum of 10000 options, and each option can have a maximum of
+            10000 scopes.**[Permissions](#permissions) required:** *Administer Jira*
+            [global permission](https://confluence.atlassian.com/x/x4dKLg). Jira
+            permissions are not required for the app providing the field.
+          operationId: createIssueFieldOption
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  config:
+                    attributes: []
+                    scope:
+                      global: {}
+                      projects: []
+                      projects2:
+                        - attributes:
+                            - notSelectable
+                          id: 1001
+                        - attributes:
+                            - notSelectable
+                          id: 1002
+                  properties:
+                    description: The team's description
+                    founded: '2016-06-06'
+                    leader:
+                      email: lname@example.com
+                      name: Leader Name
+                    members: 42
+                  value: Team 1
+                schema:
+                  $ref: '#/components/schemas/IssueFieldOptionCreateBean'
+          responses:
+            '404':
+              description: Returned if the field is not found or does not support options.

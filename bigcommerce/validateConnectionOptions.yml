@@ -1,0 +1,71 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Validate Connection Options
+  description: >-
+    Validate connection options. BigCommerce sends a request to the shipping
+    provider URL to check a merchantʼs connection credentials. The shipping
+    provider sends a response indicating whether a merchant has valid
+    credentials. > #### Note> * Substitute the host and path specific to the
+    shipping provider for `your_app.example.com` and
+    `check_connection_options`.  > * The Send a Test Request feature is not
+    currently supported for this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Validate Connection Options
+      description: >-
+        Validate connection options. BigCommerce sends a request to the shipping
+        provider URL to check a merchantʼs connection credentials. The shipping
+        provider sends a response indicating whether a merchant has valid
+        credentials. > #### Note> * Substitute the host and path specific to the
+        shipping provider for `your_app.example.com` and
+        `check_connection_options`.  > * The Send a Test Request feature is not
+        currently supported for this endpoint.
+    paths:
+      /check_connection_options:
+        post:
+          summary: Validate Connection Options
+          description: >-
+            Validate connection options. BigCommerce sends a request to the shipping
+            provider URL to check a merchantʼs connection credentials. The shipping
+            provider sends a response indicating whether a merchant has valid
+            credentials. > #### Note> * Substitute the host and path specific to the
+            shipping provider for `your_app.example.com` and
+            `check_connection_options`.  > * The Send a Test Request feature is not
+            currently supported for this endpoint.
+          operationId: validateConnectionOptions
+          requestBody:
+            description: Check connection options request.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/CheckConnectionOptionsRequestPayload'
+          responses:
+            '200':
+              description: Check connection options response.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/CheckConnectionOptionsResponsePayload'
+                  examples:
+                    response:
+                      value:
+                        valid: true
+                        messages:
+                          - text: adipi
+                            type: WARNING
+                          - text: nu
+                            type: WARNING
+                          - text: an
+                            type: INFO

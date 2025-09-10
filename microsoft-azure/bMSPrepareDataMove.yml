@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.recoveryservices Vaults Vaultname Backupstorageconfig
+    Vaultstorageconfig Preparedatamove
+  description: Prepares source vault for Data Move operation
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.recoveryservices Vaults Vaultname Backupstorageconfig
+        Vaultstorageconfig Preparedatamove
+      description: Prepares source vault for Data Move operation
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupstorageconfig/vaultstorageconfig/prepareDataMove:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.recoveryservices Vaults Vaultname
+            Backupstorageconfig Vaultstorageconfig Preparedatamove
+          description: Prepares source vault for Data Move operation
+          operationId: bMSPrepareDataMove
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/NewErrorResponse'

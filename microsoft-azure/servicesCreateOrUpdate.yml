@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.search Searchservices Searchservicename
+  description: >-
+    Creates or updates a search service in the given resource group. If the
+    search service already exists, all properties will be updated with the given
+    values.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.search Searchservices Searchservicename
+      description: >-
+        Creates or updates a search service in the given resource group. If the
+        search service already exists, all properties will be updated with the given
+        values.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.search Searchservices Searchservicename
+          description: >-
+            Creates or updates a search service in the given resource group. If the
+            search service already exists, all properties will be updated with the
+            given values.
+          operationId: servicesCreateOrUpdate
+          responses:
+            default:
+              description: >-
+                HTTP 400 (Bad Request): The given service name or service definition
+                is invalid; See the error code and message in the response for
+                details. HTTP 404 (Not Found): The subscription or resource group
+                could not be found. HTTP 409 (Conflict): The specified subscription
+                is disabled.
+              schema:
+                $ref: '#/definitions/CloudError'

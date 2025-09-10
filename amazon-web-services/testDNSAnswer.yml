@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Testdnsanswer
+  description: >-
+    Gets the value that Amazon Route 53 returns in response to a DNS request for
+    a specified record name and type. You can optionally specify the IP address
+    of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask. 
+    This call only supports querying public hosted zones.  The TestDnsAnswer 
+    returns information similar to what you would expect from the answer section
+    of the dig command. Therefore, if you query for the name servers of a
+    subdomain that point to the parent name servers, those will not be
+    returned. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Testdnsanswer
+      description: >-
+        Gets the value that Amazon Route 53 returns in response to a DNS request for
+        a specified record name and type. You can optionally specify the IP address
+        of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask. 
+        This call only supports querying public hosted zones.  The TestDnsAnswer 
+        returns information similar to what you would expect from the answer section
+        of the dig command. Therefore, if you query for the name servers of a
+        subdomain that point to the parent name servers, those will not be
+        returned. 
+    paths:
+      /2013-04-01/testdnsanswer:
+        GET:
+          summary: Testdnsanswer
+          description: >-
+            Gets the value that Amazon Route 53 returns in response to a DNS request
+            for a specified record name and type. You can optionally specify the IP
+            address of a DNS resolver, an EDNS0 client subnet IP address, and a
+            subnet mask.  This call only supports querying public hosted zones.  The
+            TestDnsAnswer  returns information similar to what you would expect from
+            the answer section of the dig command. Therefore, if you query for the
+            name servers of a subdomain that point to the parent name servers, those
+            will not be returned. 
+          operationId: testDNSAnswer

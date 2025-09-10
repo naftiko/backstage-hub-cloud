@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Parse Setting
+  description: >-
+    **This endpoint allows you to update a specific inbound parse setting by
+    hostname.**You can retrieve all your Inbound Parse settings and their
+    associated host names with the "Retrieve all parse settings" endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Parse Setting
+      description: >-
+        **This endpoint allows you to update a specific inbound parse setting by
+        hostname.**You can retrieve all your Inbound Parse settings and their
+        associated host names with the "Retrieve all parse settings" endpoint.
+    paths:
+      /v3/user/webhooks/parse/settings/{hostname}:
+        patch:
+          summary: Update A Parse Setting
+          description: >-
+            **This endpoint allows you to update a specific inbound parse setting by
+            hostname.**You can retrieve all your Inbound Parse settings and their
+            associated host names with the "Retrieve all parse settings" endpoint.
+          operationId: updateParseSetting
+          requestBody: {}
+          responses:
+            '500':
+              $ref: '#/components/responses/Webhook500'

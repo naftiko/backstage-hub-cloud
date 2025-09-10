@@ -1,0 +1,93 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Product Variant Image
+  description: >-
+    Creates a *Variant Image*.Only one image can be explicitly associated with a
+    Variant. If the Variant already has an associated image, overwrites the
+    existing Variant Image.The image displays on the storefront when the Variant
+    is selected. **Required Fields**- image_file: Form posts. Files larger than
+    1 MB are not accepted- image_url: Any publicly available URL
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Product Variant Image
+      description: >-
+        Creates a *Variant Image*.Only one image can be explicitly associated with a
+        Variant. If the Variant already has an associated image, overwrites the
+        existing Variant Image.The image displays on the storefront when the Variant
+        is selected. **Required Fields**- image_file: Form posts. Files larger than
+        1 MB are not accepted- image_url: Any publicly available URL
+    paths:
+      /catalog/products/{product_id}/variants/{variant_id}/image:
+        post:
+          summary: Create A Product Variant Image
+          description: >-
+            Creates a *Variant Image*.Only one image can be explicitly associated
+            with a Variant. If the Variant already has an associated image,
+            overwrites the existing Variant Image.The image displays on the
+            storefront when the Variant is selected. **Required Fields**-
+            image_file: Form posts. Files larger than 1 MB are not accepted-
+            image_url: Any publicly available URL
+          operationId: createProductVariantImage
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    image_url:
+                      type: string
+                      description: >
+                        A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per
+                        file.
+                  description: >-
+                    An object containing a publicly accessible image URL, or a form
+                    post that contains an image file.
+              multipart/form-data:
+                schema:
+                  type: object
+                  properties:
+                    image_url:
+                      type: string
+                      description: >
+                        A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per
+                        file.
+                  description: >-
+                    An object containing a publicly accessible image URL, or a form
+                    post that contains an image file.
+          responses:
+            '500':
+              description: Returns for an `image_file` larger than 1 MB.
+              content:
+                application/json:
+                  schema:
+                    title: Error Response
+                    type: object
+                    properties:
+                      errors:
+                        title: Detailed Errors
+                        type: object
+                        properties: {}
+                        additionalProperties: true
+                      instance:
+                        type: string
+                      status:
+                        type: integer
+                        description: |
+                          The HTTP status code.
+                      title:
+                        type: string
+                        description: |
+                          The error title describing the particular error.
+                      type:
+                        type: string

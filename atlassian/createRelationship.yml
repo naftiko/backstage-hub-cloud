@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Relationship
+  description: >-
+    Creates a relationship between two entities (user, space, content).
+    The'favourite' relationship is supported by default, but you can use this
+    methodto create any type of relationship between two entities.For example,
+    the following method creates a 'sibling' relationship betweentwo pieces of
+    content:`GET
+    /wiki/rest/api/relation/sibling/from/content/123/to/content/456`**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to access the Confluence site ('Can use' global
+    permission).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Relationship
+      description: >-
+        Creates a relationship between two entities (user, space, content).
+        The'favourite' relationship is supported by default, but you can use this
+        methodto create any type of relationship between two entities.For example,
+        the following method creates a 'sibling' relationship betweentwo pieces of
+        content:`GET
+        /wiki/rest/api/relation/sibling/from/content/123/to/content/456`**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to access the Confluence site ('Can use' global
+        permission).
+    paths:
+      /wiki/rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}:
+        put:
+          summary: Create Relationship
+          description: >-
+            Creates a relationship between two entities (user, space, content).
+            The'favourite' relationship is supported by default, but you can use
+            this methodto create any type of relationship between two entities.For
+            example, the following method creates a 'sibling' relationship
+            betweentwo pieces of content:`GET
+            /wiki/rest/api/relation/sibling/from/content/123/to/content/456`**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to access the Confluence site ('Can use' global
+            permission).
+          operationId: createRelationship
+          responses:
+            '404':
+              description: Returned if the user, space or content could not be found.
+              content: {}

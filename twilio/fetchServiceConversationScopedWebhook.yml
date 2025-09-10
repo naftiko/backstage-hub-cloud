@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Services Chatservicesid Conversations Conversationsid Webhooks Sid
+  description: Fetch the configuration of a conversation-scoped webhook
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Services Chatservicesid Conversations Conversationsid Webhooks Sid
+      description: Fetch the configuration of a conversation-scoped webhook
+    paths:
+      /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Webhooks/{Sid}:
+        get:
+          summary: Get Services Chatservicesid Conversations Conversationsid Webhooks Sid
+          description: Fetch the configuration of a conversation-scoped webhook
+          operationId: fetchServiceConversationScopedWebhook
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: >-
+                      #/components/schemas/conversations.v1.service.service_conversation.service_conversation_scoped_webhook
+              description: OK

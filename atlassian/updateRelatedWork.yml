@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Related Work
+  description: >-
+    Updates the given related work. You can only update generic link related
+    works via Rest APIs. Any archived version related works can't be edited.This
+    operation can be accessed anonymously.**[Permissions](#permissions)
+    required:** *Resolve issues:* and *Edit issues* [Managing project
+    permissions](https://confluence.atlassian.com/adminjiraserver/managing-project-permissions-938847145.html)
+    for the project that contains the version.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Related Work
+      description: >-
+        Updates the given related work. You can only update generic link related
+        works via Rest APIs. Any archived version related works can't be edited.This
+        operation can be accessed anonymously.**[Permissions](#permissions)
+        required:** *Resolve issues:* and *Edit issues* [Managing project
+        permissions](https://confluence.atlassian.com/adminjiraserver/managing-project-permissions-938847145.html)
+        for the project that contains the version.
+    paths:
+      /rest/api/3/version/{id}/relatedwork:
+        put:
+          summary: Update Related Work
+          description: >-
+            Updates the given related work. You can only update generic link related
+            works via Rest APIs. Any archived version related works can't be
+            edited.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** *Resolve issues:*
+            and *Edit issues* [Managing project
+            permissions](https://confluence.atlassian.com/adminjiraserver/managing-project-permissions-938847145.html)
+            for the project that contains the version.
+          operationId: updateRelatedWork
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/VersionRelatedWork'
+          responses:
+            '404':
+              description: Returned if the version or the related work is not found.

@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    The Autosuggest Api Lets You Send A Search Query To Bing And Get Back A List
+    Of Query Suggestions. This Section Provides Technical Details About The
+    Query Parameters And Headers That You Use To Request Suggestions And The
+    Json Response Objects That Contain Them.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        The Autosuggest Api Lets You Send A Search Query To Bing And Get Back A List
+        Of Query Suggestions. This Section Provides Technical Details About The
+        Query Parameters And Headers That You Use To Request Suggestions And The
+        Json Response Objects That Contain Them.
+      description: Needs a more full description created.
+    paths:
+      /Suggestions:
+        get:
+          summary: >-
+            The Autosuggest Api Lets You Send A Search Query To Bing And Get Back A
+            List Of Query Suggestions. This Section Provides Technical Details About
+            The Query Parameters And Headers That You Use To Request Suggestions And
+            The Json Response Objects That Contain Them.
+          description: Needs a more full description created.
+          operationId: autoSuggest
+          responses:
+            default:
+              description: >-
+                An error has occurred. Check the response type and/or status code
+                for more details.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

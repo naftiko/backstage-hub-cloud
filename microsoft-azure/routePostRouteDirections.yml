@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Route Directions Format
+  description: >-
+    **Applies to**: S0 and S1 pricing tiers.Returns  a route between an origin
+    and a destination, passing through waypoints if they are specified. The
+    route will take into account factors such as current traffic and the typical
+    road speeds on the requested day of the week and time of day.Information
+    returned includes the distance, estimated travel time, and a representation
+    of the route geometry. Additional routing information such as optimized
+    waypoint order or turn by turn instructions is also available, depending on
+    the options selected.Routing service provides a set of parameters for a
+    detailed description of a vehicle-specific Consumption Model. Please check
+    [Consumption
+    Model](https://docs.microsoft.com/azure/azure-maps/consumption-model) for
+    detailed explanation of the concepts and parameters involved.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Route Directions Format
+      description: >-
+        **Applies to**: S0 and S1 pricing tiers.Returns  a route between an origin
+        and a destination, passing through waypoints if they are specified. The
+        route will take into account factors such as current traffic and the typical
+        road speeds on the requested day of the week and time of day.Information
+        returned includes the distance, estimated travel time, and a representation
+        of the route geometry. Additional routing information such as optimized
+        waypoint order or turn by turn instructions is also available, depending on
+        the options selected.Routing service provides a set of parameters for a
+        detailed description of a vehicle-specific Consumption Model. Please check
+        [Consumption
+        Model](https://docs.microsoft.com/azure/azure-maps/consumption-model) for
+        detailed explanation of the concepts and parameters involved.
+    paths:
+      /route/directions/{format}:
+        post:
+          summary: Post Route Directions Format
+          description: >-
+            **Applies to**: S0 and S1 pricing tiers.Returns  a route between an
+            origin and a destination, passing through waypoints if they are
+            specified. The route will take into account factors such as current
+            traffic and the typical road speeds on the requested day of the week and
+            time of day.Information returned includes the distance, estimated travel
+            time, and a representation of the route geometry. Additional routing
+            information such as optimized waypoint order or turn by turn
+            instructions is also available, depending on the options
+            selected.Routing service provides a set of parameters for a detailed
+            description of a vehicle-specific Consumption Model. Please check
+            [Consumption
+            Model](https://docs.microsoft.com/azure/azure-maps/consumption-model)
+            for detailed explanation of the concepts and parameters involved.
+          operationId: routePostRouteDirections
+          responses:
+            '500':
+              $ref: '#/responses/500'

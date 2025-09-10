@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updates A Service Fabric Application.
+  description: >-
+    Updates a Service Fabric application instance. The set of properties that
+    can be updated are a subset of the properties that were specified at the
+    time of creating the application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updates A Service Fabric Application.
+      description: >-
+        Updates a Service Fabric application instance. The set of properties that
+        can be updated are a subset of the properties that were specified at the
+        time of creating the application.
+    paths:
+      /Applications/{applicationId}/$/Update:
+        post:
+          summary: Updates A Service Fabric Application.
+          description: >-
+            Updates a Service Fabric application instance. The set of properties
+            that can be updated are a subset of the properties that were specified
+            at the time of creating the application.
+          operationId: updateApplication
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

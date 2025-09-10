@@ -1,0 +1,60 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Transactional Template.
+  description: '**This endpoint allows you to create a transactional template.**'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Transactional Template.
+      description: '**This endpoint allows you to create a transactional template.**'
+    paths:
+      /v3/templates:
+        post:
+          summary: Create A Transactional Template.
+          description: '**This endpoint allows you to create a transactional template.**'
+          operationId: createTemplate
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: The name for the new transactional template.
+                      maxLength: 100
+                    generation:
+                      type: string
+                      description: Defines whether the template supports dynamic replacement.
+                      default: legacy
+                      $ref: '#/components/schemas/Generation'
+                  required:
+                    - name
+                  example:
+                    name: example_name
+                    generation: dynamic
+          responses:
+            '201':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/TransactionalTemplate'
+                  examples:
+                    response:
+                      value:
+                        id: 733ba07f-ead1-41fc-933a-3976baa23716
+                        name: example_name
+                        generation: legacy
+                        updated_at: '2021-04-28 13:12:46'
+                        versions: []

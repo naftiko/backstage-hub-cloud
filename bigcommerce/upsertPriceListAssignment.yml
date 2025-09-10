@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Upsert Price List Assignment
+  description: >-
+    Upsert a single `Price List Assignment` for a `Price List`.**Note:***
+    Supports up to 25 simultaneous PUT requests. Running more than the allowed
+    number of requests concurrently on the same store will result in a `429`
+    status error and your additional requests will fail.        
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Upsert Price List Assignment
+      description: >-
+        Upsert a single `Price List Assignment` for a `Price List`.**Note:***
+        Supports up to 25 simultaneous PUT requests. Running more than the allowed
+        number of requests concurrently on the same store will result in a `429`
+        status error and your additional requests will fail.        
+    paths:
+      /pricelists/{price_list_id}/assignments:
+        put:
+          summary: Upsert Price List Assignment
+          description: >-
+            Upsert a single `Price List Assignment` for a `Price List`.**Note:***
+            Supports up to 25 simultaneous PUT requests. Running more than the
+            allowed number of requests concurrently on the same store will result in
+            a `429` status error and your additional requests will fail.        
+          operationId: upsertPriceListAssignment
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/AssignmentForPutRequest'
+          responses:
+            '404':
+              description: >-
+                A matching customer group or channel wasnʼt found, so no assignment
+                is created or returned.

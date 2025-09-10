@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Resume Warehouse
+  description: >-
+    Bring current warehouse to a usable ‘Running’ state by provisioning compute
+    resources if current warehouse is suspended.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Resume Warehouse
+      description: >-
+        Bring current warehouse to a usable ‘Running’ state by provisioning compute
+        resources if current warehouse is suspended.
+    paths:
+      /api/v2/warehouses/{name}:resume:
+        post:
+          summary: Resume Warehouse
+          description: >-
+            Bring current warehouse to a usable ‘Running’ state by provisioning
+            compute resources if current warehouse is suspended.
+          operationId: resumeWarehouse
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

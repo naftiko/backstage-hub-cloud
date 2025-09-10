@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Livy Sessions Sessionid State
+  description: Gets a single spark session job state.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Livy Sessions Sessionid State
+      description: Gets a single spark session job state.
+    paths:
+      /livy/sessions/{sessionId}/state:
+        get:
+          summary: Get Livy Sessions Sessionid State
+          description: Gets a single spark session job state.
+          operationId: jobGetSparkSessionState
+          responses:
+            '200':
+              description: Success
+              schema:
+                $ref: '#/definitions/SparkJobState'

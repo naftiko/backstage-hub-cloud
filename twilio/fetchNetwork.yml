@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Networks Sid
+  description: Fetch a Network resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Networks Sid
+      description: Fetch a Network resource.
+    paths:
+      /v1/Networks/{Sid}:
+        get:
+          summary: Get Networks Sid
+          description: Fetch a Network resource.
+          operationId: fetchNetwork
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/supersim.v1.network'
+              description: OK

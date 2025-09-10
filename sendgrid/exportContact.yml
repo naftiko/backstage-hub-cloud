@@ -1,0 +1,101 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Export Contacts
+  description: >-
+    **Use this endpoint to export lists or segments of contacts**.If you would
+    just like to have a link to the exported list sent to your email set the
+    `notifications.email` option to `true` in the `POST` payload.If you would
+    like to download the list, take the `id` that is returned and use the
+    "Export Contacts Status" endpoint to get the `urls`. Once you have the list
+    of URLs, make a `GET` request to each URL provided to download your CSV
+    file(s).You specify the segments and or/contact lists you wish to export by
+    providing the relevant IDs in, respectively, the `segment_ids` and
+    `list_ids` fields in the request body.The lists will be provided in either
+    JSON or CSV files. To specify which of these you would required, set the
+    request body `file_type` field to `json` or `csv`.You can also specify a
+    maximum file size (in MB). If the export file is larger than this, it will
+    be split into multiple files.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Export Contacts
+      description: >-
+        **Use this endpoint to export lists or segments of contacts**.If you would
+        just like to have a link to the exported list sent to your email set the
+        `notifications.email` option to `true` in the `POST` payload.If you would
+        like to download the list, take the `id` that is returned and use the
+        "Export Contacts Status" endpoint to get the `urls`. Once you have the list
+        of URLs, make a `GET` request to each URL provided to download your CSV
+        file(s).You specify the segments and or/contact lists you wish to export by
+        providing the relevant IDs in, respectively, the `segment_ids` and
+        `list_ids` fields in the request body.The lists will be provided in either
+        JSON or CSV files. To specify which of these you would required, set the
+        request body `file_type` field to `json` or `csv`.You can also specify a
+        maximum file size (in MB). If the export file is larger than this, it will
+        be split into multiple files.
+    paths:
+      /v3/marketing/contacts/exports:
+        post:
+          summary: Export Contacts
+          description: >-
+            **Use this endpoint to export lists or segments of contacts**.If you
+            would just like to have a link to the exported list sent to your email
+            set the `notifications.email` option to `true` in the `POST` payload.If
+            you would like to download the list, take the `id` that is returned and
+            use the "Export Contacts Status" endpoint to get the `urls`. Once you
+            have the list of URLs, make a `GET` request to each URL provided to
+            download your CSV file(s).You specify the segments and or/contact lists
+            you wish to export by providing the relevant IDs in, respectively, the
+            `segment_ids` and `list_ids` fields in the request body.The lists will
+            be provided in either JSON or CSV files. To specify which of these you
+            would required, set the request body `file_type` field to `json` or
+            `csv`.You can also specify a maximum file size (in MB). If the export
+            file is larger than this, it will be split into multiple files.
+          operationId: exportContact
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    list_ids:
+                      description: IDs of the contact lists you want to export.
+                      type: array
+                      items:
+                        type: string
+                        format: uuid
+                    segment_ids:
+                      description: IDs of the contact segments you want to export.
+                      type: array
+                      items:
+                        type: string
+                    notifications:
+                      type: object
+                      properties:
+                        email:
+                          type: boolean
+                    file_type:
+                      type: string
+                      description: File type for export file. Choose from `json` or `csv`.
+                      default: csv
+                      $ref: '#/components/schemas/FileType'
+                    max_file_size:
+                      description: >-
+                        The maximum size of an export file in MB. Note that when
+                        this option is specified, multiple output files may be
+                        returned from the export.
+                      default: 5000
+                      type: integer
+          responses:
+            '500':
+              $ref: '#/components/responses/MarketingContacts500'

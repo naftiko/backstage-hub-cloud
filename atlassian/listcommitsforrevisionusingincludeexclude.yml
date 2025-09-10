@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Commits For Revision Using Include/exclude
+  description: >-
+    Identical to `GET
+    /repositories/{workspace}/{repo_slug}/commits/{revision}`,except that POST
+    allows clients to place the include and excludeparameters in the request
+    body to avoid URL length issues.**Note that this resource does NOT support
+    new commit creation.**
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Commits For Revision Using Include/exclude
+      description: >-
+        Identical to `GET
+        /repositories/{workspace}/{repo_slug}/commits/{revision}`,except that POST
+        allows clients to place the include and excludeparameters in the request
+        body to avoid URL length issues.**Note that this resource does NOT support
+        new commit creation.**
+    paths:
+      /repositories/{workspace}/{repo_slug}/commits/{revision}:
+        post:
+          summary: List Commits For Revision Using Include/exclude
+          description: >-
+            Identical to `GET
+            /repositories/{workspace}/{repo_slug}/commits/{revision}`,except that
+            POST allows clients to place the include and excludeparameters in the
+            request body to avoid URL length issues.**Note that this resource does
+            NOT support new commit creation.**
+          operationId: listcommitsforrevisionusingincludeexclude
+          responses:
+            '404':
+              description: If the specified revision does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

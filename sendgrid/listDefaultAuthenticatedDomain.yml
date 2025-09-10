@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get The Default Authentication
+  description: >-
+    **This endpoint allows you to retrieve the default authentication for a
+    domain.**When creating or updating a domain authentication, you can set the
+    domain as a default. The default domain will be used to send all mail. If
+    you have multiple authenticated domains, the authenticated domain matching
+    the domain of the From address will be used, and the default will be
+    overridden.This endpoint will return a default domain and its details only
+    if a default is set. You are not required to set a default. If you do not
+    set a default domain, this endpoint will return general information about
+    your domain authentication status.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get The Default Authentication
+      description: >-
+        **This endpoint allows you to retrieve the default authentication for a
+        domain.**When creating or updating a domain authentication, you can set the
+        domain as a default. The default domain will be used to send all mail. If
+        you have multiple authenticated domains, the authenticated domain matching
+        the domain of the From address will be used, and the default will be
+        overridden.This endpoint will return a default domain and its details only
+        if a default is set. You are not required to set a default. If you do not
+        set a default domain, this endpoint will return general information about
+        your domain authentication status.
+    paths:
+      /v3/whitelabel/domains/default:
+        get:
+          summary: Get The Default Authentication
+          description: >-
+            **This endpoint allows you to retrieve the default authentication for a
+            domain.**When creating or updating a domain authentication, you can set
+            the domain as a default. The default domain will be used to send all
+            mail. If you have multiple authenticated domains, the authenticated
+            domain matching the domain of the From address will be used, and the
+            default will be overridden.This endpoint will return a default domain
+            and its details only if a default is set. You are not required to set a
+            default. If you do not set a default domain, this endpoint will return
+            general information about your domain authentication status.
+          operationId: listDefaultAuthenticatedDomain
+          responses:
+            '200':
+              $ref: '#/components/responses/DomainAuthentication200'

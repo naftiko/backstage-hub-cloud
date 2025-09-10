@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Undrop A Database.
+  description: Undrops database.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Undrop A Database.
+      description: Undrops database.
+    paths:
+      /api/v2/databases/{name}:undrop:
+        post:
+          summary: Undrop A Database.
+          description: Undrops database.
+          operationId: undropDatabase
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

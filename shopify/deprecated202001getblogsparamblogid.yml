@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Single Blog By Its Id
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/online-store/blog#show-2020-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Single Blog By Its Id
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/online-store/blog#show-2020-01
+    paths:
+      /admin/api/2020-01/blogs/{blog_id}.json:
+        get:
+          summary: Get A Single Blog By Its Id
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/online-store/blog#show-2020-01
+          operationId: deprecated202001getblogsparamblogid
+          responses:
+            '200':
+              description: ''

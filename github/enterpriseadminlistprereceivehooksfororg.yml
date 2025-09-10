@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Pre-receive Hooks For An Organization
+  description: >-
+    List all pre-receive hooks that are enabled or testing for this organization
+    as well as any disabled hooks that can be configured at the organization
+    level. Globally disabled pre-receive hooks that do not allow downstream
+    configuration are not listed.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Pre-receive Hooks For An Organization
+      description: >-
+        List all pre-receive hooks that are enabled or testing for this organization
+        as well as any disabled hooks that can be configured at the organization
+        level. Globally disabled pre-receive hooks that do not allow downstream
+        configuration are not listed.
+    paths:
+      /orgs/{org}/pre-receive-hooks:
+        get:
+          summary: List Pre-receive Hooks For An Organization
+          description: >-
+            List all pre-receive hooks that are enabled or testing for this
+            organization as well as any disabled hooks that can be configured at the
+            organization level. Globally disabled pre-receive hooks that do not
+            allow downstream configuration are not listed.
+          operationId: enterpriseadminlistprereceivehooksfororg
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/org-pre-receive-hook'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/org-pre-receive-hook-items'

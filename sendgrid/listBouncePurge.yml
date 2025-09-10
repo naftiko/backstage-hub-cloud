@@ -1,0 +1,77 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve Bounce Purge Mail Settings
+  description: >-
+    **This endpoint allows you to retrieve your current Bounce Purge mail
+    settings.**The Bounce Purge mail setting allows you to configure the maximum
+    age of contacts in your hard and soft bounce suppressions lists. All
+    contacts older than their respective configured age are deleted.A hard
+    bounce occurs when an email message has been returned to the sender because
+    the recipient's address is invalid. A hard bounce might occur because the
+    domain name doesn't exist or because the recipient is unknown.A soft bounce
+    occurs when an email message reaches the recipient's mail server but is
+    bounced back undelivered before it actually reaches the recipient. A soft
+    bounce might occur because the recipient's inbox is full.You can also manage
+    this setting in the [Mail Settings section of the Twilio SendGrid
+    App](https://app.sendgrid.com/settings/mail_settings). You can manage your
+    bounces manually using the [Bounces
+    API](https://docs.sendgrid.com/api-reference/bounces-api) or the [Bounces
+    menu in the Twilio SendGrid
+    App](https://app.sendgrid.com/suppressions/bounces).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve Bounce Purge Mail Settings
+      description: >-
+        **This endpoint allows you to retrieve your current Bounce Purge mail
+        settings.**The Bounce Purge mail setting allows you to configure the maximum
+        age of contacts in your hard and soft bounce suppressions lists. All
+        contacts older than their respective configured age are deleted.A hard
+        bounce occurs when an email message has been returned to the sender because
+        the recipient's address is invalid. A hard bounce might occur because the
+        domain name doesn't exist or because the recipient is unknown.A soft bounce
+        occurs when an email message reaches the recipient's mail server but is
+        bounced back undelivered before it actually reaches the recipient. A soft
+        bounce might occur because the recipient's inbox is full.You can also manage
+        this setting in the [Mail Settings section of the Twilio SendGrid
+        App](https://app.sendgrid.com/settings/mail_settings). You can manage your
+        bounces manually using the [Bounces
+        API](https://docs.sendgrid.com/api-reference/bounces-api) or the [Bounces
+        menu in the Twilio SendGrid
+        App](https://app.sendgrid.com/suppressions/bounces).
+    paths:
+      /v3/mail_settings/bounce_purge:
+        get:
+          summary: Retrieve Bounce Purge Mail Settings
+          description: >-
+            **This endpoint allows you to retrieve your current Bounce Purge mail
+            settings.**The Bounce Purge mail setting allows you to configure the
+            maximum age of contacts in your hard and soft bounce suppressions lists.
+            All contacts older than their respective configured age are deleted.A
+            hard bounce occurs when an email message has been returned to the sender
+            because the recipient's address is invalid. A hard bounce might occur
+            because the domain name doesn't exist or because the recipient is
+            unknown.A soft bounce occurs when an email message reaches the
+            recipient's mail server but is bounced back undelivered before it
+            actually reaches the recipient. A soft bounce might occur because the
+            recipient's inbox is full.You can also manage this setting in the [Mail
+            Settings section of the Twilio SendGrid
+            App](https://app.sendgrid.com/settings/mail_settings). You can manage
+            your bounces manually using the [Bounces
+            API](https://docs.sendgrid.com/api-reference/bounces-api) or the
+            [Bounces menu in the Twilio SendGrid
+            App](https://app.sendgrid.com/suppressions/bounces).
+          operationId: listBouncePurge
+          responses:
+            '500':
+              $ref: '#/components/responses/MailSettingsError500'

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Gets The Partition Backup Configuration Information
+  description: >-
+    Gets the Service Fabric Backup configuration information for the specified
+    partition.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The Partition Backup Configuration Information
+      description: >-
+        Gets the Service Fabric Backup configuration information for the specified
+        partition.
+    paths:
+      /Partitions/{partitionId}/$/GetBackupConfigurationInfo:
+        get:
+          summary: Gets The Partition Backup Configuration Information
+          description: >-
+            Gets the Service Fabric Backup configuration information for the
+            specified partition.
+          operationId: getPartitionBackupConfigurationInfo
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

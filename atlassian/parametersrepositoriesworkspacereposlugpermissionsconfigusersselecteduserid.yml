@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Parameters Repositories Workspace Repo_slug Permissions-config Users
+    Selected_user_id
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Parameters Repositories Workspace Repo_slug Permissions-config Users
+        Selected_user_id
+      description: Needs a more full description created.
+    paths:
+      /repositories/{workspace}/{repo_slug}/permissions-config/users/{selected_user_id}:
+        parameters:
+          summary: >-
+            Parameters Repositories Workspace Repo_slug Permissions-config Users
+            Selected_user_id
+          description: Needs a more full description created.
+          operationId: >-
+            parametersrepositoriesworkspacereposlugpermissionsconfigusersselecteduserid

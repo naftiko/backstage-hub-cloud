@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Returns All Snapshots To The User.
+  description: Description for Returns all Snapshots to the user.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Returns All Snapshots To The User.
+      description: Description for Returns all Snapshots to the user.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/snapshots:
+        get:
+          summary: Returns All Snapshots To The User.
+          description: Description for Returns all Snapshots to the user.
+          operationId: webAppsListSnapshots
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

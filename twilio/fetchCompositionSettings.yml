@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Compositionsettings Default
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Compositionsettings Default
+      description: Needs a more full description created.
+    paths:
+      /v1/CompositionSettings/Default:
+        get:
+          summary: Get Compositionsettings Default
+          description: Needs a more full description created.
+          operationId: fetchCompositionSettings
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/video.v1.composition_settings'
+              description: OK

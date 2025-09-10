@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Tax Transactions Create_reversal
+  description: Partially or fully reverses a previously created Transaction.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Tax Transactions Create_reversal
+      description: Partially or fully reverses a previously created Transaction.
+    paths:
+      /v1/tax/transactions/create_reversal:
+        post:
+          summary: Post Tax Transactions Create_reversal
+          description: Partially or fully reverses a previously created Transaction.
+          operationId: postTaxTransactionsCreateReversal
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                  line_items:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                  shipping_cost:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostTaxTransactionsCreateReversalRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

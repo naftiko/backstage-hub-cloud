@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Customer Form Field Values
+  description: >-
+    Returns a list of form field values for the Customer or Customer Address
+    object.To learn about adding and managing form fields, see [Adding and
+    Editing Fields in the Account Signup
+    Form](https://support.bigcommerce.com/s/article/Editing-Form-Fields).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Customer Form Field Values
+      description: >-
+        Returns a list of form field values for the Customer or Customer Address
+        object.To learn about adding and managing form fields, see [Adding and
+        Editing Fields in the Account Signup
+        Form](https://support.bigcommerce.com/s/article/Editing-Form-Fields).
+    paths:
+      /customers/form-field-values:
+        get:
+          summary: Get Customer Form Field Values
+          description: >-
+            Returns a list of form field values for the Customer or Customer Address
+            object.To learn about adding and managing form fields, see [Adding and
+            Editing Fields in the Account Signup
+            Form](https://support.bigcommerce.com/s/article/Editing-Form-Fields).
+          operationId: getCustomersFormFieldValues
+          responses:
+            '422':
+              description: >-
+                The form field value was not valid. This is the result of missing
+                required fields, or of invalid data. See the response for more
+                details.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'

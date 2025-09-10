@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Implements Dedicated Cloud Service Put Method
+  description: Create dedicate cloud service
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Implements Dedicated Cloud Service Put Method
+      description: Create dedicate cloud service
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMwareCloudSimple/dedicatedCloudServices/{dedicatedCloudServiceName}:
+        put:
+          summary: Implements Dedicated Cloud Service Put Method
+          description: Create dedicate cloud service
+          operationId: dedicatedCloudServicesCreateOrUpdate
+          responses:
+            default:
+              description: General Error
+              schema:
+                $ref: '#/definitions/CSRPError'

@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get A Consumer Group From The Event Hub-compatible Device-to-cloud Endpoint
+    For An Iot Hub
+  description: >-
+    Get a consumer group from the Event Hub-compatible device-to-cloud endpoint
+    for an IoT hub.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get A Consumer Group From The Event Hub-compatible Device-to-cloud Endpoint
+        For An Iot Hub
+      description: >-
+        Get a consumer group from the Event Hub-compatible device-to-cloud endpoint
+        for an IoT hub.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/eventHubEndpoints/{eventHubEndpointName}/ConsumerGroups/{name}:
+        get:
+          summary: >-
+            Get A Consumer Group From The Event Hub-compatible Device-to-cloud
+            Endpoint For An Iot Hub
+          description: >-
+            Get a consumer group from the Event Hub-compatible device-to-cloud
+            endpoint for an IoT hub.
+          operationId: iotHubResourceGetEventHubConsumerGroup
+          responses:
+            default:
+              description: DefaultErrorResponse
+              schema:
+                $ref: '#/definitions/ErrorDetails'

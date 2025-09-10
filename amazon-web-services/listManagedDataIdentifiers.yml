@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listmanageddataidentifiers
+  description: >-
+    Retrieves information about all the managed data identifiers that Amazon
+    Macie currently provides.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listmanageddataidentifiers
+      description: >-
+        Retrieves information about all the managed data identifiers that Amazon
+        Macie currently provides.
+    paths:
+      /managed-data-identifiers/list:
+        POST:
+          summary: Listmanageddataidentifiers
+          description: >-
+            Retrieves information about all the managed data identifiers that Amazon
+            Macie currently provides.
+          operationId: listManagedDataIdentifiers

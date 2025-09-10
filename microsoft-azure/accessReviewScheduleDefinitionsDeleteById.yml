@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Delete Subscriptions Subscriptionid Providers Microsoft.authorization
+    Accessreviewscheduledefinitions Scheduledefinitionid
+  description: Delete access review schedule definition
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Providers Microsoft.authorization
+        Accessreviewscheduledefinitions Scheduledefinitionid
+      description: Delete access review schedule definition
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Providers Microsoft.authorization
+            Accessreviewscheduledefinitions Scheduledefinitionid
+          description: Delete access review schedule definition
+          operationId: accessReviewScheduleDefinitionsDeleteById
+          responses:
+            default:
+              description: Unexpected error
+              schema:
+                $ref: '#/definitions/ErrorDefinition'

@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Release By Tag Name
+  description: Get a published release with the specified tag.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Release By Tag Name
+      description: Get a published release with the specified tag.
+    paths:
+      /repos/{owner}/{repo}/releases/tags/{tag}:
+        get:
+          summary: Get A Release By Tag Name
+          description: Get a published release with the specified tag.
+          operationId: getAReleaseByTagName
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

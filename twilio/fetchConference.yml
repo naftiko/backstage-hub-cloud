@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Conferences Conferencesid
+  description: Get a specific Conference Summary.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Conferences Conferencesid
+      description: Get a specific Conference Summary.
+    paths:
+      /v1/Conferences/{ConferenceSid}:
+        get:
+          summary: Get Conferences Conferencesid
+          description: Get a specific Conference Summary.
+          operationId: fetchConference
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/insights.v1.conference'
+              description: OK

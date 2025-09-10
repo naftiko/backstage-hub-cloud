@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Importvmimage
+  description: >-
+    When you export your virtual machine (VM) from its virtualization
+    environment, that process creates a set of one or more disk container files
+    that act as snapshots of your VM’s environment, settings, and data. The
+    Amazon EC2 API ImportImage action uses those files to import your VM and
+    create an AMI. To import using the CLI command, see import-image  You can
+    reference the task ID from the VM import to pull in the AMI that the import
+    created as the base image for your Image Builder recipe.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Importvmimage
+      description: >-
+        When you export your virtual machine (VM) from its virtualization
+        environment, that process creates a set of one or more disk container files
+        that act as snapshots of your VM’s environment, settings, and data. The
+        Amazon EC2 API ImportImage action uses those files to import your VM and
+        create an AMI. To import using the CLI command, see import-image  You can
+        reference the task ID from the VM import to pull in the AMI that the import
+        created as the base image for your Image Builder recipe.
+    paths:
+      /ImportVmImage:
+        PUT:
+          summary: Importvmimage
+          description: >-
+            When you export your virtual machine (VM) from its virtualization
+            environment, that process creates a set of one or more disk container
+            files that act as snapshots of your VM’s environment, settings, and
+            data. The Amazon EC2 API ImportImage action uses those files to import
+            your VM and create an AMI. To import using the CLI command, see
+            import-image  You can reference the task ID from the VM import to pull
+            in the AMI that the import created as the base image for your Image
+            Builder recipe.
+          operationId: importVmImage

@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Linker For An App
+  description: >-
+    Gets a [linker](/cloud/bitbucket/modules/linker/) specified by
+    `linker_key`for the authenticated application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Linker For An App
+      description: >-
+        Gets a [linker](/cloud/bitbucket/modules/linker/) specified by
+        `linker_key`for the authenticated application.
+    paths:
+      /addon/linkers/{linker_key}:
+        get:
+          summary: Get A Linker For An App
+          description: >-
+            Gets a [linker](/cloud/bitbucket/modules/linker/) specified by
+            `linker_key`for the authenticated application.
+          operationId: getalinkerforanapp
+          responses:
+            '404':
+              description: The linker does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

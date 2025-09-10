@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add A Repository Deploy Key
+  description: >-
+    Create a new deploy key in a repository. Note: If authenticating a deploy
+    keywith an OAuth consumer, any changes to the OAuth consumer will
+    subsequentlyinvalidate the deploy key.Example:```$ curl -X POST \-H
+    "Authorization " \-H "Content-type: application/json"
+    \https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys -d \'{   
+    "key": "ssh-rsa
+    AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5
+    mleu@C02W454JHTD8",    "label": "mydeploykey"}'```
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add A Repository Deploy Key
+      description: >-
+        Create a new deploy key in a repository. Note: If authenticating a deploy
+        keywith an OAuth consumer, any changes to the OAuth consumer will
+        subsequentlyinvalidate the deploy key.Example:```$ curl -X POST \-H
+        "Authorization " \-H "Content-type: application/json"
+        \https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys -d \'{   
+        "key": "ssh-rsa
+        AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5
+        mleu@C02W454JHTD8",    "label": "mydeploykey"}'```
+    paths:
+      /repositories/{workspace}/{repo_slug}/deploy-keys:
+        post:
+          summary: Add A Repository Deploy Key
+          description: >-
+            Create a new deploy key in a repository. Note: If authenticating a
+            deploy keywith an OAuth consumer, any changes to the OAuth consumer will
+            subsequentlyinvalidate the deploy key.Example:```$ curl -X POST \-H
+            "Authorization " \-H "Content-type: application/json"
+            \https://api.bitbucket.org/2.0/repositories/mleu/test/deploy-keys -d
+            \'{    "key": "ssh-rsa
+            AAAAB3NzaC1yc2EAAAADAQABAAABAQDAK/b1cHHDr/TEV1JGQl+WjCwStKG6Bhrv0rFpEsYlyTBm1fzN0VOJJYn4ZOPCPJwqse6fGbXntEs+BbXiptR+++HycVgl65TMR0b5ul5AgwrVdZdT7qjCOCgaSV74/9xlHDK8oqgGnfA7ZoBBU+qpVyaloSjBdJfLtPY/xqj4yHnXKYzrtn/uFc4Kp9Tb7PUg9Io3qohSTGJGVHnsVblq/rToJG7L5xIo0OxK0SJSQ5vuId93ZuFZrCNMXj8JDHZeSEtjJzpRCBEXHxpOPhAcbm4MzULgkFHhAVgp4JbkrT99/wpvZ7r9AdkTg7HGqL3rlaDrEcWfL7Lu6TnhBdq5
+            mleu@C02W454JHTD8",    "label": "mydeploykey"}'```
+          operationId: addarepositorydeploykey
+          responses:
+            '404':
+              description: If the specified user or repository does not exist
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

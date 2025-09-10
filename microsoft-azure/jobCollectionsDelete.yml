@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+    Providers Microsoft.scheduler Jobcollections Jobcollectionname
+  description: Deletes a job collection.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.scheduler Jobcollections Jobcollectionname
+      description: Deletes a job collection.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.scheduler Jobcollections Jobcollectionname
+          description: Deletes a job collection.
+          operationId: jobCollectionsDelete
+          responses:
+            '202':
+              description: >-
+                The delete operation for the job collection has been accepted and
+                will complete asynchronously.

@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listassetproperties
+  description: >-
+    Retrieves a paginated list of properties associated with an asset. If you
+    update properties associated with the model before you finish listing all
+    the properties, you need to start all over again.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listassetproperties
+      description: >-
+        Retrieves a paginated list of properties associated with an asset. If you
+        update properties associated with the model before you finish listing all
+        the properties, you need to start all over again.
+    paths:
+      /assets/{assetId}/properties:
+        GET:
+          summary: Listassetproperties
+          description: >-
+            Retrieves a paginated list of properties associated with an asset. If
+            you update properties associated with the model before you finish
+            listing all the properties, you need to start all over again.
+          operationId: listAssetProperties

@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Site’s Routes
+  description: Get a site’s routes.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Site’s Routes
+      description: Get a site’s routes.
+    paths:
+      /sites/{site_id}/routes:
+        get:
+          summary: Get A Site’s Routes
+          description: Get a site’s routes.
+          operationId: getSiteRoutes
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/siteRoute_Full'
+                      meta:
+                        $ref: '#/components/schemas/_metaCollection'
+                  examples:
+                    response:
+                      value:
+                        data:
+                          - id: 1
+                            type: product
+                            matching: '5'
+                            route: /products?id={id}
+                          - id: 2
+                            type: category
+                            matching: '44'
+                            route: /category/{slug}
+                        meta:
+                          pagination:
+                            total: 1
+                            count: 1
+                            per_page: 50
+                            current_page: 1
+                            total_pages: 1

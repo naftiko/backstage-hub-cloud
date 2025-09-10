@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Files File
+  description: >-
+    Retrieves the details of an existing file object. After you supply a unique
+    file ID, Stripe returns the corresponding file object. Learn how to access
+    file contents.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Files File
+      description: >-
+        Retrieves the details of an existing file object. After you supply a unique
+        file ID, Stripe returns the corresponding file object. Learn how to access
+        file contents.
+    paths:
+      /v1/files/{file}:
+        get:
+          summary: Get Files File
+          description: >-
+            Retrieves the details of an existing file object. After you supply a
+            unique file ID, Stripe returns the corresponding file object. Learn how
+            to access file contents.
+          operationId: getFilesFile
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetFilesFileRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

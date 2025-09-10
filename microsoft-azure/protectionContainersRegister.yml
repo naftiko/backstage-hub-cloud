@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.recoveryservices Vaults Vaultname Backupfabrics Fabricname
+    Protectioncontainers Containername
+  description: >-
+    Registers the container with Recovery Services vault.This is an asynchronous
+    operation. To track the operation status, use location header to call get
+    latest status ofthe operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.recoveryservices Vaults Vaultname Backupfabrics Fabricname
+        Protectioncontainers Containername
+      description: >-
+        Registers the container with Recovery Services vault.This is an asynchronous
+        operation. To track the operation status, use location header to call get
+        latest status ofthe operation.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.recoveryservices Vaults Vaultname Backupfabrics
+            Fabricname Protectioncontainers Containername
+          description: >-
+            Registers the container with Recovery Services vault.This is an
+            asynchronous operation. To track the operation status, use location
+            header to call get latest status ofthe operation.
+          operationId: protectionContainersRegister
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

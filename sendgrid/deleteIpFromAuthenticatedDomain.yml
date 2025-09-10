@@ -1,0 +1,73 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Remove An Ip From An Authenticated Domain.
+  description: >-
+    **This endpoint allows you to remove an IP address from that domain's
+    authentication.**
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Remove An Ip From An Authenticated Domain.
+      description: >-
+        **This endpoint allows you to remove an IP address from that domain's
+        authentication.**
+    paths:
+      /v3/whitelabel/domains/{id}/ips/{ip}:
+        delete:
+          summary: Remove An Ip From An Authenticated Domain.
+          description: >-
+            **This endpoint allows you to remove an IP address from that domain's
+            authentication.**
+          operationId: deleteIpFromAuthenticatedDomain
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/AuthenticatedDomainSpf'
+                  examples:
+                    response:
+                      value:
+                        id: 1
+                        domain: example.com
+                        subdomain: mail
+                        username: mail@example.com
+                        user_id: 7
+                        ips: []
+                        custom_spf: true
+                        default: false
+                        legacy: false
+                        automatic_security: false
+                        valid: false
+                        dns:
+                          mail_server:
+                            host: mail.example.com
+                            type: mx
+                            data: sendgrid.net
+                            valid: false
+                          subdomain_spf:
+                            host: mail.example.com
+                            type: txt
+                            data: v=spf1 ip4:192.168.1.1 ip4:192.168.0.1 -all
+                            valid: false
+                          domain_spf:
+                            host: example.com
+                            type: txt
+                            data: v=spf1 include:mail.example.com -all
+                            valid: false
+                          dkim:
+                            host: s1._domainkey.example.com
+                            type: txt
+                            data: k=rsa; t=s; p=publicKey
+                            valid: false

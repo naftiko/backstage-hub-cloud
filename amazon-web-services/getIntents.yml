@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getintents
+  description: >-
+    Returns intent information as follows:    If you specify the nameContains
+    field, returns the $LATEST version of all intents that contain the specified
+    string.    If you don't specify the nameContains field, returns information
+    about the $LATEST version of all intents.     The operation requires
+    permission for the lex:GetIntents action. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getintents
+      description: >-
+        Returns intent information as follows:    If you specify the nameContains
+        field, returns the $LATEST version of all intents that contain the specified
+        string.    If you don't specify the nameContains field, returns information
+        about the $LATEST version of all intents.     The operation requires
+        permission for the lex:GetIntents action. 
+    paths:
+      /intents/:
+        GET:
+          summary: Getintents
+          description: >-
+            Returns intent information as follows:    If you specify the
+            nameContains field, returns the $LATEST version of all intents that
+            contain the specified string.    If you don't specify the nameContains
+            field, returns information about the $LATEST version of all intents.    
+            The operation requires permission for the lex:GetIntents action. 
+          operationId: getIntents

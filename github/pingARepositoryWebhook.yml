@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Ping A Repository Webhook
+  description: >-
+    This will trigger a [ping
+    event](https://docs.github.com/enterprise-server@3.9/webhooks/#ping-event)
+    to be sent to the hook.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Ping A Repository Webhook
+      description: >-
+        This will trigger a [ping
+        event](https://docs.github.com/enterprise-server@3.9/webhooks/#ping-event)
+        to be sent to the hook.
+    paths:
+      /repos/{owner}/{repo}/hooks/{hook_id}/pings:
+        post:
+          summary: Ping A Repository Webhook
+          description: >-
+            This will trigger a [ping
+            event](https://docs.github.com/enterprise-server@3.9/webhooks/#ping-event)
+            to be sent to the hook.
+          operationId: pingARepositoryWebhook
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

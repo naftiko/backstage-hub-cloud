@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listedgeagentconfigurations
+  description: >-
+    Returns an array of edge configurations associated with the specified Edge
+    Agent. In the request, you must specify the Edge Agent HubDeviceArn.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listedgeagentconfigurations
+      description: >-
+        Returns an array of edge configurations associated with the specified Edge
+        Agent. In the request, you must specify the Edge Agent HubDeviceArn.
+    paths:
+      /listEdgeAgentConfigurations:
+        POST:
+          summary: Listedgeagentconfigurations
+          description: >-
+            Returns an array of edge configurations associated with the specified
+            Edge Agent. In the request, you must specify the Edge Agent
+            HubDeviceArn.
+          operationId: listEdgeAgentConfigurations

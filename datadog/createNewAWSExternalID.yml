@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Generate A New External Id
+  description: Generate a new external ID for AWS role-based authentication.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Generate A New External Id
+      description: Generate a new external ID for AWS role-based authentication.
+    paths:
+      /api/v2/integration/aws/generate_new_external_id:
+        post:
+          summary: Generate A New External Id
+          description: Generate a new external ID for AWS role-based authentication.
+          operationId: createNewAWSExternalID
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

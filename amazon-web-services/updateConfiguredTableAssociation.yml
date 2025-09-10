@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updateconfiguredtableassociation
+  description: Updates a configured table association.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateconfiguredtableassociation
+      description: Updates a configured table association.
+    paths:
+      /memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}:
+        PATCH:
+          summary: Updateconfiguredtableassociation
+          description: Updates a configured table association.
+          operationId: updateConfiguredTableAssociation

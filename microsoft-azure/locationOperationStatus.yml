@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Providers Microsoft.storagesync Locations
+    Locationname Operations Operationid
+  description: Get Operation status
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft.storagesync Locations
+        Locationname Operations Operationid
+      description: Get Operation status
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.StorageSync/locations/{locationName}/operations/{operationId}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft.storagesync
+            Locations Locationname Operations Operationid
+          description: Get Operation status
+          operationId: locationOperationStatus
+          responses:
+            default:
+              description: Error message indicating why the operation failed.
+              schema:
+                $ref: '#/definitions/StorageSyncError'

@@ -1,0 +1,72 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Custom Destination
+  description: >-
+    Update the given fields of a specific custom destination in your
+    organization.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Custom Destination
+      description: >-
+        Update the given fields of a specific custom destination in your
+        organization.
+    paths:
+      /api/v2/logs/config/custom-destinations/{custom_destination_id}:
+        patch:
+          summary: Update A Custom Destination
+          description: >-
+            Update the given fields of a specific custom destination in your
+            organization.
+          operationId: updateacustomdestination
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      type: custom_destination
+                      id: be5d7a69-d0c8-4d4d-8ee8-bba292d98139
+                      attributes:
+                        enabled: true
+                        forward_tags: true
+                        forward_tags_restriction_list:
+                          - datacenter
+                          - host
+                        forward_tags_restriction_list_type: ALLOW_LIST
+                        forwarder_destination:
+                          type: http
+                          endpoint: https://example.com
+                          auth:
+                            type: basic
+                            username: datadog-custom-destination-username
+                            password: datadog-custom-destination-password
+                        name: Nginx logs
+                        query: source:nginx
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

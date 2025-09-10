@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.search Searchservices Searchservicename Sharedprivatelinkresources
+    Sharedprivatelinkresourcename
+  description: >-
+    Initiates the creation or update of a shared private link resource managed
+    by the search service in the given resource group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.search Searchservices Searchservicename Sharedprivatelinkresources
+        Sharedprivatelinkresourcename
+      description: >-
+        Initiates the creation or update of a shared private link resource managed
+        by the search service in the given resource group.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/sharedPrivateLinkResources/{sharedPrivateLinkResourceName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.search Searchservices Searchservicename
+            Sharedprivatelinkresources Sharedprivatelinkresourcename
+          description: >-
+            Initiates the creation or update of a shared private link resource
+            managed by the search service in the given resource group.
+          operationId: sharedPrivateLinkResourcesCreateOrUpdate
+          responses:
+            default:
+              description: >-
+                HTTP 400 (Bad Request): The given shared private link resource name
+                or the shared private link resource definition is invalid; See the
+                error code and message in the response for details. HTTP 404 (Not
+                Found): The subscription, resource group, search service or shared
+                private link resource could not be found. HTTP 409 (Conflict): The
+                specified subscription is disabled.
+              schema:
+                $ref: '#/definitions/CloudError'

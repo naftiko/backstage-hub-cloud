@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Job For A Workflow Run
+  description: >-
+    Gets a specific job in a workflow run.Anyone with read access to the
+    repository can use this endpoint.If the repository is private, OAuth tokens
+    and personal access tokens (classic) need the `repo` scope to use this
+    endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Job For A Workflow Run
+      description: >-
+        Gets a specific job in a workflow run.Anyone with read access to the
+        repository can use this endpoint.If the repository is private, OAuth tokens
+        and personal access tokens (classic) need the `repo` scope to use this
+        endpoint.
+    paths:
+      /repos/{owner}/{repo}/actions/jobs/{job_id}:
+        get:
+          summary: Get A Job For A Workflow Run
+          description: >-
+            Gets a specific job in a workflow run.Anyone with read access to the
+            repository can use this endpoint.If the repository is private, OAuth
+            tokens and personal access tokens (classic) need the `repo` scope to use
+            this endpoint.
+          operationId: actionsgetjobforworkflowrun
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/job'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/job'

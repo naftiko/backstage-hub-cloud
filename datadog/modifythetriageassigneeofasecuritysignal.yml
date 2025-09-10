@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Modify The Triage Assignee Of A Security Signal
+  description: Modify the triage assignee of a security signal.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Modify The Triage Assignee Of A Security Signal
+      description: Modify the triage assignee of a security signal.
+    paths:
+      /api/v2/security_monitoring/signals/{signal_id}/assignee:
+        patch:
+          summary: Modify The Triage Assignee Of A Security Signal
+          description: Modify the triage assignee of a security signal.
+          operationId: modifythetriageassigneeofasecuritysignal
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      attributes:
+                        assignee:
+                          uuid: 773b045d-ccf8-4808-bd3b-955ef6a8c940
+                          handle: aliqua do
+                          icon: /path/to/matching/gravatar/icon
+                          id: -6598387
+                          name: Excepteur in ut ad
+                        version: -57313406
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

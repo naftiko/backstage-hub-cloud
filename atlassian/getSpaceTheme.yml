@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Space Theme
+  description: >-
+    Returns the theme selected for a space, if one is set. If no spacetheme is
+    set, this means that the space is inheriting the global lookand feel
+    settings.**[Permissions
+    required](https://confluence.atlassian.com/x/_AozKw)**: ‘View’ permission
+    for the space.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Space Theme
+      description: >-
+        Returns the theme selected for a space, if one is set. If no spacetheme is
+        set, this means that the space is inheriting the global lookand feel
+        settings.**[Permissions
+        required](https://confluence.atlassian.com/x/_AozKw)**: ‘View’ permission
+        for the space.
+    paths:
+      /wiki/rest/api/space/{spaceKey}/theme:
+        get:
+          summary: Get Space Theme
+          description: >-
+            Returns the theme selected for a space, if one is set. If no spacetheme
+            is set, this means that the space is inheriting the global lookand feel
+            settings.**[Permissions
+            required](https://confluence.atlassian.com/x/_AozKw)**: ‘View’
+            permission for the space.
+          operationId: getSpaceTheme
+          responses:
+            '404':
+              description: |-
+                Returned if any of the following is true:
+
+                - There is no space with the given key.
+                - The space does not have a theme assigned to it.
+              content: {}

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updatebotalias
+  description: Updates the configuration of an existing bot alias.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatebotalias
+      description: Updates the configuration of an existing bot alias.
+    paths:
+      /bots/{botId}/botaliases/{botAliasId}/:
+        PUT:
+          summary: Updatebotalias
+          description: Updates the configuration of an existing bot alias.
+          operationId: updateBotAlias

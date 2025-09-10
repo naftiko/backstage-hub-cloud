@@ -1,0 +1,125 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Send Pipeline Event
+  description: >-
+    Send your pipeline event to your Datadog platform over HTTP. For details
+    about how pipeline executions are modeled and what execution types we
+    support, see [Pipeline Data Model And Execution
+    Types](https://docs.datadoghq.com/continuous_integration/guides/pipeline_data_model/).Pipeline
+    events can be submitted with a timestamp that is up to 18 hours in the past.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Send Pipeline Event
+      description: >-
+        Send your pipeline event to your Datadog platform over HTTP. For details
+        about how pipeline executions are modeled and what execution types we
+        support, see [Pipeline Data Model And Execution
+        Types](https://docs.datadoghq.com/continuous_integration/guides/pipeline_data_model/).Pipeline
+        events can be submitted with a timestamp that is up to 18 hours in the past.
+    paths:
+      /api/v2/ci/pipeline:
+        post:
+          summary: Send Pipeline Event
+          description: >-
+            Send your pipeline event to your Datadog platform over HTTP. For details
+            about how pipeline executions are modeled and what execution types we
+            support, see [Pipeline Data Model And Execution
+            Types](https://docs.datadoghq.com/continuous_integration/guides/pipeline_data_model/).Pipeline
+            events can be submitted with a timestamp that is up to 18 hours in the
+            past.
+          operationId: sendpipelineevent
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      attributes:
+                        resource:
+                          level: pipeline
+                          unique_id: 3eacb6f3-ff04-4e10-8a9c-46e6d054024a
+                          name: Deploy to AWS
+                          url: >-
+                            https://my-ci-provider.example/pipelines/my-pipeline/run/1
+                          start: '2023-05-31T15:30:00Z'
+                          end: '2023-05-31T15:30:00Z'
+                          status: success
+                          partial_retry: false
+                          error:
+                            domain: user
+                            message: 'minim sunt '
+                            stack: pariatur tempor dolore Excepteur
+                            type: ut
+                          git:
+                            repository_url: https://github.com/username/repository
+                            sha: da39a3ee5e6b4b0d3255bfef95601890afd80709
+                            author_email: author@example.com
+                            author_name: John Doe
+                            author_time: '2023-05-31T15:30:00Z'
+                            branch: feature-1
+                            commit_time: '2023-05-31T15:30:00Z'
+                            committer_email: committer@example.com
+                            committer_name: ut Lorem non id velit
+                            default_branch: main
+                            message: Instrumenting tests with CI Visibility.
+                            tag: v1.0.0
+                          is_manual: false
+                          is_resumed: false
+                          metrics:
+                            - bundle_size:370
+                            - build_time:50021
+                          node:
+                            hostname: www.example.com
+                            labels:
+                              - ubuntu-18.04
+                              - n2.large
+                            name: Ut enim commodo do
+                            workspace: /home/workspace/code/my-repo
+                          parameters:
+                            LOG_LEVEL: debug
+                          parent_pipeline:
+                            id: 93bfeb70-af47-424d-908a-948d3f08e37f
+                            url: https://ci-platform.com/pipelines/123456789
+                          pipeline_id: '#023'
+                          previous_attempt:
+                            id: 93bfeb70-af47-424d-908a-948d3f08e37f
+                            url: https://ci-platform.com/pipelines/123456789
+                          queue_time: 1004
+                          tags:
+                            - team:backend
+                            - type:deployment
+                        env: non incididunt
+                        service: non do incididunt fugiat
+                      type: cipipeline_resource_request
+          responses:
+            '503':
+              description: Service Unavailable
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - detail: Malformed payload
+                        status: '400'
+                        title: Bad Request
+                      - detail: Malformed payload
+                        status: '400'
+                        title: Bad Request

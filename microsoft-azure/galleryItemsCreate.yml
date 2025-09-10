@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Uploads A Provider Gallery Item To The Storage.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Uploads A Provider Gallery Item To The Storage.
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/providers/microsoft.gallery.admin/galleryItems:
+        post:
+          summary: Uploads A Provider Gallery Item To The Storage.
+          description: Needs a more full description created.
+          operationId: galleryItemsCreate
+          responses:
+            '201':
+              description: CREATED
+              schema:
+                $ref: '#/definitions/GalleryItem'

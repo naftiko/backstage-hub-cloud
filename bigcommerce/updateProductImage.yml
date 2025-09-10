@@ -1,0 +1,63 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Product Image
+  description: >-
+    Updates a *Product Image*.**Usage Notes**- `image_url` - `255` character
+    limit- Each image file or image uploaded by URL can be up to 8 MB.- For file
+    uploads, send a POST request using the `multipart/form-data` media type
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Product Image
+      description: >-
+        Updates a *Product Image*.**Usage Notes**- `image_url` - `255` character
+        limit- Each image file or image uploaded by URL can be up to 8 MB.- For file
+        uploads, send a POST request using the `multipart/form-data` media type
+    paths:
+      /catalog/products/{product_id}/images/{image_id}:
+        put:
+          summary: Update A Product Image
+          description: >-
+            Updates a *Product Image*.**Usage Notes**- `image_url` - `255` character
+            limit- Each image file or image uploaded by URL can be up to 8 MB.- For
+            file uploads, send a POST request using the `multipart/form-data` media
+            type
+          operationId: updateProductImage
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/productImage_Put'
+          responses:
+            '404':
+              description: |
+                The resource was not found.
+              content:
+                application/json:
+                  schema:
+                    title: Not Found
+                    type: object
+                    properties:
+                      status:
+                        type: integer
+                        description: |
+                          404 HTTP status code.
+                      title:
+                        type: string
+                        description: The error title describing the particular error.
+                      type:
+                        type: string
+                      instance:
+                        type: string
+                    description: Error payload for the BigCommerce API.

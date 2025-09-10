@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Previous Revision Of A Snippet
+  description: >-
+    Identical to `GET /snippets/encoded_id`, except that this endpointcan be
+    used to retrieve the contents of the snippet as it was at anolder revision,
+    while `/snippets/encoded_id` always returns thesnippet's current
+    revision.Note that only the snippet's file contents are versioned, not
+    itsmeta data properties like the title.Other than that, the two endpoints
+    are identical in behavior.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Previous Revision Of A Snippet
+      description: >-
+        Identical to `GET /snippets/encoded_id`, except that this endpointcan be
+        used to retrieve the contents of the snippet as it was at anolder revision,
+        while `/snippets/encoded_id` always returns thesnippet's current
+        revision.Note that only the snippet's file contents are versioned, not
+        itsmeta data properties like the title.Other than that, the two endpoints
+        are identical in behavior.
+    paths:
+      /snippets/{workspace}/{encoded_id}/{node_id}:
+        get:
+          summary: Get A Previous Revision Of A Snippet
+          description: >-
+            Identical to `GET /snippets/encoded_id`, except that this endpointcan be
+            used to retrieve the contents of the snippet as it was at anolder
+            revision, while `/snippets/encoded_id` always returns thesnippet's
+            current revision.Note that only the snippet's file contents are
+            versioned, not itsmeta data properties like the title.Other than that,
+            the two endpoints are identical in behavior.
+          operationId: getapreviousrevisionofasnippet
+          responses:
+            '404':
+              description: If the snippet, or the revision does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+                multipart/related:
+                  schema:
+                    $ref: '#/components/schemas/error'
+                multipart/form-data:
+                  schema:
+                    $ref: '#/components/schemas/error'

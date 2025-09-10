@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Detect Profanity And Match Against Custom And Shared Blocklists
+  description: >-
+    Detects profanity in more than 100 languages and matches against custom and
+    shared blocklists.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Detect Profanity And Match Against Custom And Shared Blocklists
+      description: >-
+        Detects profanity in more than 100 languages and matches against custom and
+        shared blocklists.
+    paths:
+      /contentmoderator/moderate/v1.0/ProcessText/Screen/:
+        post:
+          summary: Detect Profanity And Match Against Custom And Shared Blocklists
+          description: >-
+            Detects profanity in more than 100 languages and matches against custom
+            and shared blocklists.
+          operationId: textModerationScreenText
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

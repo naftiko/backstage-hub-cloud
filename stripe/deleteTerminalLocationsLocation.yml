@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Terminal Locations Location
+  description: Deletes a Location object.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Terminal Locations Location
+      description: Deletes a Location object.
+    paths:
+      /v1/terminal/locations/{location}:
+        delete:
+          summary: Delete Terminal Locations Location
+          description: Deletes a Location object.
+          operationId: deleteTerminalLocationsLocation
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/DeleteTerminalLocationsLocationRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

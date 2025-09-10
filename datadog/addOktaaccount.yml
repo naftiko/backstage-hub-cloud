@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add Okta Account
+  description: Create an Okta account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add Okta Account
+      description: Create an Okta account.
+    paths:
+      /api/v2/integrations/okta/accounts:
+        post:
+          summary: Add Okta Account
+          description: Create an Okta account.
+          operationId: addOktaaccount
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      attributes:
+                        auth_method: oauth
+                        domain: https://example.okta.com/
+                        name: Okta-Prod
+                        api_key: aute dolor magna labore
+                        client_id: sunt
+                        client_secret: amet labore est laboris l
+                      type: okta-accounts
+                      id: f749daaf-682e-4208-a38d-c9b43162c609
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

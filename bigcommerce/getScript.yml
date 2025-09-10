@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Script
+  description: Returns a single *Script*.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Script
+      description: Returns a single *Script*.
+    paths:
+      /content/scripts/{uuid}:
+        get:
+          summary: Get A Script
+          description: Returns a single *Script*.
+          operationId: getScript
+          responses:
+            '422':
+              description: >
+                This is the result of missing required fields, or of invalid data.
+                See the response for more details.
+              content:
+                application/json:
+                  schema:
+                    allOf:
+                      - type: object
+                        description: |
+                          Error payload for the BigCommerce API.
+                        properties:
+                          status:
+                            description: |
+                              The HTTP status code.
+                            type: integer
+                          title:
+                            description: |
+                              The error title describing the particular error.
+                            type: string
+                          type:
+                            type: string
+                          instance:
+                            type: string
+                        title: Base Error
+                      - type: object
+                        properties:
+                          errors:
+                            type: object
+                            properties: {}
+                            additionalProperties: true
+                            title: DetailedErrors
+                    title: Error Response

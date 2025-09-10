@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Searchroutingprofiles
+  description: >-
+    Searches routing profiles in an Amazon Connect instance, with optional
+    filtering.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Searchroutingprofiles
+      description: >-
+        Searches routing profiles in an Amazon Connect instance, with optional
+        filtering.
+    paths:
+      /search-routing-profiles:
+        POST:
+          summary: Searchroutingprofiles
+          description: >-
+            Searches routing profiles in an Amazon Connect instance, with optional
+            filtering.
+          operationId: searchRoutingProfiles

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Createchannel
+  description: Creates a new channel and an associated stream key to start streaming.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createchannel
+      description: Creates a new channel and an associated stream key to start streaming.
+    paths:
+      /CreateChannel:
+        POST:
+          summary: Createchannel
+          description: Creates a new channel and an associated stream key to start streaming.
+          operationId: createChannel

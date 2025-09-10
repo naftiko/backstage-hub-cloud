@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Map Tile
+  description: >-
+    **Applies to**: S0 and S1 pricing tiers.The Get Map Tiles API allows users
+    to request map tiles in vector or raster formats typically to be integrated 
+    into a map control or SDK. Some example tiles that can be requested are
+    Azure Maps road tiles, real-time  Weather Radar tiles or the map tiles
+    created using [Azure Maps Creator](https://aka.ms/amcreator). By default, 
+    Azure Maps uses vector tiles for its web map control (Web SDK) and Android
+    SDK.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Map Tile
+      description: >-
+        **Applies to**: S0 and S1 pricing tiers.The Get Map Tiles API allows users
+        to request map tiles in vector or raster formats typically to be integrated 
+        into a map control or SDK. Some example tiles that can be requested are
+        Azure Maps road tiles, real-time  Weather Radar tiles or the map tiles
+        created using [Azure Maps Creator](https://aka.ms/amcreator). By default, 
+        Azure Maps uses vector tiles for its web map control (Web SDK) and Android
+        SDK.
+    paths:
+      /map/tile:
+        get:
+          summary: Get Map Tile
+          description: >-
+            **Applies to**: S0 and S1 pricing tiers.The Get Map Tiles API allows
+            users to request map tiles in vector or raster formats typically to be
+            integrated  into a map control or SDK. Some example tiles that can be
+            requested are Azure Maps road tiles, real-time  Weather Radar tiles or
+            the map tiles created using [Azure Maps
+            Creator](https://aka.ms/amcreator). By default,  Azure Maps uses vector
+            tiles for its web map control (Web SDK) and Android SDK.
+          operationId: renderV2GetMapTile
+          responses:
+            '500':
+              $ref: '#/responses/500'

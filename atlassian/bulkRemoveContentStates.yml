@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Bulk Remove Content States From Content
+  description: >-
+    Creates a long running task that Removes content state from draft or
+    published versions of pages
+    specified.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**Content Edit Permission for a content to have its state removed
+    via this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Bulk Remove Content States From Content
+      description: >-
+        Creates a long running task that Removes content state from draft or
+        published versions of pages
+        specified.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**Content Edit Permission for a content to have its state removed
+        via this endpoint.
+    paths:
+      /wiki/rest/api/content-states/delete:
+        post:
+          summary: Bulk Remove Content States From Content
+          description: >-
+            Creates a long running task that Removes content state from draft or
+            published versions of pages
+            specified.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**Content Edit Permission for a content to have its state
+            removed via this endpoint.
+          operationId: bulkRemoveContentStates
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  required:
+                    - ids
+                  properties:
+                    ids:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/ContentId'
+          responses:
+            '404':
+              description: Returned if content cannot be found with the provided context.

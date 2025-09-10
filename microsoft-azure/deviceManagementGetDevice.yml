@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Deviceupdate Instanceid Management Devices Deviceid
+  description: >-
+    Gets the device properties and latest deployment status for a device
+    connected to Device Update for IoT Hub.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Deviceupdate Instanceid Management Devices Deviceid
+      description: >-
+        Gets the device properties and latest deployment status for a device
+        connected to Device Update for IoT Hub.
+    paths:
+      /deviceUpdate/{instanceId}/management/devices/{deviceId}:
+        get:
+          summary: Get Deviceupdate Instanceid Management Devices Deviceid
+          description: >-
+            Gets the device properties and latest deployment status for a device
+            connected to Device Update for IoT Hub.
+          operationId: deviceManagementGetDevice
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

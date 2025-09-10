@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Providers Microsoft.capacity
+    Resourceproviders Providerid Locations Location Servicelimitsrequests
+  description: >-
+    For the specified location and Resource provider gets the current quota
+    requests under the subscription over the time period of one year ago from
+    now to one year back. oData filter can be used to select quota requests.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft.capacity
+        Resourceproviders Providerid Locations Location Servicelimitsrequests
+      description: >-
+        For the specified location and Resource provider gets the current quota
+        requests under the subscription over the time period of one year ago from
+        now to one year back. oData filter can be used to select quota requests.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Capacity/resourceProviders/{providerId}/locations/{location}/serviceLimitsRequests:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft.capacity
+            Resourceproviders Providerid Locations Location Servicelimitsrequests
+          description: >-
+            For the specified location and Resource provider gets the current quota
+            requests under the subscription over the time period of one year ago
+            from now to one year back. oData filter can be used to select quota
+            requests.
+          operationId: quotaRequestStatusList
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ExceptionResponse'

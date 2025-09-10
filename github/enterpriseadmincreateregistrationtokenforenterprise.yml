@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Registration Token For An Enterprise
+  description: >-
+    Returns a token that you can pass to the `config` script. The token expires
+    after one hour.Example using registration token:Configure your self-hosted
+    runner, replacing `TOKEN` with the registration token provided by this
+    endpoint.```./config.sh --url https://github.com/enterprises/octo-enterprise
+    --token TOKEN```OAuth app tokens and personal access tokens (classic) need
+    the `manage_runners:enterprise` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Registration Token For An Enterprise
+      description: >-
+        Returns a token that you can pass to the `config` script. The token expires
+        after one hour.Example using registration token:Configure your self-hosted
+        runner, replacing `TOKEN` with the registration token provided by this
+        endpoint.```./config.sh --url https://github.com/enterprises/octo-enterprise
+        --token TOKEN```OAuth app tokens and personal access tokens (classic) need
+        the `manage_runners:enterprise` scope to use this endpoint.
+    paths:
+      /enterprises/{enterprise}/actions/runners/registration-token:
+        post:
+          summary: Create A Registration Token For An Enterprise
+          description: >-
+            Returns a token that you can pass to the `config` script. The token
+            expires after one hour.Example using registration token:Configure your
+            self-hosted runner, replacing `TOKEN` with the registration token
+            provided by this endpoint.```./config.sh --url
+            https://github.com/enterprises/octo-enterprise --token TOKEN```OAuth app
+            tokens and personal access tokens (classic) need the
+            `manage_runners:enterprise` scope to use this endpoint.
+          operationId: enterpriseadmincreateregistrationtokenforenterprise
+          responses:
+            '201':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/authentication-token'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/authentication-token'

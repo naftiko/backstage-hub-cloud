@@ -1,0 +1,102 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Findings
+  description: >-
+    Get a list of findings. These include both misconfigurations and identity
+    risks.**Note**: To filter and return only identity risks, add the following
+    query parameter: `?filter[tags]=dd_rule_type:ciem`### FilteringFilters can
+    be applied by appending query parameters to the URL.  - Using a single
+    filter: `?filter[attribute_key]=attribute_value`  - Chaining filters:
+    `?filter[attribute_key]=attribute_value&filter[attribute_key]=attribute_value...` 
+    - Filtering on tags:
+    `?filter[tags]=tag_key:tag_value&filter[tags]=tag_key_2:tag_value_2`Here,
+    `attribute_key` can be any of the filter keys described further below.Query
+    parameters of type `integer` support comparison operators (`>`, `>=`,
+    `20123123121`.You can also use the negation operator on strings. For
+    example, use `filter[resource_type]=-aws*` to filter for any non-AWS
+    resources.The operator must come after the equal sign. For example, to
+    filter with the `>=` operator, add the operator after the equal sign:
+    `filter[evaluation_changed_at]=>=1678809373257`.Query parameters must be
+    only among the documented ones and with values of correct types. Duplicated
+    query parameters (e.g. `filter[status]=low&filter[status]=info`) are not
+    allowed.### ResponseThe response includes an array of finding objects,
+    pagination metadata, and a count of items that match the query.Each finding
+    object contains the following:- The finding ID that can be used in a
+    `GetFinding` request to retrieve the full finding details.- Core attributes,
+    including status, evaluation, high-level resource details, muted state, and
+    rule details.- `evaluation_changed_at` and `resource_discovery_date` time
+    stamps.- An array of associated tags.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Findings
+      description: >-
+        Get a list of findings. These include both misconfigurations and identity
+        risks.**Note**: To filter and return only identity risks, add the following
+        query parameter: `?filter[tags]=dd_rule_type:ciem`### FilteringFilters can
+        be applied by appending query parameters to the URL.  - Using a single
+        filter: `?filter[attribute_key]=attribute_value`  - Chaining filters:
+        `?filter[attribute_key]=attribute_value&filter[attribute_key]=attribute_value...` 
+        - Filtering on tags:
+        `?filter[tags]=tag_key:tag_value&filter[tags]=tag_key_2:tag_value_2`Here,
+        `attribute_key` can be any of the filter keys described further below.Query
+        parameters of type `integer` support comparison operators (`>`, `>=`,
+        `20123123121`.You can also use the negation operator on strings. For
+        example, use `filter[resource_type]=-aws*` to filter for any non-AWS
+        resources.The operator must come after the equal sign. For example, to
+        filter with the `>=` operator, add the operator after the equal sign:
+        `filter[evaluation_changed_at]=>=1678809373257`.Query parameters must be
+        only among the documented ones and with values of correct types. Duplicated
+        query parameters (e.g. `filter[status]=low&filter[status]=info`) are not
+        allowed.### ResponseThe response includes an array of finding objects,
+        pagination metadata, and a count of items that match the query.Each finding
+        object contains the following:- The finding ID that can be used in a
+        `GetFinding` request to retrieve the full finding details.- Core attributes,
+        including status, evaluation, high-level resource details, muted state, and
+        rule details.- `evaluation_changed_at` and `resource_discovery_date` time
+        stamps.- An array of associated tags.
+    paths:
+      /api/v2/posture_management/findings:
+        get:
+          summary: List Findings
+          description: >-
+            Get a list of findings. These include both misconfigurations and
+            identity risks.**Note**: To filter and return only identity risks, add
+            the following query parameter: `?filter[tags]=dd_rule_type:ciem`###
+            FilteringFilters can be applied by appending query parameters to the
+            URL.  - Using a single filter: `?filter[attribute_key]=attribute_value` 
+            - Chaining filters:
+            `?filter[attribute_key]=attribute_value&filter[attribute_key]=attribute_value...` 
+            - Filtering on tags:
+            `?filter[tags]=tag_key:tag_value&filter[tags]=tag_key_2:tag_value_2`Here,
+            `attribute_key` can be any of the filter keys described further
+            below.Query parameters of type `integer` support comparison operators
+            (`>`, `>=`, `20123123121`.You can also use the negation operator on
+            strings. For example, use `filter[resource_type]=-aws*` to filter for
+            any non-AWS resources.The operator must come after the equal sign. For
+            example, to filter with the `>=` operator, add the operator after the
+            equal sign: `filter[evaluation_changed_at]=>=1678809373257`.Query
+            parameters must be only among the documented ones and with values of
+            correct types. Duplicated query parameters (e.g.
+            `filter[status]=low&filter[status]=info`) are not allowed.###
+            ResponseThe response includes an array of finding objects, pagination
+            metadata, and a count of items that match the query.Each finding object
+            contains the following:- The finding ID that can be used in a
+            `GetFinding` request to retrieve the full finding details.- Core
+            attributes, including status, evaluation, high-level resource details,
+            muted state, and rule details.- `evaluation_changed_at` and
+            `resource_discovery_date` time stamps.- An array of associated tags.
+          operationId: listFindings
+          responses:
+            '429':
+              $ref: '#/components/responses/FindingsTooManyRequestsResponse'

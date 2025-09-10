@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Followers Of A User
+  description: Lists the people following the specified user.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Followers Of A User
+      description: Lists the people following the specified user.
+    paths:
+      /users/{username}/followers:
+        get:
+          summary: List Followers Of A User
+          description: Lists the people following the specified user.
+          operationId: userslistfollowersforuser
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/simple-user'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/simple-user-items'
+              headers:
+                Link:
+                  $ref: '#/components/headers/link'

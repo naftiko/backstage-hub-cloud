@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Retrieves A List Of Customer Saved Searches. Note: As Of Version 2019-07,
+    This Endpoint Implements Pagination By Using Links That Are Provided In The
+    Response Header. Sending The Page Parameter Will Return An Error. To Learn
+    More, See Making Requests To Paginated Rest Admin Api Endpoints.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/customers/customersavedsearch#index-unstable
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Retrieves A List Of Customer Saved Searches. Note: As Of Version 2019-07,
+        This Endpoint Implements Pagination By Using Links That Are Provided In The
+        Response Header. Sending The Page Parameter Will Return An Error. To Learn
+        More, See Making Requests To Paginated Rest Admin Api Endpoints.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/customers/customersavedsearch#index-unstable
+    paths:
+      /admin/api/unstable/customer_saved_searches.json:
+        get:
+          summary: >-
+            Retrieves A List Of Customer Saved Searches. Note: As Of Version
+            2019-07, This Endpoint Implements Pagination By Using Links That Are
+            Provided In The Response Header. Sending The Page Parameter Will Return
+            An Error. To Learn More, See Making Requests To Paginated Rest Admin Api
+            Endpoints.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/customers/customersavedsearch#index-unstable
+          operationId: deprecatedunstablegetcustomersavedsearches
+          responses:
+            '200':
+              description: ''

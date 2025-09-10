@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Batch Of Empty Artifacts.
+  description: Create a batch of empty Artifacts in a specific Run.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Batch Of Empty Artifacts.
+      description: Create a batch of empty Artifacts in a specific Run.
+    paths:
+      /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/runs/{runId}/artifacts/batch/metadata:
+        post:
+          summary: Create A Batch Of Empty Artifacts.
+          description: Create a batch of empty Artifacts in a specific Run.
+          operationId: runArtifactsBatchCreateEmptyArtifacts
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

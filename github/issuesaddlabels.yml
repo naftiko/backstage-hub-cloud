@@ -1,0 +1,87 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add Labels To An Issue
+  description: >-
+    Adds labels to an issue. If you provide an empty array of labels, all labels
+    are removed from the issue. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add Labels To An Issue
+      description: >-
+        Adds labels to an issue. If you provide an empty array of labels, all labels
+        are removed from the issue. 
+    paths:
+      /repos/{owner}/{repo}/issues/{issue_number}/labels:
+        post:
+          summary: Add Labels To An Issue
+          description: >-
+            Adds labels to an issue. If you provide an empty array of labels, all
+            labels are removed from the issue. 
+          operationId: issuesaddlabels
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  oneOf:
+                    - type: object
+                      properties:
+                        labels:
+                          type: array
+                          minItems: 1
+                          description: >-
+                            The names of the labels to add to the issue's existing
+                            labels. You can pass an empty array to remove all
+                            labels. Alternatively, you can pass a single label as a
+                            `string` or an `array` of labels directly, but GitHub
+                            recommends passing an object with the `labels` key. You
+                            can also replace all of the labels for an issue. For
+                            more information, see "[Set labels for an
+                            issue](https://docs.github.com/enterprise-server@3.9/rest/issues/labels#set-labels-for-an-issue)."
+                          items:
+                            type: string
+                    - type: array
+                      minItems: 1
+                      items:
+                        type: string
+                    - type: object
+                      properties:
+                        labels:
+                          type: array
+                          minItems: 1
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                            required:
+                              - name
+                    - type: array
+                      minItems: 1
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                        required:
+                          - name
+                    - type: string
+                examples:
+                  default:
+                    value:
+                      labels:
+                        - bug
+                        - enhancement
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

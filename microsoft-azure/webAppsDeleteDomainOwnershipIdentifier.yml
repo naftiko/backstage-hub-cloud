@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deletes A Domain Ownership Identifier For A Web App.
+  description: Description for Deletes a domain ownership identifier for a web app.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes A Domain Ownership Identifier For A Web App.
+      description: Description for Deletes a domain ownership identifier for a web app.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/domainOwnershipIdentifiers/{domainOwnershipIdentifierName}:
+        delete:
+          summary: Deletes A Domain Ownership Identifier For A Web App.
+          description: Description for Deletes a domain ownership identifier for a web app.
+          operationId: webAppsDeleteDomainOwnershipIdentifier
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

@@ -1,0 +1,121 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Workflow Transition Rule Configurations
+  description: >-
+    Updates configuration of workflow transition rules. The following rule types
+    are supported: *  [post
+    functions](https://developer.atlassian.com/cloud/jira/platform/modules/workflow-post-function/)
+    * 
+    [conditions](https://developer.atlassian.com/cloud/jira/platform/modules/workflow-condition/)
+    * 
+    [validators](https://developer.atlassian.com/cloud/jira/platform/modules/workflow-validator/)Only
+    rules created by the calling
+    [Connect](https://developer.atlassian.com/cloud/jira/platform/index/#connect-apps)
+    or
+    [Forge](https://developer.atlassian.com/cloud/jira/platform/index/#forge-apps)
+    app can be updated.To assist with app migration, this operation can be used
+    to: *  Disable a rule. *  Add a `tag`. Use this to filter rules in the [Get
+    workflow transition rule
+    configurations](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflow-transition-rules/#api-rest-api-3-workflow-rule-config-get).Rules
+    are enabled if the `disabled` parameter is not
+    provided.**[Permissions](#permissions) required:** Only
+    [Connect](https://developer.atlassian.com/cloud/jira/platform/index/#connect-apps)
+    or
+    [Forge](https://developer.atlassian.com/cloud/jira/platform/index/#forge-apps)
+    apps can use this operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Workflow Transition Rule Configurations
+      description: >-
+        Updates configuration of workflow transition rules. The following rule types
+        are supported: *  [post
+        functions](https://developer.atlassian.com/cloud/jira/platform/modules/workflow-post-function/)
+        * 
+        [conditions](https://developer.atlassian.com/cloud/jira/platform/modules/workflow-condition/)
+        * 
+        [validators](https://developer.atlassian.com/cloud/jira/platform/modules/workflow-validator/)Only
+        rules created by the calling
+        [Connect](https://developer.atlassian.com/cloud/jira/platform/index/#connect-apps)
+        or
+        [Forge](https://developer.atlassian.com/cloud/jira/platform/index/#forge-apps)
+        app can be updated.To assist with app migration, this operation can be used
+        to: *  Disable a rule. *  Add a `tag`. Use this to filter rules in the [Get
+        workflow transition rule
+        configurations](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflow-transition-rules/#api-rest-api-3-workflow-rule-config-get).Rules
+        are enabled if the `disabled` parameter is not
+        provided.**[Permissions](#permissions) required:** Only
+        [Connect](https://developer.atlassian.com/cloud/jira/platform/index/#connect-apps)
+        or
+        [Forge](https://developer.atlassian.com/cloud/jira/platform/index/#forge-apps)
+        apps can use this operation.
+    paths:
+      /rest/api/3/workflow/rule/config:
+        put:
+          summary: Update Workflow Transition Rule Configurations
+          description: >-
+            Updates configuration of workflow transition rules. The following rule
+            types are supported: *  [post
+            functions](https://developer.atlassian.com/cloud/jira/platform/modules/workflow-post-function/)
+            * 
+            [conditions](https://developer.atlassian.com/cloud/jira/platform/modules/workflow-condition/)
+            * 
+            [validators](https://developer.atlassian.com/cloud/jira/platform/modules/workflow-validator/)Only
+            rules created by the calling
+            [Connect](https://developer.atlassian.com/cloud/jira/platform/index/#connect-apps)
+            or
+            [Forge](https://developer.atlassian.com/cloud/jira/platform/index/#forge-apps)
+            app can be updated.To assist with app migration, this operation can be
+            used to: *  Disable a rule. *  Add a `tag`. Use this to filter rules in
+            the [Get workflow transition rule
+            configurations](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflow-transition-rules/#api-rest-api-3-workflow-rule-config-get).Rules
+            are enabled if the `disabled` parameter is not
+            provided.**[Permissions](#permissions) required:** Only
+            [Connect](https://developer.atlassian.com/cloud/jira/platform/index/#connect-apps)
+            or
+            [Forge](https://developer.atlassian.com/cloud/jira/platform/index/#forge-apps)
+            apps can use this operation.
+          operationId: updateWorkflowTransitionRuleConfigurations
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  workflows:
+                    - conditions:
+                        - configuration:
+                            disabled: false
+                            tag: Another tag
+                            value: '{ "size": "medium" }'
+                          id: d663bd873d93-59f5-11e9-8647-b4d6cbdc
+                      postFunctions:
+                        - configuration:
+                            disabled: false
+                            tag: Sample tag
+                            value: '{ "color": "red" }'
+                          id: b4d6cbdc-59f5-11e9-8647-d663bd873d93
+                      validators:
+                        - configuration:
+                            disabled: false
+                            value: '{ "shape": "square" }'
+                          id: 11e9-59f5-b4d6cbdc-8647-d663bd873d93
+                      workflowId:
+                        draft: false
+                        name: My Workflow name
+                schema:
+                  $ref: '#/components/schemas/WorkflowTransitionRulesUpdate'
+          responses:
+            '503':
+              description: >-
+                Returned if we encounter a problem while trying to access the
+                required data.

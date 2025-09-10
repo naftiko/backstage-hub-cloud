@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Organization Migrations
+  description: >-
+    Lists the most recent migrations, including both exports (which can be
+    started through the REST API) and imports (which cannot be started using the
+    REST API).A list of `repositories` is only returned for export migrations.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Organization Migrations
+      description: >-
+        Lists the most recent migrations, including both exports (which can be
+        started through the REST API) and imports (which cannot be started using the
+        REST API).A list of `repositories` is only returned for export migrations.
+    paths:
+      /orgs/{org}/migrations:
+        get:
+          summary: List Organization Migrations
+          description: >-
+            Lists the most recent migrations, including both exports (which can be
+            started through the REST API) and imports (which cannot be started using
+            the REST API).A list of `repositories` is only returned for export
+            migrations.
+          operationId: migrationslistfororg
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/migration'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/migration-with-short-org-items'
+              headers:
+                Link:
+                  $ref: '#/components/headers/link'

@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Subuser
+  description: >-
+    **This endpoint allows you to delete a subuser.**This is a permanent action.
+    Once deleted, a subuser cannot be retrieved.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Subuser
+      description: >-
+        **This endpoint allows you to delete a subuser.**This is a permanent action.
+        Once deleted, a subuser cannot be retrieved.
+    paths:
+      /v3/subusers/{subuser_name}:
+        delete:
+          summary: Delete A Subuser
+          description: >-
+            **This endpoint allows you to delete a subuser.**This is a permanent
+            action. Once deleted, a subuser cannot be retrieved.
+          operationId: deleteSubuser
+          responses:
+            '401':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - field: null
+                            message: authorization required

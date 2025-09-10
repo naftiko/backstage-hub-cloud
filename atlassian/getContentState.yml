@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Content State
+  description: >-
+    Gets the current content state of the draft or current version of content.
+    To specify the draft version, setthe parameter status to draft, otherwise
+    archived or current will get the relevant published
+    state.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to view the content.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Content State
+      description: >-
+        Gets the current content state of the draft or current version of content.
+        To specify the draft version, setthe parameter status to draft, otherwise
+        archived or current will get the relevant published
+        state.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to view the content.
+    paths:
+      /wiki/rest/api/content/{id}/state:
+        get:
+          summary: Get Content State
+          description: >-
+            Gets the current content state of the draft or current version of
+            content. To specify the draft version, setthe parameter status to draft,
+            otherwise archived or current will get the relevant published
+            state.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to view the content.
+          operationId: getContentState
+          responses:
+            '404':
+              description: Returned if the content with given id can not be found.

@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+    Providers Microsoft.timeseriesinsights Environments Environmentname
+  description: >-
+    Updates the environment with the specified name in the specified
+    subscription and resource group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.timeseriesinsights Environments Environmentname
+      description: >-
+        Updates the environment with the specified name in the specified
+        subscription and resource group.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.timeseriesinsights Environments Environmentname
+          description: >-
+            Updates the environment with the specified name in the specified
+            subscription and resource group.
+          operationId: environmentsUpdate
+          responses:
+            default:
+              description: >-
+                HTTP 404 (Not Found): The subscription, resource group, or
+                environment could not be found.
+              schema:
+                $ref: '#/definitions/CloudError'

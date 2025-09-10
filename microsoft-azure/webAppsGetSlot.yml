@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Gets The Details Of A Web, Mobile, Or Api App.
+  description: Description for Gets the details of a web, mobile, or API app.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The Details Of A Web, Mobile, Or Api App.
+      description: Description for Gets the details of a web, mobile, or API app.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}:
+        get:
+          summary: Gets The Details Of A Web, Mobile, Or Api App.
+          description: Description for Gets the details of a web, mobile, or API app.
+          operationId: webAppsGetSlot
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

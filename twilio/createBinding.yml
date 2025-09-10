@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Services Servicesid Bindings
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Services Servicesid Bindings
+      description: Needs a more full description created.
+    paths:
+      /v1/Services/{ServiceSid}/Bindings:
+        post:
+          summary: Post Services Servicesid Bindings
+          description: Needs a more full description created.
+          operationId: createBinding
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateBindingRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/notify.v1.service.binding'
+              description: Created

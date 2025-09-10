@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Schemas Id
+  description: Fetch a specific schema with its nested versions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Schemas Id
+      description: Fetch a specific schema with its nested versions.
+    paths:
+      /v1/Schemas/{Id}:
+        get:
+          summary: Get Schemas Id
+          description: Fetch a specific schema with its nested versions.
+          operationId: fetchSchema
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/events.v1.schema'
+              description: OK

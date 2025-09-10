@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete An Event Subscription For A Topic.
+  description: Delete an existing event subscription for a topic.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete An Event Subscription For A Topic.
+      description: Delete an existing event subscription for a topic.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}/eventSubscriptions/{eventSubscriptionName}:
+        delete:
+          summary: Delete An Event Subscription For A Topic.
+          description: Delete an existing event subscription for a topic.
+          operationId: topicEventSubscriptionsDelete
+          responses:
+            default:
+              description: |-
+                *** Error Responses: ***
+
+                 * 400 Bad Request.
+
+                 * 404 Not Found.
+
+                 * 500 Internal Server Error.

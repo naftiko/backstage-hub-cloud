@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete An Explicit Group Permission For A Repository
+  description: >-
+    Deletes the repository group permission between the requested repository and
+    group, if one exists.Only users with admin permission for the repository may
+    access this resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete An Explicit Group Permission For A Repository
+      description: >-
+        Deletes the repository group permission between the requested repository and
+        group, if one exists.Only users with admin permission for the repository may
+        access this resource.
+    paths:
+      /repositories/{workspace}/{repo_slug}/permissions-config/groups/{group_slug}:
+        delete:
+          summary: Delete An Explicit Group Permission For A Repository
+          description: >-
+            Deletes the repository group permission between the requested repository
+            and group, if one exists.Only users with admin permission for the
+            repository may access this resource.
+          operationId: deleteanexplicitgrouppermissionforarepository
+          responses:
+            '404':
+              description: >-
+                The workspace does not exist, the repository does not exist, or the
+                group does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

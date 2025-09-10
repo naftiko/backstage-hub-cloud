@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getregistrationcode
+  description: >-
+    Gets a registration code used to register a CA certificate with IoT. IoT
+    will create a registration code as part of this API call if the registration
+    code doesn't exist or has been deleted. If you already have a registration
+    code, this API call will return the same registration code. Requires
+    permission to access the GetRegistrationCode action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getregistrationcode
+      description: >-
+        Gets a registration code used to register a CA certificate with IoT. IoT
+        will create a registration code as part of this API call if the registration
+        code doesn't exist or has been deleted. If you already have a registration
+        code, this API call will return the same registration code. Requires
+        permission to access the GetRegistrationCode action.
+    paths:
+      /registrationcode:
+        GET:
+          summary: Getregistrationcode
+          description: >-
+            Gets a registration code used to register a CA certificate with IoT. IoT
+            will create a registration code as part of this API call if the
+            registration code doesn't exist or has been deleted. If you already have
+            a registration code, this API call will return the same registration
+            code. Requires permission to access the GetRegistrationCode action.
+          operationId: getRegistrationCode

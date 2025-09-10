@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List All Certificate Orders In A Subscription.
+  description: Description for List all certificate orders in a subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List All Certificate Orders In A Subscription.
+      description: Description for List all certificate orders in a subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.CertificateRegistration/certificateOrders:
+        get:
+          summary: List All Certificate Orders In A Subscription.
+          description: Description for List all certificate orders in a subscription.
+          operationId: appServiceCertificateOrdersList
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: >-
+                  ../../../Microsoft.Web/stable/2023-01-01/CommonDefinitions.json#/definitions/DefaultErrorResponse

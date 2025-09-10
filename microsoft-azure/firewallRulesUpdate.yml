@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+    Providers Microsoft.datalakestore Accounts Accountname Firewallrules
+    Firewallrulename
+  description: Updates the specified firewall rule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.datalakestore Accounts Accountname Firewallrules
+        Firewallrulename
+      description: Updates the specified firewall rule.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeStore/accounts/{accountName}/firewallRules/{firewallRuleName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.datalakestore Accounts Accountname Firewallrules
+            Firewallrulename
+          description: Updates the specified firewall rule.
+          operationId: firewallRulesUpdate
+          responses:
+            '200':
+              description: Successfully updated the specified firewall rule.
+              schema:
+                $ref: '#/definitions/FirewallRule'

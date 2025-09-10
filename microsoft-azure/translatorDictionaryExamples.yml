@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Dictionary Examples
+  description: >-
+    Provides examples that show how terms in the dictionary are used in context.
+    This operation is used in tandem with `Dictionary lookup`.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Dictionary Examples
+      description: >-
+        Provides examples that show how terms in the dictionary are used in context.
+        This operation is used in tandem with `Dictionary lookup`.
+    paths:
+      /Dictionary/Examples:
+        post:
+          summary: Post Dictionary Examples
+          description: >-
+            Provides examples that show how terms in the dictionary are used in
+            context. This operation is used in tandem with `Dictionary lookup`.
+          operationId: translatorDictionaryExamples
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/ErrorMessage'

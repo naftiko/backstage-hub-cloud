@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Topups Topup
+  description: >-
+    Retrieves the details of a top-up that has previously been created. Supply
+    the unique top-up ID that was returned from your previous request, and
+    Stripe will return the corresponding top-up information.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Topups Topup
+      description: >-
+        Retrieves the details of a top-up that has previously been created. Supply
+        the unique top-up ID that was returned from your previous request, and
+        Stripe will return the corresponding top-up information.
+    paths:
+      /v1/topups/{topup}:
+        get:
+          summary: Get Topups Topup
+          description: >-
+            Retrieves the details of a top-up that has previously been created.
+            Supply the unique top-up ID that was returned from your previous
+            request, and Stripe will return the corresponding top-up information.
+          operationId: getTopupsTopup
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetTopupsTopupRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Gets The Progress Of The Current Cluster Upgrade.
+  description: >-
+    Gets the current progress of the ongoing cluster upgrade. If no upgrade is
+    currently in progress, get the last state of the previous cluster upgrade.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The Progress Of The Current Cluster Upgrade.
+      description: >-
+        Gets the current progress of the ongoing cluster upgrade. If no upgrade is
+        currently in progress, get the last state of the previous cluster upgrade.
+    paths:
+      /$/GetUpgradeProgress:
+        get:
+          summary: Gets The Progress Of The Current Cluster Upgrade.
+          description: >-
+            Gets the current progress of the ongoing cluster upgrade. If no upgrade
+            is currently in progress, get the last state of the previous cluster
+            upgrade.
+          operationId: getClusterUpgradeProgress
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

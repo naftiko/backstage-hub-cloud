@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Provisions Or Registers A Service Fabric Application Type With The Cluster
+    Using The '.sfpkg' Package In The External Store Or Using The Application
+    Package In The Image Store.
+  description: >-
+    Provisions a Service Fabric application type with the cluster. The provision
+    is required before any new applications can be instantiated.The provision
+    operation can be performed either on the application package specified by
+    the relativePathInImageStore, or by using the URI of the external '.sfpkg'.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Provisions Or Registers A Service Fabric Application Type With The Cluster
+        Using The '.sfpkg' Package In The External Store Or Using The Application
+        Package In The Image Store.
+      description: >-
+        Provisions a Service Fabric application type with the cluster. The provision
+        is required before any new applications can be instantiated.The provision
+        operation can be performed either on the application package specified by
+        the relativePathInImageStore, or by using the URI of the external '.sfpkg'.
+    paths:
+      /ApplicationTypes/$/Provision:
+        post:
+          summary: >-
+            Provisions Or Registers A Service Fabric Application Type With The
+            Cluster Using The '.sfpkg' Package In The External Store Or Using The
+            Application Package In The Image Store.
+          description: >-
+            Provisions a Service Fabric application type with the cluster. The
+            provision is required before any new applications can be
+            instantiated.The provision operation can be performed either on the
+            application package specified by the relativePathInImageStore, or by
+            using the URI of the external '.sfpkg'.
+          operationId: provisionApplicationType
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

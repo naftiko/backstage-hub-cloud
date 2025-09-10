@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Createtrafficdistributiongroup
+  description: >-
+    Creates a traffic distribution group given an Amazon Connect instance that
+    has been replicated.   The SignInConfig distribution is available only on a
+    default TrafficDistributionGroup (see the IsDefault parameter in the
+    TrafficDistributionGroup data type). If you call UpdateTrafficDistribution
+    with a modified SignInConfig and a non-default TrafficDistributionGroup, an
+    InvalidRequestException is returned.  For more information about creating
+    traffic distribution groups, see Set up traffic distribution groups in the
+    Amazon Connect Administrator Guide. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createtrafficdistributiongroup
+      description: >-
+        Creates a traffic distribution group given an Amazon Connect instance that
+        has been replicated.   The SignInConfig distribution is available only on a
+        default TrafficDistributionGroup (see the IsDefault parameter in the
+        TrafficDistributionGroup data type). If you call UpdateTrafficDistribution
+        with a modified SignInConfig and a non-default TrafficDistributionGroup, an
+        InvalidRequestException is returned.  For more information about creating
+        traffic distribution groups, see Set up traffic distribution groups in the
+        Amazon Connect Administrator Guide. 
+    paths:
+      /traffic-distribution-group:
+        PUT:
+          summary: Createtrafficdistributiongroup
+          description: >-
+            Creates a traffic distribution group given an Amazon Connect instance
+            that has been replicated.   The SignInConfig distribution is available
+            only on a default TrafficDistributionGroup (see the IsDefault parameter
+            in the TrafficDistributionGroup data type). If you call
+            UpdateTrafficDistribution with a modified SignInConfig and a non-default
+            TrafficDistributionGroup, an InvalidRequestException is returned.  For
+            more information about creating traffic distribution groups, see Set up
+            traffic distribution groups in the Amazon Connect Administrator Guide. 
+          operationId: createTrafficDistributionGroup

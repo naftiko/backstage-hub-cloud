@@ -1,0 +1,111 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Product Video
+  description: >-
+    Creates a *Product Video*.**Required Fields*** video_id**Read-Only Fields***
+    idPublicly accessible URLs are valid parameters.Videos must be loaded
+    through YouTube at this time.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Product Video
+      description: >-
+        Creates a *Product Video*.**Required Fields*** video_id**Read-Only Fields***
+        idPublicly accessible URLs are valid parameters.Videos must be loaded
+        through YouTube at this time.
+    paths:
+      /catalog/products/{product_id}/videos:
+        post:
+          summary: Create A Product Video
+          description: >-
+            Creates a *Product Video*.**Required Fields*** video_id**Read-Only
+            Fields*** idPublicly accessible URLs are valid parameters.Videos must be
+            loaded through YouTube at this time.
+          operationId: createProductVideo
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  title: Product Video Post
+                  description: |
+                    The model for a POST to create a video on a product.
+                  allOf:
+                    - title: Product Video Base
+                      description: Common Product Video properties.
+                      properties:
+                        title:
+                          maxLength: 255
+                          minLength: 0
+                          type: string
+                          example: Writing Great Documentation
+                          description: >
+                            The title for the video. If left blank, this will be
+                            filled in according to data on a host site.
+                        description:
+                          type: string
+                          example: A video about documenation
+                          description: >
+                            The description for the video. If left blank, this will
+                            be filled in according to data on a host site.
+                        sort_order:
+                          maximum: 2147483647
+                          minimum: -2147483648
+                          example: 1
+                          type: integer
+                          description: >
+                            The order in which the video will be displayed on the
+                            product page. Higher integers give the video a lower
+                            priority. When updating, if the video is given a lower
+                            priority, all videos with a `sort_order` the same as or
+                            greater than the videoʼs new `sort_order` value will
+                            have their `sort_order`s reordered.
+                        type:
+                          type: string
+                          description: |
+                            The video type (a short name of a host site).
+                          enum:
+                            - youtube
+                    - properties:
+                        video_id:
+                          type: string
+                          maxLength: 25
+                          minLength: 0
+                          description: |
+                            The ID of the video on a host site.
+                          x-required:
+                            - post
+                          example: z3fRu9pkuXE
+                  type: object
+          responses:
+            '404':
+              description: |
+                The resource was not found.
+              content:
+                application/json:
+                  schema:
+                    title: Not Found
+                    type: object
+                    properties:
+                      status:
+                        type: integer
+                        description: |
+                          404 HTTP status code.
+                      title:
+                        type: string
+                        description: The error title describing the particular error.
+                      type:
+                        type: string
+                      instance:
+                        type: string
+                    description: Error payload for the BigCommerce API.

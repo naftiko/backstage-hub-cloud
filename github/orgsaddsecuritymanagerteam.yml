@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add A Security Manager Team
+  description: >-
+    Adds a team as a security manager for an organization. For more information,
+    see "[Managing security for an
+    organization](https://docs.github.com/enterprise-server@3.9/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)
+    for an organization."The authenticated user must be an administrator for the
+    organization to use this endpoint.OAuth app tokens and personal access
+    tokens (classic) need the `write:org` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add A Security Manager Team
+      description: >-
+        Adds a team as a security manager for an organization. For more information,
+        see "[Managing security for an
+        organization](https://docs.github.com/enterprise-server@3.9/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)
+        for an organization."The authenticated user must be an administrator for the
+        organization to use this endpoint.OAuth app tokens and personal access
+        tokens (classic) need the `write:org` scope to use this endpoint.
+    paths:
+      /orgs/{org}/security-managers/teams/{team_slug}:
+        put:
+          summary: Add A Security Manager Team
+          description: >-
+            Adds a team as a security manager for an organization. For more
+            information, see "[Managing security for an
+            organization](https://docs.github.com/enterprise-server@3.9/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)
+            for an organization."The authenticated user must be an administrator for
+            the organization to use this endpoint.OAuth app tokens and personal
+            access tokens (classic) need the `write:org` scope to use this endpoint.
+          operationId: orgsaddsecuritymanagerteam
+          responses:
+            '409':
+              description: >-
+                The organization has reached the maximum number of security manager
+                teams.

@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Newrelic.observability Monitors Monitorname Listappservices
+  description: >-
+    List the app service resources currently being monitored by the NewRelic
+    resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Newrelic.observability Monitors Monitorname Listappservices
+      description: >-
+        List the app service resources currently being monitored by the NewRelic
+        resource.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/NewRelic.Observability/monitors/{monitorName}/listAppServices:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Newrelic.observability Monitors Monitorname Listappservices
+          description: >-
+            List the app service resources currently being monitored by the NewRelic
+            resource.
+          operationId: monitorsListAppServices
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

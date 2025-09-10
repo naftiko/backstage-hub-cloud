@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Climate Reservations Order
+  description: Retrieves the details of a Climate order object with the given ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Climate Reservations Order
+      description: Retrieves the details of a Climate order object with the given ID.
+    paths:
+      /v1/climate/reservations/{order}:
+        get:
+          summary: Get Climate Reservations Order
+          description: Retrieves the details of a Climate order object with the given ID.
+          operationId: getClimateReservationsOrder
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetClimateReservationsOrderRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

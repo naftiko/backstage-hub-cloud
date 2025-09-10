@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Search Groups By Partial Query
+  description: Get search results of groups by partial query provided.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Search Groups By Partial Query
+      description: Get search results of groups by partial query provided.
+    paths:
+      /wiki/rest/api/group/picker:
+        get:
+          summary: Search Groups By Partial Query
+          description: Get search results of groups by partial query provided.
+          operationId: searchGroups
+          responses:
+            '403':
+              description: |-
+                Returned if the calling user does not have permission to view
+                groups.
+              content: {}

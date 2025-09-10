@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Waf Exclusion Filter
+  description: >-
+    Update a specific WAF exclusion filter using its identifier.Returns the
+    exclusion filter object when the request is successful.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Waf Exclusion Filter
+      description: >-
+        Update a specific WAF exclusion filter using its identifier.Returns the
+        exclusion filter object when the request is successful.
+    paths:
+      /api/v2/remote_config/products/asm/waf/exclusion_filters/{exclusion_filter_id}:
+        put:
+          summary: Update A Waf Exclusion Filter
+          description: >-
+            Update a specific WAF exclusion filter using its identifier.Returns the
+            exclusion filter object when the request is successful.
+          operationId: updateApplicationSecurityWafExclusionFilter
+          requestBody:
+            description: The exclusion filter to update.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: >-
+                    #/components/schemas/ApplicationSecurityWafExclusionFilterUpdateRequest
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

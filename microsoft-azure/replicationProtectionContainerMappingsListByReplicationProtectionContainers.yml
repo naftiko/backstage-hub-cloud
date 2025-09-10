@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Gets The List Of Protection Container Mappings For A Protection Container.
+  description: Lists the protection container mappings for a protection container.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The List Of Protection Container Mappings For A Protection Container.
+      description: Lists the protection container mappings for a protection container.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectionContainerMappings:
+        get:
+          summary: >-
+            Gets The List Of Protection Container Mappings For A Protection
+            Container.
+          description: Lists the protection container mappings for a protection container.
+          operationId: >-
+            replicationProtectionContainerMappingsListByReplicationProtectionContainers
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/ProtectionContainerMappingCollection'

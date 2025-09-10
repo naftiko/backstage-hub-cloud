@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create User
+  description: >-
+    Creates a user. This resource is retained for legacy compatibility. As soon
+    as a more suitable alternative is available this resource will be
+    deprecated.If the user exists and has access to Jira, the operation returns
+    a 201 status. If the user exists but does not have access to Jira, the
+    operation returns a 400 status.**[Permissions](#permissions) required:**
+    *Administer Jira* [global
+    permission](https://confluence.atlassian.com/x/x4dKLg).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create User
+      description: >-
+        Creates a user. This resource is retained for legacy compatibility. As soon
+        as a more suitable alternative is available this resource will be
+        deprecated.If the user exists and has access to Jira, the operation returns
+        a 201 status. If the user exists but does not have access to Jira, the
+        operation returns a 400 status.**[Permissions](#permissions) required:**
+        *Administer Jira* [global
+        permission](https://confluence.atlassian.com/x/x4dKLg).
+    paths:
+      /rest/api/3/user:
+        post:
+          summary: Create User
+          description: >-
+            Creates a user. This resource is retained for legacy compatibility. As
+            soon as a more suitable alternative is available this resource will be
+            deprecated.If the user exists and has access to Jira, the operation
+            returns a 201 status. If the user exists but does not have access to
+            Jira, the operation returns a 400 status.**[Permissions](#permissions)
+            required:** *Administer Jira* [global
+            permission](https://confluence.atlassian.com/x/x4dKLg).
+          operationId: createUser
+          requestBody:
+            description: Details about the user to be created.
+            required: true
+            content:
+              application/json:
+                example:
+                  emailAddress: mia@atlassian.com
+                schema:
+                  $ref: '#/components/schemas/NewUserDetails'
+          responses:
+            '403':
+              description: Returned if the user does not have the necessary permission.

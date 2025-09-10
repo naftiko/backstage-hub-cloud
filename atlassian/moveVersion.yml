@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Move Version
+  description: >-
+    Modifies the version's sequence within the project, which affects the
+    display order of the versions in Jira.This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** *Browse projects*
+    project permission for the project that contains the version.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Move Version
+      description: >-
+        Modifies the version's sequence within the project, which affects the
+        display order of the versions in Jira.This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** *Browse projects*
+        project permission for the project that contains the version.
+    paths:
+      /rest/api/3/version/{id}/move:
+        post:
+          summary: Move Version
+          description: >-
+            Modifies the version's sequence within the project, which affects the
+            display order of the versions in Jira.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** *Browse projects*
+            project permission for the project that contains the version.
+          operationId: moveVersion
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  after: https://your-domain.atlassian.net/rest/api/~ver~/version/10000
+                schema:
+                  $ref: '#/components/schemas/VersionMoveBean'
+          responses:
+            '404':
+              description: Returned if the version or move after version are not found.

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listcontactflows
+  description: >-
+    Provides information about the flows for the specified Amazon Connect
+    instance. You can also create and update flows using the Amazon Connect Flow
+    language. For more information about flows, see Flows in the Amazon Connect
+    Administrator Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listcontactflows
+      description: >-
+        Provides information about the flows for the specified Amazon Connect
+        instance. You can also create and update flows using the Amazon Connect Flow
+        language. For more information about flows, see Flows in the Amazon Connect
+        Administrator Guide.
+    paths:
+      /contact-flows-summary/{InstanceId}:
+        GET:
+          summary: Listcontactflows
+          description: >-
+            Provides information about the flows for the specified Amazon Connect
+            instance. You can also create and update flows using the Amazon Connect
+            Flow language. For more information about flows, see Flows in the Amazon
+            Connect Administrator Guide.
+          operationId: listContactFlows

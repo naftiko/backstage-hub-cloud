@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updates The Azure Storage Account Configurations Of An App.
+  description: Description for Updates the Azure storage account configurations of an app.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updates The Azure Storage Account Configurations Of An App.
+      description: Description for Updates the Azure storage account configurations of an app.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/azurestorageaccounts:
+        put:
+          summary: Updates The Azure Storage Account Configurations Of An App.
+          description: >-
+            Description for Updates the Azure storage account configurations of an
+            app.
+          operationId: webAppsUpdateAzureStorageAccountsSlot
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

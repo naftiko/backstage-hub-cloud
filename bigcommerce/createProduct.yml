@@ -1,0 +1,93 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Product
+  description: >-
+    Creates a *Product*. Only one product can be created at a time; however, you
+    can create multiple product variants using the `variants` array.**Required
+    Fields:**- `name`- `type`- `weight`- `price`**Read-Only Fields**- `id`-
+    `date_created`- `date_modified`- `calculated_price`-
+    `base_variant_id`**Limits**- 250 characters product name length.- A product
+    can have up to 1000 images. Each image file or image uploaded by URL can be
+    up to 8 MB.**Usage Notes*** You can create multiple product variants using
+    the `variants` array.* This endpoint accepts a `video` array. To create a
+    product video that accepts a `video` object, see [Create a Product
+    Video](/docs/rest-catalog/products/videos#create-a-product-video) for
+    information.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Product
+      description: >-
+        Creates a *Product*. Only one product can be created at a time; however, you
+        can create multiple product variants using the `variants` array.**Required
+        Fields:**- `name`- `type`- `weight`- `price`**Read-Only Fields**- `id`-
+        `date_created`- `date_modified`- `calculated_price`-
+        `base_variant_id`**Limits**- 250 characters product name length.- A product
+        can have up to 1000 images. Each image file or image uploaded by URL can be
+        up to 8 MB.**Usage Notes*** You can create multiple product variants using
+        the `variants` array.* This endpoint accepts a `video` array. To create a
+        product video that accepts a `video` object, see [Create a Product
+        Video](/docs/rest-catalog/products/videos#create-a-product-video) for
+        information.
+    paths:
+      /catalog/products:
+        post:
+          summary: Create A Product
+          description: >-
+            Creates a *Product*. Only one product can be created at a time; however,
+            you can create multiple product variants using the `variants`
+            array.**Required Fields:**- `name`- `type`- `weight`- `price`**Read-Only
+            Fields**- `id`- `date_created`- `date_modified`- `calculated_price`-
+            `base_variant_id`**Limits**- 250 characters product name length.- A
+            product can have up to 1000 images. Each image file or image uploaded by
+            URL can be up to 8 MB.**Usage Notes*** You can create multiple product
+            variants using the `variants` array.* This endpoint accepts a `video`
+            array. To create a product video that accepts a `video` object, see
+            [Create a Product
+            Video](/docs/rest-catalog/products/videos#create-a-product-video) for
+            information.
+          operationId: createProduct
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/product_Base'
+          responses:
+            '422':
+              description: >
+                `Product` was not valid. This is the result of missing required
+                fields, or of invalid data. See the response for more details.
+              content:
+                application/json:
+                  schema:
+                    title: Error Response
+                    type: object
+                    properties:
+                      errors:
+                        title: Detailed Errors
+                        type: object
+                        properties: {}
+                        additionalProperties: true
+                      instance:
+                        type: string
+                      status:
+                        type: integer
+                        description: |
+                          The HTTP status code.
+                      title:
+                        type: string
+                        description: |
+                          The error title describing the particular error.
+                      type:
+                        type: string

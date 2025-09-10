@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listjobtemplates
+  description: >-
+    Retrieve a JSON array of up to twenty of your job templates. This will
+    return the templates themselves, not just a list of them. To retrieve the
+    next twenty templates, use the nextToken string returned with the array
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listjobtemplates
+      description: >-
+        Retrieve a JSON array of up to twenty of your job templates. This will
+        return the templates themselves, not just a list of them. To retrieve the
+        next twenty templates, use the nextToken string returned with the array
+    paths:
+      /2017-08-29/jobTemplates:
+        GET:
+          summary: Listjobtemplates
+          description: >-
+            Retrieve a JSON array of up to twenty of your job templates. This will
+            return the templates themselves, not just a list of them. To retrieve
+            the next twenty templates, use the nextToken string returned with the
+            array
+          operationId: listJobTemplates

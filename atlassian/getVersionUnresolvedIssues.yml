@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Version's Unresolved Issues Count
+  description: >-
+    Returns counts of the issues and unresolved issues for the project
+    version.This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** *Browse projects*
+    project permission for the project that contains the version.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Version's Unresolved Issues Count
+      description: >-
+        Returns counts of the issues and unresolved issues for the project
+        version.This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** *Browse projects*
+        project permission for the project that contains the version.
+    paths:
+      /rest/api/3/version/{id}/unresolvedIssueCount:
+        get:
+          summary: Get Version's Unresolved Issues Count
+          description: >-
+            Returns counts of the issues and unresolved issues for the project
+            version.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** *Browse projects*
+            project permission for the project that contains the version.
+          operationId: getVersionUnresolvedIssues
+          responses:
+            '404':
+              description: |-
+                Returned if:
+
+                 *  the version is not found.
+                 *  the user does not have the required permissions.

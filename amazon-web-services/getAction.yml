@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getaction
+  description: Gets information about the specified FIS action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getaction
+      description: Gets information about the specified FIS action.
+    paths:
+      /actions/{id}:
+        GET:
+          summary: Getaction
+          description: Gets information about the specified FIS action.
+          operationId: getAction

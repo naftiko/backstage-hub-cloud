@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listsuitedefinitions
+  description: >-
+    Lists the Device Advisor test suites you have created. Requires permission
+    to access the ListSuiteDefinitions action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listsuitedefinitions
+      description: >-
+        Lists the Device Advisor test suites you have created. Requires permission
+        to access the ListSuiteDefinitions action.
+    paths:
+      /suiteDefinitions:
+        GET:
+          summary: Listsuitedefinitions
+          description: >-
+            Lists the Device Advisor test suites you have created. Requires
+            permission to access the ListSuiteDefinitions action.
+          operationId: listSuiteDefinitions

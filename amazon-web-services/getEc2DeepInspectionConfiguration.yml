@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getec2deepinspectionconfiguration
+  description: >-
+    Retrieves the activation status of Amazon Inspector deep inspection and
+    custom paths associated with your account. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getec2deepinspectionconfiguration
+      description: >-
+        Retrieves the activation status of Amazon Inspector deep inspection and
+        custom paths associated with your account. 
+    paths:
+      /ec2deepinspectionconfiguration/get:
+        POST:
+          summary: Getec2deepinspectionconfiguration
+          description: >-
+            Retrieves the activation status of Amazon Inspector deep inspection and
+            custom paths associated with your account. 
+          operationId: getEc2DeepInspectionConfiguration

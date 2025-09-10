@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Quickpulseservice.svc Ping
+  description: Determine whether there is any subscription to the metrics and documents.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Quickpulseservice.svc Ping
+      description: Determine whether there is any subscription to the metrics and documents.
+    paths:
+      /QuickPulseService.svc/ping:
+        post:
+          summary: Post Quickpulseservice.svc Ping
+          description: >-
+            Determine whether there is any subscription to the metrics and
+            documents.
+          operationId: isSubscribed
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/ServiceError'

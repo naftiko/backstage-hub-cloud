@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updatestandardscontrol
+  description: >-
+    Used to control whether an individual security standard control is enabled
+    or disabled.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatestandardscontrol
+      description: >-
+        Used to control whether an individual security standard control is enabled
+        or disabled.
+    paths:
+      /standards/control/{StandardsControlArn+}:
+        PATCH:
+          summary: Updatestandardscontrol
+          description: >-
+            Used to control whether an individual security standard control is
+            enabled or disabled.
+          operationId: updateStandardsControl

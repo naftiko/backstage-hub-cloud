@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Sources Source Mandate_notifications Mandate_notification
+  description: Retrieves a new Source MandateNotification.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Sources Source Mandate_notifications Mandate_notification
+      description: Retrieves a new Source MandateNotification.
+    paths:
+      /v1/sources/{source}/mandate_notifications/{mandate_notification}:
+        get:
+          summary: Get Sources Source Mandate_notifications Mandate_notification
+          description: Retrieves a new Source MandateNotification.
+          operationId: getSourcesSourceMandateNotificationsMandateNotification
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: >-
+                    #/components/schemas/GetSourcesSourceMandateNotificationsMandateNotificationRequest
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

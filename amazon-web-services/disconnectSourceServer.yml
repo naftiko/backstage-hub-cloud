@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Disconnectsourceserver
+  description: >-
+    Disconnects a specific Source Server from Elastic Disaster Recovery. Data
+    replication is stopped immediately. All AWS resources created by Elastic
+    Disaster Recovery for enabling the replication of the Source Server will be
+    terminated / deleted within 90 minutes. You cannot disconnect a Source
+    Server if it has a Recovery Instance. If the agent on the Source Server has
+    not been prevented from communicating with the Elastic Disaster Recovery
+    service, then it will receive a command to uninstall itself (within
+    approximately 10 minutes). The following properties of the SourceServer will
+    be changed immediately: dataReplicationInfo.dataReplicationState will be set
+    to DISCONNECTED; The totalStorageBytes property for each of
+    dataReplicationInfo.replicatedDisks will be set to zero;
+    dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be
+    nullified.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disconnectsourceserver
+      description: >-
+        Disconnects a specific Source Server from Elastic Disaster Recovery. Data
+        replication is stopped immediately. All AWS resources created by Elastic
+        Disaster Recovery for enabling the replication of the Source Server will be
+        terminated / deleted within 90 minutes. You cannot disconnect a Source
+        Server if it has a Recovery Instance. If the agent on the Source Server has
+        not been prevented from communicating with the Elastic Disaster Recovery
+        service, then it will receive a command to uninstall itself (within
+        approximately 10 minutes). The following properties of the SourceServer will
+        be changed immediately: dataReplicationInfo.dataReplicationState will be set
+        to DISCONNECTED; The totalStorageBytes property for each of
+        dataReplicationInfo.replicatedDisks will be set to zero;
+        dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be
+        nullified.
+    paths:
+      /DisconnectSourceServer:
+        POST:
+          summary: Disconnectsourceserver
+          description: >-
+            Disconnects a specific Source Server from Elastic Disaster Recovery.
+            Data replication is stopped immediately. All AWS resources created by
+            Elastic Disaster Recovery for enabling the replication of the Source
+            Server will be terminated / deleted within 90 minutes. You cannot
+            disconnect a Source Server if it has a Recovery Instance. If the agent
+            on the Source Server has not been prevented from communicating with the
+            Elastic Disaster Recovery service, then it will receive a command to
+            uninstall itself (within approximately 10 minutes). The following
+            properties of the SourceServer will be changed immediately:
+            dataReplicationInfo.dataReplicationState will be set to DISCONNECTED;
+            The totalStorageBytes property for each of
+            dataReplicationInfo.replicatedDisks will be set to zero;
+            dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will
+            be nullified.
+          operationId: disconnectSourceServer

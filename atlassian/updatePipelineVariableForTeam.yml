@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Variable For A Team
+  description: >-
+    Update a team level variable.This endpoint has been deprecated, and you
+    should use the new workspaces endpoint. For more information, see [the
+    announcement](https://developer.atlassian.com/cloud/bitbucket/bitbucket-api-teams-deprecation/).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Variable For A Team
+      description: >-
+        Update a team level variable.This endpoint has been deprecated, and you
+        should use the new workspaces endpoint. For more information, see [the
+        announcement](https://developer.atlassian.com/cloud/bitbucket/bitbucket-api-teams-deprecation/).
+    paths:
+      /teams/{username}/pipelines_config/variables/{variable_uuid}:
+        put:
+          summary: Update A Variable For A Team
+          description: >-
+            Update a team level variable.This endpoint has been deprecated, and you
+            should use the new workspaces endpoint. For more information, see [the
+            announcement](https://developer.atlassian.com/cloud/bitbucket/bitbucket-api-teams-deprecation/).
+          operationId: updatePipelineVariableForTeam
+          requestBody: {}
+          responses:
+            '404':
+              description: The account or the variable was not found.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

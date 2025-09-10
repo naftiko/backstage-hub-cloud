@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listattributegroups
+  description: Lists all attribute groups which you have access to. Results are paginated.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listattributegroups
+      description: Lists all attribute groups which you have access to. Results are paginated.
+    paths:
+      /attribute-groups:
+        GET:
+          summary: Listattributegroups
+          description: >-
+            Lists all attribute groups which you have access to. Results are
+            paginated.
+          operationId: listAttributeGroups

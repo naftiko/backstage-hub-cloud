@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Returns Whether Scm Basic Auth Is Allowed On The Site Or Not.
+  description: >-
+    Description for Returns whether Scm basic auth is allowed on the site or
+    not.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Returns Whether Scm Basic Auth Is Allowed On The Site Or Not.
+      description: >-
+        Description for Returns whether Scm basic auth is allowed on the site or
+        not.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/basicPublishingCredentialsPolicies/scm:
+        get:
+          summary: Returns Whether Scm Basic Auth Is Allowed On The Site Or Not.
+          description: >-
+            Description for Returns whether Scm basic auth is allowed on the site or
+            not.
+          operationId: webAppsGetScmAllowed
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

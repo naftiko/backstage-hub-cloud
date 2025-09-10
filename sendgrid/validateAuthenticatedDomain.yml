@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Validate A Domain Authentication.
+  description: >-
+    **This endpoint allows you to validate an authenticated domain. If it fails,
+    it will return an error message describing why the domain could not be
+    validated.**
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Validate A Domain Authentication.
+      description: >-
+        **This endpoint allows you to validate an authenticated domain. If it fails,
+        it will return an error message describing why the domain could not be
+        validated.**
+    paths:
+      /v3/whitelabel/domains/{id}/validate:
+        post:
+          summary: Validate A Domain Authentication.
+          description: >-
+            **This endpoint allows you to validate an authenticated domain. If it
+            fails, it will return an error message describing why the domain could
+            not be validated.**
+          operationId: validateAuthenticatedDomain
+          responses:
+            '500':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      errors:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            message:
+                              type: string
+                              description: A message explaining the reason for the error.
+                          required:
+                            - message
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - message: internal error getting TXT

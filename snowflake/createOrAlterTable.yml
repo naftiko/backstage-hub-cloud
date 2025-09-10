@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A (or Alter An Existing) Table.
+  description: >-
+    Create a (or alter an existing) table. Even if the operation is just an
+    alter, the full property set must be provided.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A (or Alter An Existing) Table.
+      description: >-
+        Create a (or alter an existing) table. Even if the operation is just an
+        alter, the full property set must be provided.
+    paths:
+      /api/v2/databases/{database}/schemas/{schema}/tables/{name}:
+        put:
+          summary: Create A (or Alter An Existing) Table.
+          description: >-
+            Create a (or alter an existing) table. Even if the operation is just an
+            alter, the full property set must be provided.
+          operationId: createOrAlterTable
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Table'
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Services Chatservicesid Conversations Conversationsid Messages Sid
+  description: Update an existing message in the conversation
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Services Chatservicesid Conversations Conversationsid Messages Sid
+      description: Update an existing message in the conversation
+    paths:
+      /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Messages/{Sid}:
+        post:
+          summary: Post Services Chatservicesid Conversations Conversationsid Messages Sid
+          description: Update an existing message in the conversation
+          operationId: updateServiceConversationMessage
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/UpdateServiceConversationMessageRequest'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: >-
+                      #/components/schemas/conversations.v1.service.service_conversation.service_conversation_message
+              description: OK

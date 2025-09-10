@@ -1,0 +1,64 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve All Webhook Security Policies For Your Account
+  description: >-
+    Returns a list of all webhook security policies configured for your account,
+    including their IDs, names, and security configurations.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve All Webhook Security Policies For Your Account
+      description: >-
+        Returns a list of all webhook security policies configured for your account,
+        including their IDs, names, and security configurations.
+    paths:
+      /v3/user/webhooks/security/policies:
+        get:
+          summary: Retrieve All Webhook Security Policies For Your Account
+          description: >-
+            Returns a list of all webhook security policies configured for your
+            account, including their IDs, names, and security configurations.
+          operationId: listAllSecurityPolicies
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      policies:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            name:
+                              type: string
+                            oauth:
+                              type: object
+                              properties:
+                                client_id:
+                                  type: string
+                                token_url:
+                                  type: string
+                                scopes:
+                                  type: array
+                                  items:
+                                    type: string
+                            signature:
+                              type: object
+                              properties:
+                                public_key:
+                                  type: string

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Startdetectormodelanalysis
+  description: >-
+    Performs an analysis of your detector model. For more information, see
+    Troubleshooting a detector model in the AWS IoT Events Developer Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startdetectormodelanalysis
+      description: >-
+        Performs an analysis of your detector model. For more information, see
+        Troubleshooting a detector model in the AWS IoT Events Developer Guide.
+    paths:
+      /analysis/detector-models/:
+        POST:
+          summary: Startdetectormodelanalysis
+          description: >-
+            Performs an analysis of your detector model. For more information, see
+            Troubleshooting a detector model in the AWS IoT Events Developer Guide.
+          operationId: startDetectorModelAnalysis

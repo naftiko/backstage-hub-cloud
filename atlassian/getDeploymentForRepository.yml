@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Deployment
+  description: Retrieve a deployment
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Deployment
+      description: Retrieve a deployment
+    paths:
+      /repositories/{workspace}/{repo_slug}/deployments/{deployment_uuid}:
+        get:
+          summary: Get A Deployment
+          description: Retrieve a deployment
+          operationId: getDeploymentForRepository
+          responses:
+            '404':
+              description: No account, repository or deployment with the UUID provided exists.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

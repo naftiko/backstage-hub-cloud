@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Resourceprovidernamespace Resourcetype Resourcename Providers
+    Microsoft.resources Changes Changeresourceid
+  description: Obtains the specified change resource for the target resource
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Resourceprovidernamespace Resourcetype Resourcename Providers
+        Microsoft.resources Changes Changeresourceid
+      description: Obtains the specified change resource for the target resource
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}/providers/Microsoft.Resources/changes/{changeResourceId}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Resourceprovidernamespace Resourcetype Resourcename Providers
+            Microsoft.resources Changes Changeresourceid
+          description: Obtains the specified change resource for the target resource
+          operationId: changesGet
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

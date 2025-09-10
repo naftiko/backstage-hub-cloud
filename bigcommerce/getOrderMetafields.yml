@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Order Metafields
+  description: >-
+    Gets a `Metafield` object list, by `order_id`.The maximum number of
+    metafields allowed on each order, product, category, variant, or brand is
+    250 per client ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Order Metafields
+      description: >-
+        Gets a `Metafield` object list, by `order_id`.The maximum number of
+        metafields allowed on each order, product, category, variant, or brand is
+        250 per client ID.
+    paths:
+      /orders/{order_id}/metafields:
+        get:
+          summary: Get Order Metafields
+          description: >-
+            Gets a `Metafield` object list, by `order_id`.The maximum number of
+            metafields allowed on each order, product, category, variant, or brand
+            is 250 per client ID.
+          operationId: getOrderMetafields
+          responses:
+            '404':
+              description: |
+                The resource was not found.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/NotFound'
+                  examples:
+                    example-1:
+                      value:
+                        status: 404
+                        title: There was no order found with ID 1010
+                        type: >-
+                          https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes

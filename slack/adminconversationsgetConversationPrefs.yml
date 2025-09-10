@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Admin.conversations.getconversationprefs
+  description: Get conversation preferences for a public or private channel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Admin.conversations.getconversationprefs
+      description: Get conversation preferences for a public or private channel.
+    paths:
+      /admin.conversations.getConversationPrefs:
+        get:
+          summary: Get Admin.conversations.getconversationprefs
+          description: Get conversation preferences for a public or private channel.
+          operationId: adminconversationsgetConversationPrefs
+          responses:
+            default:
+              description: Typical error response
+              content:
+                application/json:
+                  schema:
+                    title: admin.conversations.unarchive error schema
+                    required:
+                      - error
+                      - ok
+                    type: object
+                    properties:
+                      error:
+                        type: string
+                        enum:
+                          - feature_not_enabled
+                          - not_an_admin
+                          - not_an_enterprise
+                          - restricted_action
+                          - missing_scope
+                          - channel_not_found
+                          - channel_type_not_supported
+                          - could_not_get_conversation_prefs
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                    additionalProperties: false
+                    description: >-
+                      Schema for error response from
+                      admin.conversations.getConversationPrefs
+                  example:
+                    error: invalid_auth
+                    ok: false

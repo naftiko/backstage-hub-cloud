@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Category Metafield
+  description: Deletes a *Category Metafield*.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Category Metafield
+      description: Deletes a *Category Metafield*.
+    paths:
+      /catalog/categories/{category_id}/metafields/{metafield_id}:
+        delete:
+          summary: Delete A Category Metafield
+          description: Deletes a *Category Metafield*.
+          operationId: deleteCategoryMetafield
+          responses:
+            '204':
+              description: ''
+              content: {}

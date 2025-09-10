@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Providers Microsoft.intune Locations Hostname Androidpolicies Policyname
+  description: Returns AndroidMAMPolicy with given name.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Providers Microsoft.intune Locations Hostname Androidpolicies Policyname
+      description: Returns AndroidMAMPolicy with given name.
+    paths:
+      /providers/Microsoft.Intune/locations/{hostName}/androidPolicies/{policyName}:
+        get:
+          summary: >-
+            Get Providers Microsoft.intune Locations Hostname Androidpolicies
+            Policyname
+          description: Returns AndroidMAMPolicy with given name.
+          operationId: androidGetMAMPolicyByName
+          responses:
+            default:
+              description: unexpected error
+              schema:
+                $ref: '#/definitions/Error'

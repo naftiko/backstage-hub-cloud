@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Searchdevices
+  description: Searches for devices using the specified filters.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Searchdevices
+      description: Searches for devices using the specified filters.
+    paths:
+      /devices:
+        POST:
+          summary: Searchdevices
+          description: Searches for devices using the specified filters.
+          operationId: searchDevices

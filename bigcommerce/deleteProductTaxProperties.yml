@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Product Tax Properties
+  description: Delete tax properties that are associated with one or more products.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Product Tax Properties
+      description: Delete tax properties that are associated with one or more products.
+    paths:
+      /tax/products/properties:
+        delete:
+          summary: Delete Product Tax Properties
+          description: Delete tax properties that are associated with one or more products.
+          operationId: deleteProductTaxProperties
+          responses:
+            '400':
+              description: Request parameters invalid

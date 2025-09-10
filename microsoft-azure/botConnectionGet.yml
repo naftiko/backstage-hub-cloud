@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.botservice Botservices Resourcename Connections Connectionname
+  description: Get a Connection Setting registration for a Bot Service
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.botservice Botservices Resourcename Connections Connectionname
+      description: Get a Connection Setting registration for a Bot Service
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{resourceName}/connections/{connectionName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.botservice Botservices Resourcename Connections
+            Connectionname
+          description: Get a Connection Setting registration for a Bot Service
+          operationId: botConnectionGet
+          responses:
+            default:
+              description: >-
+                Error response describing why the operation failed. If the resource
+                group *or* resource does not exist, 404 (NotFound) should be
+                returned.
+              schema:
+                $ref: '#/definitions/Error'

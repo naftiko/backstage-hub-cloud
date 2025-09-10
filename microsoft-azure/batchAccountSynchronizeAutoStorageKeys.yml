@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.batch Batchaccounts Accountname Syncautostoragekeys
+  description: >-
+    Synchronizes access keys for the auto-storage account configured for the
+    specified Batch account, only if storage key authentication is being used.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.batch Batchaccounts Accountname Syncautostoragekeys
+      description: >-
+        Synchronizes access keys for the auto-storage account configured for the
+        specified Batch account, only if storage key authentication is being used.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}/syncAutoStorageKeys:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.batch Batchaccounts Accountname Syncautostoragekeys
+          description: >-
+            Synchronizes access keys for the auto-storage account configured for the
+            specified Batch account, only if storage key authentication is being
+            used.
+          operationId: batchAccountSynchronizeAutoStorageKeys
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

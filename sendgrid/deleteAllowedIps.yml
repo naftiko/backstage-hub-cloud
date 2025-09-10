@@ -1,0 +1,76 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Remove One Or More Ips From The Allow List
+  description: >-
+    **This endpoint allows you to remove one or more IP addresses from your list
+    of allowed addresses.**To remove one or more IP addresses, pass this
+    endpoint an array containing the ID(s) associated with the IP(s) you intend
+    to remove. You can retrieve the IDs associated with your allowed IP
+    addresses using the "Retrieve a list of currently allowed IPs" endpoint.It
+    is possible to remove your own IP address, which will block access to your
+    account. You will need to submit a [support
+    ticket](https://sendgrid.com/docs/ui/account-and-settings/support/) if this
+    happens. For this reason, it is important to double check that you are
+    removing only the IPs you intend to remove when using this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Remove One Or More Ips From The Allow List
+      description: >-
+        **This endpoint allows you to remove one or more IP addresses from your list
+        of allowed addresses.**To remove one or more IP addresses, pass this
+        endpoint an array containing the ID(s) associated with the IP(s) you intend
+        to remove. You can retrieve the IDs associated with your allowed IP
+        addresses using the "Retrieve a list of currently allowed IPs" endpoint.It
+        is possible to remove your own IP address, which will block access to your
+        account. You will need to submit a [support
+        ticket](https://sendgrid.com/docs/ui/account-and-settings/support/) if this
+        happens. For this reason, it is important to double check that you are
+        removing only the IPs you intend to remove when using this endpoint.
+    paths:
+      /v3/access_settings/whitelist:
+        delete:
+          summary: Remove One Or More Ips From The Allow List
+          description: >-
+            **This endpoint allows you to remove one or more IP addresses from your
+            list of allowed addresses.**To remove one or more IP addresses, pass
+            this endpoint an array containing the ID(s) associated with the IP(s)
+            you intend to remove. You can retrieve the IDs associated with your
+            allowed IP addresses using the "Retrieve a list of currently allowed
+            IPs" endpoint.It is possible to remove your own IP address, which will
+            block access to your account. You will need to submit a [support
+            ticket](https://sendgrid.com/docs/ui/account-and-settings/support/) if
+            this happens. For this reason, it is important to double check that you
+            are removing only the IPs you intend to remove when using this endpoint.
+          operationId: deleteAllowedIps
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    ids:
+                      type: array
+                      description: >-
+                        An array of the IDs of the IP address that you want to
+                        remove from your allow list.
+                      items:
+                        type: integer
+                  example:
+                    ids:
+                      - 1
+                      - 2
+                      - 3
+          responses:
+            '500':
+              $ref: '#/components/responses/IpAccessManagement500'

@@ -1,0 +1,79 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Category Metafield
+  description: >-
+    Creates a *Category Metafield*.**Required Fields:**- permission_set-
+    namespace- key- value**Read-Only Fields**- id**Note:** The maximum number of
+    metafields allowed on each order, product, category, variant, or brand is
+    250 per client ID. For more information, see [Platform Limits (Help
+    Center)](https://support.bigcommerce.com/s/article/Platform-Limits) in the
+    Help Center.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Category Metafield
+      description: >-
+        Creates a *Category Metafield*.**Required Fields:**- permission_set-
+        namespace- key- value**Read-Only Fields**- id**Note:** The maximum number of
+        metafields allowed on each order, product, category, variant, or brand is
+        250 per client ID. For more information, see [Platform Limits (Help
+        Center)](https://support.bigcommerce.com/s/article/Platform-Limits) in the
+        Help Center.
+    paths:
+      /catalog/categories/{category_id}/metafields:
+        post:
+          summary: Create A Category Metafield
+          description: >-
+            Creates a *Category Metafield*.**Required Fields:**- permission_set-
+            namespace- key- value**Read-Only Fields**- id**Note:** The maximum
+            number of metafields allowed on each order, product, category, variant,
+            or brand is 250 per client ID. For more information, see [Platform
+            Limits (Help
+            Center)](https://support.bigcommerce.com/s/article/Platform-Limits) in
+            the Help Center.
+          operationId: createCategoryMetafield
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/metafield_Base'
+          responses:
+            '422':
+              description: >
+                The `Metafield` was not valid. This is the result of missing
+                required fields, or of invalid data. See the response for more
+                details.
+              content:
+                application/json:
+                  schema:
+                    title: Error Response
+                    type: object
+                    properties:
+                      errors:
+                        title: Detailed Errors
+                        type: object
+                        properties: {}
+                        additionalProperties: true
+                      instance:
+                        type: string
+                      status:
+                        type: integer
+                        description: |
+                          The HTTP status code.
+                      title:
+                        type: string
+                        description: |
+                          The error title describing the particular error.
+                      type:
+                        type: string

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deletefacet
+  description: >-
+    Deletes a given Facet. All attributes and Rules that are associated with the
+    facet will be deleted. Only development schema facets are allowed deletion.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletefacet
+      description: >-
+        Deletes a given Facet. All attributes and Rules that are associated with the
+        facet will be deleted. Only development schema facets are allowed deletion.
+    paths:
+      /amazonclouddirectory/2017-01-11/facet/delete:
+        PUT:
+          summary: Deletefacet
+          description: >-
+            Deletes a given Facet. All attributes and Rules that are associated with
+            the facet will be deleted. Only development schema facets are allowed
+            deletion.
+          operationId: deleteFacet

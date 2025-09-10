@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Puts The Modernizeproject.
+  description: Creates the modernizeProject.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Puts The Modernizeproject.
+      description: Creates the modernizeProject.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}:
+        put:
+          summary: Puts The Modernizeproject.
+          description: Creates the modernizeProject.
+          operationId: modernizeProjectCreate
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ArmError'

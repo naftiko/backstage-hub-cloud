@@ -1,0 +1,118 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Restriction Policy
+  description: >-
+    Updates the restriction policy associated with a resource.#### Supported
+    resourcesRestriction policies can be applied to the following resources:-
+    Dashboards: `dashboard`- Integration Accounts: `integration-account`-
+    Integration Services: `integration-service`- Integration Webhooks:
+    `integration-webhook`- Notebooks: `notebook`- Powerpacks: `powerpack`-
+    Reference Tables: `reference-table`- Security Rules: `security-rule`-
+    Service Level Objectives: `slo`- Synthetic Global Variables:
+    `synthetics-global-variable`- Synthetic Tests: `synthetics-test`- Synthetic
+    Private Locations: `synthetics-private-location`- Monitors: `monitor`-
+    Workflows: `workflow`- App Builder Apps: `app-builder-app`- Connections:
+    `connection`- Connection Groups: `connection-group`- RUM Applications:
+    `rum-application`#### Supported relations for resourcesResource
+    Type               | Supported
+    Relations----------------------------|--------------------------Dashboards                 
+    | `viewer`, `editor`Integration Accounts        | `viewer`,
+    `editor`Integration Services        | `viewer`, `editor`Integration
+    Webhooks        | `viewer`, `editor`Notebooks                   | `viewer`,
+    `editor`Powerpacks                  | `viewer`, `editor`Security
+    Rules              | `viewer`, `editor`Service Level Objectives    |
+    `viewer`, `editor`Synthetic Global Variables  | `viewer`, `editor`Synthetic
+    Tests             | `viewer`, `editor`Synthetic Private Locations |
+    `viewer`, `editor`Monitors                    | `viewer`, `editor`Reference
+    Tables            | `viewer`, `editor`Workflows                   |
+    `viewer`, `runner`, `editor`App Builder Apps            | `viewer`,
+    `editor`Connections                 | `viewer`, `resolver`,
+    `editor`Connection Groups           | `viewer`, `editor`RUM
+    Application             | `viewer`, `editor`
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Restriction Policy
+      description: >-
+        Updates the restriction policy associated with a resource.#### Supported
+        resourcesRestriction policies can be applied to the following resources:-
+        Dashboards: `dashboard`- Integration Accounts: `integration-account`-
+        Integration Services: `integration-service`- Integration Webhooks:
+        `integration-webhook`- Notebooks: `notebook`- Powerpacks: `powerpack`-
+        Reference Tables: `reference-table`- Security Rules: `security-rule`-
+        Service Level Objectives: `slo`- Synthetic Global Variables:
+        `synthetics-global-variable`- Synthetic Tests: `synthetics-test`- Synthetic
+        Private Locations: `synthetics-private-location`- Monitors: `monitor`-
+        Workflows: `workflow`- App Builder Apps: `app-builder-app`- Connections:
+        `connection`- Connection Groups: `connection-group`- RUM Applications:
+        `rum-application`#### Supported relations for resourcesResource
+        Type               | Supported
+        Relations----------------------------|--------------------------Dashboards                 
+        | `viewer`, `editor`Integration Accounts        | `viewer`,
+        `editor`Integration Services        | `viewer`, `editor`Integration
+        Webhooks        | `viewer`, `editor`Notebooks                   | `viewer`,
+        `editor`Powerpacks                  | `viewer`, `editor`Security
+        Rules              | `viewer`, `editor`Service Level Objectives    |
+        `viewer`, `editor`Synthetic Global Variables  | `viewer`, `editor`Synthetic
+        Tests             | `viewer`, `editor`Synthetic Private Locations |
+        `viewer`, `editor`Monitors                    | `viewer`, `editor`Reference
+        Tables            | `viewer`, `editor`Workflows                   |
+        `viewer`, `runner`, `editor`App Builder Apps            | `viewer`,
+        `editor`Connections                 | `viewer`, `resolver`,
+        `editor`Connection Groups           | `viewer`, `editor`RUM
+        Application             | `viewer`, `editor`
+    paths:
+      /api/v2/restriction_policy/{resource_id}:
+        post:
+          summary: Update A Restriction Policy
+          description: >-
+            Updates the restriction policy associated with a resource.#### Supported
+            resourcesRestriction policies can be applied to the following
+            resources:- Dashboards: `dashboard`- Integration Accounts:
+            `integration-account`- Integration Services: `integration-service`-
+            Integration Webhooks: `integration-webhook`- Notebooks: `notebook`-
+            Powerpacks: `powerpack`- Reference Tables: `reference-table`- Security
+            Rules: `security-rule`- Service Level Objectives: `slo`- Synthetic
+            Global Variables: `synthetics-global-variable`- Synthetic Tests:
+            `synthetics-test`- Synthetic Private Locations:
+            `synthetics-private-location`- Monitors: `monitor`- Workflows:
+            `workflow`- App Builder Apps: `app-builder-app`- Connections:
+            `connection`- Connection Groups: `connection-group`- RUM Applications:
+            `rum-application`#### Supported relations for resourcesResource
+            Type               | Supported
+            Relations----------------------------|--------------------------Dashboards                 
+            | `viewer`, `editor`Integration Accounts        | `viewer`,
+            `editor`Integration Services        | `viewer`, `editor`Integration
+            Webhooks        | `viewer`, `editor`Notebooks                   |
+            `viewer`, `editor`Powerpacks                  | `viewer`,
+            `editor`Security Rules              | `viewer`, `editor`Service Level
+            Objectives    | `viewer`, `editor`Synthetic Global Variables  |
+            `viewer`, `editor`Synthetic Tests             | `viewer`,
+            `editor`Synthetic Private Locations | `viewer`,
+            `editor`Monitors                    | `viewer`, `editor`Reference
+            Tables            | `viewer`, `editor`Workflows                   |
+            `viewer`, `runner`, `editor`App Builder Apps            | `viewer`,
+            `editor`Connections                 | `viewer`, `resolver`,
+            `editor`Connection Groups           | `viewer`, `editor`RUM
+            Application             | `viewer`, `editor`
+          operationId: updateRestrictionPolicy
+          requestBody:
+            description: Restriction policy payload
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RestrictionPolicyUpdateRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

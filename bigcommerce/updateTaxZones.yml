@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Tax Zones
+  description: >-
+    Update one or more tax zones. Only the tax zone `id` field is required.
+    Fields unspecified by the request will retain their current state.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Tax Zones
+      description: >-
+        Update one or more tax zones. Only the tax zone `id` field is required.
+        Fields unspecified by the request will retain their current state.
+    paths:
+      /tax/zones:
+        put:
+          summary: Update Tax Zones
+          description: >-
+            Update one or more tax zones. Only the tax zone `id` field is required.
+            Fields unspecified by the request will retain their current state.
+          operationId: updateTaxZones
+          requestBody: {}
+          responses:
+            '200':
+              description: OK
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Tax_Zone'
+                      meta:
+                        $ref: '#/components/schemas/MetaOpen'
+                  examples:
+                    Example 1:
+                      value:
+                        data:
+                          - id: 23
+                            name: Australia
+                            enabled: false
+                            price_display_settings:
+                              show_inclusive: false
+                              show_both_on_detail_view: false
+                              show_both_on_list_view: false
+                            shopper_target_settings:
+                              locations:
+                                - country_code: AU
+                                  subdivision_codes: []
+                                  postal_codes:
+                                    - '2238'
+                                    - '2173'
+                              customer_groups:
+                                - 2
+                        meta: {}

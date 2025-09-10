@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listkeyvaluestores
+  description: Specifies the Key Value Stores to list.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listkeyvaluestores
+      description: Specifies the Key Value Stores to list.
+    paths:
+      /2020-05-31/key-value-store:
+        GET:
+          summary: Listkeyvaluestores
+          description: Specifies the Key Value Stores to list.
+          operationId: listKeyValueStores

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Startdatasourcesyncjob
+  description: >-
+    Starts a data source connector synchronization job. If a synchronization job
+    is already in progress, Amazon Q returns a ConflictException.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startdatasourcesyncjob
+      description: >-
+        Starts a data source connector synchronization job. If a synchronization job
+        is already in progress, Amazon Q returns a ConflictException.
+    paths:
+      /applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/startsync:
+        POST:
+          summary: Startdatasourcesyncjob
+          description: >-
+            Starts a data source connector synchronization job. If a synchronization
+            job is already in progress, Amazon Q returns a ConflictException.
+          operationId: startDataSourceSyncJob

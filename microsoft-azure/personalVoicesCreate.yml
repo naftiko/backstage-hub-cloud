@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Put Personalvoices Id
+  description: Creates a new personal voice with audio files in Azure Blob Storage.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Personalvoices Id
+      description: Creates a new personal voice with audio files in Azure Blob Storage.
+    paths:
+      /personalvoices/{id}:
+        put:
+          summary: Put Personalvoices Id
+          description: Creates a new personal voice with audio files in Azure Blob Storage.
+          operationId: personalVoicesCreate
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

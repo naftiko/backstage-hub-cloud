@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Providers Microsoft.customerlockbox
+    Requests Requestid
+  description: Get Customer Lockbox request
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft.customerlockbox
+        Requests Requestid
+      description: Get Customer Lockbox request
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.CustomerLockbox/requests/{requestId}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft.customerlockbox
+            Requests Requestid
+          description: Get Customer Lockbox request
+          operationId: requestsGet
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

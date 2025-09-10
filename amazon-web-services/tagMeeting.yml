@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Tagmeeting
+  description: >-
+    Applies the specified tags to the specified Amazon Chime SDK meeting.   This
+    API is is no longer supported and will not be updated. We recommend using
+    the latest version, TagResource, in the Amazon Chime SDK. Using the latest
+    version requires migrating to a dedicated namespace. For more information,
+    refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK
+    Developer Guide. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Tagmeeting
+      description: >-
+        Applies the specified tags to the specified Amazon Chime SDK meeting.   This
+        API is is no longer supported and will not be updated. We recommend using
+        the latest version, TagResource, in the Amazon Chime SDK. Using the latest
+        version requires migrating to a dedicated namespace. For more information,
+        refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK
+        Developer Guide. 
+    paths:
+      /meetings/{meetingId}/tags?operation=add:
+        POST:
+          summary: Tagmeeting
+          description: >-
+            Applies the specified tags to the specified Amazon Chime SDK meeting.  
+            This API is is no longer supported and will not be updated. We recommend
+            using the latest version, TagResource, in the Amazon Chime SDK. Using
+            the latest version requires migrating to a dedicated namespace. For more
+            information, refer to Migrating from the Amazon Chime namespace in the
+            Amazon Chime SDK Developer Guide. 
+          operationId: tagMeeting

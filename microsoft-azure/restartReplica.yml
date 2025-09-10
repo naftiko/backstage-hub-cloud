@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Restarts A Service Replica Of A Persisted Service Running On A Node.
+  description: >-
+    Restarts a service replica of a persisted service running on a node. Warning
+    - There are no safety checks performed when this API is used. Incorrect use
+    of this API can lead to availability loss for stateful services.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Restarts A Service Replica Of A Persisted Service Running On A Node.
+      description: >-
+        Restarts a service replica of a persisted service running on a node. Warning
+        - There are no safety checks performed when this API is used. Incorrect use
+        of this API can lead to availability loss for stateful services.
+    paths:
+      /Nodes/{nodeName}/$/GetPartitions/{partitionId}/$/GetReplicas/{replicaId}/$/Restart:
+        post:
+          summary: Restarts A Service Replica Of A Persisted Service Running On A Node.
+          description: >-
+            Restarts a service replica of a persisted service running on a node.
+            Warning - There are no safety checks performed when this API is used.
+            Incorrect use of this API can lead to availability loss for stateful
+            services.
+          operationId: restartReplica
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

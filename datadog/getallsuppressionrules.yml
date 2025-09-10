@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Suppression Rules
+  description: Get the list of all suppression rules.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Suppression Rules
+      description: Get the list of all suppression rules.
+    paths:
+      /api/v2/security_monitoring/configuration/suppressions:
+        get:
+          summary: Get All Suppression Rules
+          description: Get the list of all suppression rules.
+          operationId: getallsuppressionrules
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Revoke Role From An Archive
+  description: >-
+    Removes a role from an archive. ([Roles
+    API](https://docs.datadoghq.com/api/v2/roles/))
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Revoke Role From An Archive
+      description: >-
+        Removes a role from an archive. ([Roles
+        API](https://docs.datadoghq.com/api/v2/roles/))
+    paths:
+      /api/v2/logs/config/archives/{archive_id}/readers:
+        delete:
+          summary: Revoke Role From An Archive
+          description: >-
+            Removes a role from an archive. ([Roles
+            API](https://docs.datadoghq.com/api/v2/roles/))
+          operationId: revokerolefromanarchive
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

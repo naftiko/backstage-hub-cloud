@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Putclassificationexportconfiguration
+  description: >-
+    Creates or updates the configuration settings for storing data
+    classification results.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putclassificationexportconfiguration
+      description: >-
+        Creates or updates the configuration settings for storing data
+        classification results.
+    paths:
+      /classification-export-configuration:
+        PUT:
+          summary: Putclassificationexportconfiguration
+          description: >-
+            Creates or updates the configuration settings for storing data
+            classification results.
+          operationId: putClassificationExportConfiguration

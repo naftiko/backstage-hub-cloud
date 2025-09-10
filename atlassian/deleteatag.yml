@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Tag
+  description: >-
+    Delete a tag in the specified repository.The tag name should not include any
+    prefixes (e.g. refs/tags).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Tag
+      description: >-
+        Delete a tag in the specified repository.The tag name should not include any
+        prefixes (e.g. refs/tags).
+    paths:
+      /repositories/{workspace}/{repo_slug}/refs/tags/{name}:
+        delete:
+          summary: Delete A Tag
+          description: >-
+            Delete a tag in the specified repository.The tag name should not include
+            any prefixes (e.g. refs/tags).
+          operationId: deleteatag
+          responses:
+            '404':
+              description: The specified repository or tag does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

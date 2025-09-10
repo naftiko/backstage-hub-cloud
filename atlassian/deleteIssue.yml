@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Issue
+  description: >-
+    Deletes an issue.An issue cannot be deleted if it has one or more subtasks.
+    To delete an issue with subtasks, set `deleteSubtasks`. This causes the
+    issue's subtasks to be deleted with the issue.This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** *  *Browse projects*
+    and *Delete issues* [project
+    permission](https://confluence.atlassian.com/x/yodKLg) for the project
+    containing the issue. *  If [issue-level
+    security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+    issue-level security permission to view the issue.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Issue
+      description: >-
+        Deletes an issue.An issue cannot be deleted if it has one or more subtasks.
+        To delete an issue with subtasks, set `deleteSubtasks`. This causes the
+        issue's subtasks to be deleted with the issue.This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** *  *Browse projects*
+        and *Delete issues* [project
+        permission](https://confluence.atlassian.com/x/yodKLg) for the project
+        containing the issue. *  If [issue-level
+        security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+        issue-level security permission to view the issue.
+    paths:
+      /rest/api/3/issue/{issueIdOrKey}:
+        delete:
+          summary: Delete Issue
+          description: >-
+            Deletes an issue.An issue cannot be deleted if it has one or more
+            subtasks. To delete an issue with subtasks, set `deleteSubtasks`. This
+            causes the issue's subtasks to be deleted with the issue.This operation
+            can be accessed anonymously.**[Permissions](#permissions) required:** * 
+            *Browse projects* and *Delete issues* [project
+            permission](https://confluence.atlassian.com/x/yodKLg) for the project
+            containing the issue. *  If [issue-level
+            security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+            issue-level security permission to view the issue.
+          operationId: deleteIssue
+          responses:
+            '404':
+              description: >-
+                Returned if the issue is not found or the user does not have
+                permission to view the issue.

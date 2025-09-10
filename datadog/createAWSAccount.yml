@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create An Aws Integration
+  description: Create a new AWS Account Integration Config.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create An Aws Integration
+      description: Create a new AWS Account Integration Config.
+    paths:
+      /api/v2/integration/aws/accounts:
+        post:
+          summary: Create An Aws Integration
+          description: Create a new AWS Account Integration Config.
+          operationId: createAWSAccount
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/AWSAccountCreateRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

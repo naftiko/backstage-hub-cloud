@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Bulk Get Workflow Schemes
+  description: >-
+    Returns a list of workflow schemes by providing workflow scheme IDs or
+    project IDs.**[Permissions](#permissions) required:** *  *Administer Jira*
+    global permission to access all, including project-scoped, workflow schemes
+    *  *Administer projects* project permissions to access project-scoped
+    workflow schemes
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Bulk Get Workflow Schemes
+      description: >-
+        Returns a list of workflow schemes by providing workflow scheme IDs or
+        project IDs.**[Permissions](#permissions) required:** *  *Administer Jira*
+        global permission to access all, including project-scoped, workflow schemes
+        *  *Administer projects* project permissions to access project-scoped
+        workflow schemes
+    paths:
+      /rest/api/3/workflowscheme/read:
+        post:
+          summary: Bulk Get Workflow Schemes
+          description: >-
+            Returns a list of workflow schemes by providing workflow scheme IDs or
+            project IDs.**[Permissions](#permissions) required:** *  *Administer
+            Jira* global permission to access all, including project-scoped,
+            workflow schemes *  *Administer projects* project permissions to access
+            project-scoped workflow schemes
+          operationId: readWorkflowSchemes
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  projectIds:
+                    - '10047'
+                    - '10048'
+                  workflowSchemeIds:
+                    - 3e59db0f-ed6c-47ce-8d50-80c0c4572677
+                schema:
+                  $ref: '#/components/schemas/WorkflowSchemeReadRequest'
+          responses:
+            '401':
+              description: >-
+                Returned if the authentication credentials are incorrect or missing,
+                or the caller doesn't have permissions to perform the operation.

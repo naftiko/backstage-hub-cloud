@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Reset The Blog Post Draft To The Live Version
+  description: Discards any edits and resets the draft to the live version.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Reset The Blog Post Draft To The Live Version
+      description: Discards any edits and resets the draft to the live version.
+    paths:
+      /cms/v3/blogs/posts/{objectId}/draft/reset:
+        post:
+          summary: Reset The Blog Post Draft To The Live Version
+          description: Discards any edits and resets the draft to the live version.
+          operationId: postcmsv3blogsposts{ObjectId}DraftresetresetDraft
+          responses:
+            default:
+              $ref: '#/components/responses/Error'

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get An Sso Integration
+  description: >-
+    **This endpoint allows you to retrieve an SSO integration by ID.**You can
+    retrieve the IDs for your configurations from the response provided by the
+    "Get All SSO Integrations" endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get An Sso Integration
+      description: >-
+        **This endpoint allows you to retrieve an SSO integration by ID.**You can
+        retrieve the IDs for your configurations from the response provided by the
+        "Get All SSO Integrations" endpoint.
+    paths:
+      /v3/sso/integrations/{id}:
+        get:
+          summary: Get An Sso Integration
+          description: >-
+            **This endpoint allows you to retrieve an SSO integration by ID.**You
+            can retrieve the IDs for your configurations from the response provided
+            by the "Get All SSO Integrations" endpoint.
+          operationId: getSsoIntegration
+          responses:
+            '500':
+              $ref: '#/components/responses/Sso500'

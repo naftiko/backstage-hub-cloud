@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Checkaccessnotgranted
+  description: Checks whether the specified access isn't allowed by a policy.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Checkaccessnotgranted
+      description: Checks whether the specified access isn't allowed by a policy.
+    paths:
+      /policy/check-access-not-granted:
+        POST:
+          summary: Checkaccessnotgranted
+          description: Checks whether the specified access isn't allowed by a policy.
+          operationId: checkAccessNotGranted

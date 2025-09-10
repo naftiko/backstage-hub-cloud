@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Transcripts Sid Media
+  description: Get download URLs for media if possible
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Transcripts Sid Media
+      description: Get download URLs for media if possible
+    paths:
+      /v2/Transcripts/{Sid}/Media:
+        get:
+          summary: Get Transcripts Sid Media
+          description: Get download URLs for media if possible
+          operationId: fetchMedia
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/intelligence.v2.transcript.media'
+              description: OK

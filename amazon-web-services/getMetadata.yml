@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getmetadata
+  description: Returns existing metadata for an Amplify app.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getmetadata
+      description: Returns existing metadata for an Amplify app.
+    paths:
+      /app/{appId}/environment/{environmentName}/metadata:
+        GET:
+          summary: Getmetadata
+          description: Returns existing metadata for an Amplify app.
+          operationId: getMetadata

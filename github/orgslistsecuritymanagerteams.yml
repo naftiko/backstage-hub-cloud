@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Security Manager Teams
+  description: >-
+    Lists teams that are security managers for an organization. For more
+    information, see "[Managing security managers in your
+    organization](https://docs.github.com/enterprise-server@3.9/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."The
+    authenticated user must be an administrator or security manager for the
+    organization to use this endpoint.OAuth app tokens and personal access
+    tokens (classic) need the `read:org` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Security Manager Teams
+      description: >-
+        Lists teams that are security managers for an organization. For more
+        information, see "[Managing security managers in your
+        organization](https://docs.github.com/enterprise-server@3.9/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."The
+        authenticated user must be an administrator or security manager for the
+        organization to use this endpoint.OAuth app tokens and personal access
+        tokens (classic) need the `read:org` scope to use this endpoint.
+    paths:
+      /orgs/{org}/security-managers:
+        get:
+          summary: List Security Manager Teams
+          description: >-
+            Lists teams that are security managers for an organization. For more
+            information, see "[Managing security managers in your
+            organization](https://docs.github.com/enterprise-server@3.9/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."The
+            authenticated user must be an administrator or security manager for the
+            organization to use this endpoint.OAuth app tokens and personal access
+            tokens (classic) need the `read:org` scope to use this endpoint.
+          operationId: orgslistsecuritymanagerteams
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/team-simple'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/team-items'

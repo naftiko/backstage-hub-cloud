@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: 'Get Apps Appid Versions Versionid '
+  description: >-
+    Gets the version information such as date created, last modified date,
+    endpoint URL, count of intents and entities, training and publishing status.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Get Apps Appid Versions Versionid '
+      description: >-
+        Gets the version information such as date created, last modified date,
+        endpoint URL, count of intents and entities, training and publishing status.
+    paths:
+      /apps/{appId}/versions/{versionId}/:
+        get:
+          summary: 'Get Apps Appid Versions Versionid '
+          description: >-
+            Gets the version information such as date created, last modified date,
+            endpoint URL, count of intents and entities, training and publishing
+            status.
+          operationId: versionsGet
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

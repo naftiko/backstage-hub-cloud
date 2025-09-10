@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Services Servicesid Entities Identity Challenges
+  description: Create a new Challenge for the Factor
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Services Servicesid Entities Identity Challenges
+      description: Create a new Challenge for the Factor
+    paths:
+      /v2/Services/{ServiceSid}/Entities/{Identity}/Challenges:
+        post:
+          summary: Post Services Servicesid Entities Identity Challenges
+          description: Create a new Challenge for the Factor
+          operationId: createChallenge
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateChallengeRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/verify.v2.service.entity.challenge'
+              description: Created

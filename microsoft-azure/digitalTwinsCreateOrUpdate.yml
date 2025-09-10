@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.digitaltwins Digitaltwinsinstances Resourcename
+  description: >-
+    Create or update the metadata of a DigitalTwinsInstance. The usual pattern
+    to modify a property is to retrieve the DigitalTwinsInstance and security
+    metadata, and then combine them with the modified values in a new body to
+    update the DigitalTwinsInstance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.digitaltwins Digitaltwinsinstances Resourcename
+      description: >-
+        Create or update the metadata of a DigitalTwinsInstance. The usual pattern
+        to modify a property is to retrieve the DigitalTwinsInstance and security
+        metadata, and then combine them with the modified values in a new body to
+        update the DigitalTwinsInstance.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{resourceName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.digitaltwins Digitaltwinsinstances Resourcename
+          description: >-
+            Create or update the metadata of a DigitalTwinsInstance. The usual
+            pattern to modify a property is to retrieve the DigitalTwinsInstance and
+            security metadata, and then combine them with the modified values in a
+            new body to update the DigitalTwinsInstance.
+          operationId: digitalTwinsCreateOrUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

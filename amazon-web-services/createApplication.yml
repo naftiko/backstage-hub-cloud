@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Createapplication
+  description: Create application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createapplication
+      description: Create application.
+    paths:
+      /CreateApplication:
+        POST:
+          summary: Createapplication
+          description: Create application.
+          operationId: createApplication

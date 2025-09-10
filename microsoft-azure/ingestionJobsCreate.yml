@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Starts A Job For Ingesting Data Into An Azure Search Index To Be Used As A
+    Data Source For Completions. The Status Of The Ingestion Job Will Be Kept
+    For 48 Hours After Its Completion And Will Be Deleted Afterwards.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Starts A Job For Ingesting Data Into An Azure Search Index To Be Used As A
+        Data Source For Completions. The Status Of The Ingestion Job Will Be Kept
+        For 48 Hours After Its Completion And Will Be Deleted Afterwards.
+      description: Needs a more full description created.
+    paths:
+      /extensions/on-your-data/ingestion-jobs/{jobId}:
+        put:
+          summary: >-
+            Starts A Job For Ingesting Data Into An Azure Search Index To Be Used As
+            A Data Source For Completions. The Status Of The Ingestion Job Will Be
+            Kept For 48 Hours After Its Completion And Will Be Deleted Afterwards.
+          description: Needs a more full description created.
+          operationId: ingestionJobsCreate
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

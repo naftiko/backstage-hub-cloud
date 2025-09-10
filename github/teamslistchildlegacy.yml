@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Child Teams (legacy)
+  description: >-
+    **Deprecation Notice:** This endpoint route is deprecated and will be
+    removed from the Teams API. We recommend migrating your existing code to use
+    the new [`List child
+    teams`](https://docs.github.com/enterprise-server@3.9/rest/teams/teams#list-child-teams)
+    endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Child Teams (legacy)
+      description: >-
+        **Deprecation Notice:** This endpoint route is deprecated and will be
+        removed from the Teams API. We recommend migrating your existing code to use
+        the new [`List child
+        teams`](https://docs.github.com/enterprise-server@3.9/rest/teams/teams#list-child-teams)
+        endpoint.
+    paths:
+      /teams/{team_id}/teams:
+        get:
+          summary: List Child Teams (legacy)
+          description: >-
+            **Deprecation Notice:** This endpoint route is deprecated and will be
+            removed from the Teams API. We recommend migrating your existing code to
+            use the new [`List child
+            teams`](https://docs.github.com/enterprise-server@3.9/rest/teams/teams#list-child-teams)
+            endpoint.
+          operationId: teamslistchildlegacy
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

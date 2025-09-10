@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listcontroldomaininsights
+  description: >-
+    Lists the latest analytics data for control domains across all of your
+    active assessments.   A control domain is listed only if at least one of the
+    controls within that domain collected evidence on the lastUpdated date of
+    controlDomainInsights. If this condition isn’t met, no data is listed for
+    that control domain. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listcontroldomaininsights
+      description: >-
+        Lists the latest analytics data for control domains across all of your
+        active assessments.   A control domain is listed only if at least one of the
+        controls within that domain collected evidence on the lastUpdated date of
+        controlDomainInsights. If this condition isn’t met, no data is listed for
+        that control domain. 
+    paths:
+      /insights/control-domains:
+        GET:
+          summary: Listcontroldomaininsights
+          description: >-
+            Lists the latest analytics data for control domains across all of your
+            active assessments.   A control domain is listed only if at least one of
+            the controls within that domain collected evidence on the lastUpdated
+            date of controlDomainInsights. If this condition isn’t met, no data is
+            listed for that control domain. 
+          operationId: listControlDomainInsights

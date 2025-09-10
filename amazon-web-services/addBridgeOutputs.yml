@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Addbridgeoutputs
+  description: Adds outputs to an existing bridge.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Addbridgeoutputs
+      description: Adds outputs to an existing bridge.
+    paths:
+      /v1/bridges/{bridgeArn}/outputs:
+        POST:
+          summary: Addbridgeoutputs
+          description: Adds outputs to an existing bridge.
+          operationId: addBridgeOutputs

@@ -1,0 +1,169 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Process Payments
+  description: >-
+    Process payments for an order. See [Payment
+    Processing](/docs/store-operations/payments) for more information.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Process Payments
+      description: >-
+        Process payments for an order. See [Payment
+        Processing](/docs/store-operations/payments) for more information.
+    paths:
+      /payments:
+        post:
+          summary: Process Payments
+          description: >-
+            Process payments for an order. See [Payment
+            Processing](/docs/store-operations/payments) for more information.
+          operationId: paymentsPost
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  title: Payment Request
+                  type: object
+                  properties:
+                    payment:
+                      title: Payment
+                      type: object
+                      required:
+                        - instrument
+                        - payment_method_id
+                      properties:
+                        instrument:
+                          anyOf:
+                            - $ref: '#/components/schemas/Card'
+                            - $ref: '#/components/schemas/StoredCard'
+                            - $ref: '#/components/schemas/StoredPayPalAccount'
+                            - $ref: '#/components/schemas/GiftCertificate'
+                            - $ref: '#/components/schemas/StoreCredit'
+                            - $ref: '#/components/schemas/TokenizedCard'
+                            - $ref: '#/components/schemas/StoredBankAccount'
+                        payment_method_id:
+                          description: >-
+                            Identifier for payment method that will be used for this
+                            payment and `id` from the Get Accepted Payment Methods
+                            API
+                          type: string
+                          minLength: 1
+                        save_instrument:
+                          type: boolean
+                          description: >-
+                            To use `save_instrument`, configure the payment gateway
+                            to accept stored cards.
+                  required:
+                    - payment
+                examples:
+                  Card:
+                    value:
+                      payment:
+                        instrument:
+                          type: card
+                          cardholder_name: string
+                          number: string
+                          expiry_month: 1
+                          expiry_year: 0
+                          verification_value: stri
+                          issue_month: 1
+                          issue_year: 0
+                          issue_number: 0
+                        payment_method_id: string
+                  Stored Card:
+                    value:
+                      payment:
+                        instrument:
+                          type: stored_card
+                          token: >-
+                            8cdf7b6ea1b27119463bf9e5106639618cc77a9adc49f0069ca8b756cc15caee
+                          verification_value: '1142'
+                        payment_method_id: adyenv2.scheme
+                        save_instrument: true
+                  Stored PayPal Account:
+                    value:
+                      payment:
+                        instrument:
+                          type: stored_paypal_account
+                          token: >-
+                            2c129313bcffe4501ec5fa2764c8c16320e38c7ba9e8cdf95583b541bb05ad91
+                        payment_method_id: braintree.paypal
+                  Stored Bank Account:
+                    value:
+                      payment:
+                        instrument:
+                          type: stored_bank_account
+                          token: >-
+                            2c129313bcffe4501ec5fa2764c8c16320e38c7ba9e8cdf95583b541bb05ad91
+                        payment_method_id: braintree.ach
+                  Gift Certificate:
+                    value:
+                      payment:
+                        instrument:
+                          type: gift_certificate
+                          gift_certificate_code: ABC-DEF-GXX
+                        payment_method_id: bigcommerce.gift_certificate
+                  Store Credit:
+                    value:
+                      payment:
+                        instrument:
+                          type: store_credit
+                        payment_method_id: bigcommerce.store_credit
+                  Tokenized Card:
+                    value:
+                      payment:
+                        instrument:
+                          type: tokenized_card
+                          token: K7KW-M9GX-6PQ3
+                          iin: 4111111
+                          last_four_digits: 1111
+                          expiration_month: 12
+                          expiration_year: 2030
+                        payment_method_id: bolt.card
+          responses:
+            default:
+              description: Internal server error
+              content:
+                application/json:
+                  schema:
+                    title: Error Payment Response
+                    type: object
+                    properties:
+                      status:
+                        description: HTTP status code
+                        type: integer
+                        format: int32
+                      title:
+                        description: Short summary describing the particular error
+                        type: string
+                      detail:
+                        description: Detailed summary describing the particular error
+                        type: string
+                      type:
+                        description: Reference that identifies the particular error
+                        type: string
+                      code:
+                        description: Code representing the particular error
+                        type: integer
+                        format: int32
+                      errors:
+                        description: ''
+                        type: object
+                        additionalProperties:
+                          type: string
+                    required:
+                      - status
+                      - title
+                      - type

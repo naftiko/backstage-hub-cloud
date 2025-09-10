@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Host Tags
+  description: Return the list of tags that apply to a given host.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Host Tags
+      description: Return the list of tags that apply to a given host.
+    paths:
+      /api/v1/tags/hosts/{host_name}:
+        get:
+          summary: Get Host Tags
+          description: Return the list of tags that apply to a given host.
+          operationId: gethosttags
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

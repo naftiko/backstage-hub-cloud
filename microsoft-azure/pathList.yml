@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Paths
+  description: List filesystem paths and their properties.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Paths
+      description: List filesystem paths and their properties.
+    paths:
+      /{filesystem}:
+        get:
+          summary: List Paths
+          description: List filesystem paths and their properties.
+          operationId: pathList
+          responses:
+            default:
+              $ref: '#/responses/ErrorResponse'

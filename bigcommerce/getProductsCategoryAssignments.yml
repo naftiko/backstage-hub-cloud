@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Products Category Assignments
+  description: Returns a list of products category assignments.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Products Category Assignments
+      description: Returns a list of products category assignments.
+    paths:
+      /catalog/products/category-assignments:
+        get:
+          summary: Get Products Category Assignments
+          description: Returns a list of products category assignments.
+          operationId: getProductsCategoryAssignments
+          responses:
+            '200':
+              description: Collection of category assignments.
+              content:
+                application/json:
+                  schema:
+                    title: Get Products Category Assignments Response
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ProductCategoryAssignment'
+                      meta:
+                        $ref: '#/components/schemas/MetaPaginationObject'

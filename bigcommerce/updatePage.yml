@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Page
+  description: Updates one content page.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Page
+      description: Updates one content page.
+    paths:
+      /content/pages/{pageId}:
+        put:
+          summary: Update A Page
+          description: Updates one content page.
+          operationId: updatePage
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/PagePut'
+          responses:
+            '422':
+              description: >-
+                The input was not valid. This error is the result of missing
+                required fields or other invalid arguments. See the response for
+                more details.
+              content:
+                application/problem+json:
+                  schema:
+                    $ref: '#/components/schemas/ResponseErrorDetailed'

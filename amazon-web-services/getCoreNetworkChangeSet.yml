@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getcorenetworkchangeset
+  description: >-
+    Returns a change set between the LIVE core network policy and a submitted
+    policy.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getcorenetworkchangeset
+      description: >-
+        Returns a change set between the LIVE core network policy and a submitted
+        policy.
+    paths:
+      /core-networks/{coreNetworkId}/core-network-change-sets/{policyVersionId}:
+        GET:
+          summary: Getcorenetworkchangeset
+          description: >-
+            Returns a change set between the LIVE core network policy and a
+            submitted policy.
+          operationId: getCoreNetworkChangeSet

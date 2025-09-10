@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Assistants Restore
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Assistants Restore
+      description: Needs a more full description created.
+    paths:
+      /v1/Assistants/Restore:
+        post:
+          summary: Post Assistants Restore
+          description: Needs a more full description created.
+          operationId: updateRestoreAssistant
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - Assistant
+                  $ref: '#/components/schemas/UpdateRestoreAssistantRequest'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/autopilot.v1.restore_assistant'
+              description: OK

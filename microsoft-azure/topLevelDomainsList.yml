@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Top-level Domains Supported For Registration.
+  description: Description for Get all top-level domains supported for registration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Top-level Domains Supported For Registration.
+      description: Description for Get all top-level domains supported for registration.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.DomainRegistration/topLevelDomains:
+        get:
+          summary: Get All Top-level Domains Supported For Registration.
+          description: Description for Get all top-level domains supported for registration.
+          operationId: topLevelDomainsList
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: >-
+                  ../../../Microsoft.Web/stable/2023-01-01/CommonDefinitions.json#/definitions/DefaultErrorResponse

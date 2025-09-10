@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Putconfigurationsetvdmoptions
+  description: >-
+    Specify VDM preferences for email that you send using the configuration set.
+    You can execute this operation no more than once per second.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putconfigurationsetvdmoptions
+      description: >-
+        Specify VDM preferences for email that you send using the configuration set.
+        You can execute this operation no more than once per second.
+    paths:
+      /v2/email/configuration-sets/{ConfigurationSetName}/vdm-options:
+        PUT:
+          summary: Putconfigurationsetvdmoptions
+          description: >-
+            Specify VDM preferences for email that you send using the configuration
+            set. You can execute this operation no more than once per second.
+          operationId: putConfigurationSetVdmOptions

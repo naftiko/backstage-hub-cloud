@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Worklog Property
+  description: >-
+    Returns the value of a worklog property.This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** *  *Browse projects*
+    [project permission](https://confluence.atlassian.com/x/yodKLg) for the
+    project that the issue is in. *  If [issue-level
+    security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+    issue-level security permission to view the issue. *  If the worklog has
+    visibility restrictions, belongs to the group or has the role visibility is
+    restricted to.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Worklog Property
+      description: >-
+        Returns the value of a worklog property.This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** *  *Browse projects*
+        [project permission](https://confluence.atlassian.com/x/yodKLg) for the
+        project that the issue is in. *  If [issue-level
+        security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+        issue-level security permission to view the issue. *  If the worklog has
+        visibility restrictions, belongs to the group or has the role visibility is
+        restricted to.
+    paths:
+      /rest/api/3/issue/{issueIdOrKey}/worklog/{worklogId}/properties/{propertyKey}:
+        get:
+          summary: Get Worklog Property
+          description: >-
+            Returns the value of a worklog property.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** *  *Browse
+            projects* [project
+            permission](https://confluence.atlassian.com/x/yodKLg) for the project
+            that the issue is in. *  If [issue-level
+            security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+            issue-level security permission to view the issue. *  If the worklog has
+            visibility restrictions, belongs to the group or has the role visibility
+            is restricted to.
+          operationId: getWorklogProperty
+          responses:
+            '404':
+              description: |-
+                Returned if:
+
+                 *  the issue, worklog, or property is not found.
+                 *  the user does not have permission to view the issue or worklog.

@@ -1,0 +1,74 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Product Variant
+  description: >-
+    Creates a *Product Variant*.**Required Fields*** sku*
+    option_values**Read-Only Fields*** id**Limits*** 600 SKUs per product
+    limit.* 255 characters SKU length limit.Variants need to be created one at a
+    time using this endpoint. To use a variant array, create products, and
+    variants in the same call use the [Create
+    Products](/docs/rest-catalog/products#create-a-product) endpoint during the
+    initial product creation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Product Variant
+      description: >-
+        Creates a *Product Variant*.**Required Fields*** sku*
+        option_values**Read-Only Fields*** id**Limits*** 600 SKUs per product
+        limit.* 255 characters SKU length limit.Variants need to be created one at a
+        time using this endpoint. To use a variant array, create products, and
+        variants in the same call use the [Create
+        Products](/docs/rest-catalog/products#create-a-product) endpoint during the
+        initial product creation.
+    paths:
+      /catalog/products/{product_id}/variants:
+        post:
+          summary: Create A Product Variant
+          description: >-
+            Creates a *Product Variant*.**Required Fields*** sku*
+            option_values**Read-Only Fields*** id**Limits*** 600 SKUs per product
+            limit.* 255 characters SKU length limit.Variants need to be created one
+            at a time using this endpoint. To use a variant array, create products,
+            and variants in the same call use the [Create
+            Products](/docs/rest-catalog/products#create-a-product) endpoint during
+            the initial product creation.
+          operationId: createProductVariant
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/productVariant_Post'
+          responses:
+            '404':
+              description: |
+                The resource was not found.
+              content:
+                application/json:
+                  schema:
+                    title: Not Found
+                    type: object
+                    properties:
+                      status:
+                        type: integer
+                        description: |
+                          404 HTTP status code.
+                      title:
+                        type: string
+                        description: The error title describing the particular error.
+                      type:
+                        type: string
+                      instance:
+                        type: string
+                    description: Error payload for the BigCommerce API.

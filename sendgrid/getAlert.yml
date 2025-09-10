@@ -1,0 +1,78 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve A Specific Alert
+  description: '**This endpoint allows you to retrieve a specific alert.**'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve A Specific Alert
+      description: '**This endpoint allows you to retrieve a specific alert.**'
+    paths:
+      /v3/alerts/{alert_id}:
+        get:
+          summary: Retrieve A Specific Alert
+          description: '**This endpoint allows you to retrieve a specific alert.**'
+          operationId: getAlert
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      created_at:
+                        type: integer
+                        description: A Unix timestamp indicating when the alert was created.
+                      email_to:
+                        type: string
+                        description: The email address that the alert will be sent to.
+                      frequency:
+                        type: string
+                        description: >-
+                          If the alert is of type stats_notification, this indicates
+                          how frequently the stats notifications will be sent. For
+                          example: "daily", "weekly", or "monthly".
+                      id:
+                        type: integer
+                        description: The ID of the alert.
+                      type:
+                        type: string
+                        description: The type of alert.
+                        $ref: '#/components/schemas/Type2'
+                      updated_at:
+                        type: integer
+                        description: >-
+                          A Unix timestamp indicating when the alert was last
+                          modified.
+                      percentage:
+                        type: integer
+                        description: >-
+                          If the alert is of type usage_limit, this indicates the
+                          percentage of email usage that must be reached before the
+                          alert will be sent.
+                    required:
+                      - created_at
+                      - email_to
+                      - id
+                      - type
+                      - updated_at
+                  examples:
+                    response:
+                      value:
+                        created_at: 1451520930
+                        email_to: example@example.com
+                        frequency: daily
+                        id: 48
+                        type: stats_notification
+                        updated_at: 1451520930

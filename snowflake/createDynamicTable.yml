@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Dynamic Table
+  description: >-
+    Create a dynamic table, with standard create modifiers as query parameters.
+    See the Dynamic Table component definition for what is required to be
+    provided in the request body.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Dynamic Table
+      description: >-
+        Create a dynamic table, with standard create modifiers as query parameters.
+        See the Dynamic Table component definition for what is required to be
+        provided in the request body.
+    paths:
+      /api/v2/databases/{database}/schemas/{schema}/dynamic-tables:
+        post:
+          summary: Create A Dynamic Table
+          description: >-
+            Create a dynamic table, with standard create modifiers as query
+            parameters. See the Dynamic Table component definition for what is
+            required to be provided in the request body.
+          operationId: createDynamicTable
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/DynamicTable'
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

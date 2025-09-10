@@ -1,0 +1,72 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Mark Repository Notifications As Read
+  description: >-
+    Marks all notifications in a repository as "read" for the current user. If
+    the number of notifications is too large to complete in one request, you
+    will receive a `202 Accepted` status and GitHub Enterprise Server will run
+    an asynchronous process to mark notifications as "read." To check whether
+    any "unread" notifications remain, you can use the [List repository
+    notifications for the authenticated
+    user](https://docs.github.com/enterprise-server@3.9/rest/activity/notifications#list-repository-notifications-for-the-authenticated-user)
+    endpoint and pass the query parameter `all=false`.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Mark Repository Notifications As Read
+      description: >-
+        Marks all notifications in a repository as "read" for the current user. If
+        the number of notifications is too large to complete in one request, you
+        will receive a `202 Accepted` status and GitHub Enterprise Server will run
+        an asynchronous process to mark notifications as "read." To check whether
+        any "unread" notifications remain, you can use the [List repository
+        notifications for the authenticated
+        user](https://docs.github.com/enterprise-server@3.9/rest/activity/notifications#list-repository-notifications-for-the-authenticated-user)
+        endpoint and pass the query parameter `all=false`.
+    paths:
+      /repos/{owner}/{repo}/notifications:
+        put:
+          summary: Mark Repository Notifications As Read
+          description: >-
+            Marks all notifications in a repository as "read" for the current user.
+            If the number of notifications is too large to complete in one request,
+            you will receive a `202 Accepted` status and GitHub Enterprise Server
+            will run an asynchronous process to mark notifications as "read." To
+            check whether any "unread" notifications remain, you can use the [List
+            repository notifications for the authenticated
+            user](https://docs.github.com/enterprise-server@3.9/rest/activity/notifications#list-repository-notifications-for-the-authenticated-user)
+            endpoint and pass the query parameter `all=false`.
+          operationId: markRepositoryNotificationsAsRead
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    last_read_at:
+                      type: string
+                      format: date-time
+                      description: >-
+                        Describes the last point that notifications were checked.
+                        Anything updated since this time will not be marked as read.
+                        If you omit this parameter, all notifications are marked as
+                        read. This is a timestamp in [ISO
+                        8601](https://en.wikipedia.org/wiki/ISO_8601) format:
+                        `YYYY-MM-DDTHH:MM:SSZ`. Default: The current timestamp.
+                examples:
+                  default:
+                    value:
+                      last_read_at: '2019-01-01T00:00:00Z'
+          responses:
+            '205':
+              description: Reset Content

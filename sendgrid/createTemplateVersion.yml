@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A New Transactional Template Version.
+  description: '**This endpoint allows you to create a new version of a template.**'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A New Transactional Template Version.
+      description: '**This endpoint allows you to create a new version of a template.**'
+    paths:
+      /v3/templates/{template_id}/versions:
+        post:
+          summary: Create A New Transactional Template Version.
+          description: '**This endpoint allows you to create a new version of a template.**'
+          operationId: createTemplateVersion
+          requestBody: {}
+          responses:
+            '201':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/TransactionalTemplateVersionOutput'
+                  examples:
+                    response:
+                      value:
+                        id: 8aefe0ee-f12b-4575-b5b7-c97e21cb36f3
+                        template_id: ddb96bbc-9b92-425e-8979-99464621b543
+                        active: 1
+                        name: example_version_name
+                        html_content: <%body%>
+                        plain_content: <%body%>
+                        generate_plain_content: true
+                        subject: <%subject%>
+                        updated_at: '2019-03-13 18:56:33'
+                        editor: code

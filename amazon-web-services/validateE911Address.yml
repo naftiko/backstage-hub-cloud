@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Validatee911address
+  description: >-
+    Validates an address to be used for 911 calls made with Amazon Chime SDK
+    Voice Connectors. You can use validated addresses in a Presence Information
+    Data Format Location Object file that you include in SIP requests. That
+    helps ensure that addresses are routed to the appropriate Public Safety
+    Answering Point.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Validatee911address
+      description: >-
+        Validates an address to be used for 911 calls made with Amazon Chime SDK
+        Voice Connectors. You can use validated addresses in a Presence Information
+        Data Format Location Object file that you include in SIP requests. That
+        helps ensure that addresses are routed to the appropriate Public Safety
+        Answering Point.
+    paths:
+      /emergency-calling/address:
+        POST:
+          summary: Validatee911address
+          description: >-
+            Validates an address to be used for 911 calls made with Amazon Chime SDK
+            Voice Connectors. You can use validated addresses in a Presence
+            Information Data Format Location Object file that you include in SIP
+            requests. That helps ensure that addresses are routed to the appropriate
+            Public Safety Answering Point.
+          operationId: validateE911Address

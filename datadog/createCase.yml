@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Case
+  description: Create a Case
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Case
+      description: Create a Case
+    paths:
+      /api/v2/cases:
+        post:
+          summary: Create A Case
+          description: Create a Case
+          operationId: createCase
+          requestBody:
+            description: Case payload
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/CaseCreateRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

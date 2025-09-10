@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Connectionpolicies Connectionpolicysid Targets
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Connectionpolicies Connectionpolicysid Targets
+      description: Needs a more full description created.
+    paths:
+      /v1/ConnectionPolicies/{ConnectionPolicySid}/Targets:
+        post:
+          summary: Post Connectionpolicies Connectionpolicysid Targets
+          description: Needs a more full description created.
+          operationId: createConnectionPolicyTarget
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateConnectionPolicyTargetRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: >-
+                      #/components/schemas/voice.v1.connection_policy.connection_policy_target
+              description: Created

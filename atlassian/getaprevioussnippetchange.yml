@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Previous Snippet Change
+  description: Returns the changes made on this snippet in this commit.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Previous Snippet Change
+      description: Returns the changes made on this snippet in this commit.
+    paths:
+      /snippets/{workspace}/{encoded_id}/commits/{revision}:
+        get:
+          summary: Get A Previous Snippet Change
+          description: Returns the changes made on this snippet in this commit.
+          operationId: getaprevioussnippetchange
+          responses:
+            '404':
+              description: If the commit or the snippet does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

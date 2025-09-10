@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.sql Servers Servername Connectionpolicies Connectionpolicyname
+  description: Creates or updates the server's connection policy.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.sql Servers Servername Connectionpolicies Connectionpolicyname
+      description: Creates or updates the server's connection policy.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/connectionPolicies/{connectionPolicyName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.sql Servers Servername Connectionpolicies
+            Connectionpolicyname
+          description: Creates or updates the server's connection policy.
+          operationId: serverConnectionPoliciesCreateOrUpdate
+          responses:
+            '201':
+              description: Created
+              schema:
+                $ref: '#/definitions/ServerConnectionPolicy'

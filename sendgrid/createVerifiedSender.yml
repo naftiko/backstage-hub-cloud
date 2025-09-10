@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Verified Sender Request
+  description: >-
+    **This endpoint allows you to create a new Sender Identify**.Upon successful
+    submission of a `POST` request to this endpoint, an identity will be
+    created, and a verification email will be sent to the address assigned to
+    the `from_email` field. You must complete the verification process using the
+    sent email to fully verify the sender.If you need to resend the verification
+    email, you can do so with the Resend Verified Sender Request,
+    `/resend/{id}`, endpoint.If you need to authenticate a domain rather than a
+    Single Sender, see the [Domain Authentication
+    API](https://docs.sendgrid.com/api-reference/domain-authentication/authenticate-a-domain).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Verified Sender Request
+      description: >-
+        **This endpoint allows you to create a new Sender Identify**.Upon successful
+        submission of a `POST` request to this endpoint, an identity will be
+        created, and a verification email will be sent to the address assigned to
+        the `from_email` field. You must complete the verification process using the
+        sent email to fully verify the sender.If you need to resend the verification
+        email, you can do so with the Resend Verified Sender Request,
+        `/resend/{id}`, endpoint.If you need to authenticate a domain rather than a
+        Single Sender, see the [Domain Authentication
+        API](https://docs.sendgrid.com/api-reference/domain-authentication/authenticate-a-domain).
+    paths:
+      /v3/verified_senders:
+        post:
+          summary: Create Verified Sender Request
+          description: >-
+            **This endpoint allows you to create a new Sender Identify**.Upon
+            successful submission of a `POST` request to this endpoint, an identity
+            will be created, and a verification email will be sent to the address
+            assigned to the `from_email` field. You must complete the verification
+            process using the sent email to fully verify the sender.If you need to
+            resend the verification email, you can do so with the Resend Verified
+            Sender Request, `/resend/{id}`, endpoint.If you need to authenticate a
+            domain rather than a Single Sender, see the [Domain Authentication
+            API](https://docs.sendgrid.com/api-reference/domain-authentication/authenticate-a-domain).
+          operationId: createVerifiedSender
+          requestBody: {}
+          responses:
+            '500':
+              $ref: '#/components/responses/VerifiedSenders500'

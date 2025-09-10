@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Remove User From Group
+  description: >-
+    Removes a user from a group.**[Permissions](#permissions) required:** Site
+    administration (that is, member of the *site-admin*
+    [group](https://confluence.atlassian.com/x/24xjL)).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Remove User From Group
+      description: >-
+        Removes a user from a group.**[Permissions](#permissions) required:** Site
+        administration (that is, member of the *site-admin*
+        [group](https://confluence.atlassian.com/x/24xjL)).
+    paths:
+      /rest/api/3/group/user:
+        delete:
+          summary: Remove User From Group
+          description: >-
+            Removes a user from a group.**[Permissions](#permissions) required:**
+            Site administration (that is, member of the *site-admin*
+            [group](https://confluence.atlassian.com/x/24xjL)).
+          operationId: removeUserFromGroup
+          responses:
+            '404':
+              description: Returned if the group or user are not found.

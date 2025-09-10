@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Product Metafield
+  description: "Updates a *Product Metafield*.**Required Fields*** none**Read-Only Fields*** id* These fields can only be modified using the API account that created the metafield:\t* `namespace`\t* `key`\t* `permission_set`\t* `value`**Usage Notes*** Attempting to modify the `namespace`, `key`, `permission_set`, or `value` field using an API account different from the one used to create those metafields will result in a `403` error message. "
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Product Metafield
+      description: "Updates a *Product Metafield*.**Required Fields*** none**Read-Only Fields*** id* These fields can only be modified using the API account that created the metafield:\t* `namespace`\t* `key`\t* `permission_set`\t* `value`**Usage Notes*** Attempting to modify the `namespace`, `key`, `permission_set`, or `value` field using an API account different from the one used to create those metafields will result in a `403` error message. "
+    paths:
+      /catalog/products/{product_id}/metafields/{metafield_id}:
+        put:
+          summary: Update A Product Metafield
+          description: "Updates a *Product Metafield*.**Required Fields*** none**Read-Only Fields*** id* These fields can only be modified using the API account that created the metafield:\t* `namespace`\t* `key`\t* `permission_set`\t* `value`**Usage Notes*** Attempting to modify the `namespace`, `key`, `permission_set`, or `value` field using an API account different from the one used to create those metafields will result in a `403` error message. "
+          operationId: updateProductMetafield
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/metafield_Base'
+          responses:
+            '404':
+              description: |
+                The resource was not found.
+              content:
+                application/json:
+                  schema:
+                    title: Not Found
+                    type: object
+                    properties:
+                      status:
+                        type: integer
+                        description: |
+                          404 HTTP status code.
+                      title:
+                        type: string
+                        description: The error title describing the particular error.
+                      type:
+                        type: string
+                      instance:
+                        type: string
+                    description: Error payload for the BigCommerce API.

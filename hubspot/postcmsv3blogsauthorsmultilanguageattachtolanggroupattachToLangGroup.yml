@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Attach A Blog Author To A Multi-language Group
+  description: Attach a Blog Author to a multi-language group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Attach A Blog Author To A Multi-language Group
+      description: Attach a Blog Author to a multi-language group.
+    paths:
+      /cms/v3/blogs/authors/multi-language/attach-to-lang-group:
+        post:
+          summary: Attach A Blog Author To A Multi-language Group
+          description: Attach a Blog Author to a multi-language group.
+          operationId: postcmsv3blogsauthorsmultilanguageattachtolanggroupattachToLangGroup
+          requestBody:
+            description: The JSON representation of the AttachToLangPrimaryRequest object.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/AttachToLangPrimaryRequestVNext'
+          responses:
+            default:
+              $ref: '#/components/responses/Error'

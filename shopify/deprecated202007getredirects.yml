@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Retrieves A List Of Url Redirects. Note: As Of Version 2019-10, This
+    Endpoint Implements Pagination By Using Links That Are Provided In The
+    Response Header. Sending The Page Parameter Will Return An Error. To Learn
+    More, See Making Requests To Paginated Rest Admin Api Endpoints.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/online-store/redirect#index-2020-07
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Retrieves A List Of Url Redirects. Note: As Of Version 2019-10, This
+        Endpoint Implements Pagination By Using Links That Are Provided In The
+        Response Header. Sending The Page Parameter Will Return An Error. To Learn
+        More, See Making Requests To Paginated Rest Admin Api Endpoints.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/online-store/redirect#index-2020-07
+    paths:
+      /admin/api/2020-07/redirects.json:
+        get:
+          summary: >-
+            Retrieves A List Of Url Redirects. Note: As Of Version 2019-10, This
+            Endpoint Implements Pagination By Using Links That Are Provided In The
+            Response Header. Sending The Page Parameter Will Return An Error. To
+            Learn More, See Making Requests To Paginated Rest Admin Api Endpoints.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/online-store/redirect#index-2020-07
+          operationId: deprecated202007getredirects
+          responses:
+            '200':
+              description: ''

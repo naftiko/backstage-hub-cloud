@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Radar Value_list_items Item
+  description: Deletes a ValueListItem object, removing it from its parent value list.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Radar Value_list_items Item
+      description: Deletes a ValueListItem object, removing it from its parent value list.
+    paths:
+      /v1/radar/value_list_items/{item}:
+        delete:
+          summary: Delete Radar Value_list_items Item
+          description: Deletes a ValueListItem object, removing it from its parent value list.
+          operationId: deleteRadarValueListItemsItem
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/DeleteRadarValueListItemsItemRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

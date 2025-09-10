@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete An Environment
+  description: Delete an environment
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete An Environment
+      description: Delete an environment
+    paths:
+      /repositories/{workspace}/{repo_slug}/environments/{environment_uuid}:
+        delete:
+          summary: Delete An Environment
+          description: Delete an environment
+          operationId: deleteEnvironmentForRepository
+          responses:
+            '404':
+              description: No account or repository with the UUID provided exists.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listplacements
+  description: Lists the placement(s) of a project.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listplacements
+      description: Lists the placement(s) of a project.
+    paths:
+      /projects/{projectName}/placements:
+        GET:
+          summary: Listplacements
+          description: Lists the placement(s) of a project.
+          operationId: listPlacements

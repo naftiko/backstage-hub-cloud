@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.compute Cloudservices Cloudservicename Roleinstances
+    Roleinstancename Rebuild
+  description: >-
+    The Rebuild Role Instance asynchronous operation reinstalls the operating
+    system on instances of web roles or worker roles and initializes the storage
+    resources that are used by them. If you do not want to initialize storage
+    resources, you can use Reimage Role Instance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.compute Cloudservices Cloudservicename Roleinstances
+        Roleinstancename Rebuild
+      description: >-
+        The Rebuild Role Instance asynchronous operation reinstalls the operating
+        system on instances of web roles or worker roles and initializes the storage
+        resources that are used by them. If you do not want to initialize storage
+        resources, you can use Reimage Role Instance.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/rebuild:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.compute Cloudservices Cloudservicename Roleinstances
+            Roleinstancename Rebuild
+          description: >-
+            The Rebuild Role Instance asynchronous operation reinstalls the
+            operating system on instances of web roles or worker roles and
+            initializes the storage resources that are used by them. If you do not
+            want to initialize storage resources, you can use Reimage Role Instance.
+          operationId: cloudServiceRoleInstancesRebuild
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: ./common.json#/definitions/CloudError

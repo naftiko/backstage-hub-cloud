@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add Group To Content Restriction
+  description: >-
+    Deprecated, use [Add group to content restriction via
+    groupId](https://developer.atlassian.com/cloud/confluence/rest/v1/api-group-content-restrictions/#api-wiki-rest-api-content-id-restriction-byoperation-operationkey-bygroupid-groupid-put).Adds
+    a group to a content restriction. That is, grant read or updatepermission to
+    the group for a piece of
+    content.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to edit the content.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add Group To Content Restriction
+      description: >-
+        Deprecated, use [Add group to content restriction via
+        groupId](https://developer.atlassian.com/cloud/confluence/rest/v1/api-group-content-restrictions/#api-wiki-rest-api-content-id-restriction-byoperation-operationkey-bygroupid-groupid-put).Adds
+        a group to a content restriction. That is, grant read or updatepermission to
+        the group for a piece of
+        content.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to edit the content.
+    paths:
+      /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/group/{groupName}:
+        put:
+          summary: Add Group To Content Restriction
+          description: >-
+            Deprecated, use [Add group to content restriction via
+            groupId](https://developer.atlassian.com/cloud/confluence/rest/v1/api-group-content-restrictions/#api-wiki-rest-api-content-id-restriction-byoperation-operationkey-bygroupid-groupid-put).Adds
+            a group to a content restriction. That is, grant read or
+            updatepermission to the group for a piece of
+            content.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to edit the content.
+          operationId: addGroupToContentRestriction
+          responses:
+            '404':
+              description: |-
+                Returned if;
+
+                - There is no content with the given ID.
+                - The calling user does not have permission to view the content.
+                - An invalid operation or group is specified.
+              content: {}

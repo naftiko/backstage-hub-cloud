@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Createjobqueue
+  description: >-
+    Creates an Batch job queue. When you create a job queue, you associate one
+    or more compute environments to the queue and assign an order of preference
+    for the compute environments. You also set a priority to the job queue that
+    determines the order that the Batch scheduler places jobs onto its
+    associated compute environments. For example, if a compute environment is
+    associated with more than one job queue, the job queue with a higher
+    priority is given preference for scheduling jobs to that compute
+    environment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createjobqueue
+      description: >-
+        Creates an Batch job queue. When you create a job queue, you associate one
+        or more compute environments to the queue and assign an order of preference
+        for the compute environments. You also set a priority to the job queue that
+        determines the order that the Batch scheduler places jobs onto its
+        associated compute environments. For example, if a compute environment is
+        associated with more than one job queue, the job queue with a higher
+        priority is given preference for scheduling jobs to that compute
+        environment.
+    paths:
+      /v1/createjobqueue:
+        POST:
+          summary: Createjobqueue
+          description: >-
+            Creates an Batch job queue. When you create a job queue, you associate
+            one or more compute environments to the queue and assign an order of
+            preference for the compute environments. You also set a priority to the
+            job queue that determines the order that the Batch scheduler places jobs
+            onto its associated compute environments. For example, if a compute
+            environment is associated with more than one job queue, the job queue
+            with a higher priority is given preference for scheduling jobs to that
+            compute environment.
+          operationId: createJobQueue

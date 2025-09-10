@@ -1,0 +1,74 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Admin.users.remove
+  description: Remove a user from a workspace.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Admin.users.remove
+      description: Remove a user from a workspace.
+    paths:
+      /admin.users.remove:
+        post:
+          summary: Post Admin.users.remove
+          description: Remove a user from a workspace.
+          operationId: adminusersremove
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - team_id
+                    - user_id
+                  type: object
+                  properties:
+                    team_id:
+                      type: string
+                      description: The ID (`T1234`) of the workspace.
+                    user_id:
+                      type: string
+                      description: The ID of the user to remove.
+              application/json:
+                schema:
+                  required:
+                    - team_id
+                    - user_id
+                  type: object
+                  properties:
+                    team_id:
+                      type: string
+                      description: The ID (`T1234`) of the workspace.
+                    user_id:
+                      type: string
+                      description: The ID of the user to remove.
+          responses:
+            default:
+              description: Typical error response
+              content:
+                application/json:
+                  schema:
+                    title: Default error template
+                    required:
+                      - ok
+                    type: object
+                    properties:
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                    additionalProperties: true
+                    description: >-
+                      This method either only returns a brief _not OK_ response or a
+                      verbose schema is not available for this method.
+                  example:
+                    error: invalid_auth
+                    ok: false

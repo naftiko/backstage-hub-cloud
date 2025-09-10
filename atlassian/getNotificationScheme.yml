@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Notification Scheme
+  description: >-
+    Returns a [notification scheme](https://confluence.atlassian.com/x/8YdKLg),
+    including the list of events and the recipients who will receive
+    notifications for those events.**[Permissions](#permissions) required:**
+    Permission to access Jira, however, the user must have permission to
+    administer at least one project associated with the notification scheme.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Notification Scheme
+      description: >-
+        Returns a [notification scheme](https://confluence.atlassian.com/x/8YdKLg),
+        including the list of events and the recipients who will receive
+        notifications for those events.**[Permissions](#permissions) required:**
+        Permission to access Jira, however, the user must have permission to
+        administer at least one project associated with the notification scheme.
+    paths:
+      /rest/api/3/notificationscheme/{id}:
+        get:
+          summary: Get Notification Scheme
+          description: >-
+            Returns a [notification
+            scheme](https://confluence.atlassian.com/x/8YdKLg), including the list
+            of events and the recipients who will receive notifications for those
+            events.**[Permissions](#permissions) required:** Permission to access
+            Jira, however, the user must have permission to administer at least one
+            project associated with the notification scheme.
+          operationId: getNotificationScheme
+          responses:
+            '404':
+              description: >-
+                Returned if the notification scheme is not found or the user does
+                not have permission to view it.

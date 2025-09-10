@@ -1,0 +1,192 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Chat.update
+  description: Updates a message.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Chat.update
+      description: Updates a message.
+    paths:
+      /chat.update:
+        post:
+          summary: Post Chat.update
+          description: Updates a message.
+          operationId: chatupdate
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - channel
+                    - ts
+                  type: object
+                  properties:
+                    as_user:
+                      type: string
+                      description: >-
+                        Pass true to update the message as the authed user. [Bot
+                        users](/bot-users) in this context are considered authed
+                        users.
+                    attachments:
+                      type: string
+                      description: >-
+                        A JSON-based array of structured attachments, presented as a
+                        URL-encoded string. This field is required when not
+                        presenting `text`. If you don't include this field, the
+                        message's previous `attachments` will be retained. To remove
+                        previous `attachments`, include an empty array for this
+                        field.
+                    blocks:
+                      type: string
+                      description: >-
+                        A JSON-based array of [structured
+                        blocks](/block-kit/building), presented as a URL-encoded
+                        string. If you don't include this field, the message's
+                        previous `blocks` will be retained. To remove previous
+                        `blocks`, include an empty array for this field.
+                    channel:
+                      type: string
+                      description: Channel containing the message to be updated.
+                    link_names:
+                      type: string
+                      description: >-
+                        Find and link channel names and usernames. Defaults to
+                        `none`. If you do not specify a value for this field, the
+                        original value set for the message will be overwritten with
+                        the default, `none`.
+                    parse:
+                      type: string
+                      description: >-
+                        Change how messages are treated. Defaults to `client`,
+                        unlike `chat.postMessage`. Accepts either `none` or `full`.
+                        If you do not specify a value for this field, the original
+                        value set for the message will be overwritten with the
+                        default, `client`.
+                    text:
+                      type: string
+                      description: >-
+                        New text for the message, using the [default formatting
+                        rules](/reference/surfaces/formatting). It's not required
+                        when presenting `blocks` or `attachments`.
+                    ts:
+                      type: string
+                      description: Timestamp of the message to be updated.
+              application/json:
+                schema:
+                  required:
+                    - channel
+                    - ts
+                  type: object
+                  properties:
+                    as_user:
+                      type: string
+                      description: >-
+                        Pass true to update the message as the authed user. [Bot
+                        users](/bot-users) in this context are considered authed
+                        users.
+                    attachments:
+                      type: string
+                      description: >-
+                        A JSON-based array of structured attachments, presented as a
+                        URL-encoded string. This field is required when not
+                        presenting `text`. If you don't include this field, the
+                        message's previous `attachments` will be retained. To remove
+                        previous `attachments`, include an empty array for this
+                        field.
+                    blocks:
+                      type: string
+                      description: >-
+                        A JSON-based array of [structured
+                        blocks](/block-kit/building), presented as a URL-encoded
+                        string. If you don't include this field, the message's
+                        previous `blocks` will be retained. To remove previous
+                        `blocks`, include an empty array for this field.
+                    channel:
+                      type: string
+                      description: Channel containing the message to be updated.
+                    link_names:
+                      type: string
+                      description: >-
+                        Find and link channel names and usernames. Defaults to
+                        `none`. If you do not specify a value for this field, the
+                        original value set for the message will be overwritten with
+                        the default, `none`.
+                    parse:
+                      type: string
+                      description: >-
+                        Change how messages are treated. Defaults to `client`,
+                        unlike `chat.postMessage`. Accepts either `none` or `full`.
+                        If you do not specify a value for this field, the original
+                        value set for the message will be overwritten with the
+                        default, `client`.
+                    text:
+                      type: string
+                      description: >-
+                        New text for the message, using the [default formatting
+                        rules](/reference/surfaces/formatting). It's not required
+                        when presenting `blocks` or `attachments`.
+                    ts:
+                      type: string
+                      description: Timestamp of the message to be updated.
+          responses:
+            default:
+              description: Typical error response
+              content:
+                application/json:
+                  schema:
+                    title: chat.update error schema
+                    required:
+                      - error
+                      - ok
+                    type: object
+                    properties:
+                      callstack:
+                        type: string
+                        description: 'Note: PHP callstack is only visible in dev/qa'
+                      error:
+                        type: string
+                        enum:
+                          - message_not_found
+                          - cant_update_message
+                          - channel_not_found
+                          - edit_window_closed
+                          - msg_too_long
+                          - too_many_attachments
+                          - rate_limited
+                          - no_text
+                          - not_authed
+                          - invalid_auth
+                          - account_inactive
+                          - token_revoked
+                          - no_permission
+                          - invalid_arg_name
+                          - invalid_array_arg
+                          - invalid_charset
+                          - invalid_form_data
+                          - invalid_post_type
+                          - missing_post_type
+                          - request_timeout
+                          - invalid_json
+                          - json_not_object
+                          - upgrade_required
+                          - fatal_error
+                          - is_inactive
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                    additionalProperties: false
+                    description: Schema for error response chat.update method
+                  example:
+                    error: cant_update_message
+                    ok: false

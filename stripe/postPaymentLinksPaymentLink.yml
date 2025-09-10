@@ -1,0 +1,81 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Payment_links Payment_link
+  description: Updates a payment link.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Payment_links Payment_link
+      description: Updates a payment link.
+    paths:
+      /v1/payment_links/{payment_link}:
+        post:
+          summary: Post Payment_links Payment_link
+          description: Updates a payment link.
+          operationId: postPaymentLinksPaymentLink
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  after_completion:
+                    explode: true
+                    style: deepObject
+                  automatic_tax:
+                    explode: true
+                    style: deepObject
+                  custom_fields:
+                    explode: true
+                    style: deepObject
+                  custom_text:
+                    explode: true
+                    style: deepObject
+                  expand:
+                    explode: true
+                    style: deepObject
+                  inactive_message:
+                    explode: true
+                    style: deepObject
+                  invoice_creation:
+                    explode: true
+                    style: deepObject
+                  line_items:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                  payment_intent_data:
+                    explode: true
+                    style: deepObject
+                  payment_method_types:
+                    explode: true
+                    style: deepObject
+                  restrictions:
+                    explode: true
+                    style: deepObject
+                  shipping_address_collection:
+                    explode: true
+                    style: deepObject
+                  subscription_data:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostPaymentLinksPaymentLinkRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

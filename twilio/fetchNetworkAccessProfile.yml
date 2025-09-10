@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Networkaccessprofiles Sid
+  description: Fetch a Network Access Profile instance from your account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Networkaccessprofiles Sid
+      description: Fetch a Network Access Profile instance from your account.
+    paths:
+      /v1/NetworkAccessProfiles/{Sid}:
+        get:
+          summary: Get Networkaccessprofiles Sid
+          description: Fetch a Network Access Profile instance from your account.
+          operationId: fetchNetworkAccessProfile
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/supersim.v1.network_access_profile'
+              description: OK

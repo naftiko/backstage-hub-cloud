@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Variable For An Environment
+  description: Update a deployment environment level variable.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Variable For An Environment
+      description: Update a deployment environment level variable.
+    paths:
+      /repositories/{workspace}/{repo_slug}/deployments_config/environments/{environment_uuid}/variables/{variable_uuid}:
+        put:
+          summary: Update A Variable For An Environment
+          description: Update a deployment environment level variable.
+          operationId: updateDeploymentVariable
+          requestBody:
+            description: The updated deployment variable.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/deployment_variable'
+          responses:
+            '404':
+              description: >-
+                The account, repository, environment or variable with the given UUID
+                was not found.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

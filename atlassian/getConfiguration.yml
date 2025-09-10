@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Global Settings
+  description: >-
+    Returns the [global settings](https://confluence.atlassian.com/x/qYXKM) in
+    Jira. These settings determine whether optional features (for example,
+    subtasks, time tracking, and others) are enabled. If time tracking is
+    enabled, this operation also returns the time tracking
+    configuration.**[Permissions](#permissions) required:** Permission to access
+    Jira.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Global Settings
+      description: >-
+        Returns the [global settings](https://confluence.atlassian.com/x/qYXKM) in
+        Jira. These settings determine whether optional features (for example,
+        subtasks, time tracking, and others) are enabled. If time tracking is
+        enabled, this operation also returns the time tracking
+        configuration.**[Permissions](#permissions) required:** Permission to access
+        Jira.
+    paths:
+      /rest/api/3/configuration:
+        get:
+          summary: Get Global Settings
+          description: >-
+            Returns the [global settings](https://confluence.atlassian.com/x/qYXKM)
+            in Jira. These settings determine whether optional features (for
+            example, subtasks, time tracking, and others) are enabled. If time
+            tracking is enabled, this operation also returns the time tracking
+            configuration.**[Permissions](#permissions) required:** Permission to
+            access Jira.
+          operationId: getConfiguration
+          responses:
+            '401':
+              description: Returned if the authentication credentials are incorrect or missing.

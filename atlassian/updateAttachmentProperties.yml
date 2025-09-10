@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Attachment Properties
+  description: >-
+    Updates the attachment properties, i.e. the non-binary data of an
+    attachmentlike the filename, media-type, comment, and parent
+    container.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to update the content.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Attachment Properties
+      description: >-
+        Updates the attachment properties, i.e. the non-binary data of an
+        attachmentlike the filename, media-type, comment, and parent
+        container.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to update the content.
+    paths:
+      /wiki/rest/api/content/{id}/child/attachment/{attachmentId}:
+        put:
+          summary: Update Attachment Properties
+          description: >-
+            Updates the attachment properties, i.e. the non-binary data of an
+            attachmentlike the filename, media-type, comment, and parent
+            container.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to update the content.
+          operationId: updateAttachmentProperties
+          requestBody:
+            description: The details of the attachment to be updated.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/AttachmentPropertiesUpdateBody'
+          responses:
+            '409':
+              description: |-
+                Returned if the version of the supplied attachment does not match
+                the version of the attachment stored in the database.
+              content: {}

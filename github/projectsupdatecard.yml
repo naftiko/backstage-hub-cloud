@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update An Existing Project Card
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update An Existing Project Card
+      description: Needs a more full description created.
+    paths:
+      /projects/columns/cards/{card_id}:
+        patch:
+          summary: Update An Existing Project Card
+          description: Needs a more full description created.
+          operationId: projectsupdatecard
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    note:
+                      description: The project card's note
+                      example: Update all gems
+                      type: string
+                      nullable: true
+                    archived:
+                      description: Whether or not the card is archived
+                      example: false
+                      type: boolean
+                examples:
+                  default:
+                    summary: Change the note on the card
+                    value:
+                      note: Add payload for delete Project column
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed_simple'

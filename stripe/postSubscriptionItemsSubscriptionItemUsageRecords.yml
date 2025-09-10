@@ -1,0 +1,87 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Subscription_items Subscription_item Usage_records
+  description: >-
+    Creates a usage record for a specified subscription item and date, and fills
+    it with a quantity.Usage records provide quantity information that Stripe
+    uses to track how much a customer is using your service. With usage
+    information and the pricing model set up by the metered billing plan, Stripe
+    helps you send accurate invoices to your customers.The default calculation
+    for usage is to add up all the quantity values of the usage records within a
+    billing period. You can change this default behavior with the billing plan’s
+    aggregate_usage parameter. When there is more than one usage record with the
+    same timestamp, Stripe adds the quantity values together. In most cases,
+    this is the desired resolution, however, you can change this behavior with
+    the action parameter.The default pricing model for metered billing is
+    per-unit pricing. For finer granularity, you can configure metered billing
+    to have a tiered pricing model.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Subscription_items Subscription_item Usage_records
+      description: >-
+        Creates a usage record for a specified subscription item and date, and fills
+        it with a quantity.Usage records provide quantity information that Stripe
+        uses to track how much a customer is using your service. With usage
+        information and the pricing model set up by the metered billing plan, Stripe
+        helps you send accurate invoices to your customers.The default calculation
+        for usage is to add up all the quantity values of the usage records within a
+        billing period. You can change this default behavior with the billing plan’s
+        aggregate_usage parameter. When there is more than one usage record with the
+        same timestamp, Stripe adds the quantity values together. In most cases,
+        this is the desired resolution, however, you can change this behavior with
+        the action parameter.The default pricing model for metered billing is
+        per-unit pricing. For finer granularity, you can configure metered billing
+        to have a tiered pricing model.
+    paths:
+      /v1/subscription_items/{subscription_item}/usage_records:
+        post:
+          summary: Post Subscription_items Subscription_item Usage_records
+          description: >-
+            Creates a usage record for a specified subscription item and date, and
+            fills it with a quantity.Usage records provide quantity information that
+            Stripe uses to track how much a customer is using your service. With
+            usage information and the pricing model set up by the metered billing
+            plan, Stripe helps you send accurate invoices to your customers.The
+            default calculation for usage is to add up all the quantity values of
+            the usage records within a billing period. You can change this default
+            behavior with the billing plan’s aggregate_usage parameter. When there
+            is more than one usage record with the same timestamp, Stripe adds the
+            quantity values together. In most cases, this is the desired resolution,
+            however, you can change this behavior with the action parameter.The
+            default pricing model for metered billing is per-unit pricing. For finer
+            granularity, you can configure metered billing to have a tiered pricing
+            model.
+          operationId: postSubscriptionItemsSubscriptionItemUsageRecords
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                  timestamp:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: >-
+                    #/components/schemas/PostSubscriptionItemsSubscriptionItemUsageRecordsRequest
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

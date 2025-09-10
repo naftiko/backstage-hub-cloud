@@ -1,0 +1,86 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve Access Requests
+  description: >-
+    **This endpoint allows you to retrieve a paginated list of all recent access
+    requests.**You can use the `limit` query parameter to set the page size. If
+    your list contains more items than the page size permits, you can make
+    multiple requests. Use the `offset` query parameter to control the position
+    in the list from which to start retrieving additional items.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve Access Requests
+      description: >-
+        **This endpoint allows you to retrieve a paginated list of all recent access
+        requests.**You can use the `limit` query parameter to set the page size. If
+        your list contains more items than the page size permits, you can make
+        multiple requests. Use the `offset` query parameter to control the position
+        in the list from which to start retrieving additional items.
+    paths:
+      /v3/scopes/requests:
+        get:
+          summary: Retrieve Access Requests
+          description: >-
+            **This endpoint allows you to retrieve a paginated list of all recent
+            access requests.**You can use the `limit` query parameter to set the
+            page size. If your list contains more items than the page size permits,
+            you can make multiple requests. Use the `offset` query parameter to
+            control the position in the list from which to start retrieving
+            additional items.
+          operationId: listScopeRequest
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          description: Request ID
+                        scope_group_name:
+                          type: string
+                          description: >-
+                            Name of group of scopes associated to page teammate is
+                            requesting access to
+                        username:
+                          type: string
+                          description: Teammate's username
+                        email:
+                          type: string
+                          description: Teammate's email
+                        first_name:
+                          type: string
+                          description: Teammate's first name
+                        last_name:
+                          type: string
+                          description: Teammate's last name
+                  examples:
+                    response:
+                      value:
+                        - id: 1
+                          scope_group_name: Mail Settings
+                          username: teammate1
+                          email: teammate1@example.com
+                          first_name: Teammate
+                          last_name: One
+                        - id: 2
+                          scope_group_name: Stats
+                          username: teammate2
+                          email: teammate2@example.com
+                          first_name: Teammate
+                          last_name: Two

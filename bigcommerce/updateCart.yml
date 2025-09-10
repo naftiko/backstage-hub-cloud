@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Customer Id
+  description: >-
+    Updates a *Cartʼs* `customer_id`.**Notes**Changing the *Cart* `customer_id`
+    will remove any promotions or shipping calculations on the *Cart*. These are
+    tied to the customer depending on cart conditions and any customer groups. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Customer Id
+      description: >-
+        Updates a *Cartʼs* `customer_id`.**Notes**Changing the *Cart* `customer_id`
+        will remove any promotions or shipping calculations on the *Cart*. These are
+        tied to the customer depending on cart conditions and any customer groups. 
+    paths:
+      /carts/{cartId}:
+        put:
+          summary: Update Customer Id
+          description: >-
+            Updates a *Cartʼs* `customer_id`.**Notes**Changing the *Cart*
+            `customer_id` will remove any promotions or shipping calculations on the
+            *Cart*. These are tied to the customer depending on cart conditions and
+            any customer groups. 
+          operationId: updateCart
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/CartUpdatePutRequestData'
+                example:
+                  customer_id: 5
+          responses:
+            '201':
+              $ref: '#/components/responses/CartResponse'

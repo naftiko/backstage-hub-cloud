@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieves A Single Carrier Service By Its Id
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/carrierservice#show-2021-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves A Single Carrier Service By Its Id
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/carrierservice#show-2021-01
+    paths:
+      /admin/api/2021-01/carrier_services/{carrier_service_id}.json:
+        get:
+          summary: Retrieves A Single Carrier Service By Its Id
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/carrierservice#show-2021-01
+          operationId: deprecated202101getcarrierservicesparamcarrierserviceid
+          responses:
+            '200':
+              description: ''

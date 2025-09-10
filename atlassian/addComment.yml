@@ -1,0 +1,74 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add Comment
+  description: >-
+    Adds a comment to an issue.This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** *  *Browse projects*
+    and *Add comments* [ project
+    permission](https://confluence.atlassian.com/x/yodKLg) for the project that
+    the issue containing the comment is in. *  If [issue-level
+    security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+    issue-level security permission to view the issue.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add Comment
+      description: >-
+        Adds a comment to an issue.This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** *  *Browse projects*
+        and *Add comments* [ project
+        permission](https://confluence.atlassian.com/x/yodKLg) for the project that
+        the issue containing the comment is in. *  If [issue-level
+        security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+        issue-level security permission to view the issue.
+    paths:
+      /rest/api/3/issue/{issueIdOrKey}/comment:
+        post:
+          summary: Add Comment
+          description: >-
+            Adds a comment to an issue.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** *  *Browse
+            projects* and *Add comments* [ project
+            permission](https://confluence.atlassian.com/x/yodKLg) for the project
+            that the issue containing the comment is in. *  If [issue-level
+            security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+            issue-level security permission to view the issue.
+          operationId: addComment
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  body:
+                    content:
+                      - content:
+                          - text: >-
+                              Lorem ipsum dolor sit amet, consectetur adipiscing
+                              elit. Pellentesque eget venenatis elit. Duis eu justo
+                              eget augue iaculis fermentum. Sed semper quam laoreet
+                              nisi egestas at posuere augue semper.
+                            type: text
+                        type: paragraph
+                    type: doc
+                    version: 1
+                  visibility:
+                    identifier: Administrators
+                    type: role
+                    value: Administrators
+                schema:
+                  $ref: '#/components/schemas/Comment'
+          responses:
+            '404':
+              description: >-
+                Returned if the issue is not found or the user does not have
+                permission to view it.

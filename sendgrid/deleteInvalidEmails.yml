@@ -1,0 +1,68 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Invalid Emails
+  description: >-
+    **This endpoint allows you to remove email addresses from your invalid email
+    address list.**There are two options for deleting invalid email addresses:
+    1) You can delete all invalid email addresses by setting `delete_all` to
+    true in the request body.2) You can delete some invalid email addresses by
+    specifying certain addresses in an array in the request body.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Invalid Emails
+      description: >-
+        **This endpoint allows you to remove email addresses from your invalid email
+        address list.**There are two options for deleting invalid email addresses:
+        1) You can delete all invalid email addresses by setting `delete_all` to
+        true in the request body.2) You can delete some invalid email addresses by
+        specifying certain addresses in an array in the request body.
+    paths:
+      /v3/suppression/invalid_emails:
+        delete:
+          summary: Delete Invalid Emails
+          description: >-
+            **This endpoint allows you to remove email addresses from your invalid
+            email address list.**There are two options for deleting invalid email
+            addresses: 1) You can delete all invalid email addresses by setting
+            `delete_all` to true in the request body.2) You can delete some invalid
+            email addresses by specifying certain addresses in an array in the
+            request body.
+          operationId: deleteInvalidEmails
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    delete_all:
+                      type: boolean
+                      description: >-
+                        Indicates if you want to remove all email address from the
+                        invalid emails list.
+                    emails:
+                      type: array
+                      description: >-
+                        The list of specific email addresses that you want to
+                        remove.
+                      items:
+                        type: string
+                        format: email
+                  example:
+                    delete_all: false
+                    emails:
+                      - example1@example.com
+                      - example2@example.com
+          responses:
+            '204':
+              description: ''

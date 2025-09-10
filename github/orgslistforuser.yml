@@ -1,0 +1,64 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Organizations For A User
+  description: >-
+    List [public organization
+    memberships](https://docs.github.com/enterprise-server@3.9/articles/publicizing-or-concealing-organization-membership)
+    for the specified user.This method only lists _public_ memberships,
+    regardless of authentication. If you need to fetch all of the organization
+    memberships (public and private) for the authenticated user, use the [List
+    organizations for the authenticated
+    user](https://docs.github.com/enterprise-server@3.9/rest/orgs/orgs#list-organizations-for-the-authenticated-user)
+    API instead.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Organizations For A User
+      description: >-
+        List [public organization
+        memberships](https://docs.github.com/enterprise-server@3.9/articles/publicizing-or-concealing-organization-membership)
+        for the specified user.This method only lists _public_ memberships,
+        regardless of authentication. If you need to fetch all of the organization
+        memberships (public and private) for the authenticated user, use the [List
+        organizations for the authenticated
+        user](https://docs.github.com/enterprise-server@3.9/rest/orgs/orgs#list-organizations-for-the-authenticated-user)
+        API instead.
+    paths:
+      /users/{username}/orgs:
+        get:
+          summary: List Organizations For A User
+          description: >-
+            List [public organization
+            memberships](https://docs.github.com/enterprise-server@3.9/articles/publicizing-or-concealing-organization-membership)
+            for the specified user.This method only lists _public_ memberships,
+            regardless of authentication. If you need to fetch all of the
+            organization memberships (public and private) for the authenticated
+            user, use the [List organizations for the authenticated
+            user](https://docs.github.com/enterprise-server@3.9/rest/orgs/orgs#list-organizations-for-the-authenticated-user)
+            API instead.
+          operationId: orgslistforuser
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/organization-simple'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/organization-simple-items'
+              headers:
+                Link:
+                  $ref: '#/components/headers/link'

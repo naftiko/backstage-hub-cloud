@@ -1,0 +1,100 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Api Keys
+  description: >-
+    **This endpoint allows you to create a new API Key for the user.**To create
+    your initial SendGrid API Key, you should [use the SendGrid
+    App](https://app.sendgrid.com/settings/api_keys). Once you have created a
+    first key with scopes to manage additional API keys, you can use this API
+    for all other key management.A JSON request body containing a `name`
+    property is required when making requests to this endpoint. If the number of
+    maximum keys, 100, is reached, a `403` status will be returned.Though the
+    `name` field is required, it does not need to be unique. A unique API key ID
+    will be generated for each key you create and returned in the response
+    body.It is not necessary to pass a `scopes` field to the API when creating a
+    key, but you should be aware that omitting the `scopes` field from your
+    request will create a key with "Full Access" permissions by default.See the
+    [API Key Permissions
+    List](https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authorization)
+    for all available scopes. An API key's scopes can be updated after creation
+    using the "Update API keys" endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Api Keys
+      description: >-
+        **This endpoint allows you to create a new API Key for the user.**To create
+        your initial SendGrid API Key, you should [use the SendGrid
+        App](https://app.sendgrid.com/settings/api_keys). Once you have created a
+        first key with scopes to manage additional API keys, you can use this API
+        for all other key management.A JSON request body containing a `name`
+        property is required when making requests to this endpoint. If the number of
+        maximum keys, 100, is reached, a `403` status will be returned.Though the
+        `name` field is required, it does not need to be unique. A unique API key ID
+        will be generated for each key you create and returned in the response
+        body.It is not necessary to pass a `scopes` field to the API when creating a
+        key, but you should be aware that omitting the `scopes` field from your
+        request will create a key with "Full Access" permissions by default.See the
+        [API Key Permissions
+        List](https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authorization)
+        for all available scopes. An API key's scopes can be updated after creation
+        using the "Update API keys" endpoint.
+    paths:
+      /v3/api_keys:
+        post:
+          summary: Create Api Keys
+          description: >-
+            **This endpoint allows you to create a new API Key for the user.**To
+            create your initial SendGrid API Key, you should [use the SendGrid
+            App](https://app.sendgrid.com/settings/api_keys). Once you have created
+            a first key with scopes to manage additional API keys, you can use this
+            API for all other key management.A JSON request body containing a `name`
+            property is required when making requests to this endpoint. If the
+            number of maximum keys, 100, is reached, a `403` status will be
+            returned.Though the `name` field is required, it does not need to be
+            unique. A unique API key ID will be generated for each key you create
+            and returned in the response body.It is not necessary to pass a `scopes`
+            field to the API when creating a key, but you should be aware that
+            omitting the `scopes` field from your request will create a key with
+            "Full Access" permissions by default.See the [API Key Permissions
+            List](https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authorization)
+            for all available scopes. An API key's scopes can be updated after
+            creation using the "Update API keys" endpoint.
+          operationId: createApiKey
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: The name you will use to describe this API Key.
+                    scopes:
+                      type: array
+                      description: >-
+                        The individual permissions that you are giving to this API
+                        Key.
+                      items:
+                        type: string
+                  required:
+                    - name
+                  example:
+                    name: My API Key
+                    scopes:
+                      - mail.send
+                      - alerts.create
+                      - alerts.read
+          responses:
+            '500':
+              $ref: '#/components/responses/GlobalError500'

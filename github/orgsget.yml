@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get An Organization
+  description: >-
+    Gets information about an organization.When the value of
+    `two_factor_requirement_enabled` is `true`, the organization requires all
+    members, billing managers, and outside collaborators to enable [two-factor
+    authentication](https://docs.github.com/enterprise-server@3.9/articles/securing-your-account-with-two-factor-authentication-2fa/).To
+    see the full details about an organization, the authenticated user must be
+    an organization owner.OAuth app tokens and personal access tokens (classic)
+    need the `admin:org` scope to see the full details about an organization.To
+    see information about an organization's GitHub Enterprise Server plan,
+    GitHub Apps need the `Organization plan` permission.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get An Organization
+      description: >-
+        Gets information about an organization.When the value of
+        `two_factor_requirement_enabled` is `true`, the organization requires all
+        members, billing managers, and outside collaborators to enable [two-factor
+        authentication](https://docs.github.com/enterprise-server@3.9/articles/securing-your-account-with-two-factor-authentication-2fa/).To
+        see the full details about an organization, the authenticated user must be
+        an organization owner.OAuth app tokens and personal access tokens (classic)
+        need the `admin:org` scope to see the full details about an organization.To
+        see information about an organization's GitHub Enterprise Server plan,
+        GitHub Apps need the `Organization plan` permission.
+    paths:
+      /orgs/{org}:
+        get:
+          summary: Get An Organization
+          description: >-
+            Gets information about an organization.When the value of
+            `two_factor_requirement_enabled` is `true`, the organization requires
+            all members, billing managers, and outside collaborators to enable
+            [two-factor
+            authentication](https://docs.github.com/enterprise-server@3.9/articles/securing-your-account-with-two-factor-authentication-2fa/).To
+            see the full details about an organization, the authenticated user must
+            be an organization owner.OAuth app tokens and personal access tokens
+            (classic) need the `admin:org` scope to see the full details about an
+            organization.To see information about an organization's GitHub
+            Enterprise Server plan, GitHub Apps need the `Organization plan`
+            permission.
+          operationId: orgsget
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

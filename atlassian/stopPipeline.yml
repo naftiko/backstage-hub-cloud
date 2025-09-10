@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Stop A Pipeline
+  description: >-
+    Signal the stop of a pipeline and all of its steps that not have completed
+    yet.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Stop A Pipeline
+      description: >-
+        Signal the stop of a pipeline and all of its steps that not have completed
+        yet.
+    paths:
+      /repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/stopPipeline:
+        post:
+          summary: Stop A Pipeline
+          description: >-
+            Signal the stop of a pipeline and all of its steps that not have
+            completed yet.
+          operationId: stopPipeline
+          responses:
+            '404':
+              description: >-
+                Either the account, repository or pipeline with the given UUID does
+                not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

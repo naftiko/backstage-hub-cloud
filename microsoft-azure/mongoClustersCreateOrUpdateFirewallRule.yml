@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.documentdb Mongoclusters Mongoclustername Firewallrules
+    Firewallrulename
+  description: >-
+    Creates a new firewall rule or updates an existing firewall rule on a mongo
+    cluster.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.documentdb Mongoclusters Mongoclustername Firewallrules
+        Firewallrulename
+      description: >-
+        Creates a new firewall rule or updates an existing firewall rule on a mongo
+        cluster.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.documentdb Mongoclusters Mongoclustername
+            Firewallrules Firewallrulename
+          description: >-
+            Creates a new firewall rule or updates an existing firewall rule on a
+            mongo cluster.
+          operationId: mongoClustersCreateOrUpdateFirewallRule
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

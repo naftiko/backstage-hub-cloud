@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listtemplategroupaccesscontrolentries
+  description: 'Lists group access control entries you created. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listtemplategroupaccesscontrolentries
+      description: 'Lists group access control entries you created. '
+    paths:
+      /templates/{TemplateArn}/accessControlEntries:
+        GET:
+          summary: Listtemplategroupaccesscontrolentries
+          description: 'Lists group access control entries you created. '
+          operationId: listTemplateGroupAccessControlEntries

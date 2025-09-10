@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getassetcontract
+  description: >-
+    Gets the information about a specific contract deployed on the
+    blockchain.    The Bitcoin blockchain networks do not support this
+    operation.   Metadata is currently only available for some ERC-20 contracts.
+    Metadata will be available for additional contracts in the future.   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getassetcontract
+      description: >-
+        Gets the information about a specific contract deployed on the
+        blockchain.    The Bitcoin blockchain networks do not support this
+        operation.   Metadata is currently only available for some ERC-20 contracts.
+        Metadata will be available for additional contracts in the future.   
+    paths:
+      /get-asset-contract:
+        POST:
+          summary: Getassetcontract
+          description: >-
+            Gets the information about a specific contract deployed on the
+            blockchain.    The Bitcoin blockchain networks do not support this
+            operation.   Metadata is currently only available for some ERC-20
+            contracts. Metadata will be available for additional contracts in the
+            future.   
+          operationId: getAssetContract

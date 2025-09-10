@@ -1,0 +1,97 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.documentdb Mongoclusters Targetresourcename Providers
+    Microsoft.datamigration Databasemigrations Migrationname
+  description: Create or Update Database Migration resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.documentdb Mongoclusters Targetresourcename Providers
+        Microsoft.datamigration Databasemigrations Migrationname
+      description: Create or Update Database Migration resource.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{targetResourceName}/providers/Microsoft.DataMigration/databaseMigrations/{migrationName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.documentdb Mongoclusters Targetresourcename
+            Providers Microsoft.datamigration Databasemigrations Migrationname
+          description: Create or Update Database Migration resource.
+          operationId: databaseMigrationsMongoToCosmosDbvCoreMongoCreate
+          responses:
+            default:
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse
+              description: |-
+                *** Error Responses: ***
+
+                 * 400 InvalidParameterValue - An invalid value was provided for parameter '{0}'.
+
+                 * 400 EmptyRequiredRequestBody - The request body must not be empty.
+
+                 * 400 GenericUser - User Failure when calling other Resource Provider.
+
+                 * 400 OperationIdNotFound - Operation ID '{0}' not found.
+
+                 * 400 OperationTypeNotFound - Operation Type '{0}' not found.
+
+                 * 400 InvalidArgument - Invalid argument '{0}'.
+
+                 * 400 InvalidLocation - Invalid Location: '{0}'. Location should match selected Azure target location '{1}'.
+
+                 * 400 DeleteMigrationServiceTaskNotAllowedInProgress - Migration service task '{0}' is currently in progress. To delete the task, please wait until the migration service task has completed or cancel the task manually, and then retry deleting the migration service task. Alternatively, use the force delete option to cancel ongoing operations and delete.
+
+                 * 400 RequestFailed - Request to the resource '{0}' failed. Error code : '{1}'. HTTP status code : '{2}'. Error message : '{3}'.
+
+                 * 400 DeleteMigrationNotAllowedMigrationInProgress - Database migration to the target resource '{0}' is currently in progress. To delete the migration, please wait until the migration has completed or cancel the migration manually, and then retry deleting the migration. Alternatively, use the force delete option to cancel ongoing operations and delete
+
+                 * 400 DeleteMigrationNotAllowedDeleteInProgress - Database migration to the target resource '{0}' is currently deleting. Please wait until the delete operation is complete
+
+                 * 400 MigrationRetryNotAllowed - Migration is not in a retriable state. Migration must be in state WaitForRetry. Current state: '{0}', Target server:'{1}', Target database: '{2}'.
+
+                 * 400 TestConnectionFailed - Failed to test connections using provided Integration Runtime. Error details: '{0}'
+
+                 * 400 MigrationStillValidating - Migration is still being validated. {0} cannot be performed. Target server:'{1}', Target database: '{2}'.
+
+                 * 400 IntegrationRuntimeIsNotOnline - Integration Runtime '{0}' is not online for resource group '{1}' subscription '{2}'
+
+                 * 403 AccessDenied - Access denied.
+
+                 * 404 ResourceNotFound - The requested resource was not found.
+
+                 * 404 SubscriptionDoesNotExist - Subscription id does not exist.
+
+                 * 404 ResourceDoesNotExist - Resource does not exist.
+
+                 * 405 SubscriptionNotReady - Subscription is not in Ready state.
+
+                 * 409 OperationInProgress - Operation in progress on resource already.
+
+                 * 409 OperationCanceled - Operation Cancelled.
+
+                 * 409 ResourceAlreadyExists - Resource already exists.
+
+                 * 409 SubscriptionOperationInProgress - An operation on subscription is already in progress
+
+                 * 500 UnExpectedErrorOccurred - Unexpected error occurred.
+
+                 * 500 OperationTimeout - Operation timed out.
+
+                 * 500 GenericSystem - System Failure when calling other Resource Provider.
+
+                 * 500 AdfCleanupFailureAfterMigration - Failed to clean up resources after migration has completed successfully. Target server:'{0}', Target database: '{1}', Error details: '{2}'.

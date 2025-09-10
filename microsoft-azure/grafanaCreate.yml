@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Create Or Update A Workspace For Grafana Resource. This Api Is Idempotent,
+    So User Can Either Create A New Grafana Or Update An Existing Grafana.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Create Or Update A Workspace For Grafana Resource. This Api Is Idempotent,
+        So User Can Either Create A New Grafana Or Update An Existing Grafana.
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dashboard/grafana/{workspaceName}:
+        put:
+          summary: >-
+            Create Or Update A Workspace For Grafana Resource. This Api Is
+            Idempotent, So User Can Either Create A New Grafana Or Update An
+            Existing Grafana.
+          description: Needs a more full description created.
+          operationId: grafanaCreate
+          responses:
+            default:
+              description: >-
+                Common error response for all Azure Resource Manager APIs to return
+                error details for failed operations.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

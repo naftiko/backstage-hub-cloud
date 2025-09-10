@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updatevolume
+  description: >-
+    Updates an Amazon EBS volume's name or mount point. For more information,
+    see Resource Management.  Required Permissions: To use this action, an IAM
+    user must have a Manage permissions level for the stack, or an attached
+    policy that explicitly grants permissions. For more information on user
+    permissions, see Managing User Permissions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatevolume
+      description: >-
+        Updates an Amazon EBS volume's name or mount point. For more information,
+        see Resource Management.  Required Permissions: To use this action, an IAM
+        user must have a Manage permissions level for the stack, or an attached
+        policy that explicitly grants permissions. For more information on user
+        permissions, see Managing User Permissions.
+    paths:
+      /:
+        POST:
+          summary: Updatevolume
+          description: >-
+            Updates an Amazon EBS volume's name or mount point. For more
+            information, see Resource Management.  Required Permissions: To use this
+            action, an IAM user must have a Manage permissions level for the stack,
+            or an attached policy that explicitly grants permissions. For more
+            information on user permissions, see Managing User Permissions.
+          operationId: updateVolume

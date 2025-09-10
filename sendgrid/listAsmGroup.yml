@@ -1,0 +1,62 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve All Suppression Groups Associated With The User.
+  description: >-
+    **This endpoint allows you to retrieve a list of all suppression groups
+    created by this user.**This endpoint can also return information for
+    multiple group IDs that you include in your request. To add a group ID to
+    your request, simply append `?id=123456&id=123456`, with the appropriate
+    group IDs.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve All Suppression Groups Associated With The User.
+      description: >-
+        **This endpoint allows you to retrieve a list of all suppression groups
+        created by this user.**This endpoint can also return information for
+        multiple group IDs that you include in your request. To add a group ID to
+        your request, simply append `?id=123456&id=123456`, with the appropriate
+        group IDs.
+    paths:
+      /v3/asm/groups:
+        get:
+          summary: Retrieve All Suppression Groups Associated With The User.
+          description: >-
+            **This endpoint allows you to retrieve a list of all suppression groups
+            created by this user.**This endpoint can also return information for
+            multiple group IDs that you include in your request. To add a group ID
+            to your request, simply append `?id=123456&id=123456`, with the
+            appropriate group IDs.
+          operationId: listAsmGroup
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SuppressionGroup'
+                  examples:
+                    response:
+                      value:
+                        - id: 1234
+                          name: Unsubscribe Group
+                          description: An Unsubscribe Group
+                          is_default: true
+                          unsubscribes: 1234
+                        - id: 1234
+                          name: Unsubscribe Group
+                          description: An Unsubscribe Group
+                          is_default: true
+                          unsubscribes: 1234

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Esimprofiles
+  description: Order an eSIM Profile.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Esimprofiles
+      description: Order an eSIM Profile.
+    paths:
+      /v1/ESimProfiles:
+        post:
+          summary: Post Esimprofiles
+          description: Order an eSIM Profile.
+          operationId: createEsimProfile
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateEsimProfileRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/supersim.v1.esim_profile'
+              description: Created

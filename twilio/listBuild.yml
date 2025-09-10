@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Services Servicesid Builds
+  description: Retrieve a list of all Builds.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Services Servicesid Builds
+      description: Retrieve a list of all Builds.
+    paths:
+      /v1/Services/{ServiceSid}/Builds:
+        get:
+          summary: Get Services Servicesid Builds
+          description: Retrieve a list of all Builds.
+          operationId: listBuild
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ListBuildResponse'
+              description: OK

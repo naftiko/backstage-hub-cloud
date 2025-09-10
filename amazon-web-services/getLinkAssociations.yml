@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getlinkassociations
+  description: >-
+    Gets the link associations for a device or a link. Either the device ID or
+    the link ID must be specified.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getlinkassociations
+      description: >-
+        Gets the link associations for a device or a link. Either the device ID or
+        the link ID must be specified.
+    paths:
+      /global-networks/{globalNetworkId}/link-associations:
+        GET:
+          summary: Getlinkassociations
+          description: >-
+            Gets the link associations for a device or a link. Either the device ID
+            or the link ID must be specified.
+          operationId: getLinkAssociations

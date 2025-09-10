@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Customer Consent
+  description: >-
+    Updates the status of a customerʼs consent to allow data collection by
+    cookies and scripts while shopping on a storefront.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Customer Consent
+      description: >-
+        Updates the status of a customerʼs consent to allow data collection by
+        cookies and scripts while shopping on a storefront.
+    paths:
+      /customers/{customerId}/consent:
+        put:
+          summary: Update Customer Consent
+          description: >-
+            Updates the status of a customerʼs consent to allow data collection by
+            cookies and scripts while shopping on a storefront.
+          operationId: updateCustomerConsent
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/DeclareCustomerConsentRequest'
+          responses:
+            '422':
+              description: Invalid JSON request body - missing or invalid data.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'

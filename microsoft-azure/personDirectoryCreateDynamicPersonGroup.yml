@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: "Creates A New Dynamic Person Group With Specified Dynamicpersongroupid, Name, And User-provided Userdata.\r\na Dynamic Person Group Is A Container That References Persons.\r\nafter Creation, Use \"dynamicpersongroup - Update\" To Add/remove Persons Into The Search Space.\r\ndynamicpersongroup And Userdata Will Be Stored On Server Until Dynamicpersongroup Delete Is Called."
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: "Creates A New Dynamic Person Group With Specified Dynamicpersongroupid, Name, And User-provided Userdata.\r\na Dynamic Person Group Is A Container That References Persons.\r\nafter Creation, Use \"dynamicpersongroup - Update\" To Add/remove Persons Into The Search Space.\r\ndynamicpersongroup And Userdata Will Be Stored On Server Until Dynamicpersongroup Delete Is Called."
+      description: Needs a more full description created.
+    paths:
+      /dynamicpersongroups/{dynamicPersonGroupId}:
+        put:
+          summary: "Creates A New Dynamic Person Group With Specified Dynamicpersongroupid, Name, And User-provided Userdata.\r\na Dynamic Person Group Is A Container That References Persons.\r\nafter Creation, Use \"dynamicpersongroup - Update\" To Add/remove Persons Into The Search Space.\r\ndynamicpersongroup And Userdata Will Be Stored On Server Until Dynamicpersongroup Delete Is Called."
+          description: Needs a more full description created.
+          operationId: personDirectoryCreateDynamicPersonGroup
+          responses:
+            default:
+              description: >-
+                Response entity accompanying non-successful responses containing
+                additional details about the error.
+              schema:
+                $ref: '#/definitions/Error'

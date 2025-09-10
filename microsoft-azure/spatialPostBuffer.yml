@@ -1,0 +1,70 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Spatial Buffer Format
+  description: >-
+    **Applies to**: S1 pricing tier.This API returns a FeatureCollection where
+    each Feature is a buffer around the corresponding indexed Feature of the
+    input. The buffer could be either on the outside or the inside of the
+    provided Feature, depending on the distance provided in the input. There
+    must be either one distance provided per Feature in the FeatureCollection 
+    input, or if only one distance is provided, then that distance is applied to
+    every Feature in the collection. The positive (or negative) buffer of a
+    geometry is defined as the Minkowski sum (or difference) of the geometry
+    with a circle of radius equal to the absolute value of the buffer distance.
+    The buffer API always returns a polygonal result. The negative or
+    zero-distance buffer of lines and points is always an empty polygon. The
+    input may contain a collection of Point, MultiPoint, Polygon, MultiPolygon,
+    LineString and MultiLineString. GeometryCollection will be ignored if
+    provided.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Spatial Buffer Format
+      description: >-
+        **Applies to**: S1 pricing tier.This API returns a FeatureCollection where
+        each Feature is a buffer around the corresponding indexed Feature of the
+        input. The buffer could be either on the outside or the inside of the
+        provided Feature, depending on the distance provided in the input. There
+        must be either one distance provided per Feature in the FeatureCollection 
+        input, or if only one distance is provided, then that distance is applied to
+        every Feature in the collection. The positive (or negative) buffer of a
+        geometry is defined as the Minkowski sum (or difference) of the geometry
+        with a circle of radius equal to the absolute value of the buffer distance.
+        The buffer API always returns a polygonal result. The negative or
+        zero-distance buffer of lines and points is always an empty polygon. The
+        input may contain a collection of Point, MultiPoint, Polygon, MultiPolygon,
+        LineString and MultiLineString. GeometryCollection will be ignored if
+        provided.
+    paths:
+      /spatial/buffer/{format}:
+        post:
+          summary: Post Spatial Buffer Format
+          description: >-
+            **Applies to**: S1 pricing tier.This API returns a FeatureCollection
+            where each Feature is a buffer around the corresponding indexed Feature
+            of the input. The buffer could be either on the outside or the inside of
+            the provided Feature, depending on the distance provided in the input.
+            There must be either one distance provided per Feature in the
+            FeatureCollection  input, or if only one distance is provided, then that
+            distance is applied to every Feature in the collection. The positive (or
+            negative) buffer of a geometry is defined as the Minkowski sum (or
+            difference) of the geometry with a circle of radius equal to the
+            absolute value of the buffer distance. The buffer API always returns a
+            polygonal result. The negative or zero-distance buffer of lines and
+            points is always an empty polygon. The input may contain a collection of
+            Point, MultiPoint, Polygon, MultiPolygon, LineString and
+            MultiLineString. GeometryCollection will be ignored if provided.
+          operationId: spatialPostBuffer
+          responses:
+            '500':
+              $ref: '#/responses/500'

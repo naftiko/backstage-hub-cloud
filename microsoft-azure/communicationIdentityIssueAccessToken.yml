@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Issue A New Token For An Identity.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Issue A New Token For An Identity.
+      description: Needs a more full description created.
+    paths:
+      /identities/{id}/:issueAccessToken:
+        post:
+          summary: Issue A New Token For An Identity.
+          description: Needs a more full description created.
+          operationId: communicationIdentityIssueAccessToken
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: >-
+                  ../../../Common/stable/2021-03-07/common.json#/definitions/CommunicationErrorResponse

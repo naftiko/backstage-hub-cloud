@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Put Apps Appid Versions Versionid Closedlists Clentityid
+  description: Updates the list entity in a version of the application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Apps Appid Versions Versionid Closedlists Clentityid
+      description: Updates the list entity in a version of the application.
+    paths:
+      /apps/{appId}/versions/{versionId}/closedlists/{clEntityId}:
+        put:
+          summary: Put Apps Appid Versions Versionid Closedlists Clentityid
+          description: Updates the list entity in a version of the application.
+          operationId: modelUpdateClosedList
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

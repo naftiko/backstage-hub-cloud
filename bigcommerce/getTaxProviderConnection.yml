@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Connection Status
+  description: >-
+    Retrieve the connection status of the specified tax provider in the context
+    of a store.> #### Note> * Requires **read** permissions on the **Information
+    and Settings** scope.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Connection Status
+      description: >-
+        Retrieve the connection status of the specified tax provider in the context
+        of a store.> #### Note> * Requires **read** permissions on the **Information
+        and Settings** scope.
+    paths:
+      /tax/providers/{provider_id}/connection:
+        get:
+          summary: Get Connection Status
+          description: >-
+            Retrieve the connection status of the specified tax provider in the
+            context of a store.> #### Note> * Requires **read** permissions on the
+            **Information and Settings** scope.
+          operationId: getTaxProviderConnection
+          responses:
+            '404':
+              description: Provider does not exist

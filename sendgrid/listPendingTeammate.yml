@@ -1,0 +1,84 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve All Pending Teammates
+  description: >-
+    **This endpoint allows you to retrieve a list of all pending Teammate
+    invitations.**Each teammate invitation is valid for 7 days. Users may resend
+    the invitation to refresh the expiration date.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve All Pending Teammates
+      description: >-
+        **This endpoint allows you to retrieve a list of all pending Teammate
+        invitations.**Each teammate invitation is valid for 7 days. Users may resend
+        the invitation to refresh the expiration date.
+    paths:
+      /v3/teammates/pending:
+        get:
+          summary: Retrieve All Pending Teammates
+          description: >-
+            **This endpoint allows you to retrieve a list of all pending Teammate
+            invitations.**Each teammate invitation is valid for 7 days. Users may
+            resend the invitation to refresh the expiration date.
+          operationId: listPendingTeammate
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      result:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            email:
+                              type: string
+                              description: Email address teammate invite will be sent to
+                            scopes:
+                              type: array
+                              description: List of permissions to give teammate if they accept
+                              items:
+                                type: string
+                            is_admin:
+                              type: boolean
+                              description: >-
+                                Set to true to indicate teammate should have the
+                                same set of permissions as parent user
+                            token:
+                              type: string
+                              description: Invitation token used to identify user
+                            expiration_date:
+                              type: integer
+                              description: >-
+                                timestamp indicates when invite will expire.
+                                Expiration is 7 days after invite creation
+                  examples:
+                    response:
+                      value:
+                        result:
+                          - email: user1@example.com
+                            scopes:
+                              - user.profile.read
+                              - user.profile.edit
+                            is_admin: false
+                            pending_id: abcd123abc
+                            expiration_date: 1456424263
+                          - email: user2@example.com
+                            scopes: []
+                            is_admin: true
+                            pending_id: bcde234bcd
+                            expiration_date: 1456424263

@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getcachepolicyconfig
+  description: >-
+    Gets a cache policy configuration. To get a cache policy configuration, you
+    must provide the policy's identifier. If the cache policy is attached to a
+    distribution's cache behavior, you can get the policy's identifier using
+    ListDistributions or GetDistribution. If the cache policy is not attached to
+    a cache behavior, you can get the identifier using ListCachePolicies.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getcachepolicyconfig
+      description: >-
+        Gets a cache policy configuration. To get a cache policy configuration, you
+        must provide the policy's identifier. If the cache policy is attached to a
+        distribution's cache behavior, you can get the policy's identifier using
+        ListDistributions or GetDistribution. If the cache policy is not attached to
+        a cache behavior, you can get the identifier using ListCachePolicies.
+    paths:
+      /2020-05-31/cache-policy/{Id}/config:
+        GET:
+          summary: Getcachepolicyconfig
+          description: >-
+            Gets a cache policy configuration. To get a cache policy configuration,
+            you must provide the policy's identifier. If the cache policy is
+            attached to a distribution's cache behavior, you can get the policy's
+            identifier using ListDistributions or GetDistribution. If the cache
+            policy is not attached to a cache behavior, you can get the identifier
+            using ListCachePolicies.
+          operationId: getCachePolicyConfig

@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Search For Suppressions Within A Group
+  description: >-
+    **This endpoint allows you to search a suppression group for multiple
+    suppressions.**When given a list of email addresses and a group ID, this
+    endpoint will only return the email addresses that have been unsubscribed
+    from the given group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Search For Suppressions Within A Group
+      description: >-
+        **This endpoint allows you to search a suppression group for multiple
+        suppressions.**When given a list of email addresses and a group ID, this
+        endpoint will only return the email addresses that have been unsubscribed
+        from the given group.
+    paths:
+      /v3/asm/groups/{group_id}/suppressions/search:
+        post:
+          summary: Search For Suppressions Within A Group
+          description: >-
+            **This endpoint allows you to search a suppression group for multiple
+            suppressions.**When given a list of email addresses and a group ID, this
+            endpoint will only return the email addresses that have been
+            unsubscribed from the given group.
+          operationId: searchSuppressionFromAsmGroup
+          requestBody: {}
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    description: >-
+                      The email address from your search that do exist in the
+                      suppression group.
+                    items:
+                      type: string
+                      format: email
+                  examples:
+                    response:
+                      value:
+                        - exists1@example.com
+                        - exists2@example.com

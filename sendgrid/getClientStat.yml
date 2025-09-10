@@ -1,0 +1,99 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve Stats By A Specific Client Type.
+  description: >-
+    **This endpoint allows you to retrieve your email statistics segmented by a
+    specific client type.****We only store up to 7 days of email activity in our
+    database.** By default, 500 items will be returned per request via the
+    Advanced Stats API endpoints.### Available Client Types- phone- tablet-
+    webmail- desktopAdvanced Stats provide a more in-depth view of your email
+    statistics and the actions taken by your recipients. You can segment these
+    statistics by geographic location, device type, client type, browser, and
+    mailbox provider. For more information about statistics, please see our
+    [Statistics
+    Overview](https://sendgrid.com/docs/ui/analytics-and-reporting/stats-overview/).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve Stats By A Specific Client Type.
+      description: >-
+        **This endpoint allows you to retrieve your email statistics segmented by a
+        specific client type.****We only store up to 7 days of email activity in our
+        database.** By default, 500 items will be returned per request via the
+        Advanced Stats API endpoints.### Available Client Types- phone- tablet-
+        webmail- desktopAdvanced Stats provide a more in-depth view of your email
+        statistics and the actions taken by your recipients. You can segment these
+        statistics by geographic location, device type, client type, browser, and
+        mailbox provider. For more information about statistics, please see our
+        [Statistics
+        Overview](https://sendgrid.com/docs/ui/analytics-and-reporting/stats-overview/).
+    paths:
+      /v3/clients/{client_type}/stats:
+        get:
+          summary: Retrieve Stats By A Specific Client Type.
+          description: >-
+            **This endpoint allows you to retrieve your email statistics segmented
+            by a specific client type.****We only store up to 7 days of email
+            activity in our database.** By default, 500 items will be returned per
+            request via the Advanced Stats API endpoints.### Available Client Types-
+            phone- tablet- webmail- desktopAdvanced Stats provide a more in-depth
+            view of your email statistics and the actions taken by your recipients.
+            You can segment these statistics by geographic location, device type,
+            client type, browser, and mailbox provider. For more information about
+            statistics, please see our [Statistics
+            Overview](https://sendgrid.com/docs/ui/analytics-and-reporting/stats-overview/).
+          operationId: getClientStat
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        date:
+                          type: string
+                          description: The date that the statistics were gathered.
+                        stats:
+                          type: array
+                          description: The list of statistics.
+                          items:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                                description: The type of segmentation.
+                              name:
+                                type: string
+                                description: The name of the specific segmentation.
+                              metrics:
+                                $ref: '#/components/schemas/AdvancedStatsOpens'
+                  examples:
+                    response:
+                      value:
+                        - date: '2014-10-01'
+                          stats:
+                            - metrics:
+                                opens: 1
+                                unique_opens: 1
+                              name: Gmail
+                              type: client
+                        - date: '2014-10-02'
+                          stats:
+                            - metrics:
+                                opens: 0
+                                unique_opens: 0
+                              name: Gmail
+                              type: client

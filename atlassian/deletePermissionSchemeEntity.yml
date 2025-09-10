@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Permission Scheme Grant
+  description: >-
+    Deletes a permission grant from a permission scheme. See [About permission
+    schemes and
+    grants](../api-group-permission-schemes/#about-permission-schemes-and-grants)
+    for more details.**[Permissions](#permissions) required:** *Administer Jira*
+    [global permission](https://confluence.atlassian.com/x/x4dKLg).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Permission Scheme Grant
+      description: >-
+        Deletes a permission grant from a permission scheme. See [About permission
+        schemes and
+        grants](../api-group-permission-schemes/#about-permission-schemes-and-grants)
+        for more details.**[Permissions](#permissions) required:** *Administer Jira*
+        [global permission](https://confluence.atlassian.com/x/x4dKLg).
+    paths:
+      /rest/api/3/permissionscheme/{schemeId}/permission/{permissionId}:
+        delete:
+          summary: Delete Permission Scheme Grant
+          description: >-
+            Deletes a permission grant from a permission scheme. See [About
+            permission schemes and
+            grants](../api-group-permission-schemes/#about-permission-schemes-and-grants)
+            for more details.**[Permissions](#permissions) required:** *Administer
+            Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
+          operationId: deletePermissionSchemeEntity
+          responses:
+            '403':
+              description: Returned if the user does not have the necessary permission.

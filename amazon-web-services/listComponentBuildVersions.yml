@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listcomponentbuildversions
+  description: >-
+    Returns the list of component build versions for the specified semantic
+    version.  The semantic version has four nodes:
+    &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can assign
+    values for the first three, and can filter on all of them.  Filtering: With
+    semantic versioning, you have the flexibility to use wildcards (x) to
+    specify the most recent versions or nodes when selecting the base image or
+    components for your recipe. When you use a wildcard in any node, all nodes
+    to the right of the first wildcard must also be wildcards. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listcomponentbuildversions
+      description: >-
+        Returns the list of component build versions for the specified semantic
+        version.  The semantic version has four nodes:
+        &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can assign
+        values for the first three, and can filter on all of them.  Filtering: With
+        semantic versioning, you have the flexibility to use wildcards (x) to
+        specify the most recent versions or nodes when selecting the base image or
+        components for your recipe. When you use a wildcard in any node, all nodes
+        to the right of the first wildcard must also be wildcards. 
+    paths:
+      /ListComponentBuildVersions:
+        POST:
+          summary: Listcomponentbuildversions
+          description: >-
+            Returns the list of component build versions for the specified semantic
+            version.  The semantic version has four nodes:
+            &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can assign
+            values for the first three, and can filter on all of them.  Filtering:
+            With semantic versioning, you have the flexibility to use wildcards (x)
+            to specify the most recent versions or nodes when selecting the base
+            image or components for your recipe. When you use a wildcard in any
+            node, all nodes to the right of the first wildcard must also be
+            wildcards. 
+          operationId: listComponentBuildVersions

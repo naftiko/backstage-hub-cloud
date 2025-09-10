@@ -1,0 +1,79 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Open Branches
+  description: >-
+    Returns a list of all open branches within the specified repository.Results
+    will be in the order the source control manager returns them.Branches
+    support [filtering and sorting](/cloud/bitbucket/rest/intro/#filtering)that
+    can be used to search for specific branches. For instance, to findall
+    branches that have "stab" in their name:```curl -s
+    https://api.bitbucket.org/2.0/repositories/atlassian/aui/refs/branches -G
+    --data-urlencode 'q=name ~ "stab"'```By default, results will be in the
+    order the underlying source control system returns them and identical tothe
+    ordering one sees when running "$ git branch --list". Note that this follows
+    simplelexical ordering of the ref names.This can be undesirable as it does
+    apply any natural sorting semantics, meaning for instance that tags
+    aresorted ["v10", "v11", "v9"] instead of ["v9", "v10", "v11"].Sorting can
+    be changed using the ?q= query parameter. When using ?q=name to explicitly
+    sort on ref name,Bitbucket will apply natural sorting and interpret
+    numerical values as numbers instead of strings.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Open Branches
+      description: >-
+        Returns a list of all open branches within the specified repository.Results
+        will be in the order the source control manager returns them.Branches
+        support [filtering and sorting](/cloud/bitbucket/rest/intro/#filtering)that
+        can be used to search for specific branches. For instance, to findall
+        branches that have "stab" in their name:```curl -s
+        https://api.bitbucket.org/2.0/repositories/atlassian/aui/refs/branches -G
+        --data-urlencode 'q=name ~ "stab"'```By default, results will be in the
+        order the underlying source control system returns them and identical tothe
+        ordering one sees when running "$ git branch --list". Note that this follows
+        simplelexical ordering of the ref names.This can be undesirable as it does
+        apply any natural sorting semantics, meaning for instance that tags
+        aresorted ["v10", "v11", "v9"] instead of ["v9", "v10", "v11"].Sorting can
+        be changed using the ?q= query parameter. When using ?q=name to explicitly
+        sort on ref name,Bitbucket will apply natural sorting and interpret
+        numerical values as numbers instead of strings.
+    paths:
+      /repositories/{workspace}/{repo_slug}/refs/branches:
+        get:
+          summary: List Open Branches
+          description: >-
+            Returns a list of all open branches within the specified
+            repository.Results will be in the order the source control manager
+            returns them.Branches support [filtering and
+            sorting](/cloud/bitbucket/rest/intro/#filtering)that can be used to
+            search for specific branches. For instance, to findall branches that
+            have "stab" in their name:```curl -s
+            https://api.bitbucket.org/2.0/repositories/atlassian/aui/refs/branches
+            -G --data-urlencode 'q=name ~ "stab"'```By default, results will be in
+            the order the underlying source control system returns them and
+            identical tothe ordering one sees when running "$ git branch --list".
+            Note that this follows simplelexical ordering of the ref names.This can
+            be undesirable as it does apply any natural sorting semantics, meaning
+            for instance that tags aresorted ["v10", "v11", "v9"] instead of ["v9",
+            "v10", "v11"].Sorting can be changed using the ?q= query parameter. When
+            using ?q=name to explicitly sort on ref name,Bitbucket will apply
+            natural sorting and interpret numerical values as numbers instead of
+            strings.
+          operationId: listopenbranches
+          responses:
+            '404':
+              description: The specified repository does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

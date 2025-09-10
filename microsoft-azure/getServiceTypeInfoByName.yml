@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Gets The Information About A Specific Service Type That Is Supported By A
+    Provisioned Application Type In A Service Fabric Cluster.
+  description: >-
+    Gets the information about a specific service type that is supported by a
+    provisioned application type in a Service Fabric cluster. The provided
+    application type must exist. Otherwise, a 404 status is returned. A 204
+    response is returned if the specified service type is not found in the
+    cluster.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Gets The Information About A Specific Service Type That Is Supported By A
+        Provisioned Application Type In A Service Fabric Cluster.
+      description: >-
+        Gets the information about a specific service type that is supported by a
+        provisioned application type in a Service Fabric cluster. The provided
+        application type must exist. Otherwise, a 404 status is returned. A 204
+        response is returned if the specified service type is not found in the
+        cluster.
+    paths:
+      /ApplicationTypes/{applicationTypeName}/$/GetServiceTypes/{serviceTypeName}:
+        get:
+          summary: >-
+            Gets The Information About A Specific Service Type That Is Supported By
+            A Provisioned Application Type In A Service Fabric Cluster.
+          description: >-
+            Gets the information about a specific service type that is supported by
+            a provisioned application type in a Service Fabric cluster. The provided
+            application type must exist. Otherwise, a 404 status is returned. A 204
+            response is returned if the specified service type is not found in the
+            cluster.
+          operationId: getServiceTypeInfoByName
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

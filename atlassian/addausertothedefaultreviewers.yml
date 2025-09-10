@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add A User To The Default Reviewers
+  description: >-
+    Adds the specified user to the repository's list of defaultreviewers.This
+    method is idempotent. Adding a user a second time has no effect.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add A User To The Default Reviewers
+      description: >-
+        Adds the specified user to the repository's list of defaultreviewers.This
+        method is idempotent. Adding a user a second time has no effect.
+    paths:
+      /repositories/{workspace}/{repo_slug}/default-reviewers/{target_username}:
+        put:
+          summary: Add A User To The Default Reviewers
+          description: >-
+            Adds the specified user to the repository's list of
+            defaultreviewers.This method is idempotent. Adding a user a second time
+            has no effect.
+          operationId: addausertothedefaultreviewers
+          responses:
+            '404':
+              description: If the specified user does not exist
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

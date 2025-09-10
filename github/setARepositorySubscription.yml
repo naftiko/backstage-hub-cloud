@@ -1,0 +1,74 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Set A Repository Subscription
+  description: >-
+    If you would like to watch a repository, set `subscribed` to `true`. If you
+    would like to ignore notifications made within a repository, set `ignored`
+    to `true`. If you would like to stop watching a repository, [delete the
+    repository's
+    subscription](https://docs.github.com/enterprise-server@3.9/rest/activity/watching#delete-a-repository-subscription)
+    completely.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Set A Repository Subscription
+      description: >-
+        If you would like to watch a repository, set `subscribed` to `true`. If you
+        would like to ignore notifications made within a repository, set `ignored`
+        to `true`. If you would like to stop watching a repository, [delete the
+        repository's
+        subscription](https://docs.github.com/enterprise-server@3.9/rest/activity/watching#delete-a-repository-subscription)
+        completely.
+    paths:
+      /repos/{owner}/{repo}/subscription:
+        put:
+          summary: Set A Repository Subscription
+          description: >-
+            If you would like to watch a repository, set `subscribed` to `true`. If
+            you would like to ignore notifications made within a repository, set
+            `ignored` to `true`. If you would like to stop watching a repository,
+            [delete the repository's
+            subscription](https://docs.github.com/enterprise-server@3.9/rest/activity/watching#delete-a-repository-subscription)
+            completely.
+          operationId: setARepositorySubscription
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    subscribed:
+                      type: boolean
+                      description: >-
+                        Determines if notifications should be received from this
+                        repository.
+                    ignored:
+                      type: boolean
+                      description: >-
+                        Determines if all notifications should be blocked from this
+                        repository.
+                examples:
+                  default:
+                    value:
+                      subscribed: true
+                      ignored: false
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/repository-subscription'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/repository-subscription'

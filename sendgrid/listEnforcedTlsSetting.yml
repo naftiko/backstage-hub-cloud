@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve Current Enforced Tls Settings.
+  description: >-
+    **This endpoint allows you to retrieve your current Enforced TLS
+    settings.**The Enforced TLS settings specify whether or not the recipient is
+    required to support TLS or have a valid certificate.If either `require_tls`
+    or `require_valid_cert` is set to `true`, the recipient must support TLS 1.1
+    or higher or have a valid certificate. If these conditions are not met,
+    Twilio SendGrid will drop the message and send a block event with “TLS
+    required but not supported” as the description.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve Current Enforced Tls Settings.
+      description: >-
+        **This endpoint allows you to retrieve your current Enforced TLS
+        settings.**The Enforced TLS settings specify whether or not the recipient is
+        required to support TLS or have a valid certificate.If either `require_tls`
+        or `require_valid_cert` is set to `true`, the recipient must support TLS 1.1
+        or higher or have a valid certificate. If these conditions are not met,
+        Twilio SendGrid will drop the message and send a block event with “TLS
+        required but not supported” as the description.
+    paths:
+      /v3/user/settings/enforced_tls:
+        get:
+          summary: Retrieve Current Enforced Tls Settings.
+          description: >-
+            **This endpoint allows you to retrieve your current Enforced TLS
+            settings.**The Enforced TLS settings specify whether or not the
+            recipient is required to support TLS or have a valid certificate.If
+            either `require_tls` or `require_valid_cert` is set to `true`, the
+            recipient must support TLS 1.1 or higher or have a valid certificate. If
+            these conditions are not met, Twilio SendGrid will drop the message and
+            send a block event with “TLS required but not supported” as the
+            description.
+          operationId: listEnforcedTlsSetting
+          responses:
+            '500':
+              $ref: '#/components/responses/EnforcedTls500'

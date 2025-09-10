@@ -1,0 +1,60 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Files.remote.remove
+  description: Remove a remote file.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Files.remote.remove
+      description: Remove a remote file.
+    paths:
+      /files.remote.remove:
+        post:
+          summary: Post Files.remote.remove
+          description: Remove a remote file.
+          operationId: filesremoteremove
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  type: object
+                  properties:
+                    token:
+                      type: string
+                      description: 'Authentication token. Requires scope: `remote_files:write`'
+                    file:
+                      type: string
+                      description: Specify a file by providing its ID.
+                    external_id:
+                      type: string
+                      description: Creator defined GUID for the file.
+          responses:
+            default:
+              description: Typical error response
+              content:
+                application/json:
+                  schema:
+                    title: Default error template
+                    required:
+                      - ok
+                    type: object
+                    properties:
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                    additionalProperties: true
+                    description: >-
+                      This method either only returns a brief _not OK_ response or a
+                      verbose schema is not available for this method.
+                  example:
+                    error: invalid_auth
+                    ok: false

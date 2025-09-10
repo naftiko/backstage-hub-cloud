@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Largepersongroups Largepersongroupid Persons
+  description: Create a new person in a specified large person group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Largepersongroups Largepersongroupid Persons
+      description: Create a new person in a specified large person group.
+    paths:
+      /largepersongroups/{largePersonGroupId}/persons:
+        post:
+          summary: Post Largepersongroups Largepersongroupid Persons
+          description: Create a new person in a specified large person group.
+          operationId: largePersonGroupPersonCreate
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

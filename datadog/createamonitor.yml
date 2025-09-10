@@ -1,0 +1,472 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Monitor
+  description: >-
+    Create a monitor using the specified options.#### Monitor TypesThe type of
+    monitor chosen from:- anomaly: `query alert`- APM: `query alert` or
+    `trace-analytics alert`- composite: `composite`- custom: `service check`-
+    event: `event alert`- forecast: `query alert`- host: `service check`-
+    integration: `query alert` or `service check`- live process: `process
+    alert`- logs: `log alert`- metric: `query alert`- network: `service check`-
+    outlier: `query alert`- process: `service check`- rum: `rum alert`- SLO:
+    `slo alert`- watchdog: `event-v2 alert`- event-v2: `event-v2 alert`- audit:
+    `audit alert`- error-tracking: `error-tracking alert`- database-monitoring:
+    `database-monitoring alert`**Notes**:- Synthetic monitors are created
+    through the Synthetics API. See the [Synthetics
+    API](https://docs.datadoghq.com/api/latest/synthetics/) documentation for
+    more information.- Log monitors require an unscoped App Key.#### Query
+    Types##### Metric Alert QueryExample:
+    `time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #`-
+    `time_aggr`: avg, sum, max, min, change, or pct_change- `time_window`:
+    `last_#m` (with `#` between 1 and 10080 depending on the monitor type) or
+    `last_#h`(with `#` between 1 and 168 depending on the monitor type) or
+    `last_1d`, or `last_1w`- `space_aggr`: avg, sum, min, or max- `tags`: one or
+    more tags (comma-separated), or *- `key`: a 'key' in key:value tag syntax;
+    defines a separate alert for each tag in the group (multi-alert)-
+    `operator`: , >=, ==, or !=- `#`: an integer or decimal number used to set
+    the thresholdIf you are using the `_change_` or `_pct_change_` time
+    aggregator, instead use
+    `change_aggr(time_aggr(time_window),timeshift):space_aggr:metric{tags} [by
+    {key}] operator #` with:- `change_aggr` change, pct_change- `time_aggr` avg,
+    sum, max, min [Learn
+    more](https://docs.datadoghq.com/monitors/create/types/#define-the-conditions)-
+    `time_window` last\_#m (between 1 and 2880 depending on the monitor type),
+    last\_#h (between 1 and 48 depending on the monitor type), or last_#d (1 or
+    2)- `timeshift` #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_agoUse
+    this to create an outlier monitor using the following
+    query:`avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by
+    {host}, 'dbscan', 7) > 0`##### Service Check QueryExample:
+    `"check".over(tags).last(count).by(group).count_by_status()`- `check` name
+    of the check, for example `datadog.agent.up`- `tags` one or more quoted tags
+    (comma-separated), or "*". for example: `.over("env:prod", "role:db")`;
+    `over` cannot be blank.- `count` must be at greater than or equal to your
+    max threshold (defined in the `options`). It is limited to 100.For example,
+    if you've specified to notify on 1 critical, 3 ok, and 2 warn statuses,
+    `count` should be at least 3.- `group` must be specified for check monitors.
+    Per-check grouping is already explicitly known for some service checks.For
+    example, Postgres integration monitors are tagged by `db`, `host`, and
+    `port`, and Network monitors by `host`, `instance`, and `url`. See [Service
+    Checks](https://docs.datadoghq.com/api/latest/service-checks/) documentation
+    for more information.##### Event Alert Query**Note:** The Event Alert Query
+    has been replaced by the Event V2 Alert Query. For more information, see the
+    [Event Migration
+    guide](https://docs.datadoghq.com/service_management/events/guides/migrating_to_new_events_features/).#####
+    Event V2 Alert QueryExample: `events(query).rollup(rollup_method[,
+    measure]).last(time_window) operator #`- `query` The search query -
+    following the [Log search
+    syntax](https://docs.datadoghq.com/logs/search_syntax/).- `rollup_method`
+    The stats roll-up method - supports `count`, `avg` and `cardinality`.-
+    `measure` For `avg` and cardinality `rollup_method` - specify the measure or
+    the facet name you want to use.- `time_window` #m (between 1 and 2880), #h
+    (between 1 and 48).- `operator` ``, `>=`, `==`, or `!=`.- `#` an integer or
+    decimal number used to set the threshold.##### Process Alert QueryExample:
+    `processes(search).over(tags).rollup('count').last(timeframe) operator #`-
+    `search` free text search string for querying processes.Matching processes
+    match results on the [Live
+    Processes](https://docs.datadoghq.com/infrastructure/process/?tab=linuxwindows)
+    page.- `tags` one or more tags (comma-separated)- `timeframe` the timeframe
+    to roll up the counts. Examples: 10m, 4h. Supported timeframes: s, m, h and
+    d- `operator` , >=, ==, or !=- `#` an integer or decimal number used to set
+    the threshold##### Logs Alert QueryExample:
+    `logs(query).index(index_name).rollup(rollup_method[,
+    measure]).last(time_window) operator #`- `query` The search query -
+    following the [Log search
+    syntax](https://docs.datadoghq.com/logs/search_syntax/).- `index_name` For
+    multi-index organizations, the log index in which the request is performed.-
+    `rollup_method` The stats roll-up method - supports `count`, `avg` and
+    `cardinality`.- `measure` For `avg` and cardinality `rollup_method` -
+    specify the measure or the facet name you want to use.- `time_window` #m
+    (between 1 and 2880), #h (between 1 and 48).- `operator` ``, `>=`, `==`, or
+    `!=`.- `#` an integer or decimal number used to set the threshold.#####
+    Composite QueryExample: `12345 && 67890`, where `12345` and `67890` are the
+    IDs of non-composite monitors* `name` [*required*, *default* = **dynamic,
+    based on query**]: The name of the alert.* `message` [*required*, *default*
+    = **dynamic, based on query**]: A message to include with notifications for
+    this monitor.Email notifications can be sent to specific users by using the
+    same '@username' notation as events.* `tags` [*optional*, *default* =
+    **empty list**]: A list of tags to associate with your monitor.When getting
+    all monitor details via the API, use the `monitor_tags` argument to filter
+    results by these tags.It is only available via the API and isn't visible or
+    editable in the Datadog UI.##### SLO Alert QueryExample:
+    `error_budget("slo_id").over("time_window") operator #`- `slo_id`: The
+    alphanumeric SLO ID of the SLO you are configuring the alert for.-
+    `time_window`: The time window of the SLO target you wish to alert on. Valid
+    options: `7d`, `30d`, `90d`.- `operator`: `>=` or `>`##### Audit Alert
+    QueryExample: `audits(query).rollup(rollup_method[,
+    measure]).last(time_window) operator #`- `query` The search query -
+    following the [Log search
+    syntax](https://docs.datadoghq.com/logs/search_syntax/).- `rollup_method`
+    The stats roll-up method - supports `count`, `avg` and `cardinality`.-
+    `measure` For `avg` and cardinality `rollup_method` - specify the measure or
+    the facet name you want to use.- `time_window` #m (between 1 and 2880), #h
+    (between 1 and 48).- `operator` ``, `>=`, `==`, or `!=`.- `#` an integer or
+    decimal number used to set the threshold.##### CI Pipelines Alert
+    QueryExample: `ci-pipelines(query).rollup(rollup_method[,
+    measure]).last(time_window) operator #`- `query` The search query -
+    following the [Log search
+    syntax](https://docs.datadoghq.com/logs/search_syntax/).- `rollup_method`
+    The stats roll-up method - supports `count`, `avg`, and `cardinality`.-
+    `measure` For `avg` and cardinality `rollup_method` - specify the measure or
+    the facet name you want to use.- `time_window` #m (between 1 and 2880), #h
+    (between 1 and 48).- `operator` ``, `>=`, `==`, or `!=`.- `#` an integer or
+    decimal number used to set the threshold.##### CI Tests Alert QueryExample:
+    `ci-tests(query).rollup(rollup_method[, measure]).last(time_window) operator
+    #`- `query` The search query - following the [Log search
+    syntax](https://docs.datadoghq.com/logs/search_syntax/).- `rollup_method`
+    The stats roll-up method - supports `count`, `avg`, and `cardinality`.-
+    `measure` For `avg` and cardinality `rollup_method` - specify the measure or
+    the facet name you want to use.- `time_window` #m (between 1 and 2880), #h
+    (between 1 and 48).- `operator` ``, `>=`, `==`, or `!=`.- `#` an integer or
+    decimal number used to set the threshold.##### Error Tracking Alert
+    QueryExample(RUM): `error-tracking-rum(query).rollup(rollup_method[,
+    measure]).last(time_window) operator #`Example(APM Traces):
+    `error-tracking-traces(query).rollup(rollup_method[,
+    measure]).last(time_window) operator #`- `query` The search query -
+    following the [Log search
+    syntax](https://docs.datadoghq.com/logs/search_syntax/).- `rollup_method`
+    The stats roll-up method - supports `count`, `avg`, and `cardinality`.-
+    `measure` For `avg` and cardinality `rollup_method` - specify the measure or
+    the facet name you want to use.- `time_window` #m (between 1 and 2880), #h
+    (between 1 and 48).- `operator` ``, `>=`, `==`, or `!=`.- `#` an integer or
+    decimal number used to set the threshold.**Database Monitoring Alert
+    Query**Example: `database-monitoring(query).rollup(rollup_method[,
+    measure]).last(time_window) operator #`- `query` The search query -
+    following the [Log search
+    syntax](https://docs.datadoghq.com/logs/search_syntax/).- `rollup_method`
+    The stats roll-up method - supports `count`, `avg`, and `cardinality`.-
+    `measure` For `avg` and cardinality `rollup_method` - specify the measure or
+    the facet name you want to use.- `time_window` #m (between 1 and 2880), #h
+    (between 1 and 48).- `operator` ``, `>=`, `==`, or `!=`.- `#` an integer or
+    decimal number used to set the threshold.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Monitor
+      description: >-
+        Create a monitor using the specified options.#### Monitor TypesThe type of
+        monitor chosen from:- anomaly: `query alert`- APM: `query alert` or
+        `trace-analytics alert`- composite: `composite`- custom: `service check`-
+        event: `event alert`- forecast: `query alert`- host: `service check`-
+        integration: `query alert` or `service check`- live process: `process
+        alert`- logs: `log alert`- metric: `query alert`- network: `service check`-
+        outlier: `query alert`- process: `service check`- rum: `rum alert`- SLO:
+        `slo alert`- watchdog: `event-v2 alert`- event-v2: `event-v2 alert`- audit:
+        `audit alert`- error-tracking: `error-tracking alert`- database-monitoring:
+        `database-monitoring alert`**Notes**:- Synthetic monitors are created
+        through the Synthetics API. See the [Synthetics
+        API](https://docs.datadoghq.com/api/latest/synthetics/) documentation for
+        more information.- Log monitors require an unscoped App Key.#### Query
+        Types##### Metric Alert QueryExample:
+        `time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #`-
+        `time_aggr`: avg, sum, max, min, change, or pct_change- `time_window`:
+        `last_#m` (with `#` between 1 and 10080 depending on the monitor type) or
+        `last_#h`(with `#` between 1 and 168 depending on the monitor type) or
+        `last_1d`, or `last_1w`- `space_aggr`: avg, sum, min, or max- `tags`: one or
+        more tags (comma-separated), or *- `key`: a 'key' in key:value tag syntax;
+        defines a separate alert for each tag in the group (multi-alert)-
+        `operator`: , >=, ==, or !=- `#`: an integer or decimal number used to set
+        the thresholdIf you are using the `_change_` or `_pct_change_` time
+        aggregator, instead use
+        `change_aggr(time_aggr(time_window),timeshift):space_aggr:metric{tags} [by
+        {key}] operator #` with:- `change_aggr` change, pct_change- `time_aggr` avg,
+        sum, max, min [Learn
+        more](https://docs.datadoghq.com/monitors/create/types/#define-the-conditions)-
+        `time_window` last\_#m (between 1 and 2880 depending on the monitor type),
+        last\_#h (between 1 and 48 depending on the monitor type), or last_#d (1 or
+        2)- `timeshift` #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_agoUse
+        this to create an outlier monitor using the following
+        query:`avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by
+        {host}, 'dbscan', 7) > 0`##### Service Check QueryExample:
+        `"check".over(tags).last(count).by(group).count_by_status()`- `check` name
+        of the check, for example `datadog.agent.up`- `tags` one or more quoted tags
+        (comma-separated), or "*". for example: `.over("env:prod", "role:db")`;
+        `over` cannot be blank.- `count` must be at greater than or equal to your
+        max threshold (defined in the `options`). It is limited to 100.For example,
+        if you've specified to notify on 1 critical, 3 ok, and 2 warn statuses,
+        `count` should be at least 3.- `group` must be specified for check monitors.
+        Per-check grouping is already explicitly known for some service checks.For
+        example, Postgres integration monitors are tagged by `db`, `host`, and
+        `port`, and Network monitors by `host`, `instance`, and `url`. See [Service
+        Checks](https://docs.datadoghq.com/api/latest/service-checks/) documentation
+        for more information.##### Event Alert Query**Note:** The Event Alert Query
+        has been replaced by the Event V2 Alert Query. For more information, see the
+        [Event Migration
+        guide](https://docs.datadoghq.com/service_management/events/guides/migrating_to_new_events_features/).#####
+        Event V2 Alert QueryExample: `events(query).rollup(rollup_method[,
+        measure]).last(time_window) operator #`- `query` The search query -
+        following the [Log search
+        syntax](https://docs.datadoghq.com/logs/search_syntax/).- `rollup_method`
+        The stats roll-up method - supports `count`, `avg` and `cardinality`.-
+        `measure` For `avg` and cardinality `rollup_method` - specify the measure or
+        the facet name you want to use.- `time_window` #m (between 1 and 2880), #h
+        (between 1 and 48).- `operator` ``, `>=`, `==`, or `!=`.- `#` an integer or
+        decimal number used to set the threshold.##### Process Alert QueryExample:
+        `processes(search).over(tags).rollup('count').last(timeframe) operator #`-
+        `search` free text search string for querying processes.Matching processes
+        match results on the [Live
+        Processes](https://docs.datadoghq.com/infrastructure/process/?tab=linuxwindows)
+        page.- `tags` one or more tags (comma-separated)- `timeframe` the timeframe
+        to roll up the counts. Examples: 10m, 4h. Supported timeframes: s, m, h and
+        d- `operator` , >=, ==, or !=- `#` an integer or decimal number used to set
+        the threshold##### Logs Alert QueryExample:
+        `logs(query).index(index_name).rollup(rollup_method[,
+        measure]).last(time_window) operator #`- `query` The search query -
+        following the [Log search
+        syntax](https://docs.datadoghq.com/logs/search_syntax/).- `index_name` For
+        multi-index organizations, the log index in which the request is performed.-
+        `rollup_method` The stats roll-up method - supports `count`, `avg` and
+        `cardinality`.- `measure` For `avg` and cardinality `rollup_method` -
+        specify the measure or the facet name you want to use.- `time_window` #m
+        (between 1 and 2880), #h (between 1 and 48).- `operator` ``, `>=`, `==`, or
+        `!=`.- `#` an integer or decimal number used to set the threshold.#####
+        Composite QueryExample: `12345 && 67890`, where `12345` and `67890` are the
+        IDs of non-composite monitors* `name` [*required*, *default* = **dynamic,
+        based on query**]: The name of the alert.* `message` [*required*, *default*
+        = **dynamic, based on query**]: A message to include with notifications for
+        this monitor.Email notifications can be sent to specific users by using the
+        same '@username' notation as events.* `tags` [*optional*, *default* =
+        **empty list**]: A list of tags to associate with your monitor.When getting
+        all monitor details via the API, use the `monitor_tags` argument to filter
+        results by these tags.It is only available via the API and isn't visible or
+        editable in the Datadog UI.##### SLO Alert QueryExample:
+        `error_budget("slo_id").over("time_window") operator #`- `slo_id`: The
+        alphanumeric SLO ID of the SLO you are configuring the alert for.-
+        `time_window`: The time window of the SLO target you wish to alert on. Valid
+        options: `7d`, `30d`, `90d`.- `operator`: `>=` or `>`##### Audit Alert
+        QueryExample: `audits(query).rollup(rollup_method[,
+        measure]).last(time_window) operator #`- `query` The search query -
+        following the [Log search
+        syntax](https://docs.datadoghq.com/logs/search_syntax/).- `rollup_method`
+        The stats roll-up method - supports `count`, `avg` and `cardinality`.-
+        `measure` For `avg` and cardinality `rollup_method` - specify the measure or
+        the facet name you want to use.- `time_window` #m (between 1 and 2880), #h
+        (between 1 and 48).- `operator` ``, `>=`, `==`, or `!=`.- `#` an integer or
+        decimal number used to set the threshold.##### CI Pipelines Alert
+        QueryExample: `ci-pipelines(query).rollup(rollup_method[,
+        measure]).last(time_window) operator #`- `query` The search query -
+        following the [Log search
+        syntax](https://docs.datadoghq.com/logs/search_syntax/).- `rollup_method`
+        The stats roll-up method - supports `count`, `avg`, and `cardinality`.-
+        `measure` For `avg` and cardinality `rollup_method` - specify the measure or
+        the facet name you want to use.- `time_window` #m (between 1 and 2880), #h
+        (between 1 and 48).- `operator` ``, `>=`, `==`, or `!=`.- `#` an integer or
+        decimal number used to set the threshold.##### CI Tests Alert QueryExample:
+        `ci-tests(query).rollup(rollup_method[, measure]).last(time_window) operator
+        #`- `query` The search query - following the [Log search
+        syntax](https://docs.datadoghq.com/logs/search_syntax/).- `rollup_method`
+        The stats roll-up method - supports `count`, `avg`, and `cardinality`.-
+        `measure` For `avg` and cardinality `rollup_method` - specify the measure or
+        the facet name you want to use.- `time_window` #m (between 1 and 2880), #h
+        (between 1 and 48).- `operator` ``, `>=`, `==`, or `!=`.- `#` an integer or
+        decimal number used to set the threshold.##### Error Tracking Alert
+        QueryExample(RUM): `error-tracking-rum(query).rollup(rollup_method[,
+        measure]).last(time_window) operator #`Example(APM Traces):
+        `error-tracking-traces(query).rollup(rollup_method[,
+        measure]).last(time_window) operator #`- `query` The search query -
+        following the [Log search
+        syntax](https://docs.datadoghq.com/logs/search_syntax/).- `rollup_method`
+        The stats roll-up method - supports `count`, `avg`, and `cardinality`.-
+        `measure` For `avg` and cardinality `rollup_method` - specify the measure or
+        the facet name you want to use.- `time_window` #m (between 1 and 2880), #h
+        (between 1 and 48).- `operator` ``, `>=`, `==`, or `!=`.- `#` an integer or
+        decimal number used to set the threshold.**Database Monitoring Alert
+        Query**Example: `database-monitoring(query).rollup(rollup_method[,
+        measure]).last(time_window) operator #`- `query` The search query -
+        following the [Log search
+        syntax](https://docs.datadoghq.com/logs/search_syntax/).- `rollup_method`
+        The stats roll-up method - supports `count`, `avg`, and `cardinality`.-
+        `measure` For `avg` and cardinality `rollup_method` - specify the measure or
+        the facet name you want to use.- `time_window` #m (between 1 and 2880), #h
+        (between 1 and 48).- `operator` ``, `>=`, `==`, or `!=`.- `#` an integer or
+        decimal number used to set the threshold.
+    paths:
+      /api/v1/monitor:
+        post:
+          summary: Create A Monitor
+          description: >-
+            Create a monitor using the specified options.#### Monitor TypesThe type
+            of monitor chosen from:- anomaly: `query alert`- APM: `query alert` or
+            `trace-analytics alert`- composite: `composite`- custom: `service
+            check`- event: `event alert`- forecast: `query alert`- host: `service
+            check`- integration: `query alert` or `service check`- live process:
+            `process alert`- logs: `log alert`- metric: `query alert`- network:
+            `service check`- outlier: `query alert`- process: `service check`- rum:
+            `rum alert`- SLO: `slo alert`- watchdog: `event-v2 alert`- event-v2:
+            `event-v2 alert`- audit: `audit alert`- error-tracking: `error-tracking
+            alert`- database-monitoring: `database-monitoring alert`**Notes**:-
+            Synthetic monitors are created through the Synthetics API. See the
+            [Synthetics API](https://docs.datadoghq.com/api/latest/synthetics/)
+            documentation for more information.- Log monitors require an unscoped
+            App Key.#### Query Types##### Metric Alert QueryExample:
+            `time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #`-
+            `time_aggr`: avg, sum, max, min, change, or pct_change- `time_window`:
+            `last_#m` (with `#` between 1 and 10080 depending on the monitor type)
+            or `last_#h`(with `#` between 1 and 168 depending on the monitor type)
+            or `last_1d`, or `last_1w`- `space_aggr`: avg, sum, min, or max- `tags`:
+            one or more tags (comma-separated), or *- `key`: a 'key' in key:value
+            tag syntax; defines a separate alert for each tag in the group
+            (multi-alert)- `operator`: , >=, ==, or !=- `#`: an integer or decimal
+            number used to set the thresholdIf you are using the `_change_` or
+            `_pct_change_` time aggregator, instead use
+            `change_aggr(time_aggr(time_window),timeshift):space_aggr:metric{tags}
+            [by {key}] operator #` with:- `change_aggr` change, pct_change-
+            `time_aggr` avg, sum, max, min [Learn
+            more](https://docs.datadoghq.com/monitors/create/types/#define-the-conditions)-
+            `time_window` last\_#m (between 1 and 2880 depending on the monitor
+            type), last\_#h (between 1 and 48 depending on the monitor type), or
+            last_#d (1 or 2)- `timeshift` #m_ago (5, 10, 15, or 30), #h_ago (1, 2,
+            or 4), or 1d_agoUse this to create an outlier monitor using the
+            following
+            query:`avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data}
+            by {host}, 'dbscan', 7) > 0`##### Service Check QueryExample:
+            `"check".over(tags).last(count).by(group).count_by_status()`- `check`
+            name of the check, for example `datadog.agent.up`- `tags` one or more
+            quoted tags (comma-separated), or "*". for example: `.over("env:prod",
+            "role:db")`; `over` cannot be blank.- `count` must be at greater than or
+            equal to your max threshold (defined in the `options`). It is limited to
+            100.For example, if you've specified to notify on 1 critical, 3 ok, and
+            2 warn statuses, `count` should be at least 3.- `group` must be
+            specified for check monitors. Per-check grouping is already explicitly
+            known for some service checks.For example, Postgres integration monitors
+            are tagged by `db`, `host`, and `port`, and Network monitors by `host`,
+            `instance`, and `url`. See [Service
+            Checks](https://docs.datadoghq.com/api/latest/service-checks/)
+            documentation for more information.##### Event Alert Query**Note:** The
+            Event Alert Query has been replaced by the Event V2 Alert Query. For
+            more information, see the [Event Migration
+            guide](https://docs.datadoghq.com/service_management/events/guides/migrating_to_new_events_features/).#####
+            Event V2 Alert QueryExample: `events(query).rollup(rollup_method[,
+            measure]).last(time_window) operator #`- `query` The search query -
+            following the [Log search
+            syntax](https://docs.datadoghq.com/logs/search_syntax/).-
+            `rollup_method` The stats roll-up method - supports `count`, `avg` and
+            `cardinality`.- `measure` For `avg` and cardinality `rollup_method` -
+            specify the measure or the facet name you want to use.- `time_window` #m
+            (between 1 and 2880), #h (between 1 and 48).- `operator` ``, `>=`, `==`,
+            or `!=`.- `#` an integer or decimal number used to set the
+            threshold.##### Process Alert QueryExample:
+            `processes(search).over(tags).rollup('count').last(timeframe) operator
+            #`- `search` free text search string for querying processes.Matching
+            processes match results on the [Live
+            Processes](https://docs.datadoghq.com/infrastructure/process/?tab=linuxwindows)
+            page.- `tags` one or more tags (comma-separated)- `timeframe` the
+            timeframe to roll up the counts. Examples: 10m, 4h. Supported
+            timeframes: s, m, h and d- `operator` , >=, ==, or !=- `#` an integer or
+            decimal number used to set the threshold##### Logs Alert QueryExample:
+            `logs(query).index(index_name).rollup(rollup_method[,
+            measure]).last(time_window) operator #`- `query` The search query -
+            following the [Log search
+            syntax](https://docs.datadoghq.com/logs/search_syntax/).- `index_name`
+            For multi-index organizations, the log index in which the request is
+            performed.- `rollup_method` The stats roll-up method - supports `count`,
+            `avg` and `cardinality`.- `measure` For `avg` and cardinality
+            `rollup_method` - specify the measure or the facet name you want to
+            use.- `time_window` #m (between 1 and 2880), #h (between 1 and 48).-
+            `operator` ``, `>=`, `==`, or `!=`.- `#` an integer or decimal number
+            used to set the threshold.##### Composite QueryExample: `12345 &&
+            67890`, where `12345` and `67890` are the IDs of non-composite monitors*
+            `name` [*required*, *default* = **dynamic, based on query**]: The name
+            of the alert.* `message` [*required*, *default* = **dynamic, based on
+            query**]: A message to include with notifications for this monitor.Email
+            notifications can be sent to specific users by using the same
+            '@username' notation as events.* `tags` [*optional*, *default* = **empty
+            list**]: A list of tags to associate with your monitor.When getting all
+            monitor details via the API, use the `monitor_tags` argument to filter
+            results by these tags.It is only available via the API and isn't visible
+            or editable in the Datadog UI.##### SLO Alert QueryExample:
+            `error_budget("slo_id").over("time_window") operator #`- `slo_id`: The
+            alphanumeric SLO ID of the SLO you are configuring the alert for.-
+            `time_window`: The time window of the SLO target you wish to alert on.
+            Valid options: `7d`, `30d`, `90d`.- `operator`: `>=` or `>`##### Audit
+            Alert QueryExample: `audits(query).rollup(rollup_method[,
+            measure]).last(time_window) operator #`- `query` The search query -
+            following the [Log search
+            syntax](https://docs.datadoghq.com/logs/search_syntax/).-
+            `rollup_method` The stats roll-up method - supports `count`, `avg` and
+            `cardinality`.- `measure` For `avg` and cardinality `rollup_method` -
+            specify the measure or the facet name you want to use.- `time_window` #m
+            (between 1 and 2880), #h (between 1 and 48).- `operator` ``, `>=`, `==`,
+            or `!=`.- `#` an integer or decimal number used to set the
+            threshold.##### CI Pipelines Alert QueryExample:
+            `ci-pipelines(query).rollup(rollup_method[, measure]).last(time_window)
+            operator #`- `query` The search query - following the [Log search
+            syntax](https://docs.datadoghq.com/logs/search_syntax/).-
+            `rollup_method` The stats roll-up method - supports `count`, `avg`, and
+            `cardinality`.- `measure` For `avg` and cardinality `rollup_method` -
+            specify the measure or the facet name you want to use.- `time_window` #m
+            (between 1 and 2880), #h (between 1 and 48).- `operator` ``, `>=`, `==`,
+            or `!=`.- `#` an integer or decimal number used to set the
+            threshold.##### CI Tests Alert QueryExample:
+            `ci-tests(query).rollup(rollup_method[, measure]).last(time_window)
+            operator #`- `query` The search query - following the [Log search
+            syntax](https://docs.datadoghq.com/logs/search_syntax/).-
+            `rollup_method` The stats roll-up method - supports `count`, `avg`, and
+            `cardinality`.- `measure` For `avg` and cardinality `rollup_method` -
+            specify the measure or the facet name you want to use.- `time_window` #m
+            (between 1 and 2880), #h (between 1 and 48).- `operator` ``, `>=`, `==`,
+            or `!=`.- `#` an integer or decimal number used to set the
+            threshold.##### Error Tracking Alert QueryExample(RUM):
+            `error-tracking-rum(query).rollup(rollup_method[,
+            measure]).last(time_window) operator #`Example(APM Traces):
+            `error-tracking-traces(query).rollup(rollup_method[,
+            measure]).last(time_window) operator #`- `query` The search query -
+            following the [Log search
+            syntax](https://docs.datadoghq.com/logs/search_syntax/).-
+            `rollup_method` The stats roll-up method - supports `count`, `avg`, and
+            `cardinality`.- `measure` For `avg` and cardinality `rollup_method` -
+            specify the measure or the facet name you want to use.- `time_window` #m
+            (between 1 and 2880), #h (between 1 and 48).- `operator` ``, `>=`, `==`,
+            or `!=`.- `#` an integer or decimal number used to set the
+            threshold.**Database Monitoring Alert Query**Example:
+            `database-monitoring(query).rollup(rollup_method[,
+            measure]).last(time_window) operator #`- `query` The search query -
+            following the [Log search
+            syntax](https://docs.datadoghq.com/logs/search_syntax/).-
+            `rollup_method` The stats roll-up method - supports `count`, `avg`, and
+            `cardinality`.- `measure` For `avg` and cardinality `rollup_method` -
+            specify the measure or the facet name you want to use.- `time_window` #m
+            (between 1 and 2880), #h (between 1 and 48).- `operator` ``, `>=`, `==`,
+            or `!=`.- `#` an integer or decimal number used to set the threshold.
+          operationId: createamonitor
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    message: You may need to add web hosts if this is consistently high.
+                    name: Bytes received on host0
+                    options:
+                      no_data_timeframe: 20
+                      notify_no_data: true
+                    query: avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100
+                    tags:
+                      - app:webserver
+                      - frontend
+                    type: query alert
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

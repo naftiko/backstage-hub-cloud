@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Public Ssh Keys For The Authenticated User
+  description: >-
+    Lists the public SSH keys for the authenticated user's GitHub account.OAuth
+    app tokens and personal access tokens (classic) need the `read:public_key`
+    scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Public Ssh Keys For The Authenticated User
+      description: >-
+        Lists the public SSH keys for the authenticated user's GitHub account.OAuth
+        app tokens and personal access tokens (classic) need the `read:public_key`
+        scope to use this endpoint.
+    paths:
+      /user/keys:
+        get:
+          summary: List Public Ssh Keys For The Authenticated User
+          description: >-
+            Lists the public SSH keys for the authenticated user's GitHub
+            account.OAuth app tokens and personal access tokens (classic) need the
+            `read:public_key` scope to use this endpoint.
+          operationId: userslistpublicsshkeysforauthenticateduser
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Information Associated With A Fulfillment
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillment#update-2020-04
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Information Associated With A Fulfillment
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillment#update-2020-04
+    paths:
+      /admin/api/2020-04/orders/{order_id}/fulfillments/{fulfillment_id}.json:
+        put:
+          summary: Update Information Associated With A Fulfillment
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillment#update-2020-04
+          operationId: deprecated202004updateordersparamorderidfulfillmentsparamfulfillmentid
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      fulfillment:
+                        tracking_number: '987654321'
+                        id: 255858046
+                    summary: Update the tracking number for a fulfillment
+          responses:
+            '200':
+              description: ''

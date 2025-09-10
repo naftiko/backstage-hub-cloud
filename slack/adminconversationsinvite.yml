@@ -1,0 +1,83 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Admin.conversations.invite
+  description: Invite a user to a public or private channel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Admin.conversations.invite
+      description: Invite a user to a public or private channel.
+    paths:
+      /admin.conversations.invite:
+        post:
+          summary: Post Admin.conversations.invite
+          description: Invite a user to a public or private channel.
+          operationId: adminconversationsinvite
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - channel_id
+                    - user_ids
+                  type: object
+                  properties:
+                    user_ids:
+                      type: string
+                      description: The users to invite.
+                    channel_id:
+                      type: string
+                      description: The channel that the users will be invited to.
+              application/json:
+                schema:
+                  required:
+                    - channel_id
+                    - user_ids
+                  type: object
+                  properties:
+                    user_ids:
+                      type: string
+                      description: The users to invite.
+                    channel_id:
+                      type: string
+                      description: The channel that the users will be invited to.
+          responses:
+            default:
+              description: Typical error response
+              content:
+                application/json:
+                  schema:
+                    title: admin.conversations.invite error schema
+                    required:
+                      - error
+                      - ok
+                    type: object
+                    properties:
+                      error:
+                        type: string
+                        enum:
+                          - feature_not_enabled
+                          - channel_not_found
+                          - channel_type_not_supported
+                          - default_org_wide_channel
+                          - restricted_action
+                          - user_must_be_admin
+                          - failed_for_some_users
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                    additionalProperties: true
+                    description: Schema for error response from admin.conversations.invite
+                  example:
+                    error: invalid_auth
+                    ok: false

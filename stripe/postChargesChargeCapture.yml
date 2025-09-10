@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Charges Charge Capture
+  description: >-
+    Capture the payment of an existing, uncaptured charge that was created with
+    the capture option set to false.Uncaptured payments expire a set number of
+    days after they are created (7 by default), after which they are marked as
+    refunded and capture attempts will fail.Don’t use this method to capture a
+    PaymentIntent-initiated charge. Use Capture a PaymentIntent.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Charges Charge Capture
+      description: >-
+        Capture the payment of an existing, uncaptured charge that was created with
+        the capture option set to false.Uncaptured payments expire a set number of
+        days after they are created (7 by default), after which they are marked as
+        refunded and capture attempts will fail.Don’t use this method to capture a
+        PaymentIntent-initiated charge. Use Capture a PaymentIntent.
+    paths:
+      /v1/charges/{charge}/capture:
+        post:
+          summary: Post Charges Charge Capture
+          description: >-
+            Capture the payment of an existing, uncaptured charge that was created
+            with the capture option set to false.Uncaptured payments expire a set
+            number of days after they are created (7 by default), after which they
+            are marked as refunded and capture attempts will fail.Don’t use this
+            method to capture a PaymentIntent-initiated charge. Use Capture a
+            PaymentIntent.
+          operationId: postChargesChargeCapture
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                  transfer_data:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostChargesChargeCaptureRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

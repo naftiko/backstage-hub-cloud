@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Createroutecalculator
+  description: >-
+    Creates a route calculator resource in your Amazon Web Services account. You
+    can send requests to a route calculator resource to estimate travel time,
+    distance, and get directions. A route calculator sources traffic and road
+    network data from your chosen data provider.  If your application is
+    tracking or routing assets you use in your business, such as delivery
+    vehicles or employees, you must not use Esri as your geolocation provider.
+    See section 82 of the Amazon Web Services service terms for more details. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createroutecalculator
+      description: >-
+        Creates a route calculator resource in your Amazon Web Services account. You
+        can send requests to a route calculator resource to estimate travel time,
+        distance, and get directions. A route calculator sources traffic and road
+        network data from your chosen data provider.  If your application is
+        tracking or routing assets you use in your business, such as delivery
+        vehicles or employees, you must not use Esri as your geolocation provider.
+        See section 82 of the Amazon Web Services service terms for more details. 
+    paths:
+      /routes/v0/calculators:
+        POST:
+          summary: Createroutecalculator
+          description: >-
+            Creates a route calculator resource in your Amazon Web Services account.
+            You can send requests to a route calculator resource to estimate travel
+            time, distance, and get directions. A route calculator sources traffic
+            and road network data from your chosen data provider.  If your
+            application is tracking or routing assets you use in your business, such
+            as delivery vehicles or employees, you must not use Esri as your
+            geolocation provider. See section 82 of the Amazon Web Services service
+            terms for more details. 
+          operationId: createRouteCalculator

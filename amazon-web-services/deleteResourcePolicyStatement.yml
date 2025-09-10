@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deleteresourcepolicystatement
+  description: >-
+    Deletes a policy statement from a resource policy. If you delete the last
+    statement from a policy, the policy is deleted. If you specify a statement
+    ID that doesn't exist in the policy, or if the bot or bot alias doesn't have
+    a policy attached, Amazon Lex returns an exception.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deleteresourcepolicystatement
+      description: >-
+        Deletes a policy statement from a resource policy. If you delete the last
+        statement from a policy, the policy is deleted. If you specify a statement
+        ID that doesn't exist in the policy, or if the bot or bot alias doesn't have
+        a policy attached, Amazon Lex returns an exception.
+    paths:
+      /policy/{resourceArn}/statements/{statementId}/:
+        DELETE:
+          summary: Deleteresourcepolicystatement
+          description: >-
+            Deletes a policy statement from a resource policy. If you delete the
+            last statement from a policy, the policy is deleted. If you specify a
+            statement ID that doesn't exist in the policy, or if the bot or bot
+            alias doesn't have a policy attached, Amazon Lex returns an exception.
+          operationId: deleteResourcePolicyStatement

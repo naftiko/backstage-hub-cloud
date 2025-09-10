@@ -1,0 +1,220 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Consignment
+  description: >-
+    Updates an existing consignment. An update is either one of the following:1.
+    Updates the consignment address and/or line items.2. Selects a specific
+    fulfillment option.### Update the consignment address and line itemsFor this
+    type of update, the payload is the same as when creating a new
+    consignment.         Update each *Consignment* `shippingOptionId` (shipping
+    address and line items) with the `availableShippingOption > id` from the
+    POST `/consignment` response. **Note:**Updating a consignment could
+    invalidate the value for `selectedShippingOption` and
+    `selectedPickupOption`.### Select a specific fulfillment optionBefore
+    placing an order, each consignment must have a `selectedShippingOption` or a
+    `selectedPickupOption`.If the consignment already has a pick-up option
+    selected and a shipping option is provided, the pick-up option will be
+    deselected and the shipping option will be selected instead (and vice
+    versa). The `PUT` request will fail if it contains a shipping option ID and
+    a pickup option ID.Required Fields:* `shippingOptionId` or `pickupOptionId`*
+    `lineItems`To learn more about creating a Checkout Consignment see [Checkout
+    Consignment API](/docs/storefront/cart-checkout/guide/consignments).> ####
+    Notes> * You cannot pass both an `address` and a `shippingOptionId` because
+    the shipping option may not be available for the new address > * Substitute
+    your storefront domain for `yourstore.example.com`. > * The Send a Test
+    Request feature is not currently supported for this endpoint.  > * Please
+    note that this API endpoint is not concurrent safe, meaning multiple
+    simultaneous requests could result in unexpected and inconsistent results.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Consignment
+      description: >-
+        Updates an existing consignment. An update is either one of the following:1.
+        Updates the consignment address and/or line items.2. Selects a specific
+        fulfillment option.### Update the consignment address and line itemsFor this
+        type of update, the payload is the same as when creating a new
+        consignment.         Update each *Consignment* `shippingOptionId` (shipping
+        address and line items) with the `availableShippingOption > id` from the
+        POST `/consignment` response. **Note:**Updating a consignment could
+        invalidate the value for `selectedShippingOption` and
+        `selectedPickupOption`.### Select a specific fulfillment optionBefore
+        placing an order, each consignment must have a `selectedShippingOption` or a
+        `selectedPickupOption`.If the consignment already has a pick-up option
+        selected and a shipping option is provided, the pick-up option will be
+        deselected and the shipping option will be selected instead (and vice
+        versa). The `PUT` request will fail if it contains a shipping option ID and
+        a pickup option ID.Required Fields:* `shippingOptionId` or `pickupOptionId`*
+        `lineItems`To learn more about creating a Checkout Consignment see [Checkout
+        Consignment API](/docs/storefront/cart-checkout/guide/consignments).> ####
+        Notes> * You cannot pass both an `address` and a `shippingOptionId` because
+        the shipping option may not be available for the new address > * Substitute
+        your storefront domain for `yourstore.example.com`. > * The Send a Test
+        Request feature is not currently supported for this endpoint.  > * Please
+        note that this API endpoint is not concurrent safe, meaning multiple
+        simultaneous requests could result in unexpected and inconsistent results.
+    paths:
+      /checkouts/{checkoutId}/consignments/{consignmentId}:
+        put:
+          summary: Update A Consignment
+          description: >-
+            Updates an existing consignment. An update is either one of the
+            following:1. Updates the consignment address and/or line items.2.
+            Selects a specific fulfillment option.### Update the consignment address
+            and line itemsFor this type of update, the payload is the same as when
+            creating a new consignment.         Update each *Consignment*
+            `shippingOptionId` (shipping address and line items) with the
+            `availableShippingOption > id` from the POST `/consignment` response.
+            **Note:**Updating a consignment could invalidate the value for
+            `selectedShippingOption` and `selectedPickupOption`.### Select a
+            specific fulfillment optionBefore placing an order, each consignment
+            must have a `selectedShippingOption` or a `selectedPickupOption`.If the
+            consignment already has a pick-up option selected and a shipping option
+            is provided, the pick-up option will be deselected and the shipping
+            option will be selected instead (and vice versa). The `PUT` request will
+            fail if it contains a shipping option ID and a pickup option ID.Required
+            Fields:* `shippingOptionId` or `pickupOptionId`* `lineItems`To learn
+            more about creating a Checkout Consignment see [Checkout Consignment
+            API](/docs/storefront/cart-checkout/guide/consignments).> #### Notes> *
+            You cannot pass both an `address` and a `shippingOptionId` because the
+            shipping option may not be available for the new address > * Substitute
+            your storefront domain for `yourstore.example.com`. > * The Send a Test
+            Request feature is not currently supported for this endpoint.  > *
+            Please note that this API endpoint is not concurrent safe, meaning
+            multiple simultaneous requests could result in unexpected and
+            inconsistent results.
+          operationId: updateCheckoutConsignment
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/NewUpdateConsignment'
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/checkout_Full'
+                  example:
+                    id: 29eb9b44-8f33-4e4a-9429-d0e8e24641ed
+                    cart:
+                      id: 29eb9b44-8f33-4e4a-9429-d0e8e24641ed
+                      customerId: 18
+                      email: dwaynecole@testing.com
+                      currency:
+                        name: US Dollars
+                        code: USD
+                        symbol: $
+                        decimalPlaces: 2
+                      isTaxIncluded: true
+                      baseAmount: 7.95
+                      discountAmount: 0
+                      cartAmount: 7.95
+                      coupons: []
+                      discounts:
+                        - id: 243c9ca2-22b4-417a-8b09-b3fc05778b52
+                          discountedAmount: 0
+                      lineItems:
+                        physicalItems:
+                          - id: 243c9ca2-22b4-417a-8b09-b3fc05778b52
+                            parentId: {}
+                            variantId: 345
+                            productId: 174
+                            sku: ''
+                            name: 1L Le Parfait Jar
+                            url: https://{store_domain}/all/1l-le-parfait-jar/
+                            quantity: 1
+                            brand: OFS
+                            isTaxable: true
+                            imageUrl: >-
+                              https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2
+                            discounts: []
+                            discountAmount: 0
+                            couponAmount: 0
+                            originalPrice: 7.95
+                            listPrice: 7.95
+                            salePrice: 7.95
+                            extendedListPrice: 7.95
+                            extendedSalePrice: 7.95
+                            isShippingRequired: true
+                            giftWrapping: {}
+                            addedByPromotion: false
+                        digitalItems: []
+                        giftCertificates: []
+                        customItems: []
+                      createdTime: '2019-01-10T17:18:00+00:00'
+                      updatedTime: '2019-01-10T17:19:47+00:00'
+                    billingAddress:
+                      id: 5c377ead301c2
+                      firstName: Dwayne
+                      lastName: Cole
+                      email: dwaynecole@testing.com
+                      company: ''
+                      address1: Mauna Kea Access Rd
+                      address2: ''
+                      city: Hilo
+                      stateOrProvince: Hawaii
+                      stateOrProvinceCode: HI
+                      country: United States
+                      countryCode: US
+                      postalCode: '96720'
+                      phone: '8081234567'
+                      customFields: []
+                    consignments:
+                      - id: 5c377ead30ac1
+                        shippingCost: 8
+                        handlingCost: 0
+                        couponDiscounts: []
+                        discounts: []
+                        lineItemIds:
+                          - 243c9ca2-22b4-417a-8b09-b3fc05778b52
+                        selectedShippingOption:
+                          id: d09e05c0-3788-44df-a1bb-b6d3afdf6841
+                          type: shipping_byweight
+                          description: Ship by Weight
+                          imageUrl: ''
+                          cost: 8
+                          transitTime: ''
+                        address:
+                          firstName: Dwayne
+                          lastName: Cole
+                          email: dwaynecole@testing.com
+                          company: ''
+                          address1: Mauna Kea Access Rd
+                          address2: ''
+                          city: Hilo
+                          stateOrProvince: Hawaii
+                          stateOrProvinceCode: HI
+                          country: United States
+                          countryCode: US
+                          postalCode: '96720'
+                          phone: '8081234567'
+                          customFields: []
+                          shouldSaveAddress: true
+                    orderId: null
+                    shippingCostTotal: 8
+                    shippingCostBeforeDiscount: 8
+                    handlingCostTotal: 0
+                    taxTotal: 1.22
+                    coupons: []
+                    taxes:
+                      - name: Tax
+                        amount: 1.22
+                    subtotal: 7.95
+                    grandTotal: 15.95
+                    giftCertificates: []
+                    createdTime: '2019-01-10T17:18:00+00:00'
+                    updatedTime: '2019-01-10T17:19:47+00:00'
+                    customerMessage: ''

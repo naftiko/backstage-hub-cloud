@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.network Virtualnetworkgateways Virtualnetworkgatewayname Reset
+  description: >-
+    The Reset VirtualNetworkGateway operation resets the primary of the virtual
+    network gateway in the specified resource group through Network resource
+    provider.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.network Virtualnetworkgateways Virtualnetworkgatewayname Reset
+      description: >-
+        The Reset VirtualNetworkGateway operation resets the primary of the virtual
+        network gateway in the specified resource group through Network resource
+        provider.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualnetworkgateways/{virtualNetworkGatewayName}/reset:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.network Virtualnetworkgateways
+            Virtualnetworkgatewayname Reset
+          description: >-
+            The Reset VirtualNetworkGateway operation resets the primary of the
+            virtual network gateway in the specified resource group through Network
+            resource provider.
+          operationId: virtualNetworkGatewaysReset
+          responses:
+            '202':
+              description: ''

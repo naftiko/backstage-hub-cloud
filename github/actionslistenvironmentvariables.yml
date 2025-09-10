@@ -1,0 +1,60 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Environment Variables
+  description: >-
+    Lists all environment variables.Authenticated users must have collaborator
+    access to a repository to create, update, or read variables.OAuth app tokens
+    and personal access tokens (classic) need the `repo` scope to use this
+    endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Environment Variables
+      description: >-
+        Lists all environment variables.Authenticated users must have collaborator
+        access to a repository to create, update, or read variables.OAuth app tokens
+        and personal access tokens (classic) need the `repo` scope to use this
+        endpoint.
+    paths:
+      /repos/{owner}/{repo}/environments/{environment_name}/variables:
+        get:
+          summary: List Environment Variables
+          description: >-
+            Lists all environment variables.Authenticated users must have
+            collaborator access to a repository to create, update, or read
+            variables.OAuth app tokens and personal access tokens (classic) need the
+            `repo` scope to use this endpoint.
+          operationId: actionslistenvironmentvariables
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    required:
+                      - total_count
+                      - variables
+                    properties:
+                      total_count:
+                        type: integer
+                      variables:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/actions-variable'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/actions-variables-paginated'
+              headers:
+                Link:
+                  $ref: '#/components/headers/link'

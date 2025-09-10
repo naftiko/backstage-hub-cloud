@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.batch Batchaccounts Accountname Applications Applicationname
+    Versions Versionname
+  description: >-
+    Creates an application package record. The record contains a storageUrl
+    where the package should be uploaded to.  Once it is uploaded the
+    `ApplicationPackage` needs to be activated using `ApplicationPackageActive`
+    before it can be used. If the auto storage account was configured to use
+    storage keys, the URL returned will contain a SAS.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.batch Batchaccounts Accountname Applications Applicationname
+        Versions Versionname
+      description: >-
+        Creates an application package record. The record contains a storageUrl
+        where the package should be uploaded to.  Once it is uploaded the
+        `ApplicationPackage` needs to be activated using `ApplicationPackageActive`
+        before it can be used. If the auto storage account was configured to use
+        storage keys, the URL returned will contain a SAS.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}/applications/{applicationName}/versions/{versionName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.batch Batchaccounts Accountname Applications
+            Applicationname Versions Versionname
+          description: >-
+            Creates an application package record. The record contains a storageUrl
+            where the package should be uploaded to.  Once it is uploaded the
+            `ApplicationPackage` needs to be activated using
+            `ApplicationPackageActive` before it can be used. If the auto storage
+            account was configured to use storage keys, the URL returned will
+            contain a SAS.
+          operationId: applicationPackageCreate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

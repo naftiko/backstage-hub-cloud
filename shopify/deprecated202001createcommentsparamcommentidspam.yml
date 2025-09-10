@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Marks A Comment As Spam
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/online-store/comment#spam-2020-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Marks A Comment As Spam
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/online-store/comment#spam-2020-01
+    paths:
+      /admin/api/2020-01/comments/{comment_id}/spam.json:
+        post:
+          summary: Marks A Comment As Spam
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/online-store/comment#spam-2020-01
+          operationId: deprecated202001createcommentsparamcommentidspam
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value: {}
+                    summary: Mark a comment as spam
+          responses:
+            '200':
+              description: ''

@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Apis
+  description: List APIs and their IDs.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Apis
+      description: List APIs and their IDs.
+    paths:
+      /api/v2/apicatalog/api:
+        get:
+          summary: List Apis
+          description: List APIs and their IDs.
+          operationId: listAPIs
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

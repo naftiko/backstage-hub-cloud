@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve Tracking Settings
+  description: >-
+    **This endpoint allows you to retrieve a list of all tracking settings on
+    your account.**
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve Tracking Settings
+      description: >-
+        **This endpoint allows you to retrieve a list of all tracking settings on
+        your account.**
+    paths:
+      /v3/tracking_settings:
+        get:
+          summary: Retrieve Tracking Settings
+          description: >-
+            **This endpoint allows you to retrieve a list of all tracking settings
+            on your account.**
+          operationId: listTrackingSetting
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      result:
+                        type: array
+                        description: The list of all tracking settings.
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              description: The name of the event being tracked.
+                            title:
+                              type: string
+                              description: The title of the tracking setting.
+                            description:
+                              type: string
+                              description: A description about the event that is being tracked.
+                            enabled:
+                              type: boolean
+                              description: >-
+                                Indicates if this tracking setting is currently
+                                enabled.
+                  examples:
+                    response:
+                      value:
+                        result:
+                          - name: open
+                            title: Open Tracking
+                            description: lorem ipsum... .
+                            enabled: true

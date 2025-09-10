@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getbootstrapbrokers
+  description: A list of brokers that a client application can use to bootstrap.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getbootstrapbrokers
+      description: A list of brokers that a client application can use to bootstrap.
+    paths:
+      /v1/clusters/{clusterArn}/bootstrap-brokers:
+        GET:
+          summary: Getbootstrapbrokers
+          description: A list of brokers that a client application can use to bootstrap.
+          operationId: getBootstrapBrokers

@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Adds A Product To A Custom Collection.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/products/collect#create-2020-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Adds A Product To A Custom Collection.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/products/collect#create-2020-01
+    paths:
+      /admin/api/2020-01/collects.json:
+        post:
+          summary: Adds A Product To A Custom Collection.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/products/collect#create-2020-01
+          operationId: deprecated202001createcollects
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      collect:
+                        product_id: 921728736
+                        collection_id: 841564295
+                    summary: >-
+                      Create a new link between an existing product and an existing
+                      collection
+                  example2:
+                    value:
+                      collect:
+                        body: foobar
+                    summary: >-
+                      Creating a collect without a product or collection ID fails
+                      and returns an error
+          responses:
+            '200':
+              description: ''

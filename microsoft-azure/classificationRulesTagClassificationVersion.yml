@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Classificationrules Classificationrulename Versions
+    Classificationruleversion :tag
+  description: Sets Classification Action on a specific classification rule version.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Classificationrules Classificationrulename Versions
+        Classificationruleversion :tag
+      description: Sets Classification Action on a specific classification rule version.
+    paths:
+      /classificationrules/{classificationRuleName}/versions/{classificationRuleVersion}/:tag:
+        post:
+          summary: >-
+            Post Classificationrules Classificationrulename Versions
+            Classificationruleversion :tag
+          description: Sets Classification Action on a specific classification rule version.
+          operationId: classificationRulesTagClassificationVersion
+          responses:
+            default:
+              description: An error response received from the Scanning Service
+              schema:
+                $ref: '#/definitions/ErrorResponseModel'

@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Bounce
+  description: >-
+    **This endpoint allows you to remove an email address from your bounce
+    list.**
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Bounce
+      description: >-
+        **This endpoint allows you to remove an email address from your bounce
+        list.**
+    paths:
+      /v3/suppression/bounces/{email}:
+        delete:
+          summary: Delete A Bounce
+          description: >-
+            **This endpoint allows you to remove an email address from your bounce
+            list.**
+          operationId: deleteSuppressionBounce
+          responses:
+            '401':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - field: null
+                            message: authorization required

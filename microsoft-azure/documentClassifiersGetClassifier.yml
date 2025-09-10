@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Documentclassifiers Classifierid
+  description: Gets detailed document classifier information.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Documentclassifiers Classifierid
+      description: Gets detailed document classifier information.
+    paths:
+      /documentClassifiers/{classifierId}:
+        get:
+          summary: Get Documentclassifiers Classifierid
+          description: Gets detailed document classifier information.
+          operationId: documentClassifiersGetClassifier
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

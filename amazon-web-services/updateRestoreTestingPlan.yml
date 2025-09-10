@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updaterestoretestingplan
+  description: >-
+    This request will send changes to your specified restore testing plan.
+    RestoreTestingPlanName cannot be updated after it is created. 
+    RecoveryPointSelection can contain:    Algorithm     ExcludeVaults    
+    IncludeVaults     RecoveryPointTypes     SelectionWindowDays   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updaterestoretestingplan
+      description: >-
+        This request will send changes to your specified restore testing plan.
+        RestoreTestingPlanName cannot be updated after it is created. 
+        RecoveryPointSelection can contain:    Algorithm     ExcludeVaults    
+        IncludeVaults     RecoveryPointTypes     SelectionWindowDays   
+    paths:
+      /restore-testing/plans/{RestoreTestingPlanName}:
+        PUT:
+          summary: Updaterestoretestingplan
+          description: >-
+            This request will send changes to your specified restore testing plan.
+            RestoreTestingPlanName cannot be updated after it is created. 
+            RecoveryPointSelection can contain:    Algorithm     ExcludeVaults    
+            IncludeVaults     RecoveryPointTypes     SelectionWindowDays   
+          operationId: updateRestoreTestingPlan

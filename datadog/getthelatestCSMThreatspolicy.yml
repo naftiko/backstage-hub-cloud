@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get The Latest Csm Threats Policy
+  description: >-
+    The download endpoint generates a CSM Threats policy file from your
+    currently activeCSM Threats rules, and downloads them as a `.policy` file.
+    This file can then be deployed toyour Agents to update the policy running in
+    your environment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get The Latest Csm Threats Policy
+      description: >-
+        The download endpoint generates a CSM Threats policy file from your
+        currently activeCSM Threats rules, and downloads them as a `.policy` file.
+        This file can then be deployed toyour Agents to update the policy running in
+        your environment.
+    paths:
+      /api/v2/remote_config/products/cws/policy/download:
+        get:
+          summary: Get The Latest Csm Threats Policy
+          description: >-
+            The download endpoint generates a CSM Threats policy file from your
+            currently activeCSM Threats rules, and downloads them as a `.policy`
+            file. This file can then be deployed toyour Agents to update the policy
+            running in your environment.
+          operationId: getthelatestCSMThreatspolicy
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

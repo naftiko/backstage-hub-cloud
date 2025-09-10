@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getrecommendations
+  description: >-
+    Retrieves recommendations for the specified session. To avoid retrieving the
+    same recommendations in subsequent calls, use NotifyRecommendationsReceived.
+    This API supports long-polling behavior with the waitTimeSeconds parameter.
+    Short poll is the default behavior and only returns recommendations already
+    available. To perform a manual query against an assistant, use
+    QueryAssistant.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getrecommendations
+      description: >-
+        Retrieves recommendations for the specified session. To avoid retrieving the
+        same recommendations in subsequent calls, use NotifyRecommendationsReceived.
+        This API supports long-polling behavior with the waitTimeSeconds parameter.
+        Short poll is the default behavior and only returns recommendations already
+        available. To perform a manual query against an assistant, use
+        QueryAssistant.
+    paths:
+      /assistants/{assistantId}/sessions/{sessionId}/recommendations:
+        GET:
+          summary: Getrecommendations
+          description: >-
+            Retrieves recommendations for the specified session. To avoid retrieving
+            the same recommendations in subsequent calls, use
+            NotifyRecommendationsReceived. This API supports long-polling behavior
+            with the waitTimeSeconds parameter. Short poll is the default behavior
+            and only returns recommendations already available. To perform a manual
+            query against an assistant, use QueryAssistant.
+          operationId: getRecommendations

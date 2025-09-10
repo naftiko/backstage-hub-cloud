@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Upsert A Siteʼs Checkout Url
+  description: Creates or updates (upserts) a siteʼs checkout URL
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Upsert A Siteʼs Checkout Url
+      description: Creates or updates (upserts) a siteʼs checkout URL
+    paths:
+      /channels/{channel_id}/site/checkout-url:
+        put:
+          summary: Upsert A Siteʼs Checkout Url
+          description: Creates or updates (upserts) a siteʼs checkout URL
+          operationId: updateCheckoutUrl
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/PutCheckoutUrl'
+          responses:
+            '422':
+              description: >-
+                Unprocessable Entity. Your checkout and storefront must be within
+                the same main domain like `example.com` and `subdomain.example.com`
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    x-examples:
+                      example-1:
+                        status: 422
+                        title: >-
+                          Incorrect checkout url https://bc.kittykat.me. Your
+                          checkout and storefront must be within the same main
+                          domain like “main.com” and “subdomain.main.com”
+                        type: >-
+                          https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+                        errors: {}
+                    properties:
+                      status:
+                        type: integer
+                        default: 422
+                      title:
+                        type: string
+                        example: >-
+                          Incorrect checkout url https://checkout.example.com. Your
+                          checkout and storefront must be within the same main
+                          domain like “main.com” and “subdomain.main.com
+                      type:
+                        type: string
+                        default: >-
+                          https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+                      errors:
+                        type: object

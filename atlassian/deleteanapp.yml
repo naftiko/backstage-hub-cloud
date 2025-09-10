@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete An App
+  description: >-
+    Deletes the application for the user.This endpoint is intended to be used by
+    Bitbucket Connect appsand only supports JWT authentication -- that is how
+    Bitbucketidentifies the particular installation of the app. Developerswith
+    applications registered in the "Develop Apps" sectionof Bitbucket
+    Marketplace need not use this endpoint asupdates for those applications can
+    be sent out via theUI of that section.```$ curl -X DELETE
+    https://api.bitbucket.org/2.0/addon \  -H "Authorization: JWT "```
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete An App
+      description: >-
+        Deletes the application for the user.This endpoint is intended to be used by
+        Bitbucket Connect appsand only supports JWT authentication -- that is how
+        Bitbucketidentifies the particular installation of the app. Developerswith
+        applications registered in the "Develop Apps" sectionof Bitbucket
+        Marketplace need not use this endpoint asupdates for those applications can
+        be sent out via theUI of that section.```$ curl -X DELETE
+        https://api.bitbucket.org/2.0/addon \  -H "Authorization: JWT "```
+    paths:
+      /addon:
+        delete:
+          summary: Delete An App
+          description: >-
+            Deletes the application for the user.This endpoint is intended to be
+            used by Bitbucket Connect appsand only supports JWT authentication --
+            that is how Bitbucketidentifies the particular installation of the app.
+            Developerswith applications registered in the "Develop Apps" sectionof
+            Bitbucket Marketplace need not use this endpoint asupdates for those
+            applications can be sent out via theUI of that section.```$ curl -X
+            DELETE https://api.bitbucket.org/2.0/addon \  -H "Authorization: JWT
+            "```
+          operationId: deleteanapp
+          responses:
+            '403':
+              description: Improper authentication.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

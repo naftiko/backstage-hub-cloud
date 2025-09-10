@@ -1,0 +1,156 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    The Update Request Allows The Caller To Update Data Content Previously
+    Uploaded Using [data
+    Upload](/rest/api/maps/data/upload-preview?view=rest-maps-1.0).
+  description: >-
+    **Applies to:** S1 pricing tier.The Data Update API allows the caller to
+    update a previously uploaded data content.You can use this API in a scenario
+    like adding or removing geofences to or from an existing collection of
+    geofences. Geofences are uploaded using the [Data Upload
+    API](/rest/api/maps/data/upload?view=rest-maps-1.0), for use in the [Azure
+    Maps Geofencing Service](/rest/api/maps/spatial).Please note that the Update
+    API will *replace* and *override* the existing data content.> [!NOTE]>>
+    **Azure Maps Data service retirement**>> The Azure Maps Data service (both
+    [v1](/rest/api/maps/data?view=rest-maps-1.0) and [v2](/rest/api/maps/data))
+    is now deprecated and will be retired on 9/16/24. To avoid service
+    disruptions, all calls to the Data service will need to be updated to use
+    the Azure Maps [Data Registry](/rest/api/maps/data-registry) service by
+    9/16/24. For more information, see [How to create data
+    registry](/azure/azure-maps/how-to-create-data-registries).## Submit Update
+    RequestTo update your content you will use a `PUT` request. The request body
+    will contain the new data that will replace the existing data. The
+    `Content-Type` header will be set to the content type of the data, and the
+    path will contain the `udid` of the data to be update.For example, to update
+    a collection of geofences that were previously uploaded using the Upload
+    API, place the new geofence content in the request body. Set the `udid`
+    parameter in the path to the `udid` of the data received previously in the
+    upload API response. And set the `Content-Type` header to one of the
+    following media types:- `application/json`- `application/vnd.geo+json`-
+    `application/octet-stream`Here's a sample request body for updating a simple
+    Geofence. It's represented as a circle geometry using a center point and a
+    radius. The sample below is in `GeoJSON`:```json{    "type":
+    "FeatureCollection",    "features": [{        "type": "Feature",       
+    "geometry": {            "type": "Point",            "coordinates":
+    [-122.126986, 47.639754]        },        "properties": {           
+    "geometryId": "001",            "radius": 500        }    }]}```The
+    previously uploaded geofence had a radius of 100m. The above request will
+    update it to 500m.The Data Update API performs a long-running operation.##
+    Data Update LimitsPlease, be aware that currently every Azure Maps account
+    has a [data storage
+    limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-maps-limits).
+    Once the storage limit is reached, all the new upload API calls will return
+    a `409 Conflict` http error response. You can always use the [Data Delete
+    API](/rest/api/maps/data/delete?view=rest-maps-1.0) to delete old/unused
+    content and create space for new uploads.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        The Update Request Allows The Caller To Update Data Content Previously
+        Uploaded Using [data
+        Upload](/rest/api/maps/data/upload-preview?view=rest-maps-1.0).
+      description: >-
+        **Applies to:** S1 pricing tier.The Data Update API allows the caller to
+        update a previously uploaded data content.You can use this API in a scenario
+        like adding or removing geofences to or from an existing collection of
+        geofences. Geofences are uploaded using the [Data Upload
+        API](/rest/api/maps/data/upload?view=rest-maps-1.0), for use in the [Azure
+        Maps Geofencing Service](/rest/api/maps/spatial).Please note that the Update
+        API will *replace* and *override* the existing data content.> [!NOTE]>>
+        **Azure Maps Data service retirement**>> The Azure Maps Data service (both
+        [v1](/rest/api/maps/data?view=rest-maps-1.0) and [v2](/rest/api/maps/data))
+        is now deprecated and will be retired on 9/16/24. To avoid service
+        disruptions, all calls to the Data service will need to be updated to use
+        the Azure Maps [Data Registry](/rest/api/maps/data-registry) service by
+        9/16/24. For more information, see [How to create data
+        registry](/azure/azure-maps/how-to-create-data-registries).## Submit Update
+        RequestTo update your content you will use a `PUT` request. The request body
+        will contain the new data that will replace the existing data. The
+        `Content-Type` header will be set to the content type of the data, and the
+        path will contain the `udid` of the data to be update.For example, to update
+        a collection of geofences that were previously uploaded using the Upload
+        API, place the new geofence content in the request body. Set the `udid`
+        parameter in the path to the `udid` of the data received previously in the
+        upload API response. And set the `Content-Type` header to one of the
+        following media types:- `application/json`- `application/vnd.geo+json`-
+        `application/octet-stream`Here's a sample request body for updating a simple
+        Geofence. It's represented as a circle geometry using a center point and a
+        radius. The sample below is in `GeoJSON`:```json{    "type":
+        "FeatureCollection",    "features": [{        "type": "Feature",       
+        "geometry": {            "type": "Point",            "coordinates":
+        [-122.126986, 47.639754]        },        "properties": {           
+        "geometryId": "001",            "radius": 500        }    }]}```The
+        previously uploaded geofence had a radius of 100m. The above request will
+        update it to 500m.The Data Update API performs a long-running operation.##
+        Data Update LimitsPlease, be aware that currently every Azure Maps account
+        has a [data storage
+        limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-maps-limits).
+        Once the storage limit is reached, all the new upload API calls will return
+        a `409 Conflict` http error response. You can always use the [Data Delete
+        API](/rest/api/maps/data/delete?view=rest-maps-1.0) to delete old/unused
+        content and create space for new uploads.
+    paths:
+      /mapData/{udid}:
+        put:
+          summary: >-
+            The Update Request Allows The Caller To Update Data Content Previously
+            Uploaded Using [data
+            Upload](/rest/api/maps/data/upload-preview?view=rest-maps-1.0).
+          description: >-
+            **Applies to:** S1 pricing tier.The Data Update API allows the caller to
+            update a previously uploaded data content.You can use this API in a
+            scenario like adding or removing geofences to or from an existing
+            collection of geofences. Geofences are uploaded using the [Data Upload
+            API](/rest/api/maps/data/upload?view=rest-maps-1.0), for use in the
+            [Azure Maps Geofencing Service](/rest/api/maps/spatial).Please note that
+            the Update API will *replace* and *override* the existing data content.>
+            [!NOTE]>> **Azure Maps Data service retirement**>> The Azure Maps Data
+            service (both [v1](/rest/api/maps/data?view=rest-maps-1.0) and
+            [v2](/rest/api/maps/data)) is now deprecated and will be retired on
+            9/16/24. To avoid service disruptions, all calls to the Data service
+            will need to be updated to use the Azure Maps [Data
+            Registry](/rest/api/maps/data-registry) service by 9/16/24. For more
+            information, see [How to create data
+            registry](/azure/azure-maps/how-to-create-data-registries).## Submit
+            Update RequestTo update your content you will use a `PUT` request. The
+            request body will contain the new data that will replace the existing
+            data. The `Content-Type` header will be set to the content type of the
+            data, and the path will contain the `udid` of the data to be update.For
+            example, to update a collection of geofences that were previously
+            uploaded using the Upload API, place the new geofence content in the
+            request body. Set the `udid` parameter in the path to the `udid` of the
+            data received previously in the upload API response. And set the
+            `Content-Type` header to one of the following media types:-
+            `application/json`- `application/vnd.geo+json`-
+            `application/octet-stream`Here's a sample request body for updating a
+            simple Geofence. It's represented as a circle geometry using a center
+            point and a radius. The sample below is in `GeoJSON`:```json{    "type":
+            "FeatureCollection",    "features": [{        "type": "Feature",       
+            "geometry": {            "type": "Point",            "coordinates":
+            [-122.126986, 47.639754]        },        "properties": {           
+            "geometryId": "001",            "radius": 500        }    }]}```The
+            previously uploaded geofence had a radius of 100m. The above request
+            will update it to 500m.The Data Update API performs a long-running
+            operation.## Data Update LimitsPlease, be aware that currently every
+            Azure Maps account has a [data storage
+            limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-maps-limits).
+            Once the storage limit is reached, all the new upload API calls will
+            return a `409 Conflict` http error response. You can always use the
+            [Data Delete API](/rest/api/maps/data/delete?view=rest-maps-1.0) to
+            delete old/unused content and create space for new uploads.
+          operationId: dataUpdatePreview
+          responses:
+            '500':
+              $ref: '#/responses/500'

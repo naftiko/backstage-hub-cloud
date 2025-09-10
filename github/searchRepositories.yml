@@ -1,0 +1,74 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Search Repositories
+  description: >-
+    Find repositories via various criteria. This method returns up to 100
+    results [per
+    page](https://docs.github.com/enterprise-server@3.9/rest/guides/using-pagination-in-the-rest-api).When
+    searching for repositories, you can get text match metadata for the **name**
+    and **description** fields when you pass the `text-match` media type. For
+    more details about how to receive highlighted search results, see [Text
+    match
+    metadata](https://docs.github.com/enterprise-server@3.9/rest/search/search#text-match-metadata).For
+    example, if you want to search for popular Tetris repositories written in
+    assembly code, your query might look like
+    this:`q=tetris+language:assembly&sort=stars&order=desc`This query searches
+    for repositories with the word `tetris` in the name, the description, or the
+    README. The results are limited to repositories where the primary language
+    is assembly. The results are sorted by stars in descending order, so that
+    the most popular repositories appear first in the search results.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Search Repositories
+      description: >-
+        Find repositories via various criteria. This method returns up to 100
+        results [per
+        page](https://docs.github.com/enterprise-server@3.9/rest/guides/using-pagination-in-the-rest-api).When
+        searching for repositories, you can get text match metadata for the **name**
+        and **description** fields when you pass the `text-match` media type. For
+        more details about how to receive highlighted search results, see [Text
+        match
+        metadata](https://docs.github.com/enterprise-server@3.9/rest/search/search#text-match-metadata).For
+        example, if you want to search for popular Tetris repositories written in
+        assembly code, your query might look like
+        this:`q=tetris+language:assembly&sort=stars&order=desc`This query searches
+        for repositories with the word `tetris` in the name, the description, or the
+        README. The results are limited to repositories where the primary language
+        is assembly. The results are sorted by stars in descending order, so that
+        the most popular repositories appear first in the search results.
+    paths:
+      /search/repositories:
+        get:
+          summary: Search Repositories
+          description: >-
+            Find repositories via various criteria. This method returns up to 100
+            results [per
+            page](https://docs.github.com/enterprise-server@3.9/rest/guides/using-pagination-in-the-rest-api).When
+            searching for repositories, you can get text match metadata for the
+            **name** and **description** fields when you pass the `text-match` media
+            type. For more details about how to receive highlighted search results,
+            see [Text match
+            metadata](https://docs.github.com/enterprise-server@3.9/rest/search/search#text-match-metadata).For
+            example, if you want to search for popular Tetris repositories written
+            in assembly code, your query might look like
+            this:`q=tetris+language:assembly&sort=stars&order=desc`This query
+            searches for repositories with the word `tetris` in the name, the
+            description, or the README. The results are limited to repositories
+            where the primary language is assembly. The results are sorted by stars
+            in descending order, so that the most popular repositories appear first
+            in the search results.
+          operationId: searchRepositories
+          responses:
+            '503':
+              $ref: '#/components/responses/service_unavailable'

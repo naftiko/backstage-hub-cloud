@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Services
+  description: Lists the services under the database and schema.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Services
+      description: Lists the services under the database and schema.
+    paths:
+      /api/v2/databases/{database}/schemas/{schema}/services:
+        get:
+          summary: List Services
+          description: Lists the services under the database and schema.
+          operationId: listServices
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

@@ -1,0 +1,82 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Webinar Registrants List
+  description: >-
+    List webinar registrants on Zoom, include pending approval registrants and
+    approved registrants.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Webinar Registrants List
+      description: >-
+        List webinar registrants on Zoom, include pending approval registrants and
+        approved registrants.
+    paths:
+      /webinar/registrants/list:
+        post:
+          summary: Post Webinar Registrants List
+          description: >-
+            List webinar registrants on Zoom, include pending approval registrants
+            and approved registrants.
+          operationId: webinarRegistrantsList
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - host_id
+                    - id
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: Webinar ID.
+                    host_id:
+                      type: string
+                      description: >-
+                        Webinar host user ID. Can be any user who enabled webinar
+                        under this account.
+                    type:
+                      type: string
+                      description: >-
+                        0 means pending approval registrants, 1 means approved
+                        registrants.
+                      default: '0'
+                    page_size:
+                      type: string
+                      description: >-
+                        The amount of records returns within a single API call.
+                        Defaults to 30.
+                      default: '30'
+                    page_number:
+                      type: string
+                      description: Current page number of returned records. Default to 1.
+                      default: '1'
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    page_count: 1
+                    page_number: 1
+                    page_size: 30
+                    total_records: 1
+                    type: 0
+                    users:
+                      - id: unique_id
+                        first_name: Zoomie
+                        last_name: Userton
+                        email: email_address
+                        registration_time: '2016-08-18T01:45:26.000Z'

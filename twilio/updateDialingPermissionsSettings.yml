@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Settings
+  description: Update voice dialing permissions inheritance for the sub-account
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Settings
+      description: Update voice dialing permissions inheritance for the sub-account
+    paths:
+      /v1/Settings:
+        post:
+          summary: Post Settings
+          description: Update voice dialing permissions inheritance for the sub-account
+          operationId: updateDialingPermissionsSettings
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/UpdateDialingPermissionsSettingsRequest'
+          responses:
+            '202':
+              content:
+                application/json:
+                  schema:
+                    $ref: >-
+                      #/components/schemas/voice.v1.dialing_permissions.dialing_permissions_settings
+              description: Accepted

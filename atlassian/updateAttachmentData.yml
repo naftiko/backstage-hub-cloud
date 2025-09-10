@@ -1,0 +1,146 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Attachment Data
+  description: >-
+    Updates the binary data of an attachment, given the attachment ID,
+    andoptionally the comment and the minor edit field.This method is
+    essentially the same as [Create or update
+    attachments](#api-content-id-child-attachment-put),except that it matches
+    the attachment ID rather than the name.Note, you must set a
+    `X-Atlassian-Token: nocheck` header on the requestfor this method, otherwise
+    it will be blocked. This protects against XSRFattacks, which is necessary as
+    this method accepts multipart/form-data.The media type 'multipart/form-data'
+    is defined in [RFC 7578](https://www.ietf.org/rfc/rfc7578.txt).Most client
+    libraries have classes that make it easier to implementmultipart posts, like
+    the
+    [MultipartEntityBuilder](https://hc.apache.org/httpcomponents-client-5.1.x/current/httpclient5/apidocs/)Java
+    class provided by Apache HTTP Components.Note, according to [RFC
+    7578](https://tools.ietf.org/html/rfc7578#section-4.5),in the case where the
+    form data is text,the charset parameter for the "text/plain" Content-Type
+    may be used toindicate the character encoding used in that part. In the case
+    of thisAPI endpoint, the `comment` body parameter should be sent with
+    `type=text/plain`and `charset=utf-8` values. This will force the charset to
+    be UTF-8.Example: This curl command updates an attachment (id='att456') that
+    is attachedto a piece of content (id='123') with a comment and
+    `minorEdits`=true.``` bashcurl -D- \  -u admin:admin \  -X POST \  -H
+    'X-Atlassian-Token: nocheck' \  -F 'file=@"example.txt"' \  -F
+    'minorEdit="true"' \  -F 'comment="Example attachment comment";
+    type=text/plain; charset=utf-8' \ 
+    http://myhost/rest/api/content/123/child/attachment/att456/data```**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to update the content.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Attachment Data
+      description: >-
+        Updates the binary data of an attachment, given the attachment ID,
+        andoptionally the comment and the minor edit field.This method is
+        essentially the same as [Create or update
+        attachments](#api-content-id-child-attachment-put),except that it matches
+        the attachment ID rather than the name.Note, you must set a
+        `X-Atlassian-Token: nocheck` header on the requestfor this method, otherwise
+        it will be blocked. This protects against XSRFattacks, which is necessary as
+        this method accepts multipart/form-data.The media type 'multipart/form-data'
+        is defined in [RFC 7578](https://www.ietf.org/rfc/rfc7578.txt).Most client
+        libraries have classes that make it easier to implementmultipart posts, like
+        the
+        [MultipartEntityBuilder](https://hc.apache.org/httpcomponents-client-5.1.x/current/httpclient5/apidocs/)Java
+        class provided by Apache HTTP Components.Note, according to [RFC
+        7578](https://tools.ietf.org/html/rfc7578#section-4.5),in the case where the
+        form data is text,the charset parameter for the "text/plain" Content-Type
+        may be used toindicate the character encoding used in that part. In the case
+        of thisAPI endpoint, the `comment` body parameter should be sent with
+        `type=text/plain`and `charset=utf-8` values. This will force the charset to
+        be UTF-8.Example: This curl command updates an attachment (id='att456') that
+        is attachedto a piece of content (id='123') with a comment and
+        `minorEdits`=true.``` bashcurl -D- \  -u admin:admin \  -X POST \  -H
+        'X-Atlassian-Token: nocheck' \  -F 'file=@"example.txt"' \  -F
+        'minorEdit="true"' \  -F 'comment="Example attachment comment";
+        type=text/plain; charset=utf-8' \ 
+        http://myhost/rest/api/content/123/child/attachment/att456/data```**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to update the content.
+    paths:
+      /wiki/rest/api/content/{id}/child/attachment/{attachmentId}/data:
+        post:
+          summary: Update Attachment Data
+          description: >-
+            Updates the binary data of an attachment, given the attachment ID,
+            andoptionally the comment and the minor edit field.This method is
+            essentially the same as [Create or update
+            attachments](#api-content-id-child-attachment-put),except that it
+            matches the attachment ID rather than the name.Note, you must set a
+            `X-Atlassian-Token: nocheck` header on the requestfor this method,
+            otherwise it will be blocked. This protects against XSRFattacks, which
+            is necessary as this method accepts multipart/form-data.The media type
+            'multipart/form-data' is defined in [RFC
+            7578](https://www.ietf.org/rfc/rfc7578.txt).Most client libraries have
+            classes that make it easier to implementmultipart posts, like the
+            [MultipartEntityBuilder](https://hc.apache.org/httpcomponents-client-5.1.x/current/httpclient5/apidocs/)Java
+            class provided by Apache HTTP Components.Note, according to [RFC
+            7578](https://tools.ietf.org/html/rfc7578#section-4.5),in the case where
+            the form data is text,the charset parameter for the "text/plain"
+            Content-Type may be used toindicate the character encoding used in that
+            part. In the case of thisAPI endpoint, the `comment` body parameter
+            should be sent with `type=text/plain`and `charset=utf-8` values. This
+            will force the charset to be UTF-8.Example: This curl command updates an
+            attachment (id='att456') that is attachedto a piece of content
+            (id='123') with a comment and `minorEdits`=true.``` bashcurl -D- \  -u
+            admin:admin \  -X POST \  -H 'X-Atlassian-Token: nocheck' \  -F
+            'file=@"example.txt"' \  -F 'minorEdit="true"' \  -F 'comment="Example
+            attachment comment"; type=text/plain; charset=utf-8' \ 
+            http://myhost/rest/api/content/123/child/attachment/att456/data```**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to update the content.
+          operationId: updateAttachmentData
+          requestBody:
+            required: true
+            content:
+              multipart/form-data:
+                schema:
+                  required:
+                    - file
+                    - minorEdit
+                  properties:
+                    file:
+                      type: string
+                      description: >-
+                        The relative location and name of the attachment to be added
+                        to
+
+                        the content.
+                      format: binary
+                    comment:
+                      type: string
+                      description: >-
+                        The comment for the attachment that is being added.
+
+                        If you specify a comment, then every file must have a
+                        comment and
+
+                        the comments must be in the same order as the files.
+                        Alternatively,
+
+                        don't specify any comments.
+                      format: binary
+                    minorEdit:
+                      type: string
+                      description: >-
+                        If `minorEdits` is set to 'true', no notification email or
+                        activity stream
+
+                        will be generated when the attachment is added to the
+                        content.
+                      format: binary
+          responses:
+            '404':
+              description: Returned if no attachment is found for the attachment ID.
+              content: {}

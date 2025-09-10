@@ -1,0 +1,60 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Tags
+  description: >-
+    Returns the tags in the repository.By default, results will be in the order
+    the underlying source control system returns them and identical tothe
+    ordering one sees when running "$ git tag --list". Note that this follows
+    simplelexical ordering of the ref names.This can be undesirable as it does
+    apply any natural sorting semantics, meaning for instance that tags
+    aresorted ["v10", "v11", "v9"] instead of ["v9", "v10", "v11"].Sorting can
+    be changed using the ?sort= query parameter. When using ?sort=name to
+    explicitly sort on ref name,Bitbucket will apply natural sorting and
+    interpret numerical values as numbers instead of strings.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Tags
+      description: >-
+        Returns the tags in the repository.By default, results will be in the order
+        the underlying source control system returns them and identical tothe
+        ordering one sees when running "$ git tag --list". Note that this follows
+        simplelexical ordering of the ref names.This can be undesirable as it does
+        apply any natural sorting semantics, meaning for instance that tags
+        aresorted ["v10", "v11", "v9"] instead of ["v9", "v10", "v11"].Sorting can
+        be changed using the ?sort= query parameter. When using ?sort=name to
+        explicitly sort on ref name,Bitbucket will apply natural sorting and
+        interpret numerical values as numbers instead of strings.
+    paths:
+      /repositories/{workspace}/{repo_slug}/refs/tags:
+        get:
+          summary: List Tags
+          description: >-
+            Returns the tags in the repository.By default, results will be in the
+            order the underlying source control system returns them and identical
+            tothe ordering one sees when running "$ git tag --list". Note that this
+            follows simplelexical ordering of the ref names.This can be undesirable
+            as it does apply any natural sorting semantics, meaning for instance
+            that tags aresorted ["v10", "v11", "v9"] instead of ["v9", "v10",
+            "v11"].Sorting can be changed using the ?sort= query parameter. When
+            using ?sort=name to explicitly sort on ref name,Bitbucket will apply
+            natural sorting and interpret numerical values as numbers instead of
+            strings.
+          operationId: listtags
+          responses:
+            '404':
+              description: The specified repository does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

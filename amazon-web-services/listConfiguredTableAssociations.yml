@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listconfiguredtableassociations
+  description: Lists configured table associations for a membership.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listconfiguredtableassociations
+      description: Lists configured table associations for a membership.
+    paths:
+      /memberships/{membershipIdentifier}/configuredTableAssociations:
+        GET:
+          summary: Listconfiguredtableassociations
+          description: Lists configured table associations for a membership.
+          operationId: listConfiguredTableAssociations

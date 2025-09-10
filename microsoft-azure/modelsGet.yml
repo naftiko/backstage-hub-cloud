@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Models Id
+  description: Gets the model identified by the given ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Models Id
+      description: Gets the model identified by the given ID.
+    paths:
+      /models/{id}:
+        get:
+          summary: Get Models Id
+          description: Gets the model identified by the given ID.
+          operationId: modelsGet
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

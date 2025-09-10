@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Addthingtobillinggroup
+  description: >-
+    Adds a thing to a billing group. Requires permission to access the
+    AddThingToBillingGroup action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Addthingtobillinggroup
+      description: >-
+        Adds a thing to a billing group. Requires permission to access the
+        AddThingToBillingGroup action.
+    paths:
+      /billing-groups/addThingToBillingGroup:
+        PUT:
+          summary: Addthingtobillinggroup
+          description: >-
+            Adds a thing to a billing group. Requires permission to access the
+            AddThingToBillingGroup action.
+          operationId: addThingToBillingGroup

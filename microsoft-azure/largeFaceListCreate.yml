@@ -1,0 +1,121 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Put Largefacelists Largefacelistid
+  description: >-
+    Create an empty large face list with user-specified largeFaceListId, name,
+    an optional userData and recognitionModel. Large face list is a list of
+    faces, up to 1,000,000 faces, and used by [Face - Find
+    Similar](https://docs.microsoft.com/rest/api/faceapi/face/findsimilar).
+    After creation, user should use [LargeFaceList Face -
+    Add](https://docs.microsoft.com/rest/api/faceapi/largefacelist/addfacefromurl)
+    to import the faces and [LargeFaceList -
+    Train](https://docs.microsoft.com/rest/api/faceapi/largefacelist/train) to
+    make it ready for [Face - Find
+    Similar](https://docs.microsoft.com/rest/api/faceapi/face/findsimilar). No
+    image will be stored. Only the extracted face features are stored on server
+    until [LargeFaceList -
+    Delete](https://docs.microsoft.com/rest/api/faceapi/largefacelist/delete) is
+    called. Find Similar is used for scenario like finding celebrity-like faces,
+    similar face filtering, or as a light way face identification. But if the
+    actual use is to identify person, please use
+    [PersonGroup](https://docs.microsoft.com/rest/api/faceapi/persongroup) /
+    [LargePersonGroup](https://docs.microsoft.com/rest/api/faceapi/largepersongroup)
+    and [Face -
+    Identify](https://docs.microsoft.com/rest/api/faceapi/face/identify).'recognitionModel'
+    should be specified to associate with this large face list. The default
+    value for 'recognitionModel' is 'recognition_01', if the latest model
+    needed, please explicitly specify the model you need in this parameter. New
+    faces that are added to an existing large face list will use the recognition
+    model that's already associated with the collection. Existing face features
+    in a large face list can't be updated to features extracted by another
+    version of recognition model. Please refer to [Specify a recognition
+    model](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model).Large
+    face list quota:* Free-tier subscription quota: 64 large face lists.*
+    S0-tier subscription quota: 1,000,000 large face lists.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Largefacelists Largefacelistid
+      description: >-
+        Create an empty large face list with user-specified largeFaceListId, name,
+        an optional userData and recognitionModel. Large face list is a list of
+        faces, up to 1,000,000 faces, and used by [Face - Find
+        Similar](https://docs.microsoft.com/rest/api/faceapi/face/findsimilar).
+        After creation, user should use [LargeFaceList Face -
+        Add](https://docs.microsoft.com/rest/api/faceapi/largefacelist/addfacefromurl)
+        to import the faces and [LargeFaceList -
+        Train](https://docs.microsoft.com/rest/api/faceapi/largefacelist/train) to
+        make it ready for [Face - Find
+        Similar](https://docs.microsoft.com/rest/api/faceapi/face/findsimilar). No
+        image will be stored. Only the extracted face features are stored on server
+        until [LargeFaceList -
+        Delete](https://docs.microsoft.com/rest/api/faceapi/largefacelist/delete) is
+        called. Find Similar is used for scenario like finding celebrity-like faces,
+        similar face filtering, or as a light way face identification. But if the
+        actual use is to identify person, please use
+        [PersonGroup](https://docs.microsoft.com/rest/api/faceapi/persongroup) /
+        [LargePersonGroup](https://docs.microsoft.com/rest/api/faceapi/largepersongroup)
+        and [Face -
+        Identify](https://docs.microsoft.com/rest/api/faceapi/face/identify).'recognitionModel'
+        should be specified to associate with this large face list. The default
+        value for 'recognitionModel' is 'recognition_01', if the latest model
+        needed, please explicitly specify the model you need in this parameter. New
+        faces that are added to an existing large face list will use the recognition
+        model that's already associated with the collection. Existing face features
+        in a large face list can't be updated to features extracted by another
+        version of recognition model. Please refer to [Specify a recognition
+        model](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model).Large
+        face list quota:* Free-tier subscription quota: 64 large face lists.*
+        S0-tier subscription quota: 1,000,000 large face lists.
+    paths:
+      /largefacelists/{largeFaceListId}:
+        put:
+          summary: Put Largefacelists Largefacelistid
+          description: >-
+            Create an empty large face list with user-specified largeFaceListId,
+            name, an optional userData and recognitionModel. Large face list is a
+            list of faces, up to 1,000,000 faces, and used by [Face - Find
+            Similar](https://docs.microsoft.com/rest/api/faceapi/face/findsimilar).
+            After creation, user should use [LargeFaceList Face -
+            Add](https://docs.microsoft.com/rest/api/faceapi/largefacelist/addfacefromurl)
+            to import the faces and [LargeFaceList -
+            Train](https://docs.microsoft.com/rest/api/faceapi/largefacelist/train)
+            to make it ready for [Face - Find
+            Similar](https://docs.microsoft.com/rest/api/faceapi/face/findsimilar).
+            No image will be stored. Only the extracted face features are stored on
+            server until [LargeFaceList -
+            Delete](https://docs.microsoft.com/rest/api/faceapi/largefacelist/delete)
+            is called. Find Similar is used for scenario like finding celebrity-like
+            faces, similar face filtering, or as a light way face identification.
+            But if the actual use is to identify person, please use
+            [PersonGroup](https://docs.microsoft.com/rest/api/faceapi/persongroup) /
+            [LargePersonGroup](https://docs.microsoft.com/rest/api/faceapi/largepersongroup)
+            and [Face -
+            Identify](https://docs.microsoft.com/rest/api/faceapi/face/identify).'recognitionModel'
+            should be specified to associate with this large face list. The default
+            value for 'recognitionModel' is 'recognition_01', if the latest model
+            needed, please explicitly specify the model you need in this parameter.
+            New faces that are added to an existing large face list will use the
+            recognition model that's already associated with the collection.
+            Existing face features in a large face list can't be updated to features
+            extracted by another version of recognition model. Please refer to
+            [Specify a recognition
+            model](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model).Large
+            face list quota:* Free-tier subscription quota: 64 large face lists.*
+            S0-tier subscription quota: 1,000,000 large face lists.
+          operationId: largeFaceListCreate
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Createconnectattachment
+  description: >-
+    Creates a core network Connect attachment from a specified core network
+    attachment.  A core network Connect attachment is a GRE-based tunnel
+    attachment that you can use to establish a connection between a core network
+    and an appliance. A core network Connect attachment uses an existing VPC
+    attachment as the underlying transport mechanism.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createconnectattachment
+      description: >-
+        Creates a core network Connect attachment from a specified core network
+        attachment.  A core network Connect attachment is a GRE-based tunnel
+        attachment that you can use to establish a connection between a core network
+        and an appliance. A core network Connect attachment uses an existing VPC
+        attachment as the underlying transport mechanism.
+    paths:
+      /connect-attachments:
+        POST:
+          summary: Createconnectattachment
+          description: >-
+            Creates a core network Connect attachment from a specified core network
+            attachment.  A core network Connect attachment is a GRE-based tunnel
+            attachment that you can use to establish a connection between a core
+            network and an appliance. A core network Connect attachment uses an
+            existing VPC attachment as the underlying transport mechanism.
+          operationId: createConnectAttachment

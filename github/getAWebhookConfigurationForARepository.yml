@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Webhook Configuration For A Repository
+  description: >-
+    Returns the webhook configuration for a repository. To get more information
+    about the webhook, including the `active` state and `events`, use "[Get a
+    repository webhook](/rest/webhooks/repos#get-a-repository-webhook)."OAuth
+    app tokens and personal access tokens (classic) need the `read:repo_hook` or
+    `repo` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Webhook Configuration For A Repository
+      description: >-
+        Returns the webhook configuration for a repository. To get more information
+        about the webhook, including the `active` state and `events`, use "[Get a
+        repository webhook](/rest/webhooks/repos#get-a-repository-webhook)."OAuth
+        app tokens and personal access tokens (classic) need the `read:repo_hook` or
+        `repo` scope to use this endpoint.
+    paths:
+      /repos/{owner}/{repo}/hooks/{hook_id}/config:
+        get:
+          summary: Get A Webhook Configuration For A Repository
+          description: >-
+            Returns the webhook configuration for a repository. To get more
+            information about the webhook, including the `active` state and
+            `events`, use "[Get a repository
+            webhook](/rest/webhooks/repos#get-a-repository-webhook)."OAuth app
+            tokens and personal access tokens (classic) need the `read:repo_hook` or
+            `repo` scope to use this endpoint.
+          operationId: getAWebhookConfigurationForARepository
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/webhook-config'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/webhook-config'

@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Traffic Incident Tile Format
+  description: >-
+    __Traffic Incident Tile__**Applies to**: S0 and S1 pricing tiers.This
+    service serves 256 x 256 pixel tiles showing traffic incidents. All tiles
+    use the same grid system. Because the traffic tiles use transparent images,
+    they can be layered on top of map tiles to create a compound display.
+    Traffic tiles render graphics to indicate traffic on the roads in the
+    specified area.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Traffic Incident Tile Format
+      description: >-
+        __Traffic Incident Tile__**Applies to**: S0 and S1 pricing tiers.This
+        service serves 256 x 256 pixel tiles showing traffic incidents. All tiles
+        use the same grid system. Because the traffic tiles use transparent images,
+        they can be layered on top of map tiles to create a compound display.
+        Traffic tiles render graphics to indicate traffic on the roads in the
+        specified area.
+    paths:
+      /traffic/incident/tile/{format}:
+        get:
+          summary: Get Traffic Incident Tile Format
+          description: >-
+            __Traffic Incident Tile__**Applies to**: S0 and S1 pricing tiers.This
+            service serves 256 x 256 pixel tiles showing traffic incidents. All
+            tiles use the same grid system. Because the traffic tiles use
+            transparent images, they can be layered on top of map tiles to create a
+            compound display. Traffic tiles render graphics to indicate traffic on
+            the roads in the specified area.
+          operationId: trafficGetTrafficIncidentTile
+          responses:
+            '500':
+              $ref: '#/responses/500'

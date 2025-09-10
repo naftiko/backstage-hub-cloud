@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Open Redirect Export Event Stream
+  description: Opens an event stream to receive live updates from an export job.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Open Redirect Export Event Stream
+      description: Opens an event stream to receive live updates from an export job.
+    paths:
+      /storefront/redirects/imex/export/{uuid}/events:
+        get:
+          summary: Open Redirect Export Event Stream
+          description: Opens an event stream to receive live updates from an export job.
+          operationId: getRedirectExportEvents
+          responses:
+            '404':
+              description: The provided export job ID does not exist.

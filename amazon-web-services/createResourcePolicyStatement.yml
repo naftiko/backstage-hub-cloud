@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Createresourcepolicystatement
+  description: >-
+    Adds a new resource policy statement to a bot or bot alias. If a resource
+    policy exists, the statement is added to the current resource policy. If a
+    policy doesn't exist, a new policy is created. You can't create a resource
+    policy statement that allows cross-account access.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createresourcepolicystatement
+      description: >-
+        Adds a new resource policy statement to a bot or bot alias. If a resource
+        policy exists, the statement is added to the current resource policy. If a
+        policy doesn't exist, a new policy is created. You can't create a resource
+        policy statement that allows cross-account access.
+    paths:
+      /policy/{resourceArn}/statements/:
+        POST:
+          summary: Createresourcepolicystatement
+          description: >-
+            Adds a new resource policy statement to a bot or bot alias. If a
+            resource policy exists, the statement is added to the current resource
+            policy. If a policy doesn't exist, a new policy is created. You can't
+            create a resource policy statement that allows cross-account access.
+          operationId: createResourcePolicyStatement

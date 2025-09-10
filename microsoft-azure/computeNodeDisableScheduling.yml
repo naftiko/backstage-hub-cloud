@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Disables Task Scheduling On The Specified Compute Node.
+  description: >-
+    You can disable Task scheduling on a Compute Node only if its current
+    scheduling state is enabled.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disables Task Scheduling On The Specified Compute Node.
+      description: >-
+        You can disable Task scheduling on a Compute Node only if its current
+        scheduling state is enabled.
+    paths:
+      /pools/{poolId}/nodes/{nodeId}/disablescheduling:
+        post:
+          summary: Disables Task Scheduling On The Specified Compute Node.
+          description: >-
+            You can disable Task scheduling on a Compute Node only if its current
+            scheduling state is enabled.
+          operationId: computeNodeDisableScheduling
+          responses:
+            default:
+              description: The error from the Batch service.
+              schema:
+                $ref: '#/definitions/BatchError'

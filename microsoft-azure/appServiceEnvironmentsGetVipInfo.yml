@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Ip Addresses Assigned To An App Service Environment.
+  description: Description for Get IP addresses assigned to an App Service Environment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Ip Addresses Assigned To An App Service Environment.
+      description: Description for Get IP addresses assigned to an App Service Environment.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/capacities/virtualip:
+        get:
+          summary: Get Ip Addresses Assigned To An App Service Environment.
+          description: Description for Get IP addresses assigned to an App Service Environment.
+          operationId: appServiceEnvironmentsGetVipInfo
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

@@ -1,0 +1,74 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Search Tests Events
+  description: >-
+    List endpoint returns CI Visibility test events that match a [search
+    query](https://docs.datadoghq.com/continuous_integration/explorer/search_syntax/).[Results
+    are paginated similarly to
+    logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).Use
+    this endpoint to build complex events filtering and search.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Search Tests Events
+      description: >-
+        List endpoint returns CI Visibility test events that match a [search
+        query](https://docs.datadoghq.com/continuous_integration/explorer/search_syntax/).[Results
+        are paginated similarly to
+        logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).Use
+        this endpoint to build complex events filtering and search.
+    paths:
+      /api/v2/ci/tests/events/search:
+        post:
+          summary: Search Tests Events
+          description: >-
+            List endpoint returns CI Visibility test events that match a [search
+            query](https://docs.datadoghq.com/continuous_integration/explorer/search_syntax/).[Results
+            are paginated similarly to
+            logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).Use
+            this endpoint to build complex events filtering and search.
+          operationId: searchtestsevents
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    filter:
+                      from: now-15m
+                      query: '@test.service:web-ui-tests AND @test.status:fail'
+                      to: now
+                    options:
+                      time_offset: -15428975
+                      timezone: GMT
+                    page:
+                      cursor: >-
+                        eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==
+                      limit: 25
+                    sort: '-timestamp'
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

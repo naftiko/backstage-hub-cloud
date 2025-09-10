@@ -1,0 +1,78 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve All Assigned Ips
+  description: >-
+    **This endpoint allows you to retrieve only assigned IP addresses.**A single
+    IP address or a range of IP addresses may be dedicated to an account in
+    order to send email for multiple domains. The reputation of this IP is based
+    on the aggregate performance of all the senders who use it.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve All Assigned Ips
+      description: >-
+        **This endpoint allows you to retrieve only assigned IP addresses.**A single
+        IP address or a range of IP addresses may be dedicated to an account in
+        order to send email for multiple domains. The reputation of this IP is based
+        on the aggregate performance of all the senders who use it.
+    paths:
+      /v3/ips/assigned:
+        get:
+          summary: Retrieve All Assigned Ips
+          description: >-
+            **This endpoint allows you to retrieve only assigned IP addresses.**A
+            single IP address or a range of IP addresses may be dedicated to an
+            account in order to send email for multiple domains. The reputation of
+            this IP is based on the aggregate performance of all the senders who use
+            it.
+          operationId: listAssignedIp
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    title: List all assigned IPs response
+                    items:
+                      type: object
+                      properties:
+                        ip:
+                          type: string
+                          description: The IP address.
+                        pools:
+                          type: array
+                          description: The IP pools that this IP address has been added to.
+                          items:
+                            type: string
+                        warmup:
+                          type: boolean
+                          description: Indicates if this IP address is currently warming up.
+                        start_date:
+                          type: integer
+                          description: >-
+                            The start date that this IP address was entered into
+                            warmup.
+                      required:
+                        - ip
+                        - pools
+                        - warmup
+                        - start_date
+                  examples:
+                    response:
+                      value:
+                        - ip: 167.89.21.3
+                          pools:
+                            - new_test5
+                          warmup: true
+                          start_date: 1409616000

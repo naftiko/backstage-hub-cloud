@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Retention Filter
+  description: >-
+    Create a retention filter to index spans in your organization.Returns the
+    retention filter definition when the request is successful.Default filters
+    with types spans-errors-sampling-processor and
+    spans-appsec-sampling-processor cannot be created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Retention Filter
+      description: >-
+        Create a retention filter to index spans in your organization.Returns the
+        retention filter definition when the request is successful.Default filters
+        with types spans-errors-sampling-processor and
+        spans-appsec-sampling-processor cannot be created.
+    paths:
+      /api/v2/apm/config/retention-filters:
+        post:
+          summary: Create A Retention Filter
+          description: >-
+            Create a retention filter to index spans in your organization.Returns
+            the retention filter definition when the request is successful.Default
+            filters with types spans-errors-sampling-processor and
+            spans-appsec-sampling-processor cannot be created.
+          operationId: createApmRetentionFilter
+          requestBody:
+            description: The definition of the new retention filter.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RetentionFilterCreateRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

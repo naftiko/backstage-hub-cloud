@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.deviceupdate Accounts Accountname Privateendpointconnectionproxies
+    Privateendpointconnectionproxyid
+  description: >-
+    (INTERNAL - DO NOT USE) Creates or updates the specified private endpoint
+    connection proxy resource associated with the device update account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.deviceupdate Accounts Accountname Privateendpointconnectionproxies
+        Privateendpointconnectionproxyid
+      description: >-
+        (INTERNAL - DO NOT USE) Creates or updates the specified private endpoint
+        connection proxy resource associated with the device update account.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceUpdate/accounts/{accountName}/privateEndpointConnectionProxies/{privateEndpointConnectionProxyId}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.deviceupdate Accounts Accountname
+            Privateendpointconnectionproxies Privateendpointconnectionproxyid
+          description: >-
+            (INTERNAL - DO NOT USE) Creates or updates the specified private
+            endpoint connection proxy resource associated with the device update
+            account.
+          operationId: privateEndpointConnectionProxiesCreateOrUpdate
+          responses:
+            default:
+              description: Error response describing the reason for operation failure.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

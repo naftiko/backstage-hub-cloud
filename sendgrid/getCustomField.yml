@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve A Custom Field
+  description: '**This endpoint allows you to retrieve a custom field by ID.**'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve A Custom Field
+      description: '**This endpoint allows you to retrieve a custom field by ID.**'
+    paths:
+      /v3/contactdb/custom_fields/{custom_field_id}:
+        get:
+          summary: Retrieve A Custom Field
+          description: '**This endpoint allows you to retrieve a custom field by ID.**'
+          operationId: getCustomField
+          responses:
+            '404':
+              description: The `custom_field_id` does not exist
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - message: Custom field ID does not exist

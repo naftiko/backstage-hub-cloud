@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Associatewebsiteauthorizationprovider
+  description: >-
+    Associates a website authorization provider with a specified fleet. This is
+    used to authorize users against associated websites in the company network.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Associatewebsiteauthorizationprovider
+      description: >-
+        Associates a website authorization provider with a specified fleet. This is
+        used to authorize users against associated websites in the company network.
+    paths:
+      /associateWebsiteAuthorizationProvider:
+        POST:
+          summary: Associatewebsiteauthorizationprovider
+          description: >-
+            Associates a website authorization provider with a specified fleet. This
+            is used to authorize users against associated websites in the company
+            network.
+          operationId: associateWebsiteAuthorizationProvider

@@ -1,0 +1,101 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Conversations.kick
+  description: Removes a user from a conversation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Conversations.kick
+      description: Removes a user from a conversation.
+    paths:
+      /conversations.kick:
+        post:
+          summary: Post Conversations.kick
+          description: Removes a user from a conversation.
+          operationId: conversationskick
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  type: object
+                  properties:
+                    channel:
+                      type: string
+                      description: ID of conversation to remove user from.
+                    user:
+                      type: string
+                      description: User ID to be removed.
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    channel:
+                      type: string
+                      description: ID of conversation to remove user from.
+                    user:
+                      type: string
+                      description: User ID to be removed.
+          responses:
+            default:
+              description: >-
+                Typical error response when you attempt to kick yourself from a
+                channel
+              content:
+                application/json:
+                  schema:
+                    title: conversations.kick error schema
+                    required:
+                      - error
+                      - ok
+                    type: object
+                    properties:
+                      callstack:
+                        type: string
+                        description: 'Note: PHP callstack is only visible in dev/qa'
+                      error:
+                        type: string
+                        enum:
+                          - method_not_supported_for_channel_type
+                          - missing_scope
+                          - channel_not_found
+                          - user_not_found
+                          - cant_kick_self
+                          - not_in_channel
+                          - cant_kick_from_general
+                          - restricted_action
+                          - not_authed
+                          - invalid_auth
+                          - account_inactive
+                          - user_is_bot
+                          - user_is_restricted
+                          - invalid_arg_name
+                          - invalid_array_arg
+                          - invalid_charset
+                          - invalid_form_data
+                          - invalid_post_type
+                          - missing_post_type
+                          - invalid_json
+                          - json_not_object
+                          - request_timeout
+                          - upgrade_required
+                      needed:
+                        type: string
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                      provided:
+                        type: string
+                    additionalProperties: false
+                    description: Schema for error response conversations.kick method
+                  example:
+                    error: cant_kick_self
+                    ok: false

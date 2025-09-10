@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listsegments
+  description: >-
+    Returns a list of audience segments that you have created in your account in
+    this Region.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listsegments
+      description: >-
+        Returns a list of audience segments that you have created in your account in
+        this Region.
+    paths:
+      /segments:
+        GET:
+          summary: Listsegments
+          description: >-
+            Returns a list of audience segments that you have created in your
+            account in this Region.
+          operationId: listSegments

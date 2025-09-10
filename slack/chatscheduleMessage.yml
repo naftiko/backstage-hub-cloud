@@ -1,0 +1,214 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Chat.schedulemessage
+  description: Schedules a message to be sent to a channel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Chat.schedulemessage
+      description: Schedules a message to be sent to a channel.
+    paths:
+      /chat.scheduleMessage:
+        post:
+          summary: Post Chat.schedulemessage
+          description: Schedules a message to be sent to a channel.
+          operationId: chatscheduleMessage
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  type: object
+                  properties:
+                    channel:
+                      type: string
+                      description: >-
+                        Channel, private group, or DM channel to send message to.
+                        Can be an encoded ID, or a name. See [below](#channels) for
+                        more details.
+                    text:
+                      type: string
+                      description: >-
+                        How this field works and whether it is required depends on
+                        other fields you use in your API call. [See
+                        below](#text_usage) for more detail.
+                    post_at:
+                      type: string
+                      description: Unix EPOCH timestamp of time in future to send the message.
+                    parse:
+                      type: string
+                      description: >-
+                        Change how messages are treated. Defaults to `none`. See
+                        [chat.postMessage](chat.postMessage#formatting).
+                    as_user:
+                      type: boolean
+                      description: >-
+                        Pass true to post the message as the authed user, instead of
+                        as a bot. Defaults to false. See
+                        [chat.postMessage](chat.postMessage#authorship).
+                    link_names:
+                      type: boolean
+                      description: Find and link channel names and usernames.
+                    attachments:
+                      type: string
+                      description: >-
+                        A JSON-based array of structured attachments, presented as a
+                        URL-encoded string.
+                    blocks:
+                      type: string
+                      description: >-
+                        A JSON-based array of structured blocks, presented as a
+                        URL-encoded string.
+                    unfurl_links:
+                      type: boolean
+                      description: >-
+                        Pass true to enable unfurling of primarily text-based
+                        content.
+                    unfurl_media:
+                      type: boolean
+                      description: Pass false to disable unfurling of media content.
+                    thread_ts:
+                      type: number
+                      description: >-
+                        Provide another message's `ts` value to make this message a
+                        reply. Avoid using a reply's `ts` value; use its parent
+                        instead.
+                    reply_broadcast:
+                      type: boolean
+                      description: >-
+                        Used in conjunction with `thread_ts` and indicates whether
+                        reply should be made visible to everyone in the channel or
+                        conversation. Defaults to `false`.
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    channel:
+                      type: string
+                      description: >-
+                        Channel, private group, or DM channel to send message to.
+                        Can be an encoded ID, or a name. See [below](#channels) for
+                        more details.
+                    text:
+                      type: string
+                      description: >-
+                        How this field works and whether it is required depends on
+                        other fields you use in your API call. [See
+                        below](#text_usage) for more detail.
+                    post_at:
+                      type: string
+                      description: Unix EPOCH timestamp of time in future to send the message.
+                    parse:
+                      type: string
+                      description: >-
+                        Change how messages are treated. Defaults to `none`. See
+                        [chat.postMessage](chat.postMessage#formatting).
+                    as_user:
+                      type: boolean
+                      description: >-
+                        Pass true to post the message as the authed user, instead of
+                        as a bot. Defaults to false. See
+                        [chat.postMessage](chat.postMessage#authorship).
+                    link_names:
+                      type: boolean
+                      description: Find and link channel names and usernames.
+                    attachments:
+                      type: string
+                      description: >-
+                        A JSON-based array of structured attachments, presented as a
+                        URL-encoded string.
+                    blocks:
+                      type: string
+                      description: >-
+                        A JSON-based array of structured blocks, presented as a
+                        URL-encoded string.
+                    unfurl_links:
+                      type: boolean
+                      description: >-
+                        Pass true to enable unfurling of primarily text-based
+                        content.
+                    unfurl_media:
+                      type: boolean
+                      description: Pass false to disable unfurling of media content.
+                    thread_ts:
+                      type: number
+                      description: >-
+                        Provide another message's `ts` value to make this message a
+                        reply. Avoid using a reply's `ts` value; use its parent
+                        instead.
+                    reply_broadcast:
+                      type: boolean
+                      description: >-
+                        Used in conjunction with `thread_ts` and indicates whether
+                        reply should be made visible to everyone in the channel or
+                        conversation. Defaults to `false`.
+          responses:
+            default:
+              description: >-
+                Typical error response if the `post_at` is invalid (ex. in the past
+                or too far into the future)
+              content:
+                application/json:
+                  schema:
+                    title: chat.scheduleMessage error schema
+                    required:
+                      - error
+                      - ok
+                    type: object
+                    properties:
+                      callstack:
+                        type: string
+                        description: 'Note: PHP callstack is only visible in dev/qa'
+                      error:
+                        type: string
+                        enum:
+                          - invalid_time
+                          - time_in_past
+                          - time_too_far
+                          - channel_not_found
+                          - not_in_channel
+                          - is_archived
+                          - msg_too_long
+                          - no_text
+                          - restricted_action
+                          - restricted_action_read_only_channel
+                          - restricted_action_thread_only_channel
+                          - restricted_action_non_threadable_channel
+                          - too_many_attachments
+                          - rate_limited
+                          - not_authed
+                          - invalid_auth
+                          - account_inactive
+                          - token_revoked
+                          - no_permission
+                          - org_login_required
+                          - ekm_access_denied
+                          - missing_scope
+                          - invalid_arguments
+                          - invalid_arg_name
+                          - invalid_charset
+                          - invalid_form_data
+                          - invalid_post_type
+                          - missing_post_type
+                          - team_added_to_org
+                          - invalid_json
+                          - json_not_object
+                          - request_timeout
+                          - upgrade_required
+                          - fatal_error
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                    additionalProperties: false
+                    description: Schema for error response chat.scheduleMessage method
+                  example:
+                    error: time_in_past
+                    ok: false

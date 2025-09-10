@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete An Annotation
+  description: Deletes a single Annotation matching the provided ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete An Annotation
+      description: Deletes a single Annotation matching the provided ID.
+    paths:
+      /repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}/annotations/{annotationId}:
+        delete:
+          summary: Delete An Annotation
+          description: Deletes a single Annotation matching the provided ID.
+          operationId: deleteAnnotation
+          responses:
+            '204':
+              description: No content

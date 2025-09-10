@@ -1,0 +1,70 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Charges Charge Refunds
+  description: >-
+    When you create a new refund, you must specify a Charge or a PaymentIntent
+    object on which to create it.Creating a new refund will refund a charge that
+    has previously been created but not yet refunded.Funds will be refunded to
+    the credit or debit card that was originally charged.You can optionally
+    refund only part of a charge.You can do so multiple times, until the entire
+    charge has been refunded.Once entirely refunded, a charge can’t be refunded
+    again.This method will raise an error when called on an already-refunded
+    charge,or when trying to refund more money than is left on a charge.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Charges Charge Refunds
+      description: >-
+        When you create a new refund, you must specify a Charge or a PaymentIntent
+        object on which to create it.Creating a new refund will refund a charge that
+        has previously been created but not yet refunded.Funds will be refunded to
+        the credit or debit card that was originally charged.You can optionally
+        refund only part of a charge.You can do so multiple times, until the entire
+        charge has been refunded.Once entirely refunded, a charge can’t be refunded
+        again.This method will raise an error when called on an already-refunded
+        charge,or when trying to refund more money than is left on a charge.
+    paths:
+      /v1/charges/{charge}/refunds:
+        post:
+          summary: Post Charges Charge Refunds
+          description: >-
+            When you create a new refund, you must specify a Charge or a
+            PaymentIntent object on which to create it.Creating a new refund will
+            refund a charge that has previously been created but not yet
+            refunded.Funds will be refunded to the credit or debit card that was
+            originally charged.You can optionally refund only part of a charge.You
+            can do so multiple times, until the entire charge has been refunded.Once
+            entirely refunded, a charge can’t be refunded again.This method will
+            raise an error when called on an already-refunded charge,or when trying
+            to refund more money than is left on a charge.
+          operationId: postChargesChargeRefunds
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostChargesChargeRefundsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Starred Gists
+  description: 'List the authenticated user''s starred gists:'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Starred Gists
+      description: 'List the authenticated user''s starred gists:'
+    paths:
+      /gists/starred:
+        get:
+          summary: List Starred Gists
+          description: 'List the authenticated user''s starred gists:'
+          operationId: gistsliststarred
+          responses:
+            '403':
+              $ref: '#/components/responses/forbidden'

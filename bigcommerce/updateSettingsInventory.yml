@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Inventory Settings
+  description: Update inventory settings
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Inventory Settings
+      description: Update inventory settings
+    paths:
+      /settings/inventory:
+        put:
+          summary: Update Inventory Settings
+          description: Update inventory settings
+          operationId: updateSettingsInventory
+          requestBody:
+            description: >-
+              null set for a particular field removes override on a channel level
+              and means inheritance from a global level
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/InventorySettings'
+          responses:
+            '200':
+              description: >-
+                OK, null indicates that a particular field has not been overridden
+                on a channel level when channel level settings are requested
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/InventorySettings'
+                      meta:
+                        $ref: '#/components/schemas/MetaOpen'

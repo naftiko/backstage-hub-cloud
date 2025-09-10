@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Atlas Glossary Category Categoryguid Related
+  description: >-
+    Get all related categories (parent and children). Limit, offset, and sort
+    parameters are currently not being enabled and won't work even they are
+    passed.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Atlas Glossary Category Categoryguid Related
+      description: >-
+        Get all related categories (parent and children). Limit, offset, and sort
+        parameters are currently not being enabled and won't work even they are
+        passed.
+    paths:
+      /atlas/v2/glossary/category/{categoryGuid}/related:
+        get:
+          summary: Get Atlas Glossary Category Categoryguid Related
+          description: >-
+            Get all related categories (parent and children). Limit, offset, and
+            sort parameters are currently not being enabled and won't work even they
+            are passed.
+          operationId: glossaryListRelatedCategories
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

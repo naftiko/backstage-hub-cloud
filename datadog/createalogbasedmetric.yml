@@ -1,0 +1,71 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Log-based Metric
+  description: >-
+    Create a metric based on your ingested logs in your organization.Returns the
+    log-based metric object from the request body when the request is
+    successful.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Log-based Metric
+      description: >-
+        Create a metric based on your ingested logs in your organization.Returns the
+        log-based metric object from the request body when the request is
+        successful.
+    paths:
+      /api/v2/logs/config/metrics:
+        post:
+          summary: Create A Log-based Metric
+          description: >-
+            Create a metric based on your ingested logs in your organization.Returns
+            the log-based metric object from the request body when the request is
+            successful.
+          operationId: createalogbasedmetric
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      id: logs.page.load.count
+                      type: logs_metrics
+                      attributes:
+                        compute:
+                          aggregation_type: distribution
+                          include_percentiles: true
+                          path: '@duration'
+                        filter:
+                          query: service:web* AND @http.status_code:[200 TO 299]
+                        group_by:
+                          - path: '@http.status_code'
+                            tag_name: status_code
+                          - path: '@http.status_code'
+                            tag_name: status_code
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve All Spam Reports
+  description: >-
+    **This endpoint allows you to retrieve a paginated list of all spam
+    reports.**You can use the `limit` query parameter to set the page size. If
+    your list contains more items than the page size permits, you can make
+    multiple requests. Use the `offset` query parameter to control the position
+    in the list from which to start retrieving additional items.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve All Spam Reports
+      description: >-
+        **This endpoint allows you to retrieve a paginated list of all spam
+        reports.**You can use the `limit` query parameter to set the page size. If
+        your list contains more items than the page size permits, you can make
+        multiple requests. Use the `offset` query parameter to control the position
+        in the list from which to start retrieving additional items.
+    paths:
+      /v3/suppression/spam_reports:
+        get:
+          summary: Retrieve All Spam Reports
+          description: >-
+            **This endpoint allows you to retrieve a paginated list of all spam
+            reports.**You can use the `limit` query parameter to set the page size.
+            If your list contains more items than the page size permits, you can
+            make multiple requests. Use the `offset` query parameter to control the
+            position in the list from which to start retrieving additional items.
+          operationId: listSpamReport
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/SpamReportsResponse'
+                  examples:
+                    response:
+                      value:
+                        - created: 1443651141
+                          email: user1@example.com
+                          ip: 10.63.202.100
+                        - created: 1443651154
+                          email: user2@example.com
+                          ip: 10.63.202.100

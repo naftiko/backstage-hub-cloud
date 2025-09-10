@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Products Channel Assignments
+  description: Creates products channel assignments.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Products Channel Assignments
+      description: Creates products channel assignments.
+    paths:
+      /catalog/products/channel-assignments:
+        put:
+          summary: Create Products Channel Assignments
+          description: Creates products channel assignments.
+          operationId: createProductsChannelAssignments
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ProductChannelAssignment'
+          responses:
+            '422':
+              description: >-
+                Error response for batch PUT of Channel Assignments. Includes the
+                errors for each reference id.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/beta5ErrorResponse'

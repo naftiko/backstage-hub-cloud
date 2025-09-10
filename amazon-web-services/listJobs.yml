@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listjobs
+  description: >-
+    Lists current S3 Batch Operations jobs as well as the jobs that have ended
+    within the last 30 days for the Amazon Web Services account making the
+    request. For more information, see S3 Batch Operations in the Amazon S3 User
+    Guide.  Permissions  To use the ListJobs operation, you must have permission
+    to perform the s3:ListJobs action.   Related actions include:    
+    CreateJob     DescribeJob     UpdateJobPriority     UpdateJobStatus   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listjobs
+      description: >-
+        Lists current S3 Batch Operations jobs as well as the jobs that have ended
+        within the last 30 days for the Amazon Web Services account making the
+        request. For more information, see S3 Batch Operations in the Amazon S3 User
+        Guide.  Permissions  To use the ListJobs operation, you must have permission
+        to perform the s3:ListJobs action.   Related actions include:    
+        CreateJob     DescribeJob     UpdateJobPriority     UpdateJobStatus   
+    paths:
+      /v20180820/jobs:
+        GET:
+          summary: Listjobs
+          description: >-
+            Lists current S3 Batch Operations jobs as well as the jobs that have
+            ended within the last 30 days for the Amazon Web Services account making
+            the request. For more information, see S3 Batch Operations in the Amazon
+            S3 User Guide.  Permissions  To use the ListJobs operation, you must
+            have permission to perform the s3:ListJobs action.   Related actions
+            include:     CreateJob     DescribeJob     UpdateJobPriority    
+            UpdateJobStatus   
+          operationId: listJobs

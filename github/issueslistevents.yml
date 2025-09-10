@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Issue Events
+  description: Lists all events for an issue.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Issue Events
+      description: Lists all events for an issue.
+    paths:
+      /repos/{owner}/{repo}/issues/{issue_number}/events:
+        get:
+          summary: List Issue Events
+          description: Lists all events for an issue.
+          operationId: issueslistevents
+          responses:
+            '410':
+              $ref: '#/components/responses/gone'

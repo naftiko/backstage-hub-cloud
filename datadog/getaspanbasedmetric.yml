@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Span-based Metric
+  description: Get a specific span-based metric from your organization.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Span-based Metric
+      description: Get a specific span-based metric from your organization.
+    paths:
+      /api/v2/apm/config/metrics/{metric_id}:
+        get:
+          summary: Get A Span-based Metric
+          description: Get a specific span-based metric from your organization.
+          operationId: getaspanbasedmetric
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

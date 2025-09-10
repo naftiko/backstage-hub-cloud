@@ -1,0 +1,64 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete An App Token
+  description: >-
+    OAuth  or GitHub application owners can revoke a single token for an OAuth
+    application or a GitHub application with an OAuth authorization. You must
+    use [Basic
+    Authentication](https://docs.github.com/enterprise-server@3.9/rest/overview/other-authentication-methods#basic-authentication)
+    when accessing this endpoint, using the application's `client_id` and
+    `client_secret` as the username and password.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete An App Token
+      description: >-
+        OAuth  or GitHub application owners can revoke a single token for an OAuth
+        application or a GitHub application with an OAuth authorization. You must
+        use [Basic
+        Authentication](https://docs.github.com/enterprise-server@3.9/rest/overview/other-authentication-methods#basic-authentication)
+        when accessing this endpoint, using the application's `client_id` and
+        `client_secret` as the username and password.
+    paths:
+      /applications/{client_id}/token:
+        delete:
+          summary: Delete An App Token
+          description: >-
+            OAuth  or GitHub application owners can revoke a single token for an
+            OAuth application or a GitHub application with an OAuth authorization.
+            You must use [Basic
+            Authentication](https://docs.github.com/enterprise-server@3.9/rest/overview/other-authentication-methods#basic-authentication)
+            when accessing this endpoint, using the application's `client_id` and
+            `client_secret` as the username and password.
+          operationId: appsdeletetoken
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    access_token:
+                      type: string
+                      description: >-
+                        The OAuth access token used to authenticate to the GitHub
+                        API.
+                  required:
+                    - access_token
+                examples:
+                  default:
+                    value:
+                      access_token: e72e16c7e42f292c6912e7710c838347ae178b4a
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

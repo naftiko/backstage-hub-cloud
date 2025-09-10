@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Authoring Analyze-conversations Projects Projectname Deployments
+    Deploymentname Delete-from-resources Jobs Jobid
+  description: >-
+    Gets the status of an existing delete deployment from specific resources
+    job.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Authoring Analyze-conversations Projects Projectname Deployments
+        Deploymentname Delete-from-resources Jobs Jobid
+      description: >-
+        Gets the status of an existing delete deployment from specific resources
+        job.
+    paths:
+      /authoring/analyze-conversations/projects/{projectName}/deployments/{deploymentName}/delete-from-resources/jobs/{jobId}:
+        get:
+          summary: >-
+            Get Authoring Analyze-conversations Projects Projectname Deployments
+            Deploymentname Delete-from-resources Jobs Jobid
+          description: >-
+            Gets the status of an existing delete deployment from specific resources
+            job.
+          operationId: conversationalAnalysisAuthoringGetDeploymentDeleteFromResourcesStatus
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: common.json#/definitions/ErrorResponse

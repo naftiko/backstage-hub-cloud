@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Commits On A Pull Request
+  description: >-
+    Returns a paginated list of the pull request's commits.These are the commits
+    that are being merged into the destinationbranch when the pull requests gets
+    accepted.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Commits On A Pull Request
+      description: >-
+        Returns a paginated list of the pull request's commits.These are the commits
+        that are being merged into the destinationbranch when the pull requests gets
+        accepted.
+    paths:
+      /repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/commits:
+        get:
+          summary: List Commits On A Pull Request
+          description: >-
+            Returns a paginated list of the pull request's commits.These are the
+            commits that are being merged into the destinationbranch when the pull
+            requests gets accepted.
+          operationId: listcommitsonapullrequest
+          responses:
+            '404':
+              description: >-
+                If the pull request does not exist or the source branch is from a
+                forked repository which no longer exists.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

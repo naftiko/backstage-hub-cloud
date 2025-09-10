@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listsipmediaapplications
+  description: Lists the SIP media applications under the administrator's AWS account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listsipmediaapplications
+      description: Lists the SIP media applications under the administrator's AWS account.
+    paths:
+      /sip-media-applications:
+        GET:
+          summary: Listsipmediaapplications
+          description: Lists the SIP media applications under the administrator's AWS account.
+          operationId: listSipMediaApplications

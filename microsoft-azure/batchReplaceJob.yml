@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updates The Properties Of The Specified Job.
+  description: >-
+    This fully replaces all the updatable properties of the Job. For example,
+    ifthe Job has constraints associated with it and if constraints is not
+    specifiedwith this request, then the Batch service will remove the existing
+    constraints.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updates The Properties Of The Specified Job.
+      description: >-
+        This fully replaces all the updatable properties of the Job. For example,
+        ifthe Job has constraints associated with it and if constraints is not
+        specifiedwith this request, then the Batch service will remove the existing
+        constraints.
+    paths:
+      /jobs/{jobId}:
+        put:
+          summary: Updates The Properties Of The Specified Job.
+          description: >-
+            This fully replaces all the updatable properties of the Job. For
+            example, ifthe Job has constraints associated with it and if constraints
+            is not specifiedwith this request, then the Batch service will remove
+            the existing constraints.
+          operationId: batchReplaceJob
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

@@ -1,0 +1,60 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Send Shared Dashboard Invitation Email
+  description: >-
+    Send emails to specified email addresses containing links to access a given
+    authenticated shared dashboard. Email addresses must already belong to the
+    authenticated shared dashboard's share_list.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Send Shared Dashboard Invitation Email
+      description: >-
+        Send emails to specified email addresses containing links to access a given
+        authenticated shared dashboard. Email addresses must already belong to the
+        authenticated shared dashboard's share_list.
+    paths:
+      /api/v1/dashboard/public/{token}/invitation:
+        post:
+          summary: Send Shared Dashboard Invitation Email
+          description: >-
+            Send emails to specified email addresses containing links to access a
+            given authenticated shared dashboard. Email addresses must already
+            belong to the authenticated shared dashboard's share_list.
+          operationId: sendshareddashboardinvitationemail
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      - attributes:
+                          email: test@datadoghq.com
+                        type: public_dashboard_invitation
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

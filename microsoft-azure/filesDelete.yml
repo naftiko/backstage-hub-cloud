@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: "Deletes The File With The Given File-id.\r\ndeletion Is Also Allowed If A File Was Used, E.g., As Training File In A Fine-tune Job."
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: "Deletes The File With The Given File-id.\r\ndeletion Is Also Allowed If A File Was Used, E.g., As Training File In A Fine-tune Job."
+      description: Needs a more full description created.
+    paths:
+      /files/{file-id}:
+        delete:
+          summary: "Deletes The File With The Given File-id.\r\ndeletion Is Also Allowed If A File Was Used, E.g., As Training File In A Fine-tune Job."
+          description: Needs a more full description created.
+          operationId: filesDelete
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,64 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Set Github Actions Permissions For An Organization
+  description: >-
+    Sets the GitHub Actions permissions policy for repositories and allowed
+    actions in an organization.If the organization belongs to an enterprise that
+    has set restrictive permissions at the enterprise level, such as
+    `allowed_actions` to `selected` actions, then you cannot override them for
+    the organization.OAuth app tokens and personal access tokens (classic) need
+    the `admin:org` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Set Github Actions Permissions For An Organization
+      description: >-
+        Sets the GitHub Actions permissions policy for repositories and allowed
+        actions in an organization.If the organization belongs to an enterprise that
+        has set restrictive permissions at the enterprise level, such as
+        `allowed_actions` to `selected` actions, then you cannot override them for
+        the organization.OAuth app tokens and personal access tokens (classic) need
+        the `admin:org` scope to use this endpoint.
+    paths:
+      /orgs/{org}/actions/permissions:
+        put:
+          summary: Set Github Actions Permissions For An Organization
+          description: >-
+            Sets the GitHub Actions permissions policy for repositories and allowed
+            actions in an organization.If the organization belongs to an enterprise
+            that has set restrictive permissions at the enterprise level, such as
+            `allowed_actions` to `selected` actions, then you cannot override them
+            for the organization.OAuth app tokens and personal access tokens
+            (classic) need the `admin:org` scope to use this endpoint.
+          operationId: actionssetgithubactionspermissionsorganization
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    enabled_repositories:
+                      $ref: '#/components/schemas/enabled-repositories'
+                    allowed_actions:
+                      $ref: '#/components/schemas/allowed-actions'
+                  required:
+                    - enabled_repositories
+                examples:
+                  default:
+                    value:
+                      enabled_repositories: all
+                      allowed_actions: selected
+          responses:
+            '204':
+              description: Response

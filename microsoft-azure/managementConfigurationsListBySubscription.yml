@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieves The Managementconfigurations List For The Subscription
+  description: Retrieves the ManagementConfigurations list.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves The Managementconfigurations List For The Subscription
+      description: Retrieves the ManagementConfigurations list.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.OperationsManagement/ManagementConfigurations:
+        get:
+          summary: Retrieves The Managementconfigurations List For The Subscription
+          description: Retrieves the ManagementConfigurations list.
+          operationId: managementConfigurationsListBySubscription
+          responses:
+            default:
+              schema:
+                $ref: '#/definitions/CodeMessageError'
+              description: Error response definition.

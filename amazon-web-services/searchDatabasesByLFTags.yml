@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Searchdatabasesbylftags
+  description: >-
+    This operation allows a search on DATABASE resources by TagCondition. This
+    operation is used by admins who want to grant user permissions on certain
+    TagConditions. Before making a grant, the admin can use
+    SearchDatabasesByTags to find all resources where the given TagConditions
+    are valid to verify whether the returned resources can be shared.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Searchdatabasesbylftags
+      description: >-
+        This operation allows a search on DATABASE resources by TagCondition. This
+        operation is used by admins who want to grant user permissions on certain
+        TagConditions. Before making a grant, the admin can use
+        SearchDatabasesByTags to find all resources where the given TagConditions
+        are valid to verify whether the returned resources can be shared.
+    paths:
+      /SearchDatabasesByLFTags:
+        POST:
+          summary: Searchdatabasesbylftags
+          description: >-
+            This operation allows a search on DATABASE resources by TagCondition.
+            This operation is used by admins who want to grant user permissions on
+            certain TagConditions. Before making a grant, the admin can use
+            SearchDatabasesByTags to find all resources where the given
+            TagConditions are valid to verify whether the returned resources can be
+            shared.
+          operationId: searchDatabasesByLFTags

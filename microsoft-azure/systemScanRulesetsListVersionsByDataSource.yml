@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Systemscanrulesets Versions
+  description: List system scan ruleset versions in Data catalog
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Systemscanrulesets Versions
+      description: List system scan ruleset versions in Data catalog
+    paths:
+      /systemScanRulesets/versions:
+        get:
+          summary: Get Systemscanrulesets Versions
+          description: List system scan ruleset versions in Data catalog
+          operationId: systemScanRulesetsListVersionsByDataSource
+          responses:
+            default:
+              description: An error response received from the Scanning Service
+              schema:
+                $ref: '#/definitions/ErrorResponseModel'

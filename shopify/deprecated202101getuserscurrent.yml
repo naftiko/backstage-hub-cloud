@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Retrieves Information About The User Account Associated With The Access
+    Token Used To Make This Api Request. This Request Works Only When The Access
+    Token Was Created For A Specific User Of The Shop.
+  description: https://shopify.dev/docs/admin-api/rest/reference/plus/user#current-2021-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Retrieves Information About The User Account Associated With The Access
+        Token Used To Make This Api Request. This Request Works Only When The Access
+        Token Was Created For A Specific User Of The Shop.
+      description: https://shopify.dev/docs/admin-api/rest/reference/plus/user#current-2021-01
+    paths:
+      /admin/api/2021-01/users/current.json:
+        get:
+          summary: >-
+            Retrieves Information About The User Account Associated With The Access
+            Token Used To Make This Api Request. This Request Works Only When The
+            Access Token Was Created For A Specific User Of The Shop.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/plus/user#current-2021-01
+          operationId: deprecated202101getuserscurrent
+          responses:
+            '200':
+              description: ''

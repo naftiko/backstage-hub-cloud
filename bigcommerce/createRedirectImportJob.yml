@@ -1,0 +1,70 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Redirects Import Job
+  description: Creates a new 301 Redirects import job.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Redirects Import Job
+      description: Creates a new 301 Redirects import job.
+    paths:
+      /storefront/redirects/imex/import:
+        post:
+          summary: Create Redirects Import Job
+          description: Creates a new 301 Redirects import job.
+          operationId: createRedirectImportJob
+          requestBody:
+            required: true
+            content:
+              multipart/form-data:
+                schema:
+                  type: object
+                  properties:
+                    import_file:
+                      description: >-
+                        A CSV file containing a list of Redirects to be imported.
+
+
+                        The headers must be defined as follows:
+
+
+                        `Domain,Old Path,Manual URL/Path,Dynamic Target Type,Dynamic
+                        Target ID`
+
+
+                        Not every line will have a value for every column.
+                      type: string
+                      format: binary
+                      example: >-
+                        Domain,Old Path,Manual URL/Path,Dynamic Target Type,Dynamic
+                        Target ID 
+
+                        store.example.com,/old-path,/new-manual-path,, 
+
+                        store.example.com,/old-product,,Product,12 
+
+                        store.example.com,/old-brand,,Brand,34 
+
+                        store.example.com,/old-category,,Category,56 
+
+                        store.example.com,/old-page,,Page,78 
+
+                        store.example.com,/old-post,,Post,90
+                  required:
+                    - import_file
+                  description: Data necessary to create a new 301 Redirects import job.
+          responses:
+            '429':
+              description: >-
+                Your store already has an active Redirects import or export job
+                running.

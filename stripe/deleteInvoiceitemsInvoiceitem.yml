@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Invoiceitems Invoiceitem
+  description: >-
+    Deletes an invoice item, removing it from an invoice. Deleting invoice items
+    is only possible when they’re not attached to invoices, or if it’s attached
+    to a draft invoice.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Invoiceitems Invoiceitem
+      description: >-
+        Deletes an invoice item, removing it from an invoice. Deleting invoice items
+        is only possible when they’re not attached to invoices, or if it’s attached
+        to a draft invoice.
+    paths:
+      /v1/invoiceitems/{invoiceitem}:
+        delete:
+          summary: Delete Invoiceitems Invoiceitem
+          description: >-
+            Deletes an invoice item, removing it from an invoice. Deleting invoice
+            items is only possible when they’re not attached to invoices, or if it’s
+            attached to a draft invoice.
+          operationId: deleteInvoiceitemsInvoiceitem
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/DeleteInvoiceitemsInvoiceitemRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

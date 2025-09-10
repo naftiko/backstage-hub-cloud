@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listbatchjobdefinitions
+  description: >-
+    Lists all the available batch job definitions based on the batch job
+    resources uploaded during the application creation. You can use the batch
+    job definitions in the list to start a batch job.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listbatchjobdefinitions
+      description: >-
+        Lists all the available batch job definitions based on the batch job
+        resources uploaded during the application creation. You can use the batch
+        job definitions in the list to start a batch job.
+    paths:
+      /applications/{applicationId}/batch-job-definitions:
+        GET:
+          summary: Listbatchjobdefinitions
+          description: >-
+            Lists all the available batch job definitions based on the batch job
+            resources uploaded during the application creation. You can use the
+            batch job definitions in the list to start a batch job.
+          operationId: listBatchJobDefinitions

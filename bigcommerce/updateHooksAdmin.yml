@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Upsert Email Notifications
+  description: >-
+    Update email addresses that are sent notification emails when any domain
+    associated with the API account is denylisted or when a webhook is
+    deactivated. Supports `upsert` functionality in the case that no email
+    address exists yet.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Upsert Email Notifications
+      description: >-
+        Update email addresses that are sent notification emails when any domain
+        associated with the API account is denylisted or when a webhook is
+        deactivated. Supports `upsert` functionality in the case that no email
+        address exists yet.
+    paths:
+      /hooks/admin:
+        put:
+          summary: Upsert Email Notifications
+          description: >-
+            Update email addresses that are sent notification emails when any domain
+            associated with the API account is denylisted or when a webhook is
+            deactivated. Supports `upsert` functionality in the case that no email
+            address exists yet.
+          operationId: updateHooksAdmin
+          requestBody:
+            description: List of notification emails.
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    emails:
+                      type: array
+                      items:
+                        type: string
+                        format: email
+                        example: webhooks@example.com
+                examples:
+                  Example:
+                    value:
+                      emails:
+                        - user@example.com
+          responses:
+            '422':
+              $ref: '#/components/responses/422_UnprocessableEntity'

@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Channels In A Slack Integration
+  description: Get a list of all channels configured for your Datadog-Slack integration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Channels In A Slack Integration
+      description: Get a list of all channels configured for your Datadog-Slack integration.
+    paths:
+      /api/v1/integration/slack/configuration/accounts/{account_name}/channels:
+        get:
+          summary: Get All Channels In A Slack Integration
+          description: >-
+            Get a list of all channels configured for your Datadog-Slack
+            integration.
+          operationId: getallchannelsinaSlackintegration
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

@@ -1,0 +1,281 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Variants (batch)
+  description: >-
+    Updates a batch of `variant` objects. Currently the limit is 50 variants
+    however this is subject to change.**Required Fields**To update an existing
+    variant:* id (variant ID)To create a new variant:* product_id* sku*
+    option_values  - id (option_value ID - Example: 146)  - option_id (Option ID
+    - Example: 151)
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Variants (batch)
+      description: >-
+        Updates a batch of `variant` objects. Currently the limit is 50 variants
+        however this is subject to change.**Required Fields**To update an existing
+        variant:* id (variant ID)To create a new variant:* product_id* sku*
+        option_values  - id (option_value ID - Example: 146)  - option_id (Option ID
+        - Example: 151)
+    paths:
+      /catalog/variants:
+        put:
+          summary: Update Variants (batch)
+          description: >-
+            Updates a batch of `variant` objects. Currently the limit is 50 variants
+            however this is subject to change.**Required Fields**To update an
+            existing variant:* id (variant ID)To create a new variant:* product_id*
+            sku* option_values  - id (option_value ID - Example: 146)  - option_id
+            (Option ID - Example: 151)
+          operationId: updateVariantsBatch
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  title: Variants Collection Put
+                  type: array
+                  items:
+                    title: Variant Put
+                    type: object
+                    description: |
+                      The model for a PUT to update variants on a product.
+                    allOf:
+                      - title: Variant Base
+                        type: object
+                        properties:
+                          cost_price:
+                            minimum: 0
+                            type: number
+                            description: >-
+                              The cost price of the variant. Not affected by Price
+                              List prices.
+                            format: double
+                            x-nullable: true
+                            example: 40
+                          price:
+                            minimum: 0
+                            type: number
+                            description: >-
+                              This variant’s base price on the storefront. If a
+                              Price List ID is used, the Price List value will be
+                              used. If a Price List ID is not used, and this value
+                              is `null`, the product’s default price (set in the
+                              Product resource’s `price` field) will be used as the
+                              base price.
+                            format: double
+                            x-nullable: true
+                            example: 40
+                          sale_price:
+                            minimum: 0
+                            type: number
+                            description: >-
+                              This variant’s sale price on the storefront. If a
+                              Price List ID is used, the Price List value will be
+                              used. If a Price List ID is not used, and this value
+                              is null, the product’s sale price (set in the Product
+                              resource’s `price` field) will be used as the sale
+                              price.
+                            format: double
+                            x-nullable: true
+                            example: 40
+                          retail_price:
+                            minimum: 0
+                            type: number
+                            description: >-
+                              This variant’s retail price on the storefront. If a
+                              Price List ID is used, the Price List value will be
+                              used. If a Price List ID is not used, and this value
+                              is null, the product’s retail price (set in the
+                              Product resource’s `price` field) will be used as the
+                              retail price.
+                            format: double
+                            x-nullable: true
+                            example: 40
+                          weight:
+                            minimum: 0
+                            type: number
+                            description: >-
+                              This variant’s base weight on the storefront. If this
+                              value is null, the product’s default weight (set in
+                              the Product resource’s weight field) will be used as
+                              the base weight.
+                            format: double
+                            x-nullable: true
+                            example: 5
+                          width:
+                            minimum: 0
+                            type: number
+                            description: >
+                              Width of the variant, which can be used when
+                              calculating shipping costs. If this value is `null`,
+                              the productʼs default width (set in the Product
+                              resourceʼs `width` field) will be used as the base
+                              width.
+                            format: double
+                            x-nullable: true
+                            example: 5
+                          height:
+                            minimum: 0
+                            type: number
+                            description: >
+                              Height of the variant, which can be used when
+                              calculating shipping costs. If this value is `null`,
+                              the productʼs default height (set in the Product
+                              resourceʼs `height` field) will be used as the base
+                              height.
+                            format: double
+                            x-nullable: true
+                            example: 5
+                          depth:
+                            minimum: 0
+                            type: number
+                            description: >
+                              Depth of the variant, which can be used when
+                              calculating shipping costs. If this value is `null`,
+                              the productʼs default depth (set in the Product
+                              resourceʼs `depth` field) will be used as the base
+                              depth.
+                            format: double
+                            x-nullable: true
+                            example: 5
+                          is_free_shipping:
+                            type: boolean
+                            description: >
+                              Flag used to indicate whether the variant has free
+                              shipping. If `true`, the shipping cost for the variant
+                              will be zero.
+                          fixed_cost_shipping_price:
+                            minimum: 0
+                            type: number
+                            description: >
+                              A fixed shipping cost for the variant. If defined,
+                              this value will be used during checkout instead of
+                              normal shipping-cost calculation.
+                            format: double
+                            x-nullable: true
+                          purchasing_disabled:
+                            type: boolean
+                            description: >-
+                              If `true`, this variant will not be purchasable on the
+                              storefront.
+                          purchasing_disabled_message:
+                            maxLength: 255
+                            minLength: 0
+                            type: string
+                            description: >-
+                              If `purchasing_disabled` is `true`, this message
+                              should show on the storefront when the variant is
+                              selected.
+                          upc:
+                            type: string
+                            description: >-
+                              The UPC code used in feeds for shopping comparison
+                              sites and external channel integrations.
+                            x-nullable: true
+                            example: '1234'
+                          inventory_level:
+                            type: integer
+                            description: >-
+                              Inventory level for the variant, which is used when
+                              the product’s inventory_tracking is set to `variant`.
+                              The Catalog API returns the inventory for only the
+                              default location.
+
+
+                              The inventory for a variant cannot exceed
+                              2,147,483,647 in the catalog. The sum of the variant
+                              inventories, or the total inventory for a product,
+                              cannot exceed 2,147,483,647. 
+
+
+                              If you exceed the limit, the store sets the variant
+                              inventory to the limit if no other variant inventories
+                              are set. If other variant inventories are set, the
+                              store does not save the variant inventory rather than
+                              setting the variant inventory to the remaining limit.
+
+
+                              The Catalog API handles limits in a different way than
+                              the Inventory API. For more information, see [Limit
+                              handling](/docs/store-operations/catalog/inventory-adjustments#limit-handling-in-inventory-versus-catalog-api). 
+                            x-nullable: true
+                            maximum: 2147483647
+                            example: 21474
+                          inventory_warning_level:
+                            type: integer
+                            description: >-
+                              When the variant hits this inventory level, it is
+                              considered low stock.
+                            x-nullable: true
+                            maximum: 2147483647
+                            example: 5474
+                          bin_picking_number:
+                            maxLength: 255
+                            minLength: 0
+                            type: string
+                            description: >-
+                              Identifies where in a warehouse the variant is
+                              located.
+                            x-nullable: true
+                        description: Common Variant properties.
+                      - type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 154
+                            x-required:
+                              - put
+          responses:
+            '422':
+              description: >
+                This is the result of missing required fields, or of invalid data.
+                See the response for more details.
+              content:
+                application/json:
+                  schema:
+                    title: Variants Batch Error Response
+                    type: object
+                    properties:
+                      batch_errors:
+                        type: array
+                        items:
+                          title: Error Response
+                          type: object
+                          allOf:
+                            - title: Base Error
+                              type: object
+                              properties:
+                                status:
+                                  type: integer
+                                  description: |
+                                    The HTTP status code.
+                                title:
+                                  type: string
+                                  description: |
+                                    The error title describing the particular error.
+                                type:
+                                  type: string
+                                instance:
+                                  type: string
+                              description: |
+                                Error payload for the BigCommerce API.
+                            - type: object
+                              properties:
+                                errors:
+                                  title: Detailed Errors
+                                  type: object
+                                  properties: {}
+                                  additionalProperties: true
+                    description: |
+                      Errors during batch usage for the BigCommerce API.

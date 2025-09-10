@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Hostednumber Authorizationdocuments Signingdocumentsid
+    Dependenthostednumberorders
+  description: >-
+    Retrieve a list of dependent HostedNumberOrders belonging to the
+    AuthorizationDocument.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Hostednumber Authorizationdocuments Signingdocumentsid
+        Dependenthostednumberorders
+      description: >-
+        Retrieve a list of dependent HostedNumberOrders belonging to the
+        AuthorizationDocument.
+    paths:
+      /v2/HostedNumber/AuthorizationDocuments/{SigningDocumentSid}/DependentHostedNumberOrders:
+        get:
+          summary: >-
+            Get Hostednumber Authorizationdocuments Signingdocumentsid
+            Dependenthostednumberorders
+          description: >-
+            Retrieve a list of dependent HostedNumberOrders belonging to the
+            AuthorizationDocument.
+          operationId: listDependentHostedNumberOrder
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ListDependentHostedNumberOrderResponse'
+              description: OK

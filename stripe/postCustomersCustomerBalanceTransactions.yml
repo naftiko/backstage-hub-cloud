@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Customers Customer Balance_transactions
+  description: Creates an immutable transaction that updates the customer’s credit balance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Customers Customer Balance_transactions
+      description: Creates an immutable transaction that updates the customer’s credit balance.
+    paths:
+      /v1/customers/{customer}/balance_transactions:
+        post:
+          summary: Post Customers Customer Balance_transactions
+          description: >-
+            Creates an immutable transaction that updates the customer’s credit
+            balance.
+          operationId: postCustomersCustomerBalanceTransactions
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: >-
+                    #/components/schemas/PostCustomersCustomerBalanceTransactionsRequest
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

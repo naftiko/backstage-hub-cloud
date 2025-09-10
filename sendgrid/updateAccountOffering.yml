@@ -1,0 +1,60 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Account Offerings
+  description: >-
+    Changes a package offering for the specified account. Please note that an
+    account can have only one package offering. Also associates one or more
+    add-on offerings such as Marketing Campaigns, Dedicated IP Addresses, and
+    Expert Services to the specified account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Account Offerings
+      description: >-
+        Changes a package offering for the specified account. Please note that an
+        account can have only one package offering. Also associates one or more
+        add-on offerings such as Marketing Campaigns, Dedicated IP Addresses, and
+        Expert Services to the specified account.
+    paths:
+      /v3/partners/accounts/{accountID}/offerings:
+        put:
+          summary: Update Account Offerings
+          description: >-
+            Changes a package offering for the specified account. Please note that
+            an account can have only one package offering. Also associates one or
+            more add-on offerings such as Marketing Campaigns, Dedicated IP
+            Addresses, and Expert Services to the specified account.
+          operationId: updateAccountOffering
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  title: OfferingsToAdd
+                  type: object
+                  properties:
+                    offerings:
+                      type: array
+                      description: List of offerings to assign to account.
+                      items:
+                        $ref: '#/components/schemas/AccountProvisioningOfferingV1'
+                  required:
+                    - offerings
+                example:
+                  offerings:
+                    - name: org.ei.free.v1
+                      type: package
+                      quantity: 1
+          responses:
+            '504':
+              $ref: '#/components/responses/AccountProvisioningErrorResponse504'

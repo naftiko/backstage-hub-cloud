@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Active Metrics List
+  description: Get the list of actively reporting metrics from a given time until now.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Active Metrics List
+      description: Get the list of actively reporting metrics from a given time until now.
+    paths:
+      /api/v1/metrics:
+        get:
+          summary: Get Active Metrics List
+          description: Get the list of actively reporting metrics from a given time until now.
+          operationId: getactivemetricslist
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

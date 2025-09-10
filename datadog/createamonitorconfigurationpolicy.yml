@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Monitor Configuration Policy
+  description: Create a monitor configuration policy.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Monitor Configuration Policy
+      description: Create a monitor configuration policy.
+    paths:
+      /api/v2/monitor/policy:
+        post:
+          summary: Create A Monitor Configuration Policy
+          description: Create a monitor configuration policy.
+          operationId: createamonitorconfigurationpolicy
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      type: monitor-config-policy
+                      attributes:
+                        policy_type: tag
+                        policy:
+                          tag_key: datacenter
+                          tag_key_required: true
+                          valid_tag_values:
+                            - prod
+                            - staging
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

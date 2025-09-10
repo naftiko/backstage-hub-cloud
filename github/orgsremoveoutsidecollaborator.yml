@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Remove Outside Collaborator From An Organization
+  description: >-
+    Removing a user from this list will remove them from all the organization's
+    repositories.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Remove Outside Collaborator From An Organization
+      description: >-
+        Removing a user from this list will remove them from all the organization's
+        repositories.
+    paths:
+      /orgs/{org}/outside_collaborators/{username}:
+        delete:
+          summary: Remove Outside Collaborator From An Organization
+          description: >-
+            Removing a user from this list will remove them from all the
+            organization's repositories.
+          operationId: orgsremoveoutsidecollaborator
+          responses:
+            '422':
+              description: Unprocessable Entity if user is a member of the organization
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                      documentation_url:
+                        type: string
+                  examples:
+                    response-if-user-is-a-member-of-the-organization:
+                      value:
+                        message: >-
+                          You cannot specify an organization member to remove as an
+                          outside collaborator.
+                        documentation_url: >-
+                          https://docs.github.com/enterprise-server@3.9/rest/orgs/outside-collaborators#remove-outside-collaborator-from-an-organization

@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Child Organization
+  description: >-
+    Create a child organization.This endpoint requires the[multi-organization
+    account](https://docs.datadoghq.com/account_management/multi_organization/)feature
+    and must be enabled by[contacting
+    support](https://docs.datadoghq.com/help/).Once a new child organization is
+    created, you can interact with itby using the `org.public_id`,
+    `api_key.key`, and`application_key.hash` provided in the response.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Child Organization
+      description: >-
+        Create a child organization.This endpoint requires the[multi-organization
+        account](https://docs.datadoghq.com/account_management/multi_organization/)feature
+        and must be enabled by[contacting
+        support](https://docs.datadoghq.com/help/).Once a new child organization is
+        created, you can interact with itby using the `org.public_id`,
+        `api_key.key`, and`application_key.hash` provided in the response.
+    paths:
+      /api/v1/org:
+        post:
+          summary: Create A Child Organization
+          description: >-
+            Create a child organization.This endpoint requires
+            the[multi-organization
+            account](https://docs.datadoghq.com/account_management/multi_organization/)feature
+            and must be enabled by[contacting
+            support](https://docs.datadoghq.com/help/).Once a new child organization
+            is created, you can interact with itby using the `org.public_id`,
+            `api_key.key`, and`application_key.hash` provided in the response.
+          operationId: createachildorganization
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    name: New child org
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

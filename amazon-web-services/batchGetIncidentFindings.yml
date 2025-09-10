@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Batchgetincidentfindings
+  description: >-
+    Retrieves details about all specified findings for an incident, including
+    descriptive details about each finding. A finding represents a recent
+    application environment change made by an CodeDeploy deployment or an
+    CloudFormation stack creation or update that can be investigated as a
+    potential cause of the incident.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchgetincidentfindings
+      description: >-
+        Retrieves details about all specified findings for an incident, including
+        descriptive details about each finding. A finding represents a recent
+        application environment change made by an CodeDeploy deployment or an
+        CloudFormation stack creation or update that can be investigated as a
+        potential cause of the incident.
+    paths:
+      /batchGetIncidentFindings:
+        POST:
+          summary: Batchgetincidentfindings
+          description: >-
+            Retrieves details about all specified findings for an incident,
+            including descriptive details about each finding. A finding represents a
+            recent application environment change made by an CodeDeploy deployment
+            or an CloudFormation stack creation or update that can be investigated
+            as a potential cause of the incident.
+          operationId: batchGetIncidentFindings

@@ -1,0 +1,80 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Recipient
+  description: >-
+    **This endpoint allows you to update one or more recipients.**The body of an
+    API call to this endpoint must include an array of one or more recipient
+    objects.It is of note that you can add custom field data as parameters on
+    recipient objects. We have provided an example using some of the default
+    custom fields SendGrid provides.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Recipient
+      description: >-
+        **This endpoint allows you to update one or more recipients.**The body of an
+        API call to this endpoint must include an array of one or more recipient
+        objects.It is of note that you can add custom field data as parameters on
+        recipient objects. We have provided an example using some of the default
+        custom fields SendGrid provides.
+    paths:
+      /v3/contactdb/recipients:
+        patch:
+          summary: Update Recipient
+          description: >-
+            **This endpoint allows you to update one or more recipients.**The body
+            of an API call to this endpoint must include an array of one or more
+            recipient objects.It is of note that you can add custom field data as
+            parameters on recipient objects. We have provided an example using some
+            of the default custom fields SendGrid provides.
+          operationId: updateRecipient
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        format: email
+                      last_name:
+                        type: string
+                        description: >-
+                          The last name of the recipient. This is one of the default
+                          custom fields.
+                      first_name:
+                        type: string
+                        description: >-
+                          The first name of the recipient. This is one of the
+                          default custom fields.
+                    required:
+                      - email
+                  example:
+                    - email: jones@example.com
+                      last_name: Jones
+                      first_name: Guy
+          responses:
+            '401':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - field: null
+                            message: authorization required

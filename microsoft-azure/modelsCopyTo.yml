@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Copies A Model From One Subscription To Another.
+  description: >-
+    This method is obsolete and will be removed in future API version. Please
+    use models/{id}:copy instead.This method can be used to copy a model from
+    one speech resource to another one.Only custom models can be copied to
+    another speech resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Copies A Model From One Subscription To Another.
+      description: >-
+        This method is obsolete and will be removed in future API version. Please
+        use models/{id}:copy instead.This method can be used to copy a model from
+        one speech resource to another one.Only custom models can be copied to
+        another speech resource.
+    paths:
+      /models/{id}:copyto:
+        post:
+          summary: Copies A Model From One Subscription To Another.
+          description: >-
+            This method is obsolete and will be removed in future API version.
+            Please use models/{id}:copy instead.This method can be used to copy a
+            model from one speech resource to another one.Only custom models can be
+            copied to another speech resource.
+          operationId: modelsCopyTo
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/Error'

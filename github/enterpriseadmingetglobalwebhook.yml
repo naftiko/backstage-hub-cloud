@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Global Webhook
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Global Webhook
+      description: Needs a more full description created.
+    paths:
+      /admin/hooks/{hook_id}:
+        get:
+          summary: Get A Global Webhook
+          description: Needs a more full description created.
+          operationId: enterpriseadmingetglobalwebhook
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/global-hook'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/global-hook'

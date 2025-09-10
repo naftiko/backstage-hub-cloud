@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Distinct Metric Volumes By Metric Name
+  description: >-
+    View distinct metrics volumes for the given metric name.Custom metrics
+    generated in-app from other products will return `null` for ingested
+    volumes.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Distinct Metric Volumes By Metric Name
+      description: >-
+        View distinct metrics volumes for the given metric name.Custom metrics
+        generated in-app from other products will return `null` for ingested
+        volumes.
+    paths:
+      /api/v2/metrics/{metric_name}/volumes:
+        get:
+          summary: List Distinct Metric Volumes By Metric Name
+          description: >-
+            View distinct metrics volumes for the given metric name.Custom metrics
+            generated in-app from other products will return `null` for ingested
+            volumes.
+          operationId: listVolumesByMetricName
+          responses:
+            '429':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/APIErrorResponse'
+              description: Too Many Requests

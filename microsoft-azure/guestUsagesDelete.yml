@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deletes A Guest Usages Resource
+  description: >-
+    Deletes a Guest Usages resource for the Microsoft.AzureActiveDirectory
+    resource provider
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes A Guest Usages Resource
+      description: >-
+        Deletes a Guest Usages resource for the Microsoft.AzureActiveDirectory
+        resource provider
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureActiveDirectory/guestUsages/{resourceName}:
+        delete:
+          summary: Deletes A Guest Usages Resource
+          description: >-
+            Deletes a Guest Usages resource for the Microsoft.AzureActiveDirectory
+            resource provider
+          operationId: guestUsagesDelete
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

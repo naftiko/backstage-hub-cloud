@@ -1,0 +1,114 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Repository Using A Template
+  description: >-
+    Creates a new repository using a repository template. Use the
+    `template_owner` and `template_repo` route parameters to specify the
+    repository to use as the template. If the repository is not public, the
+    authenticated user must own or be a member of an organization that owns the
+    repository. To check if a repository is available to use as a template, get
+    the repository's information using the [Get a
+    repository](https://docs.github.com/enterprise-server@3.9/rest/repos/repos#get-a-repository)
+    endpoint and check that the `is_template` key is `true`.OAuth app tokens and
+    personal access tokens (classic) need the `public_repo` or `repo` scope to
+    create a public repository, and `repo` scope to create a private repository.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Repository Using A Template
+      description: >-
+        Creates a new repository using a repository template. Use the
+        `template_owner` and `template_repo` route parameters to specify the
+        repository to use as the template. If the repository is not public, the
+        authenticated user must own or be a member of an organization that owns the
+        repository. To check if a repository is available to use as a template, get
+        the repository's information using the [Get a
+        repository](https://docs.github.com/enterprise-server@3.9/rest/repos/repos#get-a-repository)
+        endpoint and check that the `is_template` key is `true`.OAuth app tokens and
+        personal access tokens (classic) need the `public_repo` or `repo` scope to
+        create a public repository, and `repo` scope to create a private repository.
+    paths:
+      /repos/{template_owner}/{template_repo}/generate:
+        post:
+          summary: Create A Repository Using A Template
+          description: >-
+            Creates a new repository using a repository template. Use the
+            `template_owner` and `template_repo` route parameters to specify the
+            repository to use as the template. If the repository is not public, the
+            authenticated user must own or be a member of an organization that owns
+            the repository. To check if a repository is available to use as a
+            template, get the repository's information using the [Get a
+            repository](https://docs.github.com/enterprise-server@3.9/rest/repos/repos#get-a-repository)
+            endpoint and check that the `is_template` key is `true`.OAuth app tokens
+            and personal access tokens (classic) need the `public_repo` or `repo`
+            scope to create a public repository, and `repo` scope to create a
+            private repository.
+          operationId: createARepositoryUsingATemplate
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    owner:
+                      type: string
+                      description: >-
+                        The organization or person who will own the new repository.
+                        To create a new repository in an organization, the
+                        authenticated user must be a member of the specified
+                        organization.
+                    name:
+                      type: string
+                      description: The name of the new repository.
+                    description:
+                      type: string
+                      description: A short description of the new repository.
+                    include_all_branches:
+                      type: boolean
+                      description: >-
+                        Set to `true` to include the directory structure and files
+                        from all branches in the template repository, and not just
+                        the default branch. Default: `false`.
+                      default: false
+                    private:
+                      type: boolean
+                      description: >-
+                        Either `true` to create a new private repository or `false`
+                        to create a new public one.
+                      default: false
+                  required:
+                    - name
+                examples:
+                  default:
+                    value:
+                      owner: octocat
+                      name: Hello-World
+                      description: This is your first repository
+                      include_all_branches: false
+                      private: false
+          responses:
+            '201':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/full-repository'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/full-repository'
+              headers:
+                Location:
+                  example: https://api.github.com/repos/octocat/Hello-World
+                  schema:
+                    type: string

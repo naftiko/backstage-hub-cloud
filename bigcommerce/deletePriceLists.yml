@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete All Price Lists
+  description: >-
+    Deletes a *Price List*. All associated price records are also removed.
+    Optional parameters can be passed in.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete All Price Lists
+      description: >-
+        Deletes a *Price List*. All associated price records are also removed.
+        Optional parameters can be passed in.
+    paths:
+      /pricelists:
+        delete:
+          summary: Delete All Price Lists
+          description: >-
+            Deletes a *Price List*. All associated price records are also removed.
+            Optional parameters can be passed in.
+          operationId: deletePriceLists
+          responses:
+            '204':
+              description: >-
+                `204 No Content`. The action has been performed and no further
+                information will be supplied. `null` is returned.
+              content:
+                application/json:
+                  schema:
+                    title: Delete Price Lists Response
+                    type: object
+                    nullable: true

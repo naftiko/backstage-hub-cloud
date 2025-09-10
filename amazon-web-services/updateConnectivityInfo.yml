@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updateconnectivityinfo
+  description: >-
+    Updates connectivity information for a Greengrass core device. Connectivity
+    information includes endpoints and ports where client devices can connect to
+    an MQTT broker on the core device. When a client device calls the IoT
+    Greengrass discovery API, IoT Greengrass returns connectivity information
+    for all of the core devices where the client device can connect. For more
+    information, see Connect client devices to core devices in the IoT
+    Greengrass Version 2 Developer Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateconnectivityinfo
+      description: >-
+        Updates connectivity information for a Greengrass core device. Connectivity
+        information includes endpoints and ports where client devices can connect to
+        an MQTT broker on the core device. When a client device calls the IoT
+        Greengrass discovery API, IoT Greengrass returns connectivity information
+        for all of the core devices where the client device can connect. For more
+        information, see Connect client devices to core devices in the IoT
+        Greengrass Version 2 Developer Guide.
+    paths:
+      /greengrass/things/{thingName}/connectivityInfo:
+        PUT:
+          summary: Updateconnectivityinfo
+          description: >-
+            Updates connectivity information for a Greengrass core device.
+            Connectivity information includes endpoints and ports where client
+            devices can connect to an MQTT broker on the core device. When a client
+            device calls the IoT Greengrass discovery API, IoT Greengrass returns
+            connectivity information for all of the core devices where the client
+            device can connect. For more information, see Connect client devices to
+            core devices in the IoT Greengrass Version 2 Developer Guide.
+          operationId: updateConnectivityInfo

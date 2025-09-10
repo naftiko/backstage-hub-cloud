@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Services Servicesid Streams Streamsid Messages
+  description: Create a new Stream Message.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Services Servicesid Streams Streamsid Messages
+      description: Create a new Stream Message.
+    paths:
+      /v1/Services/{ServiceSid}/Streams/{StreamSid}/Messages:
+        post:
+          summary: Post Services Servicesid Streams Streamsid Messages
+          description: Create a new Stream Message.
+          operationId: createStreamMessage
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateStreamMessageRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: >-
+                      #/components/schemas/sync.v1.service.sync_stream.stream_message
+              description: Created

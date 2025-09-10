@@ -1,0 +1,93 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Metrics Meetingdetail
+  description: Get live and past meeting details
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Metrics Meetingdetail
+      description: Get live and past meeting details
+    paths:
+      /metrics/meetingdetail:
+        post:
+          summary: Post Metrics Meetingdetail
+          description: Get live and past meeting details
+          operationId: dashboardMeetingdetail
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - meeting_id
+                    - type
+                  type: object
+                  properties:
+                    meeting_id:
+                      type: string
+                      description: >-
+                        The meeting ID Example: ucc69C82Q5mTNyCRWE29Aw== Or
+                        B9C73AF4-2F36-4399-9337-2091584DBD03
+                    type:
+                      type: string
+                      description: Meeting type. 1 means live meeting. 2 means past meeting.
+                    page_size:
+                      type: string
+                      description: >-
+                        The amount of records returns within a single API call.
+                        Defaults to 30. Max of 100 records.
+                      default: '30'
+                    page_number:
+                      type: string
+                      description: Current page number of returned records. Default to 1.
+                      default: '1'
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    uuid: unique_id
+                    id: '123456789'
+                    type: Past Meeting
+                    host: Zoomie Userton
+                    email: email_address
+                    user_type: Pro
+                    start_time: 2015-08-30T05:36:56.000Z
+                    end_time: 2015-08-30T06:36:56.000Z
+                    duration: 4 mins
+                    has_pstn: false
+                    has_voip: true
+                    has_3rd_party_audio: false
+                    has_video: true
+                    has_screen_share: false
+                    recording: 0
+                    participants_count: 2
+                    page_count: 1
+                    page_number: 1
+                    page_size: 30
+                    participants:
+                      - id: unique_id
+                        user_id: unique_id
+                        user_name: Zoomie Userton
+                        device: Mac
+                        ip_address: 117.83.222.228
+                        cn: CN
+                        city: Nanjing
+                        network_type: Wifi
+                        join_time: 2017-02-18T01:44:47.000Z
+                        leave_time: 2017-02-18T01:45:58.000Z
+                        share_application: true
+                        share_desktop: true
+                        share_whiteboard: true
+                        recording: true

@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Clone A Database.
+  description: >-
+    Clones an existing database, with modifiers as query parameters. You must
+    provide the full database definition when cloning an existing database.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Clone A Database.
+      description: >-
+        Clones an existing database, with modifiers as query parameters. You must
+        provide the full database definition when cloning an existing database.
+    paths:
+      /api/v2/databases/{name}:clone:
+        post:
+          summary: Clone A Database.
+          description: >-
+            Clones an existing database, with modifiers as query parameters. You
+            must provide the full database definition when cloning an existing
+            database.
+          operationId: cloneDatabase
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/DatabaseClone'
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

@@ -1,0 +1,60 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Render A Markdown Document
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Render A Markdown Document
+      description: Needs a more full description created.
+    paths:
+      /markdown:
+        post:
+          summary: Render A Markdown Document
+          description: Needs a more full description created.
+          operationId: markdownrender
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  properties:
+                    text:
+                      description: The Markdown text to render in HTML.
+                      type: string
+                    mode:
+                      description: The rendering mode.
+                      enum:
+                        - markdown
+                        - gfm
+                      default: markdown
+                      example: markdown
+                      type: string
+                    context:
+                      description: >-
+                        The repository context to use when creating references in
+                        `gfm` mode.  For example, setting `context` to
+                        `octo-org/octo-repo` will change the text `#42` into an HTML
+                        link to issue 42 in the `octo-org/octo-repo` repository.
+                      type: string
+                  required:
+                    - text
+                  type: object
+                examples:
+                  default:
+                    summary: Rendering markdown
+                    value:
+                      text: Hello **world**
+          responses:
+            '304':
+              $ref: '#/components/responses/not_modified'

@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Channel Cart Settings
+  description: Update the per-channel overrides for the cart settings of a store.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Channel Cart Settings
+      description: Update the per-channel overrides for the cart settings of a store.
+    paths:
+      /carts/settings/channels/{channel_id}:
+        put:
+          summary: Update Channel Cart Settings
+          description: Update the per-channel overrides for the cart settings of a store.
+          operationId: updateChannelCartSettings
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ChannelCartSettingsRequest'
+          responses:
+            '422':
+              description: Unprocessable entity
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'

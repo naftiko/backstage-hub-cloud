@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Gets Load Information About A Service Fabric Application.
+  description: >-
+    Returns the load information about the application that was created or in
+    the process of being created in the Service Fabric cluster and whose name
+    matches the one specified as the parameter. The response includes the name,
+    minimum nodes, maximum nodes, the number of nodes the application is
+    occupying currently, and application load metric information about the
+    application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets Load Information About A Service Fabric Application.
+      description: >-
+        Returns the load information about the application that was created or in
+        the process of being created in the Service Fabric cluster and whose name
+        matches the one specified as the parameter. The response includes the name,
+        minimum nodes, maximum nodes, the number of nodes the application is
+        occupying currently, and application load metric information about the
+        application.
+    paths:
+      /Applications/{applicationId}/$/GetLoadInformation:
+        get:
+          summary: Gets Load Information About A Service Fabric Application.
+          description: >-
+            Returns the load information about the application that was created or
+            in the process of being created in the Service Fabric cluster and whose
+            name matches the one specified as the parameter. The response includes
+            the name, minimum nodes, maximum nodes, the number of nodes the
+            application is occupying currently, and application load metric
+            information about the application.
+          operationId: getApplicationLoadInfo
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

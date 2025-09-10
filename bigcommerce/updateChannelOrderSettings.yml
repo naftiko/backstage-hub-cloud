@@ -1,0 +1,64 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Channel Order Settings
+  description: >-
+    Updates order settings for a specific channel. **Note:** You must override
+    both notifications `email_addresses` or neither, i.e. either both
+    notification `email_addresses` are an array of valid email addresses, or
+    both `email_addresses` must be null. You may not have one set to an array of
+    addresses and the other set to `null`.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Channel Order Settings
+      description: >-
+        Updates order settings for a specific channel. **Note:** You must override
+        both notifications `email_addresses` or neither, i.e. either both
+        notification `email_addresses` are an array of valid email addresses, or
+        both `email_addresses` must be null. You may not have one set to an array of
+        addresses and the other set to `null`.
+    paths:
+      /orders/settings/channels/{channel_id}:
+        put:
+          summary: Update Channel Order Settings
+          description: >-
+            Updates order settings for a specific channel. **Note:** You must
+            override both notifications `email_addresses` or neither, i.e. either
+            both notification `email_addresses` are an array of valid email
+            addresses, or both `email_addresses` must be null. You may not have one
+            set to an array of addresses and the other set to `null`.
+          operationId: updateChannelOrderSettings
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ChannelOrderSettings'
+                examples:
+                  OverrideOrderPlacedEmailAddressesAndDisableForwardEmailAddresses:
+                    $ref: >-
+                      #/components/examples/ChannelOrderSettingsOverrideOrderPlacedEmailAddressesAndDisableForwardEmail
+                  ResetChannelSettings:
+                    $ref: '#/components/examples/ChannelOrderSettingsReset'
+                  DisableMultipleNotificatonsForChannels:
+                    $ref: >-
+                      #/components/examples/ChannelOrderSettingsDisableBothNotifications
+          responses:
+            '422':
+              description: >-
+                Order settings data is not valid. This is the result of missing
+                required fields, or of invalid data. See the response for more
+                details.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse422'

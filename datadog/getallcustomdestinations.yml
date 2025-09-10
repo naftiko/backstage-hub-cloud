@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Custom Destinations
+  description: >-
+    Get the list of configured custom destinations in your organization with
+    their definitions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Custom Destinations
+      description: >-
+        Get the list of configured custom destinations in your organization with
+        their definitions.
+    paths:
+      /api/v2/logs/config/custom-destinations:
+        get:
+          summary: Get All Custom Destinations
+          description: >-
+            Get the list of configured custom destinations in your organization with
+            their definitions.
+          operationId: getallcustomdestinations
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

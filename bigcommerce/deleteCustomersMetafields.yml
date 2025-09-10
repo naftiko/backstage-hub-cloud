@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete All Metafields
+  description: Delete all customer metafields.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete All Metafields
+      description: Delete all customer metafields.
+    paths:
+      /customers/metafields:
+        delete:
+          summary: Delete All Metafields
+          description: Delete all customer metafields.
+          operationId: deleteCustomersMetafields
+          requestBody:
+            description: Metafields ID list.
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: integer
+          responses:
+            '422':
+              description: |
+                Response object for metafields deletion with partial success.
+              content:
+                application/json:
+                  schema:
+                    $ref: >-
+                      #/components/schemas/MetaFieldCollectionResponsePartialSuccess_DELETE

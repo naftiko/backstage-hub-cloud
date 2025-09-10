@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Archiveapplication
+  description: Archive application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Archiveapplication
+      description: Archive application.
+    paths:
+      /ArchiveApplication:
+        POST:
+          summary: Archiveapplication
+          description: Archive application.
+          operationId: archiveApplication

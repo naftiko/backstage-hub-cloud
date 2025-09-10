@@ -1,0 +1,82 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Restriction Policy
+  description: >-
+    Updates the restriction policy associated with a resource.#### Supported
+    resourcesRestriction policies can be applied to the following resources:-
+    Connections: `connection`- Dashboards: `dashboard`- Notebooks: `notebook`-
+    Security Rules: `security-rule`- Service Level Objectives: `slo`####
+    Supported relations for resourcesResource Type            | Supported
+    Relations-------------------------|--------------------------Connections             
+    | `viewer`, `editor`, `resolver`Dashboards               | `viewer`,
+    `editor`Notebooks                | `viewer`, `editor`Security
+    Rules           | `viewer`, `editor`Service Level Objectives | `viewer`,
+    `editor`
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Restriction Policy
+      description: >-
+        Updates the restriction policy associated with a resource.#### Supported
+        resourcesRestriction policies can be applied to the following resources:-
+        Connections: `connection`- Dashboards: `dashboard`- Notebooks: `notebook`-
+        Security Rules: `security-rule`- Service Level Objectives: `slo`####
+        Supported relations for resourcesResource Type            | Supported
+        Relations-------------------------|--------------------------Connections             
+        | `viewer`, `editor`, `resolver`Dashboards               | `viewer`,
+        `editor`Notebooks                | `viewer`, `editor`Security
+        Rules           | `viewer`, `editor`Service Level Objectives | `viewer`,
+        `editor`
+    paths:
+      /api/v2/restriction_policy/{resource_id}:
+        post:
+          summary: Update A Restriction Policy
+          description: >-
+            Updates the restriction policy associated with a resource.#### Supported
+            resourcesRestriction policies can be applied to the following
+            resources:- Connections: `connection`- Dashboards: `dashboard`-
+            Notebooks: `notebook`- Security Rules: `security-rule`- Service Level
+            Objectives: `slo`#### Supported relations for resourcesResource
+            Type            | Supported
+            Relations-------------------------|--------------------------Connections             
+            | `viewer`, `editor`, `resolver`Dashboards               | `viewer`,
+            `editor`Notebooks                | `viewer`, `editor`Security
+            Rules           | `viewer`, `editor`Service Level Objectives | `viewer`,
+            `editor`
+          operationId: updatearestrictionpolicy
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      type: restriction_policy
+                      id: dashboard:abc-def-ghi
+                      attributes: {}
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

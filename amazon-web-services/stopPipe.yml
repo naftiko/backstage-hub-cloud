@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Stoppipe
+  description: Stop an existing pipe.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Stoppipe
+      description: Stop an existing pipe.
+    paths:
+      /v1/pipes/{Name}/stop:
+        POST:
+          summary: Stoppipe
+          description: Stop an existing pipe.
+          operationId: stopPipe

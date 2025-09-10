@@ -1,0 +1,93 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Changes On An Issue
+  description: >-
+    Returns the list of all changes that have been made to the specifiedissue.
+    Changes are returned in chronological order with the oldestchange first.Each
+    time an issue is edited in the UI or through the API, an immutablechange
+    record is created under the `/issues/123/changes` endpoint. Italso has a
+    comment associated with the change.Note that this operation is changing
+    significantly, due to privacy changes.See the
+    [announcement](https://developer.atlassian.com/cloud/bitbucket/bitbucket-api-changes-gdpr/#changes-to-the-issue-changes-api)for
+    details.Changes support [filtering and
+    sorting](/cloud/bitbucket/rest/intro/#filtering) thatcan be used to search
+    for specific changes. For instance, to seewhen an issue transitioned to
+    "resolved":```$ curl -s
+    https://api.bitbucket.org/2.0/repositories/site/master/issues/1/changes \  
+    -G --data-urlencode='q=changes.state.new = "resolved"'```This resource is
+    only available on repositories that have the issuetracker enabled.N.B.The
+    `changes.assignee` and `changes.assignee_account_id` fields are nota `user`
+    object. Instead, they contain the raw `username` and`account_id` of the
+    user. This is to protect the integrity of the auditlog even after a user
+    account gets deleted.The `changes.assignee` field is deprecated will
+    disappear in thefuture. Use `changes.assignee_account_id` instead.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Changes On An Issue
+      description: >-
+        Returns the list of all changes that have been made to the specifiedissue.
+        Changes are returned in chronological order with the oldestchange first.Each
+        time an issue is edited in the UI or through the API, an immutablechange
+        record is created under the `/issues/123/changes` endpoint. Italso has a
+        comment associated with the change.Note that this operation is changing
+        significantly, due to privacy changes.See the
+        [announcement](https://developer.atlassian.com/cloud/bitbucket/bitbucket-api-changes-gdpr/#changes-to-the-issue-changes-api)for
+        details.Changes support [filtering and
+        sorting](/cloud/bitbucket/rest/intro/#filtering) thatcan be used to search
+        for specific changes. For instance, to seewhen an issue transitioned to
+        "resolved":```$ curl -s
+        https://api.bitbucket.org/2.0/repositories/site/master/issues/1/changes \  
+        -G --data-urlencode='q=changes.state.new = "resolved"'```This resource is
+        only available on repositories that have the issuetracker enabled.N.B.The
+        `changes.assignee` and `changes.assignee_account_id` fields are nota `user`
+        object. Instead, they contain the raw `username` and`account_id` of the
+        user. This is to protect the integrity of the auditlog even after a user
+        account gets deleted.The `changes.assignee` field is deprecated will
+        disappear in thefuture. Use `changes.assignee_account_id` instead.
+    paths:
+      /repositories/{workspace}/{repo_slug}/issues/{issue_id}/changes:
+        get:
+          summary: List Changes On An Issue
+          description: >-
+            Returns the list of all changes that have been made to the
+            specifiedissue. Changes are returned in chronological order with the
+            oldestchange first.Each time an issue is edited in the UI or through the
+            API, an immutablechange record is created under the
+            `/issues/123/changes` endpoint. Italso has a comment associated with the
+            change.Note that this operation is changing significantly, due to
+            privacy changes.See the
+            [announcement](https://developer.atlassian.com/cloud/bitbucket/bitbucket-api-changes-gdpr/#changes-to-the-issue-changes-api)for
+            details.Changes support [filtering and
+            sorting](/cloud/bitbucket/rest/intro/#filtering) thatcan be used to
+            search for specific changes. For instance, to seewhen an issue
+            transitioned to "resolved":```$ curl -s
+            https://api.bitbucket.org/2.0/repositories/site/master/issues/1/changes
+            \   -G --data-urlencode='q=changes.state.new = "resolved"'```This
+            resource is only available on repositories that have the issuetracker
+            enabled.N.B.The `changes.assignee` and `changes.assignee_account_id`
+            fields are nota `user` object. Instead, they contain the raw `username`
+            and`account_id` of the user. This is to protect the integrity of the
+            auditlog even after a user account gets deleted.The `changes.assignee`
+            field is deprecated will disappear in thefuture. Use
+            `changes.assignee_account_id` instead.
+          operationId: listchangesonanissue
+          responses:
+            '404':
+              description: >-
+                The specified repository or issue does not exist or does not have
+                the issue tracker enabled.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

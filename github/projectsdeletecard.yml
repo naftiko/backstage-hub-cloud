@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Project Card
+  description: Deletes a project card
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Project Card
+      description: Deletes a project card
+    paths:
+      /projects/columns/cards/{card_id}:
+        delete:
+          summary: Delete A Project Card
+          description: Deletes a project card
+          operationId: projectsdeletecard
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve All Recipients On A List
+  description: >-
+    **This endpoint allows you to retrieve all recipients on the list with the
+    given ID.**
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve All Recipients On A List
+      description: >-
+        **This endpoint allows you to retrieve all recipients on the list with the
+        given ID.**
+    paths:
+      /v3/contactdb/lists/{list_id}/recipients:
+        get:
+          summary: Retrieve All Recipients On A List
+          description: >-
+            **This endpoint allows you to retrieve all recipients on the list with
+            the given ID.**
+          operationId: listRecipientsFromContactDbList
+          responses:
+            '404':
+              description: Returned if `list_id` does not exist
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - field: list_id
+                            message: Returned if list_id is invalid

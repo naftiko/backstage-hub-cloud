@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Virtual Machines For A Lab.
+  description: Returns a list of all virtual machines for a lab.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Virtual Machines For A Lab.
+      description: Returns a list of all virtual machines for a lab.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labs/{labName}/virtualMachines:
+        get:
+          summary: Get All Virtual Machines For A Lab.
+          description: Returns a list of all virtual machines for a lab.
+          operationId: virtualMachinesListByLab
+          responses:
+            default:
+              description: The default error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

@@ -1,0 +1,95 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Bulk Set Issue Properties By Issue
+  description: >-
+    Sets or updates entity property values on issues. Up to 10 entity properties
+    can be specified for each issue and up to 100 issues included in the
+    request.The value of the request body must be a
+    [valid](http://tools.ietf.org/html/rfc4627), non-empty JSON.This operation
+    is: *  [asynchronous](#async). Follow the `location` link in the response to
+    determine the status of the task and use [Get
+    task](#api-rest-api-3-task-taskId-get) to obtain subsequent updates. * 
+    non-transactional. Updating some entities may fail. Such information will
+    available in the task result.**[Permissions](#permissions) required:** * 
+    *Browse projects* and *Edit issues* [project
+    permissions](https://confluence.atlassian.com/x/yodKLg) for the project
+    containing the issue. *  If [issue-level
+    security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+    issue-level security permission to view the issue.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Bulk Set Issue Properties By Issue
+      description: >-
+        Sets or updates entity property values on issues. Up to 10 entity properties
+        can be specified for each issue and up to 100 issues included in the
+        request.The value of the request body must be a
+        [valid](http://tools.ietf.org/html/rfc4627), non-empty JSON.This operation
+        is: *  [asynchronous](#async). Follow the `location` link in the response to
+        determine the status of the task and use [Get
+        task](#api-rest-api-3-task-taskId-get) to obtain subsequent updates. * 
+        non-transactional. Updating some entities may fail. Such information will
+        available in the task result.**[Permissions](#permissions) required:** * 
+        *Browse projects* and *Edit issues* [project
+        permissions](https://confluence.atlassian.com/x/yodKLg) for the project
+        containing the issue. *  If [issue-level
+        security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+        issue-level security permission to view the issue.
+    paths:
+      /rest/api/3/issue/properties/multi:
+        post:
+          summary: Bulk Set Issue Properties By Issue
+          description: >-
+            Sets or updates entity property values on issues. Up to 10 entity
+            properties can be specified for each issue and up to 100 issues included
+            in the request.The value of the request body must be a
+            [valid](http://tools.ietf.org/html/rfc4627), non-empty JSON.This
+            operation is: *  [asynchronous](#async). Follow the `location` link in
+            the response to determine the status of the task and use [Get
+            task](#api-rest-api-3-task-taskId-get) to obtain subsequent updates. * 
+            non-transactional. Updating some entities may fail. Such information
+            will available in the task result.**[Permissions](#permissions)
+            required:** *  *Browse projects* and *Edit issues* [project
+            permissions](https://confluence.atlassian.com/x/yodKLg) for the project
+            containing the issue. *  If [issue-level
+            security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+            issue-level security permission to view the issue.
+          operationId: bulkSetIssuePropertiesByIssue
+          requestBody:
+            description: >-
+              Details of the issue properties to be set or updated. Note that if an
+              issue is not found, it is ignored.
+            required: true
+            content:
+              application/json:
+                example:
+                  issues:
+                    - issueID: 1000
+                      properties:
+                        myProperty:
+                          owner: admin
+                          weight: 100
+                    - issueID: 1001
+                      properties:
+                        myOtherProperty:
+                          cost: 150
+                          transportation: car
+                schema:
+                  $ref: '#/components/schemas/MultiIssueEntityProperties'
+          responses:
+            '403':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorCollection'
+              description: Return if the user does not have the necessary permission.

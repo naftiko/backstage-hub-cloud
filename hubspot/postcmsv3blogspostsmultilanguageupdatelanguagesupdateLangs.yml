@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Languages Of Multi-language Group
+  description: Explicitly set new languages for each Blog Post in a multi-language group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Languages Of Multi-language Group
+      description: Explicitly set new languages for each Blog Post in a multi-language group.
+    paths:
+      /cms/v3/blogs/posts/multi-language/update-languages:
+        post:
+          summary: Update Languages Of Multi-language Group
+          description: >-
+            Explicitly set new languages for each Blog Post in a multi-language
+            group.
+          operationId: postcmsv3blogspostsmultilanguageupdatelanguagesupdateLangs
+          requestBody:
+            description: The JSON representation of the SetNewLanguagePrimaryRequest object.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/UpdateLanguagesRequestVNext'
+          responses:
+            default:
+              $ref: '#/components/responses/Error'

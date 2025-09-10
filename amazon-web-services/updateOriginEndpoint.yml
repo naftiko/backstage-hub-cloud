@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updateoriginendpoint
+  description: >-
+    Update the specified origin endpoint. Edit the packaging preferences on an
+    endpoint to optimize the viewing experience. You can't edit the name of the
+    endpoint. Any edits you make that impact the video output may not be
+    reflected for a few minutes.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateoriginendpoint
+      description: >-
+        Update the specified origin endpoint. Edit the packaging preferences on an
+        endpoint to optimize the viewing experience. You can't edit the name of the
+        endpoint. Any edits you make that impact the video output may not be
+        reflected for a few minutes.
+    paths:
+      /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}:
+        PUT:
+          summary: Updateoriginendpoint
+          description: >-
+            Update the specified origin endpoint. Edit the packaging preferences on
+            an endpoint to optimize the viewing experience. You can't edit the name
+            of the endpoint. Any edits you make that impact the video output may not
+            be reflected for a few minutes.
+          operationId: updateOriginEndpoint

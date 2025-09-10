@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Video Rooms Roomsid
+  description: Get Video Log Analyzer data for a Room.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Video Rooms Roomsid
+      description: Get Video Log Analyzer data for a Room.
+    paths:
+      /v1/Video/Rooms/{RoomSid}:
+        get:
+          summary: Get Video Rooms Roomsid
+          description: Get Video Log Analyzer data for a Room.
+          operationId: fetchVideoRoomSummary
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/insights.v1.video_room_summary'
+              description: OK

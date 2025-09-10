@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Associateidentityproviderconfig
+  description: >-
+    Associates an identity provider configuration to a cluster. If you want to
+    authenticate identities using an identity provider, you can create an
+    identity provider configuration and associate it to your cluster. After
+    configuring authentication to your cluster you can create Kubernetes Role
+    and ClusterRole objects, assign permissions to them, and then bind them to
+    the identities using Kubernetes RoleBinding and ClusterRoleBinding objects.
+    For more information see Using RBAC Authorization in the Kubernetes
+    documentation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Associateidentityproviderconfig
+      description: >-
+        Associates an identity provider configuration to a cluster. If you want to
+        authenticate identities using an identity provider, you can create an
+        identity provider configuration and associate it to your cluster. After
+        configuring authentication to your cluster you can create Kubernetes Role
+        and ClusterRole objects, assign permissions to them, and then bind them to
+        the identities using Kubernetes RoleBinding and ClusterRoleBinding objects.
+        For more information see Using RBAC Authorization in the Kubernetes
+        documentation.
+    paths:
+      /clusters/{name}/identity-provider-configs/associate:
+        POST:
+          summary: Associateidentityproviderconfig
+          description: >-
+            Associates an identity provider configuration to a cluster. If you want
+            to authenticate identities using an identity provider, you can create an
+            identity provider configuration and associate it to your cluster. After
+            configuring authentication to your cluster you can create Kubernetes
+            Role and ClusterRole objects, assign permissions to them, and then bind
+            them to the identities using Kubernetes RoleBinding and
+            ClusterRoleBinding objects. For more information see Using RBAC
+            Authorization in the Kubernetes documentation.
+          operationId: associateIdentityProviderConfig

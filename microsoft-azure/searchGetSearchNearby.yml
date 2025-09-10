@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Search Nearby Format
+  description: >-
+    **Nearby Search****Applies to**: S0 and S1 pricing tiers.If you have a use
+    case for only retrieving POI results around a specific location, the nearby
+    search method may be the right choice. This endpoint will only return POI
+    results, and does not take in a search query parameter.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Search Nearby Format
+      description: >-
+        **Nearby Search****Applies to**: S0 and S1 pricing tiers.If you have a use
+        case for only retrieving POI results around a specific location, the nearby
+        search method may be the right choice. This endpoint will only return POI
+        results, and does not take in a search query parameter.
+    paths:
+      /search/nearby/{format}:
+        get:
+          summary: Get Search Nearby Format
+          description: >-
+            **Nearby Search****Applies to**: S0 and S1 pricing tiers.If you have a
+            use case for only retrieving POI results around a specific location, the
+            nearby search method may be the right choice. This endpoint will only
+            return POI results, and does not take in a search query parameter.
+          operationId: searchGetSearchNearby
+          responses:
+            '500':
+              $ref: '#/responses/500'

@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Public Organization Members
+  description: >-
+    Members of an organization can choose to have their membership publicized or
+    not.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Public Organization Members
+      description: >-
+        Members of an organization can choose to have their membership publicized or
+        not.
+    paths:
+      /orgs/{org}/public_members:
+        get:
+          summary: List Public Organization Members
+          description: >-
+            Members of an organization can choose to have their membership
+            publicized or not.
+          operationId: orgslistpublicmembers
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/simple-user'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/simple-user-items'
+              headers:
+                Link:
+                  $ref: '#/components/headers/link'

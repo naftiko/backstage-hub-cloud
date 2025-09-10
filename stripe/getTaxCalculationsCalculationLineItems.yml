@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Tax Calculations Calculation Line_items
+  description: Retrieves the line items of a persisted tax calculation as a collection.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Tax Calculations Calculation Line_items
+      description: Retrieves the line items of a persisted tax calculation as a collection.
+    paths:
+      /v1/tax/calculations/{calculation}/line_items:
+        get:
+          summary: Get Tax Calculations Calculation Line_items
+          description: Retrieves the line items of a persisted tax calculation as a collection.
+          operationId: getTaxCalculationsCalculationLineItems
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: >-
+                    #/components/schemas/GetTaxCalculationsCalculationLineItemsRequest
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

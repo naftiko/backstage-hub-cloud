@@ -1,0 +1,66 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Page Tree
+  description: >-
+    Moves a pagetree rooted at a page to the space's trash:- If the content's
+    type is `page` and its status is `current`, it will be trashed includingall
+    its descendants.- For every other combination of content type and status,
+    this API is not supported.This API accepts the pageTree delete request and
+    returns a task ID.The delete process happens asynchronously. Response
+    example:  {      "id" : "1180606",      "links" : {           "status" :
+    "/rest/api/longtask/1180606"      } }  Use the `/longtask/` REST API to get
+    the copy task
+    status.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:'Delete' permission for the space that the content is in.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Page Tree
+      description: >-
+        Moves a pagetree rooted at a page to the space's trash:- If the content's
+        type is `page` and its status is `current`, it will be trashed includingall
+        its descendants.- For every other combination of content type and status,
+        this API is not supported.This API accepts the pageTree delete request and
+        returns a task ID.The delete process happens asynchronously. Response
+        example:  {      "id" : "1180606",      "links" : {           "status" :
+        "/rest/api/longtask/1180606"      } }  Use the `/longtask/` REST API to get
+        the copy task
+        status.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:'Delete' permission for the space that the content is in.
+    paths:
+      /wiki/rest/api/content/{id}/pageTree:
+        delete:
+          summary: Delete Page Tree
+          description: >-
+            Moves a pagetree rooted at a page to the space's trash:- If the
+            content's type is `page` and its status is `current`, it will be trashed
+            includingall its descendants.- For every other combination of content
+            type and status, this API is not supported.This API accepts the pageTree
+            delete request and returns a task ID.The delete process happens
+            asynchronously. Response example:  {      "id" : "1180606",      "links"
+            : {           "status" : "/rest/api/longtask/1180606"      } }  Use the
+            `/longtask/` REST API to get the copy task
+            status.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:'Delete' permission for the space that the content is in.
+          operationId: deletePageTree
+          responses:
+            '404':
+              description: >-
+                Returned if;
+
+
+                - There is no content with the given ID.
+
+                - The requesting user does not have permission to trash the content
+                or any of it's descendant pages.
+              content: {}

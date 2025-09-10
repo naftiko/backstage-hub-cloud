@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Startdashboardsnapshotjob
+  description: >-
+    Starts an asynchronous job that generates a dashboard snapshot. You can
+    request one of the following format configurations per API call.   1
+    paginated PDF   1 Excel workbook   5 CSVs   Poll job descriptions with a
+    DescribeDashboardSnapshotJob API call. Once the job succeeds, use the
+    DescribeDashboardSnapshotJobResult API to obtain the download URIs that the
+    job generates.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startdashboardsnapshotjob
+      description: >-
+        Starts an asynchronous job that generates a dashboard snapshot. You can
+        request one of the following format configurations per API call.   1
+        paginated PDF   1 Excel workbook   5 CSVs   Poll job descriptions with a
+        DescribeDashboardSnapshotJob API call. Once the job succeeds, use the
+        DescribeDashboardSnapshotJobResult API to obtain the download URIs that the
+        job generates.
+    paths:
+      /accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs:
+        POST:
+          summary: Startdashboardsnapshotjob
+          description: >-
+            Starts an asynchronous job that generates a dashboard snapshot. You can
+            request one of the following format configurations per API call.   1
+            paginated PDF   1 Excel workbook   5 CSVs   Poll job descriptions with a
+            DescribeDashboardSnapshotJob API call. Once the job succeeds, use the
+            DescribeDashboardSnapshotJobResult API to obtain the download URIs that
+            the job generates.
+          operationId: startDashboardSnapshotJob

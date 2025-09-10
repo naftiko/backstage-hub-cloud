@@ -1,0 +1,121 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Commits
+  description: >-
+    These are the repository's commits. They are paginated and returnedin
+    reverse chronological order, similar to the output of `git log`.Like these
+    tools, the DAG can be filtered.#### GET
+    /repositories/{workspace}/{repo_slug}/commits/Returns all commits in the
+    repo in topological order (newest commitfirst). All branches and tags are
+    included (similar to`git log --all`).#### GET
+    /repositories/{workspace}/{repo_slug}/commits/?exclude=masterReturns all
+    commits in the repo that are not on master(similar to `git log --all
+    ^master`).#### GET
+    /repositories/{workspace}/{repo_slug}/commits/?include=foo&include=bar&exclude=fu&exclude=fubarReturns
+    all commits that are on refs `foo` or `bar`, but not on `fu` or`fubar`
+    (similar to `git log foo bar ^fu ^fubar`).An optional `path` parameter can
+    be specified that will limit theresults to commits that affect that path.
+    `path` can either be a fileor a directory. If a directory is specified,
+    commits are returned thathave modified any file in the directory tree rooted
+    by `path`. It isimportant to note that if the `path` parameter is specified,
+    the commitsreturned by this endpoint may no longer be a DAG, parent commits
+    thatdo not modify the path will be omitted from the response.#### GET
+    /repositories/{workspace}/{repo_slug}/commits/?path=README.md&include=foo&include=bar&exclude=masterReturns
+    all commits that are on refs `foo` or `bar`, but not on `master`that changed
+    the file README.md.#### GET
+    /repositories/{workspace}/{repo_slug}/commits/?path=src/&include=foo&include=bar&exclude=masterReturns
+    all commits that are on refs `foo` or `bar`, but not on `master`that changed
+    to a file in any file in the directory src or its children.Because the
+    response could include a very large number of commits, itis paginated.
+    Follow the 'next' link in the response to navigate to thenext page of
+    commits. As with other paginated resources, do notconstruct your own
+    links.When the include and exclude parameters are more than can fit in
+    aquery string, clients can use a `x-www-form-urlencoded` POST instead.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Commits
+      description: >-
+        These are the repository's commits. They are paginated and returnedin
+        reverse chronological order, similar to the output of `git log`.Like these
+        tools, the DAG can be filtered.#### GET
+        /repositories/{workspace}/{repo_slug}/commits/Returns all commits in the
+        repo in topological order (newest commitfirst). All branches and tags are
+        included (similar to`git log --all`).#### GET
+        /repositories/{workspace}/{repo_slug}/commits/?exclude=masterReturns all
+        commits in the repo that are not on master(similar to `git log --all
+        ^master`).#### GET
+        /repositories/{workspace}/{repo_slug}/commits/?include=foo&include=bar&exclude=fu&exclude=fubarReturns
+        all commits that are on refs `foo` or `bar`, but not on `fu` or`fubar`
+        (similar to `git log foo bar ^fu ^fubar`).An optional `path` parameter can
+        be specified that will limit theresults to commits that affect that path.
+        `path` can either be a fileor a directory. If a directory is specified,
+        commits are returned thathave modified any file in the directory tree rooted
+        by `path`. It isimportant to note that if the `path` parameter is specified,
+        the commitsreturned by this endpoint may no longer be a DAG, parent commits
+        thatdo not modify the path will be omitted from the response.#### GET
+        /repositories/{workspace}/{repo_slug}/commits/?path=README.md&include=foo&include=bar&exclude=masterReturns
+        all commits that are on refs `foo` or `bar`, but not on `master`that changed
+        the file README.md.#### GET
+        /repositories/{workspace}/{repo_slug}/commits/?path=src/&include=foo&include=bar&exclude=masterReturns
+        all commits that are on refs `foo` or `bar`, but not on `master`that changed
+        to a file in any file in the directory src or its children.Because the
+        response could include a very large number of commits, itis paginated.
+        Follow the 'next' link in the response to navigate to thenext page of
+        commits. As with other paginated resources, do notconstruct your own
+        links.When the include and exclude parameters are more than can fit in
+        aquery string, clients can use a `x-www-form-urlencoded` POST instead.
+    paths:
+      /repositories/{workspace}/{repo_slug}/commits:
+        get:
+          summary: List Commits
+          description: >-
+            These are the repository's commits. They are paginated and returnedin
+            reverse chronological order, similar to the output of `git log`.Like
+            these tools, the DAG can be filtered.#### GET
+            /repositories/{workspace}/{repo_slug}/commits/Returns all commits in the
+            repo in topological order (newest commitfirst). All branches and tags
+            are included (similar to`git log --all`).#### GET
+            /repositories/{workspace}/{repo_slug}/commits/?exclude=masterReturns all
+            commits in the repo that are not on master(similar to `git log --all
+            ^master`).#### GET
+            /repositories/{workspace}/{repo_slug}/commits/?include=foo&include=bar&exclude=fu&exclude=fubarReturns
+            all commits that are on refs `foo` or `bar`, but not on `fu` or`fubar`
+            (similar to `git log foo bar ^fu ^fubar`).An optional `path` parameter
+            can be specified that will limit theresults to commits that affect that
+            path. `path` can either be a fileor a directory. If a directory is
+            specified, commits are returned thathave modified any file in the
+            directory tree rooted by `path`. It isimportant to note that if the
+            `path` parameter is specified, the commitsreturned by this endpoint may
+            no longer be a DAG, parent commits thatdo not modify the path will be
+            omitted from the response.#### GET
+            /repositories/{workspace}/{repo_slug}/commits/?path=README.md&include=foo&include=bar&exclude=masterReturns
+            all commits that are on refs `foo` or `bar`, but not on `master`that
+            changed the file README.md.#### GET
+            /repositories/{workspace}/{repo_slug}/commits/?path=src/&include=foo&include=bar&exclude=masterReturns
+            all commits that are on refs `foo` or `bar`, but not on `master`that
+            changed to a file in any file in the directory src or its
+            children.Because the response could include a very large number of
+            commits, itis paginated. Follow the 'next' link in the response to
+            navigate to thenext page of commits. As with other paginated resources,
+            do notconstruct your own links.When the include and exclude parameters
+            are more than can fit in aquery string, clients can use a
+            `x-www-form-urlencoded` POST instead.
+          operationId: listcommits
+          responses:
+            '404':
+              description: If the specified repository does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

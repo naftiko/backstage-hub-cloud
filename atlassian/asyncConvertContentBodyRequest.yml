@@ -1,0 +1,60 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Asynchronously Convert Content Body
+  description: >-
+    Converts a content body from one format to another format
+    asynchronously.Returns the asyncId for the asynchronous task.Supported
+    conversions:- storage: export_viewNo other conversions are supported at the
+    moment.Once a conversion is completed, it will be available for 5 minutes at
+    the result
+    endpoint.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:If request specifies 'contentIdContext', 'View' permission for
+    the space, and permission to view the content.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Asynchronously Convert Content Body
+      description: >-
+        Converts a content body from one format to another format
+        asynchronously.Returns the asyncId for the asynchronous task.Supported
+        conversions:- storage: export_viewNo other conversions are supported at the
+        moment.Once a conversion is completed, it will be available for 5 minutes at
+        the result
+        endpoint.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:If request specifies 'contentIdContext', 'View' permission for
+        the space, and permission to view the content.
+    paths:
+      /wiki/rest/api/contentbody/convert/async/{to}:
+        post:
+          summary: Asynchronously Convert Content Body
+          description: >-
+            Converts a content body from one format to another format
+            asynchronously.Returns the asyncId for the asynchronous task.Supported
+            conversions:- storage: export_viewNo other conversions are supported at
+            the moment.Once a conversion is completed, it will be available for 5
+            minutes at the result
+            endpoint.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:If request specifies 'contentIdContext', 'View' permission
+            for the space, and permission to view the content.
+          operationId: asyncConvertContentBodyRequest
+          requestBody:
+            description: The content body to convert.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ContentBodyCreate'
+          responses:
+            '404':
+              description: Returned if content cannot be found with the provided context.
+              content: {}

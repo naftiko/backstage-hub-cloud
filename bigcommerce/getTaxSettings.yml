@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Tax Settings
+  description: Retrieves global-level tax settings.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Tax Settings
+      description: Retrieves global-level tax settings.
+    paths:
+      /tax/settings:
+        get:
+          summary: Get Tax Settings
+          description: Retrieves global-level tax settings.
+          operationId: getTaxSettings
+          responses:
+            '200':
+              description: OK
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Tax_Settings'
+                      meta:
+                        $ref: '#/components/schemas/MetaOpen'

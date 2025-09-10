@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A User
+  description: >-
+    Deleting a user will delete all their repositories, gists, applications, and
+    personal settings. [Suspending a
+    user](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/users#suspend-a-user)
+    is often a better option.You can delete any user account except your own.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A User
+      description: >-
+        Deleting a user will delete all their repositories, gists, applications, and
+        personal settings. [Suspending a
+        user](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/users#suspend-a-user)
+        is often a better option.You can delete any user account except your own.
+    paths:
+      /admin/users/{username}:
+        delete:
+          summary: Delete A User
+          description: >-
+            Deleting a user will delete all their repositories, gists, applications,
+            and personal settings. [Suspending a
+            user](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/users#suspend-a-user)
+            is often a better option.You can delete any user account except your
+            own.
+          operationId: enterpriseadmindeleteuser
+          responses:
+            '204':
+              description: Response

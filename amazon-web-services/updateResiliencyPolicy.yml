@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updateresiliencypolicy
+  description: >-
+    Updates a resiliency policy.  Resilience Hub allows you to provide a value
+    of zero for rtoInSecs and rpoInSecs of your resiliency policy. But, while
+    assessing your application, the lowest possible assessment result is near
+    zero. Hence, if you provide value zero for rtoInSecs and rpoInSecs, the
+    estimated workload RTO and estimated workload RPO result will be near zero
+    and the Compliance status for your application will be set to Policy
+    breached. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateresiliencypolicy
+      description: >-
+        Updates a resiliency policy.  Resilience Hub allows you to provide a value
+        of zero for rtoInSecs and rpoInSecs of your resiliency policy. But, while
+        assessing your application, the lowest possible assessment result is near
+        zero. Hence, if you provide value zero for rtoInSecs and rpoInSecs, the
+        estimated workload RTO and estimated workload RPO result will be near zero
+        and the Compliance status for your application will be set to Policy
+        breached. 
+    paths:
+      /update-resiliency-policy:
+        POST:
+          summary: Updateresiliencypolicy
+          description: >-
+            Updates a resiliency policy.  Resilience Hub allows you to provide a
+            value of zero for rtoInSecs and rpoInSecs of your resiliency policy.
+            But, while assessing your application, the lowest possible assessment
+            result is near zero. Hence, if you provide value zero for rtoInSecs and
+            rpoInSecs, the estimated workload RTO and estimated workload RPO result
+            will be near zero and the Compliance status for your application will be
+            set to Policy breached. 
+          operationId: updateResiliencyPolicy

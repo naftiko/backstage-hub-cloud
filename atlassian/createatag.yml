@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Tag
+  description: >-
+    Creates a new tag in the specified repository.The payload of the POST should
+    consist of a JSON document thatcontains the name of the tag and the target
+    hash.```curl
+    https://api.bitbucket.org/2.0/repositories/jdoe/myrepo/refs/tags \-s -u jdoe
+    -X POST -H "Content-Type: application/json" \-d '{    "name" :
+    "new-tag-name",    "target" : {        "hash" : "a1b2c3d4e5f6",   
+    }}'```This endpoint does support using short hash prefixes for the
+    commithash, but it may return a 400 response if the provided prefix
+    isambiguous. Using a full commit hash is the preferred approach.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Tag
+      description: >-
+        Creates a new tag in the specified repository.The payload of the POST should
+        consist of a JSON document thatcontains the name of the tag and the target
+        hash.```curl
+        https://api.bitbucket.org/2.0/repositories/jdoe/myrepo/refs/tags \-s -u jdoe
+        -X POST -H "Content-Type: application/json" \-d '{    "name" :
+        "new-tag-name",    "target" : {        "hash" : "a1b2c3d4e5f6",   
+        }}'```This endpoint does support using short hash prefixes for the
+        commithash, but it may return a 400 response if the provided prefix
+        isambiguous. Using a full commit hash is the preferred approach.
+    paths:
+      /repositories/{workspace}/{repo_slug}/refs/tags:
+        post:
+          summary: Create A Tag
+          description: >-
+            Creates a new tag in the specified repository.The payload of the POST
+            should consist of a JSON document thatcontains the name of the tag and
+            the target hash.```curl
+            https://api.bitbucket.org/2.0/repositories/jdoe/myrepo/refs/tags \-s -u
+            jdoe -X POST -H "Content-Type: application/json" \-d '{    "name" :
+            "new-tag-name",    "target" : {        "hash" : "a1b2c3d4e5f6",   
+            }}'```This endpoint does support using short hash prefixes for the
+            commithash, but it may return a 400 response if the provided prefix
+            isambiguous. Using a full commit hash is the preferred approach.
+          operationId: createatag
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/tag'
+          responses:
+            '400':
+              description: >-
+                If the target hash is missing, ambiguous, or invalid, or if the name
+                is not provided.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

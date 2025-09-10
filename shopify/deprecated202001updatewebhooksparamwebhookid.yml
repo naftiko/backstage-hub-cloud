@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Webhook Subscription's Topic Or Address Uris
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/events/webhook#update-2020-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Webhook Subscription's Topic Or Address Uris
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/events/webhook#update-2020-01
+    paths:
+      /admin/api/2020-01/webhooks/{webhook_id}.json:
+        put:
+          summary: Update A Webhook Subscription's Topic Or Address Uris
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/events/webhook#update-2020-01
+          operationId: deprecated202001updatewebhooksparamwebhookid
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      webhook:
+                        id: 4759306
+                        address: https://somewhere-else.com/
+                    summary: >-
+                      Update a webhook subscription so that it POSTs to a different
+                      address
+          responses:
+            '200':
+              description: ''

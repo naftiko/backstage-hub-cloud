@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Wishlist
+  description: >-
+    Creates a wishlist and wishlist item. More than one item can be added in the
+    POST.**Required Fields*** name* customer_id
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Wishlist
+      description: >-
+        Creates a wishlist and wishlist item. More than one item can be added in the
+        POST.**Required Fields*** name* customer_id
+    paths:
+      /wishlists:
+        post:
+          summary: Create A Wishlist
+          description: >-
+            Creates a wishlist and wishlist item. More than one item can be added in
+            the POST.**Required Fields*** name* customer_id
+          operationId: createWishlist
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/wishlist_Post'
+          responses:
+            '500':
+              description: Internal server error.
+              content:
+                application/json:
+                  schema:
+                    title: Error
+                    type: object
+                    properties:
+                      status:
+                        type: integer
+                        format: int32
+                      title:
+                        type: string
+                      type:
+                        type: string

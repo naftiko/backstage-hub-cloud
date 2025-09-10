@@ -1,0 +1,71 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Set Selected Repositories Enabled For Github Actions In An Organization
+  description: >-
+    Replaces the list of selected repositories that are enabled for GitHub
+    Actions in an organization. To use this endpoint, the organization
+    permission policy for `enabled_repositories` must be configured to
+    `selected`. For more information, see "[Set GitHub Actions permissions for
+    an organization](#set-github-actions-permissions-for-an-organization)."OAuth
+    app tokens and personal access tokens (classic) need the `admin:org` scope
+    to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Set Selected Repositories Enabled For Github Actions In An Organization
+      description: >-
+        Replaces the list of selected repositories that are enabled for GitHub
+        Actions in an organization. To use this endpoint, the organization
+        permission policy for `enabled_repositories` must be configured to
+        `selected`. For more information, see "[Set GitHub Actions permissions for
+        an organization](#set-github-actions-permissions-for-an-organization)."OAuth
+        app tokens and personal access tokens (classic) need the `admin:org` scope
+        to use this endpoint.
+    paths:
+      /orgs/{org}/actions/permissions/repositories:
+        put:
+          summary: Set Selected Repositories Enabled For Github Actions In An Organization
+          description: >-
+            Replaces the list of selected repositories that are enabled for GitHub
+            Actions in an organization. To use this endpoint, the organization
+            permission policy for `enabled_repositories` must be configured to
+            `selected`. For more information, see "[Set GitHub Actions permissions
+            for an
+            organization](#set-github-actions-permissions-for-an-organization)."OAuth
+            app tokens and personal access tokens (classic) need the `admin:org`
+            scope to use this endpoint.
+          operationId: setSelectedRepositoriesEnabledForGitHubActionsInAnOrganization
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    selected_repository_ids:
+                      description: List of repository IDs to enable for GitHub Actions.
+                      type: array
+                      items:
+                        type: integer
+                        description: Unique identifier of the repository.
+                  required:
+                    - selected_repository_ids
+                examples:
+                  default:
+                    value:
+                      selected_repository_ids:
+                        - 32
+                        - 42
+          responses:
+            '204':
+              description: Response

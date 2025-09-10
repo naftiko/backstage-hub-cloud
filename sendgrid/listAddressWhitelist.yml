@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve Address Whitelist Mail Settings
+  description: >-
+    **This endpoint allows you to retrieve your current email address whitelist
+    settings.**The Address Whitelist setting allows you to specify email
+    addresses or domains for which mail should never be suppressed.For example,
+    if you own the domain `example.com`, and one or more of your recipients use
+    `email@example.com` addresses, placing `example.com` in the address
+    whitelist setting instructs Twilio SendGrid to ignore all bounces, blocks,
+    and unsubscribes logged for that domain. In other words, all bounces,
+    blocks, and unsubscribes will still be sent to `example.com` as if they were
+    sent under normal sending conditions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve Address Whitelist Mail Settings
+      description: >-
+        **This endpoint allows you to retrieve your current email address whitelist
+        settings.**The Address Whitelist setting allows you to specify email
+        addresses or domains for which mail should never be suppressed.For example,
+        if you own the domain `example.com`, and one or more of your recipients use
+        `email@example.com` addresses, placing `example.com` in the address
+        whitelist setting instructs Twilio SendGrid to ignore all bounces, blocks,
+        and unsubscribes logged for that domain. In other words, all bounces,
+        blocks, and unsubscribes will still be sent to `example.com` as if they were
+        sent under normal sending conditions.
+    paths:
+      /v3/mail_settings/address_whitelist:
+        get:
+          summary: Retrieve Address Whitelist Mail Settings
+          description: >-
+            **This endpoint allows you to retrieve your current email address
+            whitelist settings.**The Address Whitelist setting allows you to specify
+            email addresses or domains for which mail should never be suppressed.For
+            example, if you own the domain `example.com`, and one or more of your
+            recipients use `email@example.com` addresses, placing `example.com` in
+            the address whitelist setting instructs Twilio SendGrid to ignore all
+            bounces, blocks, and unsubscribes logged for that domain. In other
+            words, all bounces, blocks, and unsubscribes will still be sent to
+            `example.com` as if they were sent under normal sending conditions.
+          operationId: listAddressWhitelist
+          responses:
+            '500':
+              $ref: '#/components/responses/MailSettingsError500'

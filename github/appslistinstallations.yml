@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Installations For The Authenticated App
+  description: >-
+    The permissions the installation has are included under the `permissions`
+    key.You must use a
+    [JWT](https://docs.github.com/enterprise-server@3.9/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)
+    to access this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Installations For The Authenticated App
+      description: >-
+        The permissions the installation has are included under the `permissions`
+        key.You must use a
+        [JWT](https://docs.github.com/enterprise-server@3.9/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)
+        to access this endpoint.
+    paths:
+      /app/installations:
+        get:
+          summary: List Installations For The Authenticated App
+          description: >-
+            The permissions the installation has are included under the
+            `permissions` key.You must use a
+            [JWT](https://docs.github.com/enterprise-server@3.9/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)
+            to access this endpoint.
+          operationId: appslistinstallations
+          responses:
+            '200':
+              description: >-
+                The permissions the installation has are included under the
+                `permissions` key.
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/installation'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/base-installation-items'
+              headers:
+                Link:
+                  $ref: '#/components/headers/link'

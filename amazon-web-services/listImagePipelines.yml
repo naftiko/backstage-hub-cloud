@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listimagepipelines
+  description: Returns a list of image pipelines.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listimagepipelines
+      description: Returns a list of image pipelines.
+    paths:
+      /ListImagePipelines:
+        POST:
+          summary: Listimagepipelines
+          description: Returns a list of image pipelines.
+          operationId: listImagePipelines

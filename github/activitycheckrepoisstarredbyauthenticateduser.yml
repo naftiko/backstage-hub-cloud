@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Check If A Repository Is Starred By The Authenticated User
+  description: Whether the authenticated user has starred the repository.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Check If A Repository Is Starred By The Authenticated User
+      description: Whether the authenticated user has starred the repository.
+    paths:
+      /user/starred/{owner}/{repo}:
+        get:
+          summary: Check If A Repository Is Starred By The Authenticated User
+          description: Whether the authenticated user has starred the repository.
+          operationId: activitycheckrepoisstarredbyauthenticateduser
+          responses:
+            '404':
+              description: Not Found if this repository is not starred by you
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/basic-error'

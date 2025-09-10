@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Invitations For A Shared Dashboard
+  description: >-
+    Describe the invitations that exist for the given shared dashboard
+    (paginated).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Invitations For A Shared Dashboard
+      description: >-
+        Describe the invitations that exist for the given shared dashboard
+        (paginated).
+    paths:
+      /api/v1/dashboard/public/{token}/invitation:
+        get:
+          summary: Get All Invitations For A Shared Dashboard
+          description: >-
+            Describe the invitations that exist for the given shared dashboard
+            (paginated).
+          operationId: getallinvitationsforashareddashboard
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

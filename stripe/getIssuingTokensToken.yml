@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Issuing Tokens Token
+  description: Retrieves an Issuing Token object.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Issuing Tokens Token
+      description: Retrieves an Issuing Token object.
+    paths:
+      /v1/issuing/tokens/{token}:
+        get:
+          summary: Get Issuing Tokens Token
+          description: Retrieves an Issuing Token object.
+          operationId: getIssuingTokensToken
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetIssuingTokensTokenRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Webhook
+  description: >-
+    Creates a webhook. Only one webhook at a time can be created. Custom headers
+    can be added. Destination URL must be served on port 443 (custom ports are
+    not currently supported).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Webhook
+      description: >-
+        Creates a webhook. Only one webhook at a time can be created. Custom headers
+        can be added. Destination URL must be served on port 443 (custom ports are
+        not currently supported).
+    paths:
+      /hooks:
+        post:
+          summary: Create A Webhook
+          description: >-
+            Creates a webhook. Only one webhook at a time can be created. Custom
+            headers can be added. Destination URL must be served on port 443 (custom
+            ports are not currently supported).
+          operationId: createWebhooks
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/webhook_Base'
+          responses:
+            '422':
+              $ref: '#/components/responses/422_UnprocessableEntity'

@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add A New Ssh Key
+  description: >-
+    Adds a new SSH public key to the specified user account and returns the
+    resulting key.Example:```$ curl -X POST -H "Content-Type: application/json"
+    -d '{"key": "ssh-ed25519
+    AAAAC3NzaC1lZDI1NTE5AAAAIKqP3Cr632C2dNhhgKVcon4ldUSAeKiku2yP9O9/bDtY
+    user@myhost"}'
+    https://api.bitbucket.org/2.0/users/{ed08f5e1-605b-4f4a-aee4-6c97628a673e}/ssh-keys```
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add A New Ssh Key
+      description: >-
+        Adds a new SSH public key to the specified user account and returns the
+        resulting key.Example:```$ curl -X POST -H "Content-Type: application/json"
+        -d '{"key": "ssh-ed25519
+        AAAAC3NzaC1lZDI1NTE5AAAAIKqP3Cr632C2dNhhgKVcon4ldUSAeKiku2yP9O9/bDtY
+        user@myhost"}'
+        https://api.bitbucket.org/2.0/users/{ed08f5e1-605b-4f4a-aee4-6c97628a673e}/ssh-keys```
+    paths:
+      /users/{selected_user}/ssh-keys:
+        post:
+          summary: Add A New Ssh Key
+          description: >-
+            Adds a new SSH public key to the specified user account and returns the
+            resulting key.Example:```$ curl -X POST -H "Content-Type:
+            application/json" -d '{"key": "ssh-ed25519
+            AAAAC3NzaC1lZDI1NTE5AAAAIKqP3Cr632C2dNhhgKVcon4ldUSAeKiku2yP9O9/bDtY
+            user@myhost"}'
+            https://api.bitbucket.org/2.0/users/{ed08f5e1-605b-4f4a-aee4-6c97628a673e}/ssh-keys```
+          operationId: addanewSSHkey
+          requestBody:
+            description: >-
+              The new SSH key object. Note that the username property has been
+              deprecated due to [privacy
+              changes](https://developer.atlassian.com/cloud/bitbucket/bitbucket-api-changes-gdpr/#removal-of-usernames-from-user-referencing-apis).
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ssh_account_key'
+          responses:
+            '404':
+              description: If the specified user does not exist
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

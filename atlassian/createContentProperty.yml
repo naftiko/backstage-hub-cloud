@@ -1,0 +1,66 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Content Property
+  description: >-
+    Creates a property for an existing piece of content. For more
+    informationabout content properties, see [Confluence entity
+    properties](https://developer.atlassian.com/cloud/confluence/confluence-entity-properties/).This
+    is the same as [Create content property for
+    key](#api-content-id-property-key-post)except that the key is specified in
+    the request body instead of as apath parameter.Content properties can also
+    be added when creating a new piece of contentby including them in the
+    `metadata.properties` of the
+    request.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to update the content.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Content Property
+      description: >-
+        Creates a property for an existing piece of content. For more
+        informationabout content properties, see [Confluence entity
+        properties](https://developer.atlassian.com/cloud/confluence/confluence-entity-properties/).This
+        is the same as [Create content property for
+        key](#api-content-id-property-key-post)except that the key is specified in
+        the request body instead of as apath parameter.Content properties can also
+        be added when creating a new piece of contentby including them in the
+        `metadata.properties` of the
+        request.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to update the content.
+    paths:
+      /wiki/rest/api/content/{id}/property:
+        post:
+          summary: Create Content Property
+          description: >-
+            Creates a property for an existing piece of content. For more
+            informationabout content properties, see [Confluence entity
+            properties](https://developer.atlassian.com/cloud/confluence/confluence-entity-properties/).This
+            is the same as [Create content property for
+            key](#api-content-id-property-key-post)except that the key is specified
+            in the request body instead of as apath parameter.Content properties can
+            also be added when creating a new piece of contentby including them in
+            the `metadata.properties` of the
+            request.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to update the content.
+          operationId: createContentProperty
+          requestBody:
+            description: The content property to be created.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ContentPropertyCreate'
+          responses:
+            '413':
+              description: Returned if the value is too long.
+              content: {}

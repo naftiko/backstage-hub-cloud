@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Accounts Account People
+  description: >-
+    Returns a list of people associated with the account’s legal entity. The
+    people are returned sorted by creation date, with the most recent people
+    appearing first.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Accounts Account People
+      description: >-
+        Returns a list of people associated with the account’s legal entity. The
+        people are returned sorted by creation date, with the most recent people
+        appearing first.
+    paths:
+      /v1/accounts/{account}/people:
+        get:
+          summary: Get Accounts Account People
+          description: >-
+            Returns a list of people associated with the account’s legal entity. The
+            people are returned sorted by creation date, with the most recent people
+            appearing first.
+          operationId: getAccountsAccountPeople
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetAccountsAccountPeopleRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

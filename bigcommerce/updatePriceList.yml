@@ -1,0 +1,81 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Price List
+  description: Updates a *Price List*.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Price List
+      description: Updates a *Price List*.
+    paths:
+      /pricelists/{price_list_id}:
+        put:
+          summary: Update A Price List
+          description: Updates a *Price List*.
+          operationId: updatePriceList
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  title: PriceList Put
+                  description: Update a PriceList
+                  allOf:
+                    - title: PriceList Base
+                      required:
+                        - name
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: >-
+                            The unique name of the Price List. Required in a POST
+                            request.
+                          example: Wholesale
+                          x-required:
+                            - post
+                        active:
+                          type: boolean
+                          description: >
+                            Whether or not this `Price List` and its prices are
+                            active. Defaults to `true`.
+                          example: true
+                      description: Common Price List properties.
+          responses:
+            '422':
+              description: >
+                `Price List` was not valid. This is the result of missing required
+                fields, or of invalid data. See the response for more details.
+              content:
+                application/json:
+                  schema:
+                    title: Error Response
+                    type: object
+                    properties:
+                      errors:
+                        title: Detailed Errors
+                        type: object
+                        properties: {}
+                        additionalProperties: true
+                      instance:
+                        type: string
+                      status:
+                        type: integer
+                        description: |
+                          The HTTP status code.
+                      title:
+                        type: string
+                        description: |
+                          The error title describing the particular error.
+                      type:
+                        type: string

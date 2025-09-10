@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Deployment Status
+  description: 'Users with pull access can view a deployment status for a deployment:'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Deployment Status
+      description: 'Users with pull access can view a deployment status for a deployment:'
+    paths:
+      /repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}:
+        get:
+          summary: Get A Deployment Status
+          description: 'Users with pull access can view a deployment status for a deployment:'
+          operationId: getADeploymentStatus
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

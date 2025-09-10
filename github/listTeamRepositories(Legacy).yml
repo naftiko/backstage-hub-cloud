@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Team Repositories (legacy)
+  description: >-
+    **Deprecation Notice:** This endpoint route is deprecated and will be
+    removed from the Teams API. We recommend migrating your existing code to use
+    the new [List team
+    repositories](https://docs.github.com/enterprise-server@3.9/rest/teams/teams#list-team-repositories)
+    endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Team Repositories (legacy)
+      description: >-
+        **Deprecation Notice:** This endpoint route is deprecated and will be
+        removed from the Teams API. We recommend migrating your existing code to use
+        the new [List team
+        repositories](https://docs.github.com/enterprise-server@3.9/rest/teams/teams#list-team-repositories)
+        endpoint.
+    paths:
+      /teams/{team_id}/repos:
+        get:
+          summary: List Team Repositories (legacy)
+          description: >-
+            **Deprecation Notice:** This endpoint route is deprecated and will be
+            removed from the Teams API. We recommend migrating your existing code to
+            use the new [List team
+            repositories](https://docs.github.com/enterprise-server@3.9/rest/teams/teams#list-team-repositories)
+            endpoint.
+          operationId: listTeamRepositories(Legacy)
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

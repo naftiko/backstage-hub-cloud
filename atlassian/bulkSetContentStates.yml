@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Bulk Set Content State Of Many Contents
+  description: >-
+    Creates a long running task that sets content state of draft or published
+    versions of pages
+    specified.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**Content Edit Permission for a content to have its state set via
+    this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Bulk Set Content State Of Many Contents
+      description: >-
+        Creates a long running task that sets content state of draft or published
+        versions of pages
+        specified.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**Content Edit Permission for a content to have its state set via
+        this endpoint.
+    paths:
+      /wiki/rest/api/content-states:
+        put:
+          summary: Bulk Set Content State Of Many Contents
+          description: >-
+            Creates a long running task that sets content state of draft or
+            published versions of pages
+            specified.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**Content Edit Permission for a content to have its state set
+            via this endpoint.
+          operationId: bulkSetContentStates
+          requestBody:
+            description: The content state and ids to set it to.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/BulkContentStateSetInput'
+          responses:
+            '404':
+              description: Returned if content cannot be found with the provided context.

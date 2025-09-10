@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updates A Customer.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/customers/customer#update-2020-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updates A Customer.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/customers/customer#update-2020-01
+    paths:
+      /admin/api/2020-01/customers/{customer_id}.json:
+        put:
+          summary: Updates A Customer.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/customers/customer#update-2020-01
+          operationId: deprecated202001updatecustomersparamcustomerid
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      customer:
+                        id: 207119551
+                        email: changed@email.address.com
+                        note: Customer is a great guy
+                    summary: Update details for a customer
+                  example2:
+                    value:
+                      customer:
+                        id: 207119551
+                        metafields:
+                          - key: new
+                            value: newvalue
+                            value_type: string
+                            namespace: global
+                    summary: Add metafield to an existing customer
+                  example3:
+                    value:
+                      customer:
+                        id: 207119551
+                        tags: New Customer, Repeat Customer
+                    summary: Update a customer's tags
+                  example4:
+                    value:
+                      customer:
+                        id: 207119551
+                        accepts_marketing: true
+                        accepts_marketing_updated_at: '2020-11-01T16:46:41-05:00'
+                        marketing_opt_in_level: confirmed_opt_in
+                    summary: Update a customer's marketing opt-in state
+          responses:
+            '200':
+              description: ''

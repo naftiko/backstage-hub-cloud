@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Description  Workspaces Workspacesid Taskqueues Taskqueuesid Statistics
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Description  Workspaces Workspacesid Taskqueues Taskqueuesid Statistics
+      description: Needs a more full description created.
+    paths:
+      /v1/Workspaces/{WorkspaceSid}/TaskQueues/{TaskQueueSid}/Statistics:
+        description:
+          summary: Description  Workspaces Workspacesid Taskqueues Taskqueuesid Statistics
+          description: Needs a more full description created.
+          operationId: descriptionv1WorkspacesWorkspaceSidTaskQueuesTaskQueueSidStatistics

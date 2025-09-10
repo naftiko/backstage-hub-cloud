@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updateintegrationresponse
+  description: Updates an IntegrationResponses.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateintegrationresponse
+      description: Updates an IntegrationResponses.
+    paths:
+      /v2/apis/{apiId}/integrations/{integrationId}/integrationresponses/{integrationResponseId}:
+        PATCH:
+          summary: Updateintegrationresponse
+          description: Updates an IntegrationResponses.
+          operationId: updateIntegrationResponse

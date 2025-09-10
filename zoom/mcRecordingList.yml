@@ -1,0 +1,91 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Mc Recording List
+  description: Lists all the cloud recordings meetings on a Meeting Connector
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Mc Recording List
+      description: Lists all the cloud recordings meetings on a Meeting Connector
+    paths:
+      /mc/recording/list:
+        post:
+          summary: Post Mc Recording List
+          description: Lists all the cloud recordings meetings on a Meeting Connector
+          operationId: mcRecordingList
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - host_id
+                  type: object
+                  properties:
+                    host_id:
+                      type: string
+                      description: Meeting host user ID. Can be any user under this account.
+                    meeting_number:
+                      type: string
+                      description: The meeting number.
+                    from:
+                      type: string
+                      description: >-
+                        The meeting start time after this date, MM/dd/yyyy hh:mm a.
+                        For example: 11/05/2014 09:05 pm. Use the host’s time zone,
+                        if host has not set time zone, will use GMT.
+                    to:
+                      type: string
+                      description: The meeting start time before this date, MM/dd/yyyy hh:mm a.
+                    page_size:
+                      type: string
+                      description: >-
+                        The amount of records returns within a single API call.
+                        Defaults to 30. Max of 300 meetings.
+                      default: '30'
+                    page_number:
+                      type: string
+                      description: Current page number of returned records. Default to 1.
+                      default: '1'
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    page_count: 1
+                    page_number: 1
+                    page_size: 15
+                    total_records: 1
+                    meetings:
+                      - uuid: unique_id
+                        meeting_number: '123456789'
+                        host_id: unique_id
+                        account_id: unique_id
+                        topic: Meeting Topic
+                        start_time: '2014-11-06T04:10:10.000Z'
+                        timezone: America/Los_Angeles
+                        duration: 999
+                        total_size: 4324324324
+                        recording_count: 1
+                        recording_files:
+                          - id: unique_id
+                            meeting_id: unique_id
+                            recording_start: '2014-11-06T04:14:10.000Z'
+                            recording_end: '2014-11-06T04:24:10.000Z'
+                            file_type: M4A
+                            file_size: 432432
+                            play_url: >-
+                              https://brand.zoom.us/recording/play/HzMyuI23bqxlJLVJLrww3L9ZuFeZEvYtG0vQ6pHhp6Twr6GPjX4Qks_CJak7jrU2
+                            download_url: >-
+                              https://brand.zoom.us/recording/download/HzMyuI23bqxlJLVJLrww3L9ZuFeZEvYtG0vQ6pHhp6Twr6GPjX4Qks_CJak7jrU2

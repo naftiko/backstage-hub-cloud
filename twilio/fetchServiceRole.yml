@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Services Chatservicesid Roles Sid
+  description: Fetch a user role from your service
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Services Chatservicesid Roles Sid
+      description: Fetch a user role from your service
+    paths:
+      /v1/Services/{ChatServiceSid}/Roles/{Sid}:
+        get:
+          summary: Get Services Chatservicesid Roles Sid
+          description: Fetch a user role from your service
+          operationId: fetchServiceRole
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/conversations.v1.service.service_role'
+              description: OK

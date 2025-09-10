@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Edit A Private Location
+  description: Edit a Synthetic private location.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Edit A Private Location
+      description: Edit a Synthetic private location.
+    paths:
+      /api/v1/synthetics/private-locations/{location_id}:
+        put:
+          summary: Edit A Private Location
+          description: Edit a Synthetic private location.
+          operationId: editaprivatelocation
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    name: New private location
+                    description: Description of private location
+                    tags:
+                      - team:front
+                    id: sed
+                    metadata:
+                      restricted_roles:
+                        - xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+                    secrets:
+                      authentication:
+                        id: commodo exercitation sit
+                        key: ad magna i
+                      config_decryption:
+                        key: in et
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

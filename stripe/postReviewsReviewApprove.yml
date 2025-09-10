@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Reviews Review Approve
+  description: >-
+    Approves a Review object, closing it and removing it from the list of
+    reviews.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Reviews Review Approve
+      description: >-
+        Approves a Review object, closing it and removing it from the list of
+        reviews.
+    paths:
+      /v1/reviews/{review}/approve:
+        post:
+          summary: Post Reviews Review Approve
+          description: >-
+            Approves a Review object, closing it and removing it from the list of
+            reviews.
+          operationId: postReviewsReviewApprove
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostReviewsReviewApproveRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

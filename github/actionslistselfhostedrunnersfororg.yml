@@ -1,0 +1,63 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Self-hosted Runners For An Organization
+  description: >-
+    Lists all self-hosted runners configured in an organization.Authenticated
+    users must have admin access to the organization to use this endpoint.OAuth
+    app tokens and personal access tokens (classic) need the `admin:org` scope
+    to use this endpoint. If the repository is private, the `repo` scope is also
+    required.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Self-hosted Runners For An Organization
+      description: >-
+        Lists all self-hosted runners configured in an organization.Authenticated
+        users must have admin access to the organization to use this endpoint.OAuth
+        app tokens and personal access tokens (classic) need the `admin:org` scope
+        to use this endpoint. If the repository is private, the `repo` scope is also
+        required.
+    paths:
+      /orgs/{org}/actions/runners:
+        get:
+          summary: List Self-hosted Runners For An Organization
+          description: >-
+            Lists all self-hosted runners configured in an
+            organization.Authenticated users must have admin access to the
+            organization to use this endpoint.OAuth app tokens and personal access
+            tokens (classic) need the `admin:org` scope to use this endpoint. If the
+            repository is private, the `repo` scope is also required.
+          operationId: actionslistselfhostedrunnersfororg
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    required:
+                      - total_count
+                      - runners
+                    properties:
+                      total_count:
+                        type: integer
+                      runners:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/runner'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/runner-paginated'
+              headers:
+                Link:
+                  $ref: '#/components/headers/link'

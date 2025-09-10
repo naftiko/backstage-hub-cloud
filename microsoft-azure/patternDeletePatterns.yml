@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deletes A List Of Patterns In A Version Of The Application.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes A List Of Patterns In A Version Of The Application.
+      description: Needs a more full description created.
+    paths:
+      /apps/{appId}/versions/{versionId}/patternrules:
+        delete:
+          summary: Deletes A List Of Patterns In A Version Of The Application.
+          description: Needs a more full description created.
+          operationId: patternDeletePatterns
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

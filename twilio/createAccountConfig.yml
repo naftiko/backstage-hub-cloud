@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Configs
+  description: Create a config for an Account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Configs
+      description: Create a config for an Account.
+    paths:
+      /v1/Configs:
+        post:
+          summary: Post Configs
+          description: Create a config for an Account.
+          operationId: createAccountConfig
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateAccountConfigRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/microvisor.v1.account_config'
+              description: Created

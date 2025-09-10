@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve The Lists That A Recipient Is On
+  description: >-
+    **This endpoint allows you to retrieve the lists that a given recipient
+    belongs to.**Each recipient can be on many lists. This endpoint gives you
+    all of the lists that any one recipient has been added to.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve The Lists That A Recipient Is On
+      description: >-
+        **This endpoint allows you to retrieve the lists that a given recipient
+        belongs to.**Each recipient can be on many lists. This endpoint gives you
+        all of the lists that any one recipient has been added to.
+    paths:
+      /v3/contactdb/recipients/{recipient_id}/lists:
+        get:
+          summary: Retrieve The Lists That A Recipient Is On
+          description: >-
+            **This endpoint allows you to retrieve the lists that a given recipient
+            belongs to.**Each recipient can be on many lists. This endpoint gives
+            you all of the lists that any one recipient has been added to.
+          operationId: getRecipientList
+          responses:
+            '404':
+              description: Returned if a record for the recipient id does not exist
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - field: null
+                            message: recipient id not found

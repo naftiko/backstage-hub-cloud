@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Trustproducts Trustproductsid Entityassignments Sid
+  description: Remove an Assignment Item Instance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Trustproducts Trustproductsid Entityassignments Sid
+      description: Remove an Assignment Item Instance.
+    paths:
+      /v1/TrustProducts/{TrustProductSid}/EntityAssignments/{Sid}:
+        delete:
+          summary: Delete Trustproducts Trustproductsid Entityassignments Sid
+          description: Remove an Assignment Item Instance.
+          operationId: deleteTrustProductEntityAssignment
+          responses:
+            '204':
+              description: The resource was deleted successfully.

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updateapimapping
+  description: The API mapping.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateapimapping
+      description: The API mapping.
+    paths:
+      /v2/domainnames/{domainName}/apimappings/{apiMappingId}:
+        PATCH:
+          summary: Updateapimapping
+          description: The API mapping.
+          operationId: updateApiMapping

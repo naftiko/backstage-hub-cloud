@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get One Role For A Given List Entity In A Version Of The Application.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get One Role For A Given List Entity In A Version Of The Application.
+      description: Needs a more full description created.
+    paths:
+      /apps/{appId}/versions/{versionId}/closedlists/{entityId}/roles/{roleId}:
+        get:
+          summary: Get One Role For A Given List Entity In A Version Of The Application.
+          description: Needs a more full description created.
+          operationId: modelGetClosedListEntityRole
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

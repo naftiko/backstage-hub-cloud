@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Existing Exports
+  description: >-
+    **Use this endpoint to retrieve details of all current exported jobs**.It
+    will return an array of objects, each of which records an export job in
+    flight or recently completed. Each object's `export_type` field will tell
+    you which kind of export it is and its `status` field will indicate what
+    stage of processing it has reached. Exports which are `ready` will be
+    accompanied by a `urls` field which lists the URLs of the export's
+    downloadable files — there will be more than one if you specified a maximum
+    file size in your initial export request.Use this endpoint if you have
+    exports in flight but do not know their IDs, which are required for the
+    "Export Contacts Status" endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Existing Exports
+      description: >-
+        **Use this endpoint to retrieve details of all current exported jobs**.It
+        will return an array of objects, each of which records an export job in
+        flight or recently completed. Each object's `export_type` field will tell
+        you which kind of export it is and its `status` field will indicate what
+        stage of processing it has reached. Exports which are `ready` will be
+        accompanied by a `urls` field which lists the URLs of the export's
+        downloadable files — there will be more than one if you specified a maximum
+        file size in your initial export request.Use this endpoint if you have
+        exports in flight but do not know their IDs, which are required for the
+        "Export Contacts Status" endpoint.
+    paths:
+      /v3/marketing/contacts/exports:
+        get:
+          summary: Get All Existing Exports
+          description: >-
+            **Use this endpoint to retrieve details of all current exported
+            jobs**.It will return an array of objects, each of which records an
+            export job in flight or recently completed. Each object's `export_type`
+            field will tell you which kind of export it is and its `status` field
+            will indicate what stage of processing it has reached. Exports which are
+            `ready` will be accompanied by a `urls` field which lists the URLs of
+            the export's downloadable files — there will be more than one if you
+            specified a maximum file size in your initial export request.Use this
+            endpoint if you have exports in flight but do not know their IDs, which
+            are required for the "Export Contacts Status" endpoint.
+          operationId: listExportContact
+          responses:
+            '500':
+              $ref: '#/components/responses/MarketingContacts500'

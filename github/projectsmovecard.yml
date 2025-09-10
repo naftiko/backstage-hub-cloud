@@ -1,0 +1,77 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Move A Project Card
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Move A Project Card
+      description: Needs a more full description created.
+    paths:
+      /projects/columns/cards/{card_id}/moves:
+        post:
+          summary: Move A Project Card
+          description: Needs a more full description created.
+          operationId: projectsmovecard
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  properties:
+                    position:
+                      description: >-
+                        The position of the card in a column. Can be one of: `top`,
+                        `bottom`, or `after:<card_id>` to place after the specified
+                        card.
+                      example: bottom
+                      type: string
+                      pattern: ^(?:top|bottom|after:\d+)$
+                    column_id:
+                      description: >-
+                        The unique identifier of the column the card should be moved
+                        to
+                      example: 42
+                      type: integer
+                  required:
+                    - position
+                  type: object
+                examples:
+                  default:
+                    summary: Move the card to the bottom of the column
+                    value:
+                      column_id: 42
+                      position: bottom
+          responses:
+            '503':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                      message:
+                        type: string
+                      documentation_url:
+                        type: string
+                      errors:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                            message:
+                              type: string

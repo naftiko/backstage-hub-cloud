@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get All Routes That Are Associated With A Virtual Network In An App Service
+    Plan.
+  description: >-
+    Description for Get all routes that are associated with a Virtual Network in
+    an App Service plan.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get All Routes That Are Associated With A Virtual Network In An App Service
+        Plan.
+      description: >-
+        Description for Get all routes that are associated with a Virtual Network in
+        an App Service plan.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}/routes:
+        get:
+          summary: >-
+            Get All Routes That Are Associated With A Virtual Network In An App
+            Service Plan.
+          description: >-
+            Description for Get all routes that are associated with a Virtual
+            Network in an App Service plan.
+          operationId: appServicePlansListRoutesForVnet
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

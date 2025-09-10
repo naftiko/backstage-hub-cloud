@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete An Existing Incident Service
+  description: Deletes an existing incident service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete An Existing Incident Service
+      description: Deletes an existing incident service.
+    paths:
+      /api/v2/services/{service_id}:
+        delete:
+          summary: Delete An Existing Incident Service
+          description: Deletes an existing incident service.
+          operationId: deleteIncidentService
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

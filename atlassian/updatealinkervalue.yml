@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Linker Value
+  description: >-
+    Bulk update [linker](/cloud/bitbucket/modules/linker/) values for the
+    specifiedlinker of the authenticated application.A linker value lets
+    applications supply values to modify its regular expression.The base regular
+    expression must use a Bitbucket-specific match group `(?K)`which will be
+    translated to `([\w\-]+)`. A value must match this pattern.[Read more about
+    linker
+    values](/cloud/bitbucket/modules/linker/#usingthebitbucketapitosupplyvalues)
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Linker Value
+      description: >-
+        Bulk update [linker](/cloud/bitbucket/modules/linker/) values for the
+        specifiedlinker of the authenticated application.A linker value lets
+        applications supply values to modify its regular expression.The base regular
+        expression must use a Bitbucket-specific match group `(?K)`which will be
+        translated to `([\w\-]+)`. A value must match this pattern.[Read more about
+        linker
+        values](/cloud/bitbucket/modules/linker/#usingthebitbucketapitosupplyvalues)
+    paths:
+      /addon/linkers/{linker_key}/values:
+        put:
+          summary: Update A Linker Value
+          description: >-
+            Bulk update [linker](/cloud/bitbucket/modules/linker/) values for the
+            specifiedlinker of the authenticated application.A linker value lets
+            applications supply values to modify its regular expression.The base
+            regular expression must use a Bitbucket-specific match group `(?K)`which
+            will be translated to `([\w\-]+)`. A value must match this pattern.[Read
+            more about linker
+            values](/cloud/bitbucket/modules/linker/#usingthebitbucketapitosupplyvalues)
+          operationId: updatealinkervalue
+          responses:
+            '404':
+              description: The linker does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

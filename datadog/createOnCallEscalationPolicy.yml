@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create On-call Escalation Policy
+  description: Create a new On-Call escalation policy
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create On-call Escalation Policy
+      description: Create a new On-Call escalation policy
+    paths:
+      /api/v2/on-call/escalation-policies:
+        post:
+          summary: Create On-call Escalation Policy
+          description: Create a new On-Call escalation policy
+          operationId: createOnCallEscalationPolicy
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/EscalationPolicyCreateRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

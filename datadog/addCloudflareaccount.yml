@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add Cloudflare Account
+  description: Create a Cloudflare account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add Cloudflare Account
+      description: Create a Cloudflare account.
+    paths:
+      /api/v2/integrations/cloudflare/accounts:
+        post:
+          summary: Add Cloudflare Account
+          description: Create a Cloudflare account.
+          operationId: addCloudflareaccount
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      attributes:
+                        api_key: a94a8fe5ccb19ba61c4c0873d391e987982fbbd3
+                        name: test-name
+                        email: test-email@example.com
+                        resources:
+                          - web
+                          - dns
+                        zones:
+                          - zone_id_1
+                          - zone_id_2
+                      type: cloudflare-accounts
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

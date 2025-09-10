@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Bare Metal Machine Key Sets Of The Cluster.
+  description: Get a list of bare metal machine key sets for the provided cluster.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Bare Metal Machine Key Sets Of The Cluster.
+      description: Get a list of bare metal machine key sets for the provided cluster.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/bareMetalMachineKeySets:
+        get:
+          summary: List Bare Metal Machine Key Sets Of The Cluster.
+          description: Get a list of bare metal machine key sets for the provided cluster.
+          operationId: bareMetalMachineKeySetsListByCluster
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

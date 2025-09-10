@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deletes An Existing Storefront Access Token
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/access/storefrontaccesstoken#destroy-unstable
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes An Existing Storefront Access Token
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/access/storefrontaccesstoken#destroy-unstable
+    paths:
+      /admin/api/unstable/storefront_access_tokens/{storefront_access_token_id}.json:
+        delete:
+          summary: Deletes An Existing Storefront Access Token
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/access/storefrontaccesstoken#destroy-unstable
+          operationId: >-
+            deprecatedunstabledeletestorefrontaccesstokensparamstorefrontaccesstokenid
+          responses:
+            '200':
+              description: ''

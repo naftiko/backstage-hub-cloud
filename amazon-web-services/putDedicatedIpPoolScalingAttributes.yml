@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Putdedicatedippoolscalingattributes
+  description: >-
+    Used to convert a dedicated IP pool to a different scaling mode.   MANAGED
+    pools cannot be converted to STANDARD scaling mode. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putdedicatedippoolscalingattributes
+      description: >-
+        Used to convert a dedicated IP pool to a different scaling mode.   MANAGED
+        pools cannot be converted to STANDARD scaling mode. 
+    paths:
+      /v2/email/dedicated-ip-pools/{PoolName}/scaling:
+        PUT:
+          summary: Putdedicatedippoolscalingattributes
+          description: >-
+            Used to convert a dedicated IP pool to a different scaling mode.  
+            MANAGED pools cannot be converted to STANDARD scaling mode. 
+          operationId: putDedicatedIpPoolScalingAttributes

@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Put Digitaltwins Id
+  description: >-
+    Adds or replaces a digital twin.Status codes:* 200 OK* 400 Bad Request  *
+    InvalidArgument - The digital twin id or payload is invalid.  *
+    ModelDecommissioned - The model for the digital twin is decommissioned.  *
+    TwinLimitReached - The maximum number of digital twins allowed has been
+    reached.  * ValidationFailed - The digital twin payload is not valid.* 412
+    Precondition Failed  * PreconditionFailed - The precondition check (If-Match
+    or If-None-Match) failed.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Digitaltwins Id
+      description: >-
+        Adds or replaces a digital twin.Status codes:* 200 OK* 400 Bad Request  *
+        InvalidArgument - The digital twin id or payload is invalid.  *
+        ModelDecommissioned - The model for the digital twin is decommissioned.  *
+        TwinLimitReached - The maximum number of digital twins allowed has been
+        reached.  * ValidationFailed - The digital twin payload is not valid.* 412
+        Precondition Failed  * PreconditionFailed - The precondition check (If-Match
+        or If-None-Match) failed.
+    paths:
+      /digitaltwins/{id}:
+        put:
+          summary: Put Digitaltwins Id
+          description: >-
+            Adds or replaces a digital twin.Status codes:* 200 OK* 400 Bad Request 
+            * InvalidArgument - The digital twin id or payload is invalid.  *
+            ModelDecommissioned - The model for the digital twin is decommissioned. 
+            * TwinLimitReached - The maximum number of digital twins allowed has
+            been reached.  * ValidationFailed - The digital twin payload is not
+            valid.* 412 Precondition Failed  * PreconditionFailed - The precondition
+            check (If-Match or If-None-Match) failed.
+          operationId: digitalTwinsAdd
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

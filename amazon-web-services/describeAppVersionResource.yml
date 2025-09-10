@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Describeappversionresource
+  description: >-
+    Describes a resource of the Resilience Hub application.  This API accepts
+    only one of the following parameters to descibe the resource:   
+    resourceName     logicalResourceId     physicalResourceId (Along with
+    physicalResourceId, you can also provide awsAccountId, and awsRegion)   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeappversionresource
+      description: >-
+        Describes a resource of the Resilience Hub application.  This API accepts
+        only one of the following parameters to descibe the resource:   
+        resourceName     logicalResourceId     physicalResourceId (Along with
+        physicalResourceId, you can also provide awsAccountId, and awsRegion)   
+    paths:
+      /describe-app-version-resource:
+        POST:
+          summary: Describeappversionresource
+          description: >-
+            Describes a resource of the Resilience Hub application.  This API
+            accepts only one of the following parameters to descibe the resource:   
+            resourceName     logicalResourceId     physicalResourceId (Along with
+            physicalResourceId, you can also provide awsAccountId, and awsRegion)   
+          operationId: describeAppVersionResource

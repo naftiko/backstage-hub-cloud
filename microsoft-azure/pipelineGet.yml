@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Pipelines Pipelineidentity
+  description: Gets the Pipeline information for the specified pipeline ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Pipelines Pipelineidentity
+      description: Gets the Pipeline information for the specified pipeline ID.
+    paths:
+      /pipelines/{pipelineIdentity}:
+        get:
+          summary: Get Pipelines Pipelineidentity
+          description: Gets the Pipeline information for the specified pipeline ID.
+          operationId: pipelineGet
+          responses:
+            '200':
+              description: Successfully retrieved details of the specified pipeline.
+              schema:
+                $ref: '#/definitions/JobPipelineInformation'

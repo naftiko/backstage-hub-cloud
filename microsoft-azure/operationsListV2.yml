@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Providers Microsoft.scom Operations
+  description: Lists all available operations on SCOM managed instance (SCOM MI)
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Providers Microsoft.scom Operations
+      description: Lists all available operations on SCOM managed instance (SCOM MI)
+    paths:
+      /providers/Microsoft.Scom/operations:
+        get:
+          summary: Get Providers Microsoft.scom Operations
+          description: Lists all available operations on SCOM managed instance (SCOM MI)
+          operationId: operationsListV2
+          responses:
+            default:
+              description: >-
+                An error response providing a description of the reason for the
+                operation's failure.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

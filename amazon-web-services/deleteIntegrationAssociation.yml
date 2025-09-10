@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deleteintegrationassociation
+  description: >-
+    Deletes an Amazon Web Services resource association from an Amazon Connect
+    instance. The association must not have any use cases associated with it.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deleteintegrationassociation
+      description: >-
+        Deletes an Amazon Web Services resource association from an Amazon Connect
+        instance. The association must not have any use cases associated with it.
+    paths:
+      /instance/{InstanceId}/integration-associations/{IntegrationAssociationId}:
+        DELETE:
+          summary: Deleteintegrationassociation
+          description: >-
+            Deletes an Amazon Web Services resource association from an Amazon
+            Connect instance. The association must not have any use cases associated
+            with it.
+          operationId: deleteIntegrationAssociation

@@ -1,0 +1,90 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Admin.teams.create
+  description: Create an Enterprise team.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Admin.teams.create
+      description: Create an Enterprise team.
+    paths:
+      /admin.teams.create:
+        post:
+          summary: Post Admin.teams.create
+          description: Create an Enterprise team.
+          operationId: adminteamscreate
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - team_domain
+                    - team_name
+                  type: object
+                  properties:
+                    team_domain:
+                      type: string
+                      description: Team domain (for example, slacksoftballteam).
+                    team_name:
+                      type: string
+                      description: Team name (for example, Slack Softball Team).
+                    team_description:
+                      type: string
+                      description: Description for the team.
+                    team_discoverability:
+                      type: string
+                      description: >-
+                        Who can join the team. A team's discoverability can be
+                        `open`, `closed`, `invite_only`, or `unlisted`.
+              application/json:
+                schema:
+                  required:
+                    - team_domain
+                    - team_name
+                  type: object
+                  properties:
+                    team_domain:
+                      type: string
+                      description: Team domain (for example, slacksoftballteam).
+                    team_name:
+                      type: string
+                      description: Team name (for example, Slack Softball Team).
+                    team_description:
+                      type: string
+                      description: Description for the team.
+                    team_discoverability:
+                      type: string
+                      description: >-
+                        Who can join the team. A team's discoverability can be
+                        `open`, `closed`, `invite_only`, or `unlisted`.
+          responses:
+            default:
+              description: Typical error response
+              content:
+                application/json:
+                  schema:
+                    title: Default error template
+                    required:
+                      - ok
+                    type: object
+                    properties:
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                    additionalProperties: true
+                    description: >-
+                      This method either only returns a brief _not OK_ response or a
+                      verbose schema is not available for this method.
+                  example:
+                    error: invalid_auth
+                    ok: false

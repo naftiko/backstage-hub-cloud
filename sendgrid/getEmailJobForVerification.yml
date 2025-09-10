@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: This Request Returns A Single Bulk Email Validation Job.
+  description: >-
+    **This endpoint returns a specific Bulk Email Validation Job. You can use
+    this endpoint to check on the progress of a Job.**
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: This Request Returns A Single Bulk Email Validation Job.
+      description: >-
+        **This endpoint returns a specific Bulk Email Validation Job. You can use
+        this endpoint to check on the progress of a Job.**
+    paths:
+      /v3/validations/email/jobs/{job_id}:
+        get:
+          summary: This Request Returns A Single Bulk Email Validation Job.
+          description: >-
+            **This endpoint returns a specific Bulk Email Validation Job. You can
+            use this endpoint to check on the progress of a Job.**
+          operationId: getEmailJobForVerification
+          responses:
+            '500':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'

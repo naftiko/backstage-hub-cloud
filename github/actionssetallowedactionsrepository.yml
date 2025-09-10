@@ -1,0 +1,73 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Set Allowed Actions For A Repository
+  description: >-
+    Sets the actions that are allowed in a repository. To use this endpoint, the
+    repository permission policy for `allowed_actions` must be configured to
+    `selected`. For more information, see "[Set GitHub Actions permissions for a
+    repository](#set-github-actions-permissions-for-a-repository)."If the
+    repository belongs to an organization or enterprise that has `selected`
+    actions set at the organization or enterprise levels, then you cannot
+    override any of the allowed actions settings.To use the `patterns_allowed`
+    setting for private repositories, the repository must belong to an
+    enterprise. If the repository does not belong to an enterprise, then the
+    `patterns_allowed` setting only applies to public repositories.OAuth app
+    tokens and personal access tokens (classic) need the `repo` scope to use
+    this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Set Allowed Actions For A Repository
+      description: >-
+        Sets the actions that are allowed in a repository. To use this endpoint, the
+        repository permission policy for `allowed_actions` must be configured to
+        `selected`. For more information, see "[Set GitHub Actions permissions for a
+        repository](#set-github-actions-permissions-for-a-repository)."If the
+        repository belongs to an organization or enterprise that has `selected`
+        actions set at the organization or enterprise levels, then you cannot
+        override any of the allowed actions settings.To use the `patterns_allowed`
+        setting for private repositories, the repository must belong to an
+        enterprise. If the repository does not belong to an enterprise, then the
+        `patterns_allowed` setting only applies to public repositories.OAuth app
+        tokens and personal access tokens (classic) need the `repo` scope to use
+        this endpoint.
+    paths:
+      /repos/{owner}/{repo}/actions/permissions/selected-actions:
+        put:
+          summary: Set Allowed Actions For A Repository
+          description: >-
+            Sets the actions that are allowed in a repository. To use this endpoint,
+            the repository permission policy for `allowed_actions` must be
+            configured to `selected`. For more information, see "[Set GitHub Actions
+            permissions for a
+            repository](#set-github-actions-permissions-for-a-repository)."If the
+            repository belongs to an organization or enterprise that has `selected`
+            actions set at the organization or enterprise levels, then you cannot
+            override any of the allowed actions settings.To use the
+            `patterns_allowed` setting for private repositories, the repository must
+            belong to an enterprise. If the repository does not belong to an
+            enterprise, then the `patterns_allowed` setting only applies to public
+            repositories.OAuth app tokens and personal access tokens (classic) need
+            the `repo` scope to use this endpoint.
+          operationId: actionssetallowedactionsrepository
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/selected-actions'
+                examples:
+                  selected_actions:
+                    $ref: '#/components/examples/selected-actions'
+          responses:
+            '204':
+              description: Response

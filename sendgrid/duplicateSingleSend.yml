@@ -1,0 +1,89 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Duplicate Single Send
+  description: >-
+    **This endpoint allows you to duplicate an existing Single Send using its
+    Single Send ID.**Duplicating a Single Send is useful when you want to create
+    a Single Send but don't want to start from scratch. Once duplicated, you can
+    update or edit the Single Send by making a PATCH request to the
+    `/marketing/singlesends/{id}` endpoint. If you leave the `name` field blank,
+    your duplicate will be assigned the name of the Single Send it was copied
+    from with the text “Copy of ” prepended to it. The `name` field length is
+    limited to 100 characters, so the end of the new Single Send name, including
+    “Copy of ”, will be trimmed if the name exceeds this limit.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Duplicate Single Send
+      description: >-
+        **This endpoint allows you to duplicate an existing Single Send using its
+        Single Send ID.**Duplicating a Single Send is useful when you want to create
+        a Single Send but don't want to start from scratch. Once duplicated, you can
+        update or edit the Single Send by making a PATCH request to the
+        `/marketing/singlesends/{id}` endpoint. If you leave the `name` field blank,
+        your duplicate will be assigned the name of the Single Send it was copied
+        from with the text “Copy of ” prepended to it. The `name` field length is
+        limited to 100 characters, so the end of the new Single Send name, including
+        “Copy of ”, will be trimmed if the name exceeds this limit.
+    paths:
+      /v3/marketing/singlesends/{id}:
+        post:
+          summary: Duplicate Single Send
+          description: >-
+            **This endpoint allows you to duplicate an existing Single Send using
+            its Single Send ID.**Duplicating a Single Send is useful when you want
+            to create a Single Send but don't want to start from scratch. Once
+            duplicated, you can update or edit the Single Send by making a PATCH
+            request to the `/marketing/singlesends/{id}` endpoint. If you leave the
+            `name` field blank, your duplicate will be assigned the name of the
+            Single Send it was copied from with the text “Copy of ” prepended to it.
+            The `name` field length is limited to 100 characters, so the end of the
+            new Single Send name, including “Copy of ”, will be trimmed if the name
+            exceeds this limit.
+          operationId: duplicateSingleSend
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      minLength: 1
+                      maxLength: 100
+                      description: >-
+                        The name of the duplicate Single Send. If you choose to
+                        leave the name field blank, your duplicate will be assigned
+                        the name of the Single Send it was copied from with the text
+                        'Copy of ' prepended to it. The end of the new Single Send
+                        name, including 'Copy of ', will be trimmed if the name
+                        exceeds the character limit.
+          responses:
+            '500':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      errors:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            field:
+                              type: string
+                            message:
+                              type: string
+                            error_id:
+                              type: string

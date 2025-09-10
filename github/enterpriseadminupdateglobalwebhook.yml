@@ -1,0 +1,102 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Global Webhook
+  description: >-
+    Parameters that are not provided will be overwritten with the default value
+    or removed if no default exists.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Global Webhook
+      description: >-
+        Parameters that are not provided will be overwritten with the default value
+        or removed if no default exists.
+    paths:
+      /admin/hooks/{hook_id}:
+        patch:
+          summary: Update A Global Webhook
+          description: >-
+            Parameters that are not provided will be overwritten with the default
+            value or removed if no default exists.
+          operationId: enterpriseadminupdateglobalwebhook
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    config:
+                      type: object
+                      description: Key/value pairs to provide settings for this webhook.
+                      properties:
+                        url:
+                          type: string
+                          description: The URL to which the payloads will be delivered.
+                        content_type:
+                          type: string
+                          description: >-
+                            The media type used to serialize the payloads. Supported
+                            values include `json` and `form`. The default is `form`.
+                        secret:
+                          type: string
+                          description: >-
+                            If provided, the `secret` will be used as the `key` to
+                            generate the HMAC hex digest value in the
+                            [`X-Hub-Signature`](https://docs.github.com/enterprise-server@3.9/webhooks/event-payloads/#delivery-headers)
+                            header.
+                        insecure_ssl:
+                          type: string
+                          description: >-
+                            Determines whether the SSL certificate of the host for
+                            `url` will be verified when delivering payloads.
+                            Supported values include `0` (verification is performed)
+                            and `1` (verification is not performed). The default is
+                            `0`. **We strongly recommend not setting this to `1` as
+                            you are subject to man-in-the-middle and other
+                            attacks.**
+                      required:
+                        - url
+                    events:
+                      type: array
+                      description: >-
+                        The
+                        [events](https://docs.github.com/enterprise-server@3.9/webhooks/event-payloads)
+                        that trigger this webhook. A global webhook can be triggered
+                        by `user` and `organization` events. Default: `user` and
+                        `organization`.
+                      items:
+                        type: string
+                    active:
+                      type: boolean
+                      description: >-
+                        Determines if notifications are sent when the webhook is
+                        triggered. Set to `true` to send notifications.
+                      default: true
+                examples:
+                  default:
+                    value:
+                      events:
+                        - organization
+                      config:
+                        url: https://example.com/webhook
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/global-hook-2'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/global-hook-2'

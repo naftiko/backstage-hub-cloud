@@ -1,0 +1,70 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Lock An Issue
+  description: >-
+    Users with push access can lock an issue or pull request's conversation.Note
+    that, if you choose not to pass any parameters, you'll need to set
+    `Content-Length` to zero when calling out to this endpoint. For more
+    information, see "[HTTP
+    method](https://docs.github.com/enterprise-server@3.9/rest/guides/getting-started-with-the-rest-api#http-method)."
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Lock An Issue
+      description: >-
+        Users with push access can lock an issue or pull request's conversation.Note
+        that, if you choose not to pass any parameters, you'll need to set
+        `Content-Length` to zero when calling out to this endpoint. For more
+        information, see "[HTTP
+        method](https://docs.github.com/enterprise-server@3.9/rest/guides/getting-started-with-the-rest-api#http-method)."
+    paths:
+      /repos/{owner}/{repo}/issues/{issue_number}/lock:
+        put:
+          summary: Lock An Issue
+          description: >-
+            Users with push access can lock an issue or pull request's
+            conversation.Note that, if you choose not to pass any parameters, you'll
+            need to set `Content-Length` to zero when calling out to this endpoint.
+            For more information, see "[HTTP
+            method](https://docs.github.com/enterprise-server@3.9/rest/guides/getting-started-with-the-rest-api#http-method)."
+          operationId: lockAnIssue
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  nullable: true
+                  properties:
+                    lock_reason:
+                      type: string
+                      description: >-
+                        The reason for locking the issue or pull request
+                        conversation. Lock will fail if you don't use one of these
+                        reasons:  
+                         * `off-topic`  
+                         * `too heated`  
+                         * `resolved`  
+                         * `spam`
+                      enum:
+                        - off-topic
+                        - too heated
+                        - resolved
+                        - spam
+                examples:
+                  default:
+                    summary: Example of locking an issue as off-topic
+                    value:
+                      lock_reason: off-topic
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

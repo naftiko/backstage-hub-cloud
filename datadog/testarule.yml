@@ -1,0 +1,149 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Test A Rule
+  description: Test a rule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Test A Rule
+      description: Test a rule.
+    paths:
+      /api/v2/security_monitoring/rules/test:
+        post:
+          summary: Test A Rule
+          description: Test a rule.
+          operationId: testarule
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    rule:
+                      name: My security monitoring rule.
+                      isEnabled: true
+                      queries: []
+                      options:
+                        complianceRuleOptions:
+                          complexRule: false
+                          regoRule:
+                            policy: |
+                              package datadog
+
+                              import data.datadog.output as dd_output
+                              import future.keywords.contains
+                              import future.keywords.if
+                              import future.keywords.in
+
+                              eval(resource) = "skip" if {
+                                # Logic that evaluates to true if the resource should be skipped
+                                true
+                              } else = "pass" {
+                                # Logic that evaluates to true if the resource is compliant
+                                true
+                              } else = "fail" {
+                                # Logic that evaluates to true if the resource is not compliant
+                                true
+                              }
+
+                              # This part remains unchanged for all rules
+                              results contains result if {
+                                some resource in input.resources[input.main_resource_type]
+                                result := dd_output.format(resource, eval(resource))
+                              }
+                            resourceTypes:
+                              - gcp_iam_service_account
+                              - gcp_iam_policy
+                          resourceType: aws_acm
+                          incididunt_d: {}
+                          ea_e: {}
+                        decreaseCriticalityBasedOnEnv: false
+                        detectionMethod: new_value
+                        evaluationWindow: 600
+                        hardcodedEvaluatorType: log4shell
+                        impossibleTravelOptions:
+                          baselineUserLocations: true
+                        keepAlive: 1800
+                        maxSignalDuration: 43200
+                        newValueOptions:
+                          forgetAfter: 28
+                          learningDuration: 0
+                          learningMethod: duration
+                          learningThreshold: 0
+                        thirdPartyRuleOptions:
+                          defaultNotifications:
+                            - Duis ut laborum mollit
+                            - sint nisi
+                          defaultStatus: critical
+                          rootQueries:
+                            - groupByFields:
+                                - in
+                                - ut sint esse in
+                              query: source:cloudtrail
+                            - groupByFields:
+                                - aliqua fugiat velit
+                                - ut mollit in nostrud ullamco
+                              query: source:cloudtrail
+                          signalTitleTemplate: in mollit aute commodo
+                      cases: []
+                      message: ''
+                      filters:
+                        - action: suppress
+                          query: est consequat minim cillum deserunt
+                        - action: require
+                          query: ex proident nisi
+                      hasExtendedTitle: true
+                      tags:
+                        - env:prod
+                        - team:security
+                      type: log_detection
+                    ruleQueryPayloads:
+                      - expectedResult: true
+                        index: 0
+                        payload:
+                          ddsource: nginx
+                          ddtags: env:staging,version:5.1
+                          hostname: i-012345678
+                          message: >-
+                            2019-11-19T14:37:58,995 INFO [process.name][20081] Hello
+                            World
+                          service: payment
+                          elit__: {}
+                          magna0f: {}
+                          deserunt9: {}
+                      - expectedResult: true
+                        index: 0
+                        payload:
+                          ddsource: nginx
+                          ddtags: env:staging,version:5.1
+                          hostname: i-012345678
+                          message: >-
+                            2019-11-19T14:37:58,995 INFO [process.name][20081] Hello
+                            World
+                          service: payment
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

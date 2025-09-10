@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Unstar A Repository For The Authenticated User
+  description: Unstar a repository that the authenticated user has previously starred.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Unstar A Repository For The Authenticated User
+      description: Unstar a repository that the authenticated user has previously starred.
+    paths:
+      /user/starred/{owner}/{repo}:
+        delete:
+          summary: Unstar A Repository For The Authenticated User
+          description: Unstar a repository that the authenticated user has previously starred.
+          operationId: activityunstarrepoforauthenticateduser
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

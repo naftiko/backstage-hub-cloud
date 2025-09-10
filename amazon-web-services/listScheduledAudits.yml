@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listscheduledaudits
+  description: >-
+    Lists all of your scheduled audits. Requires permission to access the
+    ListScheduledAudits action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listscheduledaudits
+      description: >-
+        Lists all of your scheduled audits. Requires permission to access the
+        ListScheduledAudits action.
+    paths:
+      /audit/scheduledaudits:
+        GET:
+          summary: Listscheduledaudits
+          description: >-
+            Lists all of your scheduled audits. Requires permission to access the
+            ListScheduledAudits action.
+          operationId: listScheduledAudits

@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Activate A Service Fabric Cluster Node That Is Currently Deactivated.
+  description: >-
+    Activates a Service Fabric cluster node that is currently deactivated. Once
+    activated, the node will again become a viable target for placing new
+    replicas, and any deactivated replicas remaining on the node will be
+    reactivated.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Activate A Service Fabric Cluster Node That Is Currently Deactivated.
+      description: >-
+        Activates a Service Fabric cluster node that is currently deactivated. Once
+        activated, the node will again become a viable target for placing new
+        replicas, and any deactivated replicas remaining on the node will be
+        reactivated.
+    paths:
+      /Nodes/{nodeName}/$/Activate:
+        post:
+          summary: Activate A Service Fabric Cluster Node That Is Currently Deactivated.
+          description: >-
+            Activates a Service Fabric cluster node that is currently deactivated.
+            Once activated, the node will again become a viable target for placing
+            new replicas, and any deactivated replicas remaining on the node will be
+            reactivated.
+          operationId: enableNode
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

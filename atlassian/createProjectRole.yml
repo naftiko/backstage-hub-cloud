@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Project Role
+  description: >-
+    Creates a new project role with no [default
+    actors](#api-rest-api-3-resolution-get). You can use the [Add default actors
+    to project role](#api-rest-api-3-role-id-actors-post) operation to add
+    default actors to the project role after creating it.*Note that although a
+    new project role is available to all projects upon creation, any default
+    actors that are associated with the project role are not added to projects
+    that existed prior to the role being created.*
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Project Role
+      description: >-
+        Creates a new project role with no [default
+        actors](#api-rest-api-3-resolution-get). You can use the [Add default actors
+        to project role](#api-rest-api-3-role-id-actors-post) operation to add
+        default actors to the project role after creating it.*Note that although a
+        new project role is available to all projects upon creation, any default
+        actors that are associated with the project role are not added to projects
+        that existed prior to the role being created.*
+    paths:
+      /rest/api/3/role:
+        post:
+          summary: Create Project Role
+          description: >-
+            Creates a new project role with no [default
+            actors](#api-rest-api-3-resolution-get). You can use the [Add default
+            actors to project role](#api-rest-api-3-role-id-actors-post) operation
+            to add default actors to the project role after creating it.*Note that
+            although a new project role is available to all projects upon creation,
+            any default actors that are associated with the project role are not
+            added to projects that existed prior to the role being created.*
+          operationId: createProjectRole
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  description: A project role that represents developers in a project
+                  name: Developers
+                schema:
+                  $ref: '#/components/schemas/CreateUpdateRoleRequestBean'
+          responses:
+            '409':
+              description: Returned if a project role with the provided name already exists.

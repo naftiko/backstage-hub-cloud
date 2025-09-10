@@ -1,0 +1,62 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Storefront Status
+  description: >-
+    Returns storefront status-related settings.  - Channel ID can be used as a
+    query parameter for getting channel-specific setting. If omitted, you will
+    interact with the global setting only.  - `null` indicates that a particular
+    field has not been overridden on a channel level when channel level settings
+    are requested and values are inherited from global level.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Storefront Status
+      description: >-
+        Returns storefront status-related settings.  - Channel ID can be used as a
+        query parameter for getting channel-specific setting. If omitted, you will
+        interact with the global setting only.  - `null` indicates that a particular
+        field has not been overridden on a channel level when channel level settings
+        are requested and values are inherited from global level.
+    paths:
+      /settings/storefront/status:
+        get:
+          summary: Get Storefront Status
+          description: >-
+            Returns storefront status-related settings.  - Channel ID can be used as
+            a query parameter for getting channel-specific setting. If omitted, you
+            will interact with the global setting only.  - `null` indicates that a
+            particular field has not been overridden on a channel level when channel
+            level settings are requested and values are inherited from global level.
+          operationId: getSettingsStorefrontStatus
+          responses:
+            '200':
+              description: >-
+                OK, null indicates that a particular field has not been overridden
+                on a channel level when channel level settings are requested
+              content:
+                application/json:
+                  examples:
+                    example-1:
+                      value:
+                        data:
+                          down_for_maintenance_message: Down for maintenance
+                          prelaunch_message: Prelaunch
+                          prelaunch_password: mezt1f77gd
+                        meta: {}
+                  schema:
+                    type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/StorefrontStatus'
+                      meta:
+                        $ref: '#/components/schemas/MetaOpen'

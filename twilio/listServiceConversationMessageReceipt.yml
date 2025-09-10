@@ -1,0 +1,45 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Services Chatservicesid Conversations Conversationsid Messages
+    Messagesid Receipts
+  description: >-
+    Retrieve a list of all delivery and read receipts of the conversation
+    message
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Services Chatservicesid Conversations Conversationsid Messages
+        Messagesid Receipts
+      description: >-
+        Retrieve a list of all delivery and read receipts of the conversation
+        message
+    paths:
+      /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Messages/{MessageSid}/Receipts:
+        get:
+          summary: >-
+            Get Services Chatservicesid Conversations Conversationsid Messages
+            Messagesid Receipts
+          description: >-
+            Retrieve a list of all delivery and read receipts of the conversation
+            message
+          operationId: listServiceConversationMessageReceipt
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: >-
+                      #/components/schemas/ListServiceConversationMessageReceiptResponse
+              description: OK

@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Invoices
+  description: >-
+    You can list all invoices, or list the invoices for a specific customer. The
+    invoices are returned sorted by creation date, with the most recently
+    created invoices appearing first.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Invoices
+      description: >-
+        You can list all invoices, or list the invoices for a specific customer. The
+        invoices are returned sorted by creation date, with the most recently
+        created invoices appearing first.
+    paths:
+      /v1/invoices:
+        get:
+          summary: Get Invoices
+          description: >-
+            You can list all invoices, or list the invoices for a specific customer.
+            The invoices are returned sorted by creation date, with the most
+            recently created invoices appearing first.
+          operationId: getInvoices
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetInvoicesRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

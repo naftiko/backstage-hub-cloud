@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Database Roles
+  description: List database roles
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Database Roles
+      description: List database roles
+    paths:
+      /api/v2/databases/{database}/database-roles:
+        get:
+          summary: List Database Roles
+          description: List database roles
+          operationId: listDatabaseRoles
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.sql Servers Servername Databases Databasename Replicationlinks
+    Linkid Failover
+  description: >-
+    Sets which replica database is primary by failing over from the current
+    primary replica database.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.sql Servers Servername Databases Databasename Replicationlinks
+        Linkid Failover
+      description: >-
+        Sets which replica database is primary by failing over from the current
+        primary replica database.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/replicationLinks/{linkId}/failover:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.sql Servers Servername Databases Databasename
+            Replicationlinks Linkid Failover
+          description: >-
+            Sets which replica database is primary by failing over from the current
+            primary replica database.
+          operationId: replicationLinksFailover
+          responses:
+            '204':
+              description: No Content

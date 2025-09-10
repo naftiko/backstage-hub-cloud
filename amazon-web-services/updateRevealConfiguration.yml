@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updaterevealconfiguration
+  description: >-
+    Updates the status and configuration settings for retrieving occurrences of
+    sensitive data reported by findings.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updaterevealconfiguration
+      description: >-
+        Updates the status and configuration settings for retrieving occurrences of
+        sensitive data reported by findings.
+    paths:
+      /reveal-configuration:
+        PUT:
+          summary: Updaterevealconfiguration
+          description: >-
+            Updates the status and configuration settings for retrieving occurrences
+            of sensitive data reported by findings.
+          operationId: updateRevealConfiguration

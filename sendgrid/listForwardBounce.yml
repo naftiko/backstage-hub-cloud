@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve Forward Bounce Mail Settings
+  description: >-
+    **This endpoint allows you to retrieve your current bounce forwarding mail
+    settings.**Enabling the Forward Bounce setting allows you to specify `email`
+    addresses to which bounce reports will be forwarded. This endpoint returns
+    the email address you have set to receive forwarded bounces and an `enabled`
+    status indicating if the setting is active.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve Forward Bounce Mail Settings
+      description: >-
+        **This endpoint allows you to retrieve your current bounce forwarding mail
+        settings.**Enabling the Forward Bounce setting allows you to specify `email`
+        addresses to which bounce reports will be forwarded. This endpoint returns
+        the email address you have set to receive forwarded bounces and an `enabled`
+        status indicating if the setting is active.
+    paths:
+      /v3/mail_settings/forward_bounce:
+        get:
+          summary: Retrieve Forward Bounce Mail Settings
+          description: >-
+            **This endpoint allows you to retrieve your current bounce forwarding
+            mail settings.**Enabling the Forward Bounce setting allows you to
+            specify `email` addresses to which bounce reports will be forwarded.
+            This endpoint returns the email address you have set to receive
+            forwarded bounces and an `enabled` status indicating if the setting is
+            active.
+          operationId: listForwardBounce
+          responses:
+            '500':
+              $ref: '#/components/responses/MailSettingsError500'

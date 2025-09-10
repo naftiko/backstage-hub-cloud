@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Remove Token For A Repository
+  description: >-
+    Returns a token that you can pass to the `config` script to remove a
+    self-hosted runner from an repository. The token expires after one hour.For
+    example, you can replace `TOKEN` in the following example with the
+    registration token provided by this endpoint to remove your self-hosted
+    runner from an organization:```./config.sh remove --token
+    TOKEN```Authenticated users must have admin access to the repository to use
+    this endpoint.OAuth tokens and personal access tokens (classic) need the
+    `repo` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Remove Token For A Repository
+      description: >-
+        Returns a token that you can pass to the `config` script to remove a
+        self-hosted runner from an repository. The token expires after one hour.For
+        example, you can replace `TOKEN` in the following example with the
+        registration token provided by this endpoint to remove your self-hosted
+        runner from an organization:```./config.sh remove --token
+        TOKEN```Authenticated users must have admin access to the repository to use
+        this endpoint.OAuth tokens and personal access tokens (classic) need the
+        `repo` scope to use this endpoint.
+    paths:
+      /repos/{owner}/{repo}/actions/runners/remove-token:
+        post:
+          summary: Create A Remove Token For A Repository
+          description: >-
+            Returns a token that you can pass to the `config` script to remove a
+            self-hosted runner from an repository. The token expires after one
+            hour.For example, you can replace `TOKEN` in the following example with
+            the registration token provided by this endpoint to remove your
+            self-hosted runner from an organization:```./config.sh remove --token
+            TOKEN```Authenticated users must have admin access to the repository to
+            use this endpoint.OAuth tokens and personal access tokens (classic) need
+            the `repo` scope to use this endpoint.
+          operationId: createARemoveTokenForARepository
+          responses:
+            '201':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/authentication-token'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/authentication-token-2'

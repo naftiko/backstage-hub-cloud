@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieves A Count Of Checkouts From The Past 90 Days
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/orders/abandoned-checkouts#count-2021-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves A Count Of Checkouts From The Past 90 Days
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/orders/abandoned-checkouts#count-2021-01
+    paths:
+      /admin/api/2021-01/checkouts/count.json:
+        get:
+          summary: Retrieves A Count Of Checkouts From The Past 90 Days
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/orders/abandoned-checkouts#count-2021-01
+          operationId: deprecated202101getcheckoutscount
+          responses:
+            '200':
+              description: ''

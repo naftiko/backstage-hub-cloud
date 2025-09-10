@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Unsuspend A User
+  description: >-
+    If your GitHub instance uses [LDAP Sync with Active Directory LDAP
+    servers](https://docs.github.com/enterprise-server@3.9/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap),
+    this API is disabled and will return a `403` response. Active Directory
+    LDAP-authenticated users cannot be unsuspended using the API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Unsuspend A User
+      description: >-
+        If your GitHub instance uses [LDAP Sync with Active Directory LDAP
+        servers](https://docs.github.com/enterprise-server@3.9/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap),
+        this API is disabled and will return a `403` response. Active Directory
+        LDAP-authenticated users cannot be unsuspended using the API.
+    paths:
+      /users/{username}/suspended:
+        delete:
+          summary: Unsuspend A User
+          description: >-
+            If your GitHub instance uses [LDAP Sync with Active Directory LDAP
+            servers](https://docs.github.com/enterprise-server@3.9/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap),
+            this API is disabled and will return a `403` response. Active Directory
+            LDAP-authenticated users cannot be unsuspended using the API.
+          operationId: enterpriseadminunsuspenduser
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  nullable: true
+                  properties:
+                    reason:
+                      type: string
+                      description: >-
+                        The reason the user is being unsuspended. This message will
+                        be logged in the [audit
+                        log](https://docs.github.com/enterprise-server@3.9/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise).
+                        If you don't provide a `reason`, it will default to
+                        "Unsuspended via API by _SITE\_ADMINISTRATOR_", where
+                        _SITE\_ADMINISTRATOR_ is the person who performed the
+                        action.
+                examples:
+                  reason:
+                    value:
+                      reason: Unsuspended after leave of absence.
+          responses:
+            '204':
+              description: Response

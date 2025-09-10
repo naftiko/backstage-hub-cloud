@@ -1,0 +1,97 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: |-
+    Creates A Discount Code Creation Job.
+      The Batch Endpoint Can Be Used To Asynchronously Create Up To 100 Discount Codes In A Single Request. It
+      Enqueues And Returns A Discount_code_creation Object That Can Be Monitored For Completion.
+      Response Fields That Are Specific To The Batch Endpoint Include:
+      
+      Status: The State Of The Discount Code Creation Job. Possible Values Are:
+      
+      Queued: The Job Is Acknowledged, But Not Started.
+      Running: The Job Is In Process.
+      Completed: The Job Has Finished.
+      
+      Codes_count: The Number Of Discount Codes To Create.
+      Imported_count: The Number Of Discount Codes Created Successfully.
+      Failed_count: The Number Of Discount Codes That Were Not Created Successfully. Unsuccessful Attempts Will Retry Up To Three Times.
+      Logs: A Report That Specifies When No Discount Codes Were Created Because The Provided Data Was Invalid. Example Responses:
+      
+      "price Rule Target Selection Can't Be Blank"
+      "price Rule Allocation Method Can't Be Blank"
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/discounts/discountcode#batch_create-2021-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: |-
+        Creates A Discount Code Creation Job.
+          The Batch Endpoint Can Be Used To Asynchronously Create Up To 100 Discount Codes In A Single Request. It
+          Enqueues And Returns A Discount_code_creation Object That Can Be Monitored For Completion.
+          Response Fields That Are Specific To The Batch Endpoint Include:
+          
+          Status: The State Of The Discount Code Creation Job. Possible Values Are:
+          
+          Queued: The Job Is Acknowledged, But Not Started.
+          Running: The Job Is In Process.
+          Completed: The Job Has Finished.
+          
+          Codes_count: The Number Of Discount Codes To Create.
+          Imported_count: The Number Of Discount Codes Created Successfully.
+          Failed_count: The Number Of Discount Codes That Were Not Created Successfully. Unsuccessful Attempts Will Retry Up To Three Times.
+          Logs: A Report That Specifies When No Discount Codes Were Created Because The Provided Data Was Invalid. Example Responses:
+          
+          "price Rule Target Selection Can't Be Blank"
+          "price Rule Allocation Method Can't Be Blank"
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/discounts/discountcode#batch_create-2021-01
+    paths:
+      /admin/api/2021-01/price_rules/{price_rule_id}/batch.json:
+        post:
+          summary: |-
+            Creates A Discount Code Creation Job.
+              The Batch Endpoint Can Be Used To Asynchronously Create Up To 100 Discount Codes In A Single Request. It
+              Enqueues And Returns A Discount_code_creation Object That Can Be Monitored For Completion.
+              Response Fields That Are Specific To The Batch Endpoint Include:
+              
+              Status: The State Of The Discount Code Creation Job. Possible Values Are:
+              
+              Queued: The Job Is Acknowledged, But Not Started.
+              Running: The Job Is In Process.
+              Completed: The Job Has Finished.
+              
+              Codes_count: The Number Of Discount Codes To Create.
+              Imported_count: The Number Of Discount Codes Created Successfully.
+              Failed_count: The Number Of Discount Codes That Were Not Created Successfully. Unsuccessful Attempts Will Retry Up To Three Times.
+              Logs: A Report That Specifies When No Discount Codes Were Created Because The Provided Data Was Invalid. Example Responses:
+              
+              "price Rule Target Selection Can't Be Blank"
+              "price Rule Allocation Method Can't Be Blank"
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/discounts/discountcode#batch_create-2021-01
+          operationId: deprecated202101createpricerulesparampriceruleidbatch
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      discount_codes:
+                        - code: SUMMER1
+                        - code: SUMMER2
+                        - code: SUMMER3
+                    summary: Create a discount code creation job
+          responses:
+            '200':
+              description: ''

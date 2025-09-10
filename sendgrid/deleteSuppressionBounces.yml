@@ -1,0 +1,77 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Bounces
+  description: >-
+    **This endpoint allows you to delete all emails on your bounces list.**There
+    are two options for deleting bounced emails: 1. You can delete all bounced
+    emails by setting `delete_all` to `true` in the request body. 2. You can
+    delete a selection of bounced emails by specifying the email addresses in
+    the `emails` array of the request body. **WARNING:** You can not have both
+    `emails` and `delete_all` set.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Bounces
+      description: >-
+        **This endpoint allows you to delete all emails on your bounces list.**There
+        are two options for deleting bounced emails: 1. You can delete all bounced
+        emails by setting `delete_all` to `true` in the request body. 2. You can
+        delete a selection of bounced emails by specifying the email addresses in
+        the `emails` array of the request body. **WARNING:** You can not have both
+        `emails` and `delete_all` set.
+    paths:
+      /v3/suppression/bounces:
+        delete:
+          summary: Delete Bounces
+          description: >-
+            **This endpoint allows you to delete all emails on your bounces
+            list.**There are two options for deleting bounced emails: 1. You can
+            delete all bounced emails by setting `delete_all` to `true` in the
+            request body. 2. You can delete a selection of bounced emails by
+            specifying the email addresses in the `emails` array of the request
+            body. **WARNING:** You can not have both `emails` and `delete_all` set.
+          operationId: deleteSuppressionBounces
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    delete_all:
+                      type: boolean
+                      description: >-
+                        This parameter allows you to delete **every** email in your
+                        bounce list. This should not be used with the emails
+                        parameter.
+                    emails:
+                      type: array
+                      description: >-
+                        Delete multiple emails from your bounce list at the same
+                        time. This should not be used with the delete_all parameter.
+                      items:
+                        type: string
+                  example:
+                    delete_all: false
+          responses:
+            '401':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - field: null
+                            message: authorization required

@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Transcripts Transcriptsid Operatorresults Operatorsid
+  description: Fetch a specific Operator Result for the given Transcript.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Transcripts Transcriptsid Operatorresults Operatorsid
+      description: Fetch a specific Operator Result for the given Transcript.
+    paths:
+      /v2/Transcripts/{TranscriptSid}/OperatorResults/{OperatorSid}:
+        get:
+          summary: Get Transcripts Transcriptsid Operatorresults Operatorsid
+          description: Fetch a specific Operator Result for the given Transcript.
+          operationId: fetchOperatorResult
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: >-
+                      #/components/schemas/intelligence.v2.transcript.operator_result
+              description: OK

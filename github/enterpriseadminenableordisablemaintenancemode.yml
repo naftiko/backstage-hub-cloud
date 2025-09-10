@@ -1,0 +1,72 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Enable Or Disable Maintenance Mode
+  description: >-
+    **Note:** The request body for this operation must be submitted as
+    `application/x-www-form-urlencoded` data. You can submit a parameter value
+    as a string, or you can use a tool such as `curl` to submit a parameter
+    value as the contents of a text file. For more information, see the [`curl`
+    documentation](https://curl.se/docs/manpage.html#--data-urlencode).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Enable Or Disable Maintenance Mode
+      description: >-
+        **Note:** The request body for this operation must be submitted as
+        `application/x-www-form-urlencoded` data. You can submit a parameter value
+        as a string, or you can use a tool such as `curl` to submit a parameter
+        value as the contents of a text file. For more information, see the [`curl`
+        documentation](https://curl.se/docs/manpage.html#--data-urlencode).
+    paths:
+      /setup/api/maintenance:
+        post:
+          summary: Enable Or Disable Maintenance Mode
+          description: >-
+            **Note:** The request body for this operation must be submitted as
+            `application/x-www-form-urlencoded` data. You can submit a parameter
+            value as a string, or you can use a tool such as `curl` to submit a
+            parameter value as the contents of a text file. For more information,
+            see the [`curl`
+            documentation](https://curl.se/docs/manpage.html#--data-urlencode).
+          operationId: enterpriseadminenableordisablemaintenancemode
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  type: object
+                  properties:
+                    maintenance:
+                      type: string
+                      description: >-
+                        A JSON string with the attributes `enabled` and `when`.
+
+
+                        The possible values for `enabled` are `true` and `false`.
+                        When it's `false`, the attribute `when` is ignored and the
+                        maintenance mode is turned off. `when` defines the time
+                        period when the maintenance was enabled.
+
+
+                        The possible values for `when` are `now` or any date
+                        parseable by
+                        [mojombo/chronic](https://github.com/mojombo/chronic).
+                  required:
+                    - maintenance
+                examples:
+                  default:
+                    value:
+                      maintenance: '{"enabled":true, "when":"now"}'
+          responses:
+            '401':
+              description: Unauthorized

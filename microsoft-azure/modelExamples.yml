@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Apps Appid Versions Versionid Models Modelid Examples
+  description: >-
+    Gets the example utterances for the given intent or entity model in a
+    version of the application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Apps Appid Versions Versionid Models Modelid Examples
+      description: >-
+        Gets the example utterances for the given intent or entity model in a
+        version of the application.
+    paths:
+      /apps/{appId}/versions/{versionId}/models/{modelId}/examples:
+        get:
+          summary: Get Apps Appid Versions Versionid Models Modelid Examples
+          description: >-
+            Gets the example utterances for the given intent or entity model in a
+            version of the application.
+          operationId: modelExamples
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

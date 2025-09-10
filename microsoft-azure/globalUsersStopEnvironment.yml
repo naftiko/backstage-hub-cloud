@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Providers Microsoft.labservices Users Username Stopenvironment
+  description: >-
+    Stops an environment by stopping all resources inside the environment This
+    operation can take a while to complete
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Providers Microsoft.labservices Users Username Stopenvironment
+      description: >-
+        Stops an environment by stopping all resources inside the environment This
+        operation can take a while to complete
+    paths:
+      /providers/Microsoft.LabServices/users/{userName}/stopEnvironment:
+        post:
+          summary: Post Providers Microsoft.labservices Users Username Stopenvironment
+          description: >-
+            Stops an environment by stopping all resources inside the environment
+            This operation can take a while to complete
+          operationId: globalUsersStopEnvironment
+          responses:
+            default:
+              description: BadRequest
+              schema:
+                $ref: '#/definitions/CloudError'

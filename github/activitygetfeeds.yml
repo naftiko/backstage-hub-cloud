@@ -1,0 +1,87 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Feeds
+  description: >-
+    GitHub Enterprise Server provides several timeline resources in
+    [Atom](http://en.wikipedia.org/wiki/Atom_(standard)) format. The Feeds API
+    lists all the feeds available to the authenticated user:*   **Timeline**:
+    The GitHub Enterprise Server global public timeline*   **User**: The public
+    timeline for any user, using `uri_template`. For more information, see
+    "[Hypermedia](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#hypermedia)."*  
+    **Current user public**: The public timeline for the authenticated user*  
+    **Current user**: The private timeline for the authenticated user*  
+    **Current user actor**: The private timeline for activity created by the
+    authenticated user*   **Current user organizations**: The private timeline
+    for the organizations the authenticated user is a member of.*   **Security
+    advisories**: A collection of public announcements that provide information
+    about security-related vulnerabilities in software on GitHub Enterprise
+    Server.**Note**: Private feeds are only returned when [authenticating via
+    Basic
+    Auth](https://docs.github.com/enterprise-server@3.9/rest/overview/other-authentication-methods#basic-authentication)
+    since current feed URIs use the older, non revocable auth tokens.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Feeds
+      description: >-
+        GitHub Enterprise Server provides several timeline resources in
+        [Atom](http://en.wikipedia.org/wiki/Atom_(standard)) format. The Feeds API
+        lists all the feeds available to the authenticated user:*   **Timeline**:
+        The GitHub Enterprise Server global public timeline*   **User**: The public
+        timeline for any user, using `uri_template`. For more information, see
+        "[Hypermedia](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#hypermedia)."*  
+        **Current user public**: The public timeline for the authenticated user*  
+        **Current user**: The private timeline for the authenticated user*  
+        **Current user actor**: The private timeline for activity created by the
+        authenticated user*   **Current user organizations**: The private timeline
+        for the organizations the authenticated user is a member of.*   **Security
+        advisories**: A collection of public announcements that provide information
+        about security-related vulnerabilities in software on GitHub Enterprise
+        Server.**Note**: Private feeds are only returned when [authenticating via
+        Basic
+        Auth](https://docs.github.com/enterprise-server@3.9/rest/overview/other-authentication-methods#basic-authentication)
+        since current feed URIs use the older, non revocable auth tokens.
+    paths:
+      /feeds:
+        get:
+          summary: Get Feeds
+          description: >-
+            GitHub Enterprise Server provides several timeline resources in
+            [Atom](http://en.wikipedia.org/wiki/Atom_(standard)) format. The Feeds
+            API lists all the feeds available to the authenticated user:*  
+            **Timeline**: The GitHub Enterprise Server global public timeline*  
+            **User**: The public timeline for any user, using `uri_template`. For
+            more information, see
+            "[Hypermedia](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#hypermedia)."*  
+            **Current user public**: The public timeline for the authenticated
+            user*   **Current user**: The private timeline for the authenticated
+            user*   **Current user actor**: The private timeline for activity
+            created by the authenticated user*   **Current user organizations**: The
+            private timeline for the organizations the authenticated user is a
+            member of.*   **Security advisories**: A collection of public
+            announcements that provide information about security-related
+            vulnerabilities in software on GitHub Enterprise Server.**Note**:
+            Private feeds are only returned when [authenticating via Basic
+            Auth](https://docs.github.com/enterprise-server@3.9/rest/overview/other-authentication-methods#basic-authentication)
+            since current feed URIs use the older, non revocable auth tokens.
+          operationId: activitygetfeeds
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/feed'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/feed'

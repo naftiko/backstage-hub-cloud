@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete An Account
+  description: >-
+    Delete a specific account under your organization by account ID. Note that
+    this is an **irreversible** action that does the following: - Revokes API
+    Keys and SSO so that the account user cannot log in or access SendGrid data.
+    - Removes all offerings and configured SendGrid resources such as dedicated
+    IPs. - Cancels billing effective immediately.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete An Account
+      description: >-
+        Delete a specific account under your organization by account ID. Note that
+        this is an **irreversible** action that does the following: - Revokes API
+        Keys and SSO so that the account user cannot log in or access SendGrid data.
+        - Removes all offerings and configured SendGrid resources such as dedicated
+        IPs. - Cancels billing effective immediately.
+    paths:
+      /v3/partners/accounts/{accountID}:
+        delete:
+          summary: Delete An Account
+          description: >-
+            Delete a specific account under your organization by account ID. Note
+            that this is an **irreversible** action that does the following: -
+            Revokes API Keys and SSO so that the account user cannot log in or
+            access SendGrid data. - Removes all offerings and configured SendGrid
+            resources such as dedicated IPs. - Cancels billing effective
+            immediately.
+          operationId: deleteAccount
+          responses:
+            '504':
+              $ref: '#/components/responses/AccountProvisioningErrorResponse504'

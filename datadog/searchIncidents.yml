@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Search For Incidents
+  description: Search for incidents matching a certain query.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Search For Incidents
+      description: Search for incidents matching a certain query.
+    paths:
+      /api/v2/incidents/search:
+        get:
+          summary: Search For Incidents
+          description: Search for incidents matching a certain query.
+          operationId: searchIncidents
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Associateresourcesharepermission
+  description: >-
+    Adds or replaces the RAM permission for a resource type included in a
+    resource share. You can have exactly one permission associated with each
+    resource type in the resource share. You can add a new RAM permission only
+    if there are currently no resources of that resource type currently in the
+    resource share.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Associateresourcesharepermission
+      description: >-
+        Adds or replaces the RAM permission for a resource type included in a
+        resource share. You can have exactly one permission associated with each
+        resource type in the resource share. You can add a new RAM permission only
+        if there are currently no resources of that resource type currently in the
+        resource share.
+    paths:
+      /associateresourcesharepermission:
+        POST:
+          summary: Associateresourcesharepermission
+          description: >-
+            Adds or replaces the RAM permission for a resource type included in a
+            resource share. You can have exactly one permission associated with each
+            resource type in the resource share. You can add a new RAM permission
+            only if there are currently no resources of that resource type currently
+            in the resource share.
+          operationId: associateResourceSharePermission

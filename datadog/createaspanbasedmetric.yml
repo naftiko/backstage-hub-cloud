@@ -1,0 +1,71 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Span-based Metric
+  description: >-
+    Create a metric based on your ingested spans in your organization.Returns
+    the span-based metric object from the request body when the request is
+    successful.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Span-based Metric
+      description: >-
+        Create a metric based on your ingested spans in your organization.Returns
+        the span-based metric object from the request body when the request is
+        successful.
+    paths:
+      /api/v2/apm/config/metrics:
+        post:
+          summary: Create A Span-based Metric
+          description: >-
+            Create a metric based on your ingested spans in your
+            organization.Returns the span-based metric object from the request body
+            when the request is successful.
+          operationId: createaspanbasedmetric
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      id: my.metric
+                      type: spans_metrics
+                      attributes:
+                        compute:
+                          aggregation_type: distribution
+                          include_percentiles: false
+                          path: '@duration'
+                        filter:
+                          query: '@http.status_code:200 service:my-service'
+                        group_by:
+                          - path: resource_name
+                            tag_name: resource_name
+                          - path: resource_name
+                            tag_name: resource_name
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

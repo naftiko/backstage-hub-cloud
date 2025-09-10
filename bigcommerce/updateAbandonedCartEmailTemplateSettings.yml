@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Email Template Settings
+  description: Update Abandoned Cart Email template settings.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Email Template Settings
+      description: Update Abandoned Cart Email template settings.
+    paths:
+      /marketing/abandoned-cart-emails/settings:
+        put:
+          summary: Update Email Template Settings
+          description: Update Abandoned Cart Email template settings.
+          operationId: updateAbandonedCartEmailTemplateSettings
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/AbandonedCartSettings'
+          responses:
+            '200':
+              description: OK
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/AbandonedCartSettings'

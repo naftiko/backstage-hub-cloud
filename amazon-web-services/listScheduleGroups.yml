@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listschedulegroups
+  description: Returns a paginated list of your schedule groups.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listschedulegroups
+      description: Returns a paginated list of your schedule groups.
+    paths:
+      /schedule-groups:
+        GET:
+          summary: Listschedulegroups
+          description: Returns a paginated list of your schedule groups.
+          operationId: listScheduleGroups

@@ -1,0 +1,103 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Conversations.rename
+  description: Renames a conversation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Conversations.rename
+      description: Renames a conversation.
+    paths:
+      /conversations.rename:
+        post:
+          summary: Post Conversations.rename
+          description: Renames a conversation.
+          operationId: conversationsrename
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  type: object
+                  properties:
+                    channel:
+                      type: string
+                      description: ID of conversation to rename
+                    name:
+                      type: string
+                      description: New name for conversation.
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    channel:
+                      type: string
+                      description: ID of conversation to rename
+                    name:
+                      type: string
+                      description: New name for conversation.
+          responses:
+            default:
+              description: >-
+                Typical error response when the calling user is not a member of the
+                conversation
+              content:
+                application/json:
+                  schema:
+                    title: conversations.rename error schema
+                    required:
+                      - error
+                      - ok
+                    type: object
+                    properties:
+                      callstack:
+                        type: string
+                        description: 'Note: PHP callstack is only visible in dev/qa'
+                      error:
+                        type: string
+                        enum:
+                          - user_is_restricted
+                          - method_not_supported_for_channel_type
+                          - missing_scope
+                          - channel_not_found
+                          - not_in_channel
+                          - not_authorized
+                          - invalid_name
+                          - name_taken
+                          - invalid_name_required
+                          - invalid_name_punctuation
+                          - invalid_name_maxlength
+                          - invalid_name_specials
+                          - not_authed
+                          - invalid_auth
+                          - account_inactive
+                          - invalid_arg_name
+                          - invalid_array_arg
+                          - invalid_charset
+                          - invalid_form_data
+                          - invalid_post_type
+                          - missing_post_type
+                          - invalid_json
+                          - json_not_object
+                          - request_timeout
+                          - upgrade_required
+                      needed:
+                        type: string
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                      provided:
+                        type: string
+                    additionalProperties: false
+                    description: Schema for error response from conversations.rename method
+                  example:
+                    error: not_in_channel
+                    ok: false

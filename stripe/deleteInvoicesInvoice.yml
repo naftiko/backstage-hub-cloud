@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Invoices Invoice
+  description: >-
+    Permanently deletes a one-off invoice draft. This cannot be undone. Attempts
+    to delete invoices that are no longer in a draft state will fail; once an
+    invoice has been finalized or if an invoice is for a subscription, it must
+    be voided.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Invoices Invoice
+      description: >-
+        Permanently deletes a one-off invoice draft. This cannot be undone. Attempts
+        to delete invoices that are no longer in a draft state will fail; once an
+        invoice has been finalized or if an invoice is for a subscription, it must
+        be voided.
+    paths:
+      /v1/invoices/{invoice}:
+        delete:
+          summary: Delete Invoices Invoice
+          description: >-
+            Permanently deletes a one-off invoice draft. This cannot be undone.
+            Attempts to delete invoices that are no longer in a draft state will
+            fail; once an invoice has been finalized or if an invoice is for a
+            subscription, it must be voided.
+          operationId: deleteInvoicesInvoice
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/DeleteInvoicesInvoiceRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

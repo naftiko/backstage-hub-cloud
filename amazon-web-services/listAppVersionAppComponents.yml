@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listappversionappcomponents
+  description: Lists all the Application Components in the Resilience Hub application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listappversionappcomponents
+      description: Lists all the Application Components in the Resilience Hub application.
+    paths:
+      /list-app-version-app-components:
+        POST:
+          summary: Listappversionappcomponents
+          description: Lists all the Application Components in the Resilience Hub application.
+          operationId: listAppVersionAppComponents

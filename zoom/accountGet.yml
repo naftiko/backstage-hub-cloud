@@ -1,0 +1,68 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Ma Account Get
+  description: >-
+    Get a sub account of the master account on Zoom, return the created sub
+    account id and owner id.Your account must be a master account and have this
+    privilege to get sub account. Zoom only assign this privilege to trusted
+    partner.This API will let the master account owner to get sub account API
+    key pair. This is a private feature and needs to be enabled by zoom support.
+    If you need this function, please open a case with support to enable this
+    API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Ma Account Get
+      description: >-
+        Get a sub account of the master account on Zoom, return the created sub
+        account id and owner id.Your account must be a master account and have this
+        privilege to get sub account. Zoom only assign this privilege to trusted
+        partner.This API will let the master account owner to get sub account API
+        key pair. This is a private feature and needs to be enabled by zoom support.
+        If you need this function, please open a case with support to enable this
+        API.
+    paths:
+      /ma/account/get:
+        post:
+          summary: Post Ma Account Get
+          description: >-
+            Get a sub account of the master account on Zoom, return the created sub
+            account id and owner id.Your account must be a master account and have
+            this privilege to get sub account. Zoom only assign this privilege to
+            trusted partner.This API will let the master account owner to get sub
+            account API key pair. This is a private feature and needs to be enabled
+            by zoom support. If you need this function, please open a case with
+            support to enable this API.
+          operationId: accountGet
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - account_id
+                  type: object
+                  properties:
+                    account_id:
+                      type: string
+                      description: The sub account ID.
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    id: unique_id
+                    owner_id: unique_id
+                    owner_email: email_address
+                    created_at: 2012-11-25T12:00:00.000Z

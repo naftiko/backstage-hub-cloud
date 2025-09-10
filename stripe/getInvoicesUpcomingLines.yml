@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Invoices Upcoming Lines
+  description: >-
+    When retrieving an upcoming invoice, you’ll get a lines property containing
+    the total count of line items and the first handful of those items. There is
+    also a URL where you can retrieve the full (paginated) list of line items.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Invoices Upcoming Lines
+      description: >-
+        When retrieving an upcoming invoice, you’ll get a lines property containing
+        the total count of line items and the first handful of those items. There is
+        also a URL where you can retrieve the full (paginated) list of line items.
+    paths:
+      /v1/invoices/upcoming/lines:
+        get:
+          summary: Get Invoices Upcoming Lines
+          description: >-
+            When retrieving an upcoming invoice, you’ll get a lines property
+            containing the total count of line items and the first handful of those
+            items. There is also a URL where you can retrieve the full (paginated)
+            list of line items.
+          operationId: getInvoicesUpcomingLines
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetInvoicesUpcomingLinesRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

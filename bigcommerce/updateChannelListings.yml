@@ -1,0 +1,77 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Channel Listings
+  description: >-
+    Updates one or more *Channel Listings* for a specific channel.> #### Note> *
+    Partial updates are supported. In most cases, if a field that *cannot* be
+    updated is passed in, the API **will not** respond with an error. It returns
+    a 200 response with the object, in which you will see the field(s) were not
+    updated.> * If a new variant is provided, the API will append the variant to
+    the list. If a variant already exists, the API will update the existing
+    variant. Other variants that are not provided in the payload remains
+    unchanged.> * If `listing_id` does not exist, the API will return a 200
+    response with empty data.> * `listing_id` is required and cannot be less
+    than or equal to zero.> * `product_id` cannot be updated after a channel
+    listing is created.> * `product_id` of a variant must match the `product_id`
+    of the channel listing.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Channel Listings
+      description: >-
+        Updates one or more *Channel Listings* for a specific channel.> #### Note> *
+        Partial updates are supported. In most cases, if a field that *cannot* be
+        updated is passed in, the API **will not** respond with an error. It returns
+        a 200 response with the object, in which you will see the field(s) were not
+        updated.> * If a new variant is provided, the API will append the variant to
+        the list. If a variant already exists, the API will update the existing
+        variant. Other variants that are not provided in the payload remains
+        unchanged.> * If `listing_id` does not exist, the API will return a 200
+        response with empty data.> * `listing_id` is required and cannot be less
+        than or equal to zero.> * `product_id` cannot be updated after a channel
+        listing is created.> * `product_id` of a variant must match the `product_id`
+        of the channel listing.
+    paths:
+      /channels/{channel_id}/listings:
+        put:
+          summary: Update Channel Listings
+          description: >-
+            Updates one or more *Channel Listings* for a specific channel.> ####
+            Note> * Partial updates are supported. In most cases, if a field that
+            *cannot* be updated is passed in, the API **will not** respond with an
+            error. It returns a 200 response with the object, in which you will see
+            the field(s) were not updated.> * If a new variant is provided, the API
+            will append the variant to the list. If a variant already exists, the
+            API will update the existing variant. Other variants that are not
+            provided in the payload remains unchanged.> * If `listing_id` does not
+            exist, the API will return a 200 response with empty data.> *
+            `listing_id` is required and cannot be less than or equal to zero.> *
+            `product_id` cannot be updated after a channel listing is created.> *
+            `product_id` of a variant must match the `product_id` of the channel
+            listing.
+          operationId: updateChannelListings
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/UpdateMultipleListingsReq'
+                examples:
+                  Update Single Listing:
+                    $ref: '#/components/examples/update_single_listing_req_example'
+                  Update Multiple Listings:
+                    $ref: '#/components/examples/update_multiple_listings_req_example'
+          responses:
+            '422':
+              $ref: >-
+                #/components/responses/missing_or_invalid_multiple_listings_data_for_put_resp

@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Verify The Primary Or Secondary X509 Certificate Of An Enrollment Group
+  description: >-
+    Verify the primary or secondary x509 certificate of an enrollment group by
+    providing a certificate with the signed verification code.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Verify The Primary Or Secondary X509 Certificate Of An Enrollment Group
+      description: >-
+        Verify the primary or secondary x509 certificate of an enrollment group by
+        providing a certificate with the signed verification code.
+    paths:
+      /enrollmentGroups/{enrollmentGroupId}/certificates/{entry}/verify:
+        post:
+          summary: Verify The Primary Or Secondary X509 Certificate Of An Enrollment Group
+          description: >-
+            Verify the primary or secondary x509 certificate of an enrollment group
+            by providing a certificate with the signed verification code.
+          operationId: enrollmentGroupsVerifyX509
+          responses:
+            default:
+              description: An error response received from the IoT Central Service.
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: Error code for specific error that occurred.
+              schema:
+                $ref: '#/definitions/Error'

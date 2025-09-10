@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Parameters Abandoned-carts Token
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Parameters Abandoned-carts Token
+      description: Needs a more full description created.
+    paths:
+      /abandoned-carts/{token}:
+        parameters:
+          summary: Parameters Abandoned-carts Token
+          description: Needs a more full description created.
+          operationId: parametersabandonedcartstoken

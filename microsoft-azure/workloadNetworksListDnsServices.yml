@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Of Dns Services In A Private Cloud Workload Network.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Of Dns Services In A Private Cloud Workload Network.
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices:
+        get:
+          summary: List Of Dns Services In A Private Cloud Workload Network.
+          description: Needs a more full description created.
+          operationId: workloadNetworksListDnsServices
+          responses:
+            default:
+              description: Error response describing why the operation failed
+              schema:
+                $ref: '#/definitions/CloudError'

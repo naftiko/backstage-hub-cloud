@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updates A Metafield.
+  description: https://shopify.dev/docs/admin-api/rest/reference/metafield#update-2020-07
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updates A Metafield.
+      description: https://shopify.dev/docs/admin-api/rest/reference/metafield#update-2020-07
+    paths:
+      /admin/api/2020-07/metafields/{metafield_id}.json:
+        put:
+          summary: Updates A Metafield.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/metafield#update-2020-07
+          operationId: deprecated202007updatemetafieldsparammetafieldid
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      metafield:
+                        id: 721389482
+                        value: something new
+                        value_type: string
+                    summary: >-
+                      Update a metafield. The namespace and key of an existing
+                      metafield can't be changed.
+                  example2:
+                    value:
+                      metafield:
+                        id: 845366454
+                        value: titre
+                        value_type: string
+                    summary: >-
+                      Update a metafield. The namespace and key of an existing
+                      metafield can't be changed.
+          responses:
+            '200':
+              description: ''

@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Multiple Channels Currency Assignments
+  description: >-
+    Updates enabled currencies and default currency for multiple channels. Note
+    that currencies must be added first in the **Settings > Setup > Currencies**
+    settings from an active MSF-enabled BigCommerce store control panel before
+    the currencies can be assigned to a channel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Multiple Channels Currency Assignments
+      description: >-
+        Updates enabled currencies and default currency for multiple channels. Note
+        that currencies must be added first in the **Settings > Setup > Currencies**
+        settings from an active MSF-enabled BigCommerce store control panel before
+        the currencies can be assigned to a channel.
+    paths:
+      /channels/currency-assignments:
+        put:
+          summary: Update Multiple Channels Currency Assignments
+          description: >-
+            Updates enabled currencies and default currency for multiple channels.
+            Note that currencies must be added first in the **Settings > Setup >
+            Currencies** settings from an active MSF-enabled BigCommerce store
+            control panel before the currencies can be assigned to a channel.
+          operationId: updateMultipleChannelsCurrencyAssignments
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: >-
+                    #/components/schemas/UpsertMultipleChannelsCurrencyAssignmentsReq
+                examples:
+                  Update Currency Assignments for Multiple Channels:
+                    $ref: >-
+                      #/components/examples/multiple_channels_currency_assignments_req_example
+          responses:
+            '422':
+              $ref: >-
+                #/components/responses/missing_or_invalid_multiple_channels_currency_assignments_data_resp

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deleteendpoint
+  description: >-
+    Deletes an endpoint.  It can take up to 5 minutes for this action to
+    finish.   Related actions include:    CreateEndpoint     ListEndpoints   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deleteendpoint
+      description: >-
+        Deletes an endpoint.  It can take up to 5 minutes for this action to
+        finish.   Related actions include:    CreateEndpoint     ListEndpoints   
+    paths:
+      /S3Outposts/DeleteEndpoint:
+        DELETE:
+          summary: Deleteendpoint
+          description: >-
+            Deletes an endpoint.  It can take up to 5 minutes for this action to
+            finish.   Related actions include:    CreateEndpoint    
+            ListEndpoints   
+          operationId: deleteEndpoint

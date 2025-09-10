@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Understand Assistants Assistantsid Stylesheet
+  description: >-
+    Updates the style sheet for an assistant identified by {AssistantSid} or
+    {AssistantUniqueName}.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Understand Assistants Assistantsid Stylesheet
+      description: >-
+        Updates the style sheet for an assistant identified by {AssistantSid} or
+        {AssistantUniqueName}.
+    paths:
+      /understand/Assistants/{AssistantSid}/StyleSheet:
+        post:
+          summary: Post Understand Assistants Assistantsid Stylesheet
+          description: >-
+            Updates the style sheet for an assistant identified by {AssistantSid} or
+            {AssistantUniqueName}.
+          operationId: updateUnderstandStyleSheet
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/UpdateUnderstandStyleSheetRequest'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/preview.understand.assistant.style_sheet'
+              description: OK

@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deletereplicationconfiguration
+  description: >-
+    Deletes a replication configuration. Deleting a replication configuration
+    ends the replication process. After a replication configuration is deleted,
+    the destination file system becomes Writeable and its replication overwrite
+    protection is re-enabled. For more information, see Delete a replication
+    configuration. This operation requires permissions for the
+    elasticfilesystem:DeleteReplicationConfiguration action. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletereplicationconfiguration
+      description: >-
+        Deletes a replication configuration. Deleting a replication configuration
+        ends the replication process. After a replication configuration is deleted,
+        the destination file system becomes Writeable and its replication overwrite
+        protection is re-enabled. For more information, see Delete a replication
+        configuration. This operation requires permissions for the
+        elasticfilesystem:DeleteReplicationConfiguration action. 
+    paths:
+      /2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration:
+        DELETE:
+          summary: Deletereplicationconfiguration
+          description: >-
+            Deletes a replication configuration. Deleting a replication
+            configuration ends the replication process. After a replication
+            configuration is deleted, the destination file system becomes Writeable
+            and its replication overwrite protection is re-enabled. For more
+            information, see Delete a replication configuration. This operation
+            requires permissions for the
+            elasticfilesystem:DeleteReplicationConfiguration action. 
+          operationId: deleteReplicationConfiguration

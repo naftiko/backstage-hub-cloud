@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post An Event
+  description: >-
+    This endpoint allows you to post events to the stream.Tag them, set priority
+    and event aggregate them with other events.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post An Event
+      description: >-
+        This endpoint allows you to post events to the stream.Tag them, set priority
+        and event aggregate them with other events.
+    paths:
+      /api/v1/events:
+        post:
+          summary: Post An Event
+          description: >-
+            This endpoint allows you to post events to the stream.Tag them, set
+            priority and event aggregate them with other events.
+          operationId: postanevent
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    title: Did you hear the news today?
+                    text: Oh boy!
+                    aggregation_key: deserunt culpa id
+                    alert_type: info
+                    date_happened: 38473209
+                    device_name: volupta
+                    host: est mollit elit
+                    priority: normal
+                    related_event_id: 49876778
+                    source_type_name: tempor esse veniam
+                    tags:
+                      - environment:test
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

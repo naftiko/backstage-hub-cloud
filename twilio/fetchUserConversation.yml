@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Users Usersid Conversations Conversationsid
+  description: Fetch a specific User Conversation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Users Usersid Conversations Conversationsid
+      description: Fetch a specific User Conversation.
+    paths:
+      /v1/Users/{UserSid}/Conversations/{ConversationSid}:
+        get:
+          summary: Get Users Usersid Conversations Conversationsid
+          description: Fetch a specific User Conversation.
+          operationId: fetchUserConversation
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/conversations.v1.user.user_conversation'
+              description: OK

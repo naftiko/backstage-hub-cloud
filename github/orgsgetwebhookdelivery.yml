@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Webhook Delivery For An Organization Webhook
+  description: Returns a delivery for a webhook configured in an organization.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Webhook Delivery For An Organization Webhook
+      description: Returns a delivery for a webhook configured in an organization.
+    paths:
+      /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}:
+        get:
+          summary: Get A Webhook Delivery For An Organization Webhook
+          description: Returns a delivery for a webhook configured in an organization.
+          operationId: orgsgetwebhookdelivery
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

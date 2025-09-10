@@ -1,0 +1,70 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Your Organization
+  description: Update your organization.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Your Organization
+      description: Update your organization.
+    paths:
+      /api/v1/org/{public_id}:
+        put:
+          summary: Update Your Organization
+          description: Update your organization.
+          operationId: updateyourorganization
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    created: '2019-09-26T17:28:28Z'
+                    description: some description
+                    name: New child org
+                    public_id: abcdef12345
+                    settings:
+                      private_widget_share: false
+                      saml:
+                        enabled: false
+                      saml_autocreate_access_role: ro
+                      saml_autocreate_users_domains:
+                        domains:
+                          - example.com
+                          - example.com
+                        enabled: false
+                      saml_can_be_enabled: false
+                      saml_idp_endpoint: https://my.saml.endpoint
+                      saml_idp_initiated_login:
+                        enabled: false
+                      saml_idp_metadata_uploaded: false
+                      saml_login_url: https://my.saml.login.url
+                      saml_strict_mode:
+                        enabled: false
+                    trial: false
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

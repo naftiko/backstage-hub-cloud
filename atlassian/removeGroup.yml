@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Remove Group
+  description: >-
+    Deletes a group.**[Permissions](#permissions) required:** Site
+    administration (that is, member of the *site-admin* strategic
+    [group](https://confluence.atlassian.com/x/24xjL)).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Remove Group
+      description: >-
+        Deletes a group.**[Permissions](#permissions) required:** Site
+        administration (that is, member of the *site-admin* strategic
+        [group](https://confluence.atlassian.com/x/24xjL)).
+    paths:
+      /rest/api/3/group:
+        delete:
+          summary: Remove Group
+          description: >-
+            Deletes a group.**[Permissions](#permissions) required:** Site
+            administration (that is, member of the *site-admin* strategic
+            [group](https://confluence.atlassian.com/x/24xjL)).
+          operationId: removeGroup
+          responses:
+            '404':
+              description: Returned if the group is not found.

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Acceptcertificatetransfer
+  description: >-
+    Accepts a pending certificate transfer. The default state of the certificate
+    is INACTIVE. To check for pending certificate transfers, call
+    ListCertificates to enumerate your certificates. Requires permission to
+    access the AcceptCertificateTransfer action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Acceptcertificatetransfer
+      description: >-
+        Accepts a pending certificate transfer. The default state of the certificate
+        is INACTIVE. To check for pending certificate transfers, call
+        ListCertificates to enumerate your certificates. Requires permission to
+        access the AcceptCertificateTransfer action.
+    paths:
+      /accept-certificate-transfer/{certificateId}:
+        PATCH:
+          summary: Acceptcertificatetransfer
+          description: >-
+            Accepts a pending certificate transfer. The default state of the
+            certificate is INACTIVE. To check for pending certificate transfers,
+            call ListCertificates to enumerate your certificates. Requires
+            permission to access the AcceptCertificateTransfer action.
+          operationId: acceptCertificateTransfer

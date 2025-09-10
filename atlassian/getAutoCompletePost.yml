@@ -1,0 +1,84 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Field Reference Data (post)
+  description: >-
+    Returns reference data for JQL searches. This is a downloadable version of
+    the documentation provided in [Advanced searching - fields
+    reference](https://confluence.atlassian.com/x/gwORLQ) and [Advanced
+    searching - functions reference](https://confluence.atlassian.com/x/hgORLQ),
+    along with a list of JQL-reserved words. Use this information to assist with
+    the programmatic creation of JQL queries or the validation of queries built
+    in a custom query builder.This operation can filter the custom fields
+    returned by project. Invalid project IDs in `projectIds` are ignored. System
+    fields are always returned.It can also return the collapsed field for custom
+    fields. Collapsed fields enable searches to be performed across all fields
+    with the same name and of the same field type. For example, the collapsed
+    field `Component - Component[Dropdown]` enables dropdown fields `Component -
+    cf[10061]` and `Component - cf[10062]` to be searched
+    simultaneously.**[Permissions](#permissions) required:** None.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Field Reference Data (post)
+      description: >-
+        Returns reference data for JQL searches. This is a downloadable version of
+        the documentation provided in [Advanced searching - fields
+        reference](https://confluence.atlassian.com/x/gwORLQ) and [Advanced
+        searching - functions reference](https://confluence.atlassian.com/x/hgORLQ),
+        along with a list of JQL-reserved words. Use this information to assist with
+        the programmatic creation of JQL queries or the validation of queries built
+        in a custom query builder.This operation can filter the custom fields
+        returned by project. Invalid project IDs in `projectIds` are ignored. System
+        fields are always returned.It can also return the collapsed field for custom
+        fields. Collapsed fields enable searches to be performed across all fields
+        with the same name and of the same field type. For example, the collapsed
+        field `Component - Component[Dropdown]` enables dropdown fields `Component -
+        cf[10061]` and `Component - cf[10062]` to be searched
+        simultaneously.**[Permissions](#permissions) required:** None.
+    paths:
+      /rest/api/3/jql/autocompletedata:
+        post:
+          summary: Get Field Reference Data (post)
+          description: >-
+            Returns reference data for JQL searches. This is a downloadable version
+            of the documentation provided in [Advanced searching - fields
+            reference](https://confluence.atlassian.com/x/gwORLQ) and [Advanced
+            searching - functions
+            reference](https://confluence.atlassian.com/x/hgORLQ), along with a list
+            of JQL-reserved words. Use this information to assist with the
+            programmatic creation of JQL queries or the validation of queries built
+            in a custom query builder.This operation can filter the custom fields
+            returned by project. Invalid project IDs in `projectIds` are ignored.
+            System fields are always returned.It can also return the collapsed field
+            for custom fields. Collapsed fields enable searches to be performed
+            across all fields with the same name and of the same field type. For
+            example, the collapsed field `Component - Component[Dropdown]` enables
+            dropdown fields `Component - cf[10061]` and `Component - cf[10062]` to
+            be searched simultaneously.**[Permissions](#permissions) required:**
+            None.
+          operationId: getAutoCompletePost
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  includeCollapsedFields: true
+                  projectIds:
+                    - 10000
+                    - 10001
+                    - 10002
+                schema:
+                  $ref: '#/components/schemas/SearchAutoCompleteFilter'
+          responses:
+            '401':
+              description: Returned if the authentication credentials are incorrect.

@@ -1,0 +1,73 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Details For An Ip Address
+  description: >-
+    This operation updates an IP address's settings, including whether the IP is
+    set to warm up automatically, if the IP is  assigned by a parent account,
+    and whether the IP is enabled or disabled. The request body must include at
+    least one of the `is_auto_warmup`, `is_parent_assigned`, or `is_enabled`
+    fields.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Details For An Ip Address
+      description: >-
+        This operation updates an IP address's settings, including whether the IP is
+        set to warm up automatically, if the IP is  assigned by a parent account,
+        and whether the IP is enabled or disabled. The request body must include at
+        least one of the `is_auto_warmup`, `is_parent_assigned`, or `is_enabled`
+        fields.
+    paths:
+      /v3/send_ips/ips/{ip}:
+        patch:
+          summary: Update Details For An Ip Address
+          description: >-
+            This operation updates an IP address's settings, including whether the
+            IP is set to warm up automatically, if the IP is  assigned by a parent
+            account, and whether the IP is enabled or disabled. The request body
+            must include at least one of the `is_auto_warmup`, `is_parent_assigned`,
+            or `is_enabled` fields.
+          operationId: updateIp
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    is_auto_warmup:
+                      type: boolean
+                      description: >-
+                        Indicates if the IP address is set to automatically
+                        [warmup](https://docs.sendgrid.com/ui/sending-email/warming-up-an-ip-address).
+                    is_parent_assigned:
+                      type: boolean
+                      description: >-
+                        Indicates if a parent on the account is able to send email
+                        from the IP address.
+                    is_enabled:
+                      type: boolean
+                      description: >-
+                        Indicates if the IP address is billed and able to send
+                        email. This parameter applies to non-Twilio SendGrid APIs
+                        that been added to your Twilio SendGrid account. This
+                        parameter's value is `null` for Twilio SendGrid IP
+                        addresses.
+                examples:
+                  example-1:
+                    value:
+                      is_auto_warmup: true
+                      is_parent_assigned: true
+                      is_enabled: true
+          responses:
+            '500':
+              $ref: '#/components/responses/IpAddressManagement500'

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Updates Vault Setting. A Vault Setting Object Is A Singleton Per Vault And
+    It Is Always Present By Default.
+  description: The operation to configure vault setting.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Updates Vault Setting. A Vault Setting Object Is A Singleton Per Vault And
+        It Is Always Present By Default.
+      description: The operation to configure vault setting.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationVaultSettings/{vaultSettingName}:
+        put:
+          summary: >-
+            Updates Vault Setting. A Vault Setting Object Is A Singleton Per Vault
+            And It Is Always Present By Default.
+          description: The operation to configure vault setting.
+          operationId: replicationVaultSettingCreate
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/VaultSetting'

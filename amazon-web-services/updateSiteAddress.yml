@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updatesiteaddress
+  description: >-
+    Updates the address of the specified site. You can't update a site address
+    if there is an order in progress. You must wait for the order to complete or
+    cancel the order. You can update the operating address before you place an
+    order at the site, or after all Outposts that belong to the site have been
+    deactivated.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatesiteaddress
+      description: >-
+        Updates the address of the specified site. You can't update a site address
+        if there is an order in progress. You must wait for the order to complete or
+        cancel the order. You can update the operating address before you place an
+        order at the site, or after all Outposts that belong to the site have been
+        deactivated.
+    paths:
+      /sites/{SiteId}/address:
+        PUT:
+          summary: Updatesiteaddress
+          description: >-
+            Updates the address of the specified site. You can't update a site
+            address if there is an order in progress. You must wait for the order to
+            complete or cancel the order. You can update the operating address
+            before you place an order at the site, or after all Outposts that belong
+            to the site have been deactivated.
+          operationId: updateSiteAddress

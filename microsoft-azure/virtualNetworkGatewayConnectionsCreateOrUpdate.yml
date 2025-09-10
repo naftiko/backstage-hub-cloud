@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.network Connections Virtualnetworkgatewayconnectionname
+  description: >-
+    The Put VirtualNetworkGatewayConnection operation creates/updates a virtual
+    network gateway connection in the specified resource group through Network
+    resource provider.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.network Connections Virtualnetworkgatewayconnectionname
+      description: >-
+        The Put VirtualNetworkGatewayConnection operation creates/updates a virtual
+        network gateway connection in the specified resource group through Network
+        resource provider.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/connections/{virtualNetworkGatewayConnectionName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.network Connections
+            Virtualnetworkgatewayconnectionname
+          description: >-
+            The Put VirtualNetworkGatewayConnection operation creates/updates a
+            virtual network gateway connection in the specified resource group
+            through Network resource provider.
+          operationId: virtualNetworkGatewayConnectionsCreateOrUpdate
+          responses:
+            '201':
+              description: ''
+              schema:
+                $ref: '#/definitions/VirtualNetworkGatewayConnection'

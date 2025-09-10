@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Parameters Pricelists Price_list_id Records Variant_id
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Parameters Pricelists Price_list_id Records Variant_id
+      description: Needs a more full description created.
+    paths:
+      /pricelists/{price_list_id}/records/{variant_id}:
+        parameters:
+          summary: Parameters Pricelists Price_list_id Records Variant_id
+          description: Needs a more full description created.
+          operationId: parameterspricelistspricelistidrecordsvariantid

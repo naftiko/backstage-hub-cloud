@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Set Github Actions Permissions For An Enterprise
+  description: >-
+    Sets the GitHub Actions permissions policy for organizations and allowed
+    actions in an enterprise.OAuth app tokens and personal access tokens
+    (classic) need the `admin:enterprise` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Set Github Actions Permissions For An Enterprise
+      description: >-
+        Sets the GitHub Actions permissions policy for organizations and allowed
+        actions in an enterprise.OAuth app tokens and personal access tokens
+        (classic) need the `admin:enterprise` scope to use this endpoint.
+    paths:
+      /enterprises/{enterprise}/actions/permissions:
+        put:
+          summary: Set Github Actions Permissions For An Enterprise
+          description: >-
+            Sets the GitHub Actions permissions policy for organizations and allowed
+            actions in an enterprise.OAuth app tokens and personal access tokens
+            (classic) need the `admin:enterprise` scope to use this endpoint.
+          operationId: enterpriseadminsetgithubactionspermissionsenterprise
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    enabled_organizations:
+                      $ref: '#/components/schemas/enabled-organizations'
+                    allowed_actions:
+                      $ref: '#/components/schemas/allowed-actions'
+                  required:
+                    - enabled_organizations
+                examples:
+                  default:
+                    value:
+                      enabled_organizations: all
+                      allowed_actions: selected
+          responses:
+            '204':
+              description: Response

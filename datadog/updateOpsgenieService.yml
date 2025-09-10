@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Single Service Object
+  description: Update a single service object in the Datadog Opsgenie integration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Single Service Object
+      description: Update a single service object in the Datadog Opsgenie integration.
+    paths:
+      /api/v2/integration/opsgenie/services/{integration_service_id}:
+        patch:
+          summary: Update A Single Service Object
+          description: Update a single service object in the Datadog Opsgenie integration.
+          operationId: updateOpsgenieService
+          requestBody:
+            description: Opsgenie service payload.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/OpsgenieServiceUpdateRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

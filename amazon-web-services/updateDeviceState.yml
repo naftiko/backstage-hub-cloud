@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updatedevicestate
+  description: >-
+    Using a Boolean value (true or false), this operation enables or disables
+    the device given a device ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatedevicestate
+      description: >-
+        Using a Boolean value (true or false), this operation enables or disables
+        the device given a device ID.
+    paths:
+      /devices/{deviceId}/state:
+        PUT:
+          summary: Updatedevicestate
+          description: >-
+            Using a Boolean value (true or false), this operation enables or
+            disables the device given a device ID.
+          operationId: updateDeviceState

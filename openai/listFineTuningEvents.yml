@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: |
+    Get Status Updates For A Fine-tuning Job.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: |
+        Get Status Updates For A Fine-tuning Job.
+      description: Needs a more full description created.
+    paths:
+      /fine_tuning/jobs/{fine_tuning_job_id}/events:
+        get:
+          summary: |
+            Get Status Updates For A Fine-tuning Job.
+          description: Needs a more full description created.
+          operationId: listFineTuningEvents
+          responses:
+            '200':
+              description: OK
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ListFineTuningJobEventsResponse'

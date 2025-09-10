@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Rooms Roomsid Recordingrules
+  description: Update the Recording Rules for the Room
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Rooms Roomsid Recordingrules
+      description: Update the Recording Rules for the Room
+    paths:
+      /v1/Rooms/{RoomSid}/RecordingRules:
+        post:
+          summary: Post Rooms Roomsid Recordingrules
+          description: Update the Recording Rules for the Room
+          operationId: updateRoomRecordingRule
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/UpdateRoomRecordingRuleRequest'
+          responses:
+            '202':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/video.v1.room.room_recording_rule'
+              description: Accepted

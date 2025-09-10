@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.recoveryservices Vaults Vaultname Backupvalidateoperationsstatuses
+    Operationid
+  description: >-
+    Fetches the status of a triggered validate operation. The status can be in
+    progress, completedor failed. You can refer to the OperationStatus enum for
+    all the possible states of the operation.If operation has completed, this
+    method returns the list of errors obtained while validating the operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.recoveryservices Vaults Vaultname Backupvalidateoperationsstatuses
+        Operationid
+      description: >-
+        Fetches the status of a triggered validate operation. The status can be in
+        progress, completedor failed. You can refer to the OperationStatus enum for
+        all the possible states of the operation.If operation has completed, this
+        method returns the list of errors obtained while validating the operation.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupValidateOperationsStatuses/{operationId}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.recoveryservices Vaults Vaultname
+            Backupvalidateoperationsstatuses Operationid
+          description: >-
+            Fetches the status of a triggered validate operation. The status can be
+            in progress, completedor failed. You can refer to the OperationStatus
+            enum for all the possible states of the operation.If operation has
+            completed, this method returns the list of errors obtained while
+            validating the operation.
+          operationId: validateOperationStatusesGet
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

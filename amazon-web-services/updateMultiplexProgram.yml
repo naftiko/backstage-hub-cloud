@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updatemultiplexprogram
+  description: Update a program in a multiplex.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatemultiplexprogram
+      description: Update a program in a multiplex.
+    paths:
+      /prod/multiplexes/{multiplexId}/programs/{programName}:
+        PUT:
+          summary: Updatemultiplexprogram
+          description: Update a program in a multiplex.
+          operationId: updateMultiplexProgram

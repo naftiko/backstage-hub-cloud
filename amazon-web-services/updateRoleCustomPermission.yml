@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updaterolecustompermission
+  description: Updates the custom permissions that are associated with a role.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updaterolecustompermission
+      description: Updates the custom permissions that are associated with a role.
+    paths:
+      /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission:
+        PUT:
+          summary: Updaterolecustompermission
+          description: Updates the custom permissions that are associated with a role.
+          operationId: updateRoleCustomPermission

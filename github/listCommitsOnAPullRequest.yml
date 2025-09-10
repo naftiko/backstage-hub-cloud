@@ -1,0 +1,100 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Commits On A Pull Request
+  description: >-
+    Lists a maximum of 250 commits for a pull request. To receive a
+    completecommit list for pull requests with more than 250 commits, use the
+    [List
+    commits](https://docs.github.com/enterprise-server@3.9/rest/commits/commits#list-commits)endpoint.This
+    endpoint supports the following custom media types. For more information,
+    see "[Media
+    types](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types)."-
+    **`application/vnd.github.raw+json`**: Returns the raw markdown body.
+    Response will include `body`. This is the default if you do not pass any
+    specific media type.- **`application/vnd.github.text+json`**: Returns a text
+    only representation of the markdown body. Response will include
+    `body_text`.- **`application/vnd.github.html+json`**: Returns HTML rendered
+    from the body's markdown. Response will include `body_html`.-
+    **`application/vnd.github.full+json`**: Returns raw, text, and HTML
+    representations. Response will include `body`, `body_text`, and
+    `body_html`.- **`application/vnd.github.diff`**: For more information, see
+    "[git-diff](https://git-scm.com/docs/git-diff)" in the Git documentation. If
+    a diff is corrupt, contact us through the [GitHub Support
+    portal](https://support.github.com/). Include the repository name and pull
+    request ID in your message.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Commits On A Pull Request
+      description: >-
+        Lists a maximum of 250 commits for a pull request. To receive a
+        completecommit list for pull requests with more than 250 commits, use the
+        [List
+        commits](https://docs.github.com/enterprise-server@3.9/rest/commits/commits#list-commits)endpoint.This
+        endpoint supports the following custom media types. For more information,
+        see "[Media
+        types](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types)."-
+        **`application/vnd.github.raw+json`**: Returns the raw markdown body.
+        Response will include `body`. This is the default if you do not pass any
+        specific media type.- **`application/vnd.github.text+json`**: Returns a text
+        only representation of the markdown body. Response will include
+        `body_text`.- **`application/vnd.github.html+json`**: Returns HTML rendered
+        from the body's markdown. Response will include `body_html`.-
+        **`application/vnd.github.full+json`**: Returns raw, text, and HTML
+        representations. Response will include `body`, `body_text`, and
+        `body_html`.- **`application/vnd.github.diff`**: For more information, see
+        "[git-diff](https://git-scm.com/docs/git-diff)" in the Git documentation. If
+        a diff is corrupt, contact us through the [GitHub Support
+        portal](https://support.github.com/). Include the repository name and pull
+        request ID in your message.
+    paths:
+      /repos/{owner}/{repo}/pulls/{pull_number}/commits:
+        get:
+          summary: List Commits On A Pull Request
+          description: >-
+            Lists a maximum of 250 commits for a pull request. To receive a
+            completecommit list for pull requests with more than 250 commits, use
+            the [List
+            commits](https://docs.github.com/enterprise-server@3.9/rest/commits/commits#list-commits)endpoint.This
+            endpoint supports the following custom media types. For more
+            information, see "[Media
+            types](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types)."-
+            **`application/vnd.github.raw+json`**: Returns the raw markdown body.
+            Response will include `body`. This is the default if you do not pass any
+            specific media type.- **`application/vnd.github.text+json`**: Returns a
+            text only representation of the markdown body. Response will include
+            `body_text`.- **`application/vnd.github.html+json`**: Returns HTML
+            rendered from the body's markdown. Response will include `body_html`.-
+            **`application/vnd.github.full+json`**: Returns raw, text, and HTML
+            representations. Response will include `body`, `body_text`, and
+            `body_html`.- **`application/vnd.github.diff`**: For more information,
+            see "[git-diff](https://git-scm.com/docs/git-diff)" in the Git
+            documentation. If a diff is corrupt, contact us through the [GitHub
+            Support portal](https://support.github.com/). Include the repository
+            name and pull request ID in your message.
+          operationId: listCommitsOnAPullRequest
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/commit'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/commit-items'
+              headers:
+                Link:
+                  $ref: '#/components/headers/link'

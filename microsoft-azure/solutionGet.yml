@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Scope Providers Microsoft.help Solutions Solutionresourcename
+  description: >-
+    Get the solution using the applicable solutionResourceName while creating
+    the solution.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Scope Providers Microsoft.help Solutions Solutionresourcename
+      description: >-
+        Get the solution using the applicable solutionResourceName while creating
+        the solution.
+    paths:
+      /{scope}/providers/Microsoft.Help/solutions/{solutionResourceName}:
+        get:
+          summary: Get Scope Providers Microsoft.help Solutions Solutionresourcename
+          description: >-
+            Get the solution using the applicable solutionResourceName while
+            creating the solution.
+          operationId: solutionGet
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getgraphsummary
+  description: Gets a graph summary for a property graph.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getgraphsummary
+      description: Gets a graph summary for a property graph.
+    paths:
+      /summary:
+        GET:
+          summary: Getgraphsummary
+          description: Gets a graph summary for a property graph.
+          operationId: getGraphSummary

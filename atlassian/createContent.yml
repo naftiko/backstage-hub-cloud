@@ -1,0 +1,90 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Content
+  description: >-
+    Deprecated, use [Confluence's v2
+    API](https://developer.atlassian.com/cloud/confluence/rest/v2/intro/).Creates
+    a new piece of content or publishes an existing draft.To publish a draft,
+    add the `id` and `status` properties to the body of the request.Set the `id`
+    to the ID of the draft and set the `status` to 'current'. When therequest is
+    sent, a new piece of content will be created and the metadata from thedraft
+    will be transferred into it.By default, the following objects are expanded:
+    `space`, `history`,
+    `version`.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**: 'Add' permission for thespace that the content will be created
+    in, and permission to view the draft if publishing a draft.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Content
+      description: >-
+        Deprecated, use [Confluence's v2
+        API](https://developer.atlassian.com/cloud/confluence/rest/v2/intro/).Creates
+        a new piece of content or publishes an existing draft.To publish a draft,
+        add the `id` and `status` properties to the body of the request.Set the `id`
+        to the ID of the draft and set the `status` to 'current'. When therequest is
+        sent, a new piece of content will be created and the metadata from thedraft
+        will be transferred into it.By default, the following objects are expanded:
+        `space`, `history`,
+        `version`.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**: 'Add' permission for thespace that the content will be created
+        in, and permission to view the draft if publishing a draft.
+    paths:
+      /wiki/rest/api/content:
+        post:
+          summary: Create Content
+          description: >-
+            Deprecated, use [Confluence's v2
+            API](https://developer.atlassian.com/cloud/confluence/rest/v2/intro/).Creates
+            a new piece of content or publishes an existing draft.To publish a
+            draft, add the `id` and `status` properties to the body of the
+            request.Set the `id` to the ID of the draft and set the `status` to
+            'current'. When therequest is sent, a new piece of content will be
+            created and the metadata from thedraft will be transferred into it.By
+            default, the following objects are expanded: `space`, `history`,
+            `version`.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**: 'Add' permission for thespace that the content will be
+            created in, and permission to view the draft if publishing a draft.
+          operationId: createContent
+          requestBody:
+            description: >-
+              The new content to be created. Set the `representation` to the name of
+              the body
+
+              format type. For example, if you use `storage` for the body format,
+              set
+
+              '`representation`=`storage`'. See
+
+              [Confluence storage
+              format](https://confluence.atlassian.com/x/AJkiLw).
+
+
+              If you are not sure how to generate the different formats, you can
+              create a page in the
+
+              Confluence application, retrieve the content using [Get
+              content](#api-content-get),
+
+              and expand the desired content format, e.g. `expand=body.storage`.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ContentCreate'
+          responses:
+            '413':
+              description: >-
+                Returned if request is too large.  Requests for this resource can be
+                at most 5242880 bytes
+              content: {}

@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Set App Property
+  description: >-
+    Sets the value of an app's property. Use this resource to store custom data
+    for your app.The value of the request body must be a
+    [valid](http://tools.ietf.org/html/rfc4627), non-empty JSON blob. The
+    maximum length is 32768 characters.**[Permissions](#permissions) required:**
+    Only a Connect app whose key matches `addonKey` can make this
+    request.Additionally, Forge apps can access Connect app properties (stored
+    against the same `app.connect.key`).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Set App Property
+      description: >-
+        Sets the value of an app's property. Use this resource to store custom data
+        for your app.The value of the request body must be a
+        [valid](http://tools.ietf.org/html/rfc4627), non-empty JSON blob. The
+        maximum length is 32768 characters.**[Permissions](#permissions) required:**
+        Only a Connect app whose key matches `addonKey` can make this
+        request.Additionally, Forge apps can access Connect app properties (stored
+        against the same `app.connect.key`).
+    paths:
+      /rest/atlassian-connect/1/addons/{addonKey}/properties/{propertyKey}:
+        put:
+          summary: Set App Property
+          description: >-
+            Sets the value of an app's property. Use this resource to store custom
+            data for your app.The value of the request body must be a
+            [valid](http://tools.ietf.org/html/rfc4627), non-empty JSON blob. The
+            maximum length is 32768 characters.**[Permissions](#permissions)
+            required:** Only a Connect app whose key matches `addonKey` can make
+            this request.Additionally, Forge apps can access Connect app properties
+            (stored against the same `app.connect.key`).
+          operationId: addonPropertiesResource.PutAddonPropertyput
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema: {}
+          responses:
+            '401':
+              content:
+                application/json:
+                  example:
+                    message: Access to this resource must be authenticated as an app.
+                    statusCode: 401
+                  schema:
+                    $ref: '#/components/schemas/OperationMessage'
+              description: Returned if the authentication credentials are incorrect or missing.

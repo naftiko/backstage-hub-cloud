@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listeventlogs
+  description: >-
+    Retrieves a list of events that occurred during a specific time in a space.
+    You can use these events to audit user and system activity in a space. For
+    more information, see Monitoring in the Amazon CodeCatalyst User Guide. 
+    ListEventLogs guarantees events for the last 30 days in a given space. You
+    can also view and retrieve a list of management events over the last 90 days
+    for Amazon CodeCatalyst in the CloudTrail console by viewing Event history,
+    or by creating a trail to create and maintain a record of events that
+    extends past 90 days. For more information, see Working with CloudTrail
+    Event History and Working with CloudTrail trails. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listeventlogs
+      description: >-
+        Retrieves a list of events that occurred during a specific time in a space.
+        You can use these events to audit user and system activity in a space. For
+        more information, see Monitoring in the Amazon CodeCatalyst User Guide. 
+        ListEventLogs guarantees events for the last 30 days in a given space. You
+        can also view and retrieve a list of management events over the last 90 days
+        for Amazon CodeCatalyst in the CloudTrail console by viewing Event history,
+        or by creating a trail to create and maintain a record of events that
+        extends past 90 days. For more information, see Working with CloudTrail
+        Event History and Working with CloudTrail trails. 
+    paths:
+      /v1/spaces/{spaceName}/eventLogs:
+        POST:
+          summary: Listeventlogs
+          description: >-
+            Retrieves a list of events that occurred during a specific time in a
+            space. You can use these events to audit user and system activity in a
+            space. For more information, see Monitoring in the Amazon CodeCatalyst
+            User Guide.  ListEventLogs guarantees events for the last 30 days in a
+            given space. You can also view and retrieve a list of management events
+            over the last 90 days for Amazon CodeCatalyst in the CloudTrail console
+            by viewing Event history, or by creating a trail to create and maintain
+            a record of events that extends past 90 days. For more information, see
+            Working with CloudTrail Event History and Working with CloudTrail
+            trails. 
+          operationId: listEventLogs

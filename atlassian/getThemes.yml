@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Themes
+  description: >-
+    Returns all themes, not including the default
+    theme.**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:
+    None
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Themes
+      description: >-
+        Returns all themes, not including the default
+        theme.**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:
+        None
+    paths:
+      /wiki/rest/api/settings/theme:
+        get:
+          summary: Get Themes
+          description: >-
+            Returns all themes, not including the default
+            theme.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**: None
+          operationId: getThemes
+          responses:
+            '200':
+              description: Returned if the requested themes are returned.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ThemeArray'

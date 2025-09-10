@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Transcripts Sid
+  description: Delete a specific Transcript.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Transcripts Sid
+      description: Delete a specific Transcript.
+    paths:
+      /v2/Transcripts/{Sid}:
+        delete:
+          summary: Delete Transcripts Sid
+          description: Delete a specific Transcript.
+          operationId: deleteTranscript
+          responses:
+            '204':
+              description: The resource was deleted successfully.

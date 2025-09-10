@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Customers Customer Subscriptions
+  description: >-
+    You can see a list of the customer’s active subscriptions. Note that the 10
+    most recent active subscriptions are always available by default on the
+    customer object. If you need more than those 10, you can use the limit and
+    starting_after parameters to page through additional subscriptions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Customers Customer Subscriptions
+      description: >-
+        You can see a list of the customer’s active subscriptions. Note that the 10
+        most recent active subscriptions are always available by default on the
+        customer object. If you need more than those 10, you can use the limit and
+        starting_after parameters to page through additional subscriptions.
+    paths:
+      /v1/customers/{customer}/subscriptions:
+        get:
+          summary: Get Customers Customer Subscriptions
+          description: >-
+            You can see a list of the customer’s active subscriptions. Note that the
+            10 most recent active subscriptions are always available by default on
+            the customer object. If you need more than those 10, you can use the
+            limit and starting_after parameters to page through additional
+            subscriptions.
+          operationId: getCustomersCustomerSubscriptions
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetCustomersCustomerSubscriptionsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

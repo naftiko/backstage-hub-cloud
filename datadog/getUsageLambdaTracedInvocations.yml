@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Hourly Usage For Lambda Traced Invocations
+  description: >-
+    Get hourly usage for Lambda traced invocations.**Note:** This endpoint has
+    been deprecated.. Hourly usage data for all products is now available in the
+    [Get hourly usage by product family
+    API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Hourly Usage For Lambda Traced Invocations
+      description: >-
+        Get hourly usage for Lambda traced invocations.**Note:** This endpoint has
+        been deprecated.. Hourly usage data for all products is now available in the
+        [Get hourly usage by product family
+        API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
+    paths:
+      /api/v2/usage/lambda_traced_invocations:
+        get:
+          summary: Get Hourly Usage For Lambda Traced Invocations
+          description: >-
+            Get hourly usage for Lambda traced invocations.**Note:** This endpoint
+            has been deprecated.. Hourly usage data for all products is now
+            available in the [Get hourly usage by product family
+            API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
+          operationId: getUsageLambdaTracedInvocations
+          responses:
+            '429':
+              content:
+                application/json;datetime-format=rfc3339:
+                  schema:
+                    $ref: '#/components/schemas/APIErrorResponse'
+              description: Too many requests

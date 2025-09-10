@@ -1,0 +1,125 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Enabled Filters
+  description: >-
+    Updates enabled default [Product
+    Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings)
+    filters.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Enabled Filters
+      description: >-
+        Updates enabled default [Product
+        Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings)
+        filters.
+    paths:
+      /settings/search/filters:
+        put:
+          summary: Update Enabled Filters
+          description: >-
+            Updates enabled default [Product
+            Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings)
+            filters.
+          operationId: updateSettingsEnabledSearchFilters
+          requestBody:
+            content:
+              application/json:
+                examples:
+                  example-1:
+                    value:
+                      - collapsed_by_default: false
+                        display_name: Size
+                        display_product_count: true
+                        id: U123=
+                        is_enabled: true
+                        items_to_show: 12
+                        sort_by: alpha
+                        type: product
+                      - collapsed_by_default: false
+                        display_name: Brand
+                        display_product_count: true
+                        id: Y123=
+                        is_enabled: true
+                        items_to_show: 10
+                        sort_by: alpha
+                        type: brand
+                      - collapsed_by_default: false
+                        display_name: Color
+                        display_product_count: true
+                        id: Q123=
+                        is_enabled: true
+                        items_to_show: 10
+                        sort_by: alpha
+                        type: product
+                      - collapsed_by_default: true
+                        display_name: Ships for Free
+                        display_product_count: true
+                        id: Y456=
+                        is_enabled: true
+                        show_free_shipping_filter: true
+                        show_in_stock_filter: true
+                        show_is_featured_filter: true
+                        type: other
+                schema:
+                  $ref: '#/components/schemas/ConfiguredFilters'
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  examples:
+                    example-1:
+                      value:
+                        data:
+                          - collapsed_by_default: false
+                            display_name: Size
+                            display_product_count: true
+                            id: U123==
+                            is_enabled: true
+                            items_to_show: 12
+                            sort_by: alpha
+                            type: product
+                          - collapsed_by_default: false
+                            display_name: Brand
+                            display_product_count: true
+                            id: Y123=
+                            is_enabled: true
+                            items_to_show: 10
+                            sort_by: alpha
+                            type: brand
+                          - collapsed_by_default: false
+                            display_name: Color
+                            display_product_count: true
+                            id: Q123=
+                            is_enabled: true
+                            items_to_show: 10
+                            sort_by: alpha
+                            type: product
+                          - collapsed_by_default: true
+                            display_name: Ships for Free
+                            display_product_count: true
+                            id: Y456=
+                            is_enabled: true
+                            show_free_shipping_filter: true
+                            show_in_stock_filter: true
+                            show_is_featured_filter: true
+                            type: other
+                        meta: {}
+                  schema:
+                    type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/ConfiguredFilters'
+                      meta:
+                        $ref: '#/components/schemas/MetaOpen'

@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add Resource To Confluent Account
+  description: Create a Confluent resource for the account associated with the provided ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add Resource To Confluent Account
+      description: Create a Confluent resource for the account associated with the provided ID.
+    paths:
+      /api/v2/integrations/confluent-cloud/accounts/{account_id}/resources:
+        post:
+          summary: Add Resource To Confluent Account
+          description: >-
+            Create a Confluent resource for the account associated with the provided
+            ID.
+          operationId: addresourcetoConfluentaccount
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      attributes:
+                        resource_type: kafka
+                        enable_custom_metrics: false
+                        tags:
+                          - myTag
+                          - myTag2:myValue
+                      type: confluent-cloud-resources
+                      id: resource-id-123
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

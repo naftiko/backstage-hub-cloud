@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Rum Retention Filter
+  description: >-
+    Create a RUM retention filter for a RUM application.Returns RUM retention
+    filter objects from the request body when the request is successful.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Rum Retention Filter
+      description: >-
+        Create a RUM retention filter for a RUM application.Returns RUM retention
+        filter objects from the request body when the request is successful.
+    paths:
+      /api/v2/rum/applications/{app_id}/retention_filters:
+        post:
+          summary: Create A Rum Retention Filter
+          description: >-
+            Create a RUM retention filter for a RUM application.Returns RUM
+            retention filter objects from the request body when the request is
+            successful.
+          operationId: createRetentionFilter
+          requestBody:
+            description: The definition of the new RUM retention filter.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RumRetentionFilterCreateRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

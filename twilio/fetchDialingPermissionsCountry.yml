@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Dialingpermissions Countries Isocode
+  description: >-
+    Retrieve voice dialing country permissions identified by the given ISO
+    country code
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Dialingpermissions Countries Isocode
+      description: >-
+        Retrieve voice dialing country permissions identified by the given ISO
+        country code
+    paths:
+      /v1/DialingPermissions/Countries/{IsoCode}:
+        get:
+          summary: Get Dialingpermissions Countries Isocode
+          description: >-
+            Retrieve voice dialing country permissions identified by the given ISO
+            country code
+          operationId: fetchDialingPermissionsCountry
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: >-
+                      #/components/schemas/voice.v1.dialing_permissions.dialing_permissions_country-instance
+              description: OK

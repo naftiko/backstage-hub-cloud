@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Providers Microsoft.adhybridhealthservice Services
+  description: >-
+    Onboards a service for a given tenant in Azure Active Directory Connect
+    Health.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Providers Microsoft.adhybridhealthservice Services
+      description: >-
+        Onboards a service for a given tenant in Azure Active Directory Connect
+        Health.
+    paths:
+      /providers/Microsoft.ADHybridHealthService/services:
+        post:
+          summary: Post Providers Microsoft.adhybridhealthservice Services
+          description: >-
+            Onboards a service for a given tenant in Azure Active Directory Connect
+            Health.
+          operationId: servicesadd
+          responses:
+            '200':
+              description: Successfully added the service.
+              schema:
+                $ref: '#/definitions/ServiceProperties'

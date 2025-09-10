@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Disassociate A Branded Link From A Subuser
+  description: >-
+    **This endpoint allows you to take a branded link away from a subuser.**Link
+    branding can be associated with subusers from the parent account. This
+    functionality allows subusers to send mail using their parent's link
+    branding. To associate link branding, the parent account must first create a
+    branded link and validate it. The parent may then associate that branded
+    link with a subuser via the API or the [Subuser Management page of the
+    Twilio SendGrid App](https://app.sendgrid.com/settings/subusers).Your
+    request will receive a response with a 204 status code if the disassociation
+    was successful.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disassociate A Branded Link From A Subuser
+      description: >-
+        **This endpoint allows you to take a branded link away from a subuser.**Link
+        branding can be associated with subusers from the parent account. This
+        functionality allows subusers to send mail using their parent's link
+        branding. To associate link branding, the parent account must first create a
+        branded link and validate it. The parent may then associate that branded
+        link with a subuser via the API or the [Subuser Management page of the
+        Twilio SendGrid App](https://app.sendgrid.com/settings/subusers).Your
+        request will receive a response with a 204 status code if the disassociation
+        was successful.
+    paths:
+      /v3/whitelabel/links/subuser:
+        delete:
+          summary: Disassociate A Branded Link From A Subuser
+          description: >-
+            **This endpoint allows you to take a branded link away from a
+            subuser.**Link branding can be associated with subusers from the parent
+            account. This functionality allows subusers to send mail using their
+            parent's link branding. To associate link branding, the parent account
+            must first create a branded link and validate it. The parent may then
+            associate that branded link with a subuser via the API or the [Subuser
+            Management page of the Twilio SendGrid
+            App](https://app.sendgrid.com/settings/subusers).Your request will
+            receive a response with a 204 status code if the disassociation was
+            successful.
+          operationId: disassociateBrandedLinkFromSubuser
+          responses:
+            '204':
+              description: ''

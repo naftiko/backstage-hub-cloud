@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Providers Microsoft.agfoodplatform Farmbeatsextensiondefinitions
+  description: Get list of Data Manager For Agriculture extension.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Providers Microsoft.agfoodplatform Farmbeatsextensiondefinitions
+      description: Get list of Data Manager For Agriculture extension.
+    paths:
+      /providers/Microsoft.AgFoodPlatform/farmBeatsExtensionDefinitions:
+        get:
+          summary: Get Providers Microsoft.agfoodplatform Farmbeatsextensiondefinitions
+          description: Get list of Data Manager For Agriculture extension.
+          operationId: dataManagerForAgricultureExtensionsList
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v4/types.json#/definitions/ErrorResponse

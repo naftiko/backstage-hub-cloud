@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listmanagedjobtemplates
+  description: Returns a list of managed job templates.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listmanagedjobtemplates
+      description: Returns a list of managed job templates.
+    paths:
+      /managed-job-templates:
+        GET:
+          summary: Listmanagedjobtemplates
+          description: Returns a list of managed job templates.
+          operationId: listManagedJobTemplates

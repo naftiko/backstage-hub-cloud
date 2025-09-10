@@ -1,0 +1,70 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Set The Customization Template For An Oidc Subject Claim For A Repository
+  description: >-
+    Sets the customization template and `opt-in` or `opt-out` flag for an OpenID
+    Connect (OIDC) subject claim for a repository.OAuth app tokens and personal
+    access tokens (classic) need the `repo` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Set The Customization Template For An Oidc Subject Claim For A Repository
+      description: >-
+        Sets the customization template and `opt-in` or `opt-out` flag for an OpenID
+        Connect (OIDC) subject claim for a repository.OAuth app tokens and personal
+        access tokens (classic) need the `repo` scope to use this endpoint.
+    paths:
+      /repos/{owner}/{repo}/actions/oidc/customization/sub:
+        put:
+          summary: >-
+            Set The Customization Template For An Oidc Subject Claim For A
+            Repository
+          description: >-
+            Sets the customization template and `opt-in` or `opt-out` flag for an
+            OpenID Connect (OIDC) subject claim for a repository.OAuth app tokens
+            and personal access tokens (classic) need the `repo` scope to use this
+            endpoint.
+          operationId: setTheCustomizationTemplateForAnOIDCSubjectClaimForARepository
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  title: Actions OIDC subject customization for a repository
+                  description: Actions OIDC subject customization for a repository
+                  type: object
+                  required:
+                    - use_default
+                  properties:
+                    use_default:
+                      description: >-
+                        Whether to use the default template or not. If `true`, the
+                        `include_claim_keys` field is ignored.
+                      type: boolean
+                    include_claim_keys:
+                      description: >-
+                        Array of unique strings. Each claim key can only contain
+                        alphanumeric characters and underscores.
+                      type: array
+                      items:
+                        type: string
+                examples:
+                  default:
+                    value:
+                      use_default: false
+                      include_claim_keys:
+                        - repo
+                        - context
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed_simple'

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.hybriddata Datamanagers Datamanagername Datastoretypes
+  description: Gets all the data store/repository types that the resource supports.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.hybriddata Datamanagers Datamanagername Datastoretypes
+      description: Gets all the data store/repository types that the resource supports.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridData/dataManagers/{dataManagerName}/dataStoreTypes:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.hybriddata Datamanagers Datamanagername
+            Datastoretypes
+          description: Gets all the data store/repository types that the resource supports.
+          operationId: dataStoreTypesListByDataManager
+          responses:
+            '200':
+              description: The list of data store types that are supported.
+              schema:
+                $ref: '#/definitions/DataStoreTypeList'

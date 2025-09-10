@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.operationalinsights Workspaces Workspacename Features Servicemap
+    Machines Machinename Ports Portname Acceptingprocesses
+  description: Returns a collection of processes accepting on the specified port
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.operationalinsights Workspaces Workspacename Features Servicemap
+        Machines Machinename Ports Portname Acceptingprocesses
+      description: Returns a collection of processes accepting on the specified port
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/serviceMap/machines/{machineName}/ports/{portName}/acceptingProcesses:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.operationalinsights Workspaces Workspacename
+            Features Servicemap Machines Machinename Ports Portname
+            Acceptingprocesses
+          description: Returns a collection of processes accepting on the specified port
+          operationId: portsListAcceptingProcesses
+          responses:
+            default:
+              description: >-
+                An error occurred while processing the request. See the error.code
+                parameter to identify the specific error.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

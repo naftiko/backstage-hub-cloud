@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieves A Single Comment By Its Id
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/online-store/comment#show-2020-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves A Single Comment By Its Id
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/online-store/comment#show-2020-01
+    paths:
+      /admin/api/2020-01/comments/{comment_id}.json:
+        get:
+          summary: Retrieves A Single Comment By Its Id
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/online-store/comment#show-2020-01
+          operationId: deprecated202001getcommentsparamcommentid
+          responses:
+            '200':
+              description: ''

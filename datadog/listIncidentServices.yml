@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A List Of All Incident Services
+  description: >-
+    Get all incident services uploaded for the requesting user's organization.
+    If the `include[users]` query parameter is provided, the included attribute
+    will contain the users related to these incident services.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A List Of All Incident Services
+      description: >-
+        Get all incident services uploaded for the requesting user's organization.
+        If the `include[users]` query parameter is provided, the included attribute
+        will contain the users related to these incident services.
+    paths:
+      /api/v2/services:
+        get:
+          summary: Get A List Of All Incident Services
+          description: >-
+            Get all incident services uploaded for the requesting user's
+            organization. If the `include[users]` query parameter is provided, the
+            included attribute will contain the users related to these incident
+            services.
+          operationId: listIncidentServices
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

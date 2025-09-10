@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Put Apps Appid Versions Versionid Entities Entityid Features
+  description: >-
+    Updates the information of the features used by the entity in a version of
+    the application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Apps Appid Versions Versionid Entities Entityid Features
+      description: >-
+        Updates the information of the features used by the entity in a version of
+        the application.
+    paths:
+      /apps/{appId}/versions/{versionId}/entities/{entityId}/features:
+        put:
+          summary: Put Apps Appid Versions Versionid Entities Entityid Features
+          description: >-
+            Updates the information of the features used by the entity in a version
+            of the application.
+          operationId: modelReplaceEntityFeatures
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

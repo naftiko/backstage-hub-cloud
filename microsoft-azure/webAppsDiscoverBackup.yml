@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Discovers An Existing App Backup That Can Be Restored From A Blob In Azure
+    Storage. Use This To Get Information About The Databases Stored In A Backup.
+  description: >-
+    Description for Discovers an existing app backup that can be restored from a
+    blob in Azure storage. Use this to get information about the databases
+    stored in a backup.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Discovers An Existing App Backup That Can Be Restored From A Blob In Azure
+        Storage. Use This To Get Information About The Databases Stored In A Backup.
+      description: >-
+        Description for Discovers an existing app backup that can be restored from a
+        blob in Azure storage. Use this to get information about the databases
+        stored in a backup.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/discoverbackup:
+        post:
+          summary: >-
+            Discovers An Existing App Backup That Can Be Restored From A Blob In
+            Azure Storage. Use This To Get Information About The Databases Stored In
+            A Backup.
+          description: >-
+            Description for Discovers an existing app backup that can be restored
+            from a blob in Azure storage. Use this to get information about the
+            databases stored in a backup.
+          operationId: webAppsDiscoverBackup
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

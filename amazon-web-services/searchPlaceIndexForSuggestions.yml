@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Searchplaceindexforsuggestions
+  description: >-
+    Generates suggestions for addresses and points of interest based on partial
+    or misspelled free-form text. This operation is also known as autocomplete,
+    autosuggest, or fuzzy matching. Optional parameters let you narrow your
+    search results by bounding box or country, or bias your search toward a
+    specific position on the globe.  You can search for suggested place names
+    near a specified position by using BiasPosition, or filter results within a
+    bounding box by using FilterBBox. These parameters are mutually exclusive;
+    using both BiasPosition and FilterBBox in the same command returns an
+    error. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Searchplaceindexforsuggestions
+      description: >-
+        Generates suggestions for addresses and points of interest based on partial
+        or misspelled free-form text. This operation is also known as autocomplete,
+        autosuggest, or fuzzy matching. Optional parameters let you narrow your
+        search results by bounding box or country, or bias your search toward a
+        specific position on the globe.  You can search for suggested place names
+        near a specified position by using BiasPosition, or filter results within a
+        bounding box by using FilterBBox. These parameters are mutually exclusive;
+        using both BiasPosition and FilterBBox in the same command returns an
+        error. 
+    paths:
+      /places/v0/indexes/{IndexName}/search/suggestions:
+        POST:
+          summary: Searchplaceindexforsuggestions
+          description: >-
+            Generates suggestions for addresses and points of interest based on
+            partial or misspelled free-form text. This operation is also known as
+            autocomplete, autosuggest, or fuzzy matching. Optional parameters let
+            you narrow your search results by bounding box or country, or bias your
+            search toward a specific position on the globe.  You can search for
+            suggested place names near a specified position by using BiasPosition,
+            or filter results within a bounding box by using FilterBBox. These
+            parameters are mutually exclusive; using both BiasPosition and
+            FilterBBox in the same command returns an error. 
+          operationId: searchPlaceIndexForSuggestions

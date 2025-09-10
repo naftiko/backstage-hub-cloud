@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Filter
+  description: >-
+    Creates a filter. The filter is shared according to the [default share
+    scope](#api-rest-api-3-filter-post). The filter is not selected as a
+    favorite.**[Permissions](#permissions) required:** Permission to access
+    Jira.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Filter
+      description: >-
+        Creates a filter. The filter is shared according to the [default share
+        scope](#api-rest-api-3-filter-post). The filter is not selected as a
+        favorite.**[Permissions](#permissions) required:** Permission to access
+        Jira.
+    paths:
+      /rest/api/3/filter:
+        post:
+          summary: Create Filter
+          description: >-
+            Creates a filter. The filter is shared according to the [default share
+            scope](#api-rest-api-3-filter-post). The filter is not selected as a
+            favorite.**[Permissions](#permissions) required:** Permission to access
+            Jira.
+          operationId: createFilter
+          requestBody:
+            description: The filter to create.
+            required: true
+            content:
+              application/json:
+                example:
+                  description: Lists all open bugs
+                  jql: type = Bug and resolution is empty
+                  name: All Open Bugs
+                schema:
+                  $ref: '#/components/schemas/Filter'
+          responses:
+            '401':
+              description: Returned if the authentication credentials are incorrect or missing.

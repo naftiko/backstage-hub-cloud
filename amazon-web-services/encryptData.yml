@@ -1,0 +1,83 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Encryptdata
+  description: >-
+    Encrypts plaintext data to ciphertext using symmetric, asymmetric, or DUKPT
+    data encryption key. For more information, see Encrypt data in the Amazon
+    Web Services Payment Cryptography User Guide. You can generate an encryption
+    key within Amazon Web Services Payment Cryptography by calling CreateKey.
+    You can import your own encryption key by calling ImportKey. For this
+    operation, the key must have KeyModesOfUse set to Encrypt. In asymmetric
+    encryption, plaintext is encrypted using public component. You can import
+    the public component of an asymmetric key pair created outside Amazon Web
+    Services Payment Cryptography by calling ImportKey).  for symmetric and
+    DUKPT encryption, Amazon Web Services Payment Cryptography supports TDES and
+    AES algorithms. For asymmetric encryption, Amazon Web Services Payment
+    Cryptography supports RSA. To encrypt using DUKPT, you must already have a
+    DUKPT key in your account with KeyModesOfUse set to DeriveKey, or you can
+    generate a new DUKPT key by calling CreateKey. For information about valid
+    keys for this operation, see Understanding key attributes and Key types for
+    specific data operations in the Amazon Web Services Payment Cryptography
+    User Guide.  Cross-account use: This operation can't be used across
+    different Amazon Web Services accounts.  Related operations:    
+    DecryptData     GetPublicCertificate     ImportKey     ReEncryptData   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Encryptdata
+      description: >-
+        Encrypts plaintext data to ciphertext using symmetric, asymmetric, or DUKPT
+        data encryption key. For more information, see Encrypt data in the Amazon
+        Web Services Payment Cryptography User Guide. You can generate an encryption
+        key within Amazon Web Services Payment Cryptography by calling CreateKey.
+        You can import your own encryption key by calling ImportKey. For this
+        operation, the key must have KeyModesOfUse set to Encrypt. In asymmetric
+        encryption, plaintext is encrypted using public component. You can import
+        the public component of an asymmetric key pair created outside Amazon Web
+        Services Payment Cryptography by calling ImportKey).  for symmetric and
+        DUKPT encryption, Amazon Web Services Payment Cryptography supports TDES and
+        AES algorithms. For asymmetric encryption, Amazon Web Services Payment
+        Cryptography supports RSA. To encrypt using DUKPT, you must already have a
+        DUKPT key in your account with KeyModesOfUse set to DeriveKey, or you can
+        generate a new DUKPT key by calling CreateKey. For information about valid
+        keys for this operation, see Understanding key attributes and Key types for
+        specific data operations in the Amazon Web Services Payment Cryptography
+        User Guide.  Cross-account use: This operation can't be used across
+        different Amazon Web Services accounts.  Related operations:    
+        DecryptData     GetPublicCertificate     ImportKey     ReEncryptData   
+    paths:
+      /keys/{KeyIdentifier}/encrypt:
+        POST:
+          summary: Encryptdata
+          description: >-
+            Encrypts plaintext data to ciphertext using symmetric, asymmetric, or
+            DUKPT data encryption key. For more information, see Encrypt data in the
+            Amazon Web Services Payment Cryptography User Guide. You can generate an
+            encryption key within Amazon Web Services Payment Cryptography by
+            calling CreateKey. You can import your own encryption key by calling
+            ImportKey. For this operation, the key must have KeyModesOfUse set to
+            Encrypt. In asymmetric encryption, plaintext is encrypted using public
+            component. You can import the public component of an asymmetric key pair
+            created outside Amazon Web Services Payment Cryptography by calling
+            ImportKey).  for symmetric and DUKPT encryption, Amazon Web Services
+            Payment Cryptography supports TDES and AES algorithms. For asymmetric
+            encryption, Amazon Web Services Payment Cryptography supports RSA. To
+            encrypt using DUKPT, you must already have a DUKPT key in your account
+            with KeyModesOfUse set to DeriveKey, or you can generate a new DUKPT key
+            by calling CreateKey. For information about valid keys for this
+            operation, see Understanding key attributes and Key types for specific
+            data operations in the Amazon Web Services Payment Cryptography User
+            Guide.  Cross-account use: This operation can't be used across different
+            Amazon Web Services accounts.  Related operations:     DecryptData    
+            GetPublicCertificate     ImportKey     ReEncryptData   
+          operationId: encryptData

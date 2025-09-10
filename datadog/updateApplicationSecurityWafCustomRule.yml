@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Waf Custom Rule
+  description: >-
+    Update a specific WAF custom Rule.Returns the Custom Rule object when the
+    request is successful.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Waf Custom Rule
+      description: >-
+        Update a specific WAF custom Rule.Returns the Custom Rule object when the
+        request is successful.
+    paths:
+      /api/v2/remote_config/products/asm/waf/custom_rules/{custom_rule_id}:
+        put:
+          summary: Update A Waf Custom Rule
+          description: >-
+            Update a specific WAF custom Rule.Returns the Custom Rule object when
+            the request is successful.
+          operationId: updateApplicationSecurityWafCustomRule
+          requestBody:
+            description: New definition of the WAF Custom Rule.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: >-
+                    #/components/schemas/ApplicationSecurityWafCustomRuleUpdateRequest
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

@@ -1,0 +1,73 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Apps.permissions.request
+  description: Allows an app to request additional scopes
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Apps.permissions.request
+      description: Allows an app to request additional scopes
+    paths:
+      /apps.permissions.request:
+        get:
+          summary: Get Apps.permissions.request
+          description: Allows an app to request additional scopes
+          operationId: appspermissionsrequest
+          responses:
+            default:
+              description: Standard failure response when trigger_id is invalid
+              content:
+                application/json:
+                  schema:
+                    title: apps.permissions.request error schema
+                    required:
+                      - error
+                      - ok
+                    type: object
+                    properties:
+                      callstack:
+                        type: string
+                        description: 'Note: PHP callstack is only visible in dev/qa'
+                      error:
+                        type: string
+                        enum:
+                          - invalid_trigger
+                          - trigger_exchanged
+                          - invalid_scope
+                          - invalid_user
+                          - not_authed
+                          - invalid_auth
+                          - account_inactive
+                          - token_revoked
+                          - no_permission
+                          - org_login_required
+                          - user_is_bot
+                          - invalid_arg_name
+                          - invalid_array_arg
+                          - invalid_charset
+                          - invalid_form_data
+                          - invalid_post_type
+                          - missing_post_type
+                          - team_added_to_org
+                          - invalid_json
+                          - json_not_object
+                          - request_timeout
+                          - upgrade_required
+                          - fatal_error
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                    additionalProperties: false
+                    description: Schema for error response from apps.permissions.request method
+                  example:
+                    error: invalid_trigger_id
+                    ok: false

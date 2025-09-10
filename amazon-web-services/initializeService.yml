@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Initializeservice
+  description: Initialize Application Migration Service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Initializeservice
+      description: Initialize Application Migration Service.
+    paths:
+      /InitializeService:
+        POST:
+          summary: Initializeservice
+          description: Initialize Application Migration Service.
+          operationId: initializeService

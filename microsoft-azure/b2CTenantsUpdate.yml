@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+    Providers Microsoft.azureactivedirectory B2cdirectories Resourcename
+  description: Update the Azure AD B2C tenant resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.azureactivedirectory B2cdirectories Resourcename
+      description: Update the Azure AD B2C tenant resource.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureActiveDirectory/b2cDirectories/{resourceName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.azureactivedirectory B2cdirectories Resourcename
+          description: Update the Azure AD B2C tenant resource.
+          operationId: b2CTenantsUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

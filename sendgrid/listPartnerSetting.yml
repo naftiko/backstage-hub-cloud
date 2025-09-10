@@ -1,0 +1,81 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Returns A List Of All Partner Settings.
+  description: >-
+    **This endpoint allows you to retrieve a paginated list of all partner
+    settings that you can enable.**You can use the `limit` query parameter to
+    set the page size. If your list contains more items than the page size
+    permits, you can make multiple requests.Use the `offset` query parameter to
+    control the position in the list from which to start retrieving additional
+    items.'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Returns A List Of All Partner Settings.
+      description: >-
+        **This endpoint allows you to retrieve a paginated list of all partner
+        settings that you can enable.**You can use the `limit` query parameter to
+        set the page size. If your list contains more items than the page size
+        permits, you can make multiple requests.Use the `offset` query parameter to
+        control the position in the list from which to start retrieving additional
+        items.'
+    paths:
+      /v3/partner_settings:
+        get:
+          summary: Returns A List Of All Partner Settings.
+          description: >-
+            **This endpoint allows you to retrieve a paginated list of all partner
+            settings that you can enable.**You can use the `limit` query parameter
+            to set the page size. If your list contains more items than the page
+            size permits, you can make multiple requests.Use the `offset` query
+            parameter to control the position in the list from which to start
+            retrieving additional items.'
+          operationId: listPartnerSetting
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      result:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            title:
+                              type: string
+                              description: The title of the partner.
+                            enabled:
+                              type: boolean
+                              description: Indicates if this partner setting has been enabled.
+                            name:
+                              type: string
+                              description: The name of the partner setting.
+                            description:
+                              type: string
+                              description: A description of this partner setting.
+                          required:
+                            - title
+                            - enabled
+                            - name
+                            - description
+                  examples:
+                    response:
+                      value:
+                        result:
+                          - title: Partner title
+                            enabled: true
+                            name: partner_name
+                            description: A description of a partner.

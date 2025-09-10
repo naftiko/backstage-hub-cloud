@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Wishlist Item
+  description: Deletes a wishlist item.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Wishlist Item
+      description: Deletes a wishlist item.
+    paths:
+      /wishlists/{wishlist_id}/items/{item_id}:
+        delete:
+          summary: Delete Wishlist Item
+          description: Deletes a wishlist item.
+          operationId: deleteWishlistItem
+          responses:
+            '500':
+              description: Internal server error.
+              content:
+                application/json:
+                  schema:
+                    title: Error
+                    type: object
+                    properties:
+                      status:
+                        type: integer
+                        format: int32
+                      title:
+                        type: string
+                      type:
+                        type: string

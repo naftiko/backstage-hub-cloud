@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Gettransitgatewaypeering
+  description: Returns information about a transit gateway peer.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gettransitgatewaypeering
+      description: Returns information about a transit gateway peer.
+    paths:
+      /transit-gateway-peerings/{peeringId}:
+        GET:
+          summary: Gettransitgatewaypeering
+          description: Returns information about a transit gateway peer.
+          operationId: getTransitGatewayPeering

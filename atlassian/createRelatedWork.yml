@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Related Work
+  description: >-
+    Creates a related work for the given version. You can only create a generic
+    link type of related works via this API. relatedWorkId will be
+    auto-generated UUID, that does not need to be provided.This operation can be
+    accessed anonymously.**[Permissions](#permissions) required:** *Resolve
+    issues:* and *Edit issues* [Managing project
+    permissions](https://confluence.atlassian.com/adminjiraserver/managing-project-permissions-938847145.html)
+    for the project that contains the version.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Related Work
+      description: >-
+        Creates a related work for the given version. You can only create a generic
+        link type of related works via this API. relatedWorkId will be
+        auto-generated UUID, that does not need to be provided.This operation can be
+        accessed anonymously.**[Permissions](#permissions) required:** *Resolve
+        issues:* and *Edit issues* [Managing project
+        permissions](https://confluence.atlassian.com/adminjiraserver/managing-project-permissions-938847145.html)
+        for the project that contains the version.
+    paths:
+      /rest/api/3/version/{id}/relatedwork:
+        post:
+          summary: Create Related Work
+          description: >-
+            Creates a related work for the given version. You can only create a
+            generic link type of related works via this API. relatedWorkId will be
+            auto-generated UUID, that does not need to be provided.This operation
+            can be accessed anonymously.**[Permissions](#permissions) required:**
+            *Resolve issues:* and *Edit issues* [Managing project
+            permissions](https://confluence.atlassian.com/adminjiraserver/managing-project-permissions-938847145.html)
+            for the project that contains the version.
+          operationId: createRelatedWork
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/VersionRelatedWork'
+          responses:
+            '404':
+              description: Returned if the version is not found.

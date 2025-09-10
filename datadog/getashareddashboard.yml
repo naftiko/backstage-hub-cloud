@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Shared Dashboard
+  description: >-
+    Fetch an existing shared dashboard's sharing metadata associated with the
+    specified token.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Shared Dashboard
+      description: >-
+        Fetch an existing shared dashboard's sharing metadata associated with the
+        specified token.
+    paths:
+      /api/v1/dashboard/public/{token}:
+        get:
+          summary: Get A Shared Dashboard
+          description: >-
+            Fetch an existing shared dashboard's sharing metadata associated with
+            the specified token.
+          operationId: getashareddashboard
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

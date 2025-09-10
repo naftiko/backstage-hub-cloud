@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create An Account
+  description: Creates a new account, with specified offering, under the organization.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create An Account
+      description: Creates a new account, with specified offering, under the organization.
+    paths:
+      /v3/partners/accounts:
+        post:
+          summary: Create An Account
+          description: Creates a new account, with specified offering, under the organization.
+          operationId: createAccount
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  title: CreateAccountParams
+                  type: object
+                  properties:
+                    profile:
+                      $ref: '#/components/schemas/AccountProvisioningProfile'
+                    offerings:
+                      type: array
+                      description: List of offering names to assign to account.
+                      items:
+                        $ref: '#/components/schemas/AccountProvisioningOfferingV1'
+                  required:
+                    - offerings
+                example:
+                  profile:
+                    first_name: Sender
+                    last_name: Wiz
+                    company_name: Twilio SendGrid
+                    company_website: https://sendgrid.com
+                    email: test@test.com
+                    timezone: Asia/Tokyo
+                  offerings:
+                    - name: org.ei.free.v1
+                      type: package
+                      quantity: 1
+          responses:
+            '504':
+              $ref: '#/components/responses/AccountProvisioningErrorResponse504'

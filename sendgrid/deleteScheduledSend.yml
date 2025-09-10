@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Cancellation Or Pause From A Scheduled Send
+  description: >-
+    **This endpoint allows you to delete the cancellation/pause of a scheduled
+    send.**Scheduled sends cancelled less than 10 minutes before the scheduled
+    time are not guaranteed to be cancelled.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Cancellation Or Pause From A Scheduled Send
+      description: >-
+        **This endpoint allows you to delete the cancellation/pause of a scheduled
+        send.**Scheduled sends cancelled less than 10 minutes before the scheduled
+        time are not guaranteed to be cancelled.
+    paths:
+      /v3/user/scheduled_sends/{batch_id}:
+        delete:
+          summary: Delete A Cancellation Or Pause From A Scheduled Send
+          description: >-
+            **This endpoint allows you to delete the cancellation/pause of a
+            scheduled send.**Scheduled sends cancelled less than 10 minutes before
+            the scheduled time are not guaranteed to be cancelled.
+          operationId: deleteScheduledSend
+          responses:
+            '500':
+              $ref: '#/components/responses/ScheduledSends500'

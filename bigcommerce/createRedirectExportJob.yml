@@ -1,0 +1,62 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Redirects Export Job
+  description: Creates a new 301 Redirects export job.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Redirects Export Job
+      description: Creates a new 301 Redirects export job.
+    paths:
+      /storefront/redirects/imex/export:
+        post:
+          summary: Create Redirects Export Job
+          description: Creates a new 301 Redirects export job.
+          operationId: createRedirectExportJob
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    site_id:
+                      type: integer
+                      nullable: true
+                      default: null
+                      description: >-
+                        The site ID for which you wish to export redirects. If no
+                        site ID is provided, the request exports all redirects for
+                        all sites.
+                    redirect_ids:
+                      type: array
+                      items:
+                        type: integer
+                      default: []
+                      description: >-
+                        A list of the redirect IDs you wish to export. If no
+                        redirect IDs are provided, the request exports all redirects
+                        for the given site selection.
+                    include_dynamic_target_urls:
+                      type: boolean
+                      default: false
+                      description: >-
+                        If true, the exported CSV will contain an additional
+                        read-only column containing the target URL for dynamic
+                        redirects.
+                  description: Data necessary to create a new 301 Redirects export job.
+          responses:
+            '429':
+              description: >-
+                Your store already has an active Redirects import or export job
+                running.

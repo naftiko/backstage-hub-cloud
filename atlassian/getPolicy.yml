@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Data Policy For The Workspace (eap)
+  description: Returns data policy for the workspace.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Data Policy For The Workspace (eap)
+      description: Returns data policy for the workspace.
+    paths:
+      /rest/api/3/data-policy:
+        get:
+          summary: Get Data Policy For The Workspace (eap)
+          description: Returns data policy for the workspace.
+          operationId: getPolicy
+          responses:
+            '403':
+              content:
+                application/json:
+                  example: '{"errorMessages":[""],"errors":{}}'
+                  schema:
+                    $ref: '#/components/schemas/ErrorCollection'
+              description: Returned if the client is not authorized to make the request.

@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Weather Forecast Quarterday Format
+  description: >-
+    **Get Quarter-Day Forecast**    **Applies to**: S0 and S1 pricing
+    tiers.Service returns detailed weather forecast by quarter-day for the next
+    1, 5, 10, or 15 days for a given location. Response data is presented by
+    quarters of the day - morning, afternoon, evening, and overnight. Details
+    such as temperature, humidity, wind, precipitation, and UV index are
+    returned.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Weather Forecast Quarterday Format
+      description: >-
+        **Get Quarter-Day Forecast**    **Applies to**: S0 and S1 pricing
+        tiers.Service returns detailed weather forecast by quarter-day for the next
+        1, 5, 10, or 15 days for a given location. Response data is presented by
+        quarters of the day - morning, afternoon, evening, and overnight. Details
+        such as temperature, humidity, wind, precipitation, and UV index are
+        returned.
+    paths:
+      /weather/forecast/quarterDay/{format}:
+        get:
+          summary: Get Weather Forecast Quarterday Format
+          description: >-
+            **Get Quarter-Day Forecast**    **Applies to**: S0 and S1 pricing
+            tiers.Service returns detailed weather forecast by quarter-day for the
+            next 1, 5, 10, or 15 days for a given location. Response data is
+            presented by quarters of the day - morning, afternoon, evening, and
+            overnight. Details such as temperature, humidity, wind, precipitation,
+            and UV index are returned.
+          operationId: weatherGetQuarterDayForecast
+          responses:
+            '500':
+              $ref: '#/responses/500'

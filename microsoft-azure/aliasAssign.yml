@@ -1,0 +1,77 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Put Aliases Aliasid
+  description: >-
+    **Applies to:** see pricing
+    [tiers](https://aka.ms/AzureMapsPricingTier).Creator makes it possible to
+    develop applications based on your private indoor map data using Azure Maps
+    API and SDK.
+    [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+    article introduces concepts and tools that apply to Azure Maps Creator.This
+    API allows the caller to assign an alias to reference a resource.### Submit
+    Assign RequestTo assign your alias to a resource, you will use a `PUT`
+    request with the `aliasId` in the path and the `creatorDataItemId` passed as
+    a query parameter.### Assign Alias ResponseThe Assign API returns a HTTP
+    `200 OK` response with the updated alias resource in the body, if the alias
+    was assigned successfully. A sample of the assign response is```json{ 
+    "createdTimestamp": "2020-02-13T21:19:11.123Z",  "aliasId":
+    "a8a4b8bb-ecf4-fb27-a618-f41721552766",  "creatorDataItemId":
+    "e89aebb9-70a3-8fe1-32bb-1fbd0c725f14",  "lastUpdatedTimestamp":
+    "2020-02-13T21:19:22.123Z"}```
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Aliases Aliasid
+      description: >-
+        **Applies to:** see pricing
+        [tiers](https://aka.ms/AzureMapsPricingTier).Creator makes it possible to
+        develop applications based on your private indoor map data using Azure Maps
+        API and SDK.
+        [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+        article introduces concepts and tools that apply to Azure Maps Creator.This
+        API allows the caller to assign an alias to reference a resource.### Submit
+        Assign RequestTo assign your alias to a resource, you will use a `PUT`
+        request with the `aliasId` in the path and the `creatorDataItemId` passed as
+        a query parameter.### Assign Alias ResponseThe Assign API returns a HTTP
+        `200 OK` response with the updated alias resource in the body, if the alias
+        was assigned successfully. A sample of the assign response is```json{ 
+        "createdTimestamp": "2020-02-13T21:19:11.123Z",  "aliasId":
+        "a8a4b8bb-ecf4-fb27-a618-f41721552766",  "creatorDataItemId":
+        "e89aebb9-70a3-8fe1-32bb-1fbd0c725f14",  "lastUpdatedTimestamp":
+        "2020-02-13T21:19:22.123Z"}```
+    paths:
+      /aliases/{aliasId}:
+        put:
+          summary: Put Aliases Aliasid
+          description: >-
+            **Applies to:** see pricing
+            [tiers](https://aka.ms/AzureMapsPricingTier).Creator makes it possible
+            to develop applications based on your private indoor map data using
+            Azure Maps API and SDK.
+            [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+            article introduces concepts and tools that apply to Azure Maps
+            Creator.This API allows the caller to assign an alias to reference a
+            resource.### Submit Assign RequestTo assign your alias to a resource,
+            you will use a `PUT` request with the `aliasId` in the path and the
+            `creatorDataItemId` passed as a query parameter.### Assign Alias
+            ResponseThe Assign API returns a HTTP `200 OK` response with the updated
+            alias resource in the body, if the alias was assigned successfully. A
+            sample of the assign response is```json{  "createdTimestamp":
+            "2020-02-13T21:19:11.123Z",  "aliasId":
+            "a8a4b8bb-ecf4-fb27-a618-f41721552766",  "creatorDataItemId":
+            "e89aebb9-70a3-8fe1-32bb-1fbd0c725f14",  "lastUpdatedTimestamp":
+            "2020-02-13T21:19:22.123Z"}```
+          operationId: aliasAssign
+          responses:
+            '500':
+              $ref: '#/responses/500'

@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Gets The Information About The Specific Service Belonging To The Service
+    Fabric Application.
+  description: >-
+    Returns the information about the specified service belonging to the
+    specified Service Fabric application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Gets The Information About The Specific Service Belonging To The Service
+        Fabric Application.
+      description: >-
+        Returns the information about the specified service belonging to the
+        specified Service Fabric application.
+    paths:
+      /Applications/{applicationId}/$/GetServices/{serviceId}:
+        get:
+          summary: >-
+            Gets The Information About The Specific Service Belonging To The Service
+            Fabric Application.
+          description: >-
+            Returns the information about the specified service belonging to the
+            specified Service Fabric application.
+          operationId: getServiceInfo
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

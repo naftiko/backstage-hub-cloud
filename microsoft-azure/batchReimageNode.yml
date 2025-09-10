@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Reinstalls The Operating System On The Specified Compute Node.
+  description: >-
+    You can reinstall the operating system on a Compute Node only if it is in
+    anidle or running state. This API can be invoked only on Pools created with
+    thecloud service configuration property.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Reinstalls The Operating System On The Specified Compute Node.
+      description: >-
+        You can reinstall the operating system on a Compute Node only if it is in
+        anidle or running state. This API can be invoked only on Pools created with
+        thecloud service configuration property.
+    paths:
+      /pools/{poolId}/nodes/{nodeId}/reimage:
+        post:
+          summary: Reinstalls The Operating System On The Specified Compute Node.
+          description: >-
+            You can reinstall the operating system on a Compute Node only if it is
+            in anidle or running state. This API can be invoked only on Pools
+            created with thecloud service configuration property.
+          operationId: batchReimageNode
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

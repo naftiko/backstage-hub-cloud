@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Services Servicesid Builds
+  description: >-
+    Create a new Build resource. At least one function version or asset version
+    is required.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Services Servicesid Builds
+      description: >-
+        Create a new Build resource. At least one function version or asset version
+        is required.
+    paths:
+      /v1/Services/{ServiceSid}/Builds:
+        post:
+          summary: Post Services Servicesid Builds
+          description: >-
+            Create a new Build resource. At least one function version or asset
+            version is required.
+          operationId: createBuild
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateBuildRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/serverless.v1.service.build'
+              description: Created

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get An Autolink Reference Of A Repository
+  description: >-
+    This returns a single autolink reference by ID that was configured for the
+    given repository.Information about autolinks are only available to
+    repository administrators.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get An Autolink Reference Of A Repository
+      description: >-
+        This returns a single autolink reference by ID that was configured for the
+        given repository.Information about autolinks are only available to
+        repository administrators.
+    paths:
+      /repos/{owner}/{repo}/autolinks/{autolink_id}:
+        get:
+          summary: Get An Autolink Reference Of A Repository
+          description: >-
+            This returns a single autolink reference by ID that was configured for
+            the given repository.Information about autolinks are only available to
+            repository administrators.
+          operationId: getAnAutolinkReferenceOfARepository
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

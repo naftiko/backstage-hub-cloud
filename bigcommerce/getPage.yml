@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Page
+  description: >-
+    Returns one content page.> #### Warning> **Pay attention to query
+    parameters**> This endpoint recognizes the same query parameters as [Get
+    Multiple Pages](/docs/rest-content/pages#get-pages). If the requested page
+    does not meet the query parameters you specify, you will receive a 404
+    response even if the requested `pageId` does exist.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Page
+      description: >-
+        Returns one content page.> #### Warning> **Pay attention to query
+        parameters**> This endpoint recognizes the same query parameters as [Get
+        Multiple Pages](/docs/rest-content/pages#get-pages). If the requested page
+        does not meet the query parameters you specify, you will receive a 404
+        response even if the requested `pageId` does exist.
+    paths:
+      /content/pages/{pageId}:
+        get:
+          summary: Get A Page
+          description: >-
+            Returns one content page.> #### Warning> **Pay attention to query
+            parameters**> This endpoint recognizes the same query parameters as [Get
+            Multiple Pages](/docs/rest-content/pages#get-pages). If the requested
+            page does not meet the query parameters you specify, you will receive a
+            404 response even if the requested `pageId` does exist.
+          operationId: getPage
+          responses:
+            '422':
+              description: >-
+                Invalid input. One or more path parameter(s) did not have the
+                correct datatype.
+              content:
+                application/problem+json:
+                  schema:
+                    $ref: '#/components/schemas/ResponseErrorItemized'
+                  examples:
+                    pageId is bar:
+                      value:
+                        status: 422
+                        title: Invalid Input.
+                        type: >-
+                          https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+                        errors:
+                          - bar

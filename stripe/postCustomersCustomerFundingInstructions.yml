@@ -1,0 +1,62 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Customers Customer Funding_instructions
+  description: >-
+    Retrieve funding instructions for a customer cash balance. If funding
+    instructions do not yet exist for the customer, newfunding instructions will
+    be created. If funding instructions have already been created for a given
+    customer, the samefunding instructions will be retrieved. In other words, we
+    will return the same funding instructions each time.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Customers Customer Funding_instructions
+      description: >-
+        Retrieve funding instructions for a customer cash balance. If funding
+        instructions do not yet exist for the customer, newfunding instructions will
+        be created. If funding instructions have already been created for a given
+        customer, the samefunding instructions will be retrieved. In other words, we
+        will return the same funding instructions each time.
+    paths:
+      /v1/customers/{customer}/funding_instructions:
+        post:
+          summary: Post Customers Customer Funding_instructions
+          description: >-
+            Retrieve funding instructions for a customer cash balance. If funding
+            instructions do not yet exist for the customer, newfunding instructions
+            will be created. If funding instructions have already been created for a
+            given customer, the samefunding instructions will be retrieved. In other
+            words, we will return the same funding instructions each time.
+          operationId: postCustomersCustomerFundingInstructions
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  bank_transfer:
+                    explode: true
+                    style: deepObject
+                  expand:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: >-
+                    #/components/schemas/PostCustomersCustomerFundingInstructionsRequest
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

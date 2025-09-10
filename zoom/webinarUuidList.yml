@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Webinar Uuid List
+  description: Get ended webinar UUID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Webinar Uuid List
+      description: Get ended webinar UUID.
+    paths:
+      /webinar/uuid/list:
+        post:
+          summary: Post Webinar Uuid List
+          description: Get ended webinar UUID.
+          operationId: webinarUuidList
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - host_id
+                    - id
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: Webinar ID.
+                    host_id:
+                      type: string
+                      description: >-
+                        Webinar host user ID. Can be any user who enabled webinar
+                        under this account.
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    webinars:
+                      - uuid: unique_id
+                        start_time: '2015-08-23T03:03:48.000Z'

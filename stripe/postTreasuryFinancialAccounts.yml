@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Treasury Financial_accounts
+  description: >-
+    Creates a new FinancialAccount. For now, each connected account can only
+    have one FinancialAccount.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Treasury Financial_accounts
+      description: >-
+        Creates a new FinancialAccount. For now, each connected account can only
+        have one FinancialAccount.
+    paths:
+      /v1/treasury/financial_accounts:
+        post:
+          summary: Post Treasury Financial_accounts
+          description: >-
+            Creates a new FinancialAccount. For now, each connected account can only
+            have one FinancialAccount.
+          operationId: postTreasuryFinancialAccounts
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                  features:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                  platform_restrictions:
+                    explode: true
+                    style: deepObject
+                  supported_currencies:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostTreasuryFinancialAccountsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

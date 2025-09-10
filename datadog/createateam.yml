@@ -1,0 +1,70 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Team
+  description: >-
+    Create a new team.User IDs passed through the `users` relationship field are
+    added to the team.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Team
+      description: >-
+        Create a new team.User IDs passed through the `users` relationship field are
+        added to the team.
+    paths:
+      /api/v2/team:
+        post:
+          summary: Create A Team
+          description: >-
+            Create a new team.User IDs passed through the `users` relationship field
+            are added to the team.
+          operationId: createateam
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      attributes:
+                        handle: example-team
+                        name: Example Team
+                        avatar: 🥑
+                        banner: 80899457
+                        description: Ut commodo ullamco consectetur cupidatat
+                        hidden_modules:
+                          - pariatur enim
+                          - eiusmod
+                        visible_modules:
+                          - magna sunt anim non
+                          - in consectetur qui
+                      type: team
+                      relationships:
+                        users:
+                          data: []
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

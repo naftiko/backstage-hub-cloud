@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Lockrule
+  description: >-
+    Locks a retention rule. A locked retention rule can't be modified or
+    deleted.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Lockrule
+      description: >-
+        Locks a retention rule. A locked retention rule can't be modified or
+        deleted.
+    paths:
+      /rules/{identifier}/lock:
+        PATCH:
+          summary: Lockrule
+          description: >-
+            Locks a retention rule. A locked retention rule can't be modified or
+            deleted.
+          operationId: lockRule

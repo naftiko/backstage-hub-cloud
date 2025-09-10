@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Issuing Transactions
+  description: >-
+    Returns a list of Issuing Transaction objects. The objects are sorted in
+    descending order by creation date, with the most recently created object
+    appearing first.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Issuing Transactions
+      description: >-
+        Returns a list of Issuing Transaction objects. The objects are sorted in
+        descending order by creation date, with the most recently created object
+        appearing first.
+    paths:
+      /v1/issuing/transactions:
+        get:
+          summary: Get Issuing Transactions
+          description: >-
+            Returns a list of Issuing Transaction objects. The objects are sorted in
+            descending order by creation date, with the most recently created object
+            appearing first.
+          operationId: getIssuingTransactions
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetIssuingTransactionsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

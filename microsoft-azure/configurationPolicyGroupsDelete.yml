@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+    Providers Microsoft.network Vpnserverconfigurations
+    Vpnserverconfigurationname Configurationpolicygroups
+    Configurationpolicygroupname
+  description: Deletes a ConfigurationPolicyGroup.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.network Vpnserverconfigurations
+        Vpnserverconfigurationname Configurationpolicygroups
+        Configurationpolicygroupname
+      description: Deletes a ConfigurationPolicyGroup.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnServerConfigurations/{vpnServerConfigurationName}/configurationPolicyGroups/{configurationPolicyGroupName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.network Vpnserverconfigurations
+            Vpnserverconfigurationname Configurationpolicygroups
+            Configurationpolicygroupname
+          description: Deletes a ConfigurationPolicyGroup.
+          operationId: configurationPolicyGroupsDelete
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./network.json#/definitions/CloudError

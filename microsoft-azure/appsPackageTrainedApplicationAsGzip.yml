@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Package - Gets Trained Luis Application Package In Binary Stream Gzip Format
+  description: >-
+    Packages trained LUIS application as GZip file to be used in the LUIS
+    container.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Package - Gets Trained Luis Application Package In Binary Stream Gzip Format
+      description: >-
+        Packages trained LUIS application as GZip file to be used in the LUIS
+        container.
+    paths:
+      /package/{appId}/versions/{versionId}/gzip:
+        get:
+          summary: >-
+            Package - Gets Trained Luis Application Package In Binary Stream Gzip
+            Format
+          description: >-
+            Packages trained LUIS application as GZip file to be used in the LUIS
+            container.
+          operationId: appsPackageTrainedApplicationAsGzip
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

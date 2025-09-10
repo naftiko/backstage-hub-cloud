@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Describevcenterclients
+  description: Returns a list of the installed vCenter clients.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describevcenterclients
+      description: Returns a list of the installed vCenter clients.
+    paths:
+      /DescribeVcenterClients:
+        GET:
+          summary: Describevcenterclients
+          description: Returns a list of the installed vCenter clients.
+          operationId: describeVcenterClients

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updatevpceconfiguration
+  description: >-
+    Updates information about an Amazon Virtual Private Cloud (VPC) endpoint
+    configuration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatevpceconfiguration
+      description: >-
+        Updates information about an Amazon Virtual Private Cloud (VPC) endpoint
+        configuration.
+    paths:
+      /:
+        POST:
+          summary: Updatevpceconfiguration
+          description: >-
+            Updates information about an Amazon Virtual Private Cloud (VPC) endpoint
+            configuration.
+          operationId: updateVPCEConfiguration

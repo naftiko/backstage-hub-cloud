@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listtagsforresource
+  description: >-
+    Returns a list of tags that are applied to the specified Amazon Web Services
+    X-Ray group or sampling rule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listtagsforresource
+      description: >-
+        Returns a list of tags that are applied to the specified Amazon Web Services
+        X-Ray group or sampling rule.
+    paths:
+      /ListTagsForResource:
+        POST:
+          summary: Listtagsforresource
+          description: >-
+            Returns a list of tags that are applied to the specified Amazon Web
+            Services X-Ray group or sampling rule.
+          operationId: listTagsForResource

@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Design
+  description: >-
+    **This endpoint allows you to retrieve a single design**.A GET request to
+    `/designs/{id}` will retrieve details about a specific design in your Design
+    Library.This endpoint is valuable when retrieving information stored in a
+    field that you wish to update using a PATCH request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Design
+      description: >-
+        **This endpoint allows you to retrieve a single design**.A GET request to
+        `/designs/{id}` will retrieve details about a specific design in your Design
+        Library.This endpoint is valuable when retrieving information stored in a
+        field that you wish to update using a PATCH request.
+    paths:
+      /v3/designs/{id}:
+        get:
+          summary: Get Design
+          description: >-
+            **This endpoint allows you to retrieve a single design**.A GET request
+            to `/designs/{id}` will retrieve details about a specific design in your
+            Design Library.This endpoint is valuable when retrieving information
+            stored in a field that you wish to update using a PATCH request.
+          operationId: getDesign
+          responses:
+            '404':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ApiErrors'

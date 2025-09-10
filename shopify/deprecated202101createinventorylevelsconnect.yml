@@ -1,0 +1,74 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Connects An Inventory Item To A Location By Creating An Inventory Level At
+    That Location.
+     When Connecting Inventory Items To Locations, It's Important To Understand The Rules Around
+     Fulfillment Service Locations.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/inventory/inventorylevel#connect-2021-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Connects An Inventory Item To A Location By Creating An Inventory Level At
+        That Location.
+         When Connecting Inventory Items To Locations, It's Important To Understand The Rules Around
+         Fulfillment Service Locations.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/inventory/inventorylevel#connect-2021-01
+    paths:
+      /admin/api/2021-01/inventory_levels/connect.json:
+        post:
+          summary: >-
+            Connects An Inventory Item To A Location By Creating An Inventory Level
+            At That Location.
+             When Connecting Inventory Items To Locations, It's Important To Understand The Rules Around
+             Fulfillment Service Locations.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/inventory/inventorylevel#connect-2021-01
+          operationId: deprecated202101createinventorylevelsconnect
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      location_id: 192722535
+                      inventory_item_id: 457924702
+                    summary: Connect an inventory item to a location
+                  example2:
+                    value:
+                      location_id: 123
+                      inventory_item_id: 457924702
+                    summary: >-
+                      Connecting an inventory item to a non-existent location fails
+                      and returns an error
+                  example3:
+                    value:
+                      location_id: 48752903
+                      inventory_item_id: 808950810
+                    summary: >-
+                      Connecting an inventory item to a fulfillment service location
+                      without "relocate_if_necessary": true fails with a 422 error
+                  example4:
+                    value:
+                      location_id: 192722535
+                      inventory_item_id: 457924702
+                    summary: >-
+                      Connecting an inventory item to a location when the store
+                      hasn't enabled multiple locations fails with a 403 error
+          responses:
+            '200':
+              description: ''

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getcisscanresultdetails
+  description: Retrieves CIS scan result details.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getcisscanresultdetails
+      description: Retrieves CIS scan result details.
+    paths:
+      /cis/scan-result/details/get:
+        POST:
+          summary: Getcisscanresultdetails
+          description: Retrieves CIS scan result details.
+          operationId: getCisScanResultDetails

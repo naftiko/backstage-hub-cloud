@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieves A List Of Fulfillment Orders On A Shop For A Specific App.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/assignedfulfillmentorder#index-2020-10
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves A List Of Fulfillment Orders On A Shop For A Specific App.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/assignedfulfillmentorder#index-2020-10
+    paths:
+      /admin/api/2020-10/assigned_fulfillment_orders.json:
+        get:
+          summary: Retrieves A List Of Fulfillment Orders On A Shop For A Specific App.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/assignedfulfillmentorder#index-2020-10
+          operationId: getassignedfulfillmentorders
+          responses:
+            '200':
+              description: ''

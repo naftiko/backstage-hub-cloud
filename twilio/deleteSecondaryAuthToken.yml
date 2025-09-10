@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Authtokens Secondary
+  description: Delete the secondary Auth Token from your account
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Authtokens Secondary
+      description: Delete the secondary Auth Token from your account
+    paths:
+      /v1/AuthTokens/Secondary:
+        delete:
+          summary: Delete Authtokens Secondary
+          description: Delete the secondary Auth Token from your account
+          operationId: deleteSecondaryAuthToken
+          responses:
+            '204':
+              description: The resource was deleted successfully.

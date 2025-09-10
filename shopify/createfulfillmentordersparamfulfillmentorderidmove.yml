@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Moves A Fulfillment Order From One Merchant Managed Location To Another
+    Merchant Managed Location.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillmentorder#move-2020-10
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Moves A Fulfillment Order From One Merchant Managed Location To Another
+        Merchant Managed Location.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillmentorder#move-2020-10
+    paths:
+      /admin/api/2020-10/fulfillment_orders/{fulfillment_order_id}/move.json:
+        post:
+          summary: >-
+            Moves A Fulfillment Order From One Merchant Managed Location To Another
+            Merchant Managed Location.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillmentorder#move-2020-10
+          operationId: createfulfillmentordersparamfulfillmentorderidmove
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      fulfillment_order:
+                        new_location_id: 905684977
+                    summary: Move a fulfillment order to a new location
+          responses:
+            '200':
+              description: ''

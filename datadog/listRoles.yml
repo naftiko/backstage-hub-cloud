@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Roles
+  description: Returns all roles, including their names and their unique identifiers.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Roles
+      description: Returns all roles, including their names and their unique identifiers.
+    paths:
+      /api/v2/roles:
+        get:
+          summary: List Roles
+          description: Returns all roles, including their names and their unique identifiers.
+          operationId: listroles
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

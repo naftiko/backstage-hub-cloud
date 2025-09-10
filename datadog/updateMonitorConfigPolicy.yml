@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Edit A Monitor Configuration Policy
+  description: Edit a monitor configuration policy.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Edit A Monitor Configuration Policy
+      description: Edit a monitor configuration policy.
+    paths:
+      /api/v2/monitor/policy/{policy_id}:
+        patch:
+          summary: Edit A Monitor Configuration Policy
+          description: Edit a monitor configuration policy.
+          operationId: updateMonitorConfigPolicy
+          requestBody:
+            description: Description of the update.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/MonitorConfigPolicyEditRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

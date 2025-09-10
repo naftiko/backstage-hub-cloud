@@ -1,0 +1,90 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Subuser
+  description: '**This endpoint allows you to create a new subuser.**'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Subuser
+      description: '**This endpoint allows you to create a new subuser.**'
+    paths:
+      /v3/subusers:
+        post:
+          summary: Create Subuser
+          description: '**This endpoint allows you to create a new subuser.**'
+          operationId: createSubuser
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                      description: The username for this subuser.
+                    email:
+                      type: string
+                      description: The email address of the subuser.
+                      format: email
+                    password:
+                      type: string
+                      description: >-
+                        The password this subuser will use when logging into
+                        SendGrid.
+                    ips:
+                      type: array
+                      description: The IP addresses that should be assigned to this subuser.
+                      items:
+                        type: string
+                        format: ipv4
+                    region:
+                      type: string
+                      description: >-
+                        The region this Subuser should be assigned to. Can be
+                        `global` or `eu`. (Regional email is in Public Beta and
+                        requires SendGrid Pro plan or above.).
+                      default: global
+                      $ref: '#/components/schemas/Region1'
+                    include_region:
+                      type: boolean
+                      description: >-
+                        A flag that determines if the Subuser's region should be
+                        returned in the response. (Regional email is in Public Beta
+                        and requires SendGrid Pro plan or above.)
+                      default: false
+                  required:
+                    - username
+                    - email
+                    - password
+                    - ips
+                  example:
+                    username: John@example.com
+                    email: John@example.com
+                    password: johns_password
+                    ips:
+                      - 1.1.1.1
+                      - 2.2.2.2
+                    region: global
+                    include_region: true
+          responses:
+            '500':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - message: unable to validate IPs at this time

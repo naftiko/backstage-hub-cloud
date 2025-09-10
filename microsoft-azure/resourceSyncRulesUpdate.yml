@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updates A Resource Sync Rule.
+  description: >-
+    Updates a Resource Sync Rule with the specified Resource Sync Rule name in
+    the specified Resource Group, Subscription and Custom Location name.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updates A Resource Sync Rule.
+      description: >-
+        Updates a Resource Sync Rule with the specified Resource Sync Rule name in
+        the specified Resource Group, Subscription and Custom Location name.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ExtendedLocation/customLocations/{resourceName}/resourceSyncRules/{childResourceName}:
+        patch:
+          summary: Updates A Resource Sync Rule.
+          description: >-
+            Updates a Resource Sync Rule with the specified Resource Sync Rule name
+            in the specified Resource Group, Subscription and Custom Location name.
+          operationId: resourceSyncRulesUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

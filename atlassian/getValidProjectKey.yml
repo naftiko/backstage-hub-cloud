@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Valid Project Key
+  description: >-
+    Validates a project key and, if the key is invalid or in use, generates a
+    valid random string for the project key.**[Permissions](#permissions)
+    required:** None.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Valid Project Key
+      description: >-
+        Validates a project key and, if the key is invalid or in use, generates a
+        valid random string for the project key.**[Permissions](#permissions)
+        required:** None.
+    paths:
+      /rest/api/3/projectvalidate/validProjectKey:
+        get:
+          summary: Get Valid Project Key
+          description: >-
+            Validates a project key and, if the key is invalid or in use, generates
+            a valid random string for the project key.**[Permissions](#permissions)
+            required:** None.
+          operationId: getValidProjectKey
+          responses:
+            '401':
+              description: Returned if the authentication credentials are incorrect.

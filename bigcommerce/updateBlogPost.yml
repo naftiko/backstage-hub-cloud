@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Blog Post
+  description: >-
+    Updates a *Blog Post*.**Notes*** To include `published_date` in a request,
+    provide a flat date string (not an object) in valid RFC 2822. The following
+    example request includes a `published_date` in RFC 2822 format.* Blog posts
+    default to draft status. To publish blog posts to the storefront, set the
+    `is_published` property to `true`.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Blog Post
+      description: >-
+        Updates a *Blog Post*.**Notes*** To include `published_date` in a request,
+        provide a flat date string (not an object) in valid RFC 2822. The following
+        example request includes a `published_date` in RFC 2822 format.* Blog posts
+        default to draft status. To publish blog posts to the storefront, set the
+        `is_published` property to `true`.
+    paths:
+      /blog/posts/{id}:
+        put:
+          summary: Update A Blog Post
+          description: >-
+            Updates a *Blog Post*.**Notes*** To include `published_date` in a
+            request, provide a flat date string (not an object) in valid RFC 2822.
+            The following example request includes a `published_date` in RFC 2822
+            format.* Blog posts default to draft status. To publish blog posts to
+            the storefront, set the `is_published` property to `true`.
+          operationId: updateBlogPost
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/blogPost_Base_Post'
+          responses:
+            '207':
+              description: >-
+                Multiple operations have taken place and the status for each
+                operation can be viewed in the body of the response. Typically
+                indicates that a partial failure has occurred, such as when a `POST`
+                or `PUT` request is successful, but saving the URL has failed.
+              content:
+                application/json:
+                  schema:
+                    type: object

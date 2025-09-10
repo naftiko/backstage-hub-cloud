@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Permission Grant
+  description: >-
+    Creates a permission grant in a permission
+    scheme.**[Permissions](#permissions) required:** *Administer Jira* [global
+    permission](https://confluence.atlassian.com/x/x4dKLg).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Permission Grant
+      description: >-
+        Creates a permission grant in a permission
+        scheme.**[Permissions](#permissions) required:** *Administer Jira* [global
+        permission](https://confluence.atlassian.com/x/x4dKLg).
+    paths:
+      /rest/api/3/permissionscheme/{schemeId}/permission:
+        post:
+          summary: Create Permission Grant
+          description: >-
+            Creates a permission grant in a permission
+            scheme.**[Permissions](#permissions) required:** *Administer Jira*
+            [global permission](https://confluence.atlassian.com/x/x4dKLg).
+          operationId: createPermissionGrant
+          requestBody:
+            description: The permission grant to create.
+            required: true
+            content:
+              application/json:
+                example:
+                  holder:
+                    parameter: jira-core-users
+                    type: group
+                    value: ca85fac0-d974-40ca-a615-7af99c48d24f
+                  permission: ADMINISTER_PROJECTS
+                schema:
+                  $ref: '#/components/schemas/PermissionGrant'
+          responses:
+            '403':
+              description: Returned if the user does not have the necessary permission.

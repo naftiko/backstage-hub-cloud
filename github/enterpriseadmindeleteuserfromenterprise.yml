@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Scim User From An Enterprise
+  description: >-
+    **Note:** The SCIM API endpoints for enterprise accounts are currently in
+    *private* beta and are subject to change.Permanently suspends a SCIM user
+    from an enterprise, removes all data for the user, obfuscates the login,
+    email, and display name of the user, removes all external-identity SCIM
+    attributes, and deletes the emails, avatar, PATs, SSH keys, OAuth
+    authorizations credentials, GPG keys, and SAML mappings for the user. You
+    will not be able to undo this action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Scim User From An Enterprise
+      description: >-
+        **Note:** The SCIM API endpoints for enterprise accounts are currently in
+        *private* beta and are subject to change.Permanently suspends a SCIM user
+        from an enterprise, removes all data for the user, obfuscates the login,
+        email, and display name of the user, removes all external-identity SCIM
+        attributes, and deletes the emails, avatar, PATs, SSH keys, OAuth
+        authorizations credentials, GPG keys, and SAML mappings for the user. You
+        will not be able to undo this action.
+    paths:
+      /scim/v2/Users/{scim_user_id}:
+        delete:
+          summary: Delete A Scim User From An Enterprise
+          description: >-
+            **Note:** The SCIM API endpoints for enterprise accounts are currently
+            in *private* beta and are subject to change.Permanently suspends a SCIM
+            user from an enterprise, removes all data for the user, obfuscates the
+            login, email, and display name of the user, removes all
+            external-identity SCIM attributes, and deletes the emails, avatar, PATs,
+            SSH keys, OAuth authorizations credentials, GPG keys, and SAML mappings
+            for the user. You will not be able to undo this action.
+          operationId: enterpriseadmindeleteuserfromenterprise
+          responses:
+            '500':
+              $ref: '#/components/responses/scim_internal_error'

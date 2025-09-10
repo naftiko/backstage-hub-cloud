@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Set Project's Sender Email
+  description: >-
+    Sets the [project's sender email
+    address](https://confluence.atlassian.com/x/dolKLg).If `emailAddress` is an
+    empty string, the default email address is
+    restored.**[Permissions](#permissions) required:** *Administer Jira* [global
+    permission](https://confluence.atlassian.com/x/x4dKLg) or *Administer
+    Projects* [project permission.](https://confluence.atlassian.com/x/yodKLg)
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Set Project's Sender Email
+      description: >-
+        Sets the [project's sender email
+        address](https://confluence.atlassian.com/x/dolKLg).If `emailAddress` is an
+        empty string, the default email address is
+        restored.**[Permissions](#permissions) required:** *Administer Jira* [global
+        permission](https://confluence.atlassian.com/x/x4dKLg) or *Administer
+        Projects* [project permission.](https://confluence.atlassian.com/x/yodKLg)
+    paths:
+      /rest/api/3/project/{projectId}/email:
+        put:
+          summary: Set Project's Sender Email
+          description: >-
+            Sets the [project's sender email
+            address](https://confluence.atlassian.com/x/dolKLg).If `emailAddress` is
+            an empty string, the default email address is
+            restored.**[Permissions](#permissions) required:** *Administer Jira*
+            [global permission](https://confluence.atlassian.com/x/x4dKLg) or
+            *Administer Projects* [project
+            permission.](https://confluence.atlassian.com/x/yodKLg)
+          operationId: updateProjectEmail
+          requestBody:
+            description: The project's sender email address to be set.
+            required: true
+            content:
+              application/json:
+                example:
+                  emailAddress: jira@example.atlassian.net
+                schema:
+                  $ref: '#/components/schemas/ProjectEmailAddress'
+          responses:
+            '404':
+              description: Returned if the project is not found.

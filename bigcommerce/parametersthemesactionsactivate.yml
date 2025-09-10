@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Parameters Themes Actions Activate
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Parameters Themes Actions Activate
+      description: Needs a more full description created.
+    paths:
+      /themes/actions/activate:
+        parameters:
+          summary: Parameters Themes Actions Activate
+          description: Needs a more full description created.
+          operationId: parametersthemesactionsactivate

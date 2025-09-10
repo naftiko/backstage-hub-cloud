@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getcurrentuser
+  description: >-
+    Retrieves details of the current user for whom the authentication token was
+    generated. This is not a valid action for SigV4 (administrative API)
+    clients. This action requires an authentication token. To get an
+    authentication token, register an application with Amazon WorkDocs. For more
+    information, see Authentication and Access Control for User Applications in
+    the Amazon WorkDocs Developer Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getcurrentuser
+      description: >-
+        Retrieves details of the current user for whom the authentication token was
+        generated. This is not a valid action for SigV4 (administrative API)
+        clients. This action requires an authentication token. To get an
+        authentication token, register an application with Amazon WorkDocs. For more
+        information, see Authentication and Access Control for User Applications in
+        the Amazon WorkDocs Developer Guide.
+    paths:
+      /api/v1/me:
+        GET:
+          summary: Getcurrentuser
+          description: >-
+            Retrieves details of the current user for whom the authentication token
+            was generated. This is not a valid action for SigV4 (administrative API)
+            clients. This action requires an authentication token. To get an
+            authentication token, register an application with Amazon WorkDocs. For
+            more information, see Authentication and Access Control for User
+            Applications in the Amazon WorkDocs Developer Guide.
+          operationId: getCurrentUser

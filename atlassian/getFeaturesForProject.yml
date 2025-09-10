@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Project Features
+  description: Returns the list of features for a project.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Project Features
+      description: Returns the list of features for a project.
+    paths:
+      /rest/api/3/project/{projectIdOrKey}/features:
+        get:
+          summary: Get Project Features
+          description: Returns the list of features for a project.
+          operationId: getFeaturesForProject
+          responses:
+            '404':
+              description: Returned if the project is not found.

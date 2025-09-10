@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieves A List Of Fulfillment Events For A Specific Fulfillment
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillmentevent#index-2020-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves A List Of Fulfillment Events For A Specific Fulfillment
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillmentevent#index-2020-01
+    paths:
+      /admin/api/2020-01/orders/{order_id}/fulfillments/{fulfillment_id}/events.json:
+        get:
+          summary: Retrieves A List Of Fulfillment Events For A Specific Fulfillment
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillmentevent#index-2020-01
+          operationId: >-
+            deprecated202001getordersparamorderidfulfillmentsparamfulfillmentidevents
+          responses:
+            '200':
+              description: ''

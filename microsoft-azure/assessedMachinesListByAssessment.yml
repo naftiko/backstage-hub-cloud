@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Assessed Machines For Assessment.
+  description: >-
+    Get list of machines that assessed as part of the specified assessment.
+    Returns a json array of objects of type 'assessedMachine' as specified in
+    the Models section.Whenever an assessment is created or updated, it goes
+    under computation. During this phase, the 'status' field of Assessment
+    object reports 'Computing'.During the period when the assessment is under
+    computation, the list of assessed machines is empty and no assessed machines
+    are returned by this call.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Assessed Machines For Assessment.
+      description: >-
+        Get list of machines that assessed as part of the specified assessment.
+        Returns a json array of objects of type 'assessedMachine' as specified in
+        the Models section.Whenever an assessment is created or updated, it goes
+        under computation. During this phase, the 'status' field of Assessment
+        object reports 'Computing'.During the period when the assessment is under
+        computation, the list of assessed machines is empty and no assessed machines
+        are returned by this call.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/assessedMachines:
+        get:
+          summary: Get Assessed Machines For Assessment.
+          description: >-
+            Get list of machines that assessed as part of the specified assessment.
+            Returns a json array of objects of type 'assessedMachine' as specified
+            in the Models section.Whenever an assessment is created or updated, it
+            goes under computation. During this phase, the 'status' field of
+            Assessment object reports 'Computing'.During the period when the
+            assessment is under computation, the list of assessed machines is empty
+            and no assessed machines are returned by this call.
+          operationId: assessedMachinesListByAssessment
+          responses:
+            '503':
+              description: Service Unavailable.

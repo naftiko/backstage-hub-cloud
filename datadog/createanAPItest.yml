@@ -1,0 +1,83 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create An Api Test
+  description: Create a Synthetic API test.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create An Api Test
+      description: Create a Synthetic API test.
+    paths:
+      /api/v1/synthetics/tests/api:
+        post:
+          summary: Create An Api Test
+          description: Create a Synthetic API test.
+          operationId: createanAPItest
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    config:
+                      assertions:
+                        - operator: lessThan
+                          target: 1000
+                          type: responseTime
+                        - operator: is
+                          target: 200
+                          type: statusCode
+                        - operator: is
+                          property: content-type
+                          target: text/html; charset=UTF-8
+                          type: header
+                      request:
+                        method: GET
+                        url: https://example.com
+                    locations:
+                      - azure:eastus
+                      - aws:eu-west-3
+                    message: MY_NOTIFICATION_MESSAGE
+                    name: MY_TEST_NAME
+                    options:
+                      min_failure_duration: 0
+                      min_location_failed: 1
+                      monitor_options:
+                        include_tags: true
+                        locked: false
+                        new_host_delay: 300
+                        notify_audit: false
+                        notify_no_data: false
+                        renotify_interval: 0
+                      tick_every: 60
+                    status: live
+                    subtype: http
+                    tags:
+                      - env:production
+                    type: api
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

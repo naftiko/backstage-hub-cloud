@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Or Update Azure Data Catalog Service (put Resource)
+  description: >-
+    The Create Azure Data Catalog service operation creates a new data catalog
+    service with the specified parameters. If the specific service already
+    exists, then any patchable properties will be updated and any immutable
+    properties will remain unchanged.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Or Update Azure Data Catalog Service (put Resource)
+      description: >-
+        The Create Azure Data Catalog service operation creates a new data catalog
+        service with the specified parameters. If the specific service already
+        exists, then any patchable properties will be updated and any immutable
+        properties will remain unchanged.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataCatalog/catalogs/{catalogName}:
+        put:
+          summary: Create Or Update Azure Data Catalog Service (put Resource)
+          description: >-
+            The Create Azure Data Catalog service operation creates a new data
+            catalog service with the specified parameters. If the specific service
+            already exists, then any patchable properties will be updated and any
+            immutable properties will remain unchanged.
+          operationId: aDCCatalogsCreateOrUpdate
+          responses:
+            '201':
+              description: HTTP 201 (Created) if the operation completed successfully.
+              schema:
+                $ref: '#/definitions/ADCCatalog'

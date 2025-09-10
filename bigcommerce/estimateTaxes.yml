@@ -1,0 +1,229 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Estimate Taxes
+  description: >-
+    Submit the quote request to retrieve an estimate from the enabled
+    third-party tax provider. Estimates are not expected to be persisted by the
+    tax provider.> Server URL> - For supporting tax providers, the server URL
+    contains the tax provider's profile field; for example,
+    `your_profile.example.com`.> - The Try it feature is not currently supported
+    for this endpoint.The following actions can trigger tax estimate requests
+    multiple times during a standard checkout on a BigCommerce storefront,
+    depending on the BigCommerce merchant’s settings.- After selecting a
+    Shipping Method during the “Estimate Shipping & Tax” facility on the Cart
+    page.- After specifying a Shipping Address during a Checkout.- After
+    selecting a Shipping Method during a Checkout.- After specifying a Billing
+    Address during a Checkout.The following actions are not expected to trigger
+    estimate requests.- While anonymously browsing a store’s product catalog.-
+    On the Cart page prior to a Shopper selecting a Shipping Method via
+    “Estimate Shipping & Tax”.- On the Checkout page prior to specifying a
+    Shipping Address.- On the Checkout page, when toggling any option related to
+    using the shopper’s Shipping Address as their Billing Address.The following
+    control panel actions can also trigger tax estimate requests.- Order
+    refund.- Edit order.- Test connection feature in Tax Settings.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Estimate Taxes
+      description: >-
+        Submit the quote request to retrieve an estimate from the enabled
+        third-party tax provider. Estimates are not expected to be persisted by the
+        tax provider.> Server URL> - For supporting tax providers, the server URL
+        contains the tax provider's profile field; for example,
+        `your_profile.example.com`.> - The Try it feature is not currently supported
+        for this endpoint.The following actions can trigger tax estimate requests
+        multiple times during a standard checkout on a BigCommerce storefront,
+        depending on the BigCommerce merchant’s settings.- After selecting a
+        Shipping Method during the “Estimate Shipping & Tax” facility on the Cart
+        page.- After specifying a Shipping Address during a Checkout.- After
+        selecting a Shipping Method during a Checkout.- After specifying a Billing
+        Address during a Checkout.The following actions are not expected to trigger
+        estimate requests.- While anonymously browsing a store’s product catalog.-
+        On the Cart page prior to a Shopper selecting a Shipping Method via
+        “Estimate Shipping & Tax”.- On the Checkout page prior to specifying a
+        Shipping Address.- On the Checkout page, when toggling any option related to
+        using the shopper’s Shipping Address as their Billing Address.The following
+        control panel actions can also trigger tax estimate requests.- Order
+        refund.- Edit order.- Test connection feature in Tax Settings.
+    paths:
+      /estimate:
+        post:
+          summary: Estimate Taxes
+          description: >-
+            Submit the quote request to retrieve an estimate from the enabled
+            third-party tax provider. Estimates are not expected to be persisted by
+            the tax provider.> Server URL> - For supporting tax providers, the
+            server URL contains the tax provider's profile field; for example,
+            `your_profile.example.com`.> - The Try it feature is not currently
+            supported for this endpoint.The following actions can trigger tax
+            estimate requests multiple times during a standard checkout on a
+            BigCommerce storefront, depending on the BigCommerce merchant’s
+            settings.- After selecting a Shipping Method during the “Estimate
+            Shipping & Tax” facility on the Cart page.- After specifying a Shipping
+            Address during a Checkout.- After selecting a Shipping Method during a
+            Checkout.- After specifying a Billing Address during a Checkout.The
+            following actions are not expected to trigger estimate requests.- While
+            anonymously browsing a store’s product catalog.- On the Cart page prior
+            to a Shopper selecting a Shipping Method via “Estimate Shipping & Tax”.-
+            On the Checkout page prior to specifying a Shipping Address.- On the
+            Checkout page, when toggling any option related to using the shopper’s
+            Shipping Address as their Billing Address.The following control panel
+            actions can also trigger tax estimate requests.- Order refund.- Edit
+            order.- Test connection feature in Tax Settings.
+          operationId: estimateTaxes
+          requestBody:
+            description: >-
+              Estimates may not always contain complete data as these requests will
+              be fired at different stages of the shopper checkout. For example, the
+              **Estimate Shipping & Tax** function on the **Cart** page is not
+              expected to provide any billing address data, but the tax provider
+              will still be expected to return a valid estimate.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/request-quote'
+                examples:
+                  example:
+                    value:
+                      id: 3f0c857e-2c55-443e-a89b-c3c4d8a29605
+                      currency_code: USD
+                      customer:
+                        customer_id: '0'
+                        customer_group_id: '0'
+                        taxability_code: ''
+                      transaction_date: '2019-08-13T03:17:37+00:00'
+                      documents:
+                        - id: 5d522b889d3d9
+                          billing_address:
+                            line1: ''
+                            line2: ''
+                            city: ''
+                            region_name: ''
+                            region_code: ''
+                            country_name: ''
+                            country_code: ''
+                            postal_code: ''
+                            company_name: ''
+                            type: RESIDENTIAL
+                          destination_address:
+                            line1: ''
+                            line2: ''
+                            city: Van Wert
+                            region_name: Ohio
+                            region_code: OH
+                            country_name: United States
+                            country_code: US
+                            postal_code: '45892'
+                            company_name: ''
+                            type: RESIDENTIAL
+                          origin_address:
+                            line1: 2139 W ANDERSON LN
+                            line2: ''
+                            city: AUSTIN
+                            region_name: Texas
+                            region_code: TX
+                            country_name: United States
+                            country_code: US
+                            postal_code: '78757'
+                            company_name: ''
+                            type: COMMERCIAL
+                          shipping:
+                            id: 5d522b889d3d9
+                            item_code: Flat Rate
+                            name: Shipping to Van Wert, United States 45891
+                            price:
+                              amount: 10
+                              tax_inclusive: false
+                            quantity: 1
+                            tax_class:
+                              code: ''
+                              class_id: '6'
+                              name: Shipping
+                            tax_exempt: false
+                            type: shipping
+                          handling:
+                            id: 5d522b889d3d9
+                            item_code: Flat Rate
+                            name: Handling for Van Wert, United States 45891
+                            price:
+                              amount: 0
+                              tax_inclusive: false
+                            quantity: 1
+                            tax_class:
+                              code: ''
+                              class_id: '6'
+                              name: Handling
+                            tax_exempt: false
+                            type: handling
+                          items:
+                            - id: 088c7465-e5b8-4624-a220-0d9faa82e7cb
+                              item_code: ABS
+                              name: '[Sample] Able Brewing System'
+                              price:
+                                amount: 450
+                                tax_inclusive: false
+                              quantity: 2
+                              tax_class:
+                                code: ''
+                                class_id: '0'
+                                name: Default Tax Class
+                              tax_exempt: false
+                              type: item
+                              wrapping:
+                                id: d2675662-6326-4a23-9107-ab71fa6a21a1
+                                item_code: ''
+                                name: 'Wrapping: [Sample] Canvas Laundry Cart'
+                                price:
+                                  amount: 5
+                                  tax_inclusive: false
+                                quantity: 1
+                                tax_class:
+                                  code: ''
+                                  class_id: '6'
+                                  name: Wrapping
+                                tax_exempt: false
+                                type: wrapping
+                            - id: d2675662-6326-4a23-9107-ab71fa6a21a1
+                              item_code: CLC
+                              name: '[Sample] Canvas Laundry Cart'
+                              price:
+                                amount: 200
+                                tax_inclusive: false
+                              quantity: 1
+                              tax_class:
+                                code: ''
+                                class_id: '0'
+                                name: Default Tax Class
+                              tax_exempt: false
+                              type: item
+                              wrapping:
+                                id: d2675662-6326-4a23-9107-ab71fa6a21a1
+                                item_code: ''
+                                name: 'Wrapping: [Sample] Canvas Laundry Cart'
+                                price:
+                                  amount: 5
+                                  tax_inclusive: false
+                                quantity: 1
+                                tax_class:
+                                  code: ''
+                                  class_id: '6'
+                                  name: Wrapping
+                                tax_exempt: false
+                                type: wrapping
+          responses:
+            '500':
+              description: >-
+                Fallback Tax will be used for this transaction. General response
+                that points to an error on the tax provider side. These types of
+                errors should be promptly resolved by the tax provider.

@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Suspend Recluster Of An Iceberg Table
+  description: >-
+    Suspend recluster of an iceberg table (iceberg tables managed by an external
+    catalog do not allow clustering)
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Suspend Recluster Of An Iceberg Table
+      description: >-
+        Suspend recluster of an iceberg table (iceberg tables managed by an external
+        catalog do not allow clustering)
+    paths:
+      /api/v2/databases/{database}/schemas/{schema}/iceberg-tables/{name}:suspend-recluster:
+        post:
+          summary: Suspend Recluster Of An Iceberg Table
+          description: >-
+            Suspend recluster of an iceberg table (iceberg tables managed by an
+            external catalog do not allow clustering)
+          operationId: suspendReclusterIcebergTable
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

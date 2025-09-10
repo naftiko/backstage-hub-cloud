@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Single Sends
+  description: >-
+    **This endpoint allows you to retrieve all your Single Sends.**Returns all
+    of your Single Sends with condensed details about each, including the Single
+    Sends' IDs. For more details about an individual Single Send, pass the
+    Single Send's ID to the `/marketing/singlesends/{id}` endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Single Sends
+      description: >-
+        **This endpoint allows you to retrieve all your Single Sends.**Returns all
+        of your Single Sends with condensed details about each, including the Single
+        Sends' IDs. For more details about an individual Single Send, pass the
+        Single Send's ID to the `/marketing/singlesends/{id}` endpoint.
+    paths:
+      /v3/marketing/singlesends:
+        get:
+          summary: Get All Single Sends
+          description: >-
+            **This endpoint allows you to retrieve all your Single Sends.**Returns
+            all of your Single Sends with condensed details about each, including
+            the Single Sends' IDs. For more details about an individual Single Send,
+            pass the Single Send's ID to the `/marketing/singlesends/{id}` endpoint.
+          operationId: listSingleSend
+          responses:
+            '500':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      errors:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            field:
+                              type: string
+                            message:
+                              type: string
+                            error_id:
+                              type: string

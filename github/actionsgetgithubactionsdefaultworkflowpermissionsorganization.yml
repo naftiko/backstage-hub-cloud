@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Default Workflow Permissions For An Organization
+  description: >-
+    Gets the default workflow permissions granted to the `GITHUB_TOKEN` when
+    running workflows in an organization,as well as whether GitHub Actions can
+    submit approving pull request reviews. For more information, see"[Setting
+    the permissions of the GITHUB_TOKEN for your
+    organization](https://docs.github.com/enterprise-server@3.9/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)."OAuth
+    tokens and personal access tokens (classic) need the `admin:org` scope to
+    use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Default Workflow Permissions For An Organization
+      description: >-
+        Gets the default workflow permissions granted to the `GITHUB_TOKEN` when
+        running workflows in an organization,as well as whether GitHub Actions can
+        submit approving pull request reviews. For more information, see"[Setting
+        the permissions of the GITHUB_TOKEN for your
+        organization](https://docs.github.com/enterprise-server@3.9/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)."OAuth
+        tokens and personal access tokens (classic) need the `admin:org` scope to
+        use this endpoint.
+    paths:
+      /orgs/{org}/actions/permissions/workflow:
+        get:
+          summary: Get Default Workflow Permissions For An Organization
+          description: >-
+            Gets the default workflow permissions granted to the `GITHUB_TOKEN` when
+            running workflows in an organization,as well as whether GitHub Actions
+            can submit approving pull request reviews. For more information,
+            see"[Setting the permissions of the GITHUB_TOKEN for your
+            organization](https://docs.github.com/enterprise-server@3.9/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)."OAuth
+            tokens and personal access tokens (classic) need the `admin:org` scope
+            to use this endpoint.
+          operationId: actionsgetgithubactionsdefaultworkflowpermissionsorganization
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/actions-get-default-workflow-permissions'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/actions-default-workflow-permissions'

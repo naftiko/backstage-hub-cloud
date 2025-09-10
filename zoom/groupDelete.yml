@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Group Delete
+  description: Delete a group on Zoom, return the deleted group ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Group Delete
+      description: Delete a group on Zoom, return the deleted group ID.
+    paths:
+      /group/delete:
+        post:
+          summary: Post Group Delete
+          description: Delete a group on Zoom, return the deleted group ID.
+          operationId: groupDelete
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - id
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: Group ID.
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    id: unique_id
+                    deleted_at: 2015-08-20T08:41:58.000Z
+                    deleted_count: 1

@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Security Filter
+  description: >-
+    Update a specific security filter.Returns the security filter object when
+    the request is successful.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Security Filter
+      description: >-
+        Update a specific security filter.Returns the security filter object when
+        the request is successful.
+    paths:
+      /api/v2/security_monitoring/configuration/security_filters/{security_filter_id}:
+        patch:
+          summary: Update A Security Filter
+          description: >-
+            Update a specific security filter.Returns the security filter object
+            when the request is successful.
+          operationId: updateSecurityFilter
+          requestBody:
+            description: New definition of the security filter.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/SecurityFilterUpdateRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

@@ -1,0 +1,127 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Email Dns Records To A Co-worker
+  description: >-
+    **This endpoint is used to share DNS records with a colleagues**Use this
+    endpoint to send SendGrid-generated DNS record information to a co-worker so
+    they can enter it into your DNS provider to validate your domain and link
+    branding. What type of records are sent will depend on whether you have
+    chosen Automated Security or not. When using Automated Security, SendGrid
+    provides you with three CNAME records. If you turn Automated Security off,
+    you are instead given TXT and MX records.If you pass a `link_id` to this
+    endpoint, the generated email will supply the DNS records necessary to
+    complete [Link
+    Branding](https://sendgrid.com/docs/ui/account-and-settings/how-to-set-up-link-branding/)
+    setup. If you pass a `domain_id` to this endpoint, the generated email will
+    supply the DNS records needed to complete [Domain
+    Authentication](https://sendgrid.com/docs/ui/account-and-settings/how-to-set-up-domain-authentication/).
+    Passing both IDs will generate an email with the records needed to complete
+    both setup steps.You can retrieve all your domain IDs from the returned `id`
+    fields for each domain using the "List all authenticated domains" endpoint.
+    You can retrieve all of your link IDs using the "Retrieve all branded links"
+    endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Email Dns Records To A Co-worker
+      description: >-
+        **This endpoint is used to share DNS records with a colleagues**Use this
+        endpoint to send SendGrid-generated DNS record information to a co-worker so
+        they can enter it into your DNS provider to validate your domain and link
+        branding. What type of records are sent will depend on whether you have
+        chosen Automated Security or not. When using Automated Security, SendGrid
+        provides you with three CNAME records. If you turn Automated Security off,
+        you are instead given TXT and MX records.If you pass a `link_id` to this
+        endpoint, the generated email will supply the DNS records necessary to
+        complete [Link
+        Branding](https://sendgrid.com/docs/ui/account-and-settings/how-to-set-up-link-branding/)
+        setup. If you pass a `domain_id` to this endpoint, the generated email will
+        supply the DNS records needed to complete [Domain
+        Authentication](https://sendgrid.com/docs/ui/account-and-settings/how-to-set-up-domain-authentication/).
+        Passing both IDs will generate an email with the records needed to complete
+        both setup steps.You can retrieve all your domain IDs from the returned `id`
+        fields for each domain using the "List all authenticated domains" endpoint.
+        You can retrieve all of your link IDs using the "Retrieve all branded links"
+        endpoint.
+    paths:
+      /v3/whitelabel/dns/email:
+        post:
+          summary: Email Dns Records To A Co-worker
+          description: >-
+            **This endpoint is used to share DNS records with a colleagues**Use this
+            endpoint to send SendGrid-generated DNS record information to a
+            co-worker so they can enter it into your DNS provider to validate your
+            domain and link branding. What type of records are sent will depend on
+            whether you have chosen Automated Security or not. When using Automated
+            Security, SendGrid provides you with three CNAME records. If you turn
+            Automated Security off, you are instead given TXT and MX records.If you
+            pass a `link_id` to this endpoint, the generated email will supply the
+            DNS records necessary to complete [Link
+            Branding](https://sendgrid.com/docs/ui/account-and-settings/how-to-set-up-link-branding/)
+            setup. If you pass a `domain_id` to this endpoint, the generated email
+            will supply the DNS records needed to complete [Domain
+            Authentication](https://sendgrid.com/docs/ui/account-and-settings/how-to-set-up-domain-authentication/).
+            Passing both IDs will generate an email with the records needed to
+            complete both setup steps.You can retrieve all your domain IDs from the
+            returned `id` fields for each domain using the "List all authenticated
+            domains" endpoint. You can retrieve all of your link IDs using the
+            "Retrieve all branded links" endpoint.
+          operationId: emailDnsRecord
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    link_id:
+                      type: integer
+                      minimum: 0
+                      description: The ID of the branded link.
+                    domain_id:
+                      type: integer
+                      minimum: 0
+                      description: The ID of your SendGrid domain record.
+                    email:
+                      type: string
+                      format: email
+                      description: The email address to send the DNS information to.
+                    message:
+                      type: string
+                      default: Please set these DNS records in our hosting solution.
+                      description: >-
+                        A custom text block to include in the email body sent with
+                        the records.
+                  required:
+                    - link_id
+                    - domain_id
+                    - email
+                  example:
+                    link_id: 29719392
+                    domain_id: 46873408
+                    email: my_colleague@example.com
+                    message: DNS Record for verification
+          responses:
+            '400':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      errors:
+                        type: object
+                        properties:
+                          error:
+                            type: string
+                          field:
+                            type: string

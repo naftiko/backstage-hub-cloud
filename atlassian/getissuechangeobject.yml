@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Issue Change Object
+  description: >-
+    Returns the specified issue change object.This resource is only available on
+    repositories that have the issuetracker enabled.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Issue Change Object
+      description: >-
+        Returns the specified issue change object.This resource is only available on
+        repositories that have the issuetracker enabled.
+    paths:
+      /repositories/{workspace}/{repo_slug}/issues/{issue_id}/changes/{change_id}:
+        get:
+          summary: Get Issue Change Object
+          description: >-
+            Returns the specified issue change object.This resource is only
+            available on repositories that have the issuetracker enabled.
+          operationId: getissuechangeobject
+          responses:
+            '404':
+              description: >-
+                The specified repository or issue change does not exist or does not
+                have the issue tracker enabled.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

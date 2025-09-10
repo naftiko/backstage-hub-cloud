@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Disablehostedzonednssec
+  description: >-
+    Disables DNSSEC signing in a specific hosted zone. This action does not
+    deactivate any key-signing keys (KSKs) that are active in the hosted zone.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disablehostedzonednssec
+      description: >-
+        Disables DNSSEC signing in a specific hosted zone. This action does not
+        deactivate any key-signing keys (KSKs) that are active in the hosted zone.
+    paths:
+      /2013-04-01/hostedzone/{Id}/disable-dnssec:
+        POST:
+          summary: Disablehostedzonednssec
+          description: >-
+            Disables DNSSEC signing in a specific hosted zone. This action does not
+            deactivate any key-signing keys (KSKs) that are active in the hosted
+            zone.
+          operationId: disableHostedZoneDNSSEC

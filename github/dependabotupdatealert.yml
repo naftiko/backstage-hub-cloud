@@ -1,0 +1,91 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Dependabot Alert
+  description: >-
+    The authenticated user must have access to security alerts for the
+    repository to use this endpoint. For more information, see "[Granting access
+    to security
+    alerts](https://docs.github.com/enterprise-server@3.9/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."OAuth
+    app tokens and personal access tokens (classic) need the `security_events`
+    scope to use this endpoint. If this endpoint is only used with public
+    repositories, the token can use the `public_repo` scope instead.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Dependabot Alert
+      description: >-
+        The authenticated user must have access to security alerts for the
+        repository to use this endpoint. For more information, see "[Granting access
+        to security
+        alerts](https://docs.github.com/enterprise-server@3.9/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."OAuth
+        app tokens and personal access tokens (classic) need the `security_events`
+        scope to use this endpoint. If this endpoint is only used with public
+        repositories, the token can use the `public_repo` scope instead.
+    paths:
+      /repos/{owner}/{repo}/dependabot/alerts/{alert_number}:
+        patch:
+          summary: Update A Dependabot Alert
+          description: >-
+            The authenticated user must have access to security alerts for the
+            repository to use this endpoint. For more information, see "[Granting
+            access to security
+            alerts](https://docs.github.com/enterprise-server@3.9/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."OAuth
+            app tokens and personal access tokens (classic) need the
+            `security_events` scope to use this endpoint. If this endpoint is only
+            used with public repositories, the token can use the `public_repo` scope
+            instead.
+          operationId: dependabotupdatealert
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    state:
+                      type: string
+                      description: >-
+                        The state of the Dependabot alert.
+
+                        A `dismissed_reason` must be provided when setting the state
+                        to `dismissed`.
+                      enum:
+                        - dismissed
+                        - open
+                    dismissed_reason:
+                      type: string
+                      description: >-
+                        **Required when `state` is `dismissed`.** A reason for
+                        dismissing the alert.
+                      enum:
+                        - fix_started
+                        - inaccurate
+                        - no_bandwidth
+                        - not_used
+                        - tolerable_risk
+                    dismissed_comment:
+                      type: string
+                      description: An optional comment associated with dismissing the alert.
+                      maxLength: 280
+                  required:
+                    - state
+                  additionalProperties: false
+                examples:
+                  default:
+                    value:
+                      state: dismissed
+                      dismissed_reason: tolerable_risk
+                      dismissed_comment: This alert is accurate but we use a sanitizer.
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed_simple'

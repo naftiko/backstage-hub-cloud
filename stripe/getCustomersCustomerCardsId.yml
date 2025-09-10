@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Customers Customer Cards Id
+  description: >-
+    You can always see the 10 most recent cards directly on a customer; this
+    method lets you retrieve details about a specific card stored on the
+    customer.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Customers Customer Cards Id
+      description: >-
+        You can always see the 10 most recent cards directly on a customer; this
+        method lets you retrieve details about a specific card stored on the
+        customer.
+    paths:
+      /v1/customers/{customer}/cards/{id}:
+        get:
+          summary: Get Customers Customer Cards Id
+          description: >-
+            You can always see the 10 most recent cards directly on a customer; this
+            method lets you retrieve details about a specific card stored on the
+            customer.
+          operationId: getCustomersCustomerCardsId
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetCustomersCustomerCardsIdRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

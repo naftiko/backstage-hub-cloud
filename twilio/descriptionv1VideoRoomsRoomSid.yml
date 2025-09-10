@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Description  Video Rooms Roomsid
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Description  Video Rooms Roomsid
+      description: Needs a more full description created.
+    paths:
+      /v1/Video/Rooms/{RoomSid}:
+        description:
+          summary: Description  Video Rooms Roomsid
+          description: Needs a more full description created.
+          operationId: descriptionv1VideoRoomsRoomSid

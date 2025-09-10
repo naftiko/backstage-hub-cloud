@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deletes A Product.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/products/product#destroy-2021-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes A Product.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/products/product#destroy-2021-01
+    paths:
+      /admin/api/2021-01/products/{product_id}.json:
+        delete:
+          summary: Deletes A Product.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/products/product#destroy-2021-01
+          operationId: deprecated202101deleteproductsparamproductid
+          responses:
+            '200':
+              description: ''

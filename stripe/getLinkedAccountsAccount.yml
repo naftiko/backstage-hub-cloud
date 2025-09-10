@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Linked_accounts Account
+  description: Retrieves the details of an Financial Connections Account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Linked_accounts Account
+      description: Retrieves the details of an Financial Connections Account.
+    paths:
+      /v1/linked_accounts/{account}:
+        get:
+          summary: Get Linked_accounts Account
+          description: Retrieves the details of an Financial Connections Account.
+          operationId: getLinkedAccountsAccount
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetLinkedAccountsAccountRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

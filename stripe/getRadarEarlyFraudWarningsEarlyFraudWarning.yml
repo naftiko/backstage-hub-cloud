@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Radar Early_fraud_warnings Early_fraud_warning
+  description: >-
+    Retrieves the details of an early fraud warning that has previously been
+    created. Please refer to the early fraud warning object reference for more
+    details.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Radar Early_fraud_warnings Early_fraud_warning
+      description: >-
+        Retrieves the details of an early fraud warning that has previously been
+        created. Please refer to the early fraud warning object reference for more
+        details.
+    paths:
+      /v1/radar/early_fraud_warnings/{early_fraud_warning}:
+        get:
+          summary: Get Radar Early_fraud_warnings Early_fraud_warning
+          description: >-
+            Retrieves the details of an early fraud warning that has previously been
+            created. Please refer to the early fraud warning object reference for
+            more details.
+          operationId: getRadarEarlyFraudWarningsEarlyFraudWarning
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: >-
+                    #/components/schemas/GetRadarEarlyFraudWarningsEarlyFraudWarningRequest
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

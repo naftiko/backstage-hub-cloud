@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Providers Microsoft.blockchain Locations
+    Locationname Listconsortiums
+  description: Lists the available consortiums for a subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Providers Microsoft.blockchain Locations
+        Locationname Listconsortiums
+      description: Lists the available consortiums for a subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Blockchain/locations/{locationName}/listConsortiums:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Providers Microsoft.blockchain
+            Locations Locationname Listconsortiums
+          description: Lists the available consortiums for a subscription.
+          operationId: locationsListConsortiums
+          responses:
+            '200':
+              description: Success
+              schema:
+                $ref: '#/definitions/ConsortiumCollection'

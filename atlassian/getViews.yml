@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Views
+  description: Get the total number of views a piece of content has.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Views
+      description: Get the total number of views a piece of content has.
+    paths:
+      /wiki/rest/api/analytics/content/{contentId}/views:
+        get:
+          summary: Get Views
+          description: Get the total number of views a piece of content has.
+          operationId: getViews
+          responses:
+            '404':
+              description: |-
+                Returned if;
+                - There is no content with the given ID.

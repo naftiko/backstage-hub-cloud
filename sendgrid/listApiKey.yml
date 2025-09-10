@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve All Api Keys Belonging To The Authenticated User
+  description: >-
+    **This endpoint allows you to retrieve all API Keys that belong to the
+    authenticated user.**A successful response from this API will include all
+    available API keys' names and IDs.For security reasons, there is not a way
+    to retrieve the key itself after it's created. If you lose your API key, you
+    must create a new one. Only the "Create API keys" endpoint will return a key
+    to you and only at the time of creation.An `api_key_id` can be used to
+    update or delete the key, as well as retrieve the key's details, such as its
+    scopes.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve All Api Keys Belonging To The Authenticated User
+      description: >-
+        **This endpoint allows you to retrieve all API Keys that belong to the
+        authenticated user.**A successful response from this API will include all
+        available API keys' names and IDs.For security reasons, there is not a way
+        to retrieve the key itself after it's created. If you lose your API key, you
+        must create a new one. Only the "Create API keys" endpoint will return a key
+        to you and only at the time of creation.An `api_key_id` can be used to
+        update or delete the key, as well as retrieve the key's details, such as its
+        scopes.
+    paths:
+      /v3/api_keys:
+        get:
+          summary: Retrieve All Api Keys Belonging To The Authenticated User
+          description: >-
+            **This endpoint allows you to retrieve all API Keys that belong to the
+            authenticated user.**A successful response from this API will include
+            all available API keys' names and IDs.For security reasons, there is not
+            a way to retrieve the key itself after it's created. If you lose your
+            API key, you must create a new one. Only the "Create API keys" endpoint
+            will return a key to you and only at the time of creation.An
+            `api_key_id` can be used to update or delete the key, as well as
+            retrieve the key's details, such as its scopes.
+          operationId: listApiKey
+          responses:
+            '500':
+              $ref: '#/components/responses/GlobalError500'

@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Team Discussion Comment Reaction
+  description: >-
+    **Note:** You can also specify a team or organization with `team_id` and
+    `org_id` using the route `DELETE
+    /organizations/:org_id/team/:team_id/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`.Delete
+    a reaction to a [team discussion
+    comment](https://docs.github.com/enterprise-server@3.9/rest/teams/discussion-comments#get-a-discussion-comment).OAuth
+    app tokens and personal access tokens (classic) need the `write:discussion`
+    scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Team Discussion Comment Reaction
+      description: >-
+        **Note:** You can also specify a team or organization with `team_id` and
+        `org_id` using the route `DELETE
+        /organizations/:org_id/team/:team_id/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`.Delete
+        a reaction to a [team discussion
+        comment](https://docs.github.com/enterprise-server@3.9/rest/teams/discussion-comments#get-a-discussion-comment).OAuth
+        app tokens and personal access tokens (classic) need the `write:discussion`
+        scope to use this endpoint.
+    paths:
+      /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions/{reaction_id}:
+        delete:
+          summary: Delete Team Discussion Comment Reaction
+          description: >-
+            **Note:** You can also specify a team or organization with `team_id` and
+            `org_id` using the route `DELETE
+            /organizations/:org_id/team/:team_id/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`.Delete
+            a reaction to a [team discussion
+            comment](https://docs.github.com/enterprise-server@3.9/rest/teams/discussion-comments#get-a-discussion-comment).OAuth
+            app tokens and personal access tokens (classic) need the
+            `write:discussion` scope to use this endpoint.
+          operationId: reactionsdeleteforteamdiscussioncomment
+          responses:
+            '204':
+              description: Response

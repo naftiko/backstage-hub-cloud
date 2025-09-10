@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.networkfunction Azuretrafficcollectors
+  description: Return list of Azure Traffic Collectors in a Resource Group
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.networkfunction Azuretrafficcollectors
+      description: Return list of Azure Traffic Collectors in a Resource Group
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkFunction/azureTrafficCollectors:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.networkfunction Azuretrafficcollectors
+          description: Return list of Azure Traffic Collectors in a Resource Group
+          operationId: azureTrafficCollectorsByResourceGroupList
+          responses:
+            default:
+              description: >-
+                Error response describing why the operation failed. If the resource
+                group does not exist, 404 (NotFound) will be returned.
+              schema:
+                $ref: '#/definitions/CloudError'

@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Treasury Outbound_payments Id
+  description: >-
+    Retrieves the details of an existing OutboundPayment by passing the unique
+    OutboundPayment ID from either the OutboundPayment creation request or
+    OutboundPayment list.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Treasury Outbound_payments Id
+      description: >-
+        Retrieves the details of an existing OutboundPayment by passing the unique
+        OutboundPayment ID from either the OutboundPayment creation request or
+        OutboundPayment list.
+    paths:
+      /v1/treasury/outbound_payments/{id}:
+        get:
+          summary: Get Treasury Outbound_payments Id
+          description: >-
+            Retrieves the details of an existing OutboundPayment by passing the
+            unique OutboundPayment ID from either the OutboundPayment creation
+            request or OutboundPayment list.
+          operationId: getTreasuryOutboundPaymentsId
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetTreasuryOutboundPaymentsIdRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

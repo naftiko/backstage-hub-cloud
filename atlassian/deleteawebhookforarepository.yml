@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Webhook For A Repository
+  description: Deletes the specified webhook subscription from the givenrepository.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Webhook For A Repository
+      description: Deletes the specified webhook subscription from the givenrepository.
+    paths:
+      /repositories/{workspace}/{repo_slug}/hooks/{uid}:
+        delete:
+          summary: Delete A Webhook For A Repository
+          description: Deletes the specified webhook subscription from the givenrepository.
+          operationId: deleteawebhookforarepository
+          responses:
+            '404':
+              description: If the webhook or repository does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

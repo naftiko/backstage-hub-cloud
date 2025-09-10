@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Treasury Received_debits
+  description: Returns a list of ReceivedDebits.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Treasury Received_debits
+      description: Returns a list of ReceivedDebits.
+    paths:
+      /v1/treasury/received_debits:
+        get:
+          summary: Get Treasury Received_debits
+          description: Returns a list of ReceivedDebits.
+          operationId: getTreasuryReceivedDebits
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetTreasuryReceivedDebitsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

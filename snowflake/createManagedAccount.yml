@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Managed Accounts.
+  description: >-
+    Creates a managed account. You must provide the full managed account
+    definition when creating a managed account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Managed Accounts.
+      description: >-
+        Creates a managed account. You must provide the full managed account
+        definition when creating a managed account.
+    paths:
+      /api/v2/managed-accounts:
+        post:
+          summary: Create A Managed Accounts.
+          description: >-
+            Creates a managed account. You must provide the full managed account
+            definition when creating a managed account.
+          operationId: createManagedAccount
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ManagedAccount'
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

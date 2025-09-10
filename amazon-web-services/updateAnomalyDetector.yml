@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updateanomalydetector
+  description: >-
+    Updates a detector. After activation, you can only change a detector's
+    ingestion delay and description.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateanomalydetector
+      description: >-
+        Updates a detector. After activation, you can only change a detector's
+        ingestion delay and description.
+    paths:
+      /UpdateAnomalyDetector:
+        POST:
+          summary: Updateanomalydetector
+          description: >-
+            Updates a detector. After activation, you can only change a detector's
+            ingestion delay and description.
+          operationId: updateAnomalyDetector

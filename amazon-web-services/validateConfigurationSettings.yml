@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Validateconfigurationsettings
+  description: >-
+    Takes a set of configuration settings and either a configuration template or
+    environment, and determines whether those values are valid. This action
+    returns a list of messages indicating any errors or warnings associated with
+    the selection of option values.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Validateconfigurationsettings
+      description: >-
+        Takes a set of configuration settings and either a configuration template or
+        environment, and determines whether those values are valid. This action
+        returns a list of messages indicating any errors or warnings associated with
+        the selection of option values.
+    paths:
+      /:
+        POST:
+          summary: Validateconfigurationsettings
+          description: >-
+            Takes a set of configuration settings and either a configuration
+            template or environment, and determines whether those values are valid.
+            This action returns a list of messages indicating any errors or warnings
+            associated with the selection of option values.
+          operationId: validateConfigurationSettings

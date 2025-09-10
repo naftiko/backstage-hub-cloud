@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Send An Incident Event For Dora Metrics
+  description: >-
+    Use this API endpoint to provide failure data for DORA metrics.This is
+    necessary for:- Change Failure Rate- Time to Restore
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Send An Incident Event For Dora Metrics
+      description: >-
+        Use this API endpoint to provide failure data for DORA metrics.This is
+        necessary for:- Change Failure Rate- Time to Restore
+    paths:
+      /api/v2/dora/incident:
+        post:
+          summary: Send An Incident Event For Dora Metrics
+          description: >-
+            Use this API endpoint to provide failure data for DORA metrics.This is
+            necessary for:- Change Failure Rate- Time to Restore
+          operationId: createDORAIncident
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/DORAIncidentRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

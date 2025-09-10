@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Registerappinstanceuserendpoint
+  description: >-
+    Registers an endpoint under an Amazon Chime AppInstanceUser. The endpoint
+    receives messages for a user. For push notifications, the endpoint is a
+    mobile device used to receive mobile push notifications for a user.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Registerappinstanceuserendpoint
+      description: >-
+        Registers an endpoint under an Amazon Chime AppInstanceUser. The endpoint
+        receives messages for a user. For push notifications, the endpoint is a
+        mobile device used to receive mobile push notifications for a user.
+    paths:
+      /app-instance-users/{appInstanceUserArn}/endpoints:
+        POST:
+          summary: Registerappinstanceuserendpoint
+          description: >-
+            Registers an endpoint under an Amazon Chime AppInstanceUser. The
+            endpoint receives messages for a user. For push notifications, the
+            endpoint is a mobile device used to receive mobile push notifications
+            for a user.
+          operationId: registerAppInstanceUserEndpoint

@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Available Offerings
+  description: Retrieves offerings available under the organization.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Available Offerings
+      description: Retrieves offerings available under the organization.
+    paths:
+      /v3/partners/offerings:
+        get:
+          summary: Get All Available Offerings
+          description: Retrieves offerings available under the organization.
+          operationId: listOffering
+          responses:
+            '504':
+              $ref: '#/components/responses/AccountProvisioningErrorResponse504'

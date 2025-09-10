@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Servers  Trustproducts Trustproductsid Entityassignments
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Servers  Trustproducts Trustproductsid Entityassignments
+      description: Needs a more full description created.
+    paths:
+      /v1/TrustProducts/{TrustProductSid}/EntityAssignments:
+        servers:
+          summary: Servers  Trustproducts Trustproductsid Entityassignments
+          description: Needs a more full description created.
+          operationId: serversv1TrustProductsTrustProductSidEntityAssignments

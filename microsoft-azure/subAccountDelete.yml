@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Delete A Sub Account Resource. This Delete Operation Can Take Upto 10
+    Minutes To Complete.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete A Sub Account Resource. This Delete Operation Can Take Upto 10
+        Minutes To Complete.
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logz/monitors/{monitorName}/accounts/{subAccountName}:
+        delete:
+          summary: >-
+            Delete A Sub Account Resource. This Delete Operation Can Take Upto 10
+            Minutes To Complete.
+          description: Needs a more full description created.
+          operationId: subAccountDelete
+          responses:
+            default:
+              description: Default error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

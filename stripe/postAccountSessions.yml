@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Account_sessions
+  description: >-
+    Creates a AccountSession object that includes a single-use token that the
+    platform can use on their front-end to grant client-side API access.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Account_sessions
+      description: >-
+        Creates a AccountSession object that includes a single-use token that the
+        platform can use on their front-end to grant client-side API access.
+    paths:
+      /v1/account_sessions:
+        post:
+          summary: Post Account_sessions
+          description: >-
+            Creates a AccountSession object that includes a single-use token that
+            the platform can use on their front-end to grant client-side API access.
+          operationId: postAccountSessions
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  components:
+                    explode: true
+                    style: deepObject
+                  expand:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostAccountSessionsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

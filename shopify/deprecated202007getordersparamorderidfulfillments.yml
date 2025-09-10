@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Retrieves Fulfillments Associated With An Order. Note: As Of Version
+    2019-10, This Endpoint Implements Pagination By Using Links That Are
+    Provided In The Response Header. Sending The Page Parameter Will Return An
+    Error. To Learn More, See Making Requests To Paginated Rest Admin Api
+    Endpoints.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillment#index-2020-07
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Retrieves Fulfillments Associated With An Order. Note: As Of Version
+        2019-10, This Endpoint Implements Pagination By Using Links That Are
+        Provided In The Response Header. Sending The Page Parameter Will Return An
+        Error. To Learn More, See Making Requests To Paginated Rest Admin Api
+        Endpoints.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillment#index-2020-07
+    paths:
+      /admin/api/2020-07/orders/{order_id}/fulfillments.json:
+        get:
+          summary: >-
+            Retrieves Fulfillments Associated With An Order. Note: As Of Version
+            2019-10, This Endpoint Implements Pagination By Using Links That Are
+            Provided In The Response Header. Sending The Page Parameter Will Return
+            An Error. To Learn More, See Making Requests To Paginated Rest Admin Api
+            Endpoints.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/fulfillment#index-2020-07
+          operationId: deprecated202007getordersparamorderidfulfillments
+          responses:
+            '200':
+              description: ''

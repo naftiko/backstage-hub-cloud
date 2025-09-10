@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieves A List All Of Article Authors
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/online-store/article#authors-2020-04
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves A List All Of Article Authors
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/online-store/article#authors-2020-04
+    paths:
+      /admin/api/2020-04/articles/authors.json:
+        get:
+          summary: Retrieves A List All Of Article Authors
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/online-store/article#authors-2020-04
+          operationId: deprecated202004getarticlesauthors
+          responses:
+            '200':
+              description: ''

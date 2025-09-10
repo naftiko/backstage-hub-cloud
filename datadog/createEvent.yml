@@ -1,0 +1,86 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post An Event
+  description: >-
+    This endpoint allows you to post events. **Only events with the `change`
+    category** are in GeneralAvailability. See [Change
+    Tracking](https://docs.datadoghq.com/change_tracking) for more details.L For
+    use cases involving other event categories, please use the V1 endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post An Event
+      description: >-
+        This endpoint allows you to post events. **Only events with the `change`
+        category** are in GeneralAvailability. See [Change
+        Tracking](https://docs.datadoghq.com/change_tracking) for more details.L For
+        use cases involving other event categories, please use the V1 endpoint.
+    paths:
+      /api/v2/events:
+        post:
+          summary: Post An Event
+          description: >-
+            This endpoint allows you to post events. **Only events with the `change`
+            category** are in GeneralAvailability. See [Change
+            Tracking](https://docs.datadoghq.com/change_tracking) for more details.L
+            For use cases involving other event categories, please use the V1
+            endpoint.
+          operationId: createEvent
+          requestBody:
+            description: Event request object
+            required: true
+            content:
+              application/json:
+                examples:
+                  json-request-body:
+                    value:
+                      data:
+                        attributes:
+                          attributes:
+                            author:
+                              name: datadog@datadog.com
+                              type: user
+                            change_metadata:
+                              dd:
+                                team: datadog_team
+                                user_email: datadog@datadog.com
+                                user_id: datadog_user_id
+                                user_name: datadog_username
+                              resource_link: datadog.com/feature/fallback_payments_test
+                            changed_resource:
+                              name: fallback_payments_test
+                              type: feature_flag
+                            impacted_resources:
+                              - name: payments_api
+                                type: service
+                            new_value:
+                              enabled: true
+                              percentage: 50%
+                              rule:
+                                datacenter: devcycle.us1.prod
+                            prev_value:
+                              enabled: true
+                              percentage: 10%
+                              rule:
+                                datacenter: devcycle.us1.prod
+                          category: change
+                          message: payment_processed feature flag has been enabled
+                          tags:
+                            - env:test
+                          title: payment_processed feature flag updated
+                        type: event
+                schema:
+                  $ref: '#/components/schemas/EventCreateRequestPayload'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

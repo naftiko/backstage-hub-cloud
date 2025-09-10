@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: |-
+    Updates An Existing Gift Card.
+      The Gift Card's Balance Can't Be Changed Via The Api. You Can Change Only The Expiry Date, Note, And Template Suffix.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/plus/giftcard#update-2020-07
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: |-
+        Updates An Existing Gift Card.
+          The Gift Card's Balance Can't Be Changed Via The Api. You Can Change Only The Expiry Date, Note, And Template Suffix.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/plus/giftcard#update-2020-07
+    paths:
+      /admin/api/2020-07/gift_cards/{gift_card_id}.json:
+        put:
+          summary: |-
+            Updates An Existing Gift Card.
+              The Gift Card's Balance Can't Be Changed Via The Api. You Can Change Only The Expiry Date, Note, And Template Suffix.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/plus/giftcard#update-2020-07
+          operationId: deprecated202007updategiftcardsparamgiftcardid
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      gift_card:
+                        id: 48394658
+                        note: Updating with a new note
+                    summary: Update the note of a gift card
+                  example2:
+                    value:
+                      gift_card:
+                        id: 48394658
+                        expires_on: '2020-01-01'
+                    summary: Update the expiry date of a gift card
+          responses:
+            '200':
+              description: ''

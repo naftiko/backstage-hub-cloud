@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Redeploy A Lab Virtual Machine To A Different Compute Node. For
+    Troubleshooting Connectivity.
+  description: >-
+    Action to redeploy a lab virtual machine to a different compute node. For
+    troubleshooting connectivity.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Redeploy A Lab Virtual Machine To A Different Compute Node. For
+        Troubleshooting Connectivity.
+      description: >-
+        Action to redeploy a lab virtual machine to a different compute node. For
+        troubleshooting connectivity.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labs/{labName}/virtualMachines/{virtualMachineName}/redeploy:
+        post:
+          summary: >-
+            Redeploy A Lab Virtual Machine To A Different Compute Node. For
+            Troubleshooting Connectivity.
+          description: >-
+            Action to redeploy a lab virtual machine to a different compute node.
+            For troubleshooting connectivity.
+          operationId: virtualMachinesRedeploy
+          responses:
+            default:
+              description: The default error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

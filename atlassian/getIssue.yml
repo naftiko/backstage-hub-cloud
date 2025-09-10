@@ -1,0 +1,64 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Issue
+  description: >-
+    Returns the details for an issue.The issue is identified by its ID or key,
+    however, if the identifier doesn't match an issue, a case-insensitive search
+    and check for moved issues is performed. If a matching issue is found its
+    details are returned, a 302 or other redirect is **not** returned. The issue
+    key returned in the response is the key of the issue found.This operation
+    can be accessed anonymously.**[Permissions](#permissions) required:** * 
+    *Browse projects* [project
+    permission](https://confluence.atlassian.com/x/yodKLg) for the project that
+    the issue is in. *  If [issue-level
+    security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+    issue-level security permission to view the issue.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Issue
+      description: >-
+        Returns the details for an issue.The issue is identified by its ID or key,
+        however, if the identifier doesn't match an issue, a case-insensitive search
+        and check for moved issues is performed. If a matching issue is found its
+        details are returned, a 302 or other redirect is **not** returned. The issue
+        key returned in the response is the key of the issue found.This operation
+        can be accessed anonymously.**[Permissions](#permissions) required:** * 
+        *Browse projects* [project
+        permission](https://confluence.atlassian.com/x/yodKLg) for the project that
+        the issue is in. *  If [issue-level
+        security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+        issue-level security permission to view the issue.
+    paths:
+      /rest/api/3/issue/{issueIdOrKey}:
+        get:
+          summary: Get Issue
+          description: >-
+            Returns the details for an issue.The issue is identified by its ID or
+            key, however, if the identifier doesn't match an issue, a
+            case-insensitive search and check for moved issues is performed. If a
+            matching issue is found its details are returned, a 302 or other
+            redirect is **not** returned. The issue key returned in the response is
+            the key of the issue found.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** *  *Browse
+            projects* [project
+            permission](https://confluence.atlassian.com/x/yodKLg) for the project
+            that the issue is in. *  If [issue-level
+            security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+            issue-level security permission to view the issue.
+          operationId: getIssue
+          responses:
+            '404':
+              description: >-
+                Returned if the issue is not found or the user does not have
+                permission to view it.

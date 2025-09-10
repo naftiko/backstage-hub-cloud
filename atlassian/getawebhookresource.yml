@@ -1,0 +1,60 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Webhook Resource
+  description: >-
+    Returns the webhook resource or subject types on which webhooks canbe
+    registered.Each resource/subject type contains an `events` link that returns
+    thepaginated list of specific events each individual subject type
+    canemit.This endpoint is publicly accessible and does not
+    requireauthentication or scopes.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Webhook Resource
+      description: >-
+        Returns the webhook resource or subject types on which webhooks canbe
+        registered.Each resource/subject type contains an `events` link that returns
+        thepaginated list of specific events each individual subject type
+        canemit.This endpoint is publicly accessible and does not
+        requireauthentication or scopes.
+    paths:
+      /hook_events:
+        get:
+          summary: Get A Webhook Resource
+          description: >-
+            Returns the webhook resource or subject types on which webhooks canbe
+            registered.Each resource/subject type contains an `events` link that
+            returns thepaginated list of specific events each individual subject
+            type canemit.This endpoint is publicly accessible and does not
+            requireauthentication or scopes.
+          operationId: getawebhookresource
+          responses:
+            '200':
+              description: >-
+                A mapping of resource/subject types pointing to their individual
+                event types.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/subject_types'
+                  examples:
+                    response:
+                      value:
+                        repository:
+                          links:
+                            events:
+                              href: https://api.bitbucket.org/2.0/hook_events/repository
+                        workspace:
+                          links:
+                            events:
+                              href: https://api.bitbucket.org/2.0/hook_events/workspace

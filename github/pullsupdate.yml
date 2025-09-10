@@ -1,0 +1,142 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Pull Request
+  description: >-
+    Draft pull requests are available in public repositories with GitHub Free
+    and GitHub Free for organizations, GitHub Pro, and legacy per-repository
+    billing plans, and in public and private repositories with GitHub Team and
+    GitHub Enterprise Cloud. For more information, see [GitHub's
+    products](https://docs.github.com/enterprise-server@3.9/github/getting-started-with-github/githubs-products)
+    in the GitHub Help documentation.To open or update a pull request in a
+    public repository, you must have write access to the head or the source
+    branch. For organization-owned repositories, you must be a member of the
+    organization that owns the repository to open or update a pull request.This
+    endpoint supports the following custom media types. For more information,
+    see "[Media
+    types](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types)."-
+    **`application/vnd.github.raw+json`**: Returns the raw markdown body.
+    Response will include `body`. This is the default if you do not pass any
+    specific media type.- **`application/vnd.github.text+json`**: Returns a text
+    only representation of the markdown body. Response will include
+    `body_text`.- **`application/vnd.github.html+json`**: Returns HTML rendered
+    from the body's markdown. Response will include `body_html`.-
+    **`application/vnd.github.full+json`**: Returns raw, text, and HTML
+    representations. Response will include `body`, `body_text`, and
+    `body_html`.- **`application/vnd.github.diff`**: For more information, see
+    "[git-diff](https://git-scm.com/docs/git-diff)" in the Git documentation. If
+    a diff is corrupt, contact us through the [GitHub Support
+    portal](https://support.github.com/). Include the repository name and pull
+    request ID in your message.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Pull Request
+      description: >-
+        Draft pull requests are available in public repositories with GitHub Free
+        and GitHub Free for organizations, GitHub Pro, and legacy per-repository
+        billing plans, and in public and private repositories with GitHub Team and
+        GitHub Enterprise Cloud. For more information, see [GitHub's
+        products](https://docs.github.com/enterprise-server@3.9/github/getting-started-with-github/githubs-products)
+        in the GitHub Help documentation.To open or update a pull request in a
+        public repository, you must have write access to the head or the source
+        branch. For organization-owned repositories, you must be a member of the
+        organization that owns the repository to open or update a pull request.This
+        endpoint supports the following custom media types. For more information,
+        see "[Media
+        types](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types)."-
+        **`application/vnd.github.raw+json`**: Returns the raw markdown body.
+        Response will include `body`. This is the default if you do not pass any
+        specific media type.- **`application/vnd.github.text+json`**: Returns a text
+        only representation of the markdown body. Response will include
+        `body_text`.- **`application/vnd.github.html+json`**: Returns HTML rendered
+        from the body's markdown. Response will include `body_html`.-
+        **`application/vnd.github.full+json`**: Returns raw, text, and HTML
+        representations. Response will include `body`, `body_text`, and
+        `body_html`.- **`application/vnd.github.diff`**: For more information, see
+        "[git-diff](https://git-scm.com/docs/git-diff)" in the Git documentation. If
+        a diff is corrupt, contact us through the [GitHub Support
+        portal](https://support.github.com/). Include the repository name and pull
+        request ID in your message.
+    paths:
+      /repos/{owner}/{repo}/pulls/{pull_number}:
+        patch:
+          summary: Update A Pull Request
+          description: >-
+            Draft pull requests are available in public repositories with GitHub
+            Free and GitHub Free for organizations, GitHub Pro, and legacy
+            per-repository billing plans, and in public and private repositories
+            with GitHub Team and GitHub Enterprise Cloud. For more information, see
+            [GitHub's
+            products](https://docs.github.com/enterprise-server@3.9/github/getting-started-with-github/githubs-products)
+            in the GitHub Help documentation.To open or update a pull request in a
+            public repository, you must have write access to the head or the source
+            branch. For organization-owned repositories, you must be a member of the
+            organization that owns the repository to open or update a pull
+            request.This endpoint supports the following custom media types. For
+            more information, see "[Media
+            types](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types)."-
+            **`application/vnd.github.raw+json`**: Returns the raw markdown body.
+            Response will include `body`. This is the default if you do not pass any
+            specific media type.- **`application/vnd.github.text+json`**: Returns a
+            text only representation of the markdown body. Response will include
+            `body_text`.- **`application/vnd.github.html+json`**: Returns HTML
+            rendered from the body's markdown. Response will include `body_html`.-
+            **`application/vnd.github.full+json`**: Returns raw, text, and HTML
+            representations. Response will include `body`, `body_text`, and
+            `body_html`.- **`application/vnd.github.diff`**: For more information,
+            see "[git-diff](https://git-scm.com/docs/git-diff)" in the Git
+            documentation. If a diff is corrupt, contact us through the [GitHub
+            Support portal](https://support.github.com/). Include the repository
+            name and pull request ID in your message.
+          operationId: pullsupdate
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                      description: The title of the pull request.
+                    body:
+                      type: string
+                      description: The contents of the pull request.
+                    state:
+                      type: string
+                      description: State of this Pull Request. Either `open` or `closed`.
+                      enum:
+                        - open
+                        - closed
+                    base:
+                      type: string
+                      description: >-
+                        The name of the branch you want your changes pulled into.
+                        This should be an existing branch on the current repository.
+                        You cannot update the base branch on a pull request to point
+                        to another repository.
+                    maintainer_can_modify:
+                      type: boolean
+                      description: >-
+                        Indicates whether [maintainers can
+                        modify](https://docs.github.com/enterprise-server@3.9/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/)
+                        the pull request.
+                examples:
+                  default:
+                    value:
+                      title: new title
+                      body: updated body
+                      state: open
+                      base: master
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

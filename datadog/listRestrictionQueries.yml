@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Restriction Queries
+  description: Returns all restriction queries, including their names and IDs.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Restriction Queries
+      description: Returns all restriction queries, including their names and IDs.
+    paths:
+      /api/v2/logs/config/restriction_queries:
+        get:
+          summary: List Restriction Queries
+          description: Returns all restriction queries, including their names and IDs.
+          operationId: listRestrictionQueries
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

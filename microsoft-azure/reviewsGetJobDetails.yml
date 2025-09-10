@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Contentmoderator Review .0 Teams Teamname Jobs Jobid
+  description: Get the job details for a job ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Contentmoderator Review .0 Teams Teamname Jobs Jobid
+      description: Get the job details for a job ID.
+    paths:
+      /contentmoderator/review/v1.0/teams/{teamName}/jobs/{JobId}:
+        get:
+          summary: Get Contentmoderator Review .0 Teams Teamname Jobs Jobid
+          description: Get the job details for a job ID.
+          operationId: reviewsGetJobDetails
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

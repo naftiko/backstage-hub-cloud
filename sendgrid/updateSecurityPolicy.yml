@@ -1,0 +1,80 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update An Existing Webhook Security Policy
+  description: Update an existing webhook security policy with new configuration values.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update An Existing Webhook Security Policy
+      description: Update an existing webhook security policy with new configuration values.
+    paths:
+      /v3/user/webhooks/security/policies/{id}:
+        patch:
+          summary: Update An Existing Webhook Security Policy
+          description: >-
+            Update an existing webhook security policy with new configuration
+            values.
+          operationId: updateSecurityPolicy
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: User-defined policy name
+                    oauth:
+                      type: object
+                      properties:
+                        client_id:
+                          type: string
+                        client_secret:
+                          type: string
+                        token_url:
+                          type: string
+                        scopes:
+                          type: array
+                          items:
+                            type: string
+                    signature:
+                      type: object
+                      properties:
+                        enabled:
+                          type: boolean
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      policy:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                          name:
+                            type: string
+                          oauth:
+                            type: object
+                            properties:
+                              client_id:
+                                type: string
+                              token_url:
+                                type: string
+                              scopes:
+                                type: array
+                                items:
+                                  type: string

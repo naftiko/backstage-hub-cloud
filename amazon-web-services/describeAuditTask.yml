@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Describeaudittask
+  description: >-
+    Gets information about a Device Defender audit. Requires permission to
+    access the DescribeAuditTask action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeaudittask
+      description: >-
+        Gets information about a Device Defender audit. Requires permission to
+        access the DescribeAuditTask action.
+    paths:
+      /audit/tasks/{taskId}:
+        GET:
+          summary: Describeaudittask
+          description: >-
+            Gets information about a Device Defender audit. Requires permission to
+            access the DescribeAuditTask action.
+          operationId: describeAuditTask

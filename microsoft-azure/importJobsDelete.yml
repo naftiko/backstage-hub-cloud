@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Jobs Imports Id
+  description: >-
+    Deletes an import job.Status codes:* 204 No Content* 400 Bad Request  *
+    ValidationFailed - The import job request is not valid.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Jobs Imports Id
+      description: >-
+        Deletes an import job.Status codes:* 204 No Content* 400 Bad Request  *
+        ValidationFailed - The import job request is not valid.
+    paths:
+      /jobs/imports/{id}:
+        delete:
+          summary: Delete Jobs Imports Id
+          description: >-
+            Deletes an import job.Status codes:* 204 No Content* 400 Bad Request  *
+            ValidationFailed - The import job request is not valid.
+          operationId: importJobsDelete
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

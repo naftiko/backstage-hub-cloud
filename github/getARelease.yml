@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Release
+  description: >-
+    Gets a public release with the specified release ID.**Note:** This returns
+    an `upload_url` key corresponding to the endpointfor uploading release
+    assets. This key is a hypermedia resource. For more information,
+    see"[Getting started with the REST
+    API](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#hypermedia)."
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Release
+      description: >-
+        Gets a public release with the specified release ID.**Note:** This returns
+        an `upload_url` key corresponding to the endpointfor uploading release
+        assets. This key is a hypermedia resource. For more information,
+        see"[Getting started with the REST
+        API](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#hypermedia)."
+    paths:
+      /repos/{owner}/{repo}/releases/{release_id}:
+        get:
+          summary: Get A Release
+          description: >-
+            Gets a public release with the specified release ID.**Note:** This
+            returns an `upload_url` key corresponding to the endpointfor uploading
+            release assets. This key is a hypermedia resource. For more information,
+            see"[Getting started with the REST
+            API](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#hypermedia)."
+          operationId: getARelease
+          responses:
+            '401':
+              description: Unauthorized

@@ -1,0 +1,68 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Check A Token
+  description: >-
+    OAuth applications and GitHub applications with OAuth authorizations can use
+    this API method for checking OAuth token validity without exceeding the
+    normal rate limits for failed login attempts. Authentication works
+    differently with this particular endpoint. You must use [Basic
+    Authentication](https://docs.github.com/enterprise-server@3.9/rest/overview/other-authentication-methods#basic-authentication)
+    to use this endpoint, where the username is the application `client_id` and
+    the password is its `client_secret`. Invalid tokens will return `404 NOT
+    FOUND`.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Check A Token
+      description: >-
+        OAuth applications and GitHub applications with OAuth authorizations can use
+        this API method for checking OAuth token validity without exceeding the
+        normal rate limits for failed login attempts. Authentication works
+        differently with this particular endpoint. You must use [Basic
+        Authentication](https://docs.github.com/enterprise-server@3.9/rest/overview/other-authentication-methods#basic-authentication)
+        to use this endpoint, where the username is the application `client_id` and
+        the password is its `client_secret`. Invalid tokens will return `404 NOT
+        FOUND`.
+    paths:
+      /applications/{client_id}/token:
+        post:
+          summary: Check A Token
+          description: >-
+            OAuth applications and GitHub applications with OAuth authorizations can
+            use this API method for checking OAuth token validity without exceeding
+            the normal rate limits for failed login attempts. Authentication works
+            differently with this particular endpoint. You must use [Basic
+            Authentication](https://docs.github.com/enterprise-server@3.9/rest/overview/other-authentication-methods#basic-authentication)
+            to use this endpoint, where the username is the application `client_id`
+            and the password is its `client_secret`. Invalid tokens will return `404
+            NOT FOUND`.
+          operationId: appschecktoken
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  properties:
+                    access_token:
+                      description: The access_token of the OAuth or GitHub application.
+                      type: string
+                  required:
+                    - access_token
+                  type: object
+                examples:
+                  default:
+                    value:
+                      access_token: e72e16c7e42f292c6912e7710c838347ae178b4a
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

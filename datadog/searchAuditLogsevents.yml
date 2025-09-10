@@ -1,0 +1,71 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Search Audit Logs Events
+  description: >-
+    List endpoint returns Audit Logs events that match an Audit search
+    query.[Results are paginated][1].Use this endpoint to build complex Audit
+    Logs events filtering and search.[1]:
+    https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Search Audit Logs Events
+      description: >-
+        List endpoint returns Audit Logs events that match an Audit search
+        query.[Results are paginated][1].Use this endpoint to build complex Audit
+        Logs events filtering and search.[1]:
+        https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+    paths:
+      /api/v2/audit/events/search:
+        post:
+          summary: Search Audit Logs Events
+          description: >-
+            List endpoint returns Audit Logs events that match an Audit search
+            query.[Results are paginated][1].Use this endpoint to build complex
+            Audit Logs events filtering and search.[1]:
+            https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+          operationId: searchAuditLogsevents
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    filter:
+                      from: now-15m
+                      query: '@type:session AND @session.type:user'
+                      to: now
+                    options:
+                      time_offset: 67121691
+                      timezone: GMT
+                    page:
+                      cursor: >-
+                        eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==
+                      limit: 25
+                    sort: '-timestamp'
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

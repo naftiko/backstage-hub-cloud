@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updatedatasourcepermissions
+  description: Updates the permissions to a data source.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatedatasourcepermissions
+      description: Updates the permissions to a data source.
+    paths:
+      /accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions:
+        POST:
+          summary: Updatedatasourcepermissions
+          description: Updates the permissions to a data source.
+          operationId: updateDataSourcePermissions

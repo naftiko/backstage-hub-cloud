@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Creates A New Address For A Customer.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/customers/customer-address#create-2020-10
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Creates A New Address For A Customer.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/customers/customer-address#create-2020-10
+    paths:
+      /admin/api/2020-10/customers/{customer_id}/addresses.json:
+        post:
+          summary: Creates A New Address For A Customer.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/customers/customer-address#create-2020-10
+          operationId: createcustomersparamcustomeridaddresses
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      address:
+                        address1: 1 Rue des Carrieres
+                        address2: Suite 1234
+                        city: Montreal
+                        company: Fancy Co.
+                        first_name: Samuel
+                        last_name: de Champlain
+                        phone: 819-555-5555
+                        province: Quebec
+                        country: Canada
+                        zip: G1R 4P5
+                        name: Samuel de Champlain
+                        province_code: QC
+                        country_code: CA
+                        country_name: Canada
+                    summary: Create a new address for a customer
+          responses:
+            '200':
+              description: ''

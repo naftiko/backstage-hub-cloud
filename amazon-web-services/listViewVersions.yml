@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listviewversions
+  description: >-
+    Returns all the available versions for the specified Amazon Connect instance
+    and view identifier. Results will be sorted from highest to lowest.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listviewversions
+      description: >-
+        Returns all the available versions for the specified Amazon Connect instance
+        and view identifier. Results will be sorted from highest to lowest.
+    paths:
+      /views/{InstanceId}/{ViewId}/versions:
+        GET:
+          summary: Listviewversions
+          description: >-
+            Returns all the available versions for the specified Amazon Connect
+            instance and view identifier. Results will be sorted from highest to
+            lowest.
+          operationId: listViewVersions

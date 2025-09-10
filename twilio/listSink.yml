@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Sinks
+  description: >-
+    Retrieve a paginated list of Sinks belonging to the account used to make the
+    request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Sinks
+      description: >-
+        Retrieve a paginated list of Sinks belonging to the account used to make the
+        request.
+    paths:
+      /v1/Sinks:
+        get:
+          summary: Get Sinks
+          description: >-
+            Retrieve a paginated list of Sinks belonging to the account used to make
+            the request.
+          operationId: listSink
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ListSinkResponse'
+              description: OK

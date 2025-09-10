@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Starthumanloop
+  description: Starts a human loop, provided that at least one activation condition is met.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Starthumanloop
+      description: Starts a human loop, provided that at least one activation condition is met.
+    paths:
+      /human-loops:
+        POST:
+          summary: Starthumanloop
+          description: >-
+            Starts a human loop, provided that at least one activation condition is
+            met.
+          operationId: startHumanLoop

@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updatetransformer
+  description: >-
+    Updates the specified parameters for a transformer. A transformer describes
+    how to process the incoming EDI documents and extract the necessary
+    information to the output file.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatetransformer
+      description: >-
+        Updates the specified parameters for a transformer. A transformer describes
+        how to process the incoming EDI documents and extract the necessary
+        information to the output file.
+    paths:
+      /:
+        POST:
+          summary: Updatetransformer
+          description: >-
+            Updates the specified parameters for a transformer. A transformer
+            describes how to process the incoming EDI documents and extract the
+            necessary information to the output file.
+          operationId: updateTransformer

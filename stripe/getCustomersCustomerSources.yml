@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Customers Customer Sources
+  description: List sources for a specified customer.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Customers Customer Sources
+      description: List sources for a specified customer.
+    paths:
+      /v1/customers/{customer}/sources:
+        get:
+          summary: Get Customers Customer Sources
+          description: List sources for a specified customer.
+          operationId: getCustomersCustomerSources
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetCustomersCustomerSourcesRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

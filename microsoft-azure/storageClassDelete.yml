@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Delete Resourceuri Providers Microsoft.kubernetesruntime Storageclasses
+    Storageclassname
+  description: Delete a StorageClassResource
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Resourceuri Providers Microsoft.kubernetesruntime Storageclasses
+        Storageclassname
+      description: Delete a StorageClassResource
+    paths:
+      /{resourceUri}/providers/Microsoft.KubernetesRuntime/storageClasses/{storageClassName}:
+        delete:
+          summary: >-
+            Delete Resourceuri Providers Microsoft.kubernetesruntime Storageclasses
+            Storageclassname
+          description: Delete a StorageClassResource
+          operationId: storageClassDelete
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

@@ -1,0 +1,81 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Custom Field Options (context)
+  description: >-
+    Creates options and, where the custom select field is of the type Select
+    List (cascading), cascading options for a custom select field. The options
+    are added to a context of the field.The maximum number of options that can
+    be created per request is 1000 and each field can have a maximum of 10000
+    options.This operation works for custom field options created in Jira or the
+    operations from this resource. **To work with issue field select list
+    options created for Connect apps use the [Issue custom field options
+    (apps)](#api-group-issue-custom-field-options--apps-)
+    operations.****[Permissions](#permissions) required:** *Administer Jira*
+    [global permission](https://confluence.atlassian.com/x/x4dKLg).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Custom Field Options (context)
+      description: >-
+        Creates options and, where the custom select field is of the type Select
+        List (cascading), cascading options for a custom select field. The options
+        are added to a context of the field.The maximum number of options that can
+        be created per request is 1000 and each field can have a maximum of 10000
+        options.This operation works for custom field options created in Jira or the
+        operations from this resource. **To work with issue field select list
+        options created for Connect apps use the [Issue custom field options
+        (apps)](#api-group-issue-custom-field-options--apps-)
+        operations.****[Permissions](#permissions) required:** *Administer Jira*
+        [global permission](https://confluence.atlassian.com/x/x4dKLg).
+    paths:
+      /rest/api/3/field/{fieldId}/context/{contextId}/option:
+        post:
+          summary: Create Custom Field Options (context)
+          description: >-
+            Creates options and, where the custom select field is of the type Select
+            List (cascading), cascading options for a custom select field. The
+            options are added to a context of the field.The maximum number of
+            options that can be created per request is 1000 and each field can have
+            a maximum of 10000 options.This operation works for custom field options
+            created in Jira or the operations from this resource. **To work with
+            issue field select list options created for Connect apps use the [Issue
+            custom field options
+            (apps)](#api-group-issue-custom-field-options--apps-)
+            operations.****[Permissions](#permissions) required:** *Administer Jira*
+            [global permission](https://confluence.atlassian.com/x/x4dKLg).
+          operationId: createCustomFieldOption
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  options:
+                    - disabled: false
+                      value: Scranton
+                    - disabled: true
+                      optionId: '10000'
+                      value: Manhattan
+                    - disabled: false
+                      value: The Electric City
+                schema:
+                  $ref: '#/components/schemas/BulkCustomFieldOptionCreateRequest'
+          responses:
+            '404':
+              content:
+                application/json:
+                  example: >-
+                    {"errorMessages":["The custom field was not
+                    found."],"errors":{}}
+              description: >-
+                Returned if the custom field is not found or the context doesn't
+                match the custom field.

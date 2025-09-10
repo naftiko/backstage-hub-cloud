@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Createsourcerepositorybranch
+  description: >-
+    Creates a branch in a specified source repository in Amazon CodeCatalyst.  
+    This API only creates a branch in a source repository hosted in Amazon
+    CodeCatalyst. You cannot use this API to create a branch in a linked
+    repository. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createsourcerepositorybranch
+      description: >-
+        Creates a branch in a specified source repository in Amazon CodeCatalyst.  
+        This API only creates a branch in a source repository hosted in Amazon
+        CodeCatalyst. You cannot use this API to create a branch in a linked
+        repository. 
+    paths:
+      /v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{sourceRepositoryName}/branches/{name}:
+        PUT:
+          summary: Createsourcerepositorybranch
+          description: >-
+            Creates a branch in a specified source repository in Amazon
+            CodeCatalyst.   This API only creates a branch in a source repository
+            hosted in Amazon CodeCatalyst. You cannot use this API to create a
+            branch in a linked repository. 
+          operationId: createSourceRepositoryBranch

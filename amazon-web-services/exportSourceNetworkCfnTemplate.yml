@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Exportsourcenetworkcfntemplate
+  description: Export the Source Network CloudFormation template to an S3 bucket.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Exportsourcenetworkcfntemplate
+      description: Export the Source Network CloudFormation template to an S3 bucket.
+    paths:
+      /ExportSourceNetworkCfnTemplate:
+        POST:
+          summary: Exportsourcenetworkcfntemplate
+          description: Export the Source Network CloudFormation template to an S3 bucket.
+          operationId: exportSourceNetworkCfnTemplate

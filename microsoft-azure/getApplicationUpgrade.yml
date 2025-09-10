@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Gets Details For The Latest Upgrade Performed On This Application.
+  description: >-
+    Returns information about the state of the latest application upgrade along
+    with details to aid debugging application health issues.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets Details For The Latest Upgrade Performed On This Application.
+      description: >-
+        Returns information about the state of the latest application upgrade along
+        with details to aid debugging application health issues.
+    paths:
+      /Applications/{applicationId}/$/GetUpgradeProgress:
+        get:
+          summary: Gets Details For The Latest Upgrade Performed On This Application.
+          description: >-
+            Returns information about the state of the latest application upgrade
+            along with details to aid debugging application health issues.
+          operationId: getApplicationUpgrade
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

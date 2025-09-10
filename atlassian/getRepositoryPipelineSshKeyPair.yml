@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Ssh Key Pair
+  description: >-
+    Retrieve the repository SSH key pair excluding the SSH private key. The
+    private key is a write only field and will never be exposed in the logs or
+    the REST API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Ssh Key Pair
+      description: >-
+        Retrieve the repository SSH key pair excluding the SSH private key. The
+        private key is a write only field and will never be exposed in the logs or
+        the REST API.
+    paths:
+      /repositories/{workspace}/{repo_slug}/pipelines_config/ssh/key_pair:
+        get:
+          summary: Get Ssh Key Pair
+          description: >-
+            Retrieve the repository SSH key pair excluding the SSH private key. The
+            private key is a write only field and will never be exposed in the logs
+            or the REST API.
+          operationId: getRepositoryPipelineSshKeyPair
+          responses:
+            '404':
+              description: The account, repository or SSH key pair was not found.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

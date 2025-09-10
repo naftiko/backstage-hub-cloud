@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Bulk Get Users
+  description: >-
+    Returns a [paginated](#pagination) list of the users specified by one or
+    more account IDs.**[Permissions](#permissions) required:** Permission to
+    access Jira.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Bulk Get Users
+      description: >-
+        Returns a [paginated](#pagination) list of the users specified by one or
+        more account IDs.**[Permissions](#permissions) required:** Permission to
+        access Jira.
+    paths:
+      /rest/api/3/user/bulk:
+        get:
+          summary: Bulk Get Users
+          description: >-
+            Returns a [paginated](#pagination) list of the users specified by one or
+            more account IDs.**[Permissions](#permissions) required:** Permission to
+            access Jira.
+          operationId: bulkGetUsers
+          responses:
+            '401':
+              description: Returned if the authentication credentials are incorrect or missing.

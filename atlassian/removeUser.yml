@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete User
+  description: >-
+    Deletes a user. If the operation completes successfully then the user is
+    removed from Jira's user base. This operation does not delete the user's
+    Atlassian account.**[Permissions](#permissions) required:** Site
+    administration (that is, membership of the *site-admin*
+    [group](https://confluence.atlassian.com/x/24xjL)).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete User
+      description: >-
+        Deletes a user. If the operation completes successfully then the user is
+        removed from Jira's user base. This operation does not delete the user's
+        Atlassian account.**[Permissions](#permissions) required:** Site
+        administration (that is, membership of the *site-admin*
+        [group](https://confluence.atlassian.com/x/24xjL)).
+    paths:
+      /rest/api/3/user:
+        delete:
+          summary: Delete User
+          description: >-
+            Deletes a user. If the operation completes successfully then the user is
+            removed from Jira's user base. This operation does not delete the user's
+            Atlassian account.**[Permissions](#permissions) required:** Site
+            administration (that is, membership of the *site-admin*
+            [group](https://confluence.atlassian.com/x/24xjL)).
+          operationId: removeUser
+          responses:
+            '404':
+              description: Returned if the user is not found.

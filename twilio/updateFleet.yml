@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Fleets Sid
+  description: >-
+    Updates the given properties of a Super SIM Fleet instance from your
+    account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Fleets Sid
+      description: >-
+        Updates the given properties of a Super SIM Fleet instance from your
+        account.
+    paths:
+      /v1/Fleets/{Sid}:
+        post:
+          summary: Post Fleets Sid
+          description: >-
+            Updates the given properties of a Super SIM Fleet instance from your
+            account.
+          operationId: updateFleet
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/UpdateFleetRequest'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/supersim.v1.fleet'
+              description: OK

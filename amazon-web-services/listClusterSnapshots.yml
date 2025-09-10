@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listclustersnapshots
+  description: >-
+    Returns information about Elastic DocumentDB snapshots for a specified
+    cluster.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listclustersnapshots
+      description: >-
+        Returns information about Elastic DocumentDB snapshots for a specified
+        cluster.
+    paths:
+      /cluster-snapshots:
+        GET:
+          summary: Listclustersnapshots
+          description: >-
+            Returns information about Elastic DocumentDB snapshots for a specified
+            cluster.
+          operationId: listClusterSnapshots

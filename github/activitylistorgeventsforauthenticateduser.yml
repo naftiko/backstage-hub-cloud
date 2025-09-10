@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Organization Events For The Authenticated User
+  description: >-
+    This is the user's organization dashboard. You must be authenticated as the
+    user to view this.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Organization Events For The Authenticated User
+      description: >-
+        This is the user's organization dashboard. You must be authenticated as the
+        user to view this.
+    paths:
+      /users/{username}/events/orgs/{org}:
+        get:
+          summary: List Organization Events For The Authenticated User
+          description: >-
+            This is the user's organization dashboard. You must be authenticated as
+            the user to view this.
+          operationId: activitylistorgeventsforauthenticateduser
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/event'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/user-org-events-items'

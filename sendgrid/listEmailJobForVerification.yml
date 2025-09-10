@@ -1,0 +1,84 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Request A Presigned Url And Headers For Bulk Email Address Validation List
+    Upload.
+  description: >-
+    **This endpoint returns a presigned URL and request headers. Use this
+    information to upload a list of email addresses for verification.**Note that
+    in a successful response the `content-type` header value matches the
+    provided `file_type` parameter in the `PUT` request.Once you have an
+    `upload_uri` and the `upload_headers`, you're ready to upload your email
+    address list for verification. For the expected format of the email address
+    list and a sample upload request, see the [Bulk Email Address Validation
+    Overview
+    page](https://www.twilio.com/docs/sendgrid/ui/managing-contacts/email-address-validation/bulk-email-address-validation-overview).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Request A Presigned Url And Headers For Bulk Email Address Validation List
+        Upload.
+      description: >-
+        **This endpoint returns a presigned URL and request headers. Use this
+        information to upload a list of email addresses for verification.**Note that
+        in a successful response the `content-type` header value matches the
+        provided `file_type` parameter in the `PUT` request.Once you have an
+        `upload_uri` and the `upload_headers`, you're ready to upload your email
+        address list for verification. For the expected format of the email address
+        list and a sample upload request, see the [Bulk Email Address Validation
+        Overview
+        page](https://www.twilio.com/docs/sendgrid/ui/managing-contacts/email-address-validation/bulk-email-address-validation-overview).
+    paths:
+      /v3/validations/email/jobs:
+        put:
+          summary: >-
+            Request A Presigned Url And Headers For Bulk Email Address Validation
+            List Upload.
+          description: >-
+            **This endpoint returns a presigned URL and request headers. Use this
+            information to upload a list of email addresses for verification.**Note
+            that in a successful response the `content-type` header value matches
+            the provided `file_type` parameter in the `PUT` request.Once you have an
+            `upload_uri` and the `upload_headers`, you're ready to upload your email
+            address list for verification. For the expected format of the email
+            address list and a sample upload request, see the [Bulk Email Address
+            Validation Overview
+            page](https://www.twilio.com/docs/sendgrid/ui/managing-contacts/email-address-validation/bulk-email-address-validation-overview).
+          operationId: listEmailJobForVerification
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    file_type:
+                      type: string
+                      description: The format of the file you wish to upload.
+                      $ref: '#/components/schemas/FileType'
+                  required:
+                    - file_type
+                  example:
+                    file_type: csv
+          responses:
+            '500':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - message: error message

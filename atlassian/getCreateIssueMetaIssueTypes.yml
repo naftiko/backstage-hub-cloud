@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Create Metadata Issue Types For A Project
+  description: >-
+    Returns a page of issue type metadata for a specified project. Use the
+    information to populate the requests in [ Create
+    issue](#api-rest-api-3-issue-post) and [Create
+    issues](#api-rest-api-3-issue-bulk-post).This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** *Create issues*
+    [project permission](https://confluence.atlassian.com/x/yodKLg) in the
+    requested projects.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Create Metadata Issue Types For A Project
+      description: >-
+        Returns a page of issue type metadata for a specified project. Use the
+        information to populate the requests in [ Create
+        issue](#api-rest-api-3-issue-post) and [Create
+        issues](#api-rest-api-3-issue-bulk-post).This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** *Create issues*
+        [project permission](https://confluence.atlassian.com/x/yodKLg) in the
+        requested projects.
+    paths:
+      /rest/api/3/issue/createmeta/{projectIdOrKey}/issuetypes:
+        get:
+          summary: Get Create Metadata Issue Types For A Project
+          description: >-
+            Returns a page of issue type metadata for a specified project. Use the
+            information to populate the requests in [ Create
+            issue](#api-rest-api-3-issue-post) and [Create
+            issues](#api-rest-api-3-issue-bulk-post).This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** *Create issues*
+            [project permission](https://confluence.atlassian.com/x/yodKLg) in the
+            requested projects.
+          operationId: getCreateIssueMetaIssueTypes
+          responses:
+            '401':
+              description: Returned if the authentication credentials are incorrect or missing.

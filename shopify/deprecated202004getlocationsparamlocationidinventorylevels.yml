@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Retrieves A List Of Inventory Levels For A Location. Note: As Of Version
+    2019-10, This Endpoint Implements Pagination By Using Links That Are
+    Provided In The Response Header. Sending The Page Parameter Will Return An
+    Error. To Learn More, See Making Requests To Paginated Rest Admin Api
+    Endpoints.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/inventory/location#inventory_levels-2020-04
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Retrieves A List Of Inventory Levels For A Location. Note: As Of Version
+        2019-10, This Endpoint Implements Pagination By Using Links That Are
+        Provided In The Response Header. Sending The Page Parameter Will Return An
+        Error. To Learn More, See Making Requests To Paginated Rest Admin Api
+        Endpoints.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/inventory/location#inventory_levels-2020-04
+    paths:
+      /admin/api/2020-04/locations/{location_id}/inventory_levels.json:
+        get:
+          summary: >-
+            Retrieves A List Of Inventory Levels For A Location. Note: As Of Version
+            2019-10, This Endpoint Implements Pagination By Using Links That Are
+            Provided In The Response Header. Sending The Page Parameter Will Return
+            An Error. To Learn More, See Making Requests To Paginated Rest Admin Api
+            Endpoints.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/inventory/location#inventory_levels-2020-04
+          operationId: deprecated202004getlocationsparamlocationidinventorylevels
+          responses:
+            '200':
+              description: ''

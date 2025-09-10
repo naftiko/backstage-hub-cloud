@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Marketplace Installedaddons
+  description: Install an Add-on for the Account specified.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Marketplace Installedaddons
+      description: Install an Add-on for the Account specified.
+    paths:
+      /marketplace/InstalledAddOns:
+        post:
+          summary: Post Marketplace Installedaddons
+          description: Install an Add-on for the Account specified.
+          operationId: createMarketplaceInstalledAddOn
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateMarketplaceInstalledAddOnRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/preview.marketplace.installed_add_on'
+              description: Created

@@ -1,0 +1,69 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Disputes Dispute
+  description: >-
+    When you get a dispute, contacting your customer is always the best first
+    step. If that doesn’t work, you can submit evidence to help us resolve the
+    dispute in your favor. You can do this in your dashboard, but if you prefer,
+    you can use the API to submit evidence programmatically.Depending on your
+    dispute type, different evidence fields will give you a better chance of
+    winning your dispute. To figure out which evidence fields to provide, see
+    our guide to dispute types.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Disputes Dispute
+      description: >-
+        When you get a dispute, contacting your customer is always the best first
+        step. If that doesn’t work, you can submit evidence to help us resolve the
+        dispute in your favor. You can do this in your dashboard, but if you prefer,
+        you can use the API to submit evidence programmatically.Depending on your
+        dispute type, different evidence fields will give you a better chance of
+        winning your dispute. To figure out which evidence fields to provide, see
+        our guide to dispute types.
+    paths:
+      /v1/disputes/{dispute}:
+        post:
+          summary: Post Disputes Dispute
+          description: >-
+            When you get a dispute, contacting your customer is always the best
+            first step. If that doesn’t work, you can submit evidence to help us
+            resolve the dispute in your favor. You can do this in your dashboard,
+            but if you prefer, you can use the API to submit evidence
+            programmatically.Depending on your dispute type, different evidence
+            fields will give you a better chance of winning your dispute. To figure
+            out which evidence fields to provide, see our guide to dispute types.
+          operationId: postDisputesDispute
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  evidence:
+                    explode: true
+                    style: deepObject
+                  expand:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostDisputesDisputeRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

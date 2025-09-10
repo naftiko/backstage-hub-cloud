@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Unlockrule
+  description: >-
+    Unlocks a retention rule. After a retention rule is unlocked, it can be
+    modified or deleted only after the unlock delay period expires.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Unlockrule
+      description: >-
+        Unlocks a retention rule. After a retention rule is unlocked, it can be
+        modified or deleted only after the unlock delay period expires.
+    paths:
+      /rules/{identifier}/unlock:
+        PATCH:
+          summary: Unlockrule
+          description: >-
+            Unlocks a retention rule. After a retention rule is unlocked, it can be
+            modified or deleted only after the unlock delay period expires.
+          operationId: unlockRule

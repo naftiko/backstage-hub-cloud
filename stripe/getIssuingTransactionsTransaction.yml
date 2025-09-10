@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Issuing Transactions Transaction
+  description: Retrieves an Issuing Transaction object.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Issuing Transactions Transaction
+      description: Retrieves an Issuing Transaction object.
+    paths:
+      /v1/issuing/transactions/{transaction}:
+        get:
+          summary: Get Issuing Transactions Transaction
+          description: Retrieves an Issuing Transaction object.
+          operationId: getIssuingTransactionsTransaction
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetIssuingTransactionsTransactionRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

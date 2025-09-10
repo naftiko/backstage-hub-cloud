@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Fetch A Cortex Search Service.
+  description: Fetch a Cortex Search Service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Fetch A Cortex Search Service.
+      description: Fetch a Cortex Search Service.
+    paths:
+      /api/v2/databases/{database}/schemas/{schema}/cortex-search-services/{name}:
+        get:
+          summary: Fetch A Cortex Search Service.
+          description: Fetch a Cortex Search Service.
+          operationId: fetchCortexSearchService
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

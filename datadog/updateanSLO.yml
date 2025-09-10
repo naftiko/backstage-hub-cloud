@@ -1,0 +1,99 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update An Slo
+  description: Update the specified service level objective object.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update An Slo
+      description: Update the specified service level objective object.
+    paths:
+      /api/v1/slo/{slo_id}:
+        put:
+          summary: Update An Slo
+          description: Update the specified service level objective object.
+          operationId: updateanSLO
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    name: Custom Metric SLO
+                    thresholds:
+                      - target: 95
+                        timeframe: 7d
+                      - target: 95
+                        timeframe: 30d
+                        warning: 97
+                    type: metric
+                    created_at: -76984124
+                    creator:
+                      email: sit non velit anim
+                      handle: nisi anim consec
+                      name: tempor
+                    description: mollit
+                    groups:
+                      - env:prod
+                      - role:mysql
+                    id: minim laboris consectetur
+                    modified_at: -49477504
+                    monitor_ids:
+                      - -87196611
+                      - -69090404
+                    monitor_tags:
+                      - dolor velit do aute laboris
+                      - est dolore
+                    query:
+                      numerator: sum:my.custom.metric{type:good}.as_count()
+                      denominator: sum:my.custom.metric{*}.as_count()
+                    sli_specification:
+                      time_slice:
+                        comparator: <
+                        query:
+                          formulas:
+                            - formula: query2/query1
+                          queries:
+                            - data_source: metrics
+                              name: query1
+                              query: >-
+                                sum:trace.servlet.request.hits{*} by
+                                {env}.as_count()
+                            - data_source: metrics
+                              name: query1
+                              query: >-
+                                sum:trace.servlet.request.errors{*} by
+                                {env}.as_count()
+                        threshold: 5
+                    tags:
+                      - env:prod
+                      - app:core
+                    target_threshold: 99.9
+                    timeframe: 30d
+                    warning_threshold: 99.95
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

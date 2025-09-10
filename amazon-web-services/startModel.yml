@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Startmodel
+  description: >-
+    Starts the running of the version of an Amazon Lookout for Vision model.
+    Starting a model takes a while to complete. To check the current state of
+    the model, use DescribeModel. A model is ready to use when its status is
+    HOSTED. Once the model is running, you can detect custom labels in new
+    images by calling DetectAnomalies.  You are charged for the amount of time
+    that the model is running. To stop a running model, call StopModel.  This
+    operation requires permissions to perform the lookoutvision:StartModel
+    operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startmodel
+      description: >-
+        Starts the running of the version of an Amazon Lookout for Vision model.
+        Starting a model takes a while to complete. To check the current state of
+        the model, use DescribeModel. A model is ready to use when its status is
+        HOSTED. Once the model is running, you can detect custom labels in new
+        images by calling DetectAnomalies.  You are charged for the amount of time
+        that the model is running. To stop a running model, call StopModel.  This
+        operation requires permissions to perform the lookoutvision:StartModel
+        operation.
+    paths:
+      /2020-11-20/projects/{projectName}/models/{modelVersion}/start:
+        POST:
+          summary: Startmodel
+          description: >-
+            Starts the running of the version of an Amazon Lookout for Vision model.
+            Starting a model takes a while to complete. To check the current state
+            of the model, use DescribeModel. A model is ready to use when its status
+            is HOSTED. Once the model is running, you can detect custom labels in
+            new images by calling DetectAnomalies.  You are charged for the amount
+            of time that the model is running. To stop a running model, call
+            StopModel.  This operation requires permissions to perform the
+            lookoutvision:StartModel operation.
+          operationId: startModel

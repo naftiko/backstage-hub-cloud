@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Deleted App For A Subscription.
+  description: Description for Get deleted app for a subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Deleted App For A Subscription.
+      description: Description for Get deleted app for a subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Web/deletedSites/{deletedSiteId}:
+        get:
+          summary: Get Deleted App For A Subscription.
+          description: Description for Get deleted app for a subscription.
+          operationId: globalGetDeletedWebApp
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

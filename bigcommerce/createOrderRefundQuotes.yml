@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Refund Quote
+  description: >-
+    Calculate the tax amount, total refund amount and get available payment
+    options for an order refund by providing items and costs or quantities to
+    refund.Requires at least one of the following scopes:* `store_v2_orders`*
+    `store_v2_transactions`**Note:**Order refunds are processed consecutively.
+    Processing synchronous refunds on an order are not yet supported.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Refund Quote
+      description: >-
+        Calculate the tax amount, total refund amount and get available payment
+        options for an order refund by providing items and costs or quantities to
+        refund.Requires at least one of the following scopes:* `store_v2_orders`*
+        `store_v2_transactions`**Note:**Order refunds are processed consecutively.
+        Processing synchronous refunds on an order are not yet supported.
+    paths:
+      /orders/{order_id}/payment_actions/refund_quotes:
+        post:
+          summary: Create A Refund Quote
+          description: >-
+            Calculate the tax amount, total refund amount and get available payment
+            options for an order refund by providing items and costs or quantities
+            to refund.Requires at least one of the following scopes:*
+            `store_v2_orders`* `store_v2_transactions`**Note:**Order refunds are
+            processed consecutively. Processing synchronous refunds on an order are
+            not yet supported.
+          operationId: createOrderRefundQuotes
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RefundQuote_Post'
+              application/xml:
+                schema:
+                  type: object
+                  properties: {}
+              multipart/form-data:
+                schema:
+                  type: object
+                  properties: {}
+          responses:
+            '422':
+              $ref: '#/components/responses/422_UnprocessableEntity'

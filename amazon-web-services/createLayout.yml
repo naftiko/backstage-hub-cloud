@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Createlayout
+  description: >-
+    Creates a layout in the Cases domain. Layouts define the following
+    configuration in the top section and More Info tab of the Cases user
+    interface:   Fields to display to the users   Field ordering    Title and
+    Status fields cannot be part of layouts since they are not configurable. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createlayout
+      description: >-
+        Creates a layout in the Cases domain. Layouts define the following
+        configuration in the top section and More Info tab of the Cases user
+        interface:   Fields to display to the users   Field ordering    Title and
+        Status fields cannot be part of layouts since they are not configurable. 
+    paths:
+      /domains/{domainId}/layouts:
+        POST:
+          summary: Createlayout
+          description: >-
+            Creates a layout in the Cases domain. Layouts define the following
+            configuration in the top section and More Info tab of the Cases user
+            interface:   Fields to display to the users   Field ordering    Title
+            and Status fields cannot be part of layouts since they are not
+            configurable. 
+          operationId: createLayout

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Regeneratesecuritytoken
+  description: Regenerates the security token for a bot.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Regeneratesecuritytoken
+      description: Regenerates the security token for a bot.
+    paths:
+      /accounts/{accountId}/bots/{botId}?operation=regenerate-security-token:
+        POST:
+          summary: Regeneratesecuritytoken
+          description: Regenerates the security token for a bot.
+          operationId: regenerateSecurityToken

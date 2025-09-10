@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Billing Dimension Mapping For Usage Endpoints
+  description: >-
+    Get a mapping of billing dimensions to the corresponding keys for the
+    supported usage metering public API endpoints.Mapping data is updated on a
+    monthly cadence.This endpoint is only accessible to [parent-level
+    organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Billing Dimension Mapping For Usage Endpoints
+      description: >-
+        Get a mapping of billing dimensions to the corresponding keys for the
+        supported usage metering public API endpoints.Mapping data is updated on a
+        monthly cadence.This endpoint is only accessible to [parent-level
+        organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+    paths:
+      /api/v2/usage/billing_dimension_mapping:
+        get:
+          summary: Get Billing Dimension Mapping For Usage Endpoints
+          description: >-
+            Get a mapping of billing dimensions to the corresponding keys for the
+            supported usage metering public API endpoints.Mapping data is updated on
+            a monthly cadence.This endpoint is only accessible to [parent-level
+            organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+          operationId: getBillingDimensionMapping
+          responses:
+            '429':
+              content:
+                application/json;datetime-format=rfc3339:
+                  schema:
+                    $ref: '#/components/schemas/APIErrorResponse'
+              description: Too many requests

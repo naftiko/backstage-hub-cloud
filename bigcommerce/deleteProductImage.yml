@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Product Image
+  description: Deletes a *Product Image*.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Product Image
+      description: Deletes a *Product Image*.
+    paths:
+      /catalog/products/{product_id}/images/{image_id}:
+        delete:
+          summary: Delete A Product Image
+          description: Deletes a *Product Image*.
+          operationId: deleteProductImage
+          responses:
+            '204':
+              description: ''
+              content: {}

@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Remove Template
+  description: >-
+    Deletes a template. This results in different actions depending on thetype
+    of template:- If the template is a content template, it is deleted.- If the
+    template is a modified space-level blueprint template, it revertsto the
+    template inherited from the global-level blueprint template.- If the
+    template is a modified global-level blueprint template, it revertsto the
+    default global-level blueprint template. Note, unmodified blueprint
+    templates cannot be
+    deleted.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:        'Admin' permission for the space to delete a space
+    template or 'Confluence Administrator'        global permission to delete a
+    global template.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Remove Template
+      description: >-
+        Deletes a template. This results in different actions depending on thetype
+        of template:- If the template is a content template, it is deleted.- If the
+        template is a modified space-level blueprint template, it revertsto the
+        template inherited from the global-level blueprint template.- If the
+        template is a modified global-level blueprint template, it revertsto the
+        default global-level blueprint template. Note, unmodified blueprint
+        templates cannot be
+        deleted.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:        'Admin' permission for the space to delete a space
+        template or 'Confluence Administrator'        global permission to delete a
+        global template.
+    paths:
+      /wiki/rest/api/template/{contentTemplateId}:
+        delete:
+          summary: Remove Template
+          description: >-
+            Deletes a template. This results in different actions depending on
+            thetype of template:- If the template is a content template, it is
+            deleted.- If the template is a modified space-level blueprint template,
+            it revertsto the template inherited from the global-level blueprint
+            template.- If the template is a modified global-level blueprint
+            template, it revertsto the default global-level blueprint template.
+            Note, unmodified blueprint templates cannot be
+            deleted.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:        'Admin' permission for the space to delete a space
+            template or 'Confluence Administrator'        global permission to
+            delete a global template.
+          operationId: removeTemplate
+          responses:
+            '403':
+              description: |-
+                Returned if;
+
+                - There is no template with the given ID.
+                - The calling user does not have permission to delete the template.

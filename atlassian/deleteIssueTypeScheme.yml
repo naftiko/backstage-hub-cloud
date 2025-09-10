@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Issue Type Scheme
+  description: >-
+    Deletes an issue type scheme.Only issue type schemes used in classic
+    projects can be deleted.Any projects assigned to the scheme are reassigned
+    to the default issue type scheme.**[Permissions](#permissions) required:**
+    *Administer Jira* [global
+    permission](https://confluence.atlassian.com/x/x4dKLg).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Issue Type Scheme
+      description: >-
+        Deletes an issue type scheme.Only issue type schemes used in classic
+        projects can be deleted.Any projects assigned to the scheme are reassigned
+        to the default issue type scheme.**[Permissions](#permissions) required:**
+        *Administer Jira* [global
+        permission](https://confluence.atlassian.com/x/x4dKLg).
+    paths:
+      /rest/api/3/issuetypescheme/{issueTypeSchemeId}:
+        delete:
+          summary: Delete Issue Type Scheme
+          description: >-
+            Deletes an issue type scheme.Only issue type schemes used in classic
+            projects can be deleted.Any projects assigned to the scheme are
+            reassigned to the default issue type
+            scheme.**[Permissions](#permissions) required:** *Administer Jira*
+            [global permission](https://confluence.atlassian.com/x/x4dKLg).
+          operationId: deleteIssueTypeScheme
+          responses:
+            '404':
+              content:
+                application/json:
+                  example: >-
+                    {"errorMessages":["The issue type scheme was not
+                    found."],"errors":{}}
+              description: Returned if the issue type scheme is not found.

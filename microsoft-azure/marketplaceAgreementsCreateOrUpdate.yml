@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Datadog Marketplace Agreement In The Subscription.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Datadog Marketplace Agreement In The Subscription.
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements/default:
+        put:
+          summary: Create Datadog Marketplace Agreement In The Subscription.
+          description: Needs a more full description created.
+          operationId: marketplaceAgreementsCreateOrUpdate
+          responses:
+            default:
+              description: Default error response.
+              schema:
+                $ref: '#/definitions/ResourceProviderDefaultErrorResponse'

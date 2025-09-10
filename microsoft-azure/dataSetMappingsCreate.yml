@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: "Maps A Source Data Set In The Source Share To A Sink Data Set In The Share Subscription.\r\nenables Copying The Data Set From Source To Destination."
+  description: 'Create a DataSetMapping '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: "Maps A Source Data Set In The Source Share To A Sink Data Set In The Share Subscription.\r\nenables Copying The Data Set From Source To Destination."
+      description: 'Create a DataSetMapping '
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/dataSetMappings/{dataSetMappingName}:
+        put:
+          summary: "Maps A Source Data Set In The Source Share To A Sink Data Set In The Share Subscription.\r\nenables Copying The Data Set From Source To Destination."
+          description: 'Create a DataSetMapping '
+          operationId: dataSetMappingsCreate
+          responses:
+            default:
+              description: >-
+                An error response received from the Microsoft.DataShare resource
+                provider.
+              schema:
+                $ref: '#/definitions/DataShareError'

@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Parse Jql Query
+  description: >-
+    Parses and validates JQL queries.Validation is performed in context of the
+    current user.This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** None.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Parse Jql Query
+      description: >-
+        Parses and validates JQL queries.Validation is performed in context of the
+        current user.This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** None.
+    paths:
+      /rest/api/3/jql/parse:
+        post:
+          summary: Parse Jql Query
+          description: >-
+            Parses and validates JQL queries.Validation is performed in context of
+            the current user.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** None.
+          operationId: parseJqlQueries
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  queries:
+                    - >-
+                      summary ~ test AND (labels in (urgent, blocker) OR
+                      lastCommentedBy = currentUser()) AND status CHANGED AFTER
+                      startOfMonth(-1M) ORDER BY updated DESC
+                    - >-
+                      issue.property["spaces here"].value in ("Service requests",
+                      Incidents)
+                    - invalid query
+                    - summary = test
+                    - summary in test
+                    - project = INVALID
+                    - universe = 42
+                schema:
+                  $ref: '#/components/schemas/JqlQueriesToParse'
+          responses:
+            '401':
+              description: Returned if the authentication credentials are incorrect.

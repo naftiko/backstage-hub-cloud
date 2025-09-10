@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Batchenablealarm
+  description: >-
+    Enables one or more alarms. The alarms change to the NORMAL state after you
+    enable them.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchenablealarm
+      description: >-
+        Enables one or more alarms. The alarms change to the NORMAL state after you
+        enable them.
+    paths:
+      /alarms/enable:
+        POST:
+          summary: Batchenablealarm
+          description: >-
+            Enables one or more alarms. The alarms change to the NORMAL state after
+            you enable them.
+          operationId: batchEnableAlarm

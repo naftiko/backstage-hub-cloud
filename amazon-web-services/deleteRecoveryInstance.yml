@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deleterecoveryinstance
+  description: >-
+    Deletes a single Recovery Instance by ID. This deletes the Recovery Instance
+    resource from Elastic Disaster Recovery. The Recovery Instance must be
+    disconnected first in order to delete it.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deleterecoveryinstance
+      description: >-
+        Deletes a single Recovery Instance by ID. This deletes the Recovery Instance
+        resource from Elastic Disaster Recovery. The Recovery Instance must be
+        disconnected first in order to delete it.
+    paths:
+      /DeleteRecoveryInstance:
+        POST:
+          summary: Deleterecoveryinstance
+          description: >-
+            Deletes a single Recovery Instance by ID. This deletes the Recovery
+            Instance resource from Elastic Disaster Recovery. The Recovery Instance
+            must be disconnected first in order to delete it.
+          operationId: deleteRecoveryInstance

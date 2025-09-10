@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Count Of Coupons
+  description: Returns a count of all *Coupons* in the store.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Count Of Coupons
+      description: Returns a count of all *Coupons* in the store.
+    paths:
+      /coupons/count:
+        get:
+          summary: Get A Count Of Coupons
+          description: Returns a count of all *Coupons* in the store.
+          operationId: getCouponsCount
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      count:
+                        minimum: 0
+                        type: integer
+                  example:
+                    count: 27

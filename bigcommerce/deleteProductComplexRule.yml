@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Product Complex Rule
+  description: Deletes a product *Complex Rule*.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Product Complex Rule
+      description: Deletes a product *Complex Rule*.
+    paths:
+      /catalog/products/{product_id}/complex-rules/{complex_rule_id}:
+        delete:
+          summary: Delete A Product Complex Rule
+          description: Deletes a product *Complex Rule*.
+          operationId: deleteProductComplexRule
+          responses:
+            '204':
+              description: ''
+              content: {}

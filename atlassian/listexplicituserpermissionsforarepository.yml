@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Explicit User Permissions For A Repository
+  description: >-
+    Returns a paginated list of explicit user permissions for the given
+    repository.This endpoint does not support BBQL features.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Explicit User Permissions For A Repository
+      description: >-
+        Returns a paginated list of explicit user permissions for the given
+        repository.This endpoint does not support BBQL features.
+    paths:
+      /repositories/{workspace}/{repo_slug}/permissions-config/users:
+        get:
+          summary: List Explicit User Permissions For A Repository
+          description: >-
+            Returns a paginated list of explicit user permissions for the given
+            repository.This endpoint does not support BBQL features.
+          operationId: listexplicituserpermissionsforarepository
+          responses:
+            '404':
+              description: No repository exists for the given repository slug and workspace.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

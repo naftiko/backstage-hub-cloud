@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Shipping_rates
+  description: Returns a list of your shipping rates.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Shipping_rates
+      description: Returns a list of your shipping rates.
+    paths:
+      /v1/shipping_rates:
+        get:
+          summary: Get Shipping_rates
+          description: Returns a list of your shipping rates.
+          operationId: getShippingRates
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  properties: {}
+                  type: object
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

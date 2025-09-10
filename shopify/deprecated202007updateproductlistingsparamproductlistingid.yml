@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Product Listing To Publish A Product To Your App
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/sales-channels/productlisting#create-2020-07
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Product Listing To Publish A Product To Your App
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/sales-channels/productlisting#create-2020-07
+    paths:
+      /admin/api/2020-07/product_listings/{product_listing_id}.json:
+        put:
+          summary: Create A Product Listing To Publish A Product To Your App
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/sales-channels/productlisting#create-2020-07
+          operationId: deprecated202007updateproductlistingsparamproductlistingid
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      product_listing:
+                        product_id: 921728736
+                    summary: Create a product listing to publish a product to your app
+          responses:
+            '200':
+              description: ''

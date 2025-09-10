@@ -1,0 +1,134 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Sendgrid Pre-built Designs
+  description: >-
+    **This endpoint allows you to retrieve a list of pre-built designs provided
+    by Twilio SendGrid**.Unlike the `/designs` endpoint where *your* designs are
+    stored, a GET request made to `designs/pre-builts` will retrieve a list of
+    the pre-built Twilio SendGrid designs. This endpoint will not return the
+    designs stored in your Design Library.By default, you will receive 100
+    results per request; however, you can modify the number of results returned
+    by passing an integer to the `page_size` query parameter.This endpoint is
+    useful for retrieving the IDs of Twilio SendGrid designs that you want to
+    duplicate and modify.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Sendgrid Pre-built Designs
+      description: >-
+        **This endpoint allows you to retrieve a list of pre-built designs provided
+        by Twilio SendGrid**.Unlike the `/designs` endpoint where *your* designs are
+        stored, a GET request made to `designs/pre-builts` will retrieve a list of
+        the pre-built Twilio SendGrid designs. This endpoint will not return the
+        designs stored in your Design Library.By default, you will receive 100
+        results per request; however, you can modify the number of results returned
+        by passing an integer to the `page_size` query parameter.This endpoint is
+        useful for retrieving the IDs of Twilio SendGrid designs that you want to
+        duplicate and modify.
+    paths:
+      /v3/designs/pre-builts:
+        get:
+          summary: List Sendgrid Pre-built Designs
+          description: >-
+            **This endpoint allows you to retrieve a list of pre-built designs
+            provided by Twilio SendGrid**.Unlike the `/designs` endpoint where
+            *your* designs are stored, a GET request made to `designs/pre-builts`
+            will retrieve a list of the pre-built Twilio SendGrid designs. This
+            endpoint will not return the designs stored in your Design Library.By
+            default, you will receive 100 results per request; however, you can
+            modify the number of results returned by passing an integer to the
+            `page_size` query parameter.This endpoint is useful for retrieving the
+            IDs of Twilio SendGrid designs that you want to duplicate and modify.
+          operationId: listPreBuiltDesign
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      result:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/DesignOutputSummary'
+                      _metadata:
+                        $ref: '#/components/schemas/Metadata'
+                  examples:
+                    response:
+                      value:
+                        result:
+                          - id: 6ad69134-7165-48cb-964a-6c3cf03e8af8
+                            name: Off Grid Adventures
+                            generate_plain_content: true
+                            thumbnail_url: >-
+                              //us-east-2-production-thumbnail-bucket.s3.amazonaws.com/a85b4b202ff28094828f11ff472360caecf67ead2d186b69b45c904b9251aa0b.png
+                            subject: Welcome to the family!
+                            created_at: '2019-09-10T02:11:34Z'
+                            updated_at: '2021-01-11T21:47:52Z'
+                            editor: design
+                            categories: []
+                          - id: b0a9c6f7-a9a1-4b52-b0c5-16fc6f4cdb2b
+                            name: Song Riddle
+                            generate_plain_content: true
+                            thumbnail_url: >-
+                              //us-east-2-production-thumbnail-bucket.s3.amazonaws.com/4ef3a39249f3accb8461b03950c071454a745a232508feca89a626b3e7f578d3.png
+                            subject: Welcome to Song Riddle!
+                            created_at: '2019-09-10T02:12:32Z'
+                            updated_at: '2021-01-11T21:46:43Z'
+                            editor: design
+                            categories: []
+                          - id: f8d8da76-bcca-4cfe-b809-733887855f57
+                            name: Ingrid & Anders 1
+                            generate_plain_content: true
+                            thumbnail_url: >-
+                              //us-east-2-production-thumbnail-bucket.s3.amazonaws.com/15c97ffa97ee31693581a67526728d096eef00adfbaa34bb030d91034d477da4.png
+                            subject: Welcome to Ingrid & Anders!
+                            created_at: '2019-09-10T02:10:38Z'
+                            updated_at: '2021-01-11T21:45:05Z'
+                            editor: design
+                            categories: []
+                          - id: 2935a7d0-7f02-4e0f-a570-dc302ce09749
+                            name: Ingrid & Anders 2
+                            generate_plain_content: true
+                            thumbnail_url: >-
+                              //us-east-2-production-thumbnail-bucket.s3.amazonaws.com/7b36a6c0955cab0c350d105114ad248700a685bd11032592cdef85ae26540afc.png
+                            subject: Check out these exclusive deals!
+                            created_at: '2019-09-10T02:09:31Z'
+                            updated_at: '2021-01-11T21:44:08Z'
+                            editor: design
+                            categories: []
+                          - id: 7826ef14-7ba6-4dbc-91f0-a8c610ebe962
+                            name: Ingrid & Anders 3
+                            generate_plain_content: true
+                            thumbnail_url: >-
+                              //us-east-2-production-thumbnail-bucket.s3.amazonaws.com/6dd8dd73a1a62bd7a76c4313b52d7c749250d49e31b19cce718906655fcbc675.png
+                            subject: Join our VIP club and save big!
+                            created_at: '2019-09-10T02:08:29Z'
+                            updated_at: '2021-01-11T21:41:35Z'
+                            editor: design
+                            categories: []
+                          - id: 41da47e7-d3e2-491b-a83f-f499a4139d6a
+                            name: Mercado
+                            generate_plain_content: true
+                            thumbnail_url: >-
+                              //us-east-2-production-thumbnail-bucket.s3.amazonaws.com/9cc87cc7671719712d9d363184995d0ec05103355db300ff03641fe9e205651d.png
+                            subject: Subject
+                            created_at: '2019-09-10T02:03:06Z'
+                            updated_at: '2021-01-11T21:39:23Z'
+                            editor: design
+                            categories: []
+                        _metadata:
+                          self: >-
+                            https://api.sendgrid.com/v3/designs/pre-builts?page_token=yYzyCxj-iIVgP54t6NjKkunDCKYLLpngo-5vAsfYXz0To34U
+                          count: 6

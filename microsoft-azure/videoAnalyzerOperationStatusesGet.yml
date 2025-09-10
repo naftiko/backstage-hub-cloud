@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Operation Status.
+  description: Get video analyzer operation status.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Operation Status.
+      description: Get video analyzer operation status.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Media/locations/{locationName}/videoAnalyzerOperationStatuses/{operationId}:
+        get:
+          summary: Get Operation Status.
+          description: Get video analyzer operation status.
+          operationId: videoAnalyzerOperationStatusesGet
+          responses:
+            default:
+              description: Detailed error information.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

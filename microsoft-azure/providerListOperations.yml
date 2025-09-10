@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Gets All Available Operations For The Microsoft.web Resource Provider. Also
+    Exposes Resource Metric Definitions
+  description: >-
+    Description for Gets all available operations for the Microsoft.Web resource
+    provider. Also exposes resource metric definitions
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Gets All Available Operations For The Microsoft.web Resource Provider. Also
+        Exposes Resource Metric Definitions
+      description: >-
+        Description for Gets all available operations for the Microsoft.Web resource
+        provider. Also exposes resource metric definitions
+    paths:
+      /providers/Microsoft.Web/operations:
+        get:
+          summary: >-
+            Gets All Available Operations For The Microsoft.web Resource Provider.
+            Also Exposes Resource Metric Definitions
+          description: >-
+            Description for Gets all available operations for the Microsoft.Web
+            resource provider. Also exposes resource metric definitions
+          operationId: providerListOperations
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieves A Single Article
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/online-store/article#show-2020-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves A Single Article
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/online-store/article#show-2020-01
+    paths:
+      /admin/api/2020-01/blogs/{blog_id}/articles/{article_id}.json:
+        get:
+          summary: Retrieves A Single Article
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/online-store/article#show-2020-01
+          operationId: deprecated202001getblogsparamblogidarticlesparamarticleid
+          responses:
+            '200':
+              description: ''

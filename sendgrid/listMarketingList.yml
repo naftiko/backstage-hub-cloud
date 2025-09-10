@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Lists
+  description: '**This endpoint returns an array of all of your contact lists.**'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Lists
+      description: '**This endpoint returns an array of all of your contact lists.**'
+    paths:
+      /v3/marketing/lists:
+        get:
+          summary: Get All Lists
+          description: '**This endpoint returns an array of all of your contact lists.**'
+          operationId: listMarketingList
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      result:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/List'
+                      _metadata:
+                        $ref: '#/components/schemas/Metadata'
+                  examples:
+                    response:
+                      value:
+                        result:
+                          - id: abc12312-x3y4-1234-abcd-123qwe456rty
+                            name: list-name
+                            contact_count: 0
+                            _metadata:
+                              self: >-
+                                https://api.sendgrid.com/v3/marketing/lists/abc12312-x3y4-1234-abcd-123qwe456rty
+                        _metadata:
+                          self: >-
+                            https://api.sendgrid.com/v3/marketing/lists?page_size=100&page_token=

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updatestreamingimage
+  description: Update streaming image.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatestreamingimage
+      description: Update streaming image.
+    paths:
+      /2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}:
+        PATCH:
+          summary: Updatestreamingimage
+          description: Update streaming image.
+          operationId: updateStreamingImage

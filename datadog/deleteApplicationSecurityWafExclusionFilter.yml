@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Waf Exclusion Filter
+  description: Delete a specific WAF exclusion filter using its identifier.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Waf Exclusion Filter
+      description: Delete a specific WAF exclusion filter using its identifier.
+    paths:
+      /api/v2/remote_config/products/asm/waf/exclusion_filters/{exclusion_filter_id}:
+        delete:
+          summary: Delete A Waf Exclusion Filter
+          description: Delete a specific WAF exclusion filter using its identifier.
+          operationId: deleteApplicationSecurityWafExclusionFilter
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

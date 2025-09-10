@@ -1,0 +1,71 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Apps.permissions.scopes.list
+  description: Returns list of scopes this app has on a team.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Apps.permissions.scopes.list
+      description: Returns list of scopes this app has on a team.
+    paths:
+      /apps.permissions.scopes.list:
+        get:
+          summary: Get Apps.permissions.scopes.list
+          description: Returns list of scopes this app has on a team.
+          operationId: appspermissionsscopeslist
+          responses:
+            default:
+              description: Typical error response
+              content:
+                application/json:
+                  schema:
+                    title: apps.permissions.scopes.list error schema
+                    required:
+                      - error
+                      - ok
+                    type: object
+                    properties:
+                      callstack:
+                        type: string
+                        description: 'Note: PHP callstack is only visible in dev/qa'
+                      error:
+                        type: string
+                        enum:
+                          - not_authed
+                          - invalid_auth
+                          - account_inactive
+                          - token_revoked
+                          - no_permission
+                          - org_login_required
+                          - user_is_bot
+                          - invalid_arg_name
+                          - invalid_array_arg
+                          - invalid_charset
+                          - invalid_form_data
+                          - invalid_post_type
+                          - missing_post_type
+                          - team_added_to_org
+                          - invalid_json
+                          - json_not_object
+                          - request_timeout
+                          - upgrade_required
+                          - fatal_error
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                    additionalProperties: false
+                    description: >-
+                      Schema for error response from apps.permissions.scopes.list
+                      method
+                  example:
+                    error: invalid_auth
+                    ok: false

@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Rename The Event Table
+  description: Rename the event table
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Rename The Event Table
+      description: Rename the event table
+    paths:
+      /api/v2/databases/{database}/schemas/{schema}/event-tables/{name}:rename:
+        post:
+          summary: Rename The Event Table
+          description: Rename the event table
+          operationId: renameEventTable
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

@@ -1,0 +1,76 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Design
+  description: >-
+    **This endpoint allows you to create a new design**.You can add a new design
+    by passing data, including a string of HTML email content, to `/designs`.
+    When creating designs from scratch, be aware of the styling constraints
+    inherent to many email clients. For a list of best practices, see our guide
+    to [Cross-Platform Email
+    Design](https://sendgrid.com/docs/ui/sending-email/cross-platform-html-design/).The
+    Design Library can also convert your design’s HTML elements into drag and
+    drop modules that are editable in the Designs Library user interface. For
+    more, visit the [Design and Code Editor
+    documentation](https://sendgrid.com/docs/ui/sending-email/editor/#drag--drop-markup).Because
+    the `/designs` endpoint makes it easy to add designs, you can create a
+    design with your preferred tooling or migrate designs you already own
+    without relying on the Design Library UI.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Design
+      description: >-
+        **This endpoint allows you to create a new design**.You can add a new design
+        by passing data, including a string of HTML email content, to `/designs`.
+        When creating designs from scratch, be aware of the styling constraints
+        inherent to many email clients. For a list of best practices, see our guide
+        to [Cross-Platform Email
+        Design](https://sendgrid.com/docs/ui/sending-email/cross-platform-html-design/).The
+        Design Library can also convert your design’s HTML elements into drag and
+        drop modules that are editable in the Designs Library user interface. For
+        more, visit the [Design and Code Editor
+        documentation](https://sendgrid.com/docs/ui/sending-email/editor/#drag--drop-markup).Because
+        the `/designs` endpoint makes it easy to add designs, you can create a
+        design with your preferred tooling or migrate designs you already own
+        without relying on the Design Library UI.
+    paths:
+      /v3/designs:
+        post:
+          summary: Create Design
+          description: >-
+            **This endpoint allows you to create a new design**.You can add a new
+            design by passing data, including a string of HTML email content, to
+            `/designs`. When creating designs from scratch, be aware of the styling
+            constraints inherent to many email clients. For a list of best
+            practices, see our guide to [Cross-Platform Email
+            Design](https://sendgrid.com/docs/ui/sending-email/cross-platform-html-design/).The
+            Design Library can also convert your design’s HTML elements into drag
+            and drop modules that are editable in the Designs Library user
+            interface. For more, visit the [Design and Code Editor
+            documentation](https://sendgrid.com/docs/ui/sending-email/editor/#drag--drop-markup).Because
+            the `/designs` endpoint makes it easy to add designs, you can create a
+            design with your preferred tooling or migrate designs you already own
+            without relying on the Design Library UI.
+          operationId: createDesign
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/DesignInput'
+          responses:
+            '400':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ApiErrors'

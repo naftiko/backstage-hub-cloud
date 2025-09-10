@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Tax Registrations
+  description: Returns a list of Tax Registration objects.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Tax Registrations
+      description: Returns a list of Tax Registration objects.
+    paths:
+      /v1/tax/registrations:
+        get:
+          summary: Get Tax Registrations
+          description: Returns a list of Tax Registration objects.
+          operationId: getTaxRegistrations
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetTaxRegistrationsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

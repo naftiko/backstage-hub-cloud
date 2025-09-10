@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve Reserved Fields
+  description: >-
+    **This endpoint allows you to list all fields that are reserved and can't be
+    used for custom field names.**
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve Reserved Fields
+      description: >-
+        **This endpoint allows you to list all fields that are reserved and can't be
+        used for custom field names.**
+    paths:
+      /v3/contactdb/reserved_fields:
+        get:
+          summary: Retrieve Reserved Fields
+          description: >-
+            **This endpoint allows you to list all fields that are reserved and
+            can't be used for custom field names.**
+          operationId: listReservedField
+          responses:
+            '401':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - field: null
+                            message: authorization required

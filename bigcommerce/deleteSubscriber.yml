@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Subscriber
+  description: Deletes a *Subscriber*.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Subscriber
+      description: Deletes a *Subscriber*.
+    paths:
+      /customers/subscribers/{subscriber_id}:
+        delete:
+          summary: Delete A Subscriber
+          description: Deletes a *Subscriber*.
+          operationId: deleteSubscriber
+          responses:
+            '204':
+              description: ''
+              content: {}

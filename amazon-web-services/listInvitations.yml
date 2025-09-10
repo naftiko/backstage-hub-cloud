@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listinvitations
+  description: >-
+    Lists all Security Hub membership invitations that were sent to the current
+    Amazon Web Services account. This operation is only used by accounts that
+    are managed by invitation. Accounts that are managed using the integration
+    with Organizations do not receive invitations.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listinvitations
+      description: >-
+        Lists all Security Hub membership invitations that were sent to the current
+        Amazon Web Services account. This operation is only used by accounts that
+        are managed by invitation. Accounts that are managed using the integration
+        with Organizations do not receive invitations.
+    paths:
+      /invitations:
+        GET:
+          summary: Listinvitations
+          description: >-
+            Lists all Security Hub membership invitations that were sent to the
+            current Amazon Web Services account. This operation is only used by
+            accounts that are managed by invitation. Accounts that are managed using
+            the integration with Organizations do not receive invitations.
+          operationId: listInvitations

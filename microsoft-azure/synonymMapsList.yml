@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Synonymmaps
+  description: Lists all synonym maps available for a search service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Synonymmaps
+      description: Lists all synonym maps available for a search service.
+    paths:
+      /synonymmaps:
+        get:
+          summary: Get Synonymmaps
+          description: Lists all synonym maps available for a search service.
+          operationId: synonymMapsList
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/SearchError'

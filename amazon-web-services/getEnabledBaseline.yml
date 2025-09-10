@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getenabledbaseline
+  description: >-
+    Retrieve details of an EnabledBaseline resource by specifying its
+    identifier.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getenabledbaseline
+      description: >-
+        Retrieve details of an EnabledBaseline resource by specifying its
+        identifier.
+    paths:
+      /get-enabled-baseline:
+        POST:
+          summary: Getenabledbaseline
+          description: >-
+            Retrieve details of an EnabledBaseline resource by specifying its
+            identifier.
+          operationId: getEnabledBaseline

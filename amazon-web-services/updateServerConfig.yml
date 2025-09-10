@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updateserverconfig
+  description: ' Updates the configuration of the specified server. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateserverconfig
+      description: ' Updates the configuration of the specified server. '
+    paths:
+      /update-server-config/:
+        POST:
+          summary: Updateserverconfig
+          description: ' Updates the configuration of the specified server. '
+          operationId: updateServerConfig

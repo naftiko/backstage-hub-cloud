@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Subscribers
+  description: >-
+    By default, it deletes all *Subscribers*. A filter should be added to avoid
+    deleting all subscribers in a store.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Subscribers
+      description: >-
+        By default, it deletes all *Subscribers*. A filter should be added to avoid
+        deleting all subscribers in a store.
+    paths:
+      /customers/subscribers:
+        delete:
+          summary: Delete Subscribers
+          description: >-
+            By default, it deletes all *Subscribers*. A filter should be added to
+            avoid deleting all subscribers in a store.
+          operationId: deleteSubscribers
+          responses:
+            '204':
+              description: ''
+              content: {}

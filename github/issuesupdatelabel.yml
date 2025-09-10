@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Label
+  description: Updates a label using the given label name.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Label
+      description: Updates a label using the given label name.
+    paths:
+      /repos/{owner}/{repo}/labels/{name}:
+        patch:
+          summary: Update A Label
+          description: Updates a label using the given label name.
+          operationId: issuesupdatelabel
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    new_name:
+                      type: string
+                      description: >-
+                        The new name of the label. Emoji can be added to label
+                        names, using either native emoji or colon-style markup. For
+                        example, typing `:strawberry:` will render the emoji
+                        ![:strawberry:](https://github.githubassets.com/images/icons/emoji/unicode/1f353.png
+                        ":strawberry:"). For a full list of available emoji and
+                        codes, see "[Emoji cheat
+                        sheet](https://github.com/ikatyang/emoji-cheat-sheet)."
+                    color:
+                      type: string
+                      description: >-
+                        The [hexadecimal color code](http://www.color-hex.com/) for
+                        the label, without the leading `#`.
+                    description:
+                      type: string
+                      description: >-
+                        A short description of the label. Must be 100 characters or
+                        fewer.
+                examples:
+                  default:
+                    value:
+                      new_name: 'bug :bug:'
+                      description: Small bug fix required
+                      color: b01f26
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/label'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/label-2'

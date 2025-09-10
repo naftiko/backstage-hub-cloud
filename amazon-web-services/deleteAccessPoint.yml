@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deleteaccesspoint
+  description: >-
+    Deletes the specified access point. After deletion is complete, new clients
+    can no longer connect to the access points. Clients connected to the access
+    point at the time of deletion will continue to function until they terminate
+    their connection. This operation requires permissions for the
+    elasticfilesystem:DeleteAccessPoint action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deleteaccesspoint
+      description: >-
+        Deletes the specified access point. After deletion is complete, new clients
+        can no longer connect to the access points. Clients connected to the access
+        point at the time of deletion will continue to function until they terminate
+        their connection. This operation requires permissions for the
+        elasticfilesystem:DeleteAccessPoint action.
+    paths:
+      /2015-02-01/access-points/{AccessPointId}:
+        DELETE:
+          summary: Deleteaccesspoint
+          description: >-
+            Deletes the specified access point. After deletion is complete, new
+            clients can no longer connect to the access points. Clients connected to
+            the access point at the time of deletion will continue to function until
+            they terminate their connection. This operation requires permissions for
+            the elasticfilesystem:DeleteAccessPoint action.
+          operationId: deleteAccessPoint

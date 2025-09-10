@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Gettranscript
+  description: >-
+    Retrieves a transcript of the session, including details about any
+    attachments. For information about accessing past chat contact transcripts
+    for a persistent chat, see Enable persistent chat.    ConnectionToken is
+    used for invoking this API instead of ParticipantToken.  The Amazon Connect
+    Participant Service APIs do not use Signature Version 4 authentication.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gettranscript
+      description: >-
+        Retrieves a transcript of the session, including details about any
+        attachments. For information about accessing past chat contact transcripts
+        for a persistent chat, see Enable persistent chat.    ConnectionToken is
+        used for invoking this API instead of ParticipantToken.  The Amazon Connect
+        Participant Service APIs do not use Signature Version 4 authentication.
+    paths:
+      /participant/transcript:
+        POST:
+          summary: Gettranscript
+          description: >-
+            Retrieves a transcript of the session, including details about any
+            attachments. For information about accessing past chat contact
+            transcripts for a persistent chat, see Enable persistent chat.   
+            ConnectionToken is used for invoking this API instead of
+            ParticipantToken.  The Amazon Connect Participant Service APIs do not
+            use Signature Version 4 authentication.
+          operationId: getTranscript

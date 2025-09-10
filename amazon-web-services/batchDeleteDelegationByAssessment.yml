@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Batchdeletedelegationbyassessment
+  description: ' Deletes a batch of delegations for an assessment in Audit Manager. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchdeletedelegationbyassessment
+      description: ' Deletes a batch of delegations for an assessment in Audit Manager. '
+    paths:
+      /assessments/{assessmentId}/delegations:
+        PUT:
+          summary: Batchdeletedelegationbyassessment
+          description: ' Deletes a batch of delegations for an assessment in Audit Manager. '
+          operationId: batchDeleteDelegationByAssessment

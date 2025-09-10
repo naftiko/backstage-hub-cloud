@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Starts Chaos In The Cluster.
+  description: >-
+    If Chaos is not already running in the cluster, it starts Chaos with the
+    passed in Chaos parameters.If Chaos is already running when this call is
+    made, the call fails with the error code
+    FABRIC_E_CHAOS_ALREADY_RUNNING.Refer to the article [Induce controlled Chaos
+    in Service Fabric
+    clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos)
+    for more details.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Starts Chaos In The Cluster.
+      description: >-
+        If Chaos is not already running in the cluster, it starts Chaos with the
+        passed in Chaos parameters.If Chaos is already running when this call is
+        made, the call fails with the error code
+        FABRIC_E_CHAOS_ALREADY_RUNNING.Refer to the article [Induce controlled Chaos
+        in Service Fabric
+        clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos)
+        for more details.
+    paths:
+      /Tools/Chaos/$/Start:
+        post:
+          summary: Starts Chaos In The Cluster.
+          description: >-
+            If Chaos is not already running in the cluster, it starts Chaos with the
+            passed in Chaos parameters.If Chaos is already running when this call is
+            made, the call fails with the error code
+            FABRIC_E_CHAOS_ALREADY_RUNNING.Refer to the article [Induce controlled
+            Chaos in Service Fabric
+            clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos)
+            for more details.
+          operationId: startChaos
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

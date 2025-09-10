@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Terminal Configurations
+  description: Creates a new Configuration object.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Terminal Configurations
+      description: Creates a new Configuration object.
+    paths:
+      /v1/terminal/configurations:
+        post:
+          summary: Post Terminal Configurations
+          description: Creates a new Configuration object.
+          operationId: postTerminalConfigurations
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  bbpos_wisepos_e:
+                    explode: true
+                    style: deepObject
+                  expand:
+                    explode: true
+                    style: deepObject
+                  offline:
+                    explode: true
+                    style: deepObject
+                  tipping:
+                    explode: true
+                    style: deepObject
+                  verifone_p400:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostTerminalConfigurationsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

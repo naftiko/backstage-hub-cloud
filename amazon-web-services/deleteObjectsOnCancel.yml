@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deleteobjectsoncancel
+  description: >-
+    For a specific governed table, provides a list of Amazon S3 objects that
+    will be written during the current transaction and that can be automatically
+    deleted if the transaction is canceled. Without this call, no Amazon S3
+    objects are automatically deleted when a transaction cancels.   The Glue ETL
+    library function write_dynamic_frame.from_catalog() includes an option to
+    automatically call DeleteObjectsOnCancel before writes. For more
+    information, see Rolling Back Amazon S3 Writes. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deleteobjectsoncancel
+      description: >-
+        For a specific governed table, provides a list of Amazon S3 objects that
+        will be written during the current transaction and that can be automatically
+        deleted if the transaction is canceled. Without this call, no Amazon S3
+        objects are automatically deleted when a transaction cancels.   The Glue ETL
+        library function write_dynamic_frame.from_catalog() includes an option to
+        automatically call DeleteObjectsOnCancel before writes. For more
+        information, see Rolling Back Amazon S3 Writes. 
+    paths:
+      /DeleteObjectsOnCancel:
+        POST:
+          summary: Deleteobjectsoncancel
+          description: >-
+            For a specific governed table, provides a list of Amazon S3 objects that
+            will be written during the current transaction and that can be
+            automatically deleted if the transaction is canceled. Without this call,
+            no Amazon S3 objects are automatically deleted when a transaction
+            cancels.   The Glue ETL library function
+            write_dynamic_frame.from_catalog() includes an option to automatically
+            call DeleteObjectsOnCancel before writes. For more information, see
+            Rolling Back Amazon S3 Writes. 
+          operationId: deleteObjectsOnCancel

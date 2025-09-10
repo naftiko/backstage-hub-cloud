@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Category
+  description: >-
+    When possible, use the [Category Trees - Delete
+    categories](/docs/rest-catalog/category-trees/categories#delete-categories)
+    endpoint instead. You can provide a category identifier using query
+    parameters to delete a single category.Deletes a *Category*.**Note:**The
+    default rate limit for this endpoint is 40 concurrent requests.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Category
+      description: >-
+        When possible, use the [Category Trees - Delete
+        categories](/docs/rest-catalog/category-trees/categories#delete-categories)
+        endpoint instead. You can provide a category identifier using query
+        parameters to delete a single category.Deletes a *Category*.**Note:**The
+        default rate limit for this endpoint is 40 concurrent requests.
+    paths:
+      /catalog/categories/{category_id}:
+        delete:
+          summary: Delete A Category
+          description: >-
+            When possible, use the [Category Trees - Delete
+            categories](/docs/rest-catalog/category-trees/categories#delete-categories)
+            endpoint instead. You can provide a category identifier using query
+            parameters to delete a single category.Deletes a *Category*.**Note:**The
+            default rate limit for this endpoint is 40 concurrent requests.
+          operationId: deleteCategory
+          responses:
+            '204':
+              description: ''
+              content: {}

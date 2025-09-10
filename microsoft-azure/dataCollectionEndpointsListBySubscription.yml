@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Lists All Data Collection Endpoints In The Specified Subscription
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Lists All Data Collection Endpoints In The Specified Subscription
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Insights/dataCollectionEndpoints:
+        get:
+          summary: Lists All Data Collection Endpoints In The Specified Subscription
+          description: Needs a more full description created.
+          operationId: dataCollectionEndpointsListBySubscription
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: ./dataCollectionRules_API.json#/definitions/ErrorResponseCommonV2

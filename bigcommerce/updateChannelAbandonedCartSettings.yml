@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Channel Abandoned Cart Settings
+  description: >-
+    Updates the per-channel overrides for the abandoned cart settings of a
+    store.#### OAuth Scopes| UI Name                                      |
+    Permission | Parameter                                     ||-||--|     |
+    Information & Settings                       | modify     |
+    `store_v2_information`                        |
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Channel Abandoned Cart Settings
+      description: >-
+        Updates the per-channel overrides for the abandoned cart settings of a
+        store.#### OAuth Scopes| UI Name                                      |
+        Permission | Parameter                                     ||-||--|     |
+        Information & Settings                       | modify     |
+        `store_v2_information`                        |
+    paths:
+      /abandoned-carts/settings/channels/{channel_id}:
+        put:
+          summary: Update Channel Abandoned Cart Settings
+          description: >-
+            Updates the per-channel overrides for the abandoned cart settings of a
+            store.#### OAuth Scopes| UI Name                                      |
+            Permission | Parameter                                     ||-||--|    
+            | Information & Settings                       | modify     |
+            `store_v2_information`                        |
+          operationId: updateChannelAbandonedCartSettings
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ChannelAbandonedCartSettingsRequest'
+          responses:
+            '422':
+              description: Unprocessable entity
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'

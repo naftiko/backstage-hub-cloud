@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.cdn Migrate
+  description: >-
+    Migrate the CDN profile to Azure Frontdoor(Standard/Premium) profile. The
+    change need to be committed after this.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.cdn Migrate
+      description: >-
+        Migrate the CDN profile to Azure Frontdoor(Standard/Premium) profile. The
+        change need to be committed after this.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/migrate:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.cdn Migrate
+          description: >-
+            Migrate the CDN profile to Azure Frontdoor(Standard/Premium) profile.
+            The change need to be committed after this.
+          operationId: profilesMigrate
+          responses:
+            default:
+              description: CDN error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

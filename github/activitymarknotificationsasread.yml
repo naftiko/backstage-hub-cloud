@@ -1,0 +1,76 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Mark Notifications As Read
+  description: >-
+    Marks all notifications as "read" for the current user. If the number of
+    notifications is too large to complete in one request, you will receive a
+    `202 Accepted` status and GitHub Enterprise Server will run an asynchronous
+    process to mark notifications as "read." To check whether any "unread"
+    notifications remain, you can use the [List notifications for the
+    authenticated
+    user](https://docs.github.com/enterprise-server@3.9/rest/activity/notifications#list-notifications-for-the-authenticated-user)
+    endpoint and pass the query parameter `all=false`.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Mark Notifications As Read
+      description: >-
+        Marks all notifications as "read" for the current user. If the number of
+        notifications is too large to complete in one request, you will receive a
+        `202 Accepted` status and GitHub Enterprise Server will run an asynchronous
+        process to mark notifications as "read." To check whether any "unread"
+        notifications remain, you can use the [List notifications for the
+        authenticated
+        user](https://docs.github.com/enterprise-server@3.9/rest/activity/notifications#list-notifications-for-the-authenticated-user)
+        endpoint and pass the query parameter `all=false`.
+    paths:
+      /notifications:
+        put:
+          summary: Mark Notifications As Read
+          description: >-
+            Marks all notifications as "read" for the current user. If the number of
+            notifications is too large to complete in one request, you will receive
+            a `202 Accepted` status and GitHub Enterprise Server will run an
+            asynchronous process to mark notifications as "read." To check whether
+            any "unread" notifications remain, you can use the [List notifications
+            for the authenticated
+            user](https://docs.github.com/enterprise-server@3.9/rest/activity/notifications#list-notifications-for-the-authenticated-user)
+            endpoint and pass the query parameter `all=false`.
+          operationId: activitymarknotificationsasread
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    last_read_at:
+                      description: >-
+                        Describes the last point that notifications were checked.
+                        Anything updated since this time will not be marked as read.
+                        If you omit this parameter, all notifications are marked as
+                        read. This is a timestamp in [ISO
+                        8601](https://en.wikipedia.org/wiki/ISO_8601) format:
+                        `YYYY-MM-DDTHH:MM:SSZ`. Default: The current timestamp.
+                      type: string
+                      format: date-time
+                    read:
+                      description: Whether the notification has been read.
+                      type: boolean
+                examples:
+                  default:
+                    value:
+                      last_read_at: '2022-06-10T00:00:00Z'
+                      read: true
+          responses:
+            '403':
+              $ref: '#/components/responses/forbidden'

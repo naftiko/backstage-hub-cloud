@@ -1,0 +1,75 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Customers Customer Subscriptions
+  description: Creates a new subscription on an existing customer.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Customers Customer Subscriptions
+      description: Creates a new subscription on an existing customer.
+    paths:
+      /v1/customers/{customer}/subscriptions:
+        post:
+          summary: Post Customers Customer Subscriptions
+          description: Creates a new subscription on an existing customer.
+          operationId: postCustomersCustomerSubscriptions
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  add_invoice_items:
+                    explode: true
+                    style: deepObject
+                  automatic_tax:
+                    explode: true
+                    style: deepObject
+                  billing_thresholds:
+                    explode: true
+                    style: deepObject
+                  default_tax_rates:
+                    explode: true
+                    style: deepObject
+                  expand:
+                    explode: true
+                    style: deepObject
+                  items:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                  payment_settings:
+                    explode: true
+                    style: deepObject
+                  pending_invoice_item_interval:
+                    explode: true
+                    style: deepObject
+                  transfer_data:
+                    explode: true
+                    style: deepObject
+                  trial_end:
+                    explode: true
+                    style: deepObject
+                  trial_settings:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostCustomersCustomerSubscriptionsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

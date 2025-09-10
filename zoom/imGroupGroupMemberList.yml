@@ -1,0 +1,64 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Im Group Member List
+  description: Lists the members of a IM group on Zoom.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Im Group Member List
+      description: Lists the members of a IM group on Zoom.
+    paths:
+      /im/group/member/list:
+        post:
+          summary: Post Im Group Member List
+          description: Lists the members of a IM group on Zoom.
+          operationId: imGroupGroupMemberList
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - id
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: Group ID.
+                    page_size:
+                      type: string
+                      description: >-
+                        The amount of records returns within a single API call.
+                        Defaults to 30.
+                      default: '30'
+                    page_number:
+                      type: string
+                      description: Current page number of returned records. Default to 1.
+                      default: '1'
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    page_count: 1
+                    page_number: 1
+                    page_size: 30
+                    total_records: 1
+                    members:
+                      - id: unique_id
+                        email: email_address
+                        first_name: Zoomie
+                        last_name: Userton
+                        pic_url: >-
+                          https://ssotest.zoom.us/p/6EoubcvJR7eF2grNXJkrHA/f2003a9c-3095-4865-8536-03cc6f211e86-9569

@@ -1,0 +1,90 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Repository Preferences For Check Suites
+  description: >-
+    Changes the default automatic flow when creating check suites. By default, a
+    check suite is automatically created each time code is pushed to a
+    repository. When you disable the automatic creation of check suites, you can
+    manually [Create a check
+    suite](https://docs.github.com/enterprise-server@3.9/rest/checks/suites#create-a-check-suite).You
+    must have admin permissions in the repository to set preferences for check
+    suites.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Repository Preferences For Check Suites
+      description: >-
+        Changes the default automatic flow when creating check suites. By default, a
+        check suite is automatically created each time code is pushed to a
+        repository. When you disable the automatic creation of check suites, you can
+        manually [Create a check
+        suite](https://docs.github.com/enterprise-server@3.9/rest/checks/suites#create-a-check-suite).You
+        must have admin permissions in the repository to set preferences for check
+        suites.
+    paths:
+      /repos/{owner}/{repo}/check-suites/preferences:
+        patch:
+          summary: Update Repository Preferences For Check Suites
+          description: >-
+            Changes the default automatic flow when creating check suites. By
+            default, a check suite is automatically created each time code is pushed
+            to a repository. When you disable the automatic creation of check
+            suites, you can manually [Create a check
+            suite](https://docs.github.com/enterprise-server@3.9/rest/checks/suites#create-a-check-suite).You
+            must have admin permissions in the repository to set preferences for
+            check suites.
+          operationId: checkssetsuitespreferences
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    auto_trigger_checks:
+                      type: array
+                      description: >-
+                        Enables or disables automatic creation of CheckSuite events
+                        upon pushes to the repository. Enabled by default.
+                      items:
+                        type: object
+                        properties:
+                          app_id:
+                            type: integer
+                            description: The `id` of the GitHub App.
+                          setting:
+                            type: boolean
+                            description: >-
+                              Set to `true` to enable automatic creation of
+                              CheckSuite events upon pushes to the repository, or
+                              `false` to disable them.
+                            default: true
+                        required:
+                          - app_id
+                          - setting
+                examples:
+                  default:
+                    value:
+                      auto_trigger_checks:
+                        - app_id: 4
+                          setting: false
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/check-suite-preference'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/check-suite-preference'

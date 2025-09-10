@@ -1,0 +1,64 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Webhooks By Id
+  description: >-
+    Removes webhooks by ID. Only webhooks registered by the calling app are
+    removed. If webhooks created by other apps are specified, they are
+    ignored.**[Permissions](#permissions) required:** Only
+    [Connect](https://developer.atlassian.com/cloud/jira/platform/#connect-apps)
+    and [OAuth
+    2.0](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps)
+    apps can use this operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Webhooks By Id
+      description: >-
+        Removes webhooks by ID. Only webhooks registered by the calling app are
+        removed. If webhooks created by other apps are specified, they are
+        ignored.**[Permissions](#permissions) required:** Only
+        [Connect](https://developer.atlassian.com/cloud/jira/platform/#connect-apps)
+        and [OAuth
+        2.0](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps)
+        apps can use this operation.
+    paths:
+      /rest/api/3/webhook:
+        delete:
+          summary: Delete Webhooks By Id
+          description: >-
+            Removes webhooks by ID. Only webhooks registered by the calling app are
+            removed. If webhooks created by other apps are specified, they are
+            ignored.**[Permissions](#permissions) required:** Only
+            [Connect](https://developer.atlassian.com/cloud/jira/platform/#connect-apps)
+            and [OAuth
+            2.0](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps)
+            apps can use this operation.
+          operationId: deleteWebhookById
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  webhookIds:
+                    - 10000
+                    - 10001
+                    - 10042
+                schema:
+                  $ref: '#/components/schemas/ContainerForWebhookIDs'
+          responses:
+            '403':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorCollection'
+              description: Returned if the caller isn't an app.

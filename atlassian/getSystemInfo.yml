@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get System Info
+  description: >-
+    Returns the system information for the Confluence Cloud tenant.
+    Thisinformation is used by
+    Atlassian.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to access the Confluence site ('Can use' global
+    permission).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get System Info
+      description: >-
+        Returns the system information for the Confluence Cloud tenant.
+        Thisinformation is used by
+        Atlassian.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to access the Confluence site ('Can use' global
+        permission).
+    paths:
+      /wiki/rest/api/settings/systemInfo:
+        get:
+          summary: Get System Info
+          description: >-
+            Returns the system information for the Confluence Cloud tenant.
+            Thisinformation is used by
+            Atlassian.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to access the Confluence site ('Can use' global
+            permission).
+          operationId: getSystemInfo
+          responses:
+            '403':
+              description: |-
+                Returned when the user does not have permission to view the system
+                information.
+              content: {}

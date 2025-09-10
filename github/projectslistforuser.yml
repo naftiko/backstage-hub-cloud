@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List User Projects
+  description: Lists projects for a user.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List User Projects
+      description: Lists projects for a user.
+    paths:
+      /users/{username}/projects:
+        get:
+          summary: List User Projects
+          description: Lists projects for a user.
+          operationId: projectslistforuser
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

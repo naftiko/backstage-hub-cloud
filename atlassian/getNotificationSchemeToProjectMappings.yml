@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Projects Using Notification Schemes Paginated
+  description: >-
+    Returns a [paginated](#pagination) mapping of project that have notification
+    scheme assigned. You can provide either one or multiple notification scheme
+    IDs or project IDs to filter by. If you don't provide any, this will return
+    a list of all mappings. Note that only company-managed (classic) projects
+    are supported. This is because team-managed projects don't have a concept of
+    a default notification scheme. The mappings are ordered by
+    projectId.**[Permissions](#permissions) required:** Permission to access
+    Jira.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Projects Using Notification Schemes Paginated
+      description: >-
+        Returns a [paginated](#pagination) mapping of project that have notification
+        scheme assigned. You can provide either one or multiple notification scheme
+        IDs or project IDs to filter by. If you don't provide any, this will return
+        a list of all mappings. Note that only company-managed (classic) projects
+        are supported. This is because team-managed projects don't have a concept of
+        a default notification scheme. The mappings are ordered by
+        projectId.**[Permissions](#permissions) required:** Permission to access
+        Jira.
+    paths:
+      /rest/api/3/notificationscheme/project:
+        get:
+          summary: Get Projects Using Notification Schemes Paginated
+          description: >-
+            Returns a [paginated](#pagination) mapping of project that have
+            notification scheme assigned. You can provide either one or multiple
+            notification scheme IDs or project IDs to filter by. If you don't
+            provide any, this will return a list of all mappings. Note that only
+            company-managed (classic) projects are supported. This is because
+            team-managed projects don't have a concept of a default notification
+            scheme. The mappings are ordered by
+            projectId.**[Permissions](#permissions) required:** Permission to access
+            Jira.
+          operationId: getNotificationSchemeToProjectMappings
+          responses:
+            '401':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorCollection'
+              description: Returned if the authentication credentials are incorrect or missing.

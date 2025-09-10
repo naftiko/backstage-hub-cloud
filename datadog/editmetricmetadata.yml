@@ -1,0 +1,60 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Edit Metric Metadata
+  description: >-
+    Edit metadata of a specific metric. Find out more about [supported
+    types](https://docs.datadoghq.com/developers/metrics).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Edit Metric Metadata
+      description: >-
+        Edit metadata of a specific metric. Find out more about [supported
+        types](https://docs.datadoghq.com/developers/metrics).
+    paths:
+      /api/v1/metrics/{metric_name}:
+        put:
+          summary: Edit Metric Metadata
+          description: >-
+            Edit metadata of a specific metric. Find out more about [supported
+            types](https://docs.datadoghq.com/developers/metrics).
+          operationId: editmetricmetadata
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    description: ad adipisicing nostrud do
+                    integration: mollit
+                    per_unit: second
+                    short_name: et nulla sed aute
+                    statsd_interval: 20591110
+                    type: count
+                    unit: byte
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

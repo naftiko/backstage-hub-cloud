@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getinsightresults
+  description: Lists the results of the Security Hub insight specified by the insight ARN.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getinsightresults
+      description: Lists the results of the Security Hub insight specified by the insight ARN.
+    paths:
+      /insights/results/{InsightArn+}:
+        GET:
+          summary: Getinsightresults
+          description: >-
+            Lists the results of the Security Hub insight specified by the insight
+            ARN.
+          operationId: getInsightResults

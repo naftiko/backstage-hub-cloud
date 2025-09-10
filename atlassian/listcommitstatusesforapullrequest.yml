@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Commit Statuses For A Pull Request
+  description: Returns all statuses (e.g. build results) for the given pullrequest.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Commit Statuses For A Pull Request
+      description: Returns all statuses (e.g. build results) for the given pullrequest.
+    paths:
+      /repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/statuses:
+        get:
+          summary: List Commit Statuses For A Pull Request
+          description: Returns all statuses (e.g. build results) for the given pullrequest.
+          operationId: listcommitstatusesforapullrequest
+          responses:
+            '404':
+              description: If the specified repository or pull request does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

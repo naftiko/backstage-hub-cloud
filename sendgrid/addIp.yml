@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add Ips
+  description: '**This endpoint is for adding a(n) IP Address(es) to your account.**'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add Ips
+      description: '**This endpoint is for adding a(n) IP Address(es) to your account.**'
+    paths:
+      /v3/ips:
+        post:
+          summary: Add Ips
+          description: '**This endpoint is for adding a(n) IP Address(es) to your account.**'
+          operationId: addIp
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    count:
+                      type: integer
+                      description: The amount of IPs to add to the account.
+                    subusers:
+                      type: array
+                      description: Array of usernames to be assigned a send IP.
+                      items:
+                        type: string
+                    warmup:
+                      type: boolean
+                      default: false
+                      description: Whether or not to warmup the IPs being added.
+                  required:
+                    - count
+                  example:
+                    count: 90323478
+                    subusers:
+                      - subuser1
+                      - subuser2
+                    warmup: true
+                    user_can_send: true
+          responses:
+            '400':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - field: null
+                            message: one or more subusers do not belong to this user

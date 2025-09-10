@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Describerestorejob
+  description: >-
+    Returns metadata associated with a restore job that is specified by a job
+    ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describerestorejob
+      description: >-
+        Returns metadata associated with a restore job that is specified by a job
+        ID.
+    paths:
+      /restore-jobs/{restoreJobId}:
+        GET:
+          summary: Describerestorejob
+          description: >-
+            Returns metadata associated with a restore job that is specified by a
+            job ID.
+          operationId: describeRestoreJob

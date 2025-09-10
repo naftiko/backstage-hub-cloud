@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getchunk
+  description: Gets the specified object's chunk.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getchunk
+      description: Gets the specified object's chunk.
+    paths:
+      /restore-jobs/{jobId}/chunk/{chunkToken}:
+        GET:
+          summary: Getchunk
+          description: Gets the specified object's chunk.
+          operationId: getChunk

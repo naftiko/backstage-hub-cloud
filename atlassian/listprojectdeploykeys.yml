@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Project Deploy Keys
+  description: Returns all deploy keys belonging to a project.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Project Deploy Keys
+      description: Returns all deploy keys belonging to a project.
+    paths:
+      /workspaces/{workspace}/projects/{project_key}/deploy-keys:
+        get:
+          summary: List Project Deploy Keys
+          description: Returns all deploy keys belonging to a project.
+          operationId: listprojectdeploykeys
+          responses:
+            '404':
+              description: If the specified workspace or project does not exist
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

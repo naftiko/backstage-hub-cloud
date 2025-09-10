@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Send A Campaign
+  description: >-
+    **This endpoint allows you to immediately send an existing
+    campaign.**Normally a POST request would have a body, but since this
+    endpoint is telling us to send a resource that is already created, a request
+    body is not needed.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Send A Campaign
+      description: >-
+        **This endpoint allows you to immediately send an existing
+        campaign.**Normally a POST request would have a body, but since this
+        endpoint is telling us to send a resource that is already created, a request
+        body is not needed.
+    paths:
+      /v3/campaigns/{campaign_id}/schedules/now:
+        post:
+          summary: Send A Campaign
+          description: >-
+            **This endpoint allows you to immediately send an existing
+            campaign.**Normally a POST request would have a body, but since this
+            endpoint is telling us to send a resource that is already created, a
+            request body is not needed.
+          operationId: sendCampaign
+          responses:
+            '404':
+              description: Not found"
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - field: null
+                            message: not found

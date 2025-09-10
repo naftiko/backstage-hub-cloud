@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Comments On An Issue
+  description: >-
+    Returns a paginated list of all comments that were made on thespecified
+    issue.The default sorting is oldest to newest and can be overridden withthe
+    `sort` query parameter.This endpoint also supports filtering and sorting of
+    the results. See[filtering and
+    sorting](/cloud/bitbucket/rest/intro/#filtering) for more details.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Comments On An Issue
+      description: >-
+        Returns a paginated list of all comments that were made on thespecified
+        issue.The default sorting is oldest to newest and can be overridden withthe
+        `sort` query parameter.This endpoint also supports filtering and sorting of
+        the results. See[filtering and
+        sorting](/cloud/bitbucket/rest/intro/#filtering) for more details.
+    paths:
+      /repositories/{workspace}/{repo_slug}/issues/{issue_id}/comments:
+        get:
+          summary: List Comments On An Issue
+          description: >-
+            Returns a paginated list of all comments that were made on thespecified
+            issue.The default sorting is oldest to newest and can be overridden
+            withthe `sort` query parameter.This endpoint also supports filtering and
+            sorting of the results. See[filtering and
+            sorting](/cloud/bitbucket/rest/intro/#filtering) for more details.
+          operationId: listcommentsonanissue
+          responses:
+            '200':
+              description: A paginated list of issue comments.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/paginated_issue_comments'

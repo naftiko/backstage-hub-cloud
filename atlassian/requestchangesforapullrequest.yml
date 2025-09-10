@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Request Changes For A Pull Request
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Request Changes For A Pull Request
+      description: Needs a more full description created.
+    paths:
+      /repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/request-changes:
+        post:
+          summary: Request Changes For A Pull Request
+          description: Needs a more full description created.
+          operationId: requestchangesforapullrequest
+          responses:
+            '404':
+              description: The specified pull request or the repository does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

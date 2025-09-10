@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Creates A Comment For An Article
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/online-store/comment#create-2020-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Creates A Comment For An Article
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/online-store/comment#create-2020-01
+    paths:
+      /admin/api/2020-01/comments.json:
+        post:
+          summary: Creates A Comment For An Article
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/online-store/comment#create-2020-01
+          operationId: deprecated202001createcomments
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      comment:
+                        body: |-
+                          I like comments
+                          And I like posting them *RESTfully*.
+                        author: Your name
+                        email: your@email.com
+                        ip: 107.20.160.121
+                        blog_id: 241253187
+                        article_id: 134645308
+                    summary: >-
+                      Create a comment for an article of a blog using basic Textile
+                      markup
+                  example2:
+                    value:
+                      comment:
+                        article_id: 134645308
+                    summary: >-
+                      Creating a comment without a body, author, and email fails and
+                      returns an error
+          responses:
+            '200':
+              description: ''

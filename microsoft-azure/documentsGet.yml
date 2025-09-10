@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Docs('key')
+  description: Retrieves a document from the Azure Search index.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Docs('key')
+      description: Retrieves a document from the Azure Search index.
+    paths:
+      /docs('{key}'):
+        get:
+          summary: Get Docs('key')
+          description: Retrieves a document from the Azure Search index.
+          operationId: documentsGet
+          responses:
+            '200':
+              description: Response containing the requested document.
+              schema:
+                type: object

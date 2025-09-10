@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete An Existing Rule
+  description: Delete an existing rule. Default rules cannot be deleted.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete An Existing Rule
+      description: Delete an existing rule. Default rules cannot be deleted.
+    paths:
+      /api/v2/security_monitoring/rules/{rule_id}:
+        delete:
+          summary: Delete An Existing Rule
+          description: Delete an existing rule. Default rules cannot be deleted.
+          operationId: deleteSecurityMonitoringRule
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

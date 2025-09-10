@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Multiple Metafields
+  description: Create multiple metafields.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Multiple Metafields
+      description: Create multiple metafields.
+    paths:
+      /catalog/brands/metafields:
+        post:
+          summary: Create Multiple Metafields
+          description: Create multiple metafields.
+          operationId: createBrandsMetafields
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    allOf:
+                      - $ref: '#/components/schemas/MetafieldBase_Post'
+                      - type: object
+                        properties:
+                          resource_id:
+                            type: integer
+                            example: 42
+                            description: >
+                              The ID for the brand with which the metafield is
+                              associated.
+                        required:
+                          - resource_id
+          responses:
+            '500':
+              description: Internal Server Error

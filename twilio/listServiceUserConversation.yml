@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Services Chatservicesid Users Usersid Conversations
+  description: Retrieve a list of all User Conversations for the User.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Services Chatservicesid Users Usersid Conversations
+      description: Retrieve a list of all User Conversations for the User.
+    paths:
+      /v1/Services/{ChatServiceSid}/Users/{UserSid}/Conversations:
+        get:
+          summary: Get Services Chatservicesid Users Usersid Conversations
+          description: Retrieve a list of all User Conversations for the User.
+          operationId: listServiceUserConversation
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ListServiceUserConversationResponse'
+              description: OK

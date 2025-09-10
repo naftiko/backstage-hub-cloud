@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updatelaunchconfiguration
+  description: Updates multiple LaunchConfigurations by Source Server ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatelaunchconfiguration
+      description: Updates multiple LaunchConfigurations by Source Server ID.
+    paths:
+      /UpdateLaunchConfiguration:
+        POST:
+          summary: Updatelaunchconfiguration
+          description: Updates multiple LaunchConfigurations by Source Server ID.
+          operationId: updateLaunchConfiguration

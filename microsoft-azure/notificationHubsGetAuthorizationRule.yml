@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.notificationhubs Namespaces Namespacename Notificationhubs
+    Notificationhubname Authorizationrules Authorizationrulename
+  description: Gets an authorization rule for a NotificationHub by name.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.notificationhubs Namespaces Namespacename Notificationhubs
+        Notificationhubname Authorizationrules Authorizationrulename
+      description: Gets an authorization rule for a NotificationHub by name.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/{notificationHubName}/AuthorizationRules/{authorizationRuleName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.notificationhubs Namespaces Namespacename
+            Notificationhubs Notificationhubname Authorizationrules
+            Authorizationrulename
+          description: Gets an authorization rule for a NotificationHub by name.
+          operationId: notificationHubsGetAuthorizationRule
+          responses:
+            '200':
+              description: Get NotificationHub AuthorizationRule
+              schema:
+                $ref: '#/definitions/SharedAccessAuthorizationRuleResource'

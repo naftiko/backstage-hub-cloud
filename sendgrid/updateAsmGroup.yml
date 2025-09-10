@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Suppression Group.
+  description: '**This endpoint allows you to update or change a suppression group.**'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Suppression Group.
+      description: '**This endpoint allows you to update or change a suppression group.**'
+    paths:
+      /v3/asm/groups/{group_id}:
+        patch:
+          summary: Update A Suppression Group.
+          description: '**This endpoint allows you to update or change a suppression group.**'
+          operationId: updateAsmGroup
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  example:
+                    id: 103
+                    name: Item Suggestions
+                    description: Suggestions for items our users might like.
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: >-
+                        The name of your suppression group. Required when creating a
+                        group.
+                      maxLength: 30
+                    description:
+                      type: string
+                      description: >-
+                        A brief description of your suppression group. Required when
+                        creating a group.
+                      maxLength: 100
+                    is_default:
+                      type: boolean
+                      description: >-
+                        Indicates if you would like this to be your default
+                        suppression group.
+          responses:
+            '201':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/SuppressionGroup'
+                  examples:
+                    response:
+                      value:
+                        id: 103
+                        name: Item Suggestions
+                        description: Suggestions for items our users might like.

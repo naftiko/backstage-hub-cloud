@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Describeidentityusage
+  description: >-
+    Gets usage information for an identity, including number of datasets and
+    data usage. This API can be called with temporary user credentials provided
+    by Cognito Identity or with developer credentials.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeidentityusage
+      description: >-
+        Gets usage information for an identity, including number of datasets and
+        data usage. This API can be called with temporary user credentials provided
+        by Cognito Identity or with developer credentials.
+    paths:
+      /identitypools/{IdentityPoolId}/identities/{IdentityId}:
+        GET:
+          summary: Describeidentityusage
+          description: >-
+            Gets usage information for an identity, including number of datasets and
+            data usage. This API can be called with temporary user credentials
+            provided by Cognito Identity or with developer credentials.
+          operationId: describeIdentityUsage

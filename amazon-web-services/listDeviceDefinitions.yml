@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listdevicedefinitions
+  description: Retrieves a list of device definitions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listdevicedefinitions
+      description: Retrieves a list of device definitions.
+    paths:
+      /greengrass/definition/devices:
+        GET:
+          summary: Listdevicedefinitions
+          description: Retrieves a list of device definitions.
+          operationId: listDeviceDefinitions

@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Cost Across Multi-org Account
+  description: >-
+    Get cost across multi-org account.Cost by org data for a given month becomes
+    available no later than the 16th of the following month.**Note:** This
+    endpoint has been deprecated. Please use the new
+    endpoint[`/historical_cost`](https://docs.datadoghq.com/api/latest/usage-metering/#get-historical-cost-across-your-account)instead.This
+    endpoint is only accessible for [parent-level
+    organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Cost Across Multi-org Account
+      description: >-
+        Get cost across multi-org account.Cost by org data for a given month becomes
+        available no later than the 16th of the following month.**Note:** This
+        endpoint has been deprecated. Please use the new
+        endpoint[`/historical_cost`](https://docs.datadoghq.com/api/latest/usage-metering/#get-historical-cost-across-your-account)instead.This
+        endpoint is only accessible for [parent-level
+        organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+    paths:
+      /api/v2/usage/cost_by_org:
+        get:
+          summary: Get Cost Across Multi-org Account
+          description: >-
+            Get cost across multi-org account.Cost by org data for a given month
+            becomes available no later than the 16th of the following
+            month.**Note:** This endpoint has been deprecated. Please use the new
+            endpoint[`/historical_cost`](https://docs.datadoghq.com/api/latest/usage-metering/#get-historical-cost-across-your-account)instead.This
+            endpoint is only accessible for [parent-level
+            organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+          operationId: getCostByOrg
+          responses:
+            '429':
+              content:
+                application/json;datetime-format=rfc3339:
+                  schema:
+                    $ref: '#/components/schemas/APIErrorResponse'
+              description: Too many requests

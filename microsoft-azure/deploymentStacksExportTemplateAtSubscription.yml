@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Providers Microsoft.resources
+    Deploymentstacks Deploymentstackname Exporttemplate
+  description: Exports the template used to create the deployment stack.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Providers Microsoft.resources
+        Deploymentstacks Deploymentstackname Exporttemplate
+      description: Exports the template used to create the deployment stack.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Resources/deploymentStacks/{deploymentStackName}/exportTemplate:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Providers Microsoft.resources
+            Deploymentstacks Deploymentstackname Exporttemplate
+          description: Exports the template used to create the deployment stack.
+          operationId: deploymentStacksExportTemplateAtSubscription
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/DeploymentStacksError'

@@ -1,0 +1,103 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Designs
+  description: >-
+    **This endpoint allows you to retrieve a list of designs already stored in
+    your Design Library**.A GET request to `/designs` will return a list of your
+    existing designs. This endpoint will not return the pre-built Twilio
+    SendGrid designs. Pre-built designs can be retrieved using the
+    `/designs/pre-builts` endpoint, which is detailed below.By default, you will
+    receive 100 results per request; however, you can modify the number of
+    results returned by passing an integer to the `page_size` query parameter.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Designs
+      description: >-
+        **This endpoint allows you to retrieve a list of designs already stored in
+        your Design Library**.A GET request to `/designs` will return a list of your
+        existing designs. This endpoint will not return the pre-built Twilio
+        SendGrid designs. Pre-built designs can be retrieved using the
+        `/designs/pre-builts` endpoint, which is detailed below.By default, you will
+        receive 100 results per request; however, you can modify the number of
+        results returned by passing an integer to the `page_size` query parameter.
+    paths:
+      /v3/designs:
+        get:
+          summary: List Designs
+          description: >-
+            **This endpoint allows you to retrieve a list of designs already stored
+            in your Design Library**.A GET request to `/designs` will return a list
+            of your existing designs. This endpoint will not return the pre-built
+            Twilio SendGrid designs. Pre-built designs can be retrieved using the
+            `/designs/pre-builts` endpoint, which is detailed below.By default, you
+            will receive 100 results per request; however, you can modify the number
+            of results returned by passing an integer to the `page_size` query
+            parameter.
+          operationId: listDesign
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      result:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/DesignOutputSummary'
+                      _metadata:
+                        $ref: '#/components/schemas/Metadata'
+                  examples:
+                    response:
+                      value:
+                        result:
+                          - id: 3247eaea-c912-42a3-b0bc-60bdaf210396
+                            name: Welcome Email
+                            generate_plain_content: true
+                            thumbnail_url: >-
+                              //us-east-2-production-thumbnail-bucket.s3.amazonaws.com/llny8o5b3m636z92p7hbjnmq1jvpka39p370jwtin2s1wxv7x1sgm0y5fk518d0s.png
+                            subject: Welcom to the Cake or Pie Cafe
+                            created_at: '2021-04-09T17:29:46Z'
+                            updated_at: '2021-04-09T17:29:55Z'
+                            editor: code
+                            categories:
+                              - welcome
+                              - new customer
+                          - id: 02dfd792-f31f-439a-a79e-5c47fbcfdbac
+                            name: Monthly Promo
+                            generate_plain_content: true
+                            thumbnail_url: >-
+                              //us-east-2-production-thumbnail-bucket.s3.amazonaws.com/hfyxahd7ues2ajuoeoqq2xe6ibdasl1q89ox0y9ncya2ftpoicssmtf9ddus4c39.png
+                            subject: Free Dozen Cupcakes
+                            created_at: '2021-04-09T17:29:21Z'
+                            updated_at: '2021-04-09T17:29:42Z'
+                            editor: design
+                            categories:
+                              - promo
+                              - coupon
+                          - id: e54be823-19ef-4c6f-8b60-efd7514f492d
+                            name: 'Duplicate: Ingrid & Anders'
+                            generate_plain_content: true
+                            thumbnail_url: >-
+                              //us-east-2-production-thumbnail-bucket.s3.amazonaws.com/12kni9gjpyb9uxmwr9vk7unycjr70u95zoyhe9sg2zounul2zg7dih1s20k13q2z.png
+                            subject: Welcome to Ingrid & Anders!
+                            created_at: '2020-10-09T17:33:46Z'
+                            updated_at: '2021-04-07T19:57:52Z'
+                            editor: design
+                            categories: []
+                        _metadata:
+                          self: >-
+                            https://api.sendgrid.com/v3/designs?page_token=vHdvHCg0w1F-TmWJcPNpTEnFY2aPEmRBHONwOgZ6TgJbX2_I
+                          count: 3

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Apps Appid Versions Versionid Models
+  description: >-
+    Gets information about all the intent and entity models in a version of the
+    application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Apps Appid Versions Versionid Models
+      description: >-
+        Gets information about all the intent and entity models in a version of the
+        application.
+    paths:
+      /apps/{appId}/versions/{versionId}/models:
+        get:
+          summary: Get Apps Appid Versions Versionid Models
+          description: >-
+            Gets information about all the intent and entity models in a version of
+            the application.
+          operationId: modelListModels
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

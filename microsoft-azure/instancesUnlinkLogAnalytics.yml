@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.scom Managedinstances Instancename Unlinkloganalytics
+  description: Unlink Log Analytics workspace for SCOM monitoring instance
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.scom Managedinstances Instancename Unlinkloganalytics
+      description: Unlink Log Analytics workspace for SCOM monitoring instance
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scom/managedInstances/{instanceName}/unlinkLogAnalytics:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.scom Managedinstances Instancename
+            Unlinkloganalytics
+          description: Unlink Log Analytics workspace for SCOM monitoring instance
+          operationId: instancesUnlinkLogAnalytics
+          responses:
+            default:
+              description: Error response describing why the operation failed
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

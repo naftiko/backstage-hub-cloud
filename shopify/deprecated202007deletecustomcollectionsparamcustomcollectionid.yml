@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deletes A Custom Collection
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/products/customcollection#destroy-2020-07
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes A Custom Collection
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/products/customcollection#destroy-2020-07
+    paths:
+      /admin/api/2020-07/custom_collections/{custom_collection_id}.json:
+        delete:
+          summary: Deletes A Custom Collection
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/products/customcollection#destroy-2020-07
+          operationId: deprecated202007deletecustomcollectionsparamcustomcollectionid
+          responses:
+            '200':
+              description: ''

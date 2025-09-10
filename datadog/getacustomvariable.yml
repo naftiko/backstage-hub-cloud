@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Custom Variable
+  description: >-
+    Shows the content of the custom variable with the name ``.If the custom
+    variable is secret, the value does not return in theresponse payload.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Custom Variable
+      description: >-
+        Shows the content of the custom variable with the name ``.If the custom
+        variable is secret, the value does not return in theresponse payload.
+    paths:
+      /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}:
+        get:
+          summary: Get A Custom Variable
+          description: >-
+            Shows the content of the custom variable with the name ``.If the custom
+            variable is secret, the value does not return in theresponse payload.
+          operationId: getacustomvariable
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

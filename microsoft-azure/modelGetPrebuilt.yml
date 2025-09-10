@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Apps Appid Versions Versionid Prebuilts Prebuiltid
+  description: >-
+    Gets information about a prebuilt entity model in a version of the
+    application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Apps Appid Versions Versionid Prebuilts Prebuiltid
+      description: >-
+        Gets information about a prebuilt entity model in a version of the
+        application.
+    paths:
+      /apps/{appId}/versions/{versionId}/prebuilts/{prebuiltId}:
+        get:
+          summary: Get Apps Appid Versions Versionid Prebuilts Prebuiltid
+          description: >-
+            Gets information about a prebuilt entity model in a version of the
+            application.
+          operationId: modelGetPrebuilt
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

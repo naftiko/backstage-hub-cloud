@@ -1,0 +1,76 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Storefront Search Settings
+  description: >-
+    Updates search settings. - Channel ID can be used as a query parameter for
+    updating channel-specific setting. If omitted, you will interact with the
+    global setting only.  - `null` should be supplied to delete overrides per
+    given channel and to inherit values from global level. Partial updates are
+    not supported and all settings should be supplied with `null` value in order
+    to delete overrides per channel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Storefront Search Settings
+      description: >-
+        Updates search settings. - Channel ID can be used as a query parameter for
+        updating channel-specific setting. If omitted, you will interact with the
+        global setting only.  - `null` should be supplied to delete overrides per
+        given channel and to inherit values from global level. Partial updates are
+        not supported and all settings should be supplied with `null` value in order
+        to delete overrides per channel.
+    paths:
+      /settings/storefront/search:
+        put:
+          summary: Update Storefront Search Settings
+          description: >-
+            Updates search settings. - Channel ID can be used as a query parameter
+            for updating channel-specific setting. If omitted, you will interact
+            with the global setting only.  - `null` should be supplied to delete
+            overrides per given channel and to inherit values from global level.
+            Partial updates are not supported and all settings should be supplied
+            with `null` value in order to delete overrides per channel.
+          operationId: updateSettingsStorefrontSearch
+          requestBody:
+            content:
+              application/json:
+                examples:
+                  example-1:
+                    value:
+                      content_product_sort: relevance
+                      default_product_sort: featured
+                      product_filtering_enabled: true
+                      search_suggest: true
+                schema:
+                  $ref: '#/components/schemas/StorefrontSearchSettings'
+          responses:
+            '200':
+              description: OK
+              content:
+                application/json:
+                  examples:
+                    example-1:
+                      value:
+                        data:
+                          content_product_sort: relevance
+                          default_product_sort: featured
+                          product_filtering_enabled: true
+                          search_suggest: true
+                        meta: {}
+                  schema:
+                    type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/StorefrontSearchSettings'
+                      meta:
+                        $ref: '#/components/schemas/MetaOpen'

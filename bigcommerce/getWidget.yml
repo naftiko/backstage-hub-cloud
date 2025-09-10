@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Widget
+  description: Returns a single **Widget**.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Widget
+      description: Returns a single **Widget**.
+    paths:
+      /content/widgets/{uuid}:
+        get:
+          summary: Get A Widget
+          description: Returns a single **Widget**.
+          operationId: getWidget
+          responses:
+            '422':
+              $ref: '#/components/responses/Error422_Resp'

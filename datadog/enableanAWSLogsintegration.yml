@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Enable An Aws Logs Integration
+  description: >-
+    Enable automatic log collection for a list of services. This should be run
+    after running `CreateAWSLambdaARN` to save the configuration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Enable An Aws Logs Integration
+      description: >-
+        Enable automatic log collection for a list of services. This should be run
+        after running `CreateAWSLambdaARN` to save the configuration.
+    paths:
+      /api/v1/integration/aws/logs/services:
+        post:
+          summary: Enable An Aws Logs Integration
+          description: >-
+            Enable automatic log collection for a list of services. This should be
+            run after running `CreateAWSLambdaARN` to save the configuration.
+          operationId: enableanAWSLogsintegration
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    account_id: '1234567'
+                    services:
+                      - s3
+                      - elb
+                      - elbv2
+                      - cloudfront
+                      - redshift
+                      - lambda
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

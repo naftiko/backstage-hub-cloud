@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Enable Or Disable A Security Feature For An Organization
+  description: >-
+    Enables or disables the specified security feature for all eligible
+    repositories in an organization. For more information, see "[Managing
+    security managers in your
+    organization](https://docs.github.com/enterprise-server@3.9/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."The
+    authenticated user must be an organization owner or be member of a team with
+    the security manager role to use this endpoint.OAuth app tokens and personal
+    access tokens (classic) need the `write:org` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Enable Or Disable A Security Feature For An Organization
+      description: >-
+        Enables or disables the specified security feature for all eligible
+        repositories in an organization. For more information, see "[Managing
+        security managers in your
+        organization](https://docs.github.com/enterprise-server@3.9/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."The
+        authenticated user must be an organization owner or be member of a team with
+        the security manager role to use this endpoint.OAuth app tokens and personal
+        access tokens (classic) need the `write:org` scope to use this endpoint.
+    paths:
+      /orgs/{org}/{security_product}/{enablement}:
+        post:
+          summary: Enable Or Disable A Security Feature For An Organization
+          description: >-
+            Enables or disables the specified security feature for all eligible
+            repositories in an organization. For more information, see "[Managing
+            security managers in your
+            organization](https://docs.github.com/enterprise-server@3.9/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."The
+            authenticated user must be an organization owner or be member of a team
+            with the security manager role to use this endpoint.OAuth app tokens and
+            personal access tokens (classic) need the `write:org` scope to use this
+            endpoint.
+          operationId: orgsenableordisablesecurityproductonallorgrepos
+          responses:
+            '422':
+              description: >-
+                The action could not be taken due to an in progress enablement, or a
+                policy is preventing enablement

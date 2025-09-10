@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.analysisservices Servers Servername Listgatewaystatus
+  description: >-
+    Return the gateway status of the specified Analysis Services server
+    instance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.analysisservices Servers Servername Listgatewaystatus
+      description: >-
+        Return the gateway status of the specified Analysis Services server
+        instance.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AnalysisServices/servers/{serverName}/listGatewayStatus:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.analysisservices Servers Servername
+            Listgatewaystatus
+          description: >-
+            Return the gateway status of the specified Analysis Services server
+            instance.
+          operationId: serversListGatewayStatus
+          responses:
+            default:
+              description: Default response as an error
+              schema:
+                $ref: '#/definitions/GatewayListStatusError'

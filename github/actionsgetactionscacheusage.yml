@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Github Actions Cache Usage For A Repository
+  description: >-
+    Gets GitHub Actions cache usage for a repository.The data fetched using this
+    API is refreshed approximately every 5 minutes, so values returned from this
+    endpoint may take at least 5 minutes to get updated.Anyone with read access
+    to the repository can use this endpoint.If the repository is private, OAuth
+    tokens and personal access tokens (classic) need the `repo` scope to use
+    this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Github Actions Cache Usage For A Repository
+      description: >-
+        Gets GitHub Actions cache usage for a repository.The data fetched using this
+        API is refreshed approximately every 5 minutes, so values returned from this
+        endpoint may take at least 5 minutes to get updated.Anyone with read access
+        to the repository can use this endpoint.If the repository is private, OAuth
+        tokens and personal access tokens (classic) need the `repo` scope to use
+        this endpoint.
+    paths:
+      /repos/{owner}/{repo}/actions/cache/usage:
+        get:
+          summary: Get Github Actions Cache Usage For A Repository
+          description: >-
+            Gets GitHub Actions cache usage for a repository.The data fetched using
+            this API is refreshed approximately every 5 minutes, so values returned
+            from this endpoint may take at least 5 minutes to get updated.Anyone
+            with read access to the repository can use this endpoint.If the
+            repository is private, OAuth tokens and personal access tokens (classic)
+            need the `repo` scope to use this endpoint.
+          operationId: actionsgetactionscacheusage
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/actions-cache-usage-by-repository'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/actions-cache-usage'

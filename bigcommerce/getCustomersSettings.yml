@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Customer Settings
+  description: Returns the global-level customer settings.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Customer Settings
+      description: Returns the global-level customer settings.
+    paths:
+      /customers/settings:
+        get:
+          summary: Get Customer Settings
+          description: Returns the global-level customer settings.
+          operationId: getCustomersSettings
+          responses:
+            '200':
+              description: Returns customer settings values for global level.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/CustomerSettingsObject'
+                  examples:
+                    data:
+                      value:
+                        privacy_settings:
+                          ask_shopper_for_tracking_consent: true
+                          policy_url: https://bigcommmerce.com/policy
+                        customer_group_settings:
+                          guest_customer_group_id: 1
+                          default_customer_group_id: 1

@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Tag Configuration Cardinality Estimator
+  description: >-
+    Returns the estimated cardinality for a metric with a given tag, percentile
+    and number of aggregations configuration using Metrics without
+    Limits&trade;.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Tag Configuration Cardinality Estimator
+      description: >-
+        Returns the estimated cardinality for a metric with a given tag, percentile
+        and number of aggregations configuration using Metrics without
+        Limits&trade;.
+    paths:
+      /api/v2/metrics/{metric_name}/estimate:
+        get:
+          summary: Tag Configuration Cardinality Estimator
+          description: >-
+            Returns the estimated cardinality for a metric with a given tag,
+            percentile and number of aggregations configuration using Metrics
+            without Limits&trade;.
+          operationId: tagConfigurationCardinalityEstimator
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Bulk Update Entity Properties
+  description: >-
+    Updates the values of multiple entity properties for an object, up to 50
+    updates per request. This operation is for use by Connect apps during app
+    migration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Bulk Update Entity Properties
+      description: >-
+        Updates the values of multiple entity properties for an object, up to 50
+        updates per request. This operation is for use by Connect apps during app
+        migration.
+    paths:
+      /rest/atlassian-connect/1/migration/properties/{entityType}:
+        put:
+          summary: Bulk Update Entity Properties
+          description: >-
+            Updates the values of multiple entity properties for an object, up to 50
+            updates per request. This operation is for use by Connect apps during
+            app migration.
+          operationId: migrationResource.UpdateEntityPropertiesValueput
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  items:
+                    $ref: '#/components/schemas/EntityPropertyDetails'
+                  maxItems: 50
+                  minItems: 1
+                  type: array
+          responses:
+            '403':
+              description: Returned if the authorisation credentials are incorrect or missing.

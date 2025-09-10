@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Custom Content States
+  description: >-
+    Get custom content states that authenticated user has
+    created.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**Must have user authentication.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Custom Content States
+      description: >-
+        Get custom content states that authenticated user has
+        created.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**Must have user authentication.
+    paths:
+      /wiki/rest/api/content-states:
+        get:
+          summary: Get Custom Content States
+          description: >-
+            Get custom content states that authenticated user has
+            created.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**Must have user authentication.
+          operationId: getCustomContentStates
+          responses:
+            '401':
+              description: Returned if user is not authenticated.

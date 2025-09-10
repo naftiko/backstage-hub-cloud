@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Resend Teammate Invite
+  description: >-
+    **This endpoint allows you to resend a Teammate invitation.**Teammate
+    invitations will expire after 7 days. Resending an invitation will reset the
+    expiration date.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Resend Teammate Invite
+      description: >-
+        **This endpoint allows you to resend a Teammate invitation.**Teammate
+        invitations will expire after 7 days. Resending an invitation will reset the
+        expiration date.
+    paths:
+      /v3/teammates/pending/{token}/resend:
+        post:
+          summary: Resend Teammate Invite
+          description: >-
+            **This endpoint allows you to resend a Teammate invitation.**Teammate
+            invitations will expire after 7 days. Resending an invitation will reset
+            the expiration date.
+          operationId: resendTeammateInvite
+          responses:
+            '404':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      errors:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            message:
+                              type: string
+                            field:
+                              type: string
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - message: invalid pending key
+                            field: pending_key

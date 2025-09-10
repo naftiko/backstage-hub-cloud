@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Services Servicesid Webhooks Sid
+  description: Delete a specific Webhook.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Services Servicesid Webhooks Sid
+      description: Delete a specific Webhook.
+    paths:
+      /v2/Services/{ServiceSid}/Webhooks/{Sid}:
+        delete:
+          summary: Delete Services Servicesid Webhooks Sid
+          description: Delete a specific Webhook.
+          operationId: deleteWebhook
+          responses:
+            '204':
+              description: The resource was deleted successfully.

@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Export Single Send Stats
+  description: >-
+    **This endpoint allows you to export Single Send stats as .CSV data**.You
+    can specify one Single Send or many: include as many Single Send IDs as you
+    need, separating them with commas, as the value of the `ids` query string
+    parameter.The data is returned as plain text response but in .CSV format, so
+    your application making the call can present the information in whatever way
+    is most appropriate, or just save the data as a .csv file.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Export Single Send Stats
+      description: >-
+        **This endpoint allows you to export Single Send stats as .CSV data**.You
+        can specify one Single Send or many: include as many Single Send IDs as you
+        need, separating them with commas, as the value of the `ids` query string
+        parameter.The data is returned as plain text response but in .CSV format, so
+        your application making the call can present the information in whatever way
+        is most appropriate, or just save the data as a .csv file.
+    paths:
+      /v3/marketing/stats/singlesends/export:
+        get:
+          summary: Export Single Send Stats
+          description: >-
+            **This endpoint allows you to export Single Send stats as .CSV
+            data**.You can specify one Single Send or many: include as many Single
+            Send IDs as you need, separating them with commas, as the value of the
+            `ids` query string parameter.The data is returned as plain text response
+            but in .CSV format, so your application making the call can present the
+            information in whatever way is most appropriate, or just save the data
+            as a .csv file.
+          operationId: exportSingleSendStat
+          responses:
+            '400':
+              description: ''

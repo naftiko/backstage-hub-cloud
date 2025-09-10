@@ -1,0 +1,74 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Find Users Assignable To Projects
+  description: >-
+    Returns a list of users who can be assigned issues in one or more projects.
+    The list may be restricted to users whose attributes match a string.This
+    operation takes the users in the range defined by `startAt` and
+    `maxResults`, up to the thousandth user, and then returns only the users
+    from that range that can be assigned issues in the projects. This means the
+    operation usually returns fewer users than specified in `maxResults`. To get
+    all the users who can be assigned issues in the projects, use [Get all
+    users](#api-rest-api-3-users-search-get) and filter the records in your
+    code.Privacy controls are applied to the response based on the users'
+    preferences. This could mean, for example, that the user's email address is
+    hidden. See the [Profile visibility
+    overview](https://developer.atlassian.com/cloud/jira/platform/profile-visibility/)
+    for more details.This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** None.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Find Users Assignable To Projects
+      description: >-
+        Returns a list of users who can be assigned issues in one or more projects.
+        The list may be restricted to users whose attributes match a string.This
+        operation takes the users in the range defined by `startAt` and
+        `maxResults`, up to the thousandth user, and then returns only the users
+        from that range that can be assigned issues in the projects. This means the
+        operation usually returns fewer users than specified in `maxResults`. To get
+        all the users who can be assigned issues in the projects, use [Get all
+        users](#api-rest-api-3-users-search-get) and filter the records in your
+        code.Privacy controls are applied to the response based on the users'
+        preferences. This could mean, for example, that the user's email address is
+        hidden. See the [Profile visibility
+        overview](https://developer.atlassian.com/cloud/jira/platform/profile-visibility/)
+        for more details.This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** None.
+    paths:
+      /rest/api/3/user/assignable/multiProjectSearch:
+        get:
+          summary: Find Users Assignable To Projects
+          description: >-
+            Returns a list of users who can be assigned issues in one or more
+            projects. The list may be restricted to users whose attributes match a
+            string.This operation takes the users in the range defined by `startAt`
+            and `maxResults`, up to the thousandth user, and then returns only the
+            users from that range that can be assigned issues in the projects. This
+            means the operation usually returns fewer users than specified in
+            `maxResults`. To get all the users who can be assigned issues in the
+            projects, use [Get all users](#api-rest-api-3-users-search-get) and
+            filter the records in your code.Privacy controls are applied to the
+            response based on the users' preferences. This could mean, for example,
+            that the user's email address is hidden. See the [Profile visibility
+            overview](https://developer.atlassian.com/cloud/jira/platform/profile-visibility/)
+            for more details.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** None.
+          operationId: findBulkAssignableUsers
+          responses:
+            '429':
+              description: >-
+                Returned if the rate limit is exceeded. User search endpoints share
+                a collective rate limit for the tenant, in addition to Jira's normal
+                rate limiting you may receive a rate limit for user search. Please
+                respect the Retry-After header.

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getpackageversionhistory
+  description: >-
+    Returns a list of Amazon OpenSearch Service package versions, along with
+    their creation time, commit message, and plugin properties (if the package
+    is a zip plugin package). For more information, see Custom packages for
+    Amazon OpenSearch Service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getpackageversionhistory
+      description: >-
+        Returns a list of Amazon OpenSearch Service package versions, along with
+        their creation time, commit message, and plugin properties (if the package
+        is a zip plugin package). For more information, see Custom packages for
+        Amazon OpenSearch Service.
+    paths:
+      /2021-01-01/packages/{PackageID}/history:
+        GET:
+          summary: Getpackageversionhistory
+          description: >-
+            Returns a list of Amazon OpenSearch Service package versions, along with
+            their creation time, commit message, and plugin properties (if the
+            package is a zip plugin package). For more information, see Custom
+            packages for Amazon OpenSearch Service.
+          operationId: getPackageVersionHistory

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Services Servicesid Verifications Sid
+  description: Update a Verification status
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Services Servicesid Verifications Sid
+      description: Update a Verification status
+    paths:
+      /v2/Services/{ServiceSid}/Verifications/{Sid}:
+        post:
+          summary: Post Services Servicesid Verifications Sid
+          description: Update a Verification status
+          operationId: updateVerification
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/UpdateVerificationRequest'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/verify.v2.service.verification'
+              description: OK

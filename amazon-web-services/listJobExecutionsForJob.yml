@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listjobexecutionsforjob
+  description: >-
+    Lists the job executions for a job. Requires permission to access the
+    ListJobExecutionsForJob action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listjobexecutionsforjob
+      description: >-
+        Lists the job executions for a job. Requires permission to access the
+        ListJobExecutionsForJob action.
+    paths:
+      /jobs/{jobId}/things:
+        GET:
+          summary: Listjobexecutionsforjob
+          description: >-
+            Lists the job executions for a job. Requires permission to access the
+            ListJobExecutionsForJob action.
+          operationId: listJobExecutionsForJob

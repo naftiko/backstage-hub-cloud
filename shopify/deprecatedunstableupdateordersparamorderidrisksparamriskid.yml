@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: |-
+    Updates An Order Risk
+      
+      
+      Note
+      You Cannot Modify An Order Risk That Was Created By Another Application.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/orders/order-risk#update-unstable
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: |-
+        Updates An Order Risk
+          
+          
+          Note
+          You Cannot Modify An Order Risk That Was Created By Another Application.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/orders/order-risk#update-unstable
+    paths:
+      /admin/api/unstable/orders/{order_id}/risks/{risk_id}.json:
+        put:
+          summary: |-
+            Updates An Order Risk
+              
+              
+              Note
+              You Cannot Modify An Order Risk That Was Created By Another Application.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/orders/order-risk#update-unstable
+          operationId: deprecatedunstableupdateordersparamorderidrisksparamriskid
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      risk:
+                        id: 284138680
+                        message: After further review, this is a legitimate order
+                        recommendation: accept
+                        source: External
+                        cause_cancel: false
+                        score: 0
+                    summary: Update an existing order risk for an order
+          responses:
+            '200':
+              description: ''

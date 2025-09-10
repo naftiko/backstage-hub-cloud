@@ -1,0 +1,94 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: |-
+    Caution
+      For Multi-currency Orders, The Currency Property Is Required Whenever The Amount Property Is Provided. For More Information, See Migrating To Support Multiple Currencies.
+     
+      Calculates Refund Transactions Based On Line Items And Shipping. When You Want To Create A Refund,
+      You Should First Use The Calculate Endpoint To Generate Accurate Refund Transactions. Specify The Line Items
+      That Are Being Refunded, Their Quantity And Restock Instructions, And Whether You Intend To Refund
+      Shipping Costs. If The Restock Instructions Can't Be Met—for Example, Because You Try To Return More Items Than Have Been
+      Fulfilled—then The Endpoint Returns Modified Restock Instructions. You Can Then Use The Response In The Body Of The Request To Create The Actual Refund.
+      The Response Includes A Transactions Object With "kind": "suggested_refund",
+      Which Must To Be Changed To "kind" : "refund" For The Refund To Be Accepted.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/orders/refund#calculate-2020-10
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: |-
+        Caution
+          For Multi-currency Orders, The Currency Property Is Required Whenever The Amount Property Is Provided. For More Information, See Migrating To Support Multiple Currencies.
+         
+          Calculates Refund Transactions Based On Line Items And Shipping. When You Want To Create A Refund,
+          You Should First Use The Calculate Endpoint To Generate Accurate Refund Transactions. Specify The Line Items
+          That Are Being Refunded, Their Quantity And Restock Instructions, And Whether You Intend To Refund
+          Shipping Costs. If The Restock Instructions Can't Be Met—for Example, Because You Try To Return More Items Than Have Been
+          Fulfilled—then The Endpoint Returns Modified Restock Instructions. You Can Then Use The Response In The Body Of The Request To Create The Actual Refund.
+          The Response Includes A Transactions Object With "kind": "suggested_refund",
+          Which Must To Be Changed To "kind" : "refund" For The Refund To Be Accepted.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/orders/refund#calculate-2020-10
+    paths:
+      /admin/api/2020-10/orders/{order_id}/refunds/calculate.json:
+        post:
+          summary: |-
+            Caution
+              For Multi-currency Orders, The Currency Property Is Required Whenever The Amount Property Is Provided. For More Information, See Migrating To Support Multiple Currencies.
+             
+              Calculates Refund Transactions Based On Line Items And Shipping. When You Want To Create A Refund,
+              You Should First Use The Calculate Endpoint To Generate Accurate Refund Transactions. Specify The Line Items
+              That Are Being Refunded, Their Quantity And Restock Instructions, And Whether You Intend To Refund
+              Shipping Costs. If The Restock Instructions Can't Be Met—for Example, Because You Try To Return More Items Than Have Been
+              Fulfilled—then The Endpoint Returns Modified Restock Instructions. You Can Then Use The Response In The Body Of The Request To Create The Actual Refund.
+              The Response Includes A Transactions Object With "kind": "suggested_refund",
+              Which Must To Be Changed To "kind" : "refund" For The Refund To Be Accepted.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/orders/refund#calculate-2020-10
+          operationId: createordersparamorderidrefundscalculate
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      refund:
+                        currency: USD
+                        shipping:
+                          amount: 2
+                    summary: Calculate a refund for a partial amount of shipping
+                  example2:
+                    value:
+                      refund:
+                        shipping:
+                          full_refund: true
+                        refund_line_items:
+                          - line_item_id: 518995019
+                            quantity: 1
+                            restock_type: no_restock
+                    summary: Calculate the refund without specifying currency
+                  example3:
+                    value:
+                      refund:
+                        currency: USD
+                        shipping:
+                          full_refund: true
+                        refund_line_items:
+                          - line_item_id: 518995019
+                            quantity: 1
+                            restock_type: no_restock
+                    summary: Calculate the refund for a line item and shipping
+          responses:
+            '200':
+              description: ''

@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Send A Deployment Event For Dora Metrics
+  description: >-
+    Use this API endpoint to provide data about deployments for DORA
+    metrics.This is necessary for:- Deployment Frequency- Change Lead Time-
+    Change Failure Rate
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Send A Deployment Event For Dora Metrics
+      description: >-
+        Use this API endpoint to provide data about deployments for DORA
+        metrics.This is necessary for:- Deployment Frequency- Change Lead Time-
+        Change Failure Rate
+    paths:
+      /api/v2/dora/deployment:
+        post:
+          summary: Send A Deployment Event For Dora Metrics
+          description: >-
+            Use this API endpoint to provide data about deployments for DORA
+            metrics.This is necessary for:- Deployment Frequency- Change Lead Time-
+            Change Failure Rate
+          operationId: createDORADeployment
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/DORADeploymentRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

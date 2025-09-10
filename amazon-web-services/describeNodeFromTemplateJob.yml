@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Describenodefromtemplatejob
+  description: Returns information about a job to create a camera stream node.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describenodefromtemplatejob
+      description: Returns information about a job to create a camera stream node.
+    paths:
+      /packages/template-job/{JobId}:
+        GET:
+          summary: Describenodefromtemplatejob
+          description: Returns information about a job to create a camera stream node.
+          operationId: describeNodeFromTemplateJob

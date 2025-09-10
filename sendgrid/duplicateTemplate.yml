@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Duplicate A Transactional Template.
+  description: '**This endpoint allows you to duplicate a transactional template.**'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Duplicate A Transactional Template.
+      description: '**This endpoint allows you to duplicate a transactional template.**'
+    paths:
+      /v3/templates/{template_id}:
+        post:
+          summary: Duplicate A Transactional Template.
+          description: '**This endpoint allows you to duplicate a transactional template.**'
+          operationId: duplicateTemplate
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: The name for the new transactional template.
+                      maxLength: 100
+                  example:
+                    name: example_name
+          responses:
+            '201':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/TransactionalTemplate'
+                  examples:
+                    response:
+                      value:
+                        id: 733ba07f-ead1-41fc-933a-3976baa23716
+                        name: example_name
+                        generation: dynamic
+                        updated_at: '2020-12-12 58:26:65'
+                        versions: []

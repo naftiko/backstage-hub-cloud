@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getrecommendationreportdetails
+  description: ' Retrieves detailed information about the specified recommendation report. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getrecommendationreportdetails
+      description: ' Retrieves detailed information about the specified recommendation report. '
+    paths:
+      /get-recommendation-report-details/{id}:
+        GET:
+          summary: Getrecommendationreportdetails
+          description: ' Retrieves detailed information about the specified recommendation report. '
+          operationId: getRecommendationReportDetails

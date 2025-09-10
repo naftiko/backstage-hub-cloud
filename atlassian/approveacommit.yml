@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Approve A Commit
+  description: >-
+    Approve the specified commit as the authenticated user.This operation is
+    only available to users that have explicit access tothe repository. In
+    contrast, just the fact that a repository ispublicly accessible to users
+    does not give them the ability to approvecommits.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Approve A Commit
+      description: >-
+        Approve the specified commit as the authenticated user.This operation is
+        only available to users that have explicit access tothe repository. In
+        contrast, just the fact that a repository ispublicly accessible to users
+        does not give them the ability to approvecommits.
+    paths:
+      /repositories/{workspace}/{repo_slug}/commit/{commit}/approve:
+        post:
+          summary: Approve A Commit
+          description: >-
+            Approve the specified commit as the authenticated user.This operation is
+            only available to users that have explicit access tothe repository. In
+            contrast, just the fact that a repository ispublicly accessible to users
+            does not give them the ability to approvecommits.
+          operationId: approveacommit
+          responses:
+            '404':
+              description: If the specified commit, or the repository does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Providers Microsoft.management Managementgroups Groupid Providers
+    Microsoft.resources Deployments Deploymentname Validate
+  description: >-
+    Validates whether the specified template is syntactically correct and will
+    be accepted by Azure Resource Manager..
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Providers Microsoft.management Managementgroups Groupid Providers
+        Microsoft.resources Deployments Deploymentname Validate
+      description: >-
+        Validates whether the specified template is syntactically correct and will
+        be accepted by Azure Resource Manager..
+    paths:
+      /providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}/validate:
+        post:
+          summary: >-
+            Post Providers Microsoft.management Managementgroups Groupid Providers
+            Microsoft.resources Deployments Deploymentname Validate
+          description: >-
+            Validates whether the specified template is syntactically correct and
+            will be accepted by Azure Resource Manager..
+          operationId: deploymentsValidateAtManagementGroupScope
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

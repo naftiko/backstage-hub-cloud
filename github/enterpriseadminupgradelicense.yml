@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Upgrade A License
+  description: >-
+    This API upgrades your license and also triggers the configuration
+    process.**Note:** The request body for this operation must be submitted as
+    `multipart/form-data` data. You can can reference the license file by
+    prefixing the filename with the `@` symbol using `curl`. For more
+    information, see the [`curl`
+    documentation](https://curl.se/docs/manpage.html#-F).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Upgrade A License
+      description: >-
+        This API upgrades your license and also triggers the configuration
+        process.**Note:** The request body for this operation must be submitted as
+        `multipart/form-data` data. You can can reference the license file by
+        prefixing the filename with the `@` symbol using `curl`. For more
+        information, see the [`curl`
+        documentation](https://curl.se/docs/manpage.html#-F).
+    paths:
+      /setup/api/upgrade:
+        post:
+          summary: Upgrade A License
+          description: >-
+            This API upgrades your license and also triggers the configuration
+            process.**Note:** The request body for this operation must be submitted
+            as `multipart/form-data` data. You can can reference the license file by
+            prefixing the filename with the `@` symbol using `curl`. For more
+            information, see the [`curl`
+            documentation](https://curl.se/docs/manpage.html#-F).
+          operationId: enterpriseadminupgradelicense
+          requestBody:
+            content:
+              multipart/form-data:
+                schema:
+                  type: object
+                  properties:
+                    license:
+                      type: string
+                      description: The content of your new _.ghl_ license file.
+                examples:
+                  default:
+                    value:
+                      license: '@enterprise.ghl'
+          responses:
+            '401':
+              description: Unauthorized

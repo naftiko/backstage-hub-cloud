@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Begintransaction
+  description: >-
+    Starts a SQL transaction.  A transaction can run for a maximum of 24 hours.
+    A transaction is terminated and rolled back automatically after 24 hours. A
+    transaction times out if no calls use its transaction ID in three minutes.
+    If a transaction times out before it's committed, it's rolled back
+    automatically. DDL statements inside a transaction cause an implicit commit.
+    We recommend that you run each DDL statement in a separate ExecuteStatement
+    call with continueAfterTimeout enabled. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Begintransaction
+      description: >-
+        Starts a SQL transaction.  A transaction can run for a maximum of 24 hours.
+        A transaction is terminated and rolled back automatically after 24 hours. A
+        transaction times out if no calls use its transaction ID in three minutes.
+        If a transaction times out before it's committed, it's rolled back
+        automatically. DDL statements inside a transaction cause an implicit commit.
+        We recommend that you run each DDL statement in a separate ExecuteStatement
+        call with continueAfterTimeout enabled. 
+    paths:
+      /BeginTransaction:
+        POST:
+          summary: Begintransaction
+          description: >-
+            Starts a SQL transaction.  A transaction can run for a maximum of 24
+            hours. A transaction is terminated and rolled back automatically after
+            24 hours. A transaction times out if no calls use its transaction ID in
+            three minutes. If a transaction times out before it's committed, it's
+            rolled back automatically. DDL statements inside a transaction cause an
+            implicit commit. We recommend that you run each DDL statement in a
+            separate ExecuteStatement call with continueAfterTimeout enabled. 
+          operationId: beginTransaction

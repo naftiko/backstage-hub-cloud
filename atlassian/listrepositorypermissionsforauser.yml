@@ -1,0 +1,84 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Repository Permissions For A User
+  description: >-
+    Returns an object for each repository the caller has explicit accessto and
+    their effective permission — the highest level of permission thecaller has.
+    This does not return public repositories that the user wasnot granted any
+    specific permission in, and does not distinguish betweenexplicit and
+    implicit privileges.Permissions can be:* `admin`* `write`* `read`Results may
+    be further [filtered or sorted](/cloud/bitbucket/rest/intro/#filtering)
+    byrepository or permission by adding the following query stringparameters:*
+    `q=repository.name="geordi"` or `q=permission>"read"`*
+    `sort=repository.name`Note that the query parameter values need to be URL
+    escaped so that `=`would become `%3D`.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Repository Permissions For A User
+      description: >-
+        Returns an object for each repository the caller has explicit accessto and
+        their effective permission — the highest level of permission thecaller has.
+        This does not return public repositories that the user wasnot granted any
+        specific permission in, and does not distinguish betweenexplicit and
+        implicit privileges.Permissions can be:* `admin`* `write`* `read`Results may
+        be further [filtered or sorted](/cloud/bitbucket/rest/intro/#filtering)
+        byrepository or permission by adding the following query stringparameters:*
+        `q=repository.name="geordi"` or `q=permission>"read"`*
+        `sort=repository.name`Note that the query parameter values need to be URL
+        escaped so that `=`would become `%3D`.
+    paths:
+      /user/permissions/repositories:
+        get:
+          summary: List Repository Permissions For A User
+          description: >-
+            Returns an object for each repository the caller has explicit accessto
+            and their effective permission — the highest level of permission
+            thecaller has. This does not return public repositories that the user
+            wasnot granted any specific permission in, and does not distinguish
+            betweenexplicit and implicit privileges.Permissions can be:* `admin`*
+            `write`* `read`Results may be further [filtered or
+            sorted](/cloud/bitbucket/rest/intro/#filtering) byrepository or
+            permission by adding the following query stringparameters:*
+            `q=repository.name="geordi"` or `q=permission>"read"`*
+            `sort=repository.name`Note that the query parameter values need to be
+            URL escaped so that `=`would become `%3D`.
+          operationId: listrepositorypermissionsforauser
+          responses:
+            '200':
+              description: >-
+                Repository permissions for the repositories a caller has explicit
+                access to.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/paginated_repository_permissions'
+                  examples:
+                    response:
+                      value:
+                        pagelen: 10
+                        values:
+                          - type: repository_permission
+                            user:
+                              type: user
+                              nickname: evzijst
+                              display_name: Erik van Zijst
+                              uuid: '{d301aafa-d676-4ee0-88be-962be7417567}'
+                            repository:
+                              type: repository
+                              name: geordi
+                              full_name: bitbucket/geordi
+                              uuid: '{85d08b4e-571d-44e9-a507-fa476535aa98}'
+                            permission: admin
+                        page: 1
+                        size: 1

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updategatewayinstance
+  description: Updates the configuration of an existing Gateway Instance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updategatewayinstance
+      description: Updates the configuration of an existing Gateway Instance.
+    paths:
+      /v1/gateway-instances/{gatewayInstanceArn}:
+        PUT:
+          summary: Updategatewayinstance
+          description: Updates the configuration of an existing Gateway Instance.
+          operationId: updateGatewayInstance

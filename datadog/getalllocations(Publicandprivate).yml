@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Locations (public And Private)
+  description: >-
+    Get the list of public and private locations available for Synthetictests.
+    No arguments required.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Locations (public And Private)
+      description: >-
+        Get the list of public and private locations available for Synthetictests.
+        No arguments required.
+    paths:
+      /api/v1/synthetics/locations:
+        get:
+          summary: Get All Locations (public And Private)
+          description: >-
+            Get the list of public and private locations available for
+            Synthetictests. No arguments required.
+          operationId: getalllocations(Publicandprivate)
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Searchrasterdatacollection
+  description: >-
+    Allows you run image query on a specific raster data collection to get a
+    list of the satellite imagery matching the selected filters.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Searchrasterdatacollection
+      description: >-
+        Allows you run image query on a specific raster data collection to get a
+        list of the satellite imagery matching the selected filters.
+    paths:
+      /search-raster-data-collection:
+        POST:
+          summary: Searchrasterdatacollection
+          description: >-
+            Allows you run image query on a specific raster data collection to get a
+            list of the satellite imagery matching the selected filters.
+          operationId: searchRasterDataCollection

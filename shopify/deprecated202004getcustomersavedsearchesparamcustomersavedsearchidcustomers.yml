@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieves All Customers Returned By A Customer Saved Search.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/customers/customersavedsearch#other-2020-04
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves All Customers Returned By A Customer Saved Search.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/customers/customersavedsearch#other-2020-04
+    paths:
+      /admin/api/2020-04/customer_saved_searches/{customer_saved_search_id}/customers.json:
+        get:
+          summary: Retrieves All Customers Returned By A Customer Saved Search.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/customers/customersavedsearch#other-2020-04
+          operationId: >-
+            deprecated202004getcustomersavedsearchesparamcustomersavedsearchidcustomers
+          responses:
+            '200':
+              description: ''

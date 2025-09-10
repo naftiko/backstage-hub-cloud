@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve
+  description: Retrieve from knowledge base.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve
+      description: Retrieve from knowledge base.
+    paths:
+      /knowledgebases/{knowledgeBaseId}/retrieve:
+        POST:
+          summary: Retrieve
+          description: Retrieve from knowledge base.
+          operationId: retrieve

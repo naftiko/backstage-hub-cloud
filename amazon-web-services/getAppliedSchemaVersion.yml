@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getappliedschemaversion
+  description: >-
+    Returns current applied schema version ARN, including the minor version in
+    use.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getappliedschemaversion
+      description: >-
+        Returns current applied schema version ARN, including the minor version in
+        use.
+    paths:
+      /amazonclouddirectory/2017-01-11/schema/getappliedschema:
+        POST:
+          summary: Getappliedschemaversion
+          description: >-
+            Returns current applied schema version ARN, including the minor version
+            in use.
+          operationId: getAppliedSchemaVersion

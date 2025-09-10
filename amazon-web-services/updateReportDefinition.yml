@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updatereportdefinition
+  description: Updates existing report in AWS Application Cost Profiler.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatereportdefinition
+      description: Updates existing report in AWS Application Cost Profiler.
+    paths:
+      /reportDefinition/{reportId}:
+        PUT:
+          summary: Updatereportdefinition
+          description: Updates existing report in AWS Application Cost Profiler.
+          operationId: updateReportDefinition

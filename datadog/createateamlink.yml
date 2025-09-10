@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Team Link
+  description: Add a new link to a team.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Team Link
+      description: Add a new link to a team.
+    paths:
+      /api/v2/team/{team_id}/links:
+        post:
+          summary: Create A Team Link
+          description: Add a new link to a team.
+          operationId: createateamlink
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      attributes:
+                        label: Link label
+                        url: https://example.com
+                        position: 662826406
+                        team_id: deserunt ea eu
+                      type: team_links
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

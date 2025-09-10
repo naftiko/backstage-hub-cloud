@@ -1,0 +1,74 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve All Global Suppressions
+  description: >-
+    **This endpoint allows you to retrieve a paginated list of all email address
+    that are globally suppressed.**You can use the `limit` query parameter to
+    set the page size. If your list contains more items than the page size
+    permits, you can make multiple requests. Use the `offset` query parameter to
+    control the position in the list from which to start retrieving additional
+    items.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve All Global Suppressions
+      description: >-
+        **This endpoint allows you to retrieve a paginated list of all email address
+        that are globally suppressed.**You can use the `limit` query parameter to
+        set the page size. If your list contains more items than the page size
+        permits, you can make multiple requests. Use the `offset` query parameter to
+        control the position in the list from which to start retrieving additional
+        items.
+    paths:
+      /v3/suppression/unsubscribes:
+        get:
+          summary: Retrieve All Global Suppressions
+          description: >-
+            **This endpoint allows you to retrieve a paginated list of all email
+            address that are globally suppressed.**You can use the `limit` query
+            parameter to set the page size. If your list contains more items than
+            the page size permits, you can make multiple requests. Use the `offset`
+            query parameter to control the position in the list from which to start
+            retrieving additional items.
+          operationId: listGlobalSuppression
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        created:
+                          type: integer
+                          description: >-
+                            A Unix timestamp indicating when the recipient was added
+                            to the global suppression list.
+                        email:
+                          type: string
+                          description: >-
+                            The email address of the recipient who is globally
+                            suppressed.
+                          format: email
+                      required:
+                        - created
+                        - email
+                  examples:
+                    response:
+                      value:
+                        - created: 1443651141
+                          email: user1@example.com
+                        - created: 1443651154
+                          email: user2@example.com

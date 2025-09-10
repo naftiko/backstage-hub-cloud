@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Authoring Analyze-conversations Projects Projectname Train Jobs Jobid
+    :cancel
+  description: Triggers a cancellation for a running training job.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Authoring Analyze-conversations Projects Projectname Train Jobs Jobid
+        :cancel
+      description: Triggers a cancellation for a running training job.
+    paths:
+      /authoring/analyze-conversations/projects/{projectName}/train/jobs/{jobId}/:cancel:
+        post:
+          summary: >-
+            Post Authoring Analyze-conversations Projects Projectname Train Jobs
+            Jobid :cancel
+          description: Triggers a cancellation for a running training job.
+          operationId: conversationalAnalysisAuthoringCancelTrainingJob
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: common.json#/definitions/ErrorResponse

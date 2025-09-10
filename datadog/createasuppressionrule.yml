@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Suppression Rule
+  description: Create a new suppression rule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Suppression Rule
+      description: Create a new suppression rule.
+    paths:
+      /api/v2/security_monitoring/configuration/suppressions:
+        post:
+          summary: Create A Suppression Rule
+          description: Create a new suppression rule.
+          operationId: createasuppressionrule
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      type: suppressions
+                      attributes:
+                        name: Custom suppression
+                        enabled: true
+                        rule_query: type:log_detection source:cloudtrail
+                        data_exclusion_query: source:cloudtrail account_id:12345
+                        description: >-
+                          This rule suppresses low-severity signals in staging
+                          environments.
+                        expiration_date: 1703187336000
+                        suppression_query: env:staging status:low
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

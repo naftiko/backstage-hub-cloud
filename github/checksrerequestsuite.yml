@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Rerequest A Check Suite
+  description: >-
+    Triggers GitHub to rerequest an existing check suite, without pushing new
+    code to a repository. This endpoint will trigger the [`check_suite`
+    webhook](https://docs.github.com/enterprise-server@3.9/webhooks/event-payloads/#check_suite)
+    event with the action `rerequested`. When a check suite is `rerequested`,
+    its `status` is reset to `queued` and the `conclusion` is cleared.OAuth apps
+    and personal access tokens (classic) cannot use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Rerequest A Check Suite
+      description: >-
+        Triggers GitHub to rerequest an existing check suite, without pushing new
+        code to a repository. This endpoint will trigger the [`check_suite`
+        webhook](https://docs.github.com/enterprise-server@3.9/webhooks/event-payloads/#check_suite)
+        event with the action `rerequested`. When a check suite is `rerequested`,
+        its `status` is reset to `queued` and the `conclusion` is cleared.OAuth apps
+        and personal access tokens (classic) cannot use this endpoint.
+    paths:
+      /repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest:
+        post:
+          summary: Rerequest A Check Suite
+          description: >-
+            Triggers GitHub to rerequest an existing check suite, without pushing
+            new code to a repository. This endpoint will trigger the [`check_suite`
+            webhook](https://docs.github.com/enterprise-server@3.9/webhooks/event-payloads/#check_suite)
+            event with the action `rerequested`. When a check suite is
+            `rerequested`, its `status` is reset to `queued` and the `conclusion` is
+            cleared.OAuth apps and personal access tokens (classic) cannot use this
+            endpoint.
+          operationId: checksrerequestsuite
+          responses:
+            '201':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/empty-object'
+                  examples:
+                    default:
+                      value: null

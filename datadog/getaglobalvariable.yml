@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Global Variable
+  description: Get the detailed configuration of a global variable.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Global Variable
+      description: Get the detailed configuration of a global variable.
+    paths:
+      /api/v1/synthetics/variables/{variable_id}:
+        get:
+          summary: Get A Global Variable
+          description: Get the detailed configuration of a global variable.
+          operationId: getaglobalvariable
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

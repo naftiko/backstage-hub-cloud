@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listslackchannelconfigurations
+  description: Lists the Slack channel configurations for an Amazon Web Services account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listslackchannelconfigurations
+      description: Lists the Slack channel configurations for an Amazon Web Services account.
+    paths:
+      /control/list-slack-channel-configurations:
+        POST:
+          summary: Listslackchannelconfigurations
+          description: >-
+            Lists the Slack channel configurations for an Amazon Web Services
+            account.
+          operationId: listSlackChannelConfigurations

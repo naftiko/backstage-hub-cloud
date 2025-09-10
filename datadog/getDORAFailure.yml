@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Failure Event
+  description: Use this API endpoint to get a failure event.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Failure Event
+      description: Use this API endpoint to get a failure event.
+    paths:
+      /api/v2/dora/failures/{failure_id}:
+        get:
+          summary: Get A Failure Event
+          description: Use this API endpoint to get a failure event.
+          operationId: getDORAFailure
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

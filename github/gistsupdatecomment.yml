@@ -1,0 +1,71 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Gist Comment
+  description: >-
+    Updates a comment on a gist.This endpoint supports the following custom
+    media types. For more information, see "[Media
+    types](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types)."-
+    **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the
+    default if you do not pass any specific media type.-
+    **`application/vnd.github.base64+json`**: Returns the base64-encoded
+    contents. This can be useful if your gist contains any invalid UTF-8
+    sequences.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Gist Comment
+      description: >-
+        Updates a comment on a gist.This endpoint supports the following custom
+        media types. For more information, see "[Media
+        types](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types)."-
+        **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the
+        default if you do not pass any specific media type.-
+        **`application/vnd.github.base64+json`**: Returns the base64-encoded
+        contents. This can be useful if your gist contains any invalid UTF-8
+        sequences.
+    paths:
+      /gists/{gist_id}/comments/{comment_id}:
+        patch:
+          summary: Update A Gist Comment
+          description: >-
+            Updates a comment on a gist.This endpoint supports the following custom
+            media types. For more information, see "[Media
+            types](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types)."-
+            **`application/vnd.github.raw+json`**: Returns the raw markdown. This is
+            the default if you do not pass any specific media type.-
+            **`application/vnd.github.base64+json`**: Returns the base64-encoded
+            contents. This can be useful if your gist contains any invalid UTF-8
+            sequences.
+          operationId: gistsupdatecomment
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  properties:
+                    body:
+                      description: The comment text.
+                      type: string
+                      maxLength: 65535
+                      example: Body of the attachment
+                  type: object
+                  required:
+                    - body
+                examples:
+                  default:
+                    summary: Updating a comment in a gist
+                    value:
+                      body: This is an update to a comment in a gist
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

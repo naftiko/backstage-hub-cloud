@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Implements Dedicatedcloudservice Patch Method
+  description: Patch dedicated cloud service's properties
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Implements Dedicatedcloudservice Patch Method
+      description: Patch dedicated cloud service's properties
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMwareCloudSimple/dedicatedCloudServices/{dedicatedCloudServiceName}:
+        patch:
+          summary: Implements Dedicatedcloudservice Patch Method
+          description: Patch dedicated cloud service's properties
+          operationId: dedicatedCloudServicesUpdate
+          responses:
+            default:
+              description: General Error
+              schema:
+                $ref: '#/definitions/CSRPError'

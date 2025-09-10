@@ -1,0 +1,62 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Gpg Key For The Authenticated User
+  description: >-
+    Adds a GPG key to the authenticated user's GitHub account.OAuth app tokens
+    and personal access tokens (classic) need the `write:gpg_key` scope to use
+    this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Gpg Key For The Authenticated User
+      description: >-
+        Adds a GPG key to the authenticated user's GitHub account.OAuth app tokens
+        and personal access tokens (classic) need the `write:gpg_key` scope to use
+        this endpoint.
+    paths:
+      /user/gpg_keys:
+        post:
+          summary: Create A Gpg Key For The Authenticated User
+          description: >-
+            Adds a GPG key to the authenticated user's GitHub account.OAuth app
+            tokens and personal access tokens (classic) need the `write:gpg_key`
+            scope to use this endpoint.
+          operationId: userscreategpgkeyforauthenticateduser
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  properties:
+                    name:
+                      description: A descriptive name for the new key.
+                      type: string
+                    armored_public_key:
+                      description: A GPG key in ASCII-armored format.
+                      type: string
+                  type: object
+                  required:
+                    - armored_public_key
+                examples:
+                  default:
+                    value:
+                      name: Octocat's GPG Key
+                      armored_public_key: |-
+                        --BEGIN PGP PUBLIC KEY BLOCK--
+                        Version: GnuPG v1
+
+                        mQINBFnZ2ZIBEADQ2Z7Z7
+                        --END PGP PUBLIC KEY BLOCK--
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

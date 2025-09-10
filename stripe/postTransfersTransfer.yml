@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Transfers Transfer
+  description: >-
+    Updates the specified transfer by setting the values of the parameters
+    passed. Any parameters not provided will be left unchanged.This request
+    accepts only metadata as an argument.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Transfers Transfer
+      description: >-
+        Updates the specified transfer by setting the values of the parameters
+        passed. Any parameters not provided will be left unchanged.This request
+        accepts only metadata as an argument.
+    paths:
+      /v1/transfers/{transfer}:
+        post:
+          summary: Post Transfers Transfer
+          description: >-
+            Updates the specified transfer by setting the values of the parameters
+            passed. Any parameters not provided will be left unchanged.This request
+            accepts only metadata as an argument.
+          operationId: postTransfersTransfer
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostTransfersTransferRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

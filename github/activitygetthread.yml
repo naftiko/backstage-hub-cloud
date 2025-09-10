@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Thread
+  description: Gets information about a notification thread.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Thread
+      description: Gets information about a notification thread.
+    paths:
+      /notifications/threads/{thread_id}:
+        get:
+          summary: Get A Thread
+          description: Gets information about a notification thread.
+          operationId: activitygetthread
+          responses:
+            '403':
+              $ref: '#/components/responses/forbidden'

@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Restore A Previous Version Of A Blog Post
+  description: Takes a specified version of a blog post and restores it.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Restore A Previous Version Of A Blog Post
+      description: Takes a specified version of a blog post and restores it.
+    paths:
+      /cms/v3/blogs/posts/{objectId}/revisions/{revisionId}/restore:
+        post:
+          summary: Restore A Previous Version Of A Blog Post
+          description: Takes a specified version of a blog post and restores it.
+          operationId: >-
+            postcmsv3blogsposts{ObjectId}Revisions{RevisionId}RestorerestorePreviousVersion
+          responses:
+            default:
+              $ref: '#/components/responses/Error'

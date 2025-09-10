@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Stored Instruments
+  description: >-
+    Lists all available stored instruments for a customer. This list will
+    include all types of stored instruments namely card, account and
+    bank_account instruments
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Stored Instruments
+      description: >-
+        Lists all available stored instruments for a customer. This list will
+        include all types of stored instruments namely card, account and
+        bank_account instruments
+    paths:
+      /customers/{customerId}/stored-instruments:
+        get:
+          summary: Get Stored Instruments
+          description: >-
+            Lists all available stored instruments for a customer. This list will
+            include all types of stored instruments namely card, account and
+            bank_account instruments
+          operationId: getCustomerStoredInstruments
+          responses:
+            '403':
+              description: >-
+                Missing scope - the v3 Auth token is valid but does not have proper
+                permissions to access this endpoint.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  example:
+                    code: 403
+                    message: Missing scope

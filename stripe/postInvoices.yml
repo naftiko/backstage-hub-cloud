@@ -1,0 +1,87 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Invoices
+  description: >-
+    This endpoint creates a draft invoice for a given customer. The invoice
+    remains a draft until you finalize the invoice, which allows you to pay or
+    send the invoice to your customers.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Invoices
+      description: >-
+        This endpoint creates a draft invoice for a given customer. The invoice
+        remains a draft until you finalize the invoice, which allows you to pay or
+        send the invoice to your customers.
+    paths:
+      /v1/invoices:
+        post:
+          summary: Post Invoices
+          description: >-
+            This endpoint creates a draft invoice for a given customer. The invoice
+            remains a draft until you finalize the invoice, which allows you to pay
+            or send the invoice to your customers.
+          operationId: postInvoices
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  account_tax_ids:
+                    explode: true
+                    style: deepObject
+                  automatic_tax:
+                    explode: true
+                    style: deepObject
+                  custom_fields:
+                    explode: true
+                    style: deepObject
+                  default_tax_rates:
+                    explode: true
+                    style: deepObject
+                  discounts:
+                    explode: true
+                    style: deepObject
+                  expand:
+                    explode: true
+                    style: deepObject
+                  from_invoice:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                  payment_settings:
+                    explode: true
+                    style: deepObject
+                  rendering:
+                    explode: true
+                    style: deepObject
+                  shipping_cost:
+                    explode: true
+                    style: deepObject
+                  shipping_details:
+                    explode: true
+                    style: deepObject
+                  transfer_data:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostInvoicesRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

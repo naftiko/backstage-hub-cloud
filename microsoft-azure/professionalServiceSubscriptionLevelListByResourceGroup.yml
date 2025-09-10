@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.professionalservice Resources
+  description: >-
+    Gets information about all the Subscription Level ProfessionalService in a
+    certain resource group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.professionalservice Resources
+      description: >-
+        Gets information about all the Subscription Level ProfessionalService in a
+        certain resource group.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ProfessionalService/resources:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.professionalservice Resources
+          description: >-
+            Gets information about all the Subscription Level ProfessionalService in
+            a certain resource group.
+          operationId: professionalServiceSubscriptionLevelListByResourceGroup
+          responses:
+            default:
+              description: A response indicating an error.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

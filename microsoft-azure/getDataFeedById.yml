@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Data Feed By Its Id
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Data Feed By Its Id
+      description: Needs a more full description created.
+    paths:
+      /dataFeeds/{dataFeedId}:
+        get:
+          summary: Get A Data Feed By Its Id
+          description: Needs a more full description created.
+          operationId: getDataFeedById
+          responses:
+            default:
+              description: Client error or server error (4xx or 5xx)
+              schema:
+                $ref: '#/definitions/ErrorCode'

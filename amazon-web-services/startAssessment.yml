@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Startassessment
+  description: ' Starts the assessment of an on-premises environment. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startassessment
+      description: ' Starts the assessment of an on-premises environment. '
+    paths:
+      /start-assessment:
+        POST:
+          summary: Startassessment
+          description: ' Starts the assessment of an on-premises environment. '
+          operationId: startAssessment

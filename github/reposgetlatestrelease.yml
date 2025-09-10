@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get The Latest Release
+  description: >-
+    View the latest published full release for the repository.The latest release
+    is the most recent non-prerelease, non-draft release, sorted by the
+    `created_at` attribute. The `created_at` attribute is the date of the commit
+    used for the release, and not the date when the release was drafted or
+    published.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get The Latest Release
+      description: >-
+        View the latest published full release for the repository.The latest release
+        is the most recent non-prerelease, non-draft release, sorted by the
+        `created_at` attribute. The `created_at` attribute is the date of the commit
+        used for the release, and not the date when the release was drafted or
+        published.
+    paths:
+      /repos/{owner}/{repo}/releases/latest:
+        get:
+          summary: Get The Latest Release
+          description: >-
+            View the latest published full release for the repository.The latest
+            release is the most recent non-prerelease, non-draft release, sorted by
+            the `created_at` attribute. The `created_at` attribute is the date of
+            the commit used for the release, and not the date when the release was
+            drafted or published.
+          operationId: reposgetlatestrelease
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/release'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/release'

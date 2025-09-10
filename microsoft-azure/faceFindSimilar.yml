@@ -1,0 +1,103 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Findsimilars
+  description: >-
+    Given query face's faceId, to search the similar-looking faces from a faceId
+    array, a face list or a large face list. faceId array contains the faces
+    created by [Face - Detect With
+    Url](https://docs.microsoft.com/rest/api/faceapi/face/detectwithurl) or
+    [Face - Detect With
+    Stream](https://docs.microsoft.com/rest/api/faceapi/face/detectwithstream),
+    which will expire at the time specified by faceIdTimeToLive after creation.
+    A "faceListId" is created by [FaceList -
+    Create](https://docs.microsoft.com/rest/api/faceapi/facelist/create)
+    containing persistedFaceIds that will not expire. And a "largeFaceListId" is
+    created by [LargeFaceList -
+    Create](https://docs.microsoft.com/rest/api/faceapi/largefacelist/create)
+    containing persistedFaceIds that will also not expire. Depending on the
+    input the returned similar faces list contains faceIds or persistedFaceIds
+    ranked by similarity.Find similar has two working modes, "matchPerson" and
+    "matchFace". "matchPerson" is the default mode that it tries to find faces
+    of the same person as possible by using internal same-person thresholds. It
+    is useful to find a known person's other photos. Note that an empty list
+    will be returned if no faces pass the internal thresholds. "matchFace" mode
+    ignores same-person thresholds and returns ranked similar faces anyway, even
+    the similarity is low. It can be used in the cases like searching
+    celebrity-looking faces.The 'recognitionModel' associated with the query
+    face's faceId should be the same as the 'recognitionModel' used by the
+    target faceId array, face list or large face list.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Findsimilars
+      description: >-
+        Given query face's faceId, to search the similar-looking faces from a faceId
+        array, a face list or a large face list. faceId array contains the faces
+        created by [Face - Detect With
+        Url](https://docs.microsoft.com/rest/api/faceapi/face/detectwithurl) or
+        [Face - Detect With
+        Stream](https://docs.microsoft.com/rest/api/faceapi/face/detectwithstream),
+        which will expire at the time specified by faceIdTimeToLive after creation.
+        A "faceListId" is created by [FaceList -
+        Create](https://docs.microsoft.com/rest/api/faceapi/facelist/create)
+        containing persistedFaceIds that will not expire. And a "largeFaceListId" is
+        created by [LargeFaceList -
+        Create](https://docs.microsoft.com/rest/api/faceapi/largefacelist/create)
+        containing persistedFaceIds that will also not expire. Depending on the
+        input the returned similar faces list contains faceIds or persistedFaceIds
+        ranked by similarity.Find similar has two working modes, "matchPerson" and
+        "matchFace". "matchPerson" is the default mode that it tries to find faces
+        of the same person as possible by using internal same-person thresholds. It
+        is useful to find a known person's other photos. Note that an empty list
+        will be returned if no faces pass the internal thresholds. "matchFace" mode
+        ignores same-person thresholds and returns ranked similar faces anyway, even
+        the similarity is low. It can be used in the cases like searching
+        celebrity-looking faces.The 'recognitionModel' associated with the query
+        face's faceId should be the same as the 'recognitionModel' used by the
+        target faceId array, face list or large face list.
+    paths:
+      /findsimilars:
+        post:
+          summary: Post Findsimilars
+          description: >-
+            Given query face's faceId, to search the similar-looking faces from a
+            faceId array, a face list or a large face list. faceId array contains
+            the faces created by [Face - Detect With
+            Url](https://docs.microsoft.com/rest/api/faceapi/face/detectwithurl) or
+            [Face - Detect With
+            Stream](https://docs.microsoft.com/rest/api/faceapi/face/detectwithstream),
+            which will expire at the time specified by faceIdTimeToLive after
+            creation. A "faceListId" is created by [FaceList -
+            Create](https://docs.microsoft.com/rest/api/faceapi/facelist/create)
+            containing persistedFaceIds that will not expire. And a
+            "largeFaceListId" is created by [LargeFaceList -
+            Create](https://docs.microsoft.com/rest/api/faceapi/largefacelist/create)
+            containing persistedFaceIds that will also not expire. Depending on the
+            input the returned similar faces list contains faceIds or
+            persistedFaceIds ranked by similarity.Find similar has two working
+            modes, "matchPerson" and "matchFace". "matchPerson" is the default mode
+            that it tries to find faces of the same person as possible by using
+            internal same-person thresholds. It is useful to find a known person's
+            other photos. Note that an empty list will be returned if no faces pass
+            the internal thresholds. "matchFace" mode ignores same-person thresholds
+            and returns ranked similar faces anyway, even the similarity is low. It
+            can be used in the cases like searching celebrity-looking faces.The
+            'recognitionModel' associated with the query face's faceId should be the
+            same as the 'recognitionModel' used by the target faceId array, face
+            list or large face list.
+          operationId: faceFindSimilar
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

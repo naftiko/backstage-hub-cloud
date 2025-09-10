@@ -1,0 +1,96 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Payment_intents Intent Increment_authorization
+  description: >-
+    Perform an incremental authorization on an eligiblePaymentIntent. To be
+    eligible, thePaymentIntent’s status must be requires_capture
+    andincremental_authorization_supportedmust be true.Incremental
+    authorizations attempt to increase the authorized amount onyour customer’s
+    card to the new, higher amount provided. Similar to theinitial
+    authorization, incremental authorizations can be declined. Asingle
+    PaymentIntent can call this endpoint multiple times to furtherincrease the
+    authorized amount.If the incremental authorization succeeds, the
+    PaymentIntent objectreturns with the updatedamount.If the incremental
+    authorization fails, acard_declined error returns, and no otherfields on the
+    PaymentIntent or Charge update. The PaymentIntentobject remains capturable
+    for the previously authorized amount.Each PaymentIntent can have a maximum
+    of 10 incremental authorization attempts, including declines.After it’s
+    captured, a PaymentIntent can no longer be incremented.Learn more about
+    incremental authorizations.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Payment_intents Intent Increment_authorization
+      description: >-
+        Perform an incremental authorization on an eligiblePaymentIntent. To be
+        eligible, thePaymentIntent’s status must be requires_capture
+        andincremental_authorization_supportedmust be true.Incremental
+        authorizations attempt to increase the authorized amount onyour customer’s
+        card to the new, higher amount provided. Similar to theinitial
+        authorization, incremental authorizations can be declined. Asingle
+        PaymentIntent can call this endpoint multiple times to furtherincrease the
+        authorized amount.If the incremental authorization succeeds, the
+        PaymentIntent objectreturns with the updatedamount.If the incremental
+        authorization fails, acard_declined error returns, and no otherfields on the
+        PaymentIntent or Charge update. The PaymentIntentobject remains capturable
+        for the previously authorized amount.Each PaymentIntent can have a maximum
+        of 10 incremental authorization attempts, including declines.After it’s
+        captured, a PaymentIntent can no longer be incremented.Learn more about
+        incremental authorizations.
+    paths:
+      /v1/payment_intents/{intent}/increment_authorization:
+        post:
+          summary: Post Payment_intents Intent Increment_authorization
+          description: >-
+            Perform an incremental authorization on an eligiblePaymentIntent. To be
+            eligible, thePaymentIntent’s status must be requires_capture
+            andincremental_authorization_supportedmust be true.Incremental
+            authorizations attempt to increase the authorized amount onyour
+            customer’s card to the new, higher amount provided. Similar to
+            theinitial authorization, incremental authorizations can be declined.
+            Asingle PaymentIntent can call this endpoint multiple times to
+            furtherincrease the authorized amount.If the incremental authorization
+            succeeds, the PaymentIntent objectreturns with the updatedamount.If the
+            incremental authorization fails, acard_declined error returns, and no
+            otherfields on the PaymentIntent or Charge update. The
+            PaymentIntentobject remains capturable for the previously authorized
+            amount.Each PaymentIntent can have a maximum of 10 incremental
+            authorization attempts, including declines.After it’s captured, a
+            PaymentIntent can no longer be incremented.Learn more about incremental
+            authorizations.
+          operationId: postPaymentIntentsIntentIncrementAuthorization
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                  transfer_data:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: >-
+                    #/components/schemas/PostPaymentIntentsIntentIncrementAuthorizationRequest
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Gets The Information About A Replica Of A Service Fabric Partition.
+  description: >-
+    The response includes the ID, role, status, health, node name, uptime, and
+    other details about the replica.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The Information About A Replica Of A Service Fabric Partition.
+      description: >-
+        The response includes the ID, role, status, health, node name, uptime, and
+        other details about the replica.
+    paths:
+      /Partitions/{partitionId}/$/GetReplicas/{replicaId}:
+        get:
+          summary: Gets The Information About A Replica Of A Service Fabric Partition.
+          description: >-
+            The response includes the ID, role, status, health, node name, uptime,
+            and other details about the replica.
+          operationId: getReplicaInfo
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

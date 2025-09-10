@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Exports Resourcetype Configuration
+  description: Fetch a specific Export Configuration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Exports Resourcetype Configuration
+      description: Fetch a specific Export Configuration.
+    paths:
+      /v1/Exports/{ResourceType}/Configuration:
+        get:
+          summary: Get Exports Resourcetype Configuration
+          description: Fetch a specific Export Configuration.
+          operationId: fetchExportConfiguration
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/bulkexports.v1.export_configuration'
+              description: OK

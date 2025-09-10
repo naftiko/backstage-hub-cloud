@@ -1,0 +1,73 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Filter All Messages
+  description: >-
+    Filter all messages to search your Email Activity. All queries must be [URL
+    encoded](https://meyerweb.com/eric/tools/dencoder/), and use the following
+    format:`query={query_type}="{query_content}"` Once URL encoded, the previous
+    query will look like this:`query=type%3D%22query_content%22`For example, to
+    filter by a specific email, use the following
+    query:`query=to_email%3D%22example%40example.com%22`Visit our [Query
+    Reference
+    section](https://docs.sendgrid.com/for-developers/sending-email/getting-started-email-activity-api#query-reference)
+    to see a full list of basic query types and examples.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Filter All Messages
+      description: >-
+        Filter all messages to search your Email Activity. All queries must be [URL
+        encoded](https://meyerweb.com/eric/tools/dencoder/), and use the following
+        format:`query={query_type}="{query_content}"` Once URL encoded, the previous
+        query will look like this:`query=type%3D%22query_content%22`For example, to
+        filter by a specific email, use the following
+        query:`query=to_email%3D%22example%40example.com%22`Visit our [Query
+        Reference
+        section](https://docs.sendgrid.com/for-developers/sending-email/getting-started-email-activity-api#query-reference)
+        to see a full list of basic query types and examples.
+    paths:
+      /v3/messages:
+        get:
+          summary: Filter All Messages
+          description: >-
+            Filter all messages to search your Email Activity. All queries must be
+            [URL encoded](https://meyerweb.com/eric/tools/dencoder/), and use the
+            following format:`query={query_type}="{query_content}"` Once URL
+            encoded, the previous query will look like
+            this:`query=type%3D%22query_content%22`For example, to filter by a
+            specific email, use the following
+            query:`query=to_email%3D%22example%40example.com%22`Visit our [Query
+            Reference
+            section](https://docs.sendgrid.com/for-developers/sending-email/getting-started-email-activity-api#query-reference)
+            to see a full list of basic query types and examples.
+          operationId: listMessage
+          responses:
+            '429':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      errors:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            message:
+                              type: string
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - message: too many requests

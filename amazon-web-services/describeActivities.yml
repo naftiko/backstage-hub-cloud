@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Describeactivities
+  description: Describes the user activities in a specified time period.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeactivities
+      description: Describes the user activities in a specified time period.
+    paths:
+      /api/v1/activities:
+        GET:
+          summary: Describeactivities
+          description: Describes the user activities in a specified time period.
+          operationId: describeActivities

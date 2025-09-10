@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get An External Group
+  description: >-
+    Displays information about the specific group's usage.  Provides a list of
+    the group's external members as well as a list of teams that this group is
+    connected to.You can manage team membership with your identity provider
+    using Enterprise Managed Users for GitHub Enterprise Cloud. For more
+    information, see "[GitHub's
+    products](https://docs.github.com/enterprise-server@3.9/github/getting-started-with-github/githubs-products)"
+    in the GitHub Help documentation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get An External Group
+      description: >-
+        Displays information about the specific group's usage.  Provides a list of
+        the group's external members as well as a list of teams that this group is
+        connected to.You can manage team membership with your identity provider
+        using Enterprise Managed Users for GitHub Enterprise Cloud. For more
+        information, see "[GitHub's
+        products](https://docs.github.com/enterprise-server@3.9/github/getting-started-with-github/githubs-products)"
+        in the GitHub Help documentation.
+    paths:
+      /orgs/{org}/external-group/{group_id}:
+        get:
+          summary: Get An External Group
+          description: >-
+            Displays information about the specific group's usage.  Provides a list
+            of the group's external members as well as a list of teams that this
+            group is connected to.You can manage team membership with your identity
+            provider using Enterprise Managed Users for GitHub Enterprise Cloud. For
+            more information, see "[GitHub's
+            products](https://docs.github.com/enterprise-server@3.9/github/getting-started-with-github/githubs-products)"
+            in the GitHub Help documentation.
+          operationId: teamsexternalidpgroupinfofororg
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/external-group'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/external-group'

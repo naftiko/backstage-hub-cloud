@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Sinks Sid Validate
+  description: Validate that a test event for a Sink was received.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Sinks Sid Validate
+      description: Validate that a test event for a Sink was received.
+    paths:
+      /v1/Sinks/{Sid}/Validate:
+        post:
+          summary: Post Sinks Sid Validate
+          description: Validate that a test event for a Sink was received.
+          operationId: createSinkValidate
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateSinkValidateRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/events.v1.sink.sink_validate'
+              description: Created

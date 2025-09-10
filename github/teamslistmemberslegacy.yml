@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Team Members (legacy)
+  description: >-
+    **Deprecation Notice:** This endpoint route is deprecated and will be
+    removed from the Teams API. We recommend migrating your existing code to use
+    the new [`List team
+    members`](https://docs.github.com/enterprise-server@3.9/rest/teams/members#list-team-members)
+    endpoint.Team members will include the members of child teams.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Team Members (legacy)
+      description: >-
+        **Deprecation Notice:** This endpoint route is deprecated and will be
+        removed from the Teams API. We recommend migrating your existing code to use
+        the new [`List team
+        members`](https://docs.github.com/enterprise-server@3.9/rest/teams/members#list-team-members)
+        endpoint.Team members will include the members of child teams.
+    paths:
+      /teams/{team_id}/members:
+        get:
+          summary: List Team Members (legacy)
+          description: >-
+            **Deprecation Notice:** This endpoint route is deprecated and will be
+            removed from the Teams API. We recommend migrating your existing code to
+            use the new [`List team
+            members`](https://docs.github.com/enterprise-server@3.9/rest/teams/members#list-team-members)
+            endpoint.Team members will include the members of child teams.
+          operationId: teamslistmemberslegacy
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

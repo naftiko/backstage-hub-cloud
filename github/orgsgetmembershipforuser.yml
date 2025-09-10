@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Organization Membership For A User
+  description: >-
+    In order to get a user's membership with an organization, the authenticated
+    user must be an organization member. The `state` parameter in the response
+    can be used to identify the user's membership status.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Organization Membership For A User
+      description: >-
+        In order to get a user's membership with an organization, the authenticated
+        user must be an organization member. The `state` parameter in the response
+        can be used to identify the user's membership status.
+    paths:
+      /orgs/{org}/memberships/{username}:
+        get:
+          summary: Get Organization Membership For A User
+          description: >-
+            In order to get a user's membership with an organization, the
+            authenticated user must be an organization member. The `state` parameter
+            in the response can be used to identify the user's membership status.
+          operationId: orgsgetmembershipforuser
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

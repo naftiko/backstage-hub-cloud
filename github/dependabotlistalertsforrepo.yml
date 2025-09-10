@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Dependabot Alerts For A Repository
+  description: >-
+    OAuth app tokens and personal access tokens (classic) need the
+    `security_events` scope to use this endpoint. If this endpoint is only used
+    with public repositories, the token can use the `public_repo` scope instead.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Dependabot Alerts For A Repository
+      description: >-
+        OAuth app tokens and personal access tokens (classic) need the
+        `security_events` scope to use this endpoint. If this endpoint is only used
+        with public repositories, the token can use the `public_repo` scope instead.
+    paths:
+      /repos/{owner}/{repo}/dependabot/alerts:
+        get:
+          summary: List Dependabot Alerts For A Repository
+          description: >-
+            OAuth app tokens and personal access tokens (classic) need the
+            `security_events` scope to use this endpoint. If this endpoint is only
+            used with public repositories, the token can use the `public_repo` scope
+            instead.
+          operationId: dependabotlistalertsforrepo
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed_simple'

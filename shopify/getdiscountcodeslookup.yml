@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: |-
+    Retrieves The Location Of A Discount Code.
+      The Discount Code's Location Is Returned In The Location Header, Not In The Discountcode Object Itself.
+      Depending On Your Http Client, The Location Of The Discount Code Might Follow The Location Header Automatically.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/discounts/discountcode#lookup-2020-10
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: |-
+        Retrieves The Location Of A Discount Code.
+          The Discount Code's Location Is Returned In The Location Header, Not In The Discountcode Object Itself.
+          Depending On Your Http Client, The Location Of The Discount Code Might Follow The Location Header Automatically.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/discounts/discountcode#lookup-2020-10
+    paths:
+      /admin/api/2020-10/discount_codes/lookup.json:
+        get:
+          summary: |-
+            Retrieves The Location Of A Discount Code.
+              The Discount Code's Location Is Returned In The Location Header, Not In The Discountcode Object Itself.
+              Depending On Your Http Client, The Location Of The Discount Code Might Follow The Location Header Automatically.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/discounts/discountcode#lookup-2020-10
+          operationId: getdiscountcodeslookup
+          responses:
+            '200':
+              description: ''

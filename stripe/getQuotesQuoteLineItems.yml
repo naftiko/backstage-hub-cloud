@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Quotes Quote Line_items
+  description: >-
+    When retrieving a quote, there is an includable line_items property
+    containing the first handful of those items. There is also a URL where you
+    can retrieve the full (paginated) list of line items.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Quotes Quote Line_items
+      description: >-
+        When retrieving a quote, there is an includable line_items property
+        containing the first handful of those items. There is also a URL where you
+        can retrieve the full (paginated) list of line items.
+    paths:
+      /v1/quotes/{quote}/line_items:
+        get:
+          summary: Get Quotes Quote Line_items
+          description: >-
+            When retrieving a quote, there is an includable line_items property
+            containing the first handful of those items. There is also a URL where
+            you can retrieve the full (paginated) list of line items.
+          operationId: getQuotesQuoteLineItems
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetQuotesQuoteLineItemsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

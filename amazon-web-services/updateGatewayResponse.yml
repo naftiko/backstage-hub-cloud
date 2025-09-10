@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updategatewayresponse
+  description: Updates a GatewayResponse of a specified response type on the given RestApi.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updategatewayresponse
+      description: Updates a GatewayResponse of a specified response type on the given RestApi.
+    paths:
+      /restapis/{restapi_id}/gatewayresponses/{response_type}:
+        PATCH:
+          summary: Updategatewayresponse
+          description: >-
+            Updates a GatewayResponse of a specified response type on the given
+            RestApi.
+          operationId: updateGatewayResponse

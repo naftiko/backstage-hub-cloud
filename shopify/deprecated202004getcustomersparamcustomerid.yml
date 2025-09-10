@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieves A Single Customer.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/customers/customer#show-2020-04
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves A Single Customer.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/customers/customer#show-2020-04
+    paths:
+      /admin/api/2020-04/customers/{customer_id}.json:
+        get:
+          summary: Retrieves A Single Customer.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/customers/customer#show-2020-04
+          operationId: deprecated202004getcustomersparamcustomerid
+          responses:
+            '200':
+              description: ''

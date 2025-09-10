@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Deviceupdate Instanceid Updates Providers Provider Names
+  description: Get a list of all update names that match the specified provider.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Deviceupdate Instanceid Updates Providers Provider Names
+      description: Get a list of all update names that match the specified provider.
+    paths:
+      /deviceUpdate/{instanceId}/updates/providers/{provider}/names:
+        get:
+          summary: Get Deviceupdate Instanceid Updates Providers Provider Names
+          description: Get a list of all update names that match the specified provider.
+          operationId: deviceUpdateListNames
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

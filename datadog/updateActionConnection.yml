@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update An Existing Action Connection
+  description: Update an existing Action Connection
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update An Existing Action Connection
+      description: Update an existing Action Connection
+    paths:
+      /api/v2/actions/connections/{connection_id}:
+        patch:
+          summary: Update An Existing Action Connection
+          description: Update an existing Action Connection
+          operationId: updateActionConnection
+          requestBody:
+            description: Update an existing Action Connection request body
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/UpdateActionConnectionRequest'
+          responses:
+            '429':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/JSONAPIErrorResponse'
+              description: Too Many Request

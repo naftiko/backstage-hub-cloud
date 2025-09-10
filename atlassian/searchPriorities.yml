@@ -1,0 +1,60 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Search Priorities
+  description: >-
+    Returns a [paginated](#pagination) list of priorities. The list can contain
+    all priorities or a subset determined by any combination of these criteria:
+    *  a list of priority IDs. Any invalid priority IDs are ignored. *  a list
+    of project IDs. Only priorities that are available in these projects will be
+    returned. Any invalid project IDs are ignored. *  whether the field
+    configuration is a default. This returns priorities from company-managed
+    (classic) projects only, as there is no concept of default priorities in
+    team-managed projects.**[Permissions](#permissions) required:** Permission
+    to access Jira.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Search Priorities
+      description: >-
+        Returns a [paginated](#pagination) list of priorities. The list can contain
+        all priorities or a subset determined by any combination of these criteria:
+        *  a list of priority IDs. Any invalid priority IDs are ignored. *  a list
+        of project IDs. Only priorities that are available in these projects will be
+        returned. Any invalid project IDs are ignored. *  whether the field
+        configuration is a default. This returns priorities from company-managed
+        (classic) projects only, as there is no concept of default priorities in
+        team-managed projects.**[Permissions](#permissions) required:** Permission
+        to access Jira.
+    paths:
+      /rest/api/3/priority/search:
+        get:
+          summary: Search Priorities
+          description: >-
+            Returns a [paginated](#pagination) list of priorities. The list can
+            contain all priorities or a subset determined by any combination of
+            these criteria: *  a list of priority IDs. Any invalid priority IDs are
+            ignored. *  a list of project IDs. Only priorities that are available in
+            these projects will be returned. Any invalid project IDs are ignored. * 
+            whether the field configuration is a default. This returns priorities
+            from company-managed (classic) projects only, as there is no concept of
+            default priorities in team-managed
+            projects.**[Permissions](#permissions) required:** Permission to access
+            Jira.
+          operationId: searchPriorities
+          responses:
+            '401':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorCollection'
+              description: Returned if the authentication credentials are incorrect or missing.

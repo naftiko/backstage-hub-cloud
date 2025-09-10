@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Upsert Custom Template Associations
+  description: >-
+    Upsert new custom template associations data across all storefronts. If an
+    existing record is found for the combination of channel ID, entity ID, and
+    type, the existing record will be overwritten with the new template.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Upsert Custom Template Associations
+      description: >-
+        Upsert new custom template associations data across all storefronts. If an
+        existing record is found for the combination of channel ID, entity ID, and
+        type, the existing record will be overwritten with the new template.
+    paths:
+      /storefront/custom-template-associations:
+        put:
+          summary: Upsert Custom Template Associations
+          description: >-
+            Upsert new custom template associations data across all storefronts. If
+            an existing record is found for the combination of channel ID, entity
+            ID, and type, the existing record will be overwritten with the new
+            template.
+          operationId: upsertCustomTemplateAssociations
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: array
+                  uniqueItems: true
+                  maxItems: 100
+                  minItems: 1
+                  items:
+                    $ref: '#/components/schemas/CustomTemplateAssociationUpsert'
+                examples:
+                  example-1:
+                    value:
+                      - id: 1
+                        channel_id: 1
+                        entity_type: product
+                        entity_id: 123
+                        file_name: custom-product-1.html
+                      - id: 2
+                        channel_id: 12345
+                        entity_type: page
+                        entity_id: 123
+                        file_name: custom-page.html
+          responses:
+            '422':
+              description: >-
+                Error response for batch PUT of Custom template associations.
+                Includes the errors for each reference ID.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'

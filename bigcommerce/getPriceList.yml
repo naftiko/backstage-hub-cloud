@@ -1,0 +1,89 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Price List
+  description: ' Returns a single *Price List*.'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Price List
+      description: ' Returns a single *Price List*.'
+    paths:
+      /pricelists/{price_list_id}:
+        get:
+          summary: Get A Price List
+          description: ' Returns a single *Price List*.'
+          operationId: getPriceList
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    title: Price List Response
+                    type: object
+                    properties:
+                      data:
+                        title: Price List
+                        required:
+                          - name
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            description: >
+                              The unique numeric ID of the `Price List`; this number
+                              increments sequentially.
+                            example: 3
+                          date_created:
+                            type: string
+                            description: |
+                              The date on which the `Price List` was created.
+                            format: date-time
+                            example: '2022-04-05T16:05:12Z'
+                          date_modified:
+                            type: string
+                            description: |
+                              The date on which the `Price List` was created.
+                            format: date-time
+                            example: '2022-04-05T16:05:12Z'
+                          name:
+                            type: string
+                            description: >-
+                              The unique name of the Price List. Required in a POST
+                              request.
+                            example: Wholesale
+                            x-required:
+                              - post
+                          active:
+                            type: boolean
+                            description: >
+                              Boolean value that specifies whether this `Price List`
+                              and its prices are active or not. Defaults to `true`.
+                            example: true
+                        description: Specifies the Common Price List properties.
+                      meta:
+                        $ref: '#/components/schemas/Meta'
+                    description: |-
+                      PriceList Response returns for:
+
+                      * Create a PriceList
+                      * Get a PriceList
+                      * Update a PriceList
+                  example:
+                    data:
+                      id: 2
+                      name: B2B
+                      date_created: '2022-02-26T17:37:01Z'
+                      date_modified: '2022-09-17T18:34:36Z'
+                      active: true
+                    meta: {}

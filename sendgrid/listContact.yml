@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Sample Contacts
+  description: >-
+    **This endpoint will return up to 50 of the most recent contacts uploaded or
+    attached to a list**. This list will then be sorted by email address.The
+    full contact count is also returned.Please note that pagination of the
+    contacts has been deprecated.Twilio SendGrid recommends exporting your
+    contacts regularly as a backup to avoid issues or lost data.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Sample Contacts
+      description: >-
+        **This endpoint will return up to 50 of the most recent contacts uploaded or
+        attached to a list**. This list will then be sorted by email address.The
+        full contact count is also returned.Please note that pagination of the
+        contacts has been deprecated.Twilio SendGrid recommends exporting your
+        contacts regularly as a backup to avoid issues or lost data.
+    paths:
+      /v3/marketing/contacts:
+        get:
+          summary: Get Sample Contacts
+          description: >-
+            **This endpoint will return up to 50 of the most recent contacts
+            uploaded or attached to a list**. This list will then be sorted by email
+            address.The full contact count is also returned.Please note that
+            pagination of the contacts has been deprecated.Twilio SendGrid
+            recommends exporting your contacts regularly as a backup to avoid issues
+            or lost data.
+          operationId: listContact
+          responses:
+            '500':
+              $ref: '#/components/responses/MarketingContacts500'

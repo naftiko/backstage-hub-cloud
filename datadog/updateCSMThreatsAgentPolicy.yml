@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Workload Protection Policy
+  description: >-
+    Update a specific Workload Protection policy.Returns the policy object when
+    the request is successful.**Note**: This endpoint is not available for the
+    Government (US1-FED) site. Please reference the (US1-FED) specific resource
+    below.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Workload Protection Policy
+      description: >-
+        Update a specific Workload Protection policy.Returns the policy object when
+        the request is successful.**Note**: This endpoint is not available for the
+        Government (US1-FED) site. Please reference the (US1-FED) specific resource
+        below.
+    paths:
+      /api/v2/remote_config/products/cws/policy/{policy_id}:
+        patch:
+          summary: Update A Workload Protection Policy
+          description: >-
+            Update a specific Workload Protection policy.Returns the policy object
+            when the request is successful.**Note**: This endpoint is not available
+            for the Government (US1-FED) site. Please reference the (US1-FED)
+            specific resource below.
+          operationId: updateCSMThreatsAgentPolicy
+          requestBody:
+            description: New definition of the Agent policy
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: >-
+                    #/components/schemas/CloudWorkloadSecurityAgentPolicyUpdateRequest
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

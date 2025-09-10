@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listdatasourcesyncjobs
+  description: Get information about an Amazon Q data source connector synchronization.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listdatasourcesyncjobs
+      description: Get information about an Amazon Q data source connector synchronization.
+    paths:
+      /applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/syncjobs:
+        GET:
+          summary: Listdatasourcesyncjobs
+          description: Get information about an Amazon Q data source connector synchronization.
+          operationId: listDataSourceSyncJobs

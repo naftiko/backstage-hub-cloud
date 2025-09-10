@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Scheduled Campaign
+  description: >-
+    **This endpoint allows to you change the scheduled time and date for a
+    campaign to be sent.**
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Scheduled Campaign
+      description: >-
+        **This endpoint allows to you change the scheduled time and date for a
+        campaign to be sent.**
+    paths:
+      /v3/campaigns/{campaign_id}/schedules:
+        patch:
+          summary: Update A Scheduled Campaign
+          description: >-
+            **This endpoint allows to you change the scheduled time and date for a
+            campaign to be sent.**
+          operationId: updateScheduledCampaign
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  title: Update a Scheduled Campaign request
+                  type: object
+                  properties:
+                    send_at:
+                      type: integer
+                      format: int64
+                  required:
+                    - send_at
+                  example:
+                    send_at: 1489451436
+          responses:
+            '404':
+              description: Not found
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - field: null
+                            message: not found

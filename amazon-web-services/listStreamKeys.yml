@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Liststreamkeys
+  description: Gets summary information about stream keys for the specified channel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Liststreamkeys
+      description: Gets summary information about stream keys for the specified channel.
+    paths:
+      /ListStreamKeys:
+        POST:
+          summary: Liststreamkeys
+          description: Gets summary information about stream keys for the specified channel.
+          operationId: listStreamKeys

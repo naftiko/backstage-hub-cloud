@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post User Checkzpk
+  description: Check if the zpk is expired. The zpk is used to authenticate a user.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post User Checkzpk
+      description: Check if the zpk is expired. The zpk is used to authenticate a user.
+    paths:
+      /user/checkzpk:
+        post:
+          summary: Post User Checkzpk
+          description: Check if the zpk is expired. The zpk is used to authenticate a user.
+          operationId: userCheckzpk
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - zpk
+                  type: object
+                  properties:
+                    zpk:
+                      type: string
+                      description: User zpk.
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    expire_in: 7187

@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Refunds
+  description: >-
+    Returns a list of refunds ordered by refund ID in ascending order.Requires
+    at least one of the following scopes:* `store_v2_transactions_read_only`*
+    `store_v2_transactions`* `store_v2_orders_read_only`* `store_v2_orders`
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Refunds
+      description: >-
+        Returns a list of refunds ordered by refund ID in ascending order.Requires
+        at least one of the following scopes:* `store_v2_transactions_read_only`*
+        `store_v2_transactions`* `store_v2_orders_read_only`* `store_v2_orders`
+    paths:
+      /orders/payment_actions/refunds:
+        get:
+          summary: Get All Refunds
+          description: >-
+            Returns a list of refunds ordered by refund ID in ascending
+            order.Requires at least one of the following scopes:*
+            `store_v2_transactions_read_only`* `store_v2_transactions`*
+            `store_v2_orders_read_only`* `store_v2_orders`
+          operationId: getOrdersRefunds
+          responses:
+            '200':
+              $ref: '#/components/responses/RefundCollection_Resp'

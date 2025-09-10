@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Tax Transactions Create_from_calculation
+  description: Creates a Tax Transaction from a calculation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Tax Transactions Create_from_calculation
+      description: Creates a Tax Transaction from a calculation.
+    paths:
+      /v1/tax/transactions/create_from_calculation:
+        post:
+          summary: Post Tax Transactions Create_from_calculation
+          description: Creates a Tax Transaction from a calculation.
+          operationId: postTaxTransactionsCreateFromCalculation
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: >-
+                    #/components/schemas/PostTaxTransactionsCreateFromCalculationRequest
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

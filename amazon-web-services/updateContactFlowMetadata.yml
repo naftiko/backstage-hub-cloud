@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updatecontactflowmetadata
+  description: Updates metadata about specified flow.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatecontactflowmetadata
+      description: Updates metadata about specified flow.
+    paths:
+      /contact-flows/{InstanceId}/{ContactFlowId}/metadata:
+        POST:
+          summary: Updatecontactflowmetadata
+          description: Updates metadata about specified flow.
+          operationId: updateContactFlowMetadata

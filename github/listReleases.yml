@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Releases
+  description: >-
+    This returns a list of releases, which does not include regular Git tags
+    that have not been associated with a release. To get a list of Git tags, use
+    the [Repository Tags
+    API](https://docs.github.com/enterprise-server@3.9/rest/repos/repos#list-repository-tags).Information
+    about published releases are available to everyone. Only users with push
+    access will receive listings for draft releases.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Releases
+      description: >-
+        This returns a list of releases, which does not include regular Git tags
+        that have not been associated with a release. To get a list of Git tags, use
+        the [Repository Tags
+        API](https://docs.github.com/enterprise-server@3.9/rest/repos/repos#list-repository-tags).Information
+        about published releases are available to everyone. Only users with push
+        access will receive listings for draft releases.
+    paths:
+      /repos/{owner}/{repo}/releases:
+        get:
+          summary: List Releases
+          description: >-
+            This returns a list of releases, which does not include regular Git tags
+            that have not been associated with a release. To get a list of Git tags,
+            use the [Repository Tags
+            API](https://docs.github.com/enterprise-server@3.9/rest/repos/repos#list-repository-tags).Information
+            about published releases are available to everyone. Only users with push
+            access will receive listings for draft releases.
+          operationId: listReleases
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Runner Applications For An Enterprise
+  description: >-
+    Lists binaries for the runner application that you can download and
+    run.OAuth app tokens and personal access tokens (classic) need the
+    `manage_runners:enterprise` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Runner Applications For An Enterprise
+      description: >-
+        Lists binaries for the runner application that you can download and
+        run.OAuth app tokens and personal access tokens (classic) need the
+        `manage_runners:enterprise` scope to use this endpoint.
+    paths:
+      /enterprises/{enterprise}/actions/runners/downloads:
+        get:
+          summary: List Runner Applications For An Enterprise
+          description: >-
+            Lists binaries for the runner application that you can download and
+            run.OAuth app tokens and personal access tokens (classic) need the
+            `manage_runners:enterprise` scope to use this endpoint.
+          operationId: enterpriseadminlistrunnerapplicationsforenterprise
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/runner-application'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/runner-application-items-airgap'

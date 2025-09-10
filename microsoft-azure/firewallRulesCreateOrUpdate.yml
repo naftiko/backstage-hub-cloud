@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.cache Redis Cachename Firewallrules Rulename
+  description: Create or update a redis cache firewall rule
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.cache Redis Cachename Firewallrules Rulename
+      description: Create or update a redis cache firewall rule
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/Redis/{cacheName}/firewallRules/{ruleName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.cache Redis Cachename Firewallrules Rulename
+          description: Create or update a redis cache firewall rule
+          operationId: firewallRulesCreateOrUpdate
+          responses:
+            '201':
+              description: Resource was successfully created
+              schema:
+                $ref: '#/definitions/RedisFirewallRule'

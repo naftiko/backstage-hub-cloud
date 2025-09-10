@@ -1,0 +1,74 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Check That An Aws Lambda Function Exists
+  description: >-
+    Test if permissions are present to add a log-forwarding triggers for the
+    given services and AWS account. The inputis the same as for Enable an AWS
+    service log collection. Subsequent requests will always repeat the above, so
+    thisendpoint can be polled intermittently instead of blocking.- Returns a
+    status of 'created' when it's checking if the Lambda exists in the account.-
+    Returns a status of 'waiting' while checking.- Returns a status of 'checked
+    and ok' if the Lambda exists.- Returns a status of 'error' if the Lambda
+    does not exist.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Check That An Aws Lambda Function Exists
+      description: >-
+        Test if permissions are present to add a log-forwarding triggers for the
+        given services and AWS account. The inputis the same as for Enable an AWS
+        service log collection. Subsequent requests will always repeat the above, so
+        thisendpoint can be polled intermittently instead of blocking.- Returns a
+        status of 'created' when it's checking if the Lambda exists in the account.-
+        Returns a status of 'waiting' while checking.- Returns a status of 'checked
+        and ok' if the Lambda exists.- Returns a status of 'error' if the Lambda
+        does not exist.
+    paths:
+      /api/v1/integration/aws/logs/check_async:
+        post:
+          summary: Check That An Aws Lambda Function Exists
+          description: >-
+            Test if permissions are present to add a log-forwarding triggers for the
+            given services and AWS account. The inputis the same as for Enable an
+            AWS service log collection. Subsequent requests will always repeat the
+            above, so thisendpoint can be polled intermittently instead of
+            blocking.- Returns a status of 'created' when it's checking if the
+            Lambda exists in the account.- Returns a status of 'waiting' while
+            checking.- Returns a status of 'checked and ok' if the Lambda exists.-
+            Returns a status of 'error' if the Lambda does not exist.
+          operationId: checkthatanAWSLambdaFunctionexists
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    account_id: '1234567'
+                    lambda_arn: >-
+                      arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

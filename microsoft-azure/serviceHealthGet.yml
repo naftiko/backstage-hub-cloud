@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Returns The Overall Health Of The Service And Optionally Of The Different
+    Subcomponents.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Returns The Overall Health Of The Service And Optionally Of The Different
+        Subcomponents.
+      description: Needs a more full description created.
+    paths:
+      /healthstatus:
+        get:
+          summary: >-
+            Returns The Overall Health Of The Service And Optionally Of The
+            Different Subcomponents.
+          description: Needs a more full description created.
+          operationId: serviceHealthGet
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/Error'

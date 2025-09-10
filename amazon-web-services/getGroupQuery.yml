@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getgroupquery
+  description: >-
+    Retrieves the resource query associated with the specified resource group.
+    For more information about resource queries, see Create a tag-based group in
+    Resource Groups.  Minimum permissions  To run this command, you must have
+    the following permissions:    resource-groups:GetGroupQuery   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getgroupquery
+      description: >-
+        Retrieves the resource query associated with the specified resource group.
+        For more information about resource queries, see Create a tag-based group in
+        Resource Groups.  Minimum permissions  To run this command, you must have
+        the following permissions:    resource-groups:GetGroupQuery   
+    paths:
+      /get-group-query:
+        POST:
+          summary: Getgroupquery
+          description: >-
+            Retrieves the resource query associated with the specified resource
+            group. For more information about resource queries, see Create a
+            tag-based group in Resource Groups.  Minimum permissions  To run this
+            command, you must have the following permissions:   
+            resource-groups:GetGroupQuery   
+          operationId: getGroupQuery

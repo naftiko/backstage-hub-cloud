@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Widget
+  description: >-
+    Creates a **Widget**.**Note:** There is a limit of 100,000 widgets per store
+    and 150 widgets per page. For more information, see [Store
+    Limits](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Widget
+      description: >-
+        Creates a **Widget**.**Note:** There is a limit of 100,000 widgets per store
+        and 150 widgets per page. For more information, see [Store
+        Limits](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits).
+    paths:
+      /content/widgets:
+        post:
+          summary: Create A Widget
+          description: >-
+            Creates a **Widget**.**Note:** There is a limit of 100,000 widgets per
+            store and 150 widgets per page. For more information, see [Store
+            Limits](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits).
+          operationId: createWidget
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/widget_Post'
+          responses:
+            '422':
+              $ref: '#/components/responses/Error422_Resp'

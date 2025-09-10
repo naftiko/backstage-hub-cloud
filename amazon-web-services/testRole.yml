@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Testrole
+  description: >-
+    The TestRole operation tests the IAM role used to create the pipeline. The
+    TestRole action lets you determine whether the IAM role you are using has
+    sufficient permissions to let Elastic Transcoder perform tasks associated
+    with the transcoding process. The action attempts to assume the specified
+    IAM role, checks read access to the input and output buckets, and tries to
+    send a test notification to Amazon SNS topics that you specify.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Testrole
+      description: >-
+        The TestRole operation tests the IAM role used to create the pipeline. The
+        TestRole action lets you determine whether the IAM role you are using has
+        sufficient permissions to let Elastic Transcoder perform tasks associated
+        with the transcoding process. The action attempts to assume the specified
+        IAM role, checks read access to the input and output buckets, and tries to
+        send a test notification to Amazon SNS topics that you specify.
+    paths:
+      /2012-09-25/roleTests:
+        POST:
+          summary: Testrole
+          description: >-
+            The TestRole operation tests the IAM role used to create the pipeline.
+            The TestRole action lets you determine whether the IAM role you are
+            using has sufficient permissions to let Elastic Transcoder perform tasks
+            associated with the transcoding process. The action attempts to assume
+            the specified IAM role, checks read access to the input and output
+            buckets, and tries to send a test notification to Amazon SNS topics that
+            you specify.
+          operationId: testRole

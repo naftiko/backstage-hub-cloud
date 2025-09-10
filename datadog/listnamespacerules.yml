@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Namespace Rules
+  description: >-
+    List all namespace rules for a given Datadog-AWS integration. This endpoint
+    takes no arguments.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Namespace Rules
+      description: >-
+        List all namespace rules for a given Datadog-AWS integration. This endpoint
+        takes no arguments.
+    paths:
+      /api/v1/integration/aws/available_namespace_rules:
+        get:
+          summary: List Namespace Rules
+          description: >-
+            List all namespace rules for a given Datadog-AWS integration. This
+            endpoint takes no arguments.
+          operationId: listnamespacerules
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

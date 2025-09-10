@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Removethingfromthinggroup
+  description: >-
+    Remove the specified thing from the specified group. You must specify either
+    a thingGroupArn or a thingGroupName to identify the thing group and either a
+    thingArn or a thingName to identify the thing to remove from the thing
+    group.  Requires permission to access the RemoveThingFromThingGroup action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Removethingfromthinggroup
+      description: >-
+        Remove the specified thing from the specified group. You must specify either
+        a thingGroupArn or a thingGroupName to identify the thing group and either a
+        thingArn or a thingName to identify the thing to remove from the thing
+        group.  Requires permission to access the RemoveThingFromThingGroup action.
+    paths:
+      /thing-groups/removeThingFromThingGroup:
+        PUT:
+          summary: Removethingfromthinggroup
+          description: >-
+            Remove the specified thing from the specified group. You must specify
+            either a thingGroupArn or a thingGroupName to identify the thing group
+            and either a thingArn or a thingName to identify the thing to remove
+            from the thing group.  Requires permission to access the
+            RemoveThingFromThingGroup action.
+          operationId: removeThingFromThingGroup

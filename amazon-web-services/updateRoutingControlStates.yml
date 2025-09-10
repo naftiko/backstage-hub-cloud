@@ -1,0 +1,92 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updateroutingcontrolstates
+  description: >-
+    Set multiple routing control states. You can set the value for each state to
+    be ON or OFF. When the state is ON, traffic flows to a cell. When it's OFF,
+    traffic does not flow. With Route 53 ARC, you can add safety rules for
+    routing controls, which are safeguards for routing control state updates
+    that help prevent unexpected outcomes, like fail open traffic routing.
+    However, there are scenarios when you might want to bypass the routing
+    control safeguards that are enforced with safety rules that you've
+    configured. For example, you might want to fail over quickly for disaster
+    recovery, and one or more safety rules might be unexpectedly preventing you
+    from updating a routing control state to reroute traffic. In a "break glass"
+    scenario like this, you can override one or more safety rules to change a
+    routing control state and fail over your application. The
+    SafetyRulesToOverride property enables you override one or more safety rules
+    and update routing control states. For more information, see  Override
+    safety rules to reroute traffic in the Amazon Route 53 Application Recovery
+    Controller Developer Guide.  You must specify Regional endpoints when you
+    work with API cluster operations to get or update routing control states in
+    Route 53 ARC.  To see a code example for getting a routing control state,
+    including accessing Regional cluster endpoints in sequence, see API examples
+    in the Amazon Route 53 Application Recovery Controller Developer Guide.    
+    Viewing and updating routing control states     Working with routing
+    controls overall   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateroutingcontrolstates
+      description: >-
+        Set multiple routing control states. You can set the value for each state to
+        be ON or OFF. When the state is ON, traffic flows to a cell. When it's OFF,
+        traffic does not flow. With Route 53 ARC, you can add safety rules for
+        routing controls, which are safeguards for routing control state updates
+        that help prevent unexpected outcomes, like fail open traffic routing.
+        However, there are scenarios when you might want to bypass the routing
+        control safeguards that are enforced with safety rules that you've
+        configured. For example, you might want to fail over quickly for disaster
+        recovery, and one or more safety rules might be unexpectedly preventing you
+        from updating a routing control state to reroute traffic. In a "break glass"
+        scenario like this, you can override one or more safety rules to change a
+        routing control state and fail over your application. The
+        SafetyRulesToOverride property enables you override one or more safety rules
+        and update routing control states. For more information, see  Override
+        safety rules to reroute traffic in the Amazon Route 53 Application Recovery
+        Controller Developer Guide.  You must specify Regional endpoints when you
+        work with API cluster operations to get or update routing control states in
+        Route 53 ARC.  To see a code example for getting a routing control state,
+        including accessing Regional cluster endpoints in sequence, see API examples
+        in the Amazon Route 53 Application Recovery Controller Developer Guide.    
+        Viewing and updating routing control states     Working with routing
+        controls overall   
+    paths:
+      /:
+        POST:
+          summary: Updateroutingcontrolstates
+          description: >-
+            Set multiple routing control states. You can set the value for each
+            state to be ON or OFF. When the state is ON, traffic flows to a cell.
+            When it's OFF, traffic does not flow. With Route 53 ARC, you can add
+            safety rules for routing controls, which are safeguards for routing
+            control state updates that help prevent unexpected outcomes, like fail
+            open traffic routing. However, there are scenarios when you might want
+            to bypass the routing control safeguards that are enforced with safety
+            rules that you've configured. For example, you might want to fail over
+            quickly for disaster recovery, and one or more safety rules might be
+            unexpectedly preventing you from updating a routing control state to
+            reroute traffic. In a "break glass" scenario like this, you can override
+            one or more safety rules to change a routing control state and fail over
+            your application. The SafetyRulesToOverride property enables you
+            override one or more safety rules and update routing control states. For
+            more information, see  Override safety rules to reroute traffic in the
+            Amazon Route 53 Application Recovery Controller Developer Guide.  You
+            must specify Regional endpoints when you work with API cluster
+            operations to get or update routing control states in Route 53 ARC.  To
+            see a code example for getting a routing control state, including
+            accessing Regional cluster endpoints in sequence, see API examples in
+            the Amazon Route 53 Application Recovery Controller Developer Guide.    
+            Viewing and updating routing control states     Working with routing
+            controls overall   
+          operationId: updateRoutingControlStates

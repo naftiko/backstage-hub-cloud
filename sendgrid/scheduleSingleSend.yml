@@ -1,0 +1,86 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Schedule Single Send
+  description: >-
+    **This endpoint allows you to send a Single Send immediately or schedule it
+    to be sent at a later time.**To send your message immediately, set the
+    `send_at` property value to the string `now`. To schedule the Single Send
+    for future delivery, set the `send_at` value to your desired send time in
+    [ISO 8601 date time
+    format](https://www.iso.org/iso-8601-date-and-time-format.html)
+    (`yyyy-MM-ddTHH:mm:ssZ`).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Schedule Single Send
+      description: >-
+        **This endpoint allows you to send a Single Send immediately or schedule it
+        to be sent at a later time.**To send your message immediately, set the
+        `send_at` property value to the string `now`. To schedule the Single Send
+        for future delivery, set the `send_at` value to your desired send time in
+        [ISO 8601 date time
+        format](https://www.iso.org/iso-8601-date-and-time-format.html)
+        (`yyyy-MM-ddTHH:mm:ssZ`).
+    paths:
+      /v3/marketing/singlesends/{id}/schedule:
+        put:
+          summary: Schedule Single Send
+          description: >-
+            **This endpoint allows you to send a Single Send immediately or schedule
+            it to be sent at a later time.**To send your message immediately, set
+            the `send_at` property value to the string `now`. To schedule the Single
+            Send for future delivery, set the `send_at` value to your desired send
+            time in [ISO 8601 date time
+            format](https://www.iso.org/iso-8601-date-and-time-format.html)
+            (`yyyy-MM-ddTHH:mm:ssZ`).
+          operationId: scheduleSingleSend
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    send_at:
+                      type: string
+                      description: >-
+                        The ISO 8601 time at which to send the Single Send. This
+                        must be in future or the string `now`. SendGrid [Mail
+                        Send](https://docs.sendgrid.com/api-reference/mail-send/mail-send)
+                        emails can be scheduled up to 72 hours in advance. However,
+                        this scheduling constraint does not apply to emails sent via
+                        [Marketing
+                        Campaigns](https://docs.sendgrid.com/ui/sending-email/how-to-send-email-with-marketing-campaigns/).
+                      format: date-time
+                  required:
+                    - send_at
+                  example:
+                    send_at: '3752-01-28T23:21:52.575Z'
+          responses:
+            '500':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      errors:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            field:
+                              type: string
+                            message:
+                              type: string
+                            error_id:
+                              type: string

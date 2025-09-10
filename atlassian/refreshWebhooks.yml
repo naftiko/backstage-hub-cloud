@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Extend Webhook Life
+  description: >-
+    Extends the life of webhook. Webhooks registered through the REST API expire
+    after 30 days. Call this operation to keep them alive.Unrecognized webhook
+    IDs (those that are not found or belong to other apps) are
+    ignored.**[Permissions](#permissions) required:** Only
+    [Connect](https://developer.atlassian.com/cloud/jira/platform/#connect-apps)
+    and [OAuth
+    2.0](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps)
+    apps can use this operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Extend Webhook Life
+      description: >-
+        Extends the life of webhook. Webhooks registered through the REST API expire
+        after 30 days. Call this operation to keep them alive.Unrecognized webhook
+        IDs (those that are not found or belong to other apps) are
+        ignored.**[Permissions](#permissions) required:** Only
+        [Connect](https://developer.atlassian.com/cloud/jira/platform/#connect-apps)
+        and [OAuth
+        2.0](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps)
+        apps can use this operation.
+    paths:
+      /rest/api/3/webhook/refresh:
+        put:
+          summary: Extend Webhook Life
+          description: >-
+            Extends the life of webhook. Webhooks registered through the REST API
+            expire after 30 days. Call this operation to keep them
+            alive.Unrecognized webhook IDs (those that are not found or belong to
+            other apps) are ignored.**[Permissions](#permissions) required:** Only
+            [Connect](https://developer.atlassian.com/cloud/jira/platform/#connect-apps)
+            and [OAuth
+            2.0](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps)
+            apps can use this operation.
+          operationId: refreshWebhooks
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  webhookIds:
+                    - 10000
+                    - 10001
+                    - 10042
+                schema:
+                  $ref: '#/components/schemas/ContainerForWebhookIDs'
+          responses:
+            '403':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorCollection'
+              description: Returned if the caller isn't an app.

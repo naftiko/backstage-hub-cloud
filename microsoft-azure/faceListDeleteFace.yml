@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Facelists Facelistid Persistedfaces Persistedfaceid
+  description: >-
+    Delete a face from a face list by specified faceListId and persistedFaceId.
+    Adding/deleting faces to/from a same face list are processed sequentially
+    and to/from different face lists are in parallel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Facelists Facelistid Persistedfaces Persistedfaceid
+      description: >-
+        Delete a face from a face list by specified faceListId and persistedFaceId.
+        Adding/deleting faces to/from a same face list are processed sequentially
+        and to/from different face lists are in parallel.
+    paths:
+      /facelists/{faceListId}/persistedfaces/{persistedFaceId}:
+        delete:
+          summary: Delete Facelists Facelistid Persistedfaces Persistedfaceid
+          description: >-
+            Delete a face from a face list by specified faceListId and
+            persistedFaceId. Adding/deleting faces to/from a same face list are
+            processed sequentially and to/from different face lists are in parallel.
+          operationId: faceListDeleteFace
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

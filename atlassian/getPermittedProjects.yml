@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Permitted Projects
+  description: >-
+    Returns all the projects where the user is granted a list of project
+    permissions.This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** None.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Permitted Projects
+      description: >-
+        Returns all the projects where the user is granted a list of project
+        permissions.This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** None.
+    paths:
+      /rest/api/3/permissions/project:
+        post:
+          summary: Get Permitted Projects
+          description: >-
+            Returns all the projects where the user is granted a list of project
+            permissions.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** None.
+          operationId: getPermittedProjects
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/PermissionsKeysBean'
+          responses:
+            '401':
+              description: Returned if the authentication credentials are incorrect or missing.

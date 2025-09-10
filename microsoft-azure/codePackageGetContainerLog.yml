@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Gets The Logs For The Container.
+  description: Get the logs for the container of a given code package of an application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The Logs For The Container.
+      description: Get the logs for the container of a given code package of an application.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabricMesh/applications/{applicationName}/services/{serviceName}/replicas/{replicaName}/codePackages/{codePackageName}/logs:
+        get:
+          summary: Gets The Logs For The Container.
+          description: >-
+            Get the logs for the container of a given code package of an
+            application.
+          operationId: codePackageGetContainerLog
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorModel'

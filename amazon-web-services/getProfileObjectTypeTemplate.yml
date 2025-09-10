@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getprofileobjecttypetemplate
+  description: >-
+    Returns the template information for a specific object type. A template is a
+    predefined ProfileObjectType, such as “Salesforce-Account” or
+    “Salesforce-Contact.” When a user sends a ProfileObject, using the
+    PutProfileObject API, with an ObjectTypeName that matches one of the
+    TemplateIds, it uses the mappings from the template.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getprofileobjecttypetemplate
+      description: >-
+        Returns the template information for a specific object type. A template is a
+        predefined ProfileObjectType, such as “Salesforce-Account” or
+        “Salesforce-Contact.” When a user sends a ProfileObject, using the
+        PutProfileObject API, with an ObjectTypeName that matches one of the
+        TemplateIds, it uses the mappings from the template.
+    paths:
+      /templates/{TemplateId}:
+        GET:
+          summary: Getprofileobjecttypetemplate
+          description: >-
+            Returns the template information for a specific object type. A template
+            is a predefined ProfileObjectType, such as “Salesforce-Account” or
+            “Salesforce-Contact.” When a user sends a ProfileObject, using the
+            PutProfileObject API, with an ObjectTypeName that matches one of the
+            TemplateIds, it uses the mappings from the template.
+          operationId: getProfileObjectTypeTemplate

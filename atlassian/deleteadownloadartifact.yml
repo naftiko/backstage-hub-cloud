@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Download Artifact
+  description: Deletes the specified download artifact from the repository.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Download Artifact
+      description: Deletes the specified download artifact from the repository.
+    paths:
+      /repositories/{workspace}/{repo_slug}/downloads/{filename}:
+        delete:
+          summary: Delete A Download Artifact
+          description: Deletes the specified download artifact from the repository.
+          operationId: deleteadownloadartifact
+          responses:
+            '404':
+              description: The specified download does not exist.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

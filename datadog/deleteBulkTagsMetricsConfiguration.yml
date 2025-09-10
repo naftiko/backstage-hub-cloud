@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Tags For Multiple Metrics
+  description: >-
+    Delete all custom lists of queryable tag keys for a set of existing count,
+    gauge, rate, and distribution metrics.Metrics are selected by passing a
+    metric name prefix.Results can be sent to a set of account email addresses,
+    just like the same operation in the Datadog web app.Can only be used with
+    application keys of users with the `Manage Tags for Metrics` permission.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Tags For Multiple Metrics
+      description: >-
+        Delete all custom lists of queryable tag keys for a set of existing count,
+        gauge, rate, and distribution metrics.Metrics are selected by passing a
+        metric name prefix.Results can be sent to a set of account email addresses,
+        just like the same operation in the Datadog web app.Can only be used with
+        application keys of users with the `Manage Tags for Metrics` permission.
+    paths:
+      /api/v2/metrics/config/bulk-tags:
+        delete:
+          summary: Delete Tags For Multiple Metrics
+          description: >-
+            Delete all custom lists of queryable tag keys for a set of existing
+            count, gauge, rate, and distribution metrics.Metrics are selected by
+            passing a metric name prefix.Results can be sent to a set of account
+            email addresses, just like the same operation in the Datadog web app.Can
+            only be used with application keys of users with the `Manage Tags for
+            Metrics` permission.
+          operationId: deleteBulkTagsMetricsConfiguration
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/MetricBulkTagConfigDeleteRequest'
+          responses:
+            '429':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/APIErrorResponse'
+              description: Too Many Requests

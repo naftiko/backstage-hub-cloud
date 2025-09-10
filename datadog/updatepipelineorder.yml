@@ -1,0 +1,66 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Pipeline Order
+  description: >-
+    Update the order of your pipelines. Since logs are processed sequentially,
+    reordering a pipeline may changethe structure and content of the data
+    processed by other pipelines and their processors.**Note**: Using the `PUT`
+    method updates your pipeline order by replacing your current orderwith the
+    new one sent to your Datadog organization.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Pipeline Order
+      description: >-
+        Update the order of your pipelines. Since logs are processed sequentially,
+        reordering a pipeline may changethe structure and content of the data
+        processed by other pipelines and their processors.**Note**: Using the `PUT`
+        method updates your pipeline order by replacing your current orderwith the
+        new one sent to your Datadog organization.
+    paths:
+      /api/v1/logs/config/pipeline-order:
+        put:
+          summary: Update Pipeline Order
+          description: >-
+            Update the order of your pipelines. Since logs are processed
+            sequentially, reordering a pipeline may changethe structure and content
+            of the data processed by other pipelines and their processors.**Note**:
+            Using the `PUT` method updates your pipeline order by replacing your
+            current orderwith the new one sent to your Datadog organization.
+          operationId: updatepipelineorder
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    pipeline_ids:
+                      - tags
+                      - org_ids
+                      - products
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

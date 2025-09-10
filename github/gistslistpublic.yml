@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Public Gists
+  description: >-
+    List public gists sorted by most recently updated to least recently
+    updated.Note: With
+    [pagination](https://docs.github.com/enterprise-server@3.9/rest/guides/using-pagination-in-the-rest-api),
+    you can fetch up to 3000 gists. For example, you can fetch 100 pages with 30
+    gists per page or 30 pages with 100 gists per page.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Public Gists
+      description: >-
+        List public gists sorted by most recently updated to least recently
+        updated.Note: With
+        [pagination](https://docs.github.com/enterprise-server@3.9/rest/guides/using-pagination-in-the-rest-api),
+        you can fetch up to 3000 gists. For example, you can fetch 100 pages with 30
+        gists per page or 30 pages with 100 gists per page.
+    paths:
+      /gists/public:
+        get:
+          summary: List Public Gists
+          description: >-
+            List public gists sorted by most recently updated to least recently
+            updated.Note: With
+            [pagination](https://docs.github.com/enterprise-server@3.9/rest/guides/using-pagination-in-the-rest-api),
+            you can fetch up to 3000 gists. For example, you can fetch 100 pages
+            with 30 gists per page or 30 pages with 100 gists per page.
+          operationId: gistslistpublic
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

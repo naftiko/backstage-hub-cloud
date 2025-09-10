@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Milestones
+  description: >-
+    Returns the milestones that have been defined in the issue tracker.This
+    resource is only available on repositories that have the issuetracker
+    enabled.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Milestones
+      description: >-
+        Returns the milestones that have been defined in the issue tracker.This
+        resource is only available on repositories that have the issuetracker
+        enabled.
+    paths:
+      /repositories/{workspace}/{repo_slug}/milestones:
+        get:
+          summary: List Milestones
+          description: >-
+            Returns the milestones that have been defined in the issue tracker.This
+            resource is only available on repositories that have the issuetracker
+            enabled.
+          operationId: listmilestones
+          responses:
+            '404':
+              description: >-
+                The specified repository does not exist or does not have the issue
+                tracker enabled.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

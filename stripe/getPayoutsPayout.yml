@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Payouts Payout
+  description: >-
+    Retrieves the details of an existing payout. Supply the unique payout ID
+    from either a payout creation request or the payout list. Stripe returns the
+    corresponding payout information.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Payouts Payout
+      description: >-
+        Retrieves the details of an existing payout. Supply the unique payout ID
+        from either a payout creation request or the payout list. Stripe returns the
+        corresponding payout information.
+    paths:
+      /v1/payouts/{payout}:
+        get:
+          summary: Get Payouts Payout
+          description: >-
+            Retrieves the details of an existing payout. Supply the unique payout ID
+            from either a payout creation request or the payout list. Stripe returns
+            the corresponding payout information.
+          operationId: getPayoutsPayout
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetPayoutsPayoutRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

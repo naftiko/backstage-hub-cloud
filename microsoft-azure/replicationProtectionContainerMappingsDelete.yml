@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Remove Protection Container Mapping.
+  description: The operation to delete or remove a protection container mapping.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Remove Protection Container Mapping.
+      description: The operation to delete or remove a protection container mapping.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectionContainerMappings/{mappingName}/remove:
+        post:
+          summary: Remove Protection Container Mapping.
+          description: The operation to delete or remove a protection container mapping.
+          operationId: replicationProtectionContainerMappingsDelete
+          responses:
+            '204':
+              description: NoContent

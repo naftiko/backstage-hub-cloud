@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Custom Model
+  description: >-
+    Mark model for deletion. Model artifacts will be permanently removed within
+    a predetermined period.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Custom Model
+      description: >-
+        Mark model for deletion. Model artifacts will be permanently removed within
+        a predetermined period.
+    paths:
+      /custom/models/{modelId}:
+        delete:
+          summary: Delete Custom Model
+          description: >-
+            Mark model for deletion. Model artifacts will be permanently removed
+            within a predetermined period.
+          operationId: deleteCustomModel
+          responses:
+            default:
+              description: >-
+                Response entity accompanying non-successful responses containing
+                additional details about the error.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

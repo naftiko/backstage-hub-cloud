@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Cancel A Long-running Text Analysis Job
+  description: Cancel a long-running Text Analysis job.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Cancel A Long-running Text Analysis Job
+      description: Cancel a long-running Text Analysis job.
+    paths:
+      /analyze-text/jobs/{jobId}:cancel:
+        post:
+          summary: Cancel A Long-running Text Analysis Job
+          description: Cancel a long-running Text Analysis job.
+          operationId: analyzeTextCancelJob
+          responses:
+            default:
+              description: Unexpected error
+              schema:
+                $ref: common.json#/definitions/ErrorResponse

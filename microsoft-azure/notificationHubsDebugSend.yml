@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.notificationhubs Namespaces Namespacename Notificationhubs
+    Notificationhubname Debugsend
+  description: test send a push notification
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.notificationhubs Namespaces Namespacename Notificationhubs
+        Notificationhubname Debugsend
+      description: test send a push notification
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/{notificationHubName}/debugsend:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.notificationhubs Namespaces Namespacename
+            Notificationhubs Notificationhubname Debugsend
+          description: test send a push notification
+          operationId: notificationHubsDebugSend
+          responses:
+            '201':
+              description: push send status
+              schema:
+                $ref: '#/definitions/DebugSendResponse'

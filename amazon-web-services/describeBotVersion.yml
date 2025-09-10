@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Describebotversion
+  description: Provides metadata about a version of a bot.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describebotversion
+      description: Provides metadata about a version of a bot.
+    paths:
+      /bots/{botId}/botversions/{botVersion}/:
+        GET:
+          summary: Describebotversion
+          description: Provides metadata about a version of a bot.
+          operationId: describeBotVersion

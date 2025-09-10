@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listpublickeys
+  description: List all public keys that have been added to CloudFront for this account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listpublickeys
+      description: List all public keys that have been added to CloudFront for this account.
+    paths:
+      /2020-05-31/public-key:
+        GET:
+          summary: Listpublickeys
+          description: >-
+            List all public keys that have been added to CloudFront for this
+            account.
+          operationId: listPublicKeys

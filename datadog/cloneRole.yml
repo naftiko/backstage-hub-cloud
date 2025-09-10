@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A New Role By Cloning An Existing Role
+  description: Clone an existing role
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A New Role By Cloning An Existing Role
+      description: Clone an existing role
+    paths:
+      /api/v2/roles/{role_id}/clone:
+        post:
+          summary: Create A New Role By Cloning An Existing Role
+          description: Clone an existing role
+          operationId: cloneRole
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RoleCloneRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

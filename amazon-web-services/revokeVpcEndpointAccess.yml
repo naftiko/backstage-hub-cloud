@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Revokevpcendpointaccess
+  description: >-
+    Revokes access to an Amazon OpenSearch Service domain that was provided
+    through an interface VPC endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Revokevpcendpointaccess
+      description: >-
+        Revokes access to an Amazon OpenSearch Service domain that was provided
+        through an interface VPC endpoint.
+    paths:
+      /2021-01-01/opensearch/domain/{DomainName}/revokeVpcEndpointAccess:
+        POST:
+          summary: Revokevpcendpointaccess
+          description: >-
+            Revokes access to an Amazon OpenSearch Service domain that was provided
+            through an interface VPC endpoint.
+          operationId: revokeVpcEndpointAccess

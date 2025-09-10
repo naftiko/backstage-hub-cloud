@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Disassociate An Authenticated Domain From A Given User For Users With Up To
+    Five Associated Domains.
+  description: >-
+    **This endpoint allows you to disassociate a specific authenticated domain
+    from a subuser, for users with up to five associated domains.**This
+    functionality allows subusers to send mail using their parent's domain.
+    Authenticated domains can be associated with (i.e. assigned to) subusers
+    kknt, and a subuser can have up to five associated authenticated domains.
+    You can dissociate an authenticated domain from any subuser that has one or
+    more authenticated domains using this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Disassociate An Authenticated Domain From A Given User For Users With Up To
+        Five Associated Domains.
+      description: >-
+        **This endpoint allows you to disassociate a specific authenticated domain
+        from a subuser, for users with up to five associated domains.**This
+        functionality allows subusers to send mail using their parent's domain.
+        Authenticated domains can be associated with (i.e. assigned to) subusers
+        kknt, and a subuser can have up to five associated authenticated domains.
+        You can dissociate an authenticated domain from any subuser that has one or
+        more authenticated domains using this endpoint.
+    paths:
+      /v3/whitelabel/domains/{domain_id}/subuser:
+        delete:
+          summary: >-
+            Disassociate An Authenticated Domain From A Given User For Users With Up
+            To Five Associated Domains.
+          description: >-
+            **This endpoint allows you to disassociate a specific authenticated
+            domain from a subuser, for users with up to five associated
+            domains.**This functionality allows subusers to send mail using their
+            parent's domain. Authenticated domains can be associated with (i.e.
+            assigned to) subusers kknt, and a subuser can have up to five associated
+            authenticated domains. You can dissociate an authenticated domain from
+            any subuser that has one or more authenticated domains using this
+            endpoint.
+          operationId: disassociateSubuserFromDomain
+          responses:
+            '204':
+              description: ''

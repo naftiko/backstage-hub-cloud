@@ -1,0 +1,68 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Startchatcontact
+  description: >-
+    Initiates a flow to start a new chat for the customer. Response of this API
+    provides a token required to obtain credentials from the
+    CreateParticipantConnection API in the Amazon Connect Participant Service.
+    When a new chat contact is successfully created, clients must subscribe to
+    the participant’s connection for the created chat within 5 minutes. This is
+    achieved by invoking CreateParticipantConnection with WEBSOCKET and
+    CONNECTION_CREDENTIALS.  A 429 error occurs in the following situations:  
+    API rate limit is exceeded. API TPS throttling returns a TooManyRequests
+    exception.   The quota for concurrent active chats is exceeded. Active chat
+    throttling returns a LimitExceededException.   If you use the
+    ChatDurationInMinutes parameter and receive a 400 error, your account may
+    not support the ability to configure custom chat durations. For more
+    information, contact Amazon Web Services Support.  For more information
+    about chat, see Chat in the Amazon Connect Administrator Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startchatcontact
+      description: >-
+        Initiates a flow to start a new chat for the customer. Response of this API
+        provides a token required to obtain credentials from the
+        CreateParticipantConnection API in the Amazon Connect Participant Service.
+        When a new chat contact is successfully created, clients must subscribe to
+        the participant’s connection for the created chat within 5 minutes. This is
+        achieved by invoking CreateParticipantConnection with WEBSOCKET and
+        CONNECTION_CREDENTIALS.  A 429 error occurs in the following situations:  
+        API rate limit is exceeded. API TPS throttling returns a TooManyRequests
+        exception.   The quota for concurrent active chats is exceeded. Active chat
+        throttling returns a LimitExceededException.   If you use the
+        ChatDurationInMinutes parameter and receive a 400 error, your account may
+        not support the ability to configure custom chat durations. For more
+        information, contact Amazon Web Services Support.  For more information
+        about chat, see Chat in the Amazon Connect Administrator Guide.
+    paths:
+      /contact/chat:
+        PUT:
+          summary: Startchatcontact
+          description: >-
+            Initiates a flow to start a new chat for the customer. Response of this
+            API provides a token required to obtain credentials from the
+            CreateParticipantConnection API in the Amazon Connect Participant
+            Service. When a new chat contact is successfully created, clients must
+            subscribe to the participant’s connection for the created chat within 5
+            minutes. This is achieved by invoking CreateParticipantConnection with
+            WEBSOCKET and CONNECTION_CREDENTIALS.  A 429 error occurs in the
+            following situations:   API rate limit is exceeded. API TPS throttling
+            returns a TooManyRequests exception.   The quota for concurrent active
+            chats is exceeded. Active chat throttling returns a
+            LimitExceededException.   If you use the ChatDurationInMinutes parameter
+            and receive a 400 error, your account may not support the ability to
+            configure custom chat durations. For more information, contact Amazon
+            Web Services Support.  For more information about chat, see Chat in the
+            Amazon Connect Administrator Guide.
+          operationId: startChatContact

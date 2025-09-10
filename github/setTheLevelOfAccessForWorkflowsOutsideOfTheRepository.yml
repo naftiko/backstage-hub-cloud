@@ -1,0 +1,64 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Set The Level Of Access For Workflows Outside Of The Repository
+  description: >-
+    Sets the level of access that workflows outside of the repository have to
+    actions and reusable workflows in the repository.This endpoint only applies
+    to internal and private repositories.For more information, see "[Allowing
+    access to components in a private
+    repository](https://docs.github.com/enterprise-server@3.9/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository)"
+    and"[Allowing access to components in an internal
+    repository](https://docs.github.com/enterprise-server@3.9/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)."OAuth
+    app tokens and personal access tokens (classic) need the `repo` scope to use
+    this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Set The Level Of Access For Workflows Outside Of The Repository
+      description: >-
+        Sets the level of access that workflows outside of the repository have to
+        actions and reusable workflows in the repository.This endpoint only applies
+        to internal and private repositories.For more information, see "[Allowing
+        access to components in a private
+        repository](https://docs.github.com/enterprise-server@3.9/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository)"
+        and"[Allowing access to components in an internal
+        repository](https://docs.github.com/enterprise-server@3.9/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)."OAuth
+        app tokens and personal access tokens (classic) need the `repo` scope to use
+        this endpoint.
+    paths:
+      /repos/{owner}/{repo}/actions/permissions/access:
+        put:
+          summary: Set The Level Of Access For Workflows Outside Of The Repository
+          description: >-
+            Sets the level of access that workflows outside of the repository have
+            to actions and reusable workflows in the repository.This endpoint only
+            applies to internal and private repositories.For more information, see
+            "[Allowing access to components in a private
+            repository](https://docs.github.com/enterprise-server@3.9/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository)"
+            and"[Allowing access to components in an internal
+            repository](https://docs.github.com/enterprise-server@3.9/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)."OAuth
+            app tokens and personal access tokens (classic) need the `repo` scope to
+            use this endpoint.
+          operationId: setTheLevelOfAccessForWorkflowsOutsideOfTheRepository
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/actions-workflow-access-to-repository'
+                examples:
+                  default:
+                    $ref: '#/components/examples/actions-workflow-access-to-repository'
+          responses:
+            '204':
+              description: Response

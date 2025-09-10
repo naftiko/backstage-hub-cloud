@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post User Permanentdelete
+  description: Delete a user from Zoom system permanently.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post User Permanentdelete
+      description: Delete a user from Zoom system permanently.
+    paths:
+      /user/permanentdelete:
+        post:
+          summary: Post User Permanentdelete
+          description: Delete a user from Zoom system permanently.
+          operationId: userPermanentdelete
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: The user’s user id.
+                    email:
+                      type: string
+                      description: >-
+                        The user’s email address. Must have id or email, if given
+                        id, the email is ignored.
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    id: unique_id
+                    email: email_address
+                    deleted_at: '2013-09-02T12:00:00.000Z'

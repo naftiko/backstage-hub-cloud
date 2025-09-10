@@ -1,0 +1,68 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Remaining Ips Count
+  description: >-
+    **This endpoint gets amount of IP Addresses that can still be created during
+    a given period and the price of those IPs.**
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Remaining Ips Count
+      description: >-
+        **This endpoint gets amount of IP Addresses that can still be created during
+        a given period and the price of those IPs.**
+    paths:
+      /v3/ips/remaining:
+        get:
+          summary: Get Remaining Ips Count
+          description: >-
+            **This endpoint gets amount of IP Addresses that can still be created
+            during a given period and the price of those IPs.**
+          operationId: listRemainingIpCount
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            remaining:
+                              type: integer
+                              description: >-
+                                The number of IPs that can still be added to the
+                                user.
+                            period:
+                              type: string
+                              description: The length of time until user can add more IPs.
+                            price_per_ip:
+                              type: number
+                              description: The current cost to add an IP.
+                          required:
+                            - remaining
+                            - period
+                            - price_per_ip
+                    required:
+                      - results
+                  examples:
+                    response:
+                      value:
+                        results:
+                          - remaining: 2
+                            period: month
+                            price_per_ip: 20

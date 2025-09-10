@@ -1,0 +1,93 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Search Content By Cql
+  description: >-
+    Returns the list of content that matches a Confluence Query Language(CQL)
+    query. For information on CQL, see:[Advanced searching using
+    CQL](https://developer.atlassian.com/cloud/confluence/advanced-searching-using-cql/).Example
+    initial
+    call:```/wiki/rest/api/content/search?cql=type=page&limit=25```Example
+    response:```{  "results": [    { ... },    { ... },    ...    { ... }  ], 
+    "limit": 25,  "size": 25,  ...  "_links": {    "base": "",    "context":
+    "",    "next":
+    "/rest/api/content/search?cql=type=page&limit=25&cursor=raNDoMsTRiNg",   
+    "self": ""  }}```When additional results are available, returns `next` and
+    `prev` URLs to retrieve them in subsequent calls. The URLs each contain a
+    cursor that points to the appropriate set of results. Use `limit` to specify
+    the number of results returned in each call.Example subsequent call (taken
+    from example
+    response):```/wiki/rest/api/content/search?cql=type=page&limit=25&cursor=raNDoMsTRiNg```The
+    response to this will have a `prev` URL similar to the `next` in the example
+    response.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to access the Confluence site ('Can use' global
+    permission).Only content that the user has permission to view will be
+    returned.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Search Content By Cql
+      description: >-
+        Returns the list of content that matches a Confluence Query Language(CQL)
+        query. For information on CQL, see:[Advanced searching using
+        CQL](https://developer.atlassian.com/cloud/confluence/advanced-searching-using-cql/).Example
+        initial
+        call:```/wiki/rest/api/content/search?cql=type=page&limit=25```Example
+        response:```{  "results": [    { ... },    { ... },    ...    { ... }  ], 
+        "limit": 25,  "size": 25,  ...  "_links": {    "base": "",    "context":
+        "",    "next":
+        "/rest/api/content/search?cql=type=page&limit=25&cursor=raNDoMsTRiNg",   
+        "self": ""  }}```When additional results are available, returns `next` and
+        `prev` URLs to retrieve them in subsequent calls. The URLs each contain a
+        cursor that points to the appropriate set of results. Use `limit` to specify
+        the number of results returned in each call.Example subsequent call (taken
+        from example
+        response):```/wiki/rest/api/content/search?cql=type=page&limit=25&cursor=raNDoMsTRiNg```The
+        response to this will have a `prev` URL similar to the `next` in the example
+        response.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to access the Confluence site ('Can use' global
+        permission).Only content that the user has permission to view will be
+        returned.
+    paths:
+      /wiki/rest/api/content/search:
+        get:
+          summary: Search Content By Cql
+          description: >-
+            Returns the list of content that matches a Confluence Query
+            Language(CQL) query. For information on CQL, see:[Advanced searching
+            using
+            CQL](https://developer.atlassian.com/cloud/confluence/advanced-searching-using-cql/).Example
+            initial
+            call:```/wiki/rest/api/content/search?cql=type=page&limit=25```Example
+            response:```{  "results": [    { ... },    { ... },    ...    { ... } 
+            ],  "limit": 25,  "size": 25,  ...  "_links": {    "base": "",   
+            "context": "",    "next":
+            "/rest/api/content/search?cql=type=page&limit=25&cursor=raNDoMsTRiNg",   
+            "self": ""  }}```When additional results are available, returns `next`
+            and `prev` URLs to retrieve them in subsequent calls. The URLs each
+            contain a cursor that points to the appropriate set of results. Use
+            `limit` to specify the number of results returned in each call.Example
+            subsequent call (taken from example
+            response):```/wiki/rest/api/content/search?cql=type=page&limit=25&cursor=raNDoMsTRiNg```The
+            response to this will have a `prev` URL similar to the `next` in the
+            example
+            response.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to access the Confluence site ('Can use' global
+            permission).Only content that the user has permission to view will be
+            returned.
+          operationId: searchContentByCQL
+          responses:
+            '401':
+              description: |-
+                Returned if the authentication credentials are incorrect or missing
+                from the request.
+              content: {}

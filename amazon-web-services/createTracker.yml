@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Createtracker
+  description: >-
+    Creates a tracker resource in your Amazon Web Services account, which lets
+    you retrieve current and historical location of devices.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createtracker
+      description: >-
+        Creates a tracker resource in your Amazon Web Services account, which lets
+        you retrieve current and historical location of devices.
+    paths:
+      /tracking/v0/trackers:
+        POST:
+          summary: Createtracker
+          description: >-
+            Creates a tracker resource in your Amazon Web Services account, which
+            lets you retrieve current and historical location of devices.
+          operationId: createTracker

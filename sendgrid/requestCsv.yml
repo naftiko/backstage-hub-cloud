@@ -1,0 +1,72 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Request Csv
+  description: >-
+    This request will kick off a backend process to generate a CSV file. Once
+    generated, the worker will then send an email for the user download the
+    file. The link will expire in 3 days.The CSV will contain the events from
+    the last 30 days, limited to the last 1 million events maximum. This
+    endpoint will be rate limited to 1 request every 12 hours (rate limit may
+    change).This endpoint is similar to the GET Single Message endpoint - the
+    only difference is that /download is added to indicate that this is a CSV
+    download requests but the same query is used to determine what the CSV
+    should contain.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Request Csv
+      description: >-
+        This request will kick off a backend process to generate a CSV file. Once
+        generated, the worker will then send an email for the user download the
+        file. The link will expire in 3 days.The CSV will contain the events from
+        the last 30 days, limited to the last 1 million events maximum. This
+        endpoint will be rate limited to 1 request every 12 hours (rate limit may
+        change).This endpoint is similar to the GET Single Message endpoint - the
+        only difference is that /download is added to indicate that this is a CSV
+        download requests but the same query is used to determine what the CSV
+        should contain.
+    paths:
+      /v3/messages/download:
+        post:
+          summary: Request Csv
+          description: >-
+            This request will kick off a backend process to generate a CSV file.
+            Once generated, the worker will then send an email for the user download
+            the file. The link will expire in 3 days.The CSV will contain the events
+            from the last 30 days, limited to the last 1 million events maximum.
+            This endpoint will be rate limited to 1 request every 12 hours (rate
+            limit may change).This endpoint is similar to the GET Single Message
+            endpoint - the only difference is that /download is added to indicate
+            that this is a CSV download requests but the same query is used to
+            determine what the CSV should contain.
+          operationId: requestCsv
+          responses:
+            '500':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      errors:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            message:
+                              type: string
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - message: internal server error

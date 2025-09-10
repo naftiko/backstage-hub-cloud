@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Avatar Image By Type
+  description: >-
+    Returns the default project or issue type avatar image.This operation can be
+    accessed anonymously.**[Permissions](#permissions) required:** None.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Avatar Image By Type
+      description: >-
+        Returns the default project or issue type avatar image.This operation can be
+        accessed anonymously.**[Permissions](#permissions) required:** None.
+    paths:
+      /rest/api/3/universal_avatar/view/type/{type}:
+        get:
+          summary: Get Avatar Image By Type
+          description: >-
+            Returns the default project or issue type avatar image.This operation
+            can be accessed anonymously.**[Permissions](#permissions) required:**
+            None.
+          operationId: getAvatarImageByType
+          responses:
+            '404':
+              content:
+                '*/*':
+                  example: '{"errorMessages":["Human readable error message"],"errors":{}}'
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorCollection'
+                image/png:
+                  example: '{"errorMessages":["Human readable error message"],"errors":{}}'
+                image/svg+xml:
+                  example: '{"errorMessages":["Human readable error message"],"errors":{}}'
+              description: >-
+                Returned if an avatar is not found or an avatar matching the
+                requested size is not found.

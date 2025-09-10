@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A User
+  description: >-
+    Edit a user. Can only be used with an application key belongingto an
+    administrator user.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A User
+      description: >-
+        Edit a user. Can only be used with an application key belongingto an
+        administrator user.
+    paths:
+      /api/v2/users/{user_id}:
+        patch:
+          summary: Update A User
+          description: >-
+            Edit a user. Can only be used with an application key belongingto an
+            administrator user.
+          operationId: updateUser
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/UserUpdateRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

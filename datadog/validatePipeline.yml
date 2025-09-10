@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Validate An Observability Pipeline
+  description: >-
+    Validates a pipeline configuration without creating or updating any
+    resources.Returns a list of validation errors, if any.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Validate An Observability Pipeline
+      description: >-
+        Validates a pipeline configuration without creating or updating any
+        resources.Returns a list of validation errors, if any.
+    paths:
+      /api/v2/remote_config/products/obs_pipelines/pipelines/validate:
+        post:
+          summary: Validate An Observability Pipeline
+          description: >-
+            Validates a pipeline configuration without creating or updating any
+            resources.Returns a list of validation errors, if any.
+          operationId: validatePipeline
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ObservabilityPipelineSpec'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

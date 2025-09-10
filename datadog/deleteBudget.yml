@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Budget
+  description: Delete a budget.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Budget
+      description: Delete a budget.
+    paths:
+      /api/v2/cost/budget/{budget_id}:
+        delete:
+          summary: Delete A Budget
+          description: Delete a budget.
+          operationId: deleteBudget
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

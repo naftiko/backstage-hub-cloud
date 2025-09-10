@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Sendmessages
+  description: Creates and sends a direct message.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Sendmessages
+      description: Creates and sends a direct message.
+    paths:
+      /v1/apps/{application-id}/messages:
+        POST:
+          summary: Sendmessages
+          description: Creates and sends a direct message.
+          operationId: sendMessages

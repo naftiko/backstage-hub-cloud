@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listlensshares
+  description: List the lens shares associated with the lens.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listlensshares
+      description: List the lens shares associated with the lens.
+    paths:
+      /lenses/{LensAlias}/shares:
+        GET:
+          summary: Listlensshares
+          description: List the lens shares associated with the lens.
+          operationId: listLensShares

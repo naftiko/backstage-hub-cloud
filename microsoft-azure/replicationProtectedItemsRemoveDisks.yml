@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Removes Disk(s).
+  description: Operation to remove disk(s) from the replication protected item.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Removes Disk(s).
+      description: Operation to remove disk(s) from the replication protected item.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicatedProtectedItemName}/removeDisks:
+        post:
+          summary: Removes Disk(s).
+          description: Operation to remove disk(s) from the replication protected item.
+          operationId: replicationProtectedItemsRemoveDisks
+          responses:
+            '202':
+              description: Accepted

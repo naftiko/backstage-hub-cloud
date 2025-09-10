@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.storsimple Managers Managername Devices Devicename
+    Authorizeforserviceencryptionkeyrollover
+  description: Authorizes the specified device for service data encryption key rollover.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.storsimple Managers Managername Devices Devicename
+        Authorizeforserviceencryptionkeyrollover
+      description: Authorizes the specified device for service data encryption key rollover.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorSimple/managers/{managerName}/devices/{deviceName}/authorizeForServiceEncryptionKeyRollover:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.storsimple Managers Managername Devices Devicename
+            Authorizeforserviceencryptionkeyrollover
+          description: >-
+            Authorizes the specified device for service data encryption key
+            rollover.
+          operationId: devicesAuthorizeForServiceEncryptionKeyRollover
+          responses:
+            '204':
+              description: >-
+                Successfully authorized the device for service encryption key
+                rollover

@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Describeoutboundcrossclustersearchconnections
+  description: Lists all the outbound cross-cluster search connections for a source domain.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeoutboundcrossclustersearchconnections
+      description: Lists all the outbound cross-cluster search connections for a source domain.
+    paths:
+      /2015-01-01/es/ccs/outboundConnection/search:
+        POST:
+          summary: Describeoutboundcrossclustersearchconnections
+          description: >-
+            Lists all the outbound cross-cluster search connections for a source
+            domain.
+          operationId: describeOutboundCrossClusterSearchConnections

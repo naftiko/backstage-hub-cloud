@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.desktopvirtualization Scalingplans Scalingplanname
+  description: Create or update a scaling plan.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.desktopvirtualization Scalingplans Scalingplanname
+      description: Create or update a scaling plan.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/scalingPlans/{scalingPlanName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.desktopvirtualization Scalingplans Scalingplanname
+          description: Create or update a scaling plan.
+          operationId: scalingPlansCreate
+          responses:
+            default:
+              description: Automation error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

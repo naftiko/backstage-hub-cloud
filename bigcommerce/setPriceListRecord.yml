@@ -1,0 +1,145 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Set Price List Record By Currency Code
+  description: >-
+    Creates or updates a *Price List Record* using the currency code.**Notes***
+    Supports up to 40 simultaneous PUT requests. Running more than the allowed
+    number of requests concurrently on the same store will result in a `429`
+    status error, and your additional requests will fail.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Set Price List Record By Currency Code
+      description: >-
+        Creates or updates a *Price List Record* using the currency code.**Notes***
+        Supports up to 40 simultaneous PUT requests. Running more than the allowed
+        number of requests concurrently on the same store will result in a `429`
+        status error, and your additional requests will fail.
+    paths:
+      /pricelists/{price_list_id}/records/{variant_id}/{currency_code}:
+        put:
+          summary: Set Price List Record By Currency Code
+          description: >-
+            Creates or updates a *Price List Record* using the currency
+            code.**Notes*** Supports up to 40 simultaneous PUT requests. Running
+            more than the allowed number of requests concurrently on the same store
+            will result in a `429` status error, and your additional requests will
+            fail.
+          operationId: setPriceListRecord
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  title: Price Record Put
+                  allOf:
+                    - title: PriceRecord Base
+                      type: object
+                      properties:
+                        price:
+                          type: number
+                          description: >
+                            The list price for the variant mapped in a Price List.
+                            Overrides any existing or Catalog list price for the
+                            variant/product.
+                          format: double
+                          example: 3.99
+                          x-required:
+                            - put
+                        sale_price:
+                          type: number
+                          description: >
+                            The sale price for the variant mapped in a Price List.
+                            Overrides any existing or Catalog sale price for the
+                            variant/product. If empty, the sale price will be
+                            treated as not being set on this variant.
+                          format: double
+                        retail_price:
+                          type: number
+                          description: >
+                            The retail price for the variant mapped in a Price List.
+                            Overrides any existing or Catalog retail price for the
+                            variant/product.  If empty, the retail price will be
+                            treated as not being set on this variant.
+                          format: double
+                        map_price:
+                          type: number
+                          description: >
+                            The MAP (Minimum Advertised Price) for the variant
+                            mapped in a Price List. Overrides any existing or
+                            Catalog MAP price for the variant/product. If empty, the
+                            MAP price will be treated as not being set on this
+                            variant.
+                          format: double
+                        bulk_pricing_tiers:
+                          type: array
+                          items:
+                            title: Bulk Pricing Tier
+                            type: object
+                            properties:
+                              quantity_min:
+                                type: integer
+                                description: >
+                                  The minimum quantity of associated variant in the
+                                  cart needed to qualify for this tiers pricing.
+                                example: 1
+                              quantity_max:
+                                type: integer
+                                description: >
+                                  The maximum allowed quantity of associated variant
+                                  in the cart to qualify for this tiers pricing.
+                                example: 10
+                              type:
+                                type: string
+                                description: >
+                                  The type of adjustment that is made. Acceptable
+                                  values: price – the adjustment amount per product;
+                                  percent – the adjustment as a percentage of the
+                                  original price; fixed – the adjusted absolute
+                                  price of the product.
+                                example: price
+                                enum:
+                                  - fixed
+                                  - price
+                                  - percent
+                              amount:
+                                type: number
+                                description: >
+                                  The price adjustment amount. This value along with
+                                  the type will decide the price per variant for the
+                                  pricing tier.
+                                format: double
+                                example: 3
+                        sku:
+                          type: string
+                          description: >
+                            The SKU code associated with this `Price Record` if
+                            requested and it exists.
+                          example: SMB-123
+                      description: Common Price Record properties.
+          responses:
+            '429':
+              description: |
+                Allowed number of requests exceeded.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  examples:
+                    response:
+                      value:
+                        status: 429
+                        title: Too many requests
+                        type: /api-docs/getting-started/api-status-codes
+                        errors: {}
+                examples: {}

@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get The Network Endpoints Of All Outbound Dependencies Of An App Service
+    Environment.
+  description: >-
+    Description for Get the network endpoints of all outbound dependencies of an
+    App Service Environment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get The Network Endpoints Of All Outbound Dependencies Of An App Service
+        Environment.
+      description: >-
+        Description for Get the network endpoints of all outbound dependencies of an
+        App Service Environment.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/outboundNetworkDependenciesEndpoints:
+        get:
+          summary: >-
+            Get The Network Endpoints Of All Outbound Dependencies Of An App Service
+            Environment.
+          description: >-
+            Description for Get the network endpoints of all outbound dependencies
+            of an App Service Environment.
+          operationId: appServiceEnvironmentsGetOutboundNetworkDependenciesEndpoints
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

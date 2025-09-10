@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Component
+  description: >-
+    Returns a component.This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** *Browse projects*
+    [project permission](https://confluence.atlassian.com/x/yodKLg) for project
+    containing the component.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Component
+      description: >-
+        Returns a component.This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** *Browse projects*
+        [project permission](https://confluence.atlassian.com/x/yodKLg) for project
+        containing the component.
+    paths:
+      /rest/api/3/component/{id}:
+        get:
+          summary: Get Component
+          description: >-
+            Returns a component.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** *Browse projects*
+            [project permission](https://confluence.atlassian.com/x/yodKLg) for
+            project containing the component.
+          operationId: getComponent
+          responses:
+            '404':
+              description: >-
+                Returned if the component is not found or the user does not have
+                permission to browse the project containing the component.

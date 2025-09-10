@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Recipients
+  description: >-
+    **This endpoint allows you to deletes one or more recipients.**The body of
+    an API call to this endpoint must include an array of recipient IDs of the
+    recipients you want to delete.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Recipients
+      description: >-
+        **This endpoint allows you to deletes one or more recipients.**The body of
+        an API call to this endpoint must include an array of recipient IDs of the
+        recipients you want to delete.
+    paths:
+      /v3/contactdb/recipients:
+        delete:
+          summary: Delete Recipients
+          description: >-
+            **This endpoint allows you to deletes one or more recipients.**The body
+            of an API call to this endpoint must include an array of recipient IDs
+            of the recipients you want to delete.
+          operationId: deleteRecipients
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: string
+                  example:
+                    - recipient_id1
+                    - recipient_id2
+          responses:
+            '401':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - field: null
+                            message: authorization required

@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add Confluent Account
+  description: Create a Confluent account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add Confluent Account
+      description: Create a Confluent account.
+    paths:
+      /api/v2/integrations/confluent-cloud/accounts:
+        post:
+          summary: Add Confluent Account
+          description: Create a Confluent account.
+          operationId: createConfluentAccount
+          requestBody:
+            description: Confluent payload
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ConfluentAccountCreateRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

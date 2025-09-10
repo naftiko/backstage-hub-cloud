@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete An Issue
+  description: Deletes the specified issue. This requires write access to therepository.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete An Issue
+      description: Deletes the specified issue. This requires write access to therepository.
+    paths:
+      /repositories/{workspace}/{repo_slug}/issues/{issue_id}:
+        delete:
+          summary: Delete An Issue
+          description: >-
+            Deletes the specified issue. This requires write access to
+            therepository.
+          operationId: deleteanissue
+          responses:
+            '404':
+              description: >-
+                The specified repository or issue does not exist or does not have
+                the issue tracker enabled.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

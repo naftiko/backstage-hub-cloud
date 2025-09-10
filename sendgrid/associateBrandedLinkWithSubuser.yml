@@ -1,0 +1,89 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Associate A Branded Link With A Subuser
+  description: >-
+    **This endpoint allows you to associate a branded link with a subuser
+    account.**Link branding can be associated with subusers from the parent
+    account. This functionality allows subusers to send mail using their
+    parent's link branding. To associate link branding, the parent account must
+    first create a branded link and validate it. The parent may then associate
+    that branded link with a subuser via the API or the [Subuser Management page
+    of the Twilio SendGrid App](https://app.sendgrid.com/settings/subusers).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Associate A Branded Link With A Subuser
+      description: >-
+        **This endpoint allows you to associate a branded link with a subuser
+        account.**Link branding can be associated with subusers from the parent
+        account. This functionality allows subusers to send mail using their
+        parent's link branding. To associate link branding, the parent account must
+        first create a branded link and validate it. The parent may then associate
+        that branded link with a subuser via the API or the [Subuser Management page
+        of the Twilio SendGrid App](https://app.sendgrid.com/settings/subusers).
+    paths:
+      /v3/whitelabel/links/{link_id}/subuser:
+        post:
+          summary: Associate A Branded Link With A Subuser
+          description: >-
+            **This endpoint allows you to associate a branded link with a subuser
+            account.**Link branding can be associated with subusers from the parent
+            account. This functionality allows subusers to send mail using their
+            parent's link branding. To associate link branding, the parent account
+            must first create a branded link and validate it. The parent may then
+            associate that branded link with a subuser via the API or the [Subuser
+            Management page of the Twilio SendGrid
+            App](https://app.sendgrid.com/settings/subusers).
+          operationId: associateBrandedLinkWithSubuser
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                      description: >-
+                        The username of the subuser account that you want to
+                        associate the branded link with.
+                  example:
+                    username: jane@example.com
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/LinkBranding200'
+                  examples:
+                    response:
+                      value:
+                        id: 1
+                        domain: example.com
+                        subdomain: mail
+                        username: john@example.com
+                        user_id: 7
+                        default: false
+                        valid: true
+                        legacy: false
+                        dns:
+                          domain_cname:
+                            valid: true
+                            type: cname
+                            host: mail.example.com
+                            data: sendgrid.net
+                          owner_cname:
+                            valid: true
+                            type: cname
+                            host: 7.example.com
+                            data: sendgrid.net

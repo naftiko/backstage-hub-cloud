@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listfleetmetrics
+  description: >-
+    Lists all your fleet metrics.  Requires permission to access the
+    ListFleetMetrics action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listfleetmetrics
+      description: >-
+        Lists all your fleet metrics.  Requires permission to access the
+        ListFleetMetrics action.
+    paths:
+      /fleet-metrics:
+        GET:
+          summary: Listfleetmetrics
+          description: >-
+            Lists all your fleet metrics.  Requires permission to access the
+            ListFleetMetrics action.
+          operationId: listFleetMetrics

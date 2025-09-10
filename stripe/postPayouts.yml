@@ -1,0 +1,70 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Payouts
+  description: >-
+    To send funds to your own bank account, create a new payout object. Your
+    Stripe balance must cover the payout amount. If it doesn’t, you receive an
+    “Insufficient Funds” error.If your API key is in test mode, money won’t
+    actually be sent, though every other action occurs as if you’re in live
+    mode.If you create a manual payout on a Stripe account that uses multiple
+    payment source types, you need to specify the source type balance that the
+    payout draws from. The balance object details available and pending amounts
+    by source type.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Payouts
+      description: >-
+        To send funds to your own bank account, create a new payout object. Your
+        Stripe balance must cover the payout amount. If it doesn’t, you receive an
+        “Insufficient Funds” error.If your API key is in test mode, money won’t
+        actually be sent, though every other action occurs as if you’re in live
+        mode.If you create a manual payout on a Stripe account that uses multiple
+        payment source types, you need to specify the source type balance that the
+        payout draws from. The balance object details available and pending amounts
+        by source type.
+    paths:
+      /v1/payouts:
+        post:
+          summary: Post Payouts
+          description: >-
+            To send funds to your own bank account, create a new payout object. Your
+            Stripe balance must cover the payout amount. If it doesn’t, you receive
+            an “Insufficient Funds” error.If your API key is in test mode, money
+            won’t actually be sent, though every other action occurs as if you’re in
+            live mode.If you create a manual payout on a Stripe account that uses
+            multiple payment source types, you need to specify the source type
+            balance that the payout draws from. The balance object details available
+            and pending amounts by source type.
+          operationId: postPayouts
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostPayoutsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Changes The Number Of Compute Nodes That Are Assigned To A Pool.
+  description: >-
+    You can only resize a Pool when its allocation state is steady. If the Pool
+    isalready resizing, the request fails with status code 409. When you resize
+    aPool, the Pool's allocation state changes from steady to resizing. You
+    cannotresize Pools which are configured for automatic scaling. If you try to
+    do this,the Batch service returns an error 409. If you resize a Pool
+    downwards, theBatch service chooses which Compute Nodes to remove. To remove
+    specific ComputeNodes, use the Pool remove Compute Nodes API instead.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Changes The Number Of Compute Nodes That Are Assigned To A Pool.
+      description: >-
+        You can only resize a Pool when its allocation state is steady. If the Pool
+        isalready resizing, the request fails with status code 409. When you resize
+        aPool, the Pool's allocation state changes from steady to resizing. You
+        cannotresize Pools which are configured for automatic scaling. If you try to
+        do this,the Batch service returns an error 409. If you resize a Pool
+        downwards, theBatch service chooses which Compute Nodes to remove. To remove
+        specific ComputeNodes, use the Pool remove Compute Nodes API instead.
+    paths:
+      /pools/{poolId}/resize:
+        post:
+          summary: Changes The Number Of Compute Nodes That Are Assigned To A Pool.
+          description: >-
+            You can only resize a Pool when its allocation state is steady. If the
+            Pool isalready resizing, the request fails with status code 409. When
+            you resize aPool, the Pool's allocation state changes from steady to
+            resizing. You cannotresize Pools which are configured for automatic
+            scaling. If you try to do this,the Batch service returns an error 409.
+            If you resize a Pool downwards, theBatch service chooses which Compute
+            Nodes to remove. To remove specific ComputeNodes, use the Pool remove
+            Compute Nodes API instead.
+          operationId: batchResizePool
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

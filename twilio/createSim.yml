@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Sims
+  description: Register a Super SIM to your Account
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Sims
+      description: Register a Super SIM to your Account
+    paths:
+      /v1/Sims:
+        post:
+          summary: Post Sims
+          description: Register a Super SIM to your Account
+          operationId: createSim
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateSimRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/supersim.v1.sim'
+              description: Created

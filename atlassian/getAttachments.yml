@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Attachments
+  description: >-
+    Deprecated, use [Confluence's v2
+    API](https://developer.atlassian.com/cloud/confluence/rest/v2/intro/).Returns
+    the attachments for a piece of content.By default, the following objects are
+    expanded:
+    `metadata`.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to view the content. If the content is a blog post,
+    'View' permissionfor the space is required.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Attachments
+      description: >-
+        Deprecated, use [Confluence's v2
+        API](https://developer.atlassian.com/cloud/confluence/rest/v2/intro/).Returns
+        the attachments for a piece of content.By default, the following objects are
+        expanded:
+        `metadata`.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to view the content. If the content is a blog post,
+        'View' permissionfor the space is required.
+    paths:
+      /wiki/rest/api/content/{id}/child/attachment:
+        get:
+          summary: Get Attachments
+          description: >-
+            Deprecated, use [Confluence's v2
+            API](https://developer.atlassian.com/cloud/confluence/rest/v2/intro/).Returns
+            the attachments for a piece of content.By default, the following objects
+            are expanded:
+            `metadata`.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to view the content. If the content is a blog
+            post, 'View' permissionfor the space is required.
+          operationId: getAttachments
+          responses:
+            '404':
+              description: >-
+                Returned if;
+
+
+                - There is no parent content with the given ID.
+
+                - The calling user does not have permission to view the parent
+                content.
+              content: {}

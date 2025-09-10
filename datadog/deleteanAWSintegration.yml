@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete An Aws Integration
+  description: >-
+    Delete a Datadog-AWS integration matching the specified `account_id` and
+    `role_name parameters`.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete An Aws Integration
+      description: >-
+        Delete a Datadog-AWS integration matching the specified `account_id` and
+        `role_name parameters`.
+    paths:
+      /api/v1/integration/aws:
+        delete:
+          summary: Delete An Aws Integration
+          description: >-
+            Delete a Datadog-AWS integration matching the specified `account_id` and
+            `role_name parameters`.
+          operationId: deleteanAWSintegration
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

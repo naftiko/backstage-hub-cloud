@@ -1,0 +1,88 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update An Attribute For A Scim Enterprise Group
+  description: >-
+    **Note:** The SCIM API endpoints for enterprise accounts are currently in
+    *private* beta and are subject to change.Update a provisioned group’s
+    individual attributes.To change a group’s values, you must provide a
+    specific Operations JSON format that contains at least one of the add,
+    remove, or replace operations. For examples and more information on the SCIM
+    operations format, see the [SCIM
+    specification](https://tools.ietf.org/html/rfc7644#section-3.5.2).  Update
+    can also be used to add group memberships.Group memberships can be sent one
+    at a time or in batches for faster performance. **Note**: The memberships
+    are referenced through a local user `id`, and the user will need to be
+    created before they are referenced here.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update An Attribute For A Scim Enterprise Group
+      description: >-
+        **Note:** The SCIM API endpoints for enterprise accounts are currently in
+        *private* beta and are subject to change.Update a provisioned group’s
+        individual attributes.To change a group’s values, you must provide a
+        specific Operations JSON format that contains at least one of the add,
+        remove, or replace operations. For examples and more information on the SCIM
+        operations format, see the [SCIM
+        specification](https://tools.ietf.org/html/rfc7644#section-3.5.2).  Update
+        can also be used to add group memberships.Group memberships can be sent one
+        at a time or in batches for faster performance. **Note**: The memberships
+        are referenced through a local user `id`, and the user will need to be
+        created before they are referenced here.
+    paths:
+      /scim/v2/Groups/{scim_group_id}:
+        patch:
+          summary: Update An Attribute For A Scim Enterprise Group
+          description: >-
+            **Note:** The SCIM API endpoints for enterprise accounts are currently
+            in *private* beta and are subject to change.Update a provisioned group’s
+            individual attributes.To change a group’s values, you must provide a
+            specific Operations JSON format that contains at least one of the add,
+            remove, or replace operations. For examples and more information on the
+            SCIM operations format, see the [SCIM
+            specification](https://tools.ietf.org/html/rfc7644#section-3.5.2). 
+            Update can also be used to add group memberships.Group memberships can
+            be sent one at a time or in batches for faster performance. **Note**:
+            The memberships are referenced through a local user `id`, and the user
+            will need to be created before they are referenced here.
+          operationId: enterpriseadminupdateattributeforenterprisegroup
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/patch-schema'
+                examples:
+                  updateGroup:
+                    summary: Update Group
+                    value:
+                      schemas:
+                        - urn:ietf:params:scim:api:messages:2.0:PatchOp
+                      Operations:
+                        - op: replace
+                          path: displayName
+                          value: Employees
+                  addMembers:
+                    summary: Add Members
+                    value:
+                      schemas:
+                        - urn:ietf:params:scim:api:messages:2.0:PatchOp
+                      Operations:
+                        - op: add
+                          path: members
+                          value:
+                            - value: 879db59-3bdf-4490-ad68-ab880a2694745
+                            - value: 0db508eb-91e2-46e4-809c-30dcbda0c685
+          responses:
+            '500':
+              $ref: '#/components/responses/scim_internal_error'

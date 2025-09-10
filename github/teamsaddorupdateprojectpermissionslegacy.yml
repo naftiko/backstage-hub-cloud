@@ -1,0 +1,77 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add Or Update Team Project Permissions (legacy)
+  description: >-
+    **Deprecation Notice:** This endpoint route is deprecated and will be
+    removed from the Teams API. We recommend migrating your existing code to use
+    the new [Add or update team project
+    permissions](https://docs.github.com/enterprise-server@3.9/rest/teams/teams#add-or-update-team-project-permissions)
+    endpoint.Adds an organization project to a team. To add a project to a team
+    or update the team's permission on a project, the authenticated user must
+    have `admin` permissions for the project. The project and team must be part
+    of the same organization.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add Or Update Team Project Permissions (legacy)
+      description: >-
+        **Deprecation Notice:** This endpoint route is deprecated and will be
+        removed from the Teams API. We recommend migrating your existing code to use
+        the new [Add or update team project
+        permissions](https://docs.github.com/enterprise-server@3.9/rest/teams/teams#add-or-update-team-project-permissions)
+        endpoint.Adds an organization project to a team. To add a project to a team
+        or update the team's permission on a project, the authenticated user must
+        have `admin` permissions for the project. The project and team must be part
+        of the same organization.
+    paths:
+      /teams/{team_id}/projects/{project_id}:
+        put:
+          summary: Add Or Update Team Project Permissions (legacy)
+          description: >-
+            **Deprecation Notice:** This endpoint route is deprecated and will be
+            removed from the Teams API. We recommend migrating your existing code to
+            use the new [Add or update team project
+            permissions](https://docs.github.com/enterprise-server@3.9/rest/teams/teams#add-or-update-team-project-permissions)
+            endpoint.Adds an organization project to a team. To add a project to a
+            team or update the team's permission on a project, the authenticated
+            user must have `admin` permissions for the project. The project and team
+            must be part of the same organization.
+          operationId: teamsaddorupdateprojectpermissionslegacy
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    permission:
+                      type: string
+                      description: >-
+                        The permission to grant to the team for this project.
+                        Default: the team's `permission` attribute will be used to
+                        determine what permission to grant the team on this project.
+                        Note that, if you choose not to pass any parameters, you'll
+                        need to set `Content-Length` to zero when calling this
+                        endpoint. For more information, see "[HTTP
+                        method](https://docs.github.com/enterprise-server@3.9/rest/guides/getting-started-with-the-rest-api#http-method)."
+                      enum:
+                        - read
+                        - write
+                        - admin
+                examples:
+                  default:
+                    summary: Example of setting permission to read
+                    value:
+                      permission: read
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

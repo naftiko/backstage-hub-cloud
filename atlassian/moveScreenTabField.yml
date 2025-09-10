@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Move Screen Tab Field
+  description: >-
+    Moves a screen tab field.If `after` and `position` are provided in the
+    request, `position` is ignored.**[Permissions](#permissions) required:**
+    *Administer Jira* [global
+    permission](https://confluence.atlassian.com/x/x4dKLg).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Move Screen Tab Field
+      description: >-
+        Moves a screen tab field.If `after` and `position` are provided in the
+        request, `position` is ignored.**[Permissions](#permissions) required:**
+        *Administer Jira* [global
+        permission](https://confluence.atlassian.com/x/x4dKLg).
+    paths:
+      /rest/api/3/screens/{screenId}/tabs/{tabId}/fields/{id}/move:
+        post:
+          summary: Move Screen Tab Field
+          description: >-
+            Moves a screen tab field.If `after` and `position` are provided in the
+            request, `position` is ignored.**[Permissions](#permissions) required:**
+            *Administer Jira* [global
+            permission](https://confluence.atlassian.com/x/x4dKLg).
+          operationId: moveScreenTabField
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/MoveFieldBean'
+          responses:
+            '404':
+              description: >-
+                Returned if the screen, screen tab, or field is not found or the
+                field can't be moved to the requested position.

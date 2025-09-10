@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Returns A List Of Assistant Files.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Returns A List Of Assistant Files.
+      description: Needs a more full description created.
+    paths:
+      /assistants/{assistant_id}/files:
+        get:
+          summary: Returns A List Of Assistant Files.
+          description: Needs a more full description created.
+          operationId: listAssistantFiles
+          responses:
+            '200':
+              description: OK
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/listAssistantFilesResponse'

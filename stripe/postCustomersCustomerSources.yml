@@ -1,0 +1,66 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Customers Customer Sources
+  description: >-
+    When you create a new credit card, you must specify a customer or recipient
+    on which to create it.If the card’s owner has no default card, then the new
+    card will become the default.However, if the owner already has a default,
+    then it will not change.To change the default, you should update the
+    customer to have a new default_source.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Customers Customer Sources
+      description: >-
+        When you create a new credit card, you must specify a customer or recipient
+        on which to create it.If the card’s owner has no default card, then the new
+        card will become the default.However, if the owner already has a default,
+        then it will not change.To change the default, you should update the
+        customer to have a new default_source.
+    paths:
+      /v1/customers/{customer}/sources:
+        post:
+          summary: Post Customers Customer Sources
+          description: >-
+            When you create a new credit card, you must specify a customer or
+            recipient on which to create it.If the card’s owner has no default card,
+            then the new card will become the default.However, if the owner already
+            has a default, then it will not change.To change the default, you should
+            update the customer to have a new default_source.
+          operationId: postCustomersCustomerSources
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  bank_account:
+                    explode: true
+                    style: deepObject
+                  card:
+                    explode: true
+                    style: deepObject
+                  expand:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostCustomersCustomerSourcesRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

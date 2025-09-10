@@ -1,0 +1,70 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Assign Issue
+  description: >-
+    Assigns an issue to a user. Use this operation when the calling user does
+    not have the *Edit Issues* permission but has the *Assign issue* permission
+    for the project that the issue is in.If `name` or `accountId` is set to: * 
+    `"-1"`, the issue is assigned to the default assignee for the project. * 
+    `null`, the issue is set to unassigned.This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** *  *Browse Projects*
+    and *Assign Issues* [ project
+    permission](https://confluence.atlassian.com/x/yodKLg) for the project that
+    the issue is in. *  If [issue-level
+    security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+    issue-level security permission to view the issue.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Assign Issue
+      description: >-
+        Assigns an issue to a user. Use this operation when the calling user does
+        not have the *Edit Issues* permission but has the *Assign issue* permission
+        for the project that the issue is in.If `name` or `accountId` is set to: * 
+        `"-1"`, the issue is assigned to the default assignee for the project. * 
+        `null`, the issue is set to unassigned.This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** *  *Browse Projects*
+        and *Assign Issues* [ project
+        permission](https://confluence.atlassian.com/x/yodKLg) for the project that
+        the issue is in. *  If [issue-level
+        security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+        issue-level security permission to view the issue.
+    paths:
+      /rest/api/3/issue/{issueIdOrKey}/assignee:
+        put:
+          summary: Assign Issue
+          description: >-
+            Assigns an issue to a user. Use this operation when the calling user
+            does not have the *Edit Issues* permission but has the *Assign issue*
+            permission for the project that the issue is in.If `name` or `accountId`
+            is set to: *  `"-1"`, the issue is assigned to the default assignee for
+            the project. *  `null`, the issue is set to unassigned.This operation
+            can be accessed anonymously.**[Permissions](#permissions) required:** * 
+            *Browse Projects* and *Assign Issues* [ project
+            permission](https://confluence.atlassian.com/x/yodKLg) for the project
+            that the issue is in. *  If [issue-level
+            security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+            issue-level security permission to view the issue.
+          operationId: assignIssue
+          requestBody:
+            description: The request object with the user that the issue is assigned to.
+            required: true
+            content:
+              application/json:
+                example:
+                  accountId: 5b10ac8d82e05b22cc7d4ef5
+                schema:
+                  $ref: '#/components/schemas/User'
+          responses:
+            '404':
+              description: Returned if the issue is not found.

@@ -1,0 +1,72 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Custom Fields
+  description: >-
+    Updates the value of one or more custom fields on one or more issues.
+    Combinations of custom field and issue should be unique within the
+    request.Apps can only perform this operation on [custom
+    fields](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-custom-field/)
+    and [custom field
+    types](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-custom-field-type/)
+    declared in their own manifests.**[Permissions](#permissions) required:**
+    Only the app that owns the custom field or custom field type can update its
+    values with this operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Custom Fields
+      description: >-
+        Updates the value of one or more custom fields on one or more issues.
+        Combinations of custom field and issue should be unique within the
+        request.Apps can only perform this operation on [custom
+        fields](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-custom-field/)
+        and [custom field
+        types](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-custom-field-type/)
+        declared in their own manifests.**[Permissions](#permissions) required:**
+        Only the app that owns the custom field or custom field type can update its
+        values with this operation.
+    paths:
+      /rest/api/3/app/field/value:
+        post:
+          summary: Update Custom Fields
+          description: >-
+            Updates the value of one or more custom fields on one or more issues.
+            Combinations of custom field and issue should be unique within the
+            request.Apps can only perform this operation on [custom
+            fields](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-custom-field/)
+            and [custom field
+            types](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-custom-field-type/)
+            declared in their own manifests.**[Permissions](#permissions)
+            required:** Only the app that owns the custom field or custom field type
+            can update its values with this operation.
+          operationId: updateMultipleCustomFieldValues
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  updates:
+                    - customField: customfield_10010
+                      issueIds:
+                        - 10010
+                        - 10011
+                      value: new value
+                    - customField: customfield_10011
+                      issueIds:
+                        - 10010
+                      value: 1000
+                schema:
+                  $ref: '#/components/schemas/MultipleCustomFieldValuesUpdateDetails'
+          responses:
+            '404':
+              description: Returned if any field is not found.

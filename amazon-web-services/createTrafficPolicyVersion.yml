@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Createtrafficpolicyversion
+  description: >-
+    Creates a new version of an existing traffic policy. When you create a new
+    version of a traffic policy, you specify the ID of the traffic policy that
+    you want to update and a JSON-formatted document that describes the new
+    version. You use traffic policies to create multiple DNS resource record
+    sets for one domain name (such as example.com) or one subdomain name (such
+    as www.example.com). You can create a maximum of 1000 versions of a traffic
+    policy. If you reach the limit and need to create another version, you'll
+    need to start a new traffic policy.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createtrafficpolicyversion
+      description: >-
+        Creates a new version of an existing traffic policy. When you create a new
+        version of a traffic policy, you specify the ID of the traffic policy that
+        you want to update and a JSON-formatted document that describes the new
+        version. You use traffic policies to create multiple DNS resource record
+        sets for one domain name (such as example.com) or one subdomain name (such
+        as www.example.com). You can create a maximum of 1000 versions of a traffic
+        policy. If you reach the limit and need to create another version, you'll
+        need to start a new traffic policy.
+    paths:
+      /2013-04-01/trafficpolicy/{Id}:
+        POST:
+          summary: Createtrafficpolicyversion
+          description: >-
+            Creates a new version of an existing traffic policy. When you create a
+            new version of a traffic policy, you specify the ID of the traffic
+            policy that you want to update and a JSON-formatted document that
+            describes the new version. You use traffic policies to create multiple
+            DNS resource record sets for one domain name (such as example.com) or
+            one subdomain name (such as www.example.com). You can create a maximum
+            of 1000 versions of a traffic policy. If you reach the limit and need to
+            create another version, you'll need to start a new traffic policy.
+          operationId: createTrafficPolicyVersion

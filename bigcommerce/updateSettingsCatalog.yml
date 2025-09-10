@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Catalog Settings
+  description: >-
+    Updates catalog settings. - Channel ID can be used as a query parameter for
+    updating channel-specific setting. If omitted, you will interact with the
+    global setting only.  - `null` should be supplied to delete overrides per
+    given channel and to inherit values from global level. Partial updates are
+    not supported and all settings should be supplied with `null` value in order
+    to delete overrides per channel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Catalog Settings
+      description: >-
+        Updates catalog settings. - Channel ID can be used as a query parameter for
+        updating channel-specific setting. If omitted, you will interact with the
+        global setting only.  - `null` should be supplied to delete overrides per
+        given channel and to inherit values from global level. Partial updates are
+        not supported and all settings should be supplied with `null` value in order
+        to delete overrides per channel.
+    paths:
+      /settings/catalog:
+        put:
+          summary: Update Catalog Settings
+          description: >-
+            Updates catalog settings. - Channel ID can be used as a query parameter
+            for updating channel-specific setting. If omitted, you will interact
+            with the global setting only.  - `null` should be supplied to delete
+            overrides per given channel and to inherit values from global level.
+            Partial updates are not supported and all settings should be supplied
+            with `null` value in order to delete overrides per channel.
+          operationId: updateSettingsCatalog
+          requestBody:
+            description: >-
+              null set for a particular field removes override on a channel level
+              and means inheritance from a global level
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/CatalogSettings'
+          responses:
+            '200':
+              description: >-
+                OK. `null` indicates that a particular field has not been overridden
+                on a channel level when channel level settings are requested
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/CatalogSettings'
+                      meta:
+                        $ref: '#/components/schemas/MetaOpen'

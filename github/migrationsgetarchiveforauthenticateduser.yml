@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Download A User Migration Archive
+  description: >-
+    Fetches the URL to download the migration archive as a `tar.gz` file.
+    Depending on the resources your repository uses, the migration archive can
+    contain JSON files with data for these objects:*   attachments*   bases*  
+    commit\_comments*   issue\_comments*   issue\_events*   issues*  
+    milestones*   organizations*   projects*   protected\_branches*  
+    pull\_request\_reviews*   pull\_requests*   releases*   repositories*  
+    review\_comments*   schema*   usersThe archive will also contain an
+    `attachments` directory that includes all attachment files uploaded to
+    GitHub.com and a `repositories` directory that contains the repository's Git
+    data.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Download A User Migration Archive
+      description: >-
+        Fetches the URL to download the migration archive as a `tar.gz` file.
+        Depending on the resources your repository uses, the migration archive can
+        contain JSON files with data for these objects:*   attachments*   bases*  
+        commit\_comments*   issue\_comments*   issue\_events*   issues*  
+        milestones*   organizations*   projects*   protected\_branches*  
+        pull\_request\_reviews*   pull\_requests*   releases*   repositories*  
+        review\_comments*   schema*   usersThe archive will also contain an
+        `attachments` directory that includes all attachment files uploaded to
+        GitHub.com and a `repositories` directory that contains the repository's Git
+        data.
+    paths:
+      /user/migrations/{migration_id}/archive:
+        get:
+          summary: Download A User Migration Archive
+          description: >-
+            Fetches the URL to download the migration archive as a `tar.gz` file.
+            Depending on the resources your repository uses, the migration archive
+            can contain JSON files with data for these objects:*   attachments*  
+            bases*   commit\_comments*   issue\_comments*   issue\_events*  
+            issues*   milestones*   organizations*   projects*  
+            protected\_branches*   pull\_request\_reviews*   pull\_requests*  
+            releases*   repositories*   review\_comments*   schema*   usersThe
+            archive will also contain an `attachments` directory that includes all
+            attachment files uploaded to GitHub.com and a `repositories` directory
+            that contains the repository's Git data.
+          operationId: migrationsgetarchiveforauthenticateduser
+          responses:
+            '403':
+              $ref: '#/components/responses/forbidden'

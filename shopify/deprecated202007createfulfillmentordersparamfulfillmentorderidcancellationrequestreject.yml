@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Rejects A Cancellation Request Sent To A Fulfillment Service For A
+    Fulfillment Order.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/cancellationrequest#reject-2020-07
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Rejects A Cancellation Request Sent To A Fulfillment Service For A
+        Fulfillment Order.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/cancellationrequest#reject-2020-07
+    paths:
+      /admin/api/2020-07/fulfillment_orders/{fulfillment_order_id}/cancellation_request/reject.json:
+        post:
+          summary: >-
+            Rejects A Cancellation Request Sent To A Fulfillment Service For A
+            Fulfillment Order.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/cancellationrequest#reject-2020-07
+          operationId: >-
+            deprecated202007createfulfillmentordersparamfulfillmentorderidcancellationrequestreject
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      cancellation_request:
+                        message: We have already send the shipment out.
+                    summary: >-
+                      Rejects a cancellation request sent to a fulfillment service
+                      and updates the fulfillment order
+          responses:
+            '200':
+              description: ''

@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Suggest
+  description: >-
+    Retrieves autocomplete suggestions for a partial query string. You can use
+    suggestions enable you to display likely matches before users finish typing.
+    In Amazon CloudSearch, suggestions are based on the contents of a particular
+    text field. When you request suggestions, Amazon CloudSearch finds all of
+    the documents whose values in the suggester field start with the specified
+    query string. The beginning of the field must match the query string to be
+    considered a match.  For more information about configuring suggesters and
+    retrieving suggestions, see Getting Suggestions in the Amazon CloudSearch
+    Developer Guide.  The endpoint for submitting Suggest requests is
+    domain-specific. You submit suggest requests to a domain's search endpoint.
+    To get the search endpoint for your domain, use the Amazon CloudSearch
+    configuration service DescribeDomains action. A domain's endpoints are also
+    displayed on the domain dashboard in the Amazon CloudSearch console. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Suggest
+      description: >-
+        Retrieves autocomplete suggestions for a partial query string. You can use
+        suggestions enable you to display likely matches before users finish typing.
+        In Amazon CloudSearch, suggestions are based on the contents of a particular
+        text field. When you request suggestions, Amazon CloudSearch finds all of
+        the documents whose values in the suggester field start with the specified
+        query string. The beginning of the field must match the query string to be
+        considered a match.  For more information about configuring suggesters and
+        retrieving suggestions, see Getting Suggestions in the Amazon CloudSearch
+        Developer Guide.  The endpoint for submitting Suggest requests is
+        domain-specific. You submit suggest requests to a domain's search endpoint.
+        To get the search endpoint for your domain, use the Amazon CloudSearch
+        configuration service DescribeDomains action. A domain's endpoints are also
+        displayed on the domain dashboard in the Amazon CloudSearch console. 
+    paths:
+      /2013-01-01/suggest?format=sdk&pretty=true:
+        GET:
+          summary: Suggest
+          description: >-
+            Retrieves autocomplete suggestions for a partial query string. You can
+            use suggestions enable you to display likely matches before users finish
+            typing. In Amazon CloudSearch, suggestions are based on the contents of
+            a particular text field. When you request suggestions, Amazon
+            CloudSearch finds all of the documents whose values in the suggester
+            field start with the specified query string. The beginning of the field
+            must match the query string to be considered a match.  For more
+            information about configuring suggesters and retrieving suggestions, see
+            Getting Suggestions in the Amazon CloudSearch Developer Guide.  The
+            endpoint for submitting Suggest requests is domain-specific. You submit
+            suggest requests to a domain's search endpoint. To get the search
+            endpoint for your domain, use the Amazon CloudSearch configuration
+            service DescribeDomains action. A domain's endpoints are also displayed
+            on the domain dashboard in the Amazon CloudSearch console. 
+          operationId: suggest

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listalarmmodelversions
+  description: >-
+    Lists all the versions of an alarm model. The operation returns only the
+    metadata associated with each alarm model version.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listalarmmodelversions
+      description: >-
+        Lists all the versions of an alarm model. The operation returns only the
+        metadata associated with each alarm model version.
+    paths:
+      /alarm-models/{alarmModelName}/versions:
+        GET:
+          summary: Listalarmmodelversions
+          description: >-
+            Lists all the versions of an alarm model. The operation returns only the
+            metadata associated with each alarm model version.
+          operationId: listAlarmModelVersions

@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getdocumentpath
+  description: >-
+    Retrieves the path information (the hierarchy from the root folder) for the
+    requested document. By default, Amazon WorkDocs returns a maximum of 100
+    levels upwards from the requested document and only includes the IDs of the
+    parent folders in the path. You can limit the maximum number of levels. You
+    can also request the names of the parent folders.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getdocumentpath
+      description: >-
+        Retrieves the path information (the hierarchy from the root folder) for the
+        requested document. By default, Amazon WorkDocs returns a maximum of 100
+        levels upwards from the requested document and only includes the IDs of the
+        parent folders in the path. You can limit the maximum number of levels. You
+        can also request the names of the parent folders.
+    paths:
+      /api/v1/documents/{DocumentId}/path:
+        GET:
+          summary: Getdocumentpath
+          description: >-
+            Retrieves the path information (the hierarchy from the root folder) for
+            the requested document. By default, Amazon WorkDocs returns a maximum of
+            100 levels upwards from the requested document and only includes the IDs
+            of the parent folders in the path. You can limit the maximum number of
+            levels. You can also request the names of the parent folders.
+          operationId: getDocumentPath

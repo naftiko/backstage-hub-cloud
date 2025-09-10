@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Trunks Trunksid Ipaccesscontrollists
+  description: List all IP Access Control Lists for a Trunk
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Trunks Trunksid Ipaccesscontrollists
+      description: List all IP Access Control Lists for a Trunk
+    paths:
+      /v1/Trunks/{TrunkSid}/IpAccessControlLists:
+        get:
+          summary: Get Trunks Trunksid Ipaccesscontrollists
+          description: List all IP Access Control Lists for a Trunk
+          operationId: listIpAccessControlList
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ListIpAccessControlListResponse'
+              description: OK

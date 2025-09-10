@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Self-hosted Runner From An Enterprise
+  description: >-
+    Forces the removal of a self-hosted runner from an enterprise. You can use
+    this endpoint to completely remove the runner when the machine you were
+    using no longer exists.OAuth app tokens and personal access tokens (classic)
+    need the `manage_runners:enterprise` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Self-hosted Runner From An Enterprise
+      description: >-
+        Forces the removal of a self-hosted runner from an enterprise. You can use
+        this endpoint to completely remove the runner when the machine you were
+        using no longer exists.OAuth app tokens and personal access tokens (classic)
+        need the `manage_runners:enterprise` scope to use this endpoint.
+    paths:
+      /enterprises/{enterprise}/actions/runners/{runner_id}:
+        delete:
+          summary: Delete A Self-hosted Runner From An Enterprise
+          description: >-
+            Forces the removal of a self-hosted runner from an enterprise. You can
+            use this endpoint to completely remove the runner when the machine you
+            were using no longer exists.OAuth app tokens and personal access tokens
+            (classic) need the `manage_runners:enterprise` scope to use this
+            endpoint.
+          operationId: enterpriseadmindeleteselfhostedrunnerfromenterprise
+          responses:
+            '204':
+              description: Response

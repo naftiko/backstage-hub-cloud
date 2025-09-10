@@ -1,0 +1,147 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A New Dashboard
+  description: >-
+    Create a dashboard using the specified options. When defining queries in
+    your widgets, take note of which queries should have the `as_count()` or
+    `as_rate()` modifiers appended.Refer to the following
+    [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers)
+    for more information on these modifiers.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A New Dashboard
+      description: >-
+        Create a dashboard using the specified options. When defining queries in
+        your widgets, take note of which queries should have the `as_count()` or
+        `as_rate()` modifiers appended.Refer to the following
+        [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers)
+        for more information on these modifiers.
+    paths:
+      /api/v1/dashboard:
+        post:
+          summary: Create A New Dashboard
+          description: >-
+            Create a dashboard using the specified options. When defining queries in
+            your widgets, take note of which queries should have the `as_count()` or
+            `as_rate()` modifiers appended.Refer to the following
+            [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers)
+            for more information on these modifiers.
+          operationId: createanewdashboard
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    title: ''
+                    layout_type: ordered
+                    widgets:
+                      - definition:
+                          type: alert_graph
+                          alert_id: ''
+                          viz_type: timeseries
+                          time:
+                            live_span: 5m
+                          title: mollit consectetur
+                          title_align: center
+                          title_size: Lorem magna
+                        id: -61780097
+                        layout:
+                          x: 0
+                          'y': 0
+                          width: 0
+                          height: 0
+                          is_column_break: false
+                      - definition:
+                          type: alert_graph
+                          alert_id: ''
+                          viz_type: timeseries
+                          time:
+                            live_span: 5m
+                          title: Ut pariatur ipsum
+                          title_align: left
+                          title_size: dolor
+                        id: 27923501
+                        layout:
+                          x: 0
+                          'y': 0
+                          width: 0
+                          height: 0
+                          is_column_break: false
+                    author_handle: test@datadoghq.com
+                    author_name: John Doe
+                    created_at: '1953-09-02T02:49:43.272Z'
+                    description: in sit tempor
+                    id: 123-abc-456
+                    modified_at: '2017-05-19T18:05:09.015Z'
+                    notify_list:
+                      - officia in aliqua consectetur
+                      - ut nostrud dolor est cillum
+                    reflow_type: auto
+                    tags:
+                      - sed irure Lorem proident ullamco
+                      - inc
+                    template_variable_presets:
+                      - name: dolor tempor officia esse
+                        template_variables:
+                          - name: esse labori
+                            values:
+                              - culpa anim
+                          - name: exercitation sit
+                            values:
+                              - pariatur Excepteur veniam commodo
+                      - name: nisi elit
+                        template_variables:
+                          - name: sunt si
+                            values:
+                              - Lorem ex ullamco tempor
+                          - name: ex ad cillum
+                            values:
+                              - qui Ut
+                    template_variables:
+                      - name: host1
+                        available_values:
+                          - my-host
+                          - host1
+                          - host2
+                        defaults:
+                          - my-host-1
+                          - my-host-2
+                        prefix: host
+                      - name: host1
+                        available_values:
+                          - my-host
+                          - host1
+                          - host2
+                        defaults:
+                          - my-host-1
+                          - my-host-2
+                        prefix: host
+                    url: /dashboard/123-abc-456/example-dashboard-title
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

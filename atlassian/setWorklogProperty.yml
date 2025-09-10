@@ -1,0 +1,82 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Set Worklog Property
+  description: >-
+    Sets the value of a worklog property. Use this operation to store custom
+    data against the worklog.The value of the request body must be a
+    [valid](http://tools.ietf.org/html/rfc4627), non-empty JSON blob. The
+    maximum length is 32768 characters.This operation can be accessed
+    anonymously.**[Permissions](#permissions) required:** *  *Browse projects*
+    [project permission](https://confluence.atlassian.com/x/yodKLg) for the
+    project that the issue is in. *  If [issue-level
+    security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+    issue-level security permission to view the issue. *  *Edit all worklogs*[
+    project permission](https://confluence.atlassian.com/x/yodKLg) to update any
+    worklog or *Edit own worklogs* to update worklogs created by the user. *  If
+    the worklog has visibility restrictions, belongs to the group or has the
+    role visibility is restricted to.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Set Worklog Property
+      description: >-
+        Sets the value of a worklog property. Use this operation to store custom
+        data against the worklog.The value of the request body must be a
+        [valid](http://tools.ietf.org/html/rfc4627), non-empty JSON blob. The
+        maximum length is 32768 characters.This operation can be accessed
+        anonymously.**[Permissions](#permissions) required:** *  *Browse projects*
+        [project permission](https://confluence.atlassian.com/x/yodKLg) for the
+        project that the issue is in. *  If [issue-level
+        security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+        issue-level security permission to view the issue. *  *Edit all worklogs*[
+        project permission](https://confluence.atlassian.com/x/yodKLg) to update any
+        worklog or *Edit own worklogs* to update worklogs created by the user. *  If
+        the worklog has visibility restrictions, belongs to the group or has the
+        role visibility is restricted to.
+    paths:
+      /rest/api/3/issue/{issueIdOrKey}/worklog/{worklogId}/properties/{propertyKey}:
+        put:
+          summary: Set Worklog Property
+          description: >-
+            Sets the value of a worklog property. Use this operation to store custom
+            data against the worklog.The value of the request body must be a
+            [valid](http://tools.ietf.org/html/rfc4627), non-empty JSON blob. The
+            maximum length is 32768 characters.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** *  *Browse
+            projects* [project
+            permission](https://confluence.atlassian.com/x/yodKLg) for the project
+            that the issue is in. *  If [issue-level
+            security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+            issue-level security permission to view the issue. *  *Edit all
+            worklogs*[ project
+            permission](https://confluence.atlassian.com/x/yodKLg) to update any
+            worklog or *Edit own worklogs* to update worklogs created by the user.
+            *  If the worklog has visibility restrictions, belongs to the group or
+            has the role visibility is restricted to.
+          operationId: setWorklogProperty
+          requestBody:
+            description: >-
+              The value of the property. The value has to be a valid, non-empty
+              [JSON](https://tools.ietf.org/html/rfc4627) value. The maximum length
+              of the property value is 32768 bytes.
+            required: true
+            content:
+              application/json:
+                schema: {}
+          responses:
+            '404':
+              description: |-
+                Returned if:
+
+                 *  the issue or worklog is not found.
+                 *  the user does not have permission to view the issue or worklog.

@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Indexes Order
+  description: >-
+    Get the current order of your log indexes. This endpoint takes no JSON
+    arguments.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Indexes Order
+      description: >-
+        Get the current order of your log indexes. This endpoint takes no JSON
+        arguments.
+    paths:
+      /api/v1/logs/config/index-order:
+        get:
+          summary: Get Indexes Order
+          description: >-
+            Get the current order of your log indexes. This endpoint takes no JSON
+            arguments.
+          operationId: getindexesorder
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

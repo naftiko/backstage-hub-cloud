@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deletemembers
+  description: >-
+    Deletes the specified member accounts from Security Hub. You can invoke this
+    API only to delete accounts that became members through invitation. You
+    can't invoke this API to delete accounts that belong to an Organizations
+    organization.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletemembers
+      description: >-
+        Deletes the specified member accounts from Security Hub. You can invoke this
+        API only to delete accounts that became members through invitation. You
+        can't invoke this API to delete accounts that belong to an Organizations
+        organization.
+    paths:
+      /members/delete:
+        POST:
+          summary: Deletemembers
+          description: >-
+            Deletes the specified member accounts from Security Hub. You can invoke
+            this API only to delete accounts that became members through invitation.
+            You can't invoke this API to delete accounts that belong to an
+            Organizations organization.
+          operationId: deleteMembers

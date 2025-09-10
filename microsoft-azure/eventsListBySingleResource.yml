@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Resourceuri Providers Microsoft.resourcehealth Events
+  description: Lists current service health events for given resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Resourceuri Providers Microsoft.resourcehealth Events
+      description: Lists current service health events for given resource.
+    paths:
+      /{resourceUri}/providers/Microsoft.ResourceHealth/events:
+        get:
+          summary: Get Resourceuri Providers Microsoft.resourcehealth Events
+          description: Lists current service health events for given resource.
+          operationId: eventsListBySingleResource
+          responses:
+            default:
+              description: DefaultErrorResponse
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Package For An Organization
+  description: >-
+    Gets a specific package in an organization.OAuth app tokens and personal
+    access tokens (classic) need the `read:packages` scope to use this endpoint.
+    If the `package_type` belongs to a GitHub Packages registry that only
+    supports repository-scoped permissions, the `repo` scope is also required.
+    For the list of these registries, see "[About permissions for GitHub
+    Packages](https://docs.github.com/enterprise-server@3.9/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Package For An Organization
+      description: >-
+        Gets a specific package in an organization.OAuth app tokens and personal
+        access tokens (classic) need the `read:packages` scope to use this endpoint.
+        If the `package_type` belongs to a GitHub Packages registry that only
+        supports repository-scoped permissions, the `repo` scope is also required.
+        For the list of these registries, see "[About permissions for GitHub
+        Packages](https://docs.github.com/enterprise-server@3.9/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
+    paths:
+      /orgs/{org}/packages/{package_type}/{package_name}:
+        get:
+          summary: Get A Package For An Organization
+          description: >-
+            Gets a specific package in an organization.OAuth app tokens and personal
+            access tokens (classic) need the `read:packages` scope to use this
+            endpoint. If the `package_type` belongs to a GitHub Packages registry
+            that only supports repository-scoped permissions, the `repo` scope is
+            also required. For the list of these registries, see "[About permissions
+            for GitHub
+            Packages](https://docs.github.com/enterprise-server@3.9/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
+          operationId: packagesgetpackagefororganization
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/package'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/package-org'

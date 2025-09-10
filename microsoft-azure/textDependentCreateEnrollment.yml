@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Enroll Profile
+  description: >-
+    Adds an enrollment to existing profile.If the minimum number of requested
+    enrollment audios is reached, a voice print is created.If the voice print
+    was created before, it gets recreated from all existing enrollment audios
+    including the new one.Limitations:* Minimum audio input length per request
+    is **1 second*** Maximum audio input length per request is **10 seconds***
+    Minimum number of enrollments for creating a voiceprint is **3*** Maximum
+    number of enrollments for creating a voiceprint is **50*** Minimum audio
+    Signal-to-noise ratio (SNR) is **10dB**Constraints:* First enrollment must
+    match an existing passphrase.* All enrollments after the first one, must use
+    the same passphrase used in the first enrollment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Enroll Profile
+      description: >-
+        Adds an enrollment to existing profile.If the minimum number of requested
+        enrollment audios is reached, a voice print is created.If the voice print
+        was created before, it gets recreated from all existing enrollment audios
+        including the new one.Limitations:* Minimum audio input length per request
+        is **1 second*** Maximum audio input length per request is **10 seconds***
+        Minimum number of enrollments for creating a voiceprint is **3*** Maximum
+        number of enrollments for creating a voiceprint is **50*** Minimum audio
+        Signal-to-noise ratio (SNR) is **10dB**Constraints:* First enrollment must
+        match an existing passphrase.* All enrollments after the first one, must use
+        the same passphrase used in the first enrollment.
+    paths:
+      /text-dependent/profiles/{profileId}/enrollments:
+        post:
+          summary: Enroll Profile
+          description: >-
+            Adds an enrollment to existing profile.If the minimum number of
+            requested enrollment audios is reached, a voice print is created.If the
+            voice print was created before, it gets recreated from all existing
+            enrollment audios including the new one.Limitations:* Minimum audio
+            input length per request is **1 second*** Maximum audio input length per
+            request is **10 seconds*** Minimum number of enrollments for creating a
+            voiceprint is **3*** Maximum number of enrollments for creating a
+            voiceprint is **50*** Minimum audio Signal-to-noise ratio (SNR) is
+            **10dB**Constraints:* First enrollment must match an existing
+            passphrase.* All enrollments after the first one, must use the same
+            passphrase used in the first enrollment.
+          operationId: textDependentCreateEnrollment
+          responses:
+            '500':
+              $ref: '#/responses/ServerError'

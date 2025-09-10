@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Active Billing Dimensions For Cost Attribution
+  description: >-
+    Get active billing dimensions for cost attribution. Cost data for a given
+    month becomes available no later than the 19th of the following month.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Active Billing Dimensions For Cost Attribution
+      description: >-
+        Get active billing dimensions for cost attribution. Cost data for a given
+        month becomes available no later than the 19th of the following month.
+    paths:
+      /api/v2/cost_by_tag/active_billing_dimensions:
+        get:
+          summary: Get Active Billing Dimensions For Cost Attribution
+          description: >-
+            Get active billing dimensions for cost attribution. Cost data for a
+            given month becomes available no later than the 19th of the following
+            month.
+          operationId: getActiveBillingDimensions
+          responses:
+            '429':
+              content:
+                application/json;datetime-format=rfc3339:
+                  schema:
+                    $ref: '#/components/schemas/APIErrorResponse'
+              description: Too many requests

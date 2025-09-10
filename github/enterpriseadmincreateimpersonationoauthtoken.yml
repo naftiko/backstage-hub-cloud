@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create An Impersonation Oauth Token
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create An Impersonation Oauth Token
+      description: Needs a more full description created.
+    paths:
+      /admin/users/{username}/authorizations:
+        post:
+          summary: Create An Impersonation Oauth Token
+          description: Needs a more full description created.
+          operationId: enterpriseadmincreateimpersonationoauthtoken
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    scopes:
+                      type: array
+                      description: >-
+                        A list of
+                        [scopes](https://docs.github.com/enterprise-server@3.9/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+                      items:
+                        type: string
+                  required:
+                    - scopes
+                examples:
+                  default:
+                    value:
+                      scopes:
+                        - public_repo
+          responses:
+            '201':
+              description: Response when creating a new impersonation OAuth token
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/authorization'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/authorization'

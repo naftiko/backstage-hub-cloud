@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve An Authenticated Domain
+  description: '**This endpoint allows you to retrieve a specific authenticated domain.**'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve An Authenticated Domain
+      description: '**This endpoint allows you to retrieve a specific authenticated domain.**'
+    paths:
+      /v3/whitelabel/domains/{domain_id}:
+        get:
+          summary: Retrieve An Authenticated Domain
+          description: >-
+            **This endpoint allows you to retrieve a specific authenticated
+            domain.**
+          operationId: getAuthenticatedDomain
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/AuthenticatedDomain'
+                  examples:
+                    response:
+                      value:
+                        id: 45373692
+                        user_id: 66036447
+                        subdomain: sub
+                        domain: example.com
+                        username: jdoe
+                        ips:
+                          - 127.0.0.1
+                        custom_spf: false
+                        default: true
+                        legacy: false
+                        automatic_security: true
+                        valid: true
+                        dns:
+                          mail_cname:
+                            valid: true
+                            type: cname
+                            host: mail.example.com
+                            data: u7.wl.sendgrid.net
+                          dkim1:
+                            valid: true
+                            type: cname
+                            host: s1._domainkey.example.com
+                            data: s1._domainkey.u7.wl.sendgrid.net
+                          dkim2:
+                            valid: true
+                            type: cname
+                            host: s2._domainkey.example.com
+                            data: s2._domainkey.u7.wl.sendgrid.net

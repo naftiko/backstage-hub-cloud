@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Widgets
+  description: Returns a list of **Widgets**. Optional parameters can be passed in.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Widgets
+      description: Returns a list of **Widgets**. Optional parameters can be passed in.
+    paths:
+      /content/widgets:
+        get:
+          summary: Get All Widgets
+          description: Returns a list of **Widgets**. Optional parameters can be passed in.
+          operationId: getWidgets
+          responses:
+            '422':
+              $ref: '#/components/responses/Error422_Resp'

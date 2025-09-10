@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Accounts Account Login_links
+  description: >-
+    Creates a single-use login link for an Express account to access their
+    Stripe dashboard.You may only create login links for Express accounts
+    connected to your platform.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Accounts Account Login_links
+      description: >-
+        Creates a single-use login link for an Express account to access their
+        Stripe dashboard.You may only create login links for Express accounts
+        connected to your platform.
+    paths:
+      /v1/accounts/{account}/login_links:
+        post:
+          summary: Post Accounts Account Login_links
+          description: >-
+            Creates a single-use login link for an Express account to access their
+            Stripe dashboard.You may only create login links for Express accounts
+            connected to your platform.
+          operationId: postAccountsAccountLoginLinks
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostAccountsAccountLoginLinksRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

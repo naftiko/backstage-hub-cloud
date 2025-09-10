@@ -1,0 +1,62 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Changelogs By Ids
+  description: >-
+    Returns changelogs for an issue specified by a list of changelog IDs.This
+    operation can be accessed anonymously.**[Permissions](#permissions)
+    required:** *  *Browse projects* [project
+    permission](https://confluence.atlassian.com/x/yodKLg) for the project that
+    the issue is in. *  If [issue-level
+    security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+    issue-level security permission to view the issue.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Changelogs By Ids
+      description: >-
+        Returns changelogs for an issue specified by a list of changelog IDs.This
+        operation can be accessed anonymously.**[Permissions](#permissions)
+        required:** *  *Browse projects* [project
+        permission](https://confluence.atlassian.com/x/yodKLg) for the project that
+        the issue is in. *  If [issue-level
+        security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+        issue-level security permission to view the issue.
+    paths:
+      /rest/api/3/issue/{issueIdOrKey}/changelog/list:
+        post:
+          summary: Get Changelogs By Ids
+          description: >-
+            Returns changelogs for an issue specified by a list of changelog
+            IDs.This operation can be accessed
+            anonymously.**[Permissions](#permissions) required:** *  *Browse
+            projects* [project
+            permission](https://confluence.atlassian.com/x/yodKLg) for the project
+            that the issue is in. *  If [issue-level
+            security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+            issue-level security permission to view the issue.
+          operationId: getChangeLogsByIds
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  changelogIds:
+                    - 10001
+                    - 10002
+                schema:
+                  $ref: '#/components/schemas/IssueChangelogIds'
+          responses:
+            '404':
+              description: >-
+                Returned if the issue is not found or the user does not have the
+                necessary permission.

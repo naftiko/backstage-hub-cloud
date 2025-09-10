@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Gets The Source Controls Available For Azure Websites.
+  description: Description for Gets the source controls available for Azure websites.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The Source Controls Available For Azure Websites.
+      description: Description for Gets the source controls available for Azure websites.
+    paths:
+      /providers/Microsoft.Web/sourcecontrols:
+        get:
+          summary: Gets The Source Controls Available For Azure Websites.
+          description: Description for Gets the source controls available for Azure websites.
+          operationId: listSourceControls
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

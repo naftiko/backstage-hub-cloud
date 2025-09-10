@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Batch Of Price Lists Records
+  description: >-
+    Creates a batch of `Price Lists Records`; may include price list records
+    from more than one price list.  Concurrency limit of 1.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Batch Of Price Lists Records
+      description: >-
+        Creates a batch of `Price Lists Records`; may include price list records
+        from more than one price list.  Concurrency limit of 1.
+    paths:
+      /pricelists/records:
+        put:
+          summary: Create Batch Of Price Lists Records
+          description: >-
+            Creates a batch of `Price Lists Records`; may include price list records
+            from more than one price list.  Concurrency limit of 1.
+          operationId: upsertPriceListsRecords
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/PriceRecordBatchItem'
+          responses:
+            '422':
+              description: >
+                Error response for batch PUT of `Price Records`.  May include errors
+                during partial update in non-strict mode.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/PriceRecordBatchErrorResponse'

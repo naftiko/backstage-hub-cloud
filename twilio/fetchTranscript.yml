@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Transcripts Sid
+  description: Fetch a specific Transcript.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Transcripts Sid
+      description: Fetch a specific Transcript.
+    paths:
+      /v2/Transcripts/{Sid}:
+        get:
+          summary: Get Transcripts Sid
+          description: Fetch a specific Transcript.
+          operationId: fetchTranscript
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/intelligence.v2.transcript'
+              description: OK

@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.network Networkmanagers Networkmanagername
+    Connectivityconfigurations Configurationname
+  description: Creates/Updates a new network manager connectivity configuration
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.network Networkmanagers Networkmanagername
+        Connectivityconfigurations Configurationname
+      description: Creates/Updates a new network manager connectivity configuration
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/connectivityConfigurations/{configurationName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.network Networkmanagers Networkmanagername
+            Connectivityconfigurations Configurationname
+          description: Creates/Updates a new network manager connectivity configuration
+          operationId: connectivityConfigurationsCreateOrUpdate
+          responses:
+            default:
+              description: >-
+                Resource Provider error response describing why the operation
+                failed.
+              schema:
+                $ref: ./network.json#/definitions/CloudError

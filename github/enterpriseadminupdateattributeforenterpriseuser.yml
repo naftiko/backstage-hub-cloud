@@ -1,0 +1,114 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update An Attribute For A Scim Enterprise User
+  description: >-
+    **Note:** The SCIM API endpoints for enterprise accounts are currently in
+    *private* beta and are subject to change.Update a provisioned user's
+    individual attributes.To change a user's values, you must provide a specific
+    `Operations` JSON format that contains at least one of the `add`, `remove`,
+    or `replace` operations. For examples and more information on the SCIM
+    operations format, see the [SCIM
+    specification](https://tools.ietf.org/html/rfc7644#section-3.5.2).**Note:**
+    Complicated SCIM `path` selectors that include filters are not supported.
+    For example, a `path` selector defined as `"path": "emails[type eq
+    \"work\"]"` will not work.**Warning:** Setting `active: false` will suspend
+    a user and obfuscate the user handle and user email. Since the
+    implementation is a generic SCIM implementation and does not differentiate
+    yet between different IdP providers, for Okta, the user GDPR data will not
+    be purged and the credentials will not be removed.```{  "Operations":[{   
+    "op":"replace",    "value":{      "active":false    }  }]}```
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update An Attribute For A Scim Enterprise User
+      description: >-
+        **Note:** The SCIM API endpoints for enterprise accounts are currently in
+        *private* beta and are subject to change.Update a provisioned user's
+        individual attributes.To change a user's values, you must provide a specific
+        `Operations` JSON format that contains at least one of the `add`, `remove`,
+        or `replace` operations. For examples and more information on the SCIM
+        operations format, see the [SCIM
+        specification](https://tools.ietf.org/html/rfc7644#section-3.5.2).**Note:**
+        Complicated SCIM `path` selectors that include filters are not supported.
+        For example, a `path` selector defined as `"path": "emails[type eq
+        \"work\"]"` will not work.**Warning:** Setting `active: false` will suspend
+        a user and obfuscate the user handle and user email. Since the
+        implementation is a generic SCIM implementation and does not differentiate
+        yet between different IdP providers, for Okta, the user GDPR data will not
+        be purged and the credentials will not be removed.```{  "Operations":[{   
+        "op":"replace",    "value":{      "active":false    }  }]}```
+    paths:
+      /scim/v2/Users/{scim_user_id}:
+        patch:
+          summary: Update An Attribute For A Scim Enterprise User
+          description: >-
+            **Note:** The SCIM API endpoints for enterprise accounts are currently
+            in *private* beta and are subject to change.Update a provisioned user's
+            individual attributes.To change a user's values, you must provide a
+            specific `Operations` JSON format that contains at least one of the
+            `add`, `remove`, or `replace` operations. For examples and more
+            information on the SCIM operations format, see the [SCIM
+            specification](https://tools.ietf.org/html/rfc7644#section-3.5.2).**Note:**
+            Complicated SCIM `path` selectors that include filters are not
+            supported. For example, a `path` selector defined as `"path":
+            "emails[type eq \"work\"]"` will not work.**Warning:** Setting `active:
+            false` will suspend a user and obfuscate the user handle and user email.
+            Since the implementation is a generic SCIM implementation and does not
+            differentiate yet between different IdP providers, for Okta, the user
+            GDPR data will not be purged and the credentials will not be
+            removed.```{  "Operations":[{    "op":"replace",    "value":{     
+            "active":false    }  }]}```
+          operationId: enterpriseadminupdateattributeforenterpriseuser
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/patch-schema'
+                examples:
+                  userMultiValuedProperties:
+                    summary: Multi Valued Property
+                    value:
+                      schemas:
+                        - urn:ietf:params:scim:api:messages:2.0:PatchOp
+                      Operations:
+                        - op: replace
+                          path: emails[type eq 'work'].value
+                          value: updatedEmail@microsoft.com
+                        - op: replace
+                          path: name.familyName
+                          value: updatedFamilyName
+                  userSingleValuedProperties:
+                    summary: Single Valued Property
+                    value:
+                      schemas:
+                        - urn:ietf:params:scim:api:messages:2.0:PatchOp
+                      Operations:
+                        - op: replace
+                          path: userName
+                          value: 5b50642d-79fc-4410-9e90-4c077cdd1a59@testuser.com
+                        - op: replace
+                          path: displayName
+                          value: Monalisa Octocat
+                  disableUser:
+                    summary: Disable User
+                    value:
+                      schemas:
+                        - urn:ietf:params:scim:api:messages:2.0:PatchOp
+                      Operations:
+                        - op: replace
+                          path: active
+                          value: false
+          responses:
+            '500':
+              $ref: '#/components/responses/scim_internal_error'

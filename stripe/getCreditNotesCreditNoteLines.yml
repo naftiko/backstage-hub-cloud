@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Credit_notes Credit_note Lines
+  description: >-
+    When retrieving a credit note, you’ll get a lines property containing the
+    the first handful of those items. There is also a URL where you can retrieve
+    the full (paginated) list of line items.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Credit_notes Credit_note Lines
+      description: >-
+        When retrieving a credit note, you’ll get a lines property containing the
+        the first handful of those items. There is also a URL where you can retrieve
+        the full (paginated) list of line items.
+    paths:
+      /v1/credit_notes/{credit_note}/lines:
+        get:
+          summary: Get Credit_notes Credit_note Lines
+          description: >-
+            When retrieving a credit note, you’ll get a lines property containing
+            the the first handful of those items. There is also a URL where you can
+            retrieve the full (paginated) list of line items.
+          operationId: getCreditNotesCreditNoteLines
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetCreditNotesCreditNoteLinesRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

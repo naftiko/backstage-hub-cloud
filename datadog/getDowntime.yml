@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Downtime
+  description: Get downtime detail by `downtime_id`.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Downtime
+      description: Get downtime detail by `downtime_id`.
+    paths:
+      /api/v2/downtime/{downtime_id}:
+        get:
+          summary: Get A Downtime
+          description: Get downtime detail by `downtime_id`.
+          operationId: getDowntime
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

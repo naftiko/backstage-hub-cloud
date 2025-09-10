@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Customer Attribute Values
+  description: >-
+    Deletes Customer Attribute Values. Deletes the attribute value from the
+    customer.**Required Query*** id:in - ID of the *Customer Attribute Value*
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Customer Attribute Values
+      description: >-
+        Deletes Customer Attribute Values. Deletes the attribute value from the
+        customer.**Required Query*** id:in - ID of the *Customer Attribute Value*
+    paths:
+      /customers/attribute-values:
+        delete:
+          summary: Delete Customer Attribute Values
+          description: >-
+            Deletes Customer Attribute Values. Deletes the attribute value from the
+            customer.**Required Query*** id:in - ID of the *Customer Attribute
+            Value*
+          operationId: deleteCustomersAttributeValues
+          responses:
+            '204':
+              description: ''
+              headers: {}

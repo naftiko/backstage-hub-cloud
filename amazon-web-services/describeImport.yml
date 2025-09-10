@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Describeimport
+  description: Gets information about a specific import.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeimport
+      description: Gets information about a specific import.
+    paths:
+      /imports/{importId}/:
+        GET:
+          summary: Describeimport
+          description: Gets information about a specific import.
+          operationId: describeImport

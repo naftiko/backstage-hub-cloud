@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Patch Providers Microsoft.adhybridhealthservice Addsservices Servicename
+  description: >-
+    Updates an Active Directory Domain Service properties of an onboarded
+    service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Patch Providers Microsoft.adhybridhealthservice Addsservices Servicename
+      description: >-
+        Updates an Active Directory Domain Service properties of an onboarded
+        service.
+    paths:
+      /providers/Microsoft.ADHybridHealthService/addsservices/{serviceName}:
+        patch:
+          summary: Patch Providers Microsoft.adhybridhealthservice Addsservices Servicename
+          description: >-
+            Updates an Active Directory Domain Service properties of an onboarded
+            service.
+          operationId: addsServicesupdate
+          responses:
+            '200':
+              description: Successfully updated service.
+              schema:
+                $ref: '#/definitions/ServiceProperties'

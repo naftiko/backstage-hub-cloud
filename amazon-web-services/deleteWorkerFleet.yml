@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deleteworkerfleet
+  description: Grants permission to delete a worker fleet
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deleteworkerfleet
+      description: Grants permission to delete a worker fleet
+    paths:
+      /deleteWorkerFleet:
+        POST:
+          summary: Deleteworkerfleet
+          description: Grants permission to delete a worker fleet
+          operationId: deleteWorkerFleet

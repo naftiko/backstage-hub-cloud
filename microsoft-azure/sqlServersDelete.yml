@@ -1,0 +1,146 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+    Providers Microsoft.azuredata Sqlserverregistrations
+    Sqlserverregistrationname Sqlservers Sqlservername
+  description: Deletes a SQL Server.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.azuredata Sqlserverregistrations
+        Sqlserverregistrationname Sqlservers Sqlservername
+      description: Deletes a SQL Server.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureData/sqlServerRegistrations/{sqlServerRegistrationName}/sqlServers/{sqlServerName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.azuredata Sqlserverregistrations
+            Sqlserverregistrationname Sqlservers Sqlservername
+          description: Deletes a SQL Server.
+          operationId: sqlServersDelete
+          responses:
+            default:
+              description: |-
+                *** Error Responses: ***
+
+                 * 400 InvalidVmResourceIdChange - Server resource id property cannot be updated.
+
+                 * 400 TinaAlreadyIncludedInGroup - SQL Server cannot be moved from one group to another in same operation.
+
+                 * 400 TinaCannotRemoveFromGroup - SQL Server cannot be removed from group.
+
+                 * 400 VmLocationMismatch - VM location does not match that of SQL Server.
+
+                 * 400 SqlSkuMismatchWithGroup - SQL sku set on the SQL Server registration does not match that of the SQL Server.
+
+                 * 400 VmInsufficientPermission - Insufficient permission to Vm.
+
+                 * 400 SingleNicOnVmAllowed - Only Single NIC Servers are allowed.
+
+                 * 400 InvalidTinaGroupResourceIdParameterValue - SQL Server registration resource id is not in correct format.
+
+                 * 400 MismatchVmGroupSubscription - Subscription id for SQL Server and SQL Server registration are different.
+
+                 * 400 IncompleteDomainCredentialsProperty - Incomplete input provided for domain credentials property.
+
+                 * 400 BYOLChangeToPAYGNotSupported - The conversion from AHUB to PAYG is not supported for BYOL images
+
+                 * 400 InvalidVmResourceIdParameterValue - Provided Server resource id is not valid.
+
+                 * 400 MismatchInTinaAndVmResourceIdSubscription - Mismatch in subscription id for SQL Server and Server resource id property.
+
+                 * 400 MismatchTinaAndVmName - SQL Server name is not same as the Server name provided on ServerResourceId property.
+
+                 * 400 MismatchTinaAndVmRgName - SQL Server resource group name is not same as the Server resource group name provided on ServerResourceId property.
+
+                 * 400 NotSupportedTinaOSVersion - Server OS type is not Windows. Only Windows OS versions are supported
+
+                 * 400 VmNotRunning - The VM is not in running state.
+
+                 * 400 VmAgentNotRunning - The VM agent is not installed or in running state.
+
+                 * 400 SqlExtNotInstalled - Sql Iaas Extension is not installed on Server.
+
+                 * 400 PAYGNotSupportedForNonGalleryVM - License type PAYG is invalid for this Server as this was not created from Azure marketplace image.
+
+                 * 400 SqlVersionMismatchWithGroup - SQL version mismatch with SQL Server registration.
+
+                 * 400 VmOSVersionMismatchWithGroup - OS version mismatch with group.
+
+                 * 400 AutoBackupEncryptionPasswordNotSpecified - Password not provided when enabling encryption as auto backup setting.
+
+                 * 400 BackupScheduleTypeNotSet - Backup schedule type needs to be set.
+
+                 * 400 BackupStorageCredentialsNotSpecified - Backup storage credentials are not specified.
+
+                 * 400 KeyVaultCredentialsNotSpecified - Key vault credentials not specified.
+
+                 * 400 SqlCredentialsNotSpecified - SQL Server credentials are not specified.
+
+                 * 400 IncompleteAutoPatchingSettings - Incomplete auto patching settings specified.
+
+                 * 400 IncompleteAutoBackupSettings - Incomplete auto backup settings specified.
+
+                 * 400 IncompleteSqlStorageSettings - Incomplete SQL storage settings specified.
+
+                 * 400 InvalidParameterValue - An invalid value was given to parameter.
+
+                 * 400 InvalidCrossSubscriptionVmMove - Invalid cross subscription move of resource.
+
+                 * 400 RPGenericUser - User Failure when calling other Resource Provider.
+
+                 * 400 InvalidArgument - Invalid argument '{0}'.
+
+                 * 400 ArgumentNotInRange - Argument '{0}' not in range.
+
+                 * 400 ResourceNotProvisioned - As the resource: {0} is not in a provisioned state, the request cannot be proceeded forward
+
+                 * 400 InvalidRgResourceId - Invalid Resourcegroup resource id specified.
+
+                 * 403 AccessDenied - Access denied.
+
+                 * 404 SubscriptionDoesNotHaveTINAGroupInResourceGroup - Subscription does not have SQL Server registration in resource group.
+
+                 * 404 SubscriptionDoesNotHaveTINAInResourceGroup - Subscription does not have SQL Server Instance in resource group.
+
+                 * 404 ResourceNotFound - The requested resource was not found.
+
+                 * 404 SubscriptionDoesNotExist - Subscription id does not exist.
+
+                 * 404 ResourceDoesNotExist - Resource does not exist.
+
+                 * 404 OperationIdNotFound - Operation id could not be found.
+
+                 * 404 OperationTypeNotFound - Operation Type not found.
+
+                 * 409 ResourceAlreadyExists - Resource already exists.
+
+                 * 409 SqlExtensionNotInstalled - SQL extension not installed.
+
+                 * 409 MissingMoveResources - Cannot move resources(s) because some resources are missing in the request.
+
+                 * 409 OperationInProgress - Operation in progress on resource already.
+
+                 * 409 OperationCanceled - Operation Cancelled.
+
+                 * 500 RPGenericSystem - System Failure when calling other Resource Provider.
+
+                 * 500 UnExpectedErrorOccurred - Unexpected error occurred.
+
+                 * 500 OperationTimeout - Operation timed out.
+              schema:
+                $ref: '#/definitions/CloudError'

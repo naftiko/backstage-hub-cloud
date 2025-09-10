@@ -1,0 +1,76 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Coupons
+  description: >-
+    You can create coupons easily via the coupon management page of the Stripe
+    dashboard. Coupon creation is also accessible via the API if you need to
+    create coupons on the fly.A coupon has either a percent_off or an amount_off
+    and currency. If you set an amount_off, that amount will be subtracted from
+    any invoice’s subtotal. For example, an invoice with a subtotal of 100 will
+    have a final total of 0 if a coupon with an amount_off of 200 is applied to
+    it and an invoice with a subtotal of 300 will have a final total of 100 if a
+    coupon with an amount_off of 200 is applied to it.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Coupons
+      description: >-
+        You can create coupons easily via the coupon management page of the Stripe
+        dashboard. Coupon creation is also accessible via the API if you need to
+        create coupons on the fly.A coupon has either a percent_off or an amount_off
+        and currency. If you set an amount_off, that amount will be subtracted from
+        any invoice’s subtotal. For example, an invoice with a subtotal of 100 will
+        have a final total of 0 if a coupon with an amount_off of 200 is applied to
+        it and an invoice with a subtotal of 300 will have a final total of 100 if a
+        coupon with an amount_off of 200 is applied to it.
+    paths:
+      /v1/coupons:
+        post:
+          summary: Post Coupons
+          description: >-
+            You can create coupons easily via the coupon management page of the
+            Stripe dashboard. Coupon creation is also accessible via the API if you
+            need to create coupons on the fly.A coupon has either a percent_off or
+            an amount_off and currency. If you set an amount_off, that amount will
+            be subtracted from any invoice’s subtotal. For example, an invoice with
+            a subtotal of 100 will have a final total of 0 if a coupon with an
+            amount_off of 200 is applied to it and an invoice with a subtotal of 300
+            will have a final total of 100 if a coupon with an amount_off of 200 is
+            applied to it.
+          operationId: postCoupons
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  applies_to:
+                    explode: true
+                    style: deepObject
+                  currency_options:
+                    explode: true
+                    style: deepObject
+                  expand:
+                    explode: true
+                    style: deepObject
+                  metadata:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostCouponsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

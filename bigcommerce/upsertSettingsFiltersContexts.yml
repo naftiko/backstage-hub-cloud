@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Upsert Contextual Filters
+  description: >-
+    Upserts contextual filters for a particular channel or category.**Usage
+    Notes**Contextual filters allow you to configure the enabled filters per
+    channel or category, so that shoppers can filter by the most relevant
+    criteria.You can change the order of the filters on the live site by
+    changing the order of the filters you send.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Upsert Contextual Filters
+      description: >-
+        Upserts contextual filters for a particular channel or category.**Usage
+        Notes**Contextual filters allow you to configure the enabled filters per
+        channel or category, so that shoppers can filter by the most relevant
+        criteria.You can change the order of the filters on the live site by
+        changing the order of the filters you send.
+    paths:
+      /settings/search/filters/contexts:
+        put:
+          summary: Upsert Contextual Filters
+          description: >-
+            Upserts contextual filters for a particular channel or category.**Usage
+            Notes**Contextual filters allow you to configure the enabled filters per
+            channel or category, so that shoppers can filter by the most relevant
+            criteria.You can change the order of the filters on the live site by
+            changing the order of the filters you send.
+          operationId: upsertSettingsFiltersContexts
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ConfiguredFiltersOverride'
+          responses:
+            '200':
+              description: OK
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ConfiguredFiltersOverride'
+                      meta:
+                        $ref: '#/components/schemas/MetaOpen'

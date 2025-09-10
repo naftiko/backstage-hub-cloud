@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Review Comment For A Pull Request
+  description: Deletes a review comment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Review Comment For A Pull Request
+      description: Deletes a review comment.
+    paths:
+      /repos/{owner}/{repo}/pulls/comments/{comment_id}:
+        delete:
+          summary: Delete A Review Comment For A Pull Request
+          description: Deletes a review comment.
+          operationId: deleteAReviewCommentForAPullRequest
+          responses:
+            '404':
+              $ref: '#/components/responses/not_found'

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getcampaigndaterangekpi
+  description: >-
+    Retrieves (queries) pre-aggregated data for a standard metric that applies
+    to a campaign.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getcampaigndaterangekpi
+      description: >-
+        Retrieves (queries) pre-aggregated data for a standard metric that applies
+        to a campaign.
+    paths:
+      /v1/apps/{application-id}/campaigns/{campaign-id}/kpis/daterange/{kpi-name}:
+        GET:
+          summary: Getcampaigndaterangekpi
+          description: >-
+            Retrieves (queries) pre-aggregated data for a standard metric that
+            applies to a campaign.
+          operationId: getCampaignDateRangeKpi

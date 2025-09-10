@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Reactions For A Team Discussion
+  description: >-
+    List the reactions to a [team
+    discussion](https://docs.github.com/enterprise-server@3.9/rest/teams/discussions#get-a-discussion).**Note:**
+    You can also specify a team by `org_id` and `team_id` using the route `GET
+    /organizations/:org_id/team/:team_id/discussions/:discussion_number/reactions`.OAuth
+    app tokens and personal access tokens (classic) need the `read:discussion`
+    scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Reactions For A Team Discussion
+      description: >-
+        List the reactions to a [team
+        discussion](https://docs.github.com/enterprise-server@3.9/rest/teams/discussions#get-a-discussion).**Note:**
+        You can also specify a team by `org_id` and `team_id` using the route `GET
+        /organizations/:org_id/team/:team_id/discussions/:discussion_number/reactions`.OAuth
+        app tokens and personal access tokens (classic) need the `read:discussion`
+        scope to use this endpoint.
+    paths:
+      /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions:
+        get:
+          summary: List Reactions For A Team Discussion
+          description: >-
+            List the reactions to a [team
+            discussion](https://docs.github.com/enterprise-server@3.9/rest/teams/discussions#get-a-discussion).**Note:**
+            You can also specify a team by `org_id` and `team_id` using the route
+            `GET
+            /organizations/:org_id/team/:team_id/discussions/:discussion_number/reactions`.OAuth
+            app tokens and personal access tokens (classic) need the
+            `read:discussion` scope to use this endpoint.
+          operationId: reactionslistforteamdiscussioninorg
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/reaction'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/reaction-items'
+              headers:
+                Link:
+                  $ref: '#/components/headers/link'

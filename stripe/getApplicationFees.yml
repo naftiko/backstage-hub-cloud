@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Application_fees
+  description: >-
+    Returns a list of application fees you’ve previously collected. The
+    application fees are returned in sorted order, with the most recent fees
+    appearing first.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Application_fees
+      description: >-
+        Returns a list of application fees you’ve previously collected. The
+        application fees are returned in sorted order, with the most recent fees
+        appearing first.
+    paths:
+      /v1/application_fees:
+        get:
+          summary: Get Application_fees
+          description: >-
+            Returns a list of application fees you’ve previously collected. The
+            application fees are returned in sorted order, with the most recent fees
+            appearing first.
+          operationId: getApplicationFees
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  properties: {}
+                  type: object
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

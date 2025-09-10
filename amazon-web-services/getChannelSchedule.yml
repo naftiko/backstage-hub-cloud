@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getchannelschedule
+  description: Retrieves information about your channel's schedule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getchannelschedule
+      description: Retrieves information about your channel's schedule.
+    paths:
+      /channel/{ChannelName}/schedule:
+        GET:
+          summary: Getchannelschedule
+          description: Retrieves information about your channel's schedule.
+          operationId: getChannelSchedule

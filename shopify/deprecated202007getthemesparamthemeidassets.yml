@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: |-
+    Retrieves A Single Asset For A Theme By Its Key.
+      To Retrieve A Single Asset, Include Asset[key]=#{asset_key} As A Request Parameter. For Example, To Retrieve The Asset With A Key Of Templates/index.liquid, The Request Might Be /admin/themes/828155753/assets.json?asset[key]=templates/index.liquid.
+      For More Information On The Key Property, See Asset Properties.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/online-store/asset#show-2020-07
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: |-
+        Retrieves A Single Asset For A Theme By Its Key.
+          To Retrieve A Single Asset, Include Asset[key]=#{asset_key} As A Request Parameter. For Example, To Retrieve The Asset With A Key Of Templates/index.liquid, The Request Might Be /admin/themes/828155753/assets.json?asset[key]=templates/index.liquid.
+          For More Information On The Key Property, See Asset Properties.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/online-store/asset#show-2020-07
+    paths:
+      /admin/api/2020-07/themes/{theme_id}/assets.json:
+        get:
+          summary: |-
+            Retrieves A Single Asset For A Theme By Its Key.
+              To Retrieve A Single Asset, Include Asset[key]=#{asset_key} As A Request Parameter. For Example, To Retrieve The Asset With A Key Of Templates/index.liquid, The Request Might Be /admin/themes/828155753/assets.json?asset[key]=templates/index.liquid.
+              For More Information On The Key Property, See Asset Properties.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/online-store/asset#show-2020-07
+          operationId: deprecated202007getthemesparamthemeidassets
+          responses:
+            '200':
+              description: ''

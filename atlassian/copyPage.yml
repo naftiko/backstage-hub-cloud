@@ -1,0 +1,78 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Copy Single Page
+  description: >-
+    Copies a single page and its associated properties, permissions,
+    attachments, and custom contents. The `id` path parameter refers to the
+    content ID of the page to copy. The target of the page to be copied is
+    defined using the `destination` in the request body and can be one of the
+    following types.  - `space`: page will be copied to the specified space as a
+    root page on the space  - `parent_page`: page will be copied as a child of
+    the specified parent page  - `existing_page`: page will be copied and
+    replace the specified pageBy default, the following objects are expanded:
+    `space`, `history`,
+    `version`.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**: 'Add' permission for the space that the content will be copied
+    in and permission to update the content if copying to an `existing_page`.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Copy Single Page
+      description: >-
+        Copies a single page and its associated properties, permissions,
+        attachments, and custom contents. The `id` path parameter refers to the
+        content ID of the page to copy. The target of the page to be copied is
+        defined using the `destination` in the request body and can be one of the
+        following types.  - `space`: page will be copied to the specified space as a
+        root page on the space  - `parent_page`: page will be copied as a child of
+        the specified parent page  - `existing_page`: page will be copied and
+        replace the specified pageBy default, the following objects are expanded:
+        `space`, `history`,
+        `version`.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**: 'Add' permission for the space that the content will be copied
+        in and permission to update the content if copying to an `existing_page`.
+    paths:
+      /wiki/rest/api/content/{id}/copy:
+        post:
+          summary: Copy Single Page
+          description: >-
+            Copies a single page and its associated properties, permissions,
+            attachments, and custom contents. The `id` path parameter refers to the
+            content ID of the page to copy. The target of the page to be copied is
+            defined using the `destination` in the request body and can be one of
+            the following types.  - `space`: page will be copied to the specified
+            space as a root page on the space  - `parent_page`: page will be copied
+            as a child of the specified parent page  - `existing_page`: page will be
+            copied and replace the specified pageBy default, the following objects
+            are expanded: `space`, `history`,
+            `version`.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**: 'Add' permission for the space that the content will be
+            copied in and permission to update the content if copying to an
+            `existing_page`.
+          operationId: copyPage
+          requestBody:
+            description: Request object from json post body
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/CopyPageRequest'
+          responses:
+            '404':
+              description: |-
+                Returned if;
+
+                - the original page doesn't exist.
+                - the destination page doesn’t exist.
+                - the destination space doesn’t exist.
+              content: {}

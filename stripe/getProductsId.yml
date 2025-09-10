@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Products Id
+  description: >-
+    Retrieves the details of an existing product. Supply the unique product ID
+    from either a product creation request or the product list, and Stripe will
+    return the corresponding product information.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Products Id
+      description: >-
+        Retrieves the details of an existing product. Supply the unique product ID
+        from either a product creation request or the product list, and Stripe will
+        return the corresponding product information.
+    paths:
+      /v1/products/{id}:
+        get:
+          summary: Get Products Id
+          description: >-
+            Retrieves the details of an existing product. Supply the unique product
+            ID from either a product creation request or the product list, and
+            Stripe will return the corresponding product information.
+          operationId: getProductsId
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetProductsIdRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

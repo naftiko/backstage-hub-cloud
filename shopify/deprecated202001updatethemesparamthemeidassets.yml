@@ -1,0 +1,71 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: |-
+    Creates Or Updates An Asset For A Theme.
+      In The Put Request, You Can Include The Src Or Source_key Property To Create The Asset From An Existing File.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/online-store/asset#update-2020-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: |-
+        Creates Or Updates An Asset For A Theme.
+          In The Put Request, You Can Include The Src Or Source_key Property To Create The Asset From An Existing File.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/online-store/asset#update-2020-01
+    paths:
+      /admin/api/2020-01/themes/{theme_id}/assets.json:
+        put:
+          summary: |-
+            Creates Or Updates An Asset For A Theme.
+              In The Put Request, You Can Include The Src Or Source_key Property To Create The Asset From An Existing File.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/online-store/asset#update-2020-01
+          operationId: deprecated202001updatethemesparamthemeidassets
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      asset:
+                        key: templates/index.liquid
+                        value: >-
+                          <img src='backsoon-postit.png'><p>We are busy updating the
+                          store for you and will be back within the hour.</p>
+                    summary: Change an existing Liquid template's value
+                  example2:
+                    value:
+                      asset:
+                        key: assets/empty.gif
+                        attachment: >
+                          R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==
+                    summary: Create an image asset by providing a base64-encoded attachment
+                  example3:
+                    value:
+                      asset:
+                        key: assets/bg-body.gif
+                        src: http://apple.com/new_bg.gif
+                    summary: >-
+                      Create an image asset by providing a source URL from which to
+                      upload the image
+                  example4:
+                    value:
+                      asset:
+                        key: layout/alternate.liquid
+                        source_key: layout/theme.liquid
+                    summary: Duplicate an existing asset by providing a source key
+          responses:
+            '200':
+              description: ''

@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Revoke A Shared Dashboard Url
+  description: >-
+    Revoke the public URL for a dashboard (rendering it private) associated with
+    the specified token.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Revoke A Shared Dashboard Url
+      description: >-
+        Revoke the public URL for a dashboard (rendering it private) associated with
+        the specified token.
+    paths:
+      /api/v1/dashboard/public/{token}:
+        delete:
+          summary: Revoke A Shared Dashboard Url
+          description: >-
+            Revoke the public URL for a dashboard (rendering it private) associated
+            with the specified token.
+          operationId: revokeashareddashboardURL
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

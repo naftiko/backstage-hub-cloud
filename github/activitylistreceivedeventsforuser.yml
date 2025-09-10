@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Events Received By The Authenticated User
+  description: >-
+    These are events that you've received by watching repositories and following
+    users. If you are authenticated as the given user, you will see private
+    events. Otherwise, you'll only see public events.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Events Received By The Authenticated User
+      description: >-
+        These are events that you've received by watching repositories and following
+        users. If you are authenticated as the given user, you will see private
+        events. Otherwise, you'll only see public events.
+    paths:
+      /users/{username}/received_events:
+        get:
+          summary: List Events Received By The Authenticated User
+          description: >-
+            These are events that you've received by watching repositories and
+            following users. If you are authenticated as the given user, you will
+            see private events. Otherwise, you'll only see public events.
+          operationId: activitylistreceivedeventsforuser
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/event'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/user-received-events-items'

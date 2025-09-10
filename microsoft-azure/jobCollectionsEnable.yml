@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.scheduler Jobcollections Jobcollectionname Enable
+  description: Enables all of the jobs in the job collection.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.scheduler Jobcollections Jobcollectionname Enable
+      description: Enables all of the jobs in the job collection.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/enable:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.scheduler Jobcollections Jobcollectionname Enable
+          description: Enables all of the jobs in the job collection.
+          operationId: jobCollectionsEnable
+          responses:
+            '202':
+              description: >-
+                Accepted and the enable job collection operation will complete
+                asynchronously.

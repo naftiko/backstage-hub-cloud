@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Project For A Workspace
+  description: >-
+    Since this endpoint can be used to both update and to create aproject, the
+    request body depends on the intent.#### CreationSee the POST documentation
+    for the project collection for anexample of the request body.Note: The `key`
+    should not be specified in the body of request(since it is already present
+    in the URL). The `name` is required,everything else is optional.####
+    UpdateSee the POST documentation for the project collection for anexample of
+    the request body.Note: The key is not required in the body (since it is
+    already inthe URL). The key may be specified in the body, if the intent isto
+    change the key itself. In such a scenario, the location of theproject is
+    changed and is returned in the `Location` header of theresponse.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Project For A Workspace
+      description: >-
+        Since this endpoint can be used to both update and to create aproject, the
+        request body depends on the intent.#### CreationSee the POST documentation
+        for the project collection for anexample of the request body.Note: The `key`
+        should not be specified in the body of request(since it is already present
+        in the URL). The `name` is required,everything else is optional.####
+        UpdateSee the POST documentation for the project collection for anexample of
+        the request body.Note: The key is not required in the body (since it is
+        already inthe URL). The key may be specified in the body, if the intent isto
+        change the key itself. In such a scenario, the location of theproject is
+        changed and is returned in the `Location` header of theresponse.
+    paths:
+      /workspaces/{workspace}/projects/{project_key}:
+        put:
+          summary: Update A Project For A Workspace
+          description: >-
+            Since this endpoint can be used to both update and to create aproject,
+            the request body depends on the intent.#### CreationSee the POST
+            documentation for the project collection for anexample of the request
+            body.Note: The `key` should not be specified in the body of
+            request(since it is already present in the URL). The `name` is
+            required,everything else is optional.#### UpdateSee the POST
+            documentation for the project collection for anexample of the request
+            body.Note: The key is not required in the body (since it is already
+            inthe URL). The key may be specified in the body, if the intent isto
+            change the key itself. In such a scenario, the location of theproject is
+            changed and is returned in the `Location` header of theresponse.
+          operationId: updateaprojectforaworkspace
+          requestBody: {}
+          responses:
+            '404':
+              description: >-
+                A workspace doesn't exist at the location. Note that the project's
+                absence from this location doesn't raise a 404, since a PUT at a
+                non-existent location can be used to create a new project.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

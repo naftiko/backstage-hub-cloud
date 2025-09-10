@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Repositories Watchers
+  description: Returns a paginated list of all the watchers on the specifiedrepository.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Repositories Watchers
+      description: Returns a paginated list of all the watchers on the specifiedrepository.
+    paths:
+      /repositories/{workspace}/{repo_slug}/watchers:
+        get:
+          summary: List Repositories Watchers
+          description: Returns a paginated list of all the watchers on the specifiedrepository.
+          operationId: listrepositorieswatchers
+          responses:
+            '200':
+              description: A paginated list of all the watchers on the specified repository.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/paginated_accounts'

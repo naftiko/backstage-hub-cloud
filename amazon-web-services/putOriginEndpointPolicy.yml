@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Putoriginendpointpolicy
+  description: >-
+    Attaches an IAM policy to the specified origin endpoint. You can attach only
+    one policy with each request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putoriginendpointpolicy
+      description: >-
+        Attaches an IAM policy to the specified origin endpoint. You can attach only
+        one policy with each request.
+    paths:
+      /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/policy:
+        POST:
+          summary: Putoriginendpointpolicy
+          description: >-
+            Attaches an IAM policy to the specified origin endpoint. You can attach
+            only one policy with each request.
+          operationId: putOriginEndpointPolicy

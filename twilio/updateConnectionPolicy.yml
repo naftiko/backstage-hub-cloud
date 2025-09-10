@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Connectionpolicies Sid
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Connectionpolicies Sid
+      description: Needs a more full description created.
+    paths:
+      /v1/ConnectionPolicies/{Sid}:
+        post:
+          summary: Post Connectionpolicies Sid
+          description: Needs a more full description created.
+          operationId: updateConnectionPolicy
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/UpdateConnectionPolicyRequest'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/voice.v1.connection_policy'
+              description: OK

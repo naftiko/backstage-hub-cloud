@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieves A List Of Locations
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/inventory/location#index-2021-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves A List Of Locations
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/inventory/location#index-2021-01
+    paths:
+      /admin/api/2021-01/locations.json:
+        get:
+          summary: Retrieves A List Of Locations
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/inventory/location#index-2021-01
+          operationId: deprecated202101getlocations
+          responses:
+            '200':
+              description: ''

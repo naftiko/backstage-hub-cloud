@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Putlexicon
+  description: >-
+    Stores a pronunciation lexicon in an Amazon Web Services Region. If a
+    lexicon with the same name already exists in the region, it is overwritten
+    by the new lexicon. Lexicon operations have eventual consistency, therefore,
+    it might take some time before the lexicon is available to the
+    SynthesizeSpeech operation. For more information, see Managing Lexicons.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putlexicon
+      description: >-
+        Stores a pronunciation lexicon in an Amazon Web Services Region. If a
+        lexicon with the same name already exists in the region, it is overwritten
+        by the new lexicon. Lexicon operations have eventual consistency, therefore,
+        it might take some time before the lexicon is available to the
+        SynthesizeSpeech operation. For more information, see Managing Lexicons.
+    paths:
+      /v1/lexicons/{LexiconName}:
+        PUT:
+          summary: Putlexicon
+          description: >-
+            Stores a pronunciation lexicon in an Amazon Web Services Region. If a
+            lexicon with the same name already exists in the region, it is
+            overwritten by the new lexicon. Lexicon operations have eventual
+            consistency, therefore, it might take some time before the lexicon is
+            available to the SynthesizeSpeech operation. For more information, see
+            Managing Lexicons.
+          operationId: putLexicon

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Tenant-based Handle
+  description: Create a tenant-based handle in the Datadog Microsoft Teams integration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Tenant-based Handle
+      description: Create a tenant-based handle in the Datadog Microsoft Teams integration.
+    paths:
+      /api/v2/integration/ms-teams/configuration/tenant-based-handles:
+        post:
+          summary: Create Tenant-based Handle
+          description: Create a tenant-based handle in the Datadog Microsoft Teams integration.
+          operationId: createTenantBasedHandle
+          requestBody:
+            description: Tenant-based handle payload.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: >-
+                    #/components/schemas/MicrosoftTeamsCreateTenantBasedHandleRequest
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

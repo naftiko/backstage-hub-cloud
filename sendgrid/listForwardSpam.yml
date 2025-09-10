@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve Forward Spam Mail Settings
+  description: >-
+    **This endpoint allows you to retrieve your current Forward Spam mail
+    settings.**Enabling the Forward Spam setting allows you to specify `email`
+    addresses to which spam reports will be forwarded. This endpoint returns any
+    email address(es) you have set to receive forwarded spam and an `enabled`
+    status indicating if the setting is active.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve Forward Spam Mail Settings
+      description: >-
+        **This endpoint allows you to retrieve your current Forward Spam mail
+        settings.**Enabling the Forward Spam setting allows you to specify `email`
+        addresses to which spam reports will be forwarded. This endpoint returns any
+        email address(es) you have set to receive forwarded spam and an `enabled`
+        status indicating if the setting is active.
+    paths:
+      /v3/mail_settings/forward_spam:
+        get:
+          summary: Retrieve Forward Spam Mail Settings
+          description: >-
+            **This endpoint allows you to retrieve your current Forward Spam mail
+            settings.**Enabling the Forward Spam setting allows you to specify
+            `email` addresses to which spam reports will be forwarded. This endpoint
+            returns any email address(es) you have set to receive forwarded spam and
+            an `enabled` status indicating if the setting is active.
+          operationId: listForwardSpam
+          responses:
+            '500':
+              $ref: '#/components/responses/MailSettingsError500'

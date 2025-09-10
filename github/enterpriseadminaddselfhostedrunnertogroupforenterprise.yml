@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add A Self-hosted Runner To A Group For An Enterprise
+  description: >-
+    Adds a self-hosted runner to a runner group configured in an
+    enterprise.OAuth app tokens and personal access tokens (classic) need the
+    `manage_runners:enterprise` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add A Self-hosted Runner To A Group For An Enterprise
+      description: >-
+        Adds a self-hosted runner to a runner group configured in an
+        enterprise.OAuth app tokens and personal access tokens (classic) need the
+        `manage_runners:enterprise` scope to use this endpoint.
+    paths:
+      /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners/{runner_id}:
+        put:
+          summary: Add A Self-hosted Runner To A Group For An Enterprise
+          description: >-
+            Adds a self-hosted runner to a runner group configured in an
+            enterprise.OAuth app tokens and personal access tokens (classic) need
+            the `manage_runners:enterprise` scope to use this endpoint.
+          operationId: enterpriseadminaddselfhostedrunnertogroupforenterprise
+          responses:
+            '204':
+              description: Response

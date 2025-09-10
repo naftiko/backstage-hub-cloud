@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getresponseheaderspolicyconfig
+  description: >-
+    Gets a response headers policy configuration. To get a response headers
+    policy configuration, you must provide the policy's identifier. If the
+    response headers policy is attached to a distribution's cache behavior, you
+    can get the policy's identifier using ListDistributions or GetDistribution.
+    If the response headers policy is not attached to a cache behavior, you can
+    get the identifier using ListResponseHeadersPolicies.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getresponseheaderspolicyconfig
+      description: >-
+        Gets a response headers policy configuration. To get a response headers
+        policy configuration, you must provide the policy's identifier. If the
+        response headers policy is attached to a distribution's cache behavior, you
+        can get the policy's identifier using ListDistributions or GetDistribution.
+        If the response headers policy is not attached to a cache behavior, you can
+        get the identifier using ListResponseHeadersPolicies.
+    paths:
+      /2020-05-31/response-headers-policy/{Id}/config:
+        GET:
+          summary: Getresponseheaderspolicyconfig
+          description: >-
+            Gets a response headers policy configuration. To get a response headers
+            policy configuration, you must provide the policy's identifier. If the
+            response headers policy is attached to a distribution's cache behavior,
+            you can get the policy's identifier using ListDistributions or
+            GetDistribution. If the response headers policy is not attached to a
+            cache behavior, you can get the identifier using
+            ListResponseHeadersPolicies.
+          operationId: getResponseHeadersPolicyConfig

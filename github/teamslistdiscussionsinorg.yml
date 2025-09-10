@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Discussions
+  description: >-
+    List all discussions on a team's page.**Note:** You can also specify a team
+    by `org_id` and `team_id` using the route `GET
+    /organizations/{org_id}/team/{team_id}/discussions`.OAuth app tokens and
+    personal access tokens (classic) need the `read:discussion` scope to use
+    this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Discussions
+      description: >-
+        List all discussions on a team's page.**Note:** You can also specify a team
+        by `org_id` and `team_id` using the route `GET
+        /organizations/{org_id}/team/{team_id}/discussions`.OAuth app tokens and
+        personal access tokens (classic) need the `read:discussion` scope to use
+        this endpoint.
+    paths:
+      /orgs/{org}/teams/{team_slug}/discussions:
+        get:
+          summary: List Discussions
+          description: >-
+            List all discussions on a team's page.**Note:** You can also specify a
+            team by `org_id` and `team_id` using the route `GET
+            /organizations/{org_id}/team/{team_id}/discussions`.OAuth app tokens and
+            personal access tokens (classic) need the `read:discussion` scope to use
+            this endpoint.
+          operationId: teamslistdiscussionsinorg
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/team-discussion'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/team-discussion-items'
+              headers:
+                Link:
+                  $ref: '#/components/headers/link'

@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Describeedgeconfiguration
+  description: >-
+    Describes a stream’s edge configuration that was set using the
+    StartEdgeConfigurationUpdate API and the latest status of the edge agent's
+    recorder and uploader jobs. Use this API to get the status of the
+    configuration to determine if the configuration is in sync with the Edge
+    Agent. Use this API to evaluate the health of the Edge Agent.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeedgeconfiguration
+      description: >-
+        Describes a stream’s edge configuration that was set using the
+        StartEdgeConfigurationUpdate API and the latest status of the edge agent's
+        recorder and uploader jobs. Use this API to get the status of the
+        configuration to determine if the configuration is in sync with the Edge
+        Agent. Use this API to evaluate the health of the Edge Agent.
+    paths:
+      /describeEdgeConfiguration:
+        POST:
+          summary: Describeedgeconfiguration
+          description: >-
+            Describes a stream’s edge configuration that was set using the
+            StartEdgeConfigurationUpdate API and the latest status of the edge
+            agent's recorder and uploader jobs. Use this API to get the status of
+            the configuration to determine if the configuration is in sync with the
+            Edge Agent. Use this API to evaluate the health of the Edge Agent.
+          operationId: describeEdgeConfiguration

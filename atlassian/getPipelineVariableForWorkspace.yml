@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Variable For A Workspace
+  description: Retrieve a workspace level variable.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Variable For A Workspace
+      description: Retrieve a workspace level variable.
+    paths:
+      /workspaces/{workspace}/pipelines-config/variables/{variable_uuid}:
+        get:
+          summary: Get Variable For A Workspace
+          description: Retrieve a workspace level variable.
+          operationId: getPipelineVariableForWorkspace
+          responses:
+            '404':
+              description: The workspace or variable with the given UUID was not found.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Branch Restriction Rule
+  description: Returns a specific branch restriction rule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Branch Restriction Rule
+      description: Returns a specific branch restriction rule.
+    paths:
+      /repositories/{workspace}/{repo_slug}/branch-restrictions/{id}:
+        get:
+          summary: Get A Branch Restriction Rule
+          description: Returns a specific branch restriction rule.
+          operationId: getabranchrestrictionrule
+          responses:
+            '404':
+              description: If the repository or branch restriction id does not exist
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

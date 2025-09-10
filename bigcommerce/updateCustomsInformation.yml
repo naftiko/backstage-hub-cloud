@@ -1,0 +1,68 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Upsert Customs Information
+  description: >-
+    Creates and updates product customs information.This is a batch operation
+    where the creation of multiple customs information objects can be done with
+    one `PUT` request.**Limits*** Limit of 50 customs information objects per
+    `PUT` request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Upsert Customs Information
+      description: >-
+        Creates and updates product customs information.This is a batch operation
+        where the creation of multiple customs information objects can be done with
+        one `PUT` request.**Limits*** Limit of 50 customs information objects per
+        `PUT` request.
+    paths:
+      /shipping/products/customs-information:
+        put:
+          summary: Upsert Customs Information
+          description: >-
+            Creates and updates product customs information.This is a batch
+            operation where the creation of multiple customs information objects can
+            be done with one `PUT` request.**Limits*** Limit of 50 customs
+            information objects per `PUT` request.
+          operationId: updateCustomsInformation
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/customsInformation_request'
+                examples:
+                  Example:
+                    value:
+                      - product_id: 77
+                        country_of_origin: US
+                        commodity_description: Baseball caps
+                        international_shipping: true
+                        hs_codes:
+                          CA: '508313'
+                          AU: '817355'
+                          ALL: '501000'
+          responses:
+            '200':
+              description: OK
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/customsInformation'
+                  examples: {}

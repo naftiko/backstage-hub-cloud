@@ -1,0 +1,63 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Vote
+  description: >-
+    Deletes a user's vote from an issue. This is the equivalent of the user
+    clicking *Unvote* on an issue in Jira.This operation requires the **Allow
+    users to vote on issues** option to be *ON*. This option is set in General
+    configuration for Jira. See [Configuring Jira application
+    options](https://confluence.atlassian.com/x/uYXKM) for
+    details.**[Permissions](#permissions) required:** *  *Browse projects*
+    [project permission](https://confluence.atlassian.com/x/yodKLg) for the
+    project that the issue is in. *  If [issue-level
+    security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+    issue-level security permission to view the issue.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Vote
+      description: >-
+        Deletes a user's vote from an issue. This is the equivalent of the user
+        clicking *Unvote* on an issue in Jira.This operation requires the **Allow
+        users to vote on issues** option to be *ON*. This option is set in General
+        configuration for Jira. See [Configuring Jira application
+        options](https://confluence.atlassian.com/x/uYXKM) for
+        details.**[Permissions](#permissions) required:** *  *Browse projects*
+        [project permission](https://confluence.atlassian.com/x/yodKLg) for the
+        project that the issue is in. *  If [issue-level
+        security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+        issue-level security permission to view the issue.
+    paths:
+      /rest/api/3/issue/{issueIdOrKey}/votes:
+        delete:
+          summary: Delete Vote
+          description: >-
+            Deletes a user's vote from an issue. This is the equivalent of the user
+            clicking *Unvote* on an issue in Jira.This operation requires the
+            **Allow users to vote on issues** option to be *ON*. This option is set
+            in General configuration for Jira. See [Configuring Jira application
+            options](https://confluence.atlassian.com/x/uYXKM) for
+            details.**[Permissions](#permissions) required:** *  *Browse projects*
+            [project permission](https://confluence.atlassian.com/x/yodKLg) for the
+            project that the issue is in. *  If [issue-level
+            security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+            issue-level security permission to view the issue.
+          operationId: removeVote
+          responses:
+            '404':
+              description: |-
+                Returned if:
+
+                 *  voting is disabled.
+                 *  the user has not voted on the issue.
+                 *  the issue is not found.

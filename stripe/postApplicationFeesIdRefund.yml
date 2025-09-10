@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Application_fees Id Refund
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Application_fees Id Refund
+      description: Needs a more full description created.
+    paths:
+      /v1/application_fees/{id}/refund:
+        post:
+          summary: Post Application_fees Id Refund
+          description: Needs a more full description created.
+          operationId: postApplicationFeesIdRefund
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  properties:
+                    amount:
+                      type: integer
+                    directive:
+                      maxLength: 5000
+                      type: string
+                    expand:
+                      description: Specifies which fields in the response should be expanded.
+                      items:
+                        maxLength: 5000
+                        type: string
+                      type: array
+                  type: object
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

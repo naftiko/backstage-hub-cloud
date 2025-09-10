@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieves A Single Payout By Id.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/shopify_payments/payout#show-2020-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves A Single Payout By Id.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/shopify_payments/payout#show-2020-01
+    paths:
+      /admin/api/2020-01/shopify_payments/payouts/{payout_id}.json:
+        get:
+          summary: Retrieves A Single Payout By Id.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/shopify_payments/payout#show-2020-01
+          operationId: deprecated202001getshopifypaymentspayoutsparampayoutid
+          responses:
+            '200':
+              description: ''

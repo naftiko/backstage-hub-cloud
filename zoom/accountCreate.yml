@@ -1,0 +1,133 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Ma Account Create
+  description: >-
+    Create a sub account of the master account on Zoom, return the created sub
+    account id and owner id.Your account must be a master account and have this
+    privilege to create sub account. Zoom only assign this privilege to trusted
+    partner.User will not receive the confirmation email.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Ma Account Create
+      description: >-
+        Create a sub account of the master account on Zoom, return the created sub
+        account id and owner id.Your account must be a master account and have this
+        privilege to create sub account. Zoom only assign this privilege to trusted
+        partner.User will not receive the confirmation email.
+    paths:
+      /ma/account/create:
+        post:
+          summary: Post Ma Account Create
+          description: >-
+            Create a sub account of the master account on Zoom, return the created
+            sub account id and owner id.Your account must be a master account and
+            have this privilege to create sub account. Zoom only assign this
+            privilege to trusted partner.User will not receive the confirmation
+            email.
+          operationId: accountCreate
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - email
+                    - first_name
+                    - last_name
+                    - password
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                      description: >-
+                        A valid email address. It must be unique in Zoom service. If
+                        an email address is existed, a "user existing" error message
+                        will be return.
+                    first_name:
+                      type: string
+                      description: User’s first name.
+                    last_name:
+                      type: string
+                      description: User’s last name.
+                    password:
+                      type: string
+                      description: User’s password.
+                    enable_share_rc:
+                      type: boolean
+                      description: Enable Share Virtual Room Connector.
+                      default: false
+                    share_rc:
+                      type: string
+                      description: Virtual Room Connector, multiple value separated by comma.
+                    enable_share_mc:
+                      type: boolean
+                      description: Enable Share Meeting Connector.
+                      default: false
+                    share_mc:
+                      type: string
+                      description: Meeting Connector, multiple value separated by comma.
+                    pay_mode:
+                      type: string
+                      description: >-
+                        Who will pay for this account? 0 means Sub Account Holders
+                        Pays, 1 means Master Account Holder Pays.
+                      default: '1'
+                    collection_method:
+                      type: string
+                      description: >-
+                        Collection Method? 0 means Automatic (billing online), 1
+                        means Manual (send invoice).
+                      default: '1'
+                    enable_pstn:
+                      type: boolean
+                      description: The value should be true or false, by default is true.
+                      default: true
+                    enable_enforce_login:
+                      type: boolean
+                      description: Only signed-in users can join this meeting.
+                      default: false
+                    enable_enforce_login_sd:
+                      type: boolean
+                      description: >-
+                        Only signed-in users with specified domains can join
+                        meetings.
+                      default: false
+                    enforce_login_domains:
+                      type: string
+                      description: Domains of signed-in users.
+                    meeting_capacity:
+                      type: string
+                      description: Account’ meeting capacity, max of 100.
+                    disable_cmr_reminder:
+                      type: boolean
+                      description: Disable cloud recording reminder.
+                      default: false
+                    enable_only_host_download_cmr:
+                      type: boolean
+                      description: Enable Only the host can download cloud recordings.
+                      default: false
+                    enable_same_account_access_cmr:
+                      type: boolean
+                      description: Enable Only users on my account can access cloud recordings.
+                      default: false
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    id: unique_id
+                    owner_id: unique_id
+                    owner_email: email_address
+                    created_at: 2012-11-25T12:00:00.000Z

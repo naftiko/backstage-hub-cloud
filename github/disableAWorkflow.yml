@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Disable A Workflow
+  description: >-
+    Disables a workflow and sets the `state` of the workflow to
+    `disabled_manually`. You can replace `workflow_id` with the workflow file
+    name. For example, you could use `main.yaml`.OAuth tokens and personal
+    access tokens (classic) need the `repo` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disable A Workflow
+      description: >-
+        Disables a workflow and sets the `state` of the workflow to
+        `disabled_manually`. You can replace `workflow_id` with the workflow file
+        name. For example, you could use `main.yaml`.OAuth tokens and personal
+        access tokens (classic) need the `repo` scope to use this endpoint.
+    paths:
+      /repos/{owner}/{repo}/actions/workflows/{workflow_id}/disable:
+        put:
+          summary: Disable A Workflow
+          description: >-
+            Disables a workflow and sets the `state` of the workflow to
+            `disabled_manually`. You can replace `workflow_id` with the workflow
+            file name. For example, you could use `main.yaml`.OAuth tokens and
+            personal access tokens (classic) need the `repo` scope to use this
+            endpoint.
+          operationId: disableAWorkflow
+          responses:
+            '204':
+              description: Response

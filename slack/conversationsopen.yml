@@ -1,0 +1,117 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Conversations.open
+  description: Opens or resumes a direct message or multi-person direct message.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Conversations.open
+      description: Opens or resumes a direct message or multi-person direct message.
+    paths:
+      /conversations.open:
+        post:
+          summary: Post Conversations.open
+          description: Opens or resumes a direct message or multi-person direct message.
+          operationId: conversationsopen
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  type: object
+                  properties:
+                    channel:
+                      type: string
+                      description: >-
+                        Resume a conversation by supplying an `im` or `mpim`'s ID.
+                        Or provide the `users` field instead.
+                    users:
+                      type: string
+                      description: >-
+                        Comma separated lists of users. If only one user is
+                        included, this creates a 1:1 DM.  The ordering of the users
+                        is preserved whenever a multi-person direct message is
+                        returned. Supply a `channel` when not supplying `users`.
+                    return_im:
+                      type: boolean
+                      description: >-
+                        Boolean, indicates you want the full IM channel definition
+                        in the response.
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    channel:
+                      type: string
+                      description: >-
+                        Resume a conversation by supplying an `im` or `mpim`'s ID.
+                        Or provide the `users` field instead.
+                    users:
+                      type: string
+                      description: >-
+                        Comma separated lists of users. If only one user is
+                        included, this creates a 1:1 DM.  The ordering of the users
+                        is preserved whenever a multi-person direct message is
+                        returned. Supply a `channel` when not supplying `users`.
+                    return_im:
+                      type: boolean
+                      description: >-
+                        Boolean, indicates you want the full IM channel definition
+                        in the response.
+          responses:
+            default:
+              description: Typical error response
+              content:
+                application/json:
+                  schema:
+                    title: conversations.open error schema
+                    required:
+                      - error
+                      - ok
+                    type: object
+                    properties:
+                      callstack:
+                        type: string
+                        description: 'Note: PHP callstack is only visible in dev/qa'
+                      error:
+                        type: string
+                        enum:
+                          - method_not_supported_for_channel_type
+                          - user_not_found
+                          - user_not_visible
+                          - user_disabled
+                          - users_list_not_supplied
+                          - not_enough_users
+                          - too_many_users
+                          - invalid_user_combination
+                          - not_authed
+                          - invalid_auth
+                          - account_inactive
+                          - invalid_arg_name
+                          - invalid_array_arg
+                          - invalid_charset
+                          - invalid_form_data
+                          - invalid_post_type
+                          - missing_post_type
+                          - team_added_to_org
+                          - invalid_json
+                          - json_not_object
+                          - request_timeout
+                          - upgrade_required
+                          - channel_not_found
+                      ok:
+                        $ref: '#/components/schemas/defs_ok_false'
+                    additionalProperties: false
+                    description: Schema for error response from conversations.open method
+                  example:
+                    error: channel_not_found
+                    ok: false

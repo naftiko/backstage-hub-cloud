@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Payouts Payout Cancel
+  description: >-
+    You can cancel a previously created payout if it hasn’t been paid out yet.
+    Stripe refunds the funds to your available balance. You can’t cancel
+    automatic Stripe payouts.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Payouts Payout Cancel
+      description: >-
+        You can cancel a previously created payout if it hasn’t been paid out yet.
+        Stripe refunds the funds to your available balance. You can’t cancel
+        automatic Stripe payouts.
+    paths:
+      /v1/payouts/{payout}/cancel:
+        post:
+          summary: Post Payouts Payout Cancel
+          description: >-
+            You can cancel a previously created payout if it hasn’t been paid out
+            yet. Stripe refunds the funds to your available balance. You can’t
+            cancel automatic Stripe payouts.
+          operationId: postPayoutsPayoutCancel
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostPayoutsPayoutCancelRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

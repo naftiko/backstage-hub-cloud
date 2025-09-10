@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Check Issues Against Jql
+  description: >-
+    Checks whether one or more issues would be returned by one or more JQL
+    queries.**[Permissions](#permissions) required:** None, however, issues are
+    only matched against JQL queries where the user has: *  *Browse projects*
+    [project permission](https://confluence.atlassian.com/x/yodKLg) for the
+    project that the issue is in. *  If [issue-level
+    security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+    issue-level security permission to view the issue.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Check Issues Against Jql
+      description: >-
+        Checks whether one or more issues would be returned by one or more JQL
+        queries.**[Permissions](#permissions) required:** None, however, issues are
+        only matched against JQL queries where the user has: *  *Browse projects*
+        [project permission](https://confluence.atlassian.com/x/yodKLg) for the
+        project that the issue is in. *  If [issue-level
+        security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+        issue-level security permission to view the issue.
+    paths:
+      /rest/api/3/jql/match:
+        post:
+          summary: Check Issues Against Jql
+          description: >-
+            Checks whether one or more issues would be returned by one or more JQL
+            queries.**[Permissions](#permissions) required:** None, however, issues
+            are only matched against JQL queries where the user has: *  *Browse
+            projects* [project
+            permission](https://confluence.atlassian.com/x/yodKLg) for the project
+            that the issue is in. *  If [issue-level
+            security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+            issue-level security permission to view the issue.
+          operationId: matchIssues
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  issueIds:
+                    - 10001
+                    - 1000
+                    - 10042
+                  jqls:
+                    - project = FOO
+                    - issuetype = Bug
+                    - summary ~ "some text" AND project in (FOO, BAR)
+                schema:
+                  $ref: '#/components/schemas/IssuesAndJQLQueries'
+          responses:
+            '400':
+              description: >-
+                Returned if `jqls` exceeds the maximum number of JQL queries or
+                `issueIds` exceeds the maximum number of issue IDs.

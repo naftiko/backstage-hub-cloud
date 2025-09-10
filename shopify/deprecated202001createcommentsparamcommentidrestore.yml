@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Restores A Previously Removed Comment
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/online-store/comment#restore-2020-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Restores A Previously Removed Comment
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/online-store/comment#restore-2020-01
+    paths:
+      /admin/api/2020-01/comments/{comment_id}/restore.json:
+        post:
+          summary: Restores A Previously Removed Comment
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/online-store/comment#restore-2020-01
+          operationId: deprecated202001createcommentsparamcommentidrestore
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value: {}
+                    summary: Restore a removed comment
+          responses:
+            '200':
+              description: ''

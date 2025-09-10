@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Refreshes The Metadata For An Apache Iceberg Table That Uses An External
+    Iceberg Catalog
+  description: >-
+    Refreshes the metadata for an Apache Iceberg table that uses an external
+    Iceberg catalog
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Refreshes The Metadata For An Apache Iceberg Table That Uses An External
+        Iceberg Catalog
+      description: >-
+        Refreshes the metadata for an Apache Iceberg table that uses an external
+        Iceberg catalog
+    paths:
+      /api/v2/databases/{database}/schemas/{schema}/iceberg-tables/{name}:refresh:
+        post:
+          summary: >-
+            Refreshes The Metadata For An Apache Iceberg Table That Uses An External
+            Iceberg Catalog
+          description: >-
+            Refreshes the metadata for an Apache Iceberg table that uses an external
+            Iceberg catalog
+          operationId: refreshIcebergTable
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RefreshIcebergTableRequest'
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

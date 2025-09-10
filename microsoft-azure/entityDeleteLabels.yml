@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Atlas Entity Guid Guid Labels
+  description: delete given labels to a given entity
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Atlas Entity Guid Guid Labels
+      description: delete given labels to a given entity
+    paths:
+      /atlas/v2/entity/guid/{guid}/labels:
+        delete:
+          summary: Delete Atlas Entity Guid Guid Labels
+          description: delete given labels to a given entity
+          operationId: entityDeleteLabels
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Remove A Custom Label From A Self-hosted Runner For A Repository
+  description: >-
+    Remove a custom label from a self-hosted runner configuredin a repository.
+    Returns the remaining labels from the runner.This endpoint returns a `404
+    Not Found` status if the custom label is notpresent on the
+    runner.Authenticated users must have admin access to the repository to use
+    this endpoint.OAuth app tokens and personal access tokens (classic) need the
+    `repo` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Remove A Custom Label From A Self-hosted Runner For A Repository
+      description: >-
+        Remove a custom label from a self-hosted runner configuredin a repository.
+        Returns the remaining labels from the runner.This endpoint returns a `404
+        Not Found` status if the custom label is notpresent on the
+        runner.Authenticated users must have admin access to the repository to use
+        this endpoint.OAuth app tokens and personal access tokens (classic) need the
+        `repo` scope to use this endpoint.
+    paths:
+      /repos/{owner}/{repo}/actions/runners/{runner_id}/labels/{name}:
+        delete:
+          summary: Remove A Custom Label From A Self-hosted Runner For A Repository
+          description: >-
+            Remove a custom label from a self-hosted runner configuredin a
+            repository. Returns the remaining labels from the runner.This endpoint
+            returns a `404 Not Found` status if the custom label is notpresent on
+            the runner.Authenticated users must have admin access to the repository
+            to use this endpoint.OAuth app tokens and personal access tokens
+            (classic) need the `repo` scope to use this endpoint.
+          operationId: removeACustomLabelFromASelfHostedRunnerForARepository
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed_simple'

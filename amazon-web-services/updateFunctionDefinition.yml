@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updatefunctiondefinition
+  description: Updates a Lambda function definition.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatefunctiondefinition
+      description: Updates a Lambda function definition.
+    paths:
+      /greengrass/definition/functions/{FunctionDefinitionId}:
+        PUT:
+          summary: Updatefunctiondefinition
+          description: Updates a Lambda function definition.
+          operationId: updateFunctionDefinition

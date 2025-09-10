@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listcidrlocations
+  description: >-
+    Returns a paginated list of CIDR locations for the given collection
+    (metadata only, does not include CIDR blocks).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listcidrlocations
+      description: >-
+        Returns a paginated list of CIDR locations for the given collection
+        (metadata only, does not include CIDR blocks).
+    paths:
+      /2013-04-01/cidrcollection/{CidrCollectionId}:
+        GET:
+          summary: Listcidrlocations
+          description: >-
+            Returns a paginated list of CIDR locations for the given collection
+            (metadata only, does not include CIDR blocks).
+          operationId: listCidrLocations

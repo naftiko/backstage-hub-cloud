@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Patch Tenantid Serviceprincipals Objectid
+  description: Updates a service principal in the directory.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Patch Tenantid Serviceprincipals Objectid
+      description: Updates a service principal in the directory.
+    paths:
+      /{tenantID}/servicePrincipals/{objectId}:
+        patch:
+          summary: Patch Tenantid Serviceprincipals Objectid
+          description: Updates a service principal in the directory.
+          operationId: servicePrincipalsUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/GraphError'

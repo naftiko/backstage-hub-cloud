@@ -1,0 +1,62 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Transactions
+  description: >-
+    Returns an **orderʼs** transactions.**Usage Notes*** Depending on the
+    payment method, different information will be available (not all payment
+    gateways return full card or fraud detail).Requires at least one of the
+    following scopes:* `store_v2_transactions_read_only`*
+    `store_v2_transactions`
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Transactions
+      description: >-
+        Returns an **orderʼs** transactions.**Usage Notes*** Depending on the
+        payment method, different information will be available (not all payment
+        gateways return full card or fraud detail).Requires at least one of the
+        following scopes:* `store_v2_transactions_read_only`*
+        `store_v2_transactions`
+    paths:
+      /orders/{order_id}/transactions:
+        get:
+          summary: Get Transactions
+          description: >-
+            Returns an **orderʼs** transactions.**Usage Notes*** Depending on the
+            payment method, different information will be available (not all payment
+            gateways return full card or fraud detail).Requires at least one of the
+            following scopes:* `store_v2_transactions_read_only`*
+            `store_v2_transactions`
+          operationId: getOrderTransactions
+          responses:
+            '404':
+              description: |
+                The resource was not found.
+              content:
+                application/json:
+                  schema:
+                    description: Error payload for the BigCommerce API.
+                    type: object
+                    properties:
+                      status:
+                        description: |
+                          404 HTTP status code.
+                        type: integer
+                      title:
+                        description: The error title describing the particular error.
+                        type: string
+                      type:
+                        type: string
+                      instance:
+                        type: string
+                    title: Not Found

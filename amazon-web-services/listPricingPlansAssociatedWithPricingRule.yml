@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listpricingplansassociatedwithpricingrule
+  description: ' A list of the pricing plans that are associated with a pricing rule. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listpricingplansassociatedwithpricingrule
+      description: ' A list of the pricing plans that are associated with a pricing rule. '
+    paths:
+      /list-pricing-plans-associated-with-pricing-rule:
+        POST:
+          summary: Listpricingplansassociatedwithpricingrule
+          description: ' A list of the pricing plans that are associated with a pricing rule. '
+          operationId: listPricingPlansAssociatedWithPricingRule

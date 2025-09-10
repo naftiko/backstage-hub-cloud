@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Assign Workflow Scheme To Project
+  description: >-
+    Assigns a workflow scheme to a project. This operation is performed only
+    when there are no issues in the project.Workflow schemes can only be
+    assigned to classic projects.**[Permissions](#permissions) required:**
+    *Administer Jira* [global
+    permission](https://confluence.atlassian.com/x/x4dKLg).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Assign Workflow Scheme To Project
+      description: >-
+        Assigns a workflow scheme to a project. This operation is performed only
+        when there are no issues in the project.Workflow schemes can only be
+        assigned to classic projects.**[Permissions](#permissions) required:**
+        *Administer Jira* [global
+        permission](https://confluence.atlassian.com/x/x4dKLg).
+    paths:
+      /rest/api/3/workflowscheme/project:
+        put:
+          summary: Assign Workflow Scheme To Project
+          description: >-
+            Assigns a workflow scheme to a project. This operation is performed only
+            when there are no issues in the project.Workflow schemes can only be
+            assigned to classic projects.**[Permissions](#permissions) required:**
+            *Administer Jira* [global
+            permission](https://confluence.atlassian.com/x/x4dKLg).
+          operationId: assignSchemeToProject
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  projectId: '10001'
+                  workflowSchemeId: '10032'
+                schema:
+                  $ref: '#/components/schemas/WorkflowSchemeProjectAssociation'
+          responses:
+            '404':
+              content:
+                application/json:
+                  example: >-
+                    {"errorMessages":["The workflow scheme was not
+                    found."],"errors":{}}
+              description: Returned if the workflow scheme or the project are not found.

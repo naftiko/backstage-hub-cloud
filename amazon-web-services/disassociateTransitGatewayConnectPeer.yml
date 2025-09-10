@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Disassociatetransitgatewayconnectpeer
+  description: Disassociates a transit gateway Connect peer from a device and link.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disassociatetransitgatewayconnectpeer
+      description: Disassociates a transit gateway Connect peer from a device and link.
+    paths:
+      /global-networks/{globalNetworkId}/transit-gateway-connect-peer-associations/{transitGatewayConnectPeerArn}:
+        DELETE:
+          summary: Disassociatetransitgatewayconnectpeer
+          description: Disassociates a transit gateway Connect peer from a device and link.
+          operationId: disassociateTransitGatewayConnectPeer

@@ -1,0 +1,90 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Release
+  description: Users with push access to the repository can edit a release.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Release
+      description: Users with push access to the repository can edit a release.
+    paths:
+      /repos/{owner}/{repo}/releases/{release_id}:
+        patch:
+          summary: Update A Release
+          description: Users with push access to the repository can edit a release.
+          operationId: reposupdaterelease
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    tag_name:
+                      type: string
+                      description: The name of the tag.
+                    target_commitish:
+                      type: string
+                      description: >-
+                        Specifies the commitish value that determines where the Git
+                        tag is created from. Can be any branch or commit SHA. Unused
+                        if the Git tag already exists. Default: the repository's
+                        default branch.
+                    name:
+                      type: string
+                      description: The name of the release.
+                    body:
+                      type: string
+                      description: Text describing the contents of the tag.
+                    draft:
+                      type: boolean
+                      description: >-
+                        `true` makes the release a draft, and `false` publishes the
+                        release.
+                    prerelease:
+                      type: boolean
+                      description: >-
+                        `true` to identify the release as a prerelease, `false` to
+                        identify the release as a full release.
+                    make_latest:
+                      type: string
+                      description: >-
+                        Specifies whether this release should be set as the latest
+                        release for the repository. Drafts and prereleases cannot be
+                        set as latest. Defaults to `true` for newly published
+                        releases. `legacy` specifies that the latest release should
+                        be determined based on the release creation date and higher
+                        semantic version.
+                      enum:
+                        - 'true'
+                        - 'false'
+                        - legacy
+                      default: true
+                examples:
+                  default:
+                    value:
+                      tag_name: v1.0.0
+                      target_commitish: master
+                      name: v1.0.0
+                      body: Description of the release
+                      draft: false
+                      prerelease: false
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/release'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/release'

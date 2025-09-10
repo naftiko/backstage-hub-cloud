@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    The Video Detail Search Api Lets You Search On Bing And Get Back Insights
+    About A Video, Such As Related Videos. This Section Provides Technical
+    Details About The Query Parameters And Headers That You Use To Request
+    Insights Of Videos And The Json Response Objects That Contain Them. For
+    Examples That Show How To Make Requests, See [searching The Web For
+    Videos](https://docs.microsoft.com/azure/cognitive-services/bing-video-search/search-the-web).
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        The Video Detail Search Api Lets You Search On Bing And Get Back Insights
+        About A Video, Such As Related Videos. This Section Provides Technical
+        Details About The Query Parameters And Headers That You Use To Request
+        Insights Of Videos And The Json Response Objects That Contain Them. For
+        Examples That Show How To Make Requests, See [searching The Web For
+        Videos](https://docs.microsoft.com/azure/cognitive-services/bing-video-search/search-the-web).
+      description: Needs a more full description created.
+    paths:
+      /videos/details:
+        get:
+          summary: >-
+            The Video Detail Search Api Lets You Search On Bing And Get Back
+            Insights About A Video, Such As Related Videos. This Section Provides
+            Technical Details About The Query Parameters And Headers That You Use To
+            Request Insights Of Videos And The Json Response Objects That Contain
+            Them. For Examples That Show How To Make Requests, See [searching The
+            Web For
+            Videos](https://docs.microsoft.com/azure/cognitive-services/bing-video-search/search-the-web).
+          description: Needs a more full description created.
+          operationId: videosDetails
+          responses:
+            default:
+              description: >-
+                An error has occurred. Check the response type and/or status code
+                for more details.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

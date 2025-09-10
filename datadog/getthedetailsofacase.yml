@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get The Details Of A Case
+  description: Get the details of case by `case_id`
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get The Details Of A Case
+      description: Get the details of case by `case_id`
+    paths:
+      /api/v2/cases/{case_id}:
+        get:
+          summary: Get The Details Of A Case
+          description: Get the details of case by `case_id`
+          operationId: getthedetailsofacase
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

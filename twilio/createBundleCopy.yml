@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Regulatorycompliance Bundles Bundlesid Copies
+  description: >-
+    Creates a new copy of a Bundle. It will internally create copies of all the
+    bundle items (identities and documents) of the original bundle
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Regulatorycompliance Bundles Bundlesid Copies
+      description: >-
+        Creates a new copy of a Bundle. It will internally create copies of all the
+        bundle items (identities and documents) of the original bundle
+    paths:
+      /v2/RegulatoryCompliance/Bundles/{BundleSid}/Copies:
+        post:
+          summary: Post Regulatorycompliance Bundles Bundlesid Copies
+          description: >-
+            Creates a new copy of a Bundle. It will internally create copies of all
+            the bundle items (identities and documents) of the original bundle
+          operationId: createBundleCopy
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateBundleCopyRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: >-
+                      #/components/schemas/numbers.v2.regulatory_compliance.bundle.bundle_copy
+              description: Created

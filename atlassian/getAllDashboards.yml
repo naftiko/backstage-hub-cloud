@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Dashboards
+  description: >-
+    Returns a list of dashboards owned by or shared with the user. The list may
+    be filtered to include only favorite or owned dashboards.This operation can
+    be accessed anonymously.**[Permissions](#permissions) required:** None.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Dashboards
+      description: >-
+        Returns a list of dashboards owned by or shared with the user. The list may
+        be filtered to include only favorite or owned dashboards.This operation can
+        be accessed anonymously.**[Permissions](#permissions) required:** None.
+    paths:
+      /rest/api/3/dashboard:
+        get:
+          summary: Get All Dashboards
+          description: >-
+            Returns a list of dashboards owned by or shared with the user. The list
+            may be filtered to include only favorite or owned dashboards.This
+            operation can be accessed anonymously.**[Permissions](#permissions)
+            required:** None.
+          operationId: getAllDashboards
+          responses:
+            '401':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorCollection'
+              description: Returned if the authentication credentials are incorrect or missing.

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Put Resourcescope Providers Microsoft.blueprint Blueprints Blueprintname
+    Artifacts Artifactname
+  description: Create or update blueprint artifact.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Resourcescope Providers Microsoft.blueprint Blueprints Blueprintname
+        Artifacts Artifactname
+      description: Create or update blueprint artifact.
+    paths:
+      /{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/artifacts/{artifactName}:
+        put:
+          summary: >-
+            Put Resourcescope Providers Microsoft.blueprint Blueprints Blueprintname
+            Artifacts Artifactname
+          description: Create or update blueprint artifact.
+          operationId: artifactsCreateOrUpdate
+          responses:
+            default:
+              description: Blueprints error response.
+              schema:
+                $ref: '#/definitions/CloudError'

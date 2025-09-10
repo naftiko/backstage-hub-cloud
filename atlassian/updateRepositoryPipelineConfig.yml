@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Configuration
+  description: Update the pipelines configuration for a repository.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Configuration
+      description: Update the pipelines configuration for a repository.
+    paths:
+      /repositories/{workspace}/{repo_slug}/pipelines_config:
+        put:
+          summary: Update Configuration
+          description: Update the pipelines configuration for a repository.
+          operationId: updateRepositoryPipelineConfig
+          requestBody:
+            description: The updated repository pipelines configuration.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/pipelines_config'
+          responses:
+            '200':
+              description: The repository pipelines configuration was updated.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/pipelines_config'

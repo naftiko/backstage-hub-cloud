@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Remove Label From A Space
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Remove Label From A Space
+      description: Needs a more full description created.
+    paths:
+      /wiki/rest/api/space/{spaceKey}/label:
+        delete:
+          summary: Remove Label From A Space
+          description: Needs a more full description created.
+          operationId: deleteLabelFromSpace
+          responses:
+            '404':
+              description: |-
+                Returned if;
+                - There is no space with the given space key.
+                - The calling user does not have permission to view the space.
+              content: {}

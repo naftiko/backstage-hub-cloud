@@ -1,0 +1,122 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Gist
+  description: >-
+    Allows you to update a gist's description and to update, delete, or rename
+    gist files. Filesfrom the previous version of the gist that aren't
+    explicitly changed during an editare unchanged.At least one of `description`
+    or `files` is required.This endpoint supports the following custom media
+    types. For more information, see "[Media
+    types](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types)."-
+    **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the
+    default if you do not pass any specific media type.-
+    **`application/vnd.github.base64+json`**: Returns the base64-encoded
+    contents. This can be useful if your gist contains any invalid UTF-8
+    sequences.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Gist
+      description: >-
+        Allows you to update a gist's description and to update, delete, or rename
+        gist files. Filesfrom the previous version of the gist that aren't
+        explicitly changed during an editare unchanged.At least one of `description`
+        or `files` is required.This endpoint supports the following custom media
+        types. For more information, see "[Media
+        types](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types)."-
+        **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the
+        default if you do not pass any specific media type.-
+        **`application/vnd.github.base64+json`**: Returns the base64-encoded
+        contents. This can be useful if your gist contains any invalid UTF-8
+        sequences.
+    paths:
+      /gists/{gist_id}:
+        patch:
+          summary: Update A Gist
+          description: >-
+            Allows you to update a gist's description and to update, delete, or
+            rename gist files. Filesfrom the previous version of the gist that
+            aren't explicitly changed during an editare unchanged.At least one of
+            `description` or `files` is required.This endpoint supports the
+            following custom media types. For more information, see "[Media
+            types](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types)."-
+            **`application/vnd.github.raw+json`**: Returns the raw markdown. This is
+            the default if you do not pass any specific media type.-
+            **`application/vnd.github.base64+json`**: Returns the base64-encoded
+            contents. This can be useful if your gist contains any invalid UTF-8
+            sequences.
+          operationId: gistsupdate
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  properties:
+                    description:
+                      description: The description of the gist.
+                      example: Example Ruby script
+                      type: string
+                    files:
+                      description: >-
+                        The gist files to be updated, renamed, or deleted. Each
+                        `key` must match the current filename
+
+                        (including extension) of the targeted gist file. For
+                        example: `hello.py`.
+
+
+                        To delete a file, set the whole file to null. For example:
+                        `hello.py : null`. The file will also be
+
+                        deleted if the specified object does not contain at least
+                        one of `content` or `filename`.
+                      example:
+                        hello.rb:
+                          content: blah
+                          filename: goodbye.rb
+                      type: object
+                      additionalProperties:
+                        type: object
+                        nullable: true
+                        properties:
+                          content:
+                            description: The new content of the file.
+                            type: string
+                          filename:
+                            description: The new filename for the file.
+                            type: string
+                            nullable: true
+                  type: object
+                  nullable: true
+                examples:
+                  updateGist:
+                    summary: Updating a gist
+                    value:
+                      description: An updated gist description
+                      files:
+                        README.md:
+                          content: Hello World from GitHub
+                  deleteFile:
+                    summary: Deleting a gist file
+                    value:
+                      files:
+                        hello.py: null
+                  renameFile:
+                    summary: Renaming a gist file
+                    value:
+                      files:
+                        hello.py:
+                          filename: goodbye.py
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

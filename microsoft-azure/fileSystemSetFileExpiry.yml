@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Put Webhdfsext Path
+  description: >-
+    Sets or removes the expiration time on the specified file. This operation
+    can only be executed against files. Folders are not supported.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Webhdfsext Path
+      description: >-
+        Sets or removes the expiration time on the specified file. This operation
+        can only be executed against files. Folders are not supported.
+    paths:
+      /WebHdfsExt/{path}:
+        put:
+          summary: Put Webhdfsext Path
+          description: >-
+            Sets or removes the expiration time on the specified file. This
+            operation can only be executed against files. Folders are not supported.
+          operationId: fileSystemSetFileExpiry
+          responses:
+            default:
+              description: An unexpected error from the server.
+              schema:
+                $ref: '#/definitions/AdlsError'

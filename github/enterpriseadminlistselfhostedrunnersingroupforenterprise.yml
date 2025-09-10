@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Self-hosted Runners In A Group For An Enterprise
+  description: >-
+    Lists the self-hosted runners that are in a specific enterprise group.OAuth
+    app tokens and personal access tokens (classic) need the
+    `manage_runners:enterprise` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Self-hosted Runners In A Group For An Enterprise
+      description: >-
+        Lists the self-hosted runners that are in a specific enterprise group.OAuth
+        app tokens and personal access tokens (classic) need the
+        `manage_runners:enterprise` scope to use this endpoint.
+    paths:
+      /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners:
+        get:
+          summary: List Self-hosted Runners In A Group For An Enterprise
+          description: >-
+            Lists the self-hosted runners that are in a specific enterprise
+            group.OAuth app tokens and personal access tokens (classic) need the
+            `manage_runners:enterprise` scope to use this endpoint.
+          operationId: enterpriseadminlistselfhostedrunnersingroupforenterprise
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      total_count:
+                        type: number
+                      runners:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/runner'
+                    required:
+                      - total_count
+                      - runners
+                  examples:
+                    default:
+                      $ref: '#/components/examples/runner-paginated'
+              headers:
+                Link:
+                  $ref: '#/components/headers/link'

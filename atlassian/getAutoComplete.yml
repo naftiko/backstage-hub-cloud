@@ -1,0 +1,62 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Field Reference Data (get)
+  description: >-
+    Returns reference data for JQL searches. This is a downloadable version of
+    the documentation provided in [Advanced searching - fields
+    reference](https://confluence.atlassian.com/x/gwORLQ) and [Advanced
+    searching - functions reference](https://confluence.atlassian.com/x/hgORLQ),
+    along with a list of JQL-reserved words. Use this information to assist with
+    the programmatic creation of JQL queries or the validation of queries built
+    in a custom query builder.To filter visible field details by project or
+    collapse non-unique fields by field type then [Get field reference data
+    (POST)](#api-rest-api-3-jql-autocompletedata-post) can be used.This
+    operation can be accessed anonymously.**[Permissions](#permissions)
+    required:** None.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Field Reference Data (get)
+      description: >-
+        Returns reference data for JQL searches. This is a downloadable version of
+        the documentation provided in [Advanced searching - fields
+        reference](https://confluence.atlassian.com/x/gwORLQ) and [Advanced
+        searching - functions reference](https://confluence.atlassian.com/x/hgORLQ),
+        along with a list of JQL-reserved words. Use this information to assist with
+        the programmatic creation of JQL queries or the validation of queries built
+        in a custom query builder.To filter visible field details by project or
+        collapse non-unique fields by field type then [Get field reference data
+        (POST)](#api-rest-api-3-jql-autocompletedata-post) can be used.This
+        operation can be accessed anonymously.**[Permissions](#permissions)
+        required:** None.
+    paths:
+      /rest/api/3/jql/autocompletedata:
+        get:
+          summary: Get Field Reference Data (get)
+          description: >-
+            Returns reference data for JQL searches. This is a downloadable version
+            of the documentation provided in [Advanced searching - fields
+            reference](https://confluence.atlassian.com/x/gwORLQ) and [Advanced
+            searching - functions
+            reference](https://confluence.atlassian.com/x/hgORLQ), along with a list
+            of JQL-reserved words. Use this information to assist with the
+            programmatic creation of JQL queries or the validation of queries built
+            in a custom query builder.To filter visible field details by project or
+            collapse non-unique fields by field type then [Get field reference data
+            (POST)](#api-rest-api-3-jql-autocompletedata-post) can be used.This
+            operation can be accessed anonymously.**[Permissions](#permissions)
+            required:** None.
+          operationId: getAutoComplete
+          responses:
+            '401':
+              description: Returned if the authentication credentials are incorrect.

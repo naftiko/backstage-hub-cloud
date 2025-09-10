@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add A Security Signal To An Incident
+  description: >-
+    Add a security signal to an incident. This makes it possible to search for
+    signals by incident within the signal explorer and to view the signals on
+    the incident timeline.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add A Security Signal To An Incident
+      description: >-
+        Add a security signal to an incident. This makes it possible to search for
+        signals by incident within the signal explorer and to view the signals on
+        the incident timeline.
+    paths:
+      /api/v1/security_analytics/signals/{signal_id}/add_to_incident:
+        patch:
+          summary: Add A Security Signal To An Incident
+          description: >-
+            Add a security signal to an incident. This makes it possible to search
+            for signals by incident within the signal explorer and to view the
+            signals on the incident timeline.
+          operationId: addasecuritysignaltoanincident
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    incident_id: 2066
+                    add_to_signal_timeline: false
+                    version: -91301781
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

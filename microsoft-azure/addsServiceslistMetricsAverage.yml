@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Providers Microsoft.adhybridhealthservice Addsservices Servicename
+    Metrics Metricname Groups Groupname Average
+  description: >-
+    Gets the average of the metric values for a given metric and group
+    combination.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Providers Microsoft.adhybridhealthservice Addsservices Servicename
+        Metrics Metricname Groups Groupname Average
+      description: >-
+        Gets the average of the metric values for a given metric and group
+        combination.
+    paths:
+      /providers/Microsoft.ADHybridHealthService/addsservices/{serviceName}/metrics/{metricName}/groups/{groupName}/average:
+        get:
+          summary: >-
+            Get Providers Microsoft.adhybridhealthservice Addsservices Servicename
+            Metrics Metricname Groups Groupname Average
+          description: >-
+            Gets the average of the metric values for a given metric and group
+            combination.
+          operationId: addsServiceslistMetricsAverage
+          responses:
+            '200':
+              description: 'The list of metrics. '
+              schema:
+                $ref: '#/definitions/Metrics'

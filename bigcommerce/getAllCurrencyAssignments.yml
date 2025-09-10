@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Channels Currency Assignments
+  description: Returns a list of currency assignments for all channels.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Channels Currency Assignments
+      description: Returns a list of currency assignments for all channels.
+    paths:
+      /channels/currency-assignments:
+        get:
+          summary: Get All Channels Currency Assignments
+          description: Returns a list of currency assignments for all channels.
+          operationId: getAllCurrencyAssignments
+          responses:
+            '200':
+              $ref: '#/components/responses/multiple_channels_currency_assignments_resp'

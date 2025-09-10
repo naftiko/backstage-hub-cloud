@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Category Trees
+  description: Returns a list of *Category Trees*.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Category Trees
+      description: Returns a list of *Category Trees*.
+    paths:
+      /catalog/trees:
+        get:
+          summary: Get All Category Trees
+          description: Returns a list of *Category Trees*.
+          operationId: getCategoryTrees
+          responses:
+            '200':
+              description: List of category trees.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/CategoryTreeList'
+                  example:
+                    data:
+                      - id: 0
+                        name: string
+                        channels:
+                          - 0
+                    meta:
+                      pagination:
+                        total: 246
+                        count: 5
+                        per_page: 5
+                        current_page: 1
+                        total_pages: 50
+                        links:
+                          next: '?limit=5&page=2'
+                          current: '?limit=5&page=1'

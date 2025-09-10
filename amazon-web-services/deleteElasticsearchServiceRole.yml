@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deleteelasticsearchservicerole
+  description: >-
+    Deletes the service-linked role that Elasticsearch Service uses to manage
+    and maintain VPC domains. Role deletion will fail if any existing VPC
+    domains use the role. You must delete any such Elasticsearch domains before
+    deleting the role. See Deleting Elasticsearch Service Role in VPC Endpoints
+    for Amazon Elasticsearch Service Domains.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deleteelasticsearchservicerole
+      description: >-
+        Deletes the service-linked role that Elasticsearch Service uses to manage
+        and maintain VPC domains. Role deletion will fail if any existing VPC
+        domains use the role. You must delete any such Elasticsearch domains before
+        deleting the role. See Deleting Elasticsearch Service Role in VPC Endpoints
+        for Amazon Elasticsearch Service Domains.
+    paths:
+      /2015-01-01/es/role:
+        DELETE:
+          summary: Deleteelasticsearchservicerole
+          description: >-
+            Deletes the service-linked role that Elasticsearch Service uses to
+            manage and maintain VPC domains. Role deletion will fail if any existing
+            VPC domains use the role. You must delete any such Elasticsearch domains
+            before deleting the role. See Deleting Elasticsearch Service Role in VPC
+            Endpoints for Amazon Elasticsearch Service Domains.
+          operationId: deleteElasticsearchServiceRole

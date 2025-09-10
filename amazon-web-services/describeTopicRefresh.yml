@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Describetopicrefresh
+  description: Describes the status of a topic refresh.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describetopicrefresh
+      description: Describes the status of a topic refresh.
+    paths:
+      /accounts/{AwsAccountId}/topics/{TopicId}/refresh/{RefreshId}:
+        GET:
+          summary: Describetopicrefresh
+          description: Describes the status of a topic refresh.
+          operationId: describeTopicRefresh

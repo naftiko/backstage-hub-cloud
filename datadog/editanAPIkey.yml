@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Edit An Api Key
+  description: Update an API key.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Edit An Api Key
+      description: Update an API key.
+    paths:
+      /api/v2/api_keys/{api_key_id}:
+        patch:
+          summary: Edit An Api Key
+          description: Update an API key.
+          operationId: editanAPIkey
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      attributes:
+                        name: API Key for submitting metrics
+                      id: 00112233-4455-6677-8899-aabbccddeeff
+                      type: api_keys
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

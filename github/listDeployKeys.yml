@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Deploy Keys
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Deploy Keys
+      description: Needs a more full description created.
+    paths:
+      /repos/{owner}/{repo}/keys:
+        get:
+          summary: List Deploy Keys
+          description: Needs a more full description created.
+          operationId: listDeployKeys
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/deploy-key'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/deploy-key-items'
+              headers:
+                Link:
+                  $ref: '#/components/headers/link'

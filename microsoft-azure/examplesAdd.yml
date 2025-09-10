@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Apps Appid Versions Versionid Example
+  description: Adds a labeled example utterance in a version of the application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Apps Appid Versions Versionid Example
+      description: Adds a labeled example utterance in a version of the application.
+    paths:
+      /apps/{appId}/versions/{versionId}/example:
+        post:
+          summary: Post Apps Appid Versions Versionid Example
+          description: Adds a labeled example utterance in a version of the application.
+          operationId: examplesAdd
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

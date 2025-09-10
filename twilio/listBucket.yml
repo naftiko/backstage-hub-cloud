@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Services Servicesid Ratelimits Ratelimitsid Buckets
+  description: Retrieve a list of all Buckets for a Rate Limit.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Services Servicesid Ratelimits Ratelimitsid Buckets
+      description: Retrieve a list of all Buckets for a Rate Limit.
+    paths:
+      /v2/Services/{ServiceSid}/RateLimits/{RateLimitSid}/Buckets:
+        get:
+          summary: Get Services Servicesid Ratelimits Ratelimitsid Buckets
+          description: Retrieve a list of all Buckets for a Rate Limit.
+          operationId: listBucket
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ListBucketResponse'
+              description: OK

@@ -1,0 +1,152 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Workflow
+  description: >-
+    Creates a workflow. You can define transition rules using the shapes
+    detailed in the following sections. If no transitional rules are specified
+    the default system transition rules are used. Note: This only applies to
+    company-managed scoped workflows. Use [bulk create
+    workflows](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflows/#api-rest-api-3-workflows-create-post)
+    to create both team and company-managed scoped workflows.#### Conditions
+    ####Conditions enable workflow rules that govern whether a transition can
+    execute.##### Always false condition #####A condition that always fails.   
+    {       "type": "AlwaysFalseCondition"     }##### Block transition until
+    approval #####A condition that blocks issue transition if there is a pending
+    approval.    {       "type": "BlockInProgressApprovalCondition"     }#####
+    Compare number custom field condition #####A condition that allows
+    transition if a comparison between a number custom field and a value is
+    true.    {       "type": "CompareNumberCFCondition",       "configuration":
+    {         "comparator": "=",         "fieldId": "customfield_10029",        
+    "fieldValue": 2       }     } *  `comparator` One of the supported
+    comparator: `=`, `>`, and ``, `>=`, `=`, `",           "date1":
+    "updated",           "date2": "created",           "expression":
+    "1d",           "includeTime": true         }     } *  `comparator` One of
+    the supported comparator: `>`, `>=`, `=`, `
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Workflow
+      description: >-
+        Creates a workflow. You can define transition rules using the shapes
+        detailed in the following sections. If no transitional rules are specified
+        the default system transition rules are used. Note: This only applies to
+        company-managed scoped workflows. Use [bulk create
+        workflows](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflows/#api-rest-api-3-workflows-create-post)
+        to create both team and company-managed scoped workflows.#### Conditions
+        ####Conditions enable workflow rules that govern whether a transition can
+        execute.##### Always false condition #####A condition that always fails.   
+        {       "type": "AlwaysFalseCondition"     }##### Block transition until
+        approval #####A condition that blocks issue transition if there is a pending
+        approval.    {       "type": "BlockInProgressApprovalCondition"     }#####
+        Compare number custom field condition #####A condition that allows
+        transition if a comparison between a number custom field and a value is
+        true.    {       "type": "CompareNumberCFCondition",       "configuration":
+        {         "comparator": "=",         "fieldId": "customfield_10029",        
+        "fieldValue": 2       }     } *  `comparator` One of the supported
+        comparator: `=`, `>`, and ``, `>=`, `=`, `",           "date1":
+        "updated",           "date2": "created",           "expression":
+        "1d",           "includeTime": true         }     } *  `comparator` One of
+        the supported comparator: `>`, `>=`, `=`, `
+    paths:
+      /rest/api/3/workflow:
+        post:
+          summary: Create Workflow
+          description: >-
+            Creates a workflow. You can define transition rules using the shapes
+            detailed in the following sections. If no transitional rules are
+            specified the default system transition rules are used. Note: This only
+            applies to company-managed scoped workflows. Use [bulk create
+            workflows](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflows/#api-rest-api-3-workflows-create-post)
+            to create both team and company-managed scoped workflows.#### Conditions
+            ####Conditions enable workflow rules that govern whether a transition
+            can execute.##### Always false condition #####A condition that always
+            fails.    {       "type": "AlwaysFalseCondition"     }##### Block
+            transition until approval #####A condition that blocks issue transition
+            if there is a pending approval.    {       "type":
+            "BlockInProgressApprovalCondition"     }##### Compare number custom
+            field condition #####A condition that allows transition if a comparison
+            between a number custom field and a value is true.    {       "type":
+            "CompareNumberCFCondition",       "configuration": {        
+            "comparator": "=",         "fieldId": "customfield_10029",        
+            "fieldValue": 2       }     } *  `comparator` One of the supported
+            comparator: `=`, `>`, and ``, `>=`, `=`, `",           "date1":
+            "updated",           "date2": "created",           "expression":
+            "1d",           "includeTime": true         }     } *  `comparator` One
+            of the supported comparator: `>`, `>=`, `=`, `
+          operationId: createWorkflow
+          requestBody:
+            description: The workflow details.
+            required: true
+            content:
+              application/json:
+                example:
+                  description: This is a workflow used for Stories and Tasks
+                  name: Workflow 1
+                  statuses:
+                    - id: '1'
+                      properties:
+                        jira.issue.editable: 'false'
+                    - id: '2'
+                    - id: '3'
+                  transitions:
+                    - from: []
+                      name: Created
+                      to: '1'
+                      type: initial
+                    - from:
+                        - '1'
+                      name: In progress
+                      properties:
+                        custom-property: custom-value
+                      rules:
+                        conditions:
+                          conditions:
+                            - type: RemoteOnlyCondition
+                            - configuration:
+                                groups:
+                                  - developers
+                                  - qa-testers
+                              type: UserInAnyGroupCondition
+                          operator: AND
+                        postFunctions:
+                          - type: AssignToCurrentUserFunction
+                      screen:
+                        id: '10001'
+                      to: '2'
+                      type: directed
+                    - name: Completed
+                      rules:
+                        postFunctions:
+                          - configuration:
+                              fieldId: assignee
+                            type: ClearFieldValuePostFunction
+                        validators:
+                          - configuration:
+                              parentStatuses:
+                                - id: '3'
+                            type: ParentStatusValidator
+                          - configuration:
+                              permissionKey: ADMINISTER_PROJECTS
+                            type: PermissionValidator
+                      to: '3'
+                      type: global
+                schema:
+                  $ref: '#/components/schemas/CreateWorkflowDetails'
+          responses:
+            '404':
+              content:
+                application/json:
+                  example: >-
+                    {"errorMessages":["Status with ID 10000 was not
+                    found"],"errors":{}}
+              description: Returned if one or more statuses is not found.

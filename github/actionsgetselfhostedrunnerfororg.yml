@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Self-hosted Runner For An Organization
+  description: >-
+    Gets a specific self-hosted runner configured in an
+    organization.Authenticated users must have admin access to the organization
+    to use this endpoint.OAuth app tokens and personal access tokens (classic)
+    need the `admin:org` scope to use this endpoint. If the repository is
+    private, the `repo` scope is also required.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Self-hosted Runner For An Organization
+      description: >-
+        Gets a specific self-hosted runner configured in an
+        organization.Authenticated users must have admin access to the organization
+        to use this endpoint.OAuth app tokens and personal access tokens (classic)
+        need the `admin:org` scope to use this endpoint. If the repository is
+        private, the `repo` scope is also required.
+    paths:
+      /orgs/{org}/actions/runners/{runner_id}:
+        get:
+          summary: Get A Self-hosted Runner For An Organization
+          description: >-
+            Gets a specific self-hosted runner configured in an
+            organization.Authenticated users must have admin access to the
+            organization to use this endpoint.OAuth app tokens and personal access
+            tokens (classic) need the `admin:org` scope to use this endpoint. If the
+            repository is private, the `repo` scope is also required.
+          operationId: actionsgetselfhostedrunnerfororg
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/runner'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/runner'

@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Price List Record
+  description: >-
+    Deletes a *Price List Record*. Deleting the records does not delete the
+    Price List. Optional parameters can be passed in.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Price List Record
+      description: >-
+        Deletes a *Price List Record*. Deleting the records does not delete the
+        Price List. Optional parameters can be passed in.
+    paths:
+      /pricelists/{price_list_id}/records:
+        delete:
+          summary: Delete A Price List Record
+          description: >-
+            Deletes a *Price List Record*. Deleting the records does not delete the
+            Price List. Optional parameters can be passed in.
+          operationId: deletePriceListRecords
+          responses:
+            '204':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    title: No Content
+                    type: object
+                    properties:
+                      status:
+                        type: integer
+                        description: |
+                          204 HTTP status code.
+                      title:
+                        type: string
+                        description: The error title describing the situation.
+                      type:
+                        type: string
+                      instance:
+                        type: string
+                    description: No-content response for the BigCommerce API.

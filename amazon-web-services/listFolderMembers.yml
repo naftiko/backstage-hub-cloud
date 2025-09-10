@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listfoldermembers
+  description: 'List all assets (DASHBOARD, ANALYSIS, and DATASET) in a folder. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listfoldermembers
+      description: 'List all assets (DASHBOARD, ANALYSIS, and DATASET) in a folder. '
+    paths:
+      /accounts/{AwsAccountId}/folders/{FolderId}/members:
+        GET:
+          summary: Listfoldermembers
+          description: 'List all assets (DASHBOARD, ANALYSIS, and DATASET) in a folder. '
+          operationId: listFolderMembers

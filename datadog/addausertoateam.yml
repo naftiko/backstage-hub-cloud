@@ -1,0 +1,62 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add A User To A Team
+  description: Add a user to a team.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add A User To A Team
+      description: Add a user to a team.
+    paths:
+      /api/v2/team/{team_id}/memberships:
+        post:
+          summary: Add A User To A Team
+          description: Add a user to a team.
+          operationId: addausertoateam
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    data:
+                      type: team_memberships
+                      attributes:
+                        provisioned_by: laborum laboris ut
+                        provisioned_by_id: laborum eu officia sed
+                        role: admin
+                      relationships:
+                        team:
+                          data:
+                            id: d7e15d9d-d346-43da-81d8-3d9e71d9a5e9
+                            type: team
+                        user:
+                          data:
+                            id: b8626d7e-cedd-11eb-abf5-da7ad0900001
+                            type: users
+          responses:
+            '429':
+              description: Too Many Requests
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    errors:
+                      - Bad Request
+                      - Bad Request

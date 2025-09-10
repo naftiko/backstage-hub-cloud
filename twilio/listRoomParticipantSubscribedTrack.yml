@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Rooms Roomsid Participants Participantsid Subscribedtracks
+  description: Returns a list of tracks that are subscribed for the participant.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Rooms Roomsid Participants Participantsid Subscribedtracks
+      description: Returns a list of tracks that are subscribed for the participant.
+    paths:
+      /v1/Rooms/{RoomSid}/Participants/{ParticipantSid}/SubscribedTracks:
+        get:
+          summary: Get Rooms Roomsid Participants Participantsid Subscribedtracks
+          description: Returns a list of tracks that are subscribed for the participant.
+          operationId: listRoomParticipantSubscribedTrack
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: >-
+                      #/components/schemas/ListRoomParticipantSubscribedTrackResponse
+              description: OK

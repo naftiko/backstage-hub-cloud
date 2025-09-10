@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Batch Of Blog Posts
+  description: >-
+    Delete the Blog Post objects identified in the request body.Note: This is
+    not the same as the in-app `archive` function. To perform a dashboard
+    `archive` send an normal update with the `archivedInDashboard` field set to
+    true.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Batch Of Blog Posts
+      description: >-
+        Delete the Blog Post objects identified in the request body.Note: This is
+        not the same as the in-app `archive` function. To perform a dashboard
+        `archive` send an normal update with the `archivedInDashboard` field set to
+        true.
+    paths:
+      /cms/v3/blogs/posts/batch/archive:
+        post:
+          summary: Delete A Batch Of Blog Posts
+          description: >-
+            Delete the Blog Post objects identified in the request body.Note: This
+            is not the same as the in-app `archive` function. To perform a dashboard
+            `archive` send an normal update with the `archivedInDashboard` field set
+            to true.
+          operationId: postcmsv3blogspostsbatcharchivearchiveBatch
+          requestBody:
+            description: The JSON array of Blog Post ids.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/BatchInputString'
+          responses:
+            default:
+              $ref: '#/components/responses/Error'

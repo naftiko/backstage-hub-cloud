@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Search Statuses Paginated
+  description: >-
+    Returns a
+    [paginated](https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/#pagination)
+    list of statuses that match a search on name or
+    project.**[Permissions](#permissions) required:** *  *Administer projects*
+    [project permission.](https://confluence.atlassian.com/x/yodKLg) * 
+    *Administer Jira* [project
+    permission.](https://confluence.atlassian.com/x/yodKLg)
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Search Statuses Paginated
+      description: >-
+        Returns a
+        [paginated](https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/#pagination)
+        list of statuses that match a search on name or
+        project.**[Permissions](#permissions) required:** *  *Administer projects*
+        [project permission.](https://confluence.atlassian.com/x/yodKLg) * 
+        *Administer Jira* [project
+        permission.](https://confluence.atlassian.com/x/yodKLg)
+    paths:
+      /rest/api/3/statuses/search:
+        get:
+          summary: Search Statuses Paginated
+          description: >-
+            Returns a
+            [paginated](https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/#pagination)
+            list of statuses that match a search on name or
+            project.**[Permissions](#permissions) required:** *  *Administer
+            projects* [project
+            permission.](https://confluence.atlassian.com/x/yodKLg) *  *Administer
+            Jira* [project permission.](https://confluence.atlassian.com/x/yodKLg)
+          operationId: search
+          responses:
+            '401':
+              description: >-
+                Returned if the authentication credentials are incorrect or missing,
+                or the caller doesn't have permissions to perform the operation.

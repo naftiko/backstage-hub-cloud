@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Email Template
+  description: Delete Abandoned Cart Email template.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Email Template
+      description: Delete Abandoned Cart Email template.
+    paths:
+      /marketing/abandoned-cart-emails/{id}:
+        delete:
+          summary: Delete Email Template
+          description: Delete Abandoned Cart Email template.
+          operationId: deleteAbandonedCartEmailTemplate
+          responses:
+            '204':
+              description: No Content

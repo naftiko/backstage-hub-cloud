@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Space
+  description: >-
+    Updates the name, description, or homepage of a space.-   For security
+    reasons, permissions cannot be updated via the API andmust be changed via
+    the user interface instead.-   Currently you cannot set space labels when
+    updating a space.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:'Admin' permission for the space.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Space
+      description: >-
+        Updates the name, description, or homepage of a space.-   For security
+        reasons, permissions cannot be updated via the API andmust be changed via
+        the user interface instead.-   Currently you cannot set space labels when
+        updating a space.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:'Admin' permission for the space.
+    paths:
+      /wiki/rest/api/space/{spaceKey}:
+        put:
+          summary: Update Space
+          description: >-
+            Updates the name, description, or homepage of a space.-   For security
+            reasons, permissions cannot be updated via the API andmust be changed
+            via the user interface instead.-   Currently you cannot set space labels
+            when updating a
+            space.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:'Admin' permission for the space.
+          operationId: updateSpace
+          requestBody:
+            description: The updated space.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/SpaceUpdate'
+          responses:
+            '404':
+              description: |-
+                Returned if any of the following is true:
+
+                - There is no space with the given key
+                - The calling user does not have permission to update the space.
+              content: {}

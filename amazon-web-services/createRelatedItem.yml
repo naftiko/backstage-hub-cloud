@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Createrelateditem
+  description: >-
+    Creates a related item (comments, tasks, and contacts) and associates it
+    with a case.    A Related Item is a resource that is associated with a case.
+    It may or may not have an external identifier linking it to an external
+    resource (for example, a contactArn). All Related Items have their own
+    internal identifier, the relatedItemArn. Examples of related items include
+    comments and contacts.   If you provide a value for performedBy.userArn you
+    must also have DescribeUser permission on the ARN of the user that you
+    provide.    &lt;/note&gt; 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createrelateditem
+      description: >-
+        Creates a related item (comments, tasks, and contacts) and associates it
+        with a case.    A Related Item is a resource that is associated with a case.
+        It may or may not have an external identifier linking it to an external
+        resource (for example, a contactArn). All Related Items have their own
+        internal identifier, the relatedItemArn. Examples of related items include
+        comments and contacts.   If you provide a value for performedBy.userArn you
+        must also have DescribeUser permission on the ARN of the user that you
+        provide.    &lt;/note&gt; 
+    paths:
+      /domains/{domainId}/cases/{caseId}/related-items/:
+        POST:
+          summary: Createrelateditem
+          description: >-
+            Creates a related item (comments, tasks, and contacts) and associates it
+            with a case.    A Related Item is a resource that is associated with a
+            case. It may or may not have an external identifier linking it to an
+            external resource (for example, a contactArn). All Related Items have
+            their own internal identifier, the relatedItemArn. Examples of related
+            items include comments and contacts.   If you provide a value for
+            performedBy.userArn you must also have DescribeUser permission on the
+            ARN of the user that you provide.    &lt;/note&gt; 
+          operationId: createRelatedItem

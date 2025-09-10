@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.storagecache Caches Cachename Flush
+  description: >-
+    Tells a cache to write all dirty data to the Storage Target(s). During the
+    flush, clients will see errors returned until the flush is complete.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.storagecache Caches Cachename Flush
+      description: >-
+        Tells a cache to write all dirty data to the Storage Target(s). During the
+        flush, clients will see errors returned until the flush is complete.
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.StorageCache/caches/{cacheName}/flush:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.storagecache Caches Cachename Flush
+          description: >-
+            Tells a cache to write all dirty data to the Storage Target(s). During
+            the flush, clients will see errors returned until the flush is complete.
+          operationId: cachesFlush
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

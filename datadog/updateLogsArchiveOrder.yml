@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Archive Order
+  description: >-
+    Update the order of your archives. Since logs are processed sequentially,
+    reordering an archive may changethe structure and content of the data
+    processed by other archives.**Note**: Using the `PUT` method updates your
+    archive's order by replacing the current orderwith the new one.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Archive Order
+      description: >-
+        Update the order of your archives. Since logs are processed sequentially,
+        reordering an archive may changethe structure and content of the data
+        processed by other archives.**Note**: Using the `PUT` method updates your
+        archive's order by replacing the current orderwith the new one.
+    paths:
+      /api/v2/logs/config/archive-order:
+        put:
+          summary: Update Archive Order
+          description: >-
+            Update the order of your archives. Since logs are processed
+            sequentially, reordering an archive may changethe structure and content
+            of the data processed by other archives.**Note**: Using the `PUT` method
+            updates your archive's order by replacing the current orderwith the new
+            one.
+          operationId: updateLogsArchiveOrder
+          requestBody:
+            description: An object containing the new ordered list of archive IDs.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/LogsArchiveOrder'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Dialingpermissions Countries Isocode Highriskspecialprefixes
+  description: >-
+    Fetch the high-risk special services prefixes from the country resource
+    corresponding to the [ISO country
+    code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Dialingpermissions Countries Isocode Highriskspecialprefixes
+      description: >-
+        Fetch the high-risk special services prefixes from the country resource
+        corresponding to the [ISO country
+        code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+    paths:
+      /v1/DialingPermissions/Countries/{IsoCode}/HighRiskSpecialPrefixes:
+        get:
+          summary: Get Dialingpermissions Countries Isocode Highriskspecialprefixes
+          description: >-
+            Fetch the high-risk special services prefixes from the country resource
+            corresponding to the [ISO country
+            code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+          operationId: listDialingPermissionsHrsPrefixes
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ListDialingPermissionsHrsPrefixesResponse'
+              description: OK

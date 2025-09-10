@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Convert A Rule From Json To Terraform
+  description: >-
+    Convert a rule that doesn't (yet) exist from JSON to Terraform for datadog
+    providerresource datadog_security_monitoring_rule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Convert A Rule From Json To Terraform
+      description: >-
+        Convert a rule that doesn't (yet) exist from JSON to Terraform for datadog
+        providerresource datadog_security_monitoring_rule.
+    paths:
+      /api/v2/security_monitoring/rules/convert:
+        post:
+          summary: Convert A Rule From Json To Terraform
+          description: >-
+            Convert a rule that doesn't (yet) exist from JSON to Terraform for
+            datadog providerresource datadog_security_monitoring_rule.
+          operationId: convertSecurityMonitoringRuleFromJSONToTerraform
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/SecurityMonitoringRuleConvertPayload'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

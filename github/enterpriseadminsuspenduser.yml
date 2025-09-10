@@ -1,0 +1,77 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Suspend A User
+  description: >-
+    If your GitHub instance uses [LDAP Sync with Active Directory LDAP
+    servers](https://docs.github.com/enterprise-server@3.9/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap),
+    Active Directory LDAP-authenticated users cannot be suspended through this
+    API. If you attempt to suspend an Active Directory LDAP-authenticated user
+    through this API, it will return a `403` response.You can suspend any user
+    account except your own.Note that, if you choose not to pass any parameters,
+    you'll need to set `Content-Length` to zero when calling out to this
+    endpoint. For more information, see "[HTTP
+    method](https://docs.github.com/enterprise-server@3.9/rest/guides/getting-started-with-the-rest-api#http-method)."
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Suspend A User
+      description: >-
+        If your GitHub instance uses [LDAP Sync with Active Directory LDAP
+        servers](https://docs.github.com/enterprise-server@3.9/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap),
+        Active Directory LDAP-authenticated users cannot be suspended through this
+        API. If you attempt to suspend an Active Directory LDAP-authenticated user
+        through this API, it will return a `403` response.You can suspend any user
+        account except your own.Note that, if you choose not to pass any parameters,
+        you'll need to set `Content-Length` to zero when calling out to this
+        endpoint. For more information, see "[HTTP
+        method](https://docs.github.com/enterprise-server@3.9/rest/guides/getting-started-with-the-rest-api#http-method)."
+    paths:
+      /users/{username}/suspended:
+        put:
+          summary: Suspend A User
+          description: >-
+            If your GitHub instance uses [LDAP Sync with Active Directory LDAP
+            servers](https://docs.github.com/enterprise-server@3.9/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap),
+            Active Directory LDAP-authenticated users cannot be suspended through
+            this API. If you attempt to suspend an Active Directory
+            LDAP-authenticated user through this API, it will return a `403`
+            response.You can suspend any user account except your own.Note that, if
+            you choose not to pass any parameters, you'll need to set
+            `Content-Length` to zero when calling out to this endpoint. For more
+            information, see "[HTTP
+            method](https://docs.github.com/enterprise-server@3.9/rest/guides/getting-started-with-the-rest-api#http-method)."
+          operationId: enterpriseadminsuspenduser
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  nullable: true
+                  properties:
+                    reason:
+                      type: string
+                      description: >-
+                        The reason the user is being suspended. This message will be
+                        logged in the [audit
+                        log](https://docs.github.com/enterprise-server@3.9/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise).
+                        If you don't provide a `reason`, it will default to
+                        "Suspended via API by _SITE\_ADMINISTRATOR_", where
+                        _SITE\_ADMINISTRATOR_ is the person who performed the
+                        action.
+                examples:
+                  reason:
+                    value:
+                      reason: Suspended during leave of absence.
+          responses:
+            '204':
+              description: Response

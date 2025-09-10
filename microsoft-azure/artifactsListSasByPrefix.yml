@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Shared Access Signature For An Artifact
+  description: Get shared access signature for an Artifact in specific path.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Shared Access Signature For An Artifact
+      description: Get shared access signature for an Artifact in specific path.
+    paths:
+      /artifact/v2.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/artifacts/{origin}/{container}/prefix/contentinfo:
+        get:
+          summary: Get Shared Access Signature For An Artifact
+          description: Get shared access signature for an Artifact in specific path.
+          operationId: artifactsListSasByPrefix
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

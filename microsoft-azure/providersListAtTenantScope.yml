@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Providers
+  description: Gets all resource providers for the tenant.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Providers
+      description: Gets all resource providers for the tenant.
+    paths:
+      /providers:
+        get:
+          summary: Get Providers
+          description: Gets all resource providers for the tenant.
+          operationId: providersListAtTenantScope
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

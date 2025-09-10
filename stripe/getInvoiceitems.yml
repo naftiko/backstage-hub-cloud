@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Invoiceitems
+  description: >-
+    Returns a list of your invoice items. Invoice items are returned sorted by
+    creation date, with the most recently created invoice items appearing first.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Invoiceitems
+      description: >-
+        Returns a list of your invoice items. Invoice items are returned sorted by
+        creation date, with the most recently created invoice items appearing first.
+    paths:
+      /v1/invoiceitems:
+        get:
+          summary: Get Invoiceitems
+          description: >-
+            Returns a list of your invoice items. Invoice items are returned sorted
+            by creation date, with the most recently created invoice items appearing
+            first.
+          operationId: getInvoiceitems
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetInvoiceitemsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

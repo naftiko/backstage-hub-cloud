@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Issue Security Level
+  description: >-
+    Returns details of an issue security level.Use [Get issue security
+    scheme](#api-rest-api-3-issuesecurityschemes-id-get) to obtain the IDs of
+    issue security levels associated with the issue security scheme.This
+    operation can be accessed anonymously.**[Permissions](#permissions)
+    required:** None.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Issue Security Level
+      description: >-
+        Returns details of an issue security level.Use [Get issue security
+        scheme](#api-rest-api-3-issuesecurityschemes-id-get) to obtain the IDs of
+        issue security levels associated with the issue security scheme.This
+        operation can be accessed anonymously.**[Permissions](#permissions)
+        required:** None.
+    paths:
+      /rest/api/3/securitylevel/{id}:
+        get:
+          summary: Get Issue Security Level
+          description: >-
+            Returns details of an issue security level.Use [Get issue security
+            scheme](#api-rest-api-3-issuesecurityschemes-id-get) to obtain the IDs
+            of issue security levels associated with the issue security scheme.This
+            operation can be accessed anonymously.**[Permissions](#permissions)
+            required:** None.
+          operationId: getIssueSecurityLevel
+          responses:
+            '404':
+              description: Returned if the issue security level is not found.

@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update An Existing Incident
+  description: >-
+    Updates an incident. Provide only the attributes that should be updated as
+    this request is a partial update.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update An Existing Incident
+      description: >-
+        Updates an incident. Provide only the attributes that should be updated as
+        this request is a partial update.
+    paths:
+      /api/v2/incidents/{incident_id}:
+        patch:
+          summary: Update An Existing Incident
+          description: >-
+            Updates an incident. Provide only the attributes that should be updated
+            as this request is a partial update.
+          operationId: updateIncident
+          requestBody:
+            description: Incident Payload.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/IncidentUpdateRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create An (or Alter An Existing) Api Integration
+  description: >-
+    Create an (or alter an existing) API integration. Note that API_KEY is not
+    currently altered by this operation and is supported for a newly-created
+    object only. Unsetting API_BLOCKED_PREFIXES is also unsupported.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create An (or Alter An Existing) Api Integration
+      description: >-
+        Create an (or alter an existing) API integration. Note that API_KEY is not
+        currently altered by this operation and is supported for a newly-created
+        object only. Unsetting API_BLOCKED_PREFIXES is also unsupported.
+    paths:
+      /api/v2/api-integrations/{name}:
+        put:
+          summary: Create An (or Alter An Existing) Api Integration
+          description: >-
+            Create an (or alter an existing) API integration. Note that API_KEY is
+            not currently altered by this operation and is supported for a
+            newly-created object only. Unsetting API_BLOCKED_PREFIXES is also
+            unsupported.
+          operationId: createOrAlterAPIIntegration
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ApiIntegration'
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

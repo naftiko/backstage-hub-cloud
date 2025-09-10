@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Check If A User Can Be Assigned
+  description: >-
+    Checks if a user has permission to be assigned to an issue in this
+    repository.If the `assignee` can be assigned to issues in the repository, a
+    `204` header with no content is returned.Otherwise a `404` status code is
+    returned.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Check If A User Can Be Assigned
+      description: >-
+        Checks if a user has permission to be assigned to an issue in this
+        repository.If the `assignee` can be assigned to issues in the repository, a
+        `204` header with no content is returned.Otherwise a `404` status code is
+        returned.
+    paths:
+      /repos/{owner}/{repo}/assignees/{assignee}:
+        get:
+          summary: Check If A User Can Be Assigned
+          description: >-
+            Checks if a user has permission to be assigned to an issue in this
+            repository.If the `assignee` can be assigned to issues in the
+            repository, a `204` header with no content is returned.Otherwise a `404`
+            status code is returned.
+          operationId: issuescheckusercanbeassigned
+          responses:
+            '404':
+              description: Otherwise a `404` status code is returned.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/basic-error'

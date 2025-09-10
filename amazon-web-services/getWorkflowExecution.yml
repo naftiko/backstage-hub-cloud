@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getworkflowexecution
+  description: >-
+    Get the runtime information that was logged for a specific runtime instance
+    of the workflow.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getworkflowexecution
+      description: >-
+        Get the runtime information that was logged for a specific runtime instance
+        of the workflow.
+    paths:
+      /GetWorkflowExecution:
+        GET:
+          summary: Getworkflowexecution
+          description: >-
+            Get the runtime information that was logged for a specific runtime
+            instance of the workflow.
+          operationId: getWorkflowExecution

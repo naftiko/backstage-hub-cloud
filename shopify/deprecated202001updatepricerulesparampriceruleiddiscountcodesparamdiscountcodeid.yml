@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Updates An Existing Discount Code
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/discounts/discountcode#update-2020-01
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updates An Existing Discount Code
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/discounts/discountcode#update-2020-01
+    paths:
+      /admin/api/2020-01/price_rules/{price_rule_id}/discount_codes/{discount_code_id}.json:
+        put:
+          summary: Updates An Existing Discount Code
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/discounts/discountcode#update-2020-01
+          operationId: >-
+            deprecated202001updatepricerulesparampriceruleiddiscountcodesparamdiscountcodeid
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      discount_code:
+                        id: 507328175
+                        code: WINTERSALE20OFF
+                        usage_count: 0
+                        created_at: '2020-11-04T16:46:58-05:00'
+                        updated_at: '2020-11-04T16:46:58-05:00'
+                    summary: Update the code for a discount
+          responses:
+            '200':
+              description: ''

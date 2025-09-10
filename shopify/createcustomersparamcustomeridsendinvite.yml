@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Sends An Account Invite To A Customer.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/customers/customer#send_invite-2020-10
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Sends An Account Invite To A Customer.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/customers/customer#send_invite-2020-10
+    paths:
+      /admin/api/2020-10/customers/{customer_id}/send_invite.json:
+        post:
+          summary: Sends An Account Invite To A Customer.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/customers/customer#send_invite-2020-10
+          operationId: createcustomersparamcustomeridsendinvite
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      customer_invite: {}
+                    summary: Send the default invite
+                  example2:
+                    value:
+                      customer_invite:
+                        to: new_test_email@shopify.com
+                        from: noaccesssteve@jobs.com
+                        bcc:
+                          - noaccesssteve@jobs.com
+                        subject: Welcome to my new shop
+                        custom_message: My awesome new store
+                    summary: Send a customized invite
+          responses:
+            '200':
+              description: ''

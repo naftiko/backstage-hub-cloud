@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Resourceuri Providers Microsoft.azurestackhci Edgedevices
+  description: List EdgeDevice resources by parent
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Resourceuri Providers Microsoft.azurestackhci Edgedevices
+      description: List EdgeDevice resources by parent
+    paths:
+      /{resourceUri}/providers/Microsoft.AzureStackHCI/edgeDevices:
+        get:
+          summary: Get Resourceuri Providers Microsoft.azurestackhci Edgedevices
+          description: List EdgeDevice resources by parent
+          operationId: edgeDevicesList
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

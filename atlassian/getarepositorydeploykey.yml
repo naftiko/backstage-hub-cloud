@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Repository Deploy Key
+  description: Returns the deploy key belonging to a specific key.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Repository Deploy Key
+      description: Returns the deploy key belonging to a specific key.
+    paths:
+      /repositories/{workspace}/{repo_slug}/deploy-keys/{key_id}:
+        get:
+          summary: Get A Repository Deploy Key
+          description: Returns the deploy key belonging to a specific key.
+          operationId: getarepositorydeploykey
+          responses:
+            '404':
+              description: If the specified user or repository does not exist
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

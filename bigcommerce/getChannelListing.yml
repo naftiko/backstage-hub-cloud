@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Channel Listing
+  description: Returns a *Channel Listing* for a specific channel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Channel Listing
+      description: Returns a *Channel Listing* for a specific channel.
+    paths:
+      /channels/{channel_id}/listings/{listing_id}:
+        get:
+          summary: Get A Channel Listing
+          description: Returns a *Channel Listing* for a specific channel.
+          operationId: getChannelListing
+          responses:
+            '404':
+              $ref: '#/components/responses/listing_not_found_resp'

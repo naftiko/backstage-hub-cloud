@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Segment By Id
+  description: '**This endpoint allows you to retrieve a single segment by ID.**'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Segment By Id
+      description: '**This endpoint allows you to retrieve a single segment by ID.**'
+    paths:
+      /v3/marketing/segments/{segment_id}:
+        get:
+          summary: Get Segment By Id
+          description: '**This endpoint allows you to retrieve a single segment by ID.**'
+          operationId: getSegment
+          responses:
+            '500':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      errors:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            message:
+                              type: string
+                          required:
+                            - message
+                    required:
+                      - errors

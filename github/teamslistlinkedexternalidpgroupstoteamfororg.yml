@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List A Connection Between An External Group And A Team
+  description: >-
+    Lists a connection between a team and an external group.You can manage team
+    membership with your identity provider using Enterprise Managed Users for
+    GitHub Enterprise Cloud. For more information, see "[GitHub's
+    products](https://docs.github.com/enterprise-server@3.9/github/getting-started-with-github/githubs-products)"
+    in the GitHub Help documentation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List A Connection Between An External Group And A Team
+      description: >-
+        Lists a connection between a team and an external group.You can manage team
+        membership with your identity provider using Enterprise Managed Users for
+        GitHub Enterprise Cloud. For more information, see "[GitHub's
+        products](https://docs.github.com/enterprise-server@3.9/github/getting-started-with-github/githubs-products)"
+        in the GitHub Help documentation.
+    paths:
+      /orgs/{org}/teams/{team_slug}/external-groups:
+        get:
+          summary: List A Connection Between An External Group And A Team
+          description: >-
+            Lists a connection between a team and an external group.You can manage
+            team membership with your identity provider using Enterprise Managed
+            Users for GitHub Enterprise Cloud. For more information, see "[GitHub's
+            products](https://docs.github.com/enterprise-server@3.9/github/getting-started-with-github/githubs-products)"
+            in the GitHub Help documentation.
+          operationId: teamslistlinkedexternalidpgroupstoteamfororg
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/external-groups'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/external-groups'

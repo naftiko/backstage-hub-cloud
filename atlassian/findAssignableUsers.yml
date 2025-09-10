@@ -1,0 +1,104 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Find Users Assignable To Issues
+  description: >-
+    Returns a list of users that can be assigned to an issue. Use this operation
+    to find the list of users who can be assigned to: *  a new issue, by
+    providing the `projectKeyOrId`. *  an updated issue, by providing the
+    `issueKey`. *  to an issue during a transition (workflow action), by
+    providing the `issueKey` and the transition id in `actionDescriptorId`. You
+    can obtain the IDs of an issue's valid transitions using the `transitions`
+    option in the `expand` parameter of [ Get
+    issue](#api-rest-api-3-issue-issueIdOrKey-get).In all these cases, you can
+    pass an account ID to determine if a user can be assigned to an issue. The
+    user is returned in the response if they can be assigned to the issue or
+    issue transition.This operation takes the users in the range defined by
+    `startAt` and `maxResults`, up to the thousandth user, and then returns only
+    the users from that range that can be assigned the issue. This means the
+    operation usually returns fewer users than specified in `maxResults`. To get
+    all the users who can be assigned the issue, use [Get all
+    users](#api-rest-api-3-users-search-get) and filter the records in your
+    code.Privacy controls are applied to the response based on the users'
+    preferences. This could mean, for example, that the user's email address is
+    hidden. See the [Profile visibility
+    overview](https://developer.atlassian.com/cloud/jira/platform/profile-visibility/)
+    for more details.**[Permissions](#permissions) required:** *Browse users and
+    groups* [global permission](https://confluence.atlassian.com/x/x4dKLg) or
+    *Assign issues* [project
+    permission](https://confluence.atlassian.com/x/yodKLg)
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Find Users Assignable To Issues
+      description: >-
+        Returns a list of users that can be assigned to an issue. Use this operation
+        to find the list of users who can be assigned to: *  a new issue, by
+        providing the `projectKeyOrId`. *  an updated issue, by providing the
+        `issueKey`. *  to an issue during a transition (workflow action), by
+        providing the `issueKey` and the transition id in `actionDescriptorId`. You
+        can obtain the IDs of an issue's valid transitions using the `transitions`
+        option in the `expand` parameter of [ Get
+        issue](#api-rest-api-3-issue-issueIdOrKey-get).In all these cases, you can
+        pass an account ID to determine if a user can be assigned to an issue. The
+        user is returned in the response if they can be assigned to the issue or
+        issue transition.This operation takes the users in the range defined by
+        `startAt` and `maxResults`, up to the thousandth user, and then returns only
+        the users from that range that can be assigned the issue. This means the
+        operation usually returns fewer users than specified in `maxResults`. To get
+        all the users who can be assigned the issue, use [Get all
+        users](#api-rest-api-3-users-search-get) and filter the records in your
+        code.Privacy controls are applied to the response based on the users'
+        preferences. This could mean, for example, that the user's email address is
+        hidden. See the [Profile visibility
+        overview](https://developer.atlassian.com/cloud/jira/platform/profile-visibility/)
+        for more details.**[Permissions](#permissions) required:** *Browse users and
+        groups* [global permission](https://confluence.atlassian.com/x/x4dKLg) or
+        *Assign issues* [project
+        permission](https://confluence.atlassian.com/x/yodKLg)
+    paths:
+      /rest/api/3/user/assignable/search:
+        get:
+          summary: Find Users Assignable To Issues
+          description: >-
+            Returns a list of users that can be assigned to an issue. Use this
+            operation to find the list of users who can be assigned to: *  a new
+            issue, by providing the `projectKeyOrId`. *  an updated issue, by
+            providing the `issueKey`. *  to an issue during a transition (workflow
+            action), by providing the `issueKey` and the transition id in
+            `actionDescriptorId`. You can obtain the IDs of an issue's valid
+            transitions using the `transitions` option in the `expand` parameter of
+            [ Get issue](#api-rest-api-3-issue-issueIdOrKey-get).In all these cases,
+            you can pass an account ID to determine if a user can be assigned to an
+            issue. The user is returned in the response if they can be assigned to
+            the issue or issue transition.This operation takes the users in the
+            range defined by `startAt` and `maxResults`, up to the thousandth user,
+            and then returns only the users from that range that can be assigned the
+            issue. This means the operation usually returns fewer users than
+            specified in `maxResults`. To get all the users who can be assigned the
+            issue, use [Get all users](#api-rest-api-3-users-search-get) and filter
+            the records in your code.Privacy controls are applied to the response
+            based on the users' preferences. This could mean, for example, that the
+            user's email address is hidden. See the [Profile visibility
+            overview](https://developer.atlassian.com/cloud/jira/platform/profile-visibility/)
+            for more details.**[Permissions](#permissions) required:** *Browse users
+            and groups* [global
+            permission](https://confluence.atlassian.com/x/x4dKLg) or *Assign
+            issues* [project permission](https://confluence.atlassian.com/x/yodKLg)
+          operationId: findAssignableUsers
+          responses:
+            '429':
+              description: >-
+                Returned if the rate limit is exceeded. User search endpoints share
+                a collective rate limit for the tenant, in addition to Jira's normal
+                rate limiting you may receive a rate limit for user search. Please
+                respect the Retry-After header.

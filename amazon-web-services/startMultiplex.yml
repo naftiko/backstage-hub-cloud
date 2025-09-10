@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Startmultiplex
+  description: >-
+    Start (run) the multiplex. Starting the multiplex does not start the
+    channels. You must explicitly start each channel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startmultiplex
+      description: >-
+        Start (run) the multiplex. Starting the multiplex does not start the
+        channels. You must explicitly start each channel.
+    paths:
+      /prod/multiplexes/{multiplexId}/start:
+        POST:
+          summary: Startmultiplex
+          description: >-
+            Start (run) the multiplex. Starting the multiplex does not start the
+            channels. You must explicitly start each channel.
+          operationId: startMultiplex

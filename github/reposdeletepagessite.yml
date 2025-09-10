@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Github Enterprise Server Pages Site
+  description: >-
+    Deletes a GitHub Enterprise Server Pages site. For more information, see
+    "[About GitHub
+    Pages](/github/working-with-github-pages/about-github-pages).The
+    authenticated user must be a repository administrator, maintainer, or have
+    the 'manage GitHub Pages settings' permission.OAuth app tokens and personal
+    access tokens (classic) need the `repo` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Github Enterprise Server Pages Site
+      description: >-
+        Deletes a GitHub Enterprise Server Pages site. For more information, see
+        "[About GitHub
+        Pages](/github/working-with-github-pages/about-github-pages).The
+        authenticated user must be a repository administrator, maintainer, or have
+        the 'manage GitHub Pages settings' permission.OAuth app tokens and personal
+        access tokens (classic) need the `repo` scope to use this endpoint.
+    paths:
+      /repos/{owner}/{repo}/pages:
+        delete:
+          summary: Delete A Github Enterprise Server Pages Site
+          description: >-
+            Deletes a GitHub Enterprise Server Pages site. For more information, see
+            "[About GitHub
+            Pages](/github/working-with-github-pages/about-github-pages).The
+            authenticated user must be a repository administrator, maintainer, or
+            have the 'manage GitHub Pages settings' permission.OAuth app tokens and
+            personal access tokens (classic) need the `repo` scope to use this
+            endpoint.
+          operationId: reposdeletepagessite
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

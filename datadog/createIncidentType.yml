@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create An Incident Type
+  description: Create an incident type.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create An Incident Type
+      description: Create an incident type.
+    paths:
+      /api/v2/incidents/config/types:
+        post:
+          summary: Create An Incident Type
+          description: Create an incident type.
+          operationId: createIncidentType
+          requestBody:
+            description: Incident type payload.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/IncidentTypeCreateRequest'
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

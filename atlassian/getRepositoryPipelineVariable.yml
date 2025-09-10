@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Variable For A Repository
+  description: Retrieve a repository level variable.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Variable For A Repository
+      description: Retrieve a repository level variable.
+    paths:
+      /repositories/{workspace}/{repo_slug}/pipelines_config/variables/{variable_uuid}:
+        get:
+          summary: Get A Variable For A Repository
+          description: Retrieve a repository level variable.
+          operationId: getRepositoryPipelineVariable
+          responses:
+            '404':
+              description: >-
+                The account, repository or variable with the specified UUID was not
+                found.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

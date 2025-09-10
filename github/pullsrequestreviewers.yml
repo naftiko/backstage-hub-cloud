@@ -1,0 +1,82 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Request Reviewers For A Pull Request
+  description: >-
+    Requests reviews for a pull request from a given set of users and/or
+    teams.This endpoint triggers
+    [notifications](https://docs.github.com/enterprise-server@3.9/github/managing-subscriptions-and-notifications-on-github/about-notifications).
+    Creating content too quickly using this endpoint may result in secondary
+    rate limiting. For more information, see "[Rate limits for the
+    API](https://docs.github.com/enterprise-server@3.9/rest/overview/rate-limits-for-the-rest-api#about-secondary-rate-limits)"
+    and "[Best practices for using the REST
+    API](https://docs.github.com/enterprise-server@3.9/rest/guides/best-practices-for-using-the-rest-api)."
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Request Reviewers For A Pull Request
+      description: >-
+        Requests reviews for a pull request from a given set of users and/or
+        teams.This endpoint triggers
+        [notifications](https://docs.github.com/enterprise-server@3.9/github/managing-subscriptions-and-notifications-on-github/about-notifications).
+        Creating content too quickly using this endpoint may result in secondary
+        rate limiting. For more information, see "[Rate limits for the
+        API](https://docs.github.com/enterprise-server@3.9/rest/overview/rate-limits-for-the-rest-api#about-secondary-rate-limits)"
+        and "[Best practices for using the REST
+        API](https://docs.github.com/enterprise-server@3.9/rest/guides/best-practices-for-using-the-rest-api)."
+    paths:
+      /repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers:
+        post:
+          summary: Request Reviewers For A Pull Request
+          description: >-
+            Requests reviews for a pull request from a given set of users and/or
+            teams.This endpoint triggers
+            [notifications](https://docs.github.com/enterprise-server@3.9/github/managing-subscriptions-and-notifications-on-github/about-notifications).
+            Creating content too quickly using this endpoint may result in secondary
+            rate limiting. For more information, see "[Rate limits for the
+            API](https://docs.github.com/enterprise-server@3.9/rest/overview/rate-limits-for-the-rest-api#about-secondary-rate-limits)"
+            and "[Best practices for using the REST
+            API](https://docs.github.com/enterprise-server@3.9/rest/guides/best-practices-for-using-the-rest-api)."
+          operationId: pullsrequestreviewers
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    reviewers:
+                      type: array
+                      description: An array of user `login`s that will be requested.
+                      items:
+                        type: string
+                    team_reviewers:
+                      type: array
+                      description: An array of team `slug`s that will be requested.
+                      items:
+                        type: string
+                  anyOf:
+                    - required:
+                        - reviewers
+                    - required:
+                        - team_reviewers
+                examples:
+                  default:
+                    value:
+                      reviewers:
+                        - octocat
+                        - hubot
+                        - other_user
+                      team_reviewers:
+                        - justice-league
+          responses:
+            '422':
+              description: Unprocessable Entity if user is not a collaborator

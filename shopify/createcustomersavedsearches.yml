@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Creates A Customer Saved Search.
+  description: >-
+    https://shopify.dev/docs/admin-api/rest/reference/customers/customersavedsearch#create-2020-10
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Creates A Customer Saved Search.
+      description: >-
+        https://shopify.dev/docs/admin-api/rest/reference/customers/customersavedsearch#create-2020-10
+    paths:
+      /admin/api/2020-10/customer_saved_searches.json:
+        post:
+          summary: Creates A Customer Saved Search.
+          description: >-
+            https://shopify.dev/docs/admin-api/rest/reference/customers/customersavedsearch#create-2020-10
+          operationId: createcustomersavedsearches
+          requestBody:
+            content:
+              application/json:
+                schema: {}
+                examples:
+                  example1:
+                    value:
+                      customer_saved_search:
+                        name: Spent more than $50
+                        query: total_spent:>50
+                    summary: Create a customer saved search
+                  example2:
+                    value:
+                      customer_saved_search:
+                        name: Spent more than $50 and after 2013
+                        query: total_spent:>50 order_date:>=2013-01-01
+                    summary: Create a customer saved search with multiple terms
+                  example3:
+                    value:
+                      customer_saved_search:
+                        body: foobar
+                    summary: >-
+                      Creating a customer saved search without a name fails and
+                      returns an error
+          responses:
+            '200':
+              description: ''

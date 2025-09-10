@@ -1,0 +1,104 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Product Review
+  description: >-
+    Creates a *Product Review*.**Required Fields**- title-
+    date_reviewed**Read-Only Fields*** id
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Product Review
+      description: >-
+        Creates a *Product Review*.**Required Fields**- title-
+        date_reviewed**Read-Only Fields*** id
+    paths:
+      /catalog/products/{product_id}/reviews:
+        post:
+          summary: Create A Product Review
+          description: >-
+            Creates a *Product Review*.**Required Fields**- title-
+            date_reviewed**Read-Only Fields*** id
+          operationId: createProductReview
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  title: Product Review Post
+                  description: |
+                    The model for a POST to create a product review.
+                  allOf:
+                    - title: Product Review Base
+                      required:
+                        - date_reviewed
+                        - title
+                      type: object
+                      properties:
+                        title:
+                          maxLength: 255
+                          minLength: 0
+                          type: string
+                          description: |-
+                            The title for the product review.
+                            Required in /POST.
+                        text:
+                          type: string
+                          description: |
+                            The text for the product review.
+                        status:
+                          type: string
+                          description: >
+                            The status of the product review. Must be one of
+                            `approved`, `disapproved` or `pending`.
+                        rating:
+                          type: integer
+                          description: >-
+                            The rating of the product review. Must be one of 0, 1,
+                            2, 3, 4, 5.
+                        email:
+                          type: string
+                          description: >-
+                            The email of the reviewer. Must be a valid email, or an
+                            empty string.
+                        name:
+                          maxLength: 255
+                          minLength: 0
+                          type: string
+                          description: The name of the reviewer.
+                        date_reviewed:
+                          type: string
+                          description: |
+                            Date the product was reviewed. Required in /POST.
+                          format: date-time
+          responses:
+            '404':
+              description: |
+                The product ID does not exist.
+              content:
+                application/json:
+                  schema:
+                    title: Not Found
+                    type: object
+                    properties:
+                      status:
+                        type: integer
+                        description: |
+                          404 HTTP status code.
+                      title:
+                        type: string
+                        description: The error title describing the particular error.
+                      type:
+                        type: string
+                      instance:
+                        type: string
+                    description: Error payload for the BigCommerce API.

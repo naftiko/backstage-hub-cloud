@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Enable Database Replication.
+  description: >-
+    Promotes a local database to serve as a primary database for replication. A
+    primary database can be replicated in one or more accounts, allowing users
+    in those accounts to query objects in each secondary (i.e. replica)
+    database.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Enable Database Replication.
+      description: >-
+        Promotes a local database to serve as a primary database for replication. A
+        primary database can be replicated in one or more accounts, allowing users
+        in those accounts to query objects in each secondary (i.e. replica)
+        database.
+    paths:
+      /api/v2/databases/{name}/replication:enable:
+        post:
+          summary: Enable Database Replication.
+          description: >-
+            Promotes a local database to serve as a primary database for
+            replication. A primary database can be replicated in one or more
+            accounts, allowing users in those accounts to query objects in each
+            secondary (i.e. replica) database.
+          operationId: enableDatabaseReplication
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/AccountIdentifiers'
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

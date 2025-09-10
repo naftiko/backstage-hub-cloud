@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete Project Avatar
+  description: >-
+    Deletes a custom avatar from a project. Note that system avatars cannot be
+    deleted.**[Permissions](#permissions) required:** *Administer projects*
+    [project permission](https://confluence.atlassian.com/x/yodKLg).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Project Avatar
+      description: >-
+        Deletes a custom avatar from a project. Note that system avatars cannot be
+        deleted.**[Permissions](#permissions) required:** *Administer projects*
+        [project permission](https://confluence.atlassian.com/x/yodKLg).
+    paths:
+      /rest/api/3/project/{projectIdOrKey}/avatar/{id}:
+        delete:
+          summary: Delete Project Avatar
+          description: >-
+            Deletes a custom avatar from a project. Note that system avatars cannot
+            be deleted.**[Permissions](#permissions) required:** *Administer
+            projects* [project
+            permission](https://confluence.atlassian.com/x/yodKLg).
+          operationId: deleteProjectAvatar
+          responses:
+            '404':
+              description: >-
+                Returned if the project or avatar is not found or the user does not
+                have permission to view the project.

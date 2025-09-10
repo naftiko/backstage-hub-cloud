@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Test Migrate Cleanup.
+  description: The operation to initiate test migrate cleanup.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Test Migrate Cleanup.
+      description: The operation to initiate test migrate cleanup.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationMigrationItems/{migrationItemName}/testMigrateCleanup:
+        post:
+          summary: Test Migrate Cleanup.
+          description: The operation to initiate test migrate cleanup.
+          operationId: replicationMigrationItemsTestMigrateCleanup
+          responses:
+            '202':
+              description: Accepted

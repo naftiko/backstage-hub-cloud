@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Turn On Remote Vendor Management For A Storage Appliance, If Supported.
+  description: Enable remote vendor management of the provided storage appliance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Turn On Remote Vendor Management For A Storage Appliance, If Supported.
+      description: Enable remote vendor management of the provided storage appliance.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/storageAppliances/{storageApplianceName}/enableRemoteVendorManagement:
+        post:
+          summary: Turn On Remote Vendor Management For A Storage Appliance, If Supported.
+          description: Enable remote vendor management of the provided storage appliance.
+          operationId: storageAppliancesEnableRemoteVendorManagement
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Content Restriction Status For User
+  description: >-
+    Returns whether the specified content restriction applies to a user.For
+    example, if a page with `id=123` has a `read` restriction for a user with an
+    account ID of`384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`, the following
+    request will return
+    `true`:`/wiki/rest/api/content/123/restriction/byOperation/read/user?accountId=384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`Note
+    that a response of `true` does not guarantee that the user can view the
+    page, as it does not account foraccount-inherited restrictions, space
+    permissions, or even product access. For moreinformation, see [Confluence
+    permissions](https://confluence.atlassian.com/x/_AozKw).**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to view the content.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Content Restriction Status For User
+      description: >-
+        Returns whether the specified content restriction applies to a user.For
+        example, if a page with `id=123` has a `read` restriction for a user with an
+        account ID of`384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`, the following
+        request will return
+        `true`:`/wiki/rest/api/content/123/restriction/byOperation/read/user?accountId=384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`Note
+        that a response of `true` does not guarantee that the user can view the
+        page, as it does not account foraccount-inherited restrictions, space
+        permissions, or even product access. For moreinformation, see [Confluence
+        permissions](https://confluence.atlassian.com/x/_AozKw).**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to view the content.
+    paths:
+      /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/user:
+        get:
+          summary: Get Content Restriction Status For User
+          description: >-
+            Returns whether the specified content restriction applies to a user.For
+            example, if a page with `id=123` has a `read` restriction for a user
+            with an account ID of`384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`, the
+            following request will return
+            `true`:`/wiki/rest/api/content/123/restriction/byOperation/read/user?accountId=384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`Note
+            that a response of `true` does not guarantee that the user can view the
+            page, as it does not account foraccount-inherited restrictions, space
+            permissions, or even product access. For moreinformation, see
+            [Confluence
+            permissions](https://confluence.atlassian.com/x/_AozKw).**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to view the content.
+          operationId: getContentRestrictionStatusForUser
+          responses:
+            '404':
+              description: |-
+                Returned if;
+
+                - There is no content with the given ID.
+                - The calling user does not have permission to view the content.
+                - An invalid operation or user is specified.
+              content: {}

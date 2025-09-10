@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Detachpolicy
+  description: >-
+    Detaches a policy from the specified target.  Because of the distributed
+    nature of Amazon Web Services, it can take up to five minutes after a policy
+    is detached before it's ready to be deleted.  Requires permission to access
+    the DetachPolicy action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Detachpolicy
+      description: >-
+        Detaches a policy from the specified target.  Because of the distributed
+        nature of Amazon Web Services, it can take up to five minutes after a policy
+        is detached before it's ready to be deleted.  Requires permission to access
+        the DetachPolicy action.
+    paths:
+      /target-policies/{policyName}:
+        POST:
+          summary: Detachpolicy
+          description: >-
+            Detaches a policy from the specified target.  Because of the distributed
+            nature of Amazon Web Services, it can take up to five minutes after a
+            policy is detached before it's ready to be deleted.  Requires permission
+            to access the DetachPolicy action.
+          operationId: detachPolicy

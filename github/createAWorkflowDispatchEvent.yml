@@ -1,0 +1,91 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Workflow Dispatch Event
+  description: >-
+    You can use this endpoint to manually trigger a GitHub Actions workflow run.
+    You can replace `workflow_id` with the workflow file name. For example, you
+    could use `main.yaml`.You must configure your GitHub Actions workflow to run
+    when the [`workflow_dispatch`
+    webhook](/developers/webhooks-and-events/webhook-events-and-payloads#workflow_dispatch)
+    event occurs. The `inputs` are configured in the workflow file. For more
+    information about how to configure the `workflow_dispatch` event in the
+    workflow file, see "[Events that trigger
+    workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)."OAuth
+    tokens and personal access tokens (classic) need the `repo` scope to use
+    this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Workflow Dispatch Event
+      description: >-
+        You can use this endpoint to manually trigger a GitHub Actions workflow run.
+        You can replace `workflow_id` with the workflow file name. For example, you
+        could use `main.yaml`.You must configure your GitHub Actions workflow to run
+        when the [`workflow_dispatch`
+        webhook](/developers/webhooks-and-events/webhook-events-and-payloads#workflow_dispatch)
+        event occurs. The `inputs` are configured in the workflow file. For more
+        information about how to configure the `workflow_dispatch` event in the
+        workflow file, see "[Events that trigger
+        workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)."OAuth
+        tokens and personal access tokens (classic) need the `repo` scope to use
+        this endpoint.
+    paths:
+      /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches:
+        post:
+          summary: Create A Workflow Dispatch Event
+          description: >-
+            You can use this endpoint to manually trigger a GitHub Actions workflow
+            run. You can replace `workflow_id` with the workflow file name. For
+            example, you could use `main.yaml`.You must configure your GitHub
+            Actions workflow to run when the [`workflow_dispatch`
+            webhook](/developers/webhooks-and-events/webhook-events-and-payloads#workflow_dispatch)
+            event occurs. The `inputs` are configured in the workflow file. For more
+            information about how to configure the `workflow_dispatch` event in the
+            workflow file, see "[Events that trigger
+            workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)."OAuth
+            tokens and personal access tokens (classic) need the `repo` scope to use
+            this endpoint.
+          operationId: createAWorkflowDispatchEvent
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    ref:
+                      type: string
+                      description: >-
+                        The git reference for the workflow. The reference can be a
+                        branch or tag name.
+                    inputs:
+                      type: object
+                      description: >-
+                        Input keys and values configured in the workflow file. The
+                        maximum number of properties is 10. Any default properties
+                        configured in the workflow file will be used when `inputs`
+                        are omitted.
+                      additionalProperties: true
+                      maxProperties: 10
+                  required:
+                    - ref
+                examples:
+                  default:
+                    value:
+                      ref: topic-branch
+                      inputs:
+                        name: Mona the Octocat
+                        home: San Francisco, CA
+          responses:
+            '204':
+              description: Response

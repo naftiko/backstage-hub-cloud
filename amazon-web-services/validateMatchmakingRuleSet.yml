@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Validatematchmakingruleset
+  description: >-
+    Validates the syntax of a matchmaking rule or rule set. This operation
+    checks that the rule set is using syntactically correct JSON and that it
+    conforms to allowed property expressions. To validate syntax, provide a rule
+    set JSON string.  Learn more     Build a rule set   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Validatematchmakingruleset
+      description: >-
+        Validates the syntax of a matchmaking rule or rule set. This operation
+        checks that the rule set is using syntactically correct JSON and that it
+        conforms to allowed property expressions. To validate syntax, provide a rule
+        set JSON string.  Learn more     Build a rule set   
+    paths:
+      /:
+        POST:
+          summary: Validatematchmakingruleset
+          description: >-
+            Validates the syntax of a matchmaking rule or rule set. This operation
+            checks that the rule set is using syntactically correct JSON and that it
+            conforms to allowed property expressions. To validate syntax, provide a
+            rule set JSON string.  Learn more     Build a rule set   
+          operationId: validateMatchmakingRuleSet

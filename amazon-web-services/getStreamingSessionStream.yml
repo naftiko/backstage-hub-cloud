@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getstreamingsessionstream
+  description: >-
+    Gets a StreamingSessionStream for a streaming session. Invoke this operation
+    to poll the resource after invoking CreateStreamingSessionStream. After the
+    StreamingSessionStream changes to the READY state, the url property will
+    contain a stream to be used with the DCV streaming client.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getstreamingsessionstream
+      description: >-
+        Gets a StreamingSessionStream for a streaming session. Invoke this operation
+        to poll the resource after invoking CreateStreamingSessionStream. After the
+        StreamingSessionStream changes to the READY state, the url property will
+        contain a stream to be used with the DCV streaming client.
+    paths:
+      /2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams/{streamId}:
+        GET:
+          summary: Getstreamingsessionstream
+          description: >-
+            Gets a StreamingSessionStream for a streaming session. Invoke this
+            operation to poll the resource after invoking
+            CreateStreamingSessionStream. After the StreamingSessionStream changes
+            to the READY state, the url property will contain a stream to be used
+            with the DCV streaming client.
+          operationId: getStreamingSessionStream

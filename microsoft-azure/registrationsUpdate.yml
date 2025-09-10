@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Patch Subscriptions Subscriptionid Resourcegroups Resourcegroup Providers
+    Microsoft.azurestack Registrations Registrationname
+  description: Patch an Azure Stack registration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroup Providers
+        Microsoft.azurestack Registrations Registrationname
+      description: Patch an Azure Stack registration.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroup
+            Providers Microsoft.azurestack Registrations Registrationname
+          description: Patch an Azure Stack registration.
+          operationId: registrationsUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: AzureStack.json#/definitions/ErrorResponse

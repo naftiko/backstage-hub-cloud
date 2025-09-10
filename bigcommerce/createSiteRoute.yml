@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create A Site Route
+  description: >-
+    Create routes that tell BigCommerce how to link to pages on a [headless
+    storefront](/docs/storefront/headless).## Usage Notes* For a list of
+    supported route types, see [Route
+    types](/docs/rest-management/sites#route-types).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Site Route
+      description: >-
+        Create routes that tell BigCommerce how to link to pages on a [headless
+        storefront](/docs/storefront/headless).## Usage Notes* For a list of
+        supported route types, see [Route
+        types](/docs/rest-management/sites#route-types).
+    paths:
+      /sites/{site_id}/routes:
+        post:
+          summary: Create A Site Route
+          description: >-
+            Create routes that tell BigCommerce how to link to pages on a [headless
+            storefront](/docs/storefront/headless).## Usage Notes* For a list of
+            supported route types, see [Route
+            types](/docs/rest-management/sites#route-types).
+          operationId: createSiteRoute
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/siteRoute_Base'
+          responses:
+            '502':
+              $ref: '#/components/responses/502_GatewayError'

@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Find Relationship From Source To Target
+  description: >-
+    Find whether a particular type of relationship exists from a sourceentity to
+    a target entity. Note, relationships are one way.For example, you can use
+    this method to find whether the current user hasselected a particular page
+    as a favorite (i.e. 'save for later'):`GET
+    /wiki/rest/api/relation/favourite/from/user/current/to/content/123`**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to view both the target entity and source entity.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Find Relationship From Source To Target
+      description: >-
+        Find whether a particular type of relationship exists from a sourceentity to
+        a target entity. Note, relationships are one way.For example, you can use
+        this method to find whether the current user hasselected a particular page
+        as a favorite (i.e. 'save for later'):`GET
+        /wiki/rest/api/relation/favourite/from/user/current/to/content/123`**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to view both the target entity and source entity.
+    paths:
+      /wiki/rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}:
+        get:
+          summary: Find Relationship From Source To Target
+          description: >-
+            Find whether a particular type of relationship exists from a
+            sourceentity to a target entity. Note, relationships are one way.For
+            example, you can use this method to find whether the current user
+            hasselected a particular page as a favorite (i.e. 'save for later'):`GET
+            /wiki/rest/api/relation/favourite/from/user/current/to/content/123`**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to view both the target entity and source entity.
+          operationId: getRelationship
+          responses:
+            '404':
+              description: Returned if the relationship does not exist.
+              content: {}

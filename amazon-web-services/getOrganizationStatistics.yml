@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getorganizationstatistics
+  description: >-
+    Retrieves how many active member accounts in your Amazon Web Services
+    organization have each feature enabled within GuardDuty. Only a delegated
+    GuardDuty administrator of an organization can run this API. When you create
+    a new Amazon Web Services organization, it might take up to 24 hours to
+    generate the statistics for the entire organization.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getorganizationstatistics
+      description: >-
+        Retrieves how many active member accounts in your Amazon Web Services
+        organization have each feature enabled within GuardDuty. Only a delegated
+        GuardDuty administrator of an organization can run this API. When you create
+        a new Amazon Web Services organization, it might take up to 24 hours to
+        generate the statistics for the entire organization.
+    paths:
+      /organization/statistics:
+        GET:
+          summary: Getorganizationstatistics
+          description: >-
+            Retrieves how many active member accounts in your Amazon Web Services
+            organization have each feature enabled within GuardDuty. Only a
+            delegated GuardDuty administrator of an organization can run this API.
+            When you create a new Amazon Web Services organization, it might take up
+            to 24 hours to generate the statistics for the entire organization.
+          operationId: getOrganizationStatistics

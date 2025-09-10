@@ -1,0 +1,106 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Redirect
+  description: >-
+    Updates a *Redirect URL*.**Required Fields***   path*   forward**Read Only
+    Fields***   url> #### Warning> **Deprecated**> * This API operation is
+    deprecated. Avoid using this API operation if possible. It will be removed
+    in a future version.> * To update redirect data, use Redirects V3ʼs [Upsert
+    redirects](/docs/rest-management/redirects#upsert-redirects) endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Redirect
+      description: >-
+        Updates a *Redirect URL*.**Required Fields***   path*   forward**Read Only
+        Fields***   url> #### Warning> **Deprecated**> * This API operation is
+        deprecated. Avoid using this API operation if possible. It will be removed
+        in a future version.> * To update redirect data, use Redirects V3ʼs [Upsert
+        redirects](/docs/rest-management/redirects#upsert-redirects) endpoint.
+    paths:
+      /redirects/{id}:
+        put:
+          summary: Update A Redirect
+          description: >-
+            Updates a *Redirect URL*.**Required Fields***   path*   forward**Read
+            Only Fields***   url> #### Warning> **Deprecated**> * This API operation
+            is deprecated. Avoid using this API operation if possible. It will be
+            removed in a future version.> * To update redirect data, use Redirects
+            V3ʼs [Upsert
+            redirects](/docs/rest-management/redirects#upsert-redirects) endpoint.
+          operationId: updateRedirect
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  title: Redirect
+                  required:
+                    - forward
+                    - path
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: Numeric ID of the redirect.
+                      example: 1
+                    path:
+                      type: string
+                      description: The path from which to redirect.
+                      example: /smith-journal-13/
+                    forward:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          description: >
+                            The type of redirect. If it is a manual redirect then
+                            type will always be manual. Dynamic redirects will have
+                            the type of the page. Such as product or category.
+                          example: product
+                        ref:
+                          type: string
+                          description: >-
+                            Reference of the redirect. Dynamic redirects will have
+                            the category or product number. Manual redirects will
+                            have the url that is being directed to.
+                          example: '111'
+                    url:
+                      type: string
+                      description: URL of the redirect. READ-ONLY.
+                      readOnly: true
+                      example: >-
+                        http://store-store_hash.mybigcommerce.com/towels/bath-towels/hand-towels/
+                  example:
+                    id: 1
+                    path: /smith-journal-13/
+                    forward:
+                      type: product
+                      ref: '111'
+                    url: >-
+                      http://store-store_hash.mybigcommerce.com/towels/bath-towels/hand-towels/
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/redirect'
+                  example:
+                    id: 1
+                    path: /smith-journal-13/
+                    forward:
+                      type: product
+                      ref: 111
+                    url: >-
+                      http://store-store_hash.mybigcommerce.com/towels/bath-towels/hand-towels/

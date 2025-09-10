@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Policy.
+  description: >-
+    Update the Learning Settings that the Personalizer service will use to train
+    models.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Policy.
+      description: >-
+        Update the Learning Settings that the Personalizer service will use to train
+        models.
+    paths:
+      /configurations/policy:
+        put:
+          summary: Update Policy.
+          description: >-
+            Update the Learning Settings that the Personalizer service will use to
+            train models.
+          operationId: policyUpdate
+          responses:
+            default:
+              description: Invalid policy configuration.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

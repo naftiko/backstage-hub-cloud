@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Put Model-inference Models Microsoft-soil-moisture Infer-data Jobid
+  description: Create a SoilMoisture Model job.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Model-inference Models Microsoft-soil-moisture Infer-data Jobid
+      description: Create a SoilMoisture Model job.
+    paths:
+      /model-inference/models/microsoft-soil-moisture/infer-data/{jobId}:
+        put:
+          summary: Put Model-inference Models Microsoft-soil-moisture Infer-data Jobid
+          description: Create a SoilMoisture Model job.
+          operationId: modelInferenceCreateSoilMoistureModelJob
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  x-ms-client-name: ErrorCode
+              x-ms-error-response: true

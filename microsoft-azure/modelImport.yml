@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Put The Digitally Signed Model File.
+  description: Replace the existing model file for the Personalizer service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put The Digitally Signed Model File.
+      description: Replace the existing model file for the Personalizer service.
+    paths:
+      /model:
+        put:
+          summary: Put The Digitally Signed Model File.
+          description: Replace the existing model file for the Personalizer service.
+          operationId: modelImport
+          responses:
+            default:
+              description: Given model file is not signed or does not have a valid signature.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

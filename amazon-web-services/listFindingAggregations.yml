@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listfindingaggregations
+  description: >-
+    Lists aggregated finding data for your environment based on specific
+    criteria.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listfindingaggregations
+      description: >-
+        Lists aggregated finding data for your environment based on specific
+        criteria.
+    paths:
+      /findings/aggregation/list:
+        POST:
+          summary: Listfindingaggregations
+          description: >-
+            Lists aggregated finding data for your environment based on specific
+            criteria.
+          operationId: listFindingAggregations

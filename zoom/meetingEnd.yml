@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Meeting End
+  description: End a meeting on Zoom, return the deleted meeting ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Meeting End
+      description: End a meeting on Zoom, return the deleted meeting ID.
+    paths:
+      /meeting/end:
+        post:
+          summary: Post Meeting End
+          description: End a meeting on Zoom, return the deleted meeting ID.
+          operationId: meetingEnd
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - host_id
+                    - id
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: Meeting ID.
+                    host_id:
+                      type: string
+                      description: Meeting host user ID. Can be any user under this account.
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    id: '123456789'
+                    ended_at: 2012-11-25T12:00:00.000Z

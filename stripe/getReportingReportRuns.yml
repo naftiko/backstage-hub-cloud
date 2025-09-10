@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Reporting Report_runs
+  description: Returns a list of Report Runs, with the most recent appearing first.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Reporting Report_runs
+      description: Returns a list of Report Runs, with the most recent appearing first.
+    paths:
+      /v1/reporting/report_runs:
+        get:
+          summary: Get Reporting Report_runs
+          description: Returns a list of Report Runs, with the most recent appearing first.
+          operationId: getReportingReportRuns
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding: {}
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/GetReportingReportRunsRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

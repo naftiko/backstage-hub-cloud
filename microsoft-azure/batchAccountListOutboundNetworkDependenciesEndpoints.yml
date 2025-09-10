@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.batch Batchaccounts Accountname
+    Outboundnetworkdependenciesendpoints
+  description: >-
+    Lists the endpoints that a Batch Compute Node under this Batch Account may
+    call as part of Batch service administration. If you are deploying a Pool
+    inside of a virtual network that you specify, you must make sure your
+    network allows outbound access to these endpoints. Failure to allow access
+    to these endpoints may cause Batch to mark the affected nodes as unusable.
+    For more information about creating a pool inside of a virtual network, see
+    https://docs.microsoft.com/en-us/azure/batch/batch-virtual-network.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.batch Batchaccounts Accountname
+        Outboundnetworkdependenciesendpoints
+      description: >-
+        Lists the endpoints that a Batch Compute Node under this Batch Account may
+        call as part of Batch service administration. If you are deploying a Pool
+        inside of a virtual network that you specify, you must make sure your
+        network allows outbound access to these endpoints. Failure to allow access
+        to these endpoints may cause Batch to mark the affected nodes as unusable.
+        For more information about creating a pool inside of a virtual network, see
+        https://docs.microsoft.com/en-us/azure/batch/batch-virtual-network.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}/outboundNetworkDependenciesEndpoints:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.batch Batchaccounts Accountname
+            Outboundnetworkdependenciesendpoints
+          description: >-
+            Lists the endpoints that a Batch Compute Node under this Batch Account
+            may call as part of Batch service administration. If you are deploying a
+            Pool inside of a virtual network that you specify, you must make sure
+            your network allows outbound access to these endpoints. Failure to allow
+            access to these endpoints may cause Batch to mark the affected nodes as
+            unusable. For more information about creating a pool inside of a virtual
+            network, see
+            https://docs.microsoft.com/en-us/azure/batch/batch-virtual-network.
+          operationId: batchAccountListOutboundNetworkDependenciesEndpoints
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

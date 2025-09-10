@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Elevation Data At Equally Spaced Locations Within A Bounding Box
+  description: >-
+    **Applies to**: S1 pricing tier.The Get Data for Bounding Box API provides
+    elevation data at equally spaced locations within a bounding box. A bounding
+    box is defined by the coordinates for two corners (southwest, northeast) and
+    then subsequently  divided into rows and columns. Elevations are returned
+    for the vertices of the grid created by the rows and  columns. Up to 2,000
+    elevations can be returned in a single request. The returned elevation
+    values are ordered,  starting at the southwest corner, and then proceeding
+    west to east along the row. At the end of the row,  it moves north to the
+    next row, and repeats the process until it reaches the far northeast corner.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Elevation Data At Equally Spaced Locations Within A Bounding Box
+      description: >-
+        **Applies to**: S1 pricing tier.The Get Data for Bounding Box API provides
+        elevation data at equally spaced locations within a bounding box. A bounding
+        box is defined by the coordinates for two corners (southwest, northeast) and
+        then subsequently  divided into rows and columns. Elevations are returned
+        for the vertices of the grid created by the rows and  columns. Up to 2,000
+        elevations can be returned in a single request. The returned elevation
+        values are ordered,  starting at the southwest corner, and then proceeding
+        west to east along the row. At the end of the row,  it moves north to the
+        next row, and repeats the process until it reaches the far northeast corner.
+    paths:
+      /elevation/lattice/{format}:
+        get:
+          summary: Get Elevation Data At Equally Spaced Locations Within A Bounding Box
+          description: >-
+            **Applies to**: S1 pricing tier.The Get Data for Bounding Box API
+            provides elevation data at equally spaced locations within a bounding
+            box. A bounding box is defined by the coordinates for two corners
+            (southwest, northeast) and then subsequently  divided into rows and
+            columns. Elevations are returned for the vertices of the grid created by
+            the rows and  columns. Up to 2,000 elevations can be returned in a
+            single request. The returned elevation values are ordered,  starting at
+            the southwest corner, and then proceeding west to east along the row. At
+            the end of the row,  it moves north to the next row, and repeats the
+            process until it reaches the far northeast corner.
+          operationId: elevationGetDataForBoundingBox
+          responses:
+            '500':
+              $ref: '#/responses/500'

@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Converts An Apache Iceberg™ Table That Uses An External Iceberg Catalog Into
+    A Table That Uses Snowflake As The Catalog
+  description: Convert unmanaged iceberg table to managed iceberg table
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Converts An Apache Iceberg™ Table That Uses An External Iceberg Catalog Into
+        A Table That Uses Snowflake As The Catalog
+      description: Convert unmanaged iceberg table to managed iceberg table
+    paths:
+      /api/v2/databases/{database}/schemas/{schema}/iceberg-tables/{name}:convert-to-managed:
+        post:
+          summary: >-
+            Converts An Apache Iceberg™ Table That Uses An External Iceberg Catalog
+            Into A Table That Uses Snowflake As The Catalog
+          description: Convert unmanaged iceberg table to managed iceberg table
+          operationId: convertToManagedIcebergTable
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ConvertToManagedIcebergTableRequest'
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

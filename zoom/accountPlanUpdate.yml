@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Ma Account Plan Update
+  description: >-
+    Update a plan for a sub account of the master account on Zoom.Only for the
+    sub account which is a paid account and paid by master account.Could update
+    a base plan or an additional plan.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Ma Account Plan Update
+      description: >-
+        Update a plan for a sub account of the master account on Zoom.Only for the
+        sub account which is a paid account and paid by master account.Could update
+        a base plan or an additional plan.
+    paths:
+      /ma/account/plan/update:
+        post:
+          summary: Post Ma Account Plan Update
+          description: >-
+            Update a plan for a sub account of the master account on Zoom.Only for
+            the sub account which is a paid account and paid by master account.Could
+            update a base plan or an additional plan.
+          operationId: accountPlanUpdate
+          requestBody:
+            required: true
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - account_id
+                    - plan
+                    - type
+                  type: object
+                  properties:
+                    account_id:
+                      type: string
+                      description: The sub account ID.
+                    type:
+                      type: string
+                      description: Plan Type. 1 means Base Plan, 2 means Additional Plan.
+                      default: '1'
+                    plan:
+                      type: string
+                      description: >-
+                        A Base Plan or an Additional Plan. See [Plans](#plans) for
+                        more details
+          responses:
+            '200':
+              description: Success
+              content:
+                application/json:
+                  example:
+                    id: w40hUJRpRmmkx4uPXczdHg
+                    updated_at: 2012-11-25T12:00:00.000Z

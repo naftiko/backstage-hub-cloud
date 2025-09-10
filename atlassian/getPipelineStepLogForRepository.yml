@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Log File For A Step
+  description: >-
+    Retrieve the log file for a given step of a pipeline.This endpoint supports
+    (and encourages!) the use of [HTTP Range
+    requests](https://tools.ietf.org/html/rfc7233) to deal with potentially very
+    large log files.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Log File For A Step
+      description: >-
+        Retrieve the log file for a given step of a pipeline.This endpoint supports
+        (and encourages!) the use of [HTTP Range
+        requests](https://tools.ietf.org/html/rfc7233) to deal with potentially very
+        large log files.
+    paths:
+      /repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/steps/{step_uuid}/log:
+        get:
+          summary: Get Log File For A Step
+          description: >-
+            Retrieve the log file for a given step of a pipeline.This endpoint
+            supports (and encourages!) the use of [HTTP Range
+            requests](https://tools.ietf.org/html/rfc7233) to deal with potentially
+            very large log files.
+          operationId: getPipelineStepLogForRepository
+          responses:
+            '416':
+              description: >-
+                The requested range does not exist for requests that specified the
+                [HTTP Range
+                header](https://tools.ietf.org/html/rfc7233#section-3.1).
+              content:
+                application/octet-stream:
+                  schema:
+                    $ref: '#/components/schemas/error'

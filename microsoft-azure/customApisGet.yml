@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Custom Api
+  description: Gets a custom API by name for a specific subscription and resource group
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Custom Api
+      description: Gets a custom API by name for a specific subscription and resource group
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/customApis/{apiName}:
+        get:
+          summary: Get A Custom Api
+          description: Gets a custom API by name for a specific subscription and resource group
+          operationId: customApisGet
+          responses:
+            '200':
+              description: A custom API
+              schema:
+                $ref: '#/definitions/CustomApiDefinition'

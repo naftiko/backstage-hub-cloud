@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Assistants Assistantsid Tasks Tasksid Samples
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Assistants Assistantsid Tasks Tasksid Samples
+      description: Needs a more full description created.
+    paths:
+      /v1/Assistants/{AssistantSid}/Tasks/{TaskSid}/Samples:
+        post:
+          summary: Post Assistants Assistantsid Tasks Tasksid Samples
+          description: Needs a more full description created.
+          operationId: createSample
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  required:
+                    - Language
+                    - TaggedText
+                  $ref: '#/components/schemas/CreateSampleRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/autopilot.v1.assistant.task.sample'
+              description: Created

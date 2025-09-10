@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Sendcustomverificationemail
+  description: >-
+    Adds an email address to the list of identities for your Amazon SES account
+    in the current Amazon Web Services Region and attempts to verify it. As a
+    result of executing this operation, a customized verification email is sent
+    to the specified address. To use this operation, you must first create a
+    custom verification email template. For more information about creating and
+    using custom verification email templates, see Using custom verification
+    email templates in the Amazon SES Developer Guide. You can execute this
+    operation no more than once per second.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Sendcustomverificationemail
+      description: >-
+        Adds an email address to the list of identities for your Amazon SES account
+        in the current Amazon Web Services Region and attempts to verify it. As a
+        result of executing this operation, a customized verification email is sent
+        to the specified address. To use this operation, you must first create a
+        custom verification email template. For more information about creating and
+        using custom verification email templates, see Using custom verification
+        email templates in the Amazon SES Developer Guide. You can execute this
+        operation no more than once per second.
+    paths:
+      /v2/email/outbound-custom-verification-emails:
+        POST:
+          summary: Sendcustomverificationemail
+          description: >-
+            Adds an email address to the list of identities for your Amazon SES
+            account in the current Amazon Web Services Region and attempts to verify
+            it. As a result of executing this operation, a customized verification
+            email is sent to the specified address. To use this operation, you must
+            first create a custom verification email template. For more information
+            about creating and using custom verification email templates, see Using
+            custom verification email templates in the Amazon SES Developer Guide.
+            You can execute this operation no more than once per second.
+          operationId: sendCustomVerificationEmail

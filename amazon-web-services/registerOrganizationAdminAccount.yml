@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Registerorganizationadminaccount
+  description: ' Enables an Amazon Web Services account within the organization as the delegated administrator for Audit Manager. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Registerorganizationadminaccount
+      description: ' Enables an Amazon Web Services account within the organization as the delegated administrator for Audit Manager. '
+    paths:
+      /account/registerOrganizationAdminAccount:
+        POST:
+          summary: Registerorganizationadminaccount
+          description: ' Enables an Amazon Web Services account within the organization as the delegated administrator for Audit Manager. '
+          operationId: registerOrganizationAdminAccount

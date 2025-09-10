@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Check Issue Export Status
+  description: >-
+    This endpoint is used to poll for the progress of an issue exportjob and
+    return the zip file after the job is complete.As long as the job is running,
+    this will return a 202 responsewith in the response body a description of
+    the current status.After the job has been scheduled, but before it starts
+    executing, the endpointreturns a 202 response with status `ACCEPTED`.Once it
+    starts running, it is a 202 response with status `STARTED` and progress
+    filled.After it is finished, it becomes a 200 response with status `SUCCESS`
+    or `FAILURE`.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Check Issue Export Status
+      description: >-
+        This endpoint is used to poll for the progress of an issue exportjob and
+        return the zip file after the job is complete.As long as the job is running,
+        this will return a 202 responsewith in the response body a description of
+        the current status.After the job has been scheduled, but before it starts
+        executing, the endpointreturns a 202 response with status `ACCEPTED`.Once it
+        starts running, it is a 202 response with status `STARTED` and progress
+        filled.After it is finished, it becomes a 200 response with status `SUCCESS`
+        or `FAILURE`.
+    paths:
+      /repositories/{workspace}/{repo_slug}/issues/export/{repo_name}-issues-{task_id}.zip:
+        get:
+          summary: Check Issue Export Status
+          description: >-
+            This endpoint is used to poll for the progress of an issue exportjob and
+            return the zip file after the job is complete.As long as the job is
+            running, this will return a 202 responsewith in the response body a
+            description of the current status.After the job has been scheduled, but
+            before it starts executing, the endpointreturns a 202 response with
+            status `ACCEPTED`.Once it starts running, it is a 202 response with
+            status `STARTED` and progress filled.After it is finished, it becomes a
+            200 response with status `SUCCESS` or `FAILURE`.
+          operationId: checkissueexportstatus
+          responses:
+            '404':
+              description: No export job has begun
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'

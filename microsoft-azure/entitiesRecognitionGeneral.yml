@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Named Entity Recognition
+  description: >-
+    The API returns a list of general named entities in a given document. For
+    the list of supported entity types, check Supported Entity Types in Text
+    Analytics API. See the Supported languages in Text Analytics API for the
+    list of enabled languages.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Named Entity Recognition
+      description: >-
+        The API returns a list of general named entities in a given document. For
+        the list of supported entity types, check Supported Entity Types in Text
+        Analytics API. See the Supported languages in Text Analytics API for the
+        list of enabled languages.
+    paths:
+      /entities/recognition/general:
+        post:
+          summary: Named Entity Recognition
+          description: >-
+            The API returns a list of general named entities in a given document.
+            For the list of supported entity types, check Supported Entity Types in
+            Text Analytics API. See the Supported languages in Text Analytics API
+            for the list of enabled languages.
+          operationId: entitiesRecognitionGeneral
+          responses:
+            '500':
+              description: Internal error response
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              x-ms-error-response: true

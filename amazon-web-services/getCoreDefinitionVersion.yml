@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getcoredefinitionversion
+  description: Retrieves information about a core definition version.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getcoredefinitionversion
+      description: Retrieves information about a core definition version.
+    paths:
+      /greengrass/definition/cores/{CoreDefinitionId}/versions/{CoreDefinitionVersionId}:
+        GET:
+          summary: Getcoredefinitionversion
+          description: Retrieves information about a core definition version.
+          operationId: getCoreDefinitionVersion

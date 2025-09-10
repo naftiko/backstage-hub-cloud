@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Services Servicesid Environments Environmentsid Variables
+  description: Retrieve a list of all Variables.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Services Servicesid Environments Environmentsid Variables
+      description: Retrieve a list of all Variables.
+    paths:
+      /v1/Services/{ServiceSid}/Environments/{EnvironmentSid}/Variables:
+        get:
+          summary: Get Services Servicesid Environments Environmentsid Variables
+          description: Retrieve a list of all Variables.
+          operationId: listVariable
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ListVariableResponse'
+              description: OK

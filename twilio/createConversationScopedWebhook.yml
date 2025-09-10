@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Conversations Conversationsid Webhooks
+  description: Create a new webhook scoped to the conversation
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Conversations Conversationsid Webhooks
+      description: Create a new webhook scoped to the conversation
+    paths:
+      /v1/Conversations/{ConversationSid}/Webhooks:
+        post:
+          summary: Post Conversations Conversationsid Webhooks
+          description: Create a new webhook scoped to the conversation
+          operationId: createConversationScopedWebhook
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateConversationScopedWebhookRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: >-
+                      #/components/schemas/conversations.v1.conversation.conversation_scoped_webhook
+              description: Created

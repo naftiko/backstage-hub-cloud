@@ -1,0 +1,72 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Product Modifier Image
+  description: >-
+    Creates a *Modifier Image*.The image will show on the storefront when the
+    value is selected. **Required Fields**- image_file: Form posts are the only
+    accepted upload option.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Product Modifier Image
+      description: >-
+        Creates a *Modifier Image*.The image will show on the storefront when the
+        value is selected. **Required Fields**- image_file: Form posts are the only
+        accepted upload option.
+    paths:
+      /catalog/products/{product_id}/modifiers/{modifier_id}/values/{value_id}/image:
+        post:
+          summary: Create Product Modifier Image
+          description: >-
+            Creates a *Modifier Image*.The image will show on the storefront when
+            the value is selected. **Required Fields**- image_file: Form posts are
+            the only accepted upload option.
+          operationId: createProductModifierImage
+          requestBody:
+            content:
+              multipart/form-data:
+                schema:
+                  type: object
+                  properties:
+                    image_file:
+                      type: string
+                      format: binary
+          responses:
+            '422':
+              description: >
+                Modifier image was not valid. This is the result of missing
+                `image_file` fields, or of a non-URL value for the `image_file`
+                field. See the response for more details.
+              content:
+                application/json:
+                  schema:
+                    title: Error Response
+                    type: object
+                    properties:
+                      errors:
+                        title: Detailed Errors
+                        type: object
+                        properties: {}
+                        additionalProperties: true
+                      instance:
+                        type: string
+                      status:
+                        type: integer
+                        description: |
+                          The HTTP status code.
+                      title:
+                        type: string
+                        description: |
+                          The error title describing the particular error.
+                      type:
+                        type: string

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Services Servicesid Shortcodes
+  description: Add a Short Code to the Proxy Number Pool for the Service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Services Servicesid Shortcodes
+      description: Add a Short Code to the Proxy Number Pool for the Service.
+    paths:
+      /v1/Services/{ServiceSid}/ShortCodes:
+        post:
+          summary: Post Services Servicesid Shortcodes
+          description: Add a Short Code to the Proxy Number Pool for the Service.
+          operationId: createShortCode
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/CreateShortCodeRequest'
+          responses:
+            '201':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/proxy.v1.service.short_code'
+              description: Created

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Atlas Entity Bulk
+  description: List entities in bulk identified by its GUIDs.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Atlas Entity Bulk
+      description: List entities in bulk identified by its GUIDs.
+    paths:
+      /atlas/v2/entity/bulk:
+        get:
+          summary: Get Atlas Entity Bulk
+          description: List entities in bulk identified by its GUIDs.
+          operationId: entityListByGuids
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

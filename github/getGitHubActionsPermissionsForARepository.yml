@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Github Actions Permissions For A Repository
+  description: >-
+    Gets the GitHub Actions permissions policy for a repository, including
+    whether GitHub Actions is enabled and the actions allowed to run in the
+    repository.You must authenticate using an access token with the `repo` scope
+    to use this endpoint. GitHub Apps must have the `administration` repository
+    permission to use this API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Github Actions Permissions For A Repository
+      description: >-
+        Gets the GitHub Actions permissions policy for a repository, including
+        whether GitHub Actions is enabled and the actions allowed to run in the
+        repository.You must authenticate using an access token with the `repo` scope
+        to use this endpoint. GitHub Apps must have the `administration` repository
+        permission to use this API.
+    paths:
+      /repos/{owner}/{repo}/actions/permissions:
+        get:
+          summary: Get Github Actions Permissions For A Repository
+          description: >-
+            Gets the GitHub Actions permissions policy for a repository, including
+            whether GitHub Actions is enabled and the actions allowed to run in the
+            repository.You must authenticate using an access token with the `repo`
+            scope to use this endpoint. GitHub Apps must have the `administration`
+            repository permission to use this API.
+          operationId: getGitHubActionsPermissionsForARepository
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/actions-repository-permissions'
+                  examples:
+                    default:
+                      $ref: '#/components/examples/actions-repository-permissions'

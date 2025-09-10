@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Flows Flowsid Executions Sid
+  description: Retrieve an Execution
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Flows Flowsid Executions Sid
+      description: Retrieve an Execution
+    paths:
+      /v2/Flows/{FlowSid}/Executions/{Sid}:
+        get:
+          summary: Get Flows Flowsid Executions Sid
+          description: Retrieve an Execution
+          operationId: fetchExecution
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/studio.v2.flow.execution'
+              description: OK

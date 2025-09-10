@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Pull Request Statistics
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Pull Request Statistics
+      description: Needs a more full description created.
+    paths:
+      /enterprise/stats/pulls:
+        get:
+          summary: Get Pull Request Statistics
+          description: Needs a more full description created.
+          operationId: enterpriseadmingetpullrequeststats
+          responses:
+            '200':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/enterprise-pull-request-overview'
+                  examples:
+                    default:
+                      value:
+                        total_pulls: 1200
+                        merged_pulls: 1100
+                        mergeable_pulls: 90
+                        unmergeable_pulls: 10

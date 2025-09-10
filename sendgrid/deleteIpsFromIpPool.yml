@@ -1,0 +1,60 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Batch Of Ips From An Ip Pool
+  description: >-
+    This operation removes a batch of IPs from an IP Pool. All IPs associated
+    with the Pool will be unassigned from the deleted Pool. However, this
+    operation does not remove the IPs from your account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Batch Of Ips From An Ip Pool
+      description: >-
+        This operation removes a batch of IPs from an IP Pool. All IPs associated
+        with the Pool will be unassigned from the deleted Pool. However, this
+        operation does not remove the IPs from your account.
+    paths:
+      /v3/send_ips/pools/{poolid}/ips:batchDelete:
+        post:
+          summary: Delete A Batch Of Ips From An Ip Pool
+          description: >-
+            This operation removes a batch of IPs from an IP Pool. All IPs
+            associated with the Pool will be unassigned from the deleted Pool.
+            However, this operation does not remove the IPs from your account.
+          operationId: deleteIpsFromIpPool
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    ips:
+                      type: array
+                      description: >-
+                        An array of IP addresses to remove from the specified IP
+                        Pool.
+                      items:
+                        type: string
+                  required:
+                    - ips
+                examples:
+                  example-1:
+                    value:
+                      ips:
+                        - 127.0.0.1
+                        - 127.0.0.2
+                        - 127.0.0.3
+                        - 127.0.0.4
+          responses:
+            '500':
+              $ref: '#/components/responses/IpAddressManagement500'

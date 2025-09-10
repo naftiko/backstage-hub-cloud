@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Atlas Entity Bulk Setclassifications
+  description: Set classifications on entities in bulk.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Atlas Entity Bulk Setclassifications
+      description: Set classifications on entities in bulk.
+    paths:
+      /atlas/v2/entity/bulk/setClassifications:
+        post:
+          summary: Post Atlas Entity Bulk Setclassifications
+          description: Set classifications on entities in bulk.
+          operationId: entityBulkSetClassifications
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Re-run Failed Jobs From A Workflow Run
+  description: >-
+    Re-run all of the failed jobs and their dependent jobs in a workflow run
+    using the `id` of the workflow run.OAuth app tokens and personal access
+    tokens (classic) need the `repo` scope to use this endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Re-run Failed Jobs From A Workflow Run
+      description: >-
+        Re-run all of the failed jobs and their dependent jobs in a workflow run
+        using the `id` of the workflow run.OAuth app tokens and personal access
+        tokens (classic) need the `repo` scope to use this endpoint.
+    paths:
+      /repos/{owner}/{repo}/actions/runs/{run_id}/rerun-failed-jobs:
+        post:
+          summary: Re-run Failed Jobs From A Workflow Run
+          description: >-
+            Re-run all of the failed jobs and their dependent jobs in a workflow run
+            using the `id` of the workflow run.OAuth app tokens and personal access
+            tokens (classic) need the `repo` scope to use this endpoint.
+          operationId: reRunFailedJobsFromAWorkflowRun
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  nullable: true
+                  properties:
+                    enable_debug_logging:
+                      type: boolean
+                      default: false
+                      description: Whether to enable debug logging for the re-run.
+                examples:
+                  default:
+                    value: null
+          responses:
+            '201':
+              description: Response
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/empty-object'
+                  examples:
+                    default:
+                      value: null

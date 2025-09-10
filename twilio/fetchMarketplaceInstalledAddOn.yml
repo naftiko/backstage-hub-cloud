@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Marketplace Installedaddons Sid
+  description: Fetch an instance of an Add-on currently installed on this Account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Marketplace Installedaddons Sid
+      description: Fetch an instance of an Add-on currently installed on this Account.
+    paths:
+      /marketplace/InstalledAddOns/{Sid}:
+        get:
+          summary: Get Marketplace Installedaddons Sid
+          description: Fetch an instance of an Add-on currently installed on this Account.
+          operationId: fetchMarketplaceInstalledAddOn
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/preview.marketplace.installed_add_on'
+              description: OK

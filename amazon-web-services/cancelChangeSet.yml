@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Cancelchangeset
+  description: >-
+    Used to cancel an open change request. Must be sent before the status of the
+    request changes to APPLYING, the final stage of completing your change
+    request. You can describe a change during the 60-day request history
+    retention period for API calls.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Cancelchangeset
+      description: >-
+        Used to cancel an open change request. Must be sent before the status of the
+        request changes to APPLYING, the final stage of completing your change
+        request. You can describe a change during the 60-day request history
+        retention period for API calls.
+    paths:
+      /CancelChangeSet:
+        PATCH:
+          summary: Cancelchangeset
+          description: >-
+            Used to cancel an open change request. Must be sent before the status of
+            the request changes to APPLYING, the final stage of completing your
+            change request. You can describe a change during the 60-day request
+            history retention period for API calls.
+          operationId: cancelChangeSet

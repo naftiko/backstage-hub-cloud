@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Providers Microsoft.billingbenefits Savingsplanorders Savingsplanorderid
+    Savingsplans
+  description: List savings plans in an order.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Providers Microsoft.billingbenefits Savingsplanorders Savingsplanorderid
+        Savingsplans
+      description: List savings plans in an order.
+    paths:
+      /providers/Microsoft.BillingBenefits/savingsPlanOrders/{savingsPlanOrderId}/savingsPlans:
+        get:
+          summary: >-
+            Get Providers Microsoft.billingbenefits Savingsplanorders
+            Savingsplanorderid Savingsplans
+          description: List savings plans in an order.
+          operationId: savingsPlanList
+          responses:
+            default:
+              description: Unexpected error.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

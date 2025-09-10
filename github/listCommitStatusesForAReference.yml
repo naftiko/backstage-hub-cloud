@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Commit Statuses For A Reference
+  description: >-
+    Users with pull access in a repository can view commit statuses for a given
+    ref. The ref can be a SHA, a branch name, or a tag name. Statuses are
+    returned in reverse chronological order. The first status in the list will
+    be the latest one.This resource is also available via a legacy route: `GET
+    /repos/:owner/:repo/statuses/:ref`.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Commit Statuses For A Reference
+      description: >-
+        Users with pull access in a repository can view commit statuses for a given
+        ref. The ref can be a SHA, a branch name, or a tag name. Statuses are
+        returned in reverse chronological order. The first status in the list will
+        be the latest one.This resource is also available via a legacy route: `GET
+        /repos/:owner/:repo/statuses/:ref`.
+    paths:
+      /repos/{owner}/{repo}/commits/{ref}/statuses:
+        get:
+          summary: List Commit Statuses For A Reference
+          description: >-
+            Users with pull access in a repository can view commit statuses for a
+            given ref. The ref can be a SHA, a branch name, or a tag name. Statuses
+            are returned in reverse chronological order. The first status in the
+            list will be the latest one.This resource is also available via a legacy
+            route: `GET /repos/:owner/:repo/statuses/:ref`.
+          operationId: listCommitStatusesForAReference
+          responses:
+            '301':
+              $ref: '#/components/responses/moved_permanently'

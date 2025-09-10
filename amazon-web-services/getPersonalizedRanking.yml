@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getpersonalizedranking
+  description: >-
+    Re-ranks a list of recommended items for the given user. The first item in
+    the list is deemed the most likely item to be of interest to the user.  The
+    solution backing the campaign must have been created using a recipe of type
+    PERSONALIZED_RANKING. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getpersonalizedranking
+      description: >-
+        Re-ranks a list of recommended items for the given user. The first item in
+        the list is deemed the most likely item to be of interest to the user.  The
+        solution backing the campaign must have been created using a recipe of type
+        PERSONALIZED_RANKING. 
+    paths:
+      /personalize-ranking:
+        POST:
+          summary: Getpersonalizedranking
+          description: >-
+            Re-ranks a list of recommended items for the given user. The first item
+            in the list is deemed the most likely item to be of interest to the
+            user.  The solution backing the campaign must have been created using a
+            recipe of type PERSONALIZED_RANKING. 
+          operationId: getPersonalizedRanking

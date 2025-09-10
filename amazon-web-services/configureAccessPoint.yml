@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Configureaccesspoint
+  description: >-
+    Configures the specified network resource.   Use this action to specify the
+    geographic position of the hardware. You must provide Certified Professional
+    Installer (CPI) credentials in the request so that we can obtain spectrum
+    grants. For more information, see Radio units in the Amazon Web Services
+    Private 5G User Guide. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Configureaccesspoint
+      description: >-
+        Configures the specified network resource.   Use this action to specify the
+        geographic position of the hardware. You must provide Certified Professional
+        Installer (CPI) credentials in the request so that we can obtain spectrum
+        grants. For more information, see Radio units in the Amazon Web Services
+        Private 5G User Guide. 
+    paths:
+      /v1/network-resources/configure:
+        POST:
+          summary: Configureaccesspoint
+          description: >-
+            Configures the specified network resource.   Use this action to specify
+            the geographic position of the hardware. You must provide Certified
+            Professional Installer (CPI) credentials in the request so that we can
+            obtain spectrum grants. For more information, see Radio units in the
+            Amazon Web Services Private 5G User Guide. 
+          operationId: configureAccessPoint

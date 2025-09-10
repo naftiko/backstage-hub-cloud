@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Getdashboardforjobrun
+  description: >-
+    Creates and returns a URL that you can use to access the application UIs for
+    a job run. For jobs in a running state, the application UI is a live user
+    interface such as the Spark or Tez web UI. For completed jobs, the
+    application UI is a persistent application user interface such as the Spark
+    History Server or persistent Tez UI.  The URL is valid for one hour after
+    you generate it. To access the application UI after that hour elapses, you
+    must invoke the API again to generate a new URL. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getdashboardforjobrun
+      description: >-
+        Creates and returns a URL that you can use to access the application UIs for
+        a job run. For jobs in a running state, the application UI is a live user
+        interface such as the Spark or Tez web UI. For completed jobs, the
+        application UI is a persistent application user interface such as the Spark
+        History Server or persistent Tez UI.  The URL is valid for one hour after
+        you generate it. To access the application UI after that hour elapses, you
+        must invoke the API again to generate a new URL. 
+    paths:
+      /applications/{applicationId}/jobruns/{jobRunId}/dashboard:
+        GET:
+          summary: Getdashboardforjobrun
+          description: >-
+            Creates and returns a URL that you can use to access the application UIs
+            for a job run. For jobs in a running state, the application UI is a live
+            user interface such as the Spark or Tez web UI. For completed jobs, the
+            application UI is a persistent application user interface such as the
+            Spark History Server or persistent Tez UI.  The URL is valid for one
+            hour after you generate it. To access the application UI after that hour
+            elapses, you must invoke the API again to generate a new URL. 
+          operationId: getDashboardForJobRun

@@ -1,0 +1,86 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update A Campaign
+  description: >-
+    **This endpoint allows you to update a specific campaign.**This is
+    especially useful if you only set up the campaign using POST /campaigns, but
+    didn't set many of the parameters.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Campaign
+      description: >-
+        **This endpoint allows you to update a specific campaign.**This is
+        especially useful if you only set up the campaign using POST /campaigns, but
+        didn't set many of the parameters.
+    paths:
+      /v3/campaigns/{campaign_id}:
+        patch:
+          summary: Update A Campaign
+          description: >-
+            **This endpoint allows you to update a specific campaign.**This is
+            especially useful if you only set up the campaign using POST /campaigns,
+            but didn't set many of the parameters.
+          operationId: updateCampaign
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  title: Update a Campaign request
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                      description: The title of the campaign.
+                    subject:
+                      type: string
+                      description: The subject line for your campaign.
+                    categories:
+                      type: array
+                      description: The categories you want to tag on this campaign.
+                      items:
+                        type: string
+                    html_content:
+                      type: string
+                      description: The HTML content of this campaign.
+                    plain_content:
+                      type: string
+                      description: The plain content of this campaign.
+                  required:
+                    - title
+                    - subject
+                    - categories
+                    - html_content
+                    - plain_content
+                  example:
+                    title: May Newsletter
+                    subject: New Products for Summer!
+                    categories:
+                      - summer line
+                    html_content: >-
+                      <html><head><title></title></head><body><p>Check out our
+                      summer line!</p></body></html>
+                    plain_content: Check out our summer line!
+          responses:
+            '404':
+              description: Not found
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorResponse'
+                  examples:
+                    response:
+                      value:
+                        errors:
+                          - field: null
+                            message: not found

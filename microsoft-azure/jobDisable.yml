@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Disables The Specified Job, Preventing New Tasks From Running.
+  description: >-
+    The Batch Service immediately moves the Job to the disabling state. Batch
+    then uses the disableTasks parameter to determine what to do with the
+    currently running Tasks of the Job. The Job remains in the disabling state
+    until the disable operation is completed and all Tasks have been dealt with
+    according to the disableTasks option; the Job then moves to the disabled
+    state. No new Tasks are started under the Job until it moves back to active
+    state. If you try to disable a Job that is in any state other than active,
+    disabling, or disabled, the request fails with status code 409.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disables The Specified Job, Preventing New Tasks From Running.
+      description: >-
+        The Batch Service immediately moves the Job to the disabling state. Batch
+        then uses the disableTasks parameter to determine what to do with the
+        currently running Tasks of the Job. The Job remains in the disabling state
+        until the disable operation is completed and all Tasks have been dealt with
+        according to the disableTasks option; the Job then moves to the disabled
+        state. No new Tasks are started under the Job until it moves back to active
+        state. If you try to disable a Job that is in any state other than active,
+        disabling, or disabled, the request fails with status code 409.
+    paths:
+      /jobs/{jobId}/disable:
+        post:
+          summary: Disables The Specified Job, Preventing New Tasks From Running.
+          description: >-
+            The Batch Service immediately moves the Job to the disabling state.
+            Batch then uses the disableTasks parameter to determine what to do with
+            the currently running Tasks of the Job. The Job remains in the disabling
+            state until the disable operation is completed and all Tasks have been
+            dealt with according to the disableTasks option; the Job then moves to
+            the disabled state. No new Tasks are started under the Job until it
+            moves back to active state. If you try to disable a Job that is in any
+            state other than active, disabling, or disabled, the request fails with
+            status code 409.
+          operationId: jobDisable
+          responses:
+            default:
+              description: The error from the Batch service.
+              schema:
+                $ref: '#/definitions/BatchError'

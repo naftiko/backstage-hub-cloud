@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Invoices Invoice Pay
+  description: >-
+    Stripe automatically creates and then attempts to collect payment on
+    invoices for customers on subscriptions according to your subscriptions
+    settings. However, if you’d like to attempt payment on an invoice out of the
+    normal collection schedule or for some other reason, you can do so.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Invoices Invoice Pay
+      description: >-
+        Stripe automatically creates and then attempts to collect payment on
+        invoices for customers on subscriptions according to your subscriptions
+        settings. However, if you’d like to attempt payment on an invoice out of the
+        normal collection schedule or for some other reason, you can do so.
+    paths:
+      /v1/invoices/{invoice}/pay:
+        post:
+          summary: Post Invoices Invoice Pay
+          description: >-
+            Stripe automatically creates and then attempts to collect payment on
+            invoices for customers on subscriptions according to your subscriptions
+            settings. However, if you’d like to attempt payment on an invoice out of
+            the normal collection schedule or for some other reason, you can do so.
+          operationId: postInvoicesInvoicePay
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                encoding:
+                  expand:
+                    explode: true
+                    style: deepObject
+                  mandate:
+                    explode: true
+                    style: deepObject
+                schema:
+                  additionalProperties: false
+                  $ref: '#/components/schemas/PostInvoicesInvoicePayRequest'
+          responses:
+            default:
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/error'
+              description: Error response.

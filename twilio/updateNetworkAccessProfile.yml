@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Networkaccessprofiles Sid
+  description: Updates the given properties of a Network Access Profile in your account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Networkaccessprofiles Sid
+      description: Updates the given properties of a Network Access Profile in your account.
+    paths:
+      /v1/NetworkAccessProfiles/{Sid}:
+        post:
+          summary: Post Networkaccessprofiles Sid
+          description: >-
+            Updates the given properties of a Network Access Profile in your
+            account.
+          operationId: updateNetworkAccessProfile
+          requestBody:
+            content:
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: '#/components/schemas/UpdateNetworkAccessProfileRequest'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/supersim.v1.network_access_profile'
+              description: OK

@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Setdefaultpolicyversion
+  description: >-
+    Sets the specified version of the specified policy as the policy's default
+    (operative) version. This action affects all certificates to which the
+    policy is attached. To list the principals the policy is attached to, use
+    the ListPrincipalPolicies action. Requires permission to access the
+    SetDefaultPolicyVersion action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Setdefaultpolicyversion
+      description: >-
+        Sets the specified version of the specified policy as the policy's default
+        (operative) version. This action affects all certificates to which the
+        policy is attached. To list the principals the policy is attached to, use
+        the ListPrincipalPolicies action. Requires permission to access the
+        SetDefaultPolicyVersion action.
+    paths:
+      /policies/{policyName}/version/{policyVersionId}:
+        PATCH:
+          summary: Setdefaultpolicyversion
+          description: >-
+            Sets the specified version of the specified policy as the policy's
+            default (operative) version. This action affects all certificates to
+            which the policy is attached. To list the principals the policy is
+            attached to, use the ListPrincipalPolicies action. Requires permission
+            to access the SetDefaultPolicyVersion action.
+          operationId: setDefaultPolicyVersion

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Regulatorycompliance Bundles
+  description: Retrieve a list of all Bundles for an account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Regulatorycompliance Bundles
+      description: Retrieve a list of all Bundles for an account.
+    paths:
+      /v2/RegulatoryCompliance/Bundles:
+        get:
+          summary: Get Regulatorycompliance Bundles
+          description: Retrieve a list of all Bundles for an account.
+          operationId: listBundle
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ListBundleResponse'
+              description: OK

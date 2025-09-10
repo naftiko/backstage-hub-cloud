@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Fetch A Short Lived Token That Can Be Exchanged For A Master Key.
+  description: >-
+    Description for Fetch a short lived token that can be exchanged for a master
+    key.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Fetch A Short Lived Token That Can Be Exchanged For A Master Key.
+      description: >-
+        Description for Fetch a short lived token that can be exchanged for a master
+        key.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/functions/admin/token:
+        get:
+          summary: Fetch A Short Lived Token That Can Be Exchanged For A Master Key.
+          description: >-
+            Description for Fetch a short lived token that can be exchanged for a
+            master key.
+          operationId: webAppsGetFunctionsAdminToken
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

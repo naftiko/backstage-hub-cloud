@@ -1,0 +1,140 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Or Update File Contents
+  description: >-
+    Creates a new file or replaces an existing file in a repository.**Note:** If
+    you use this endpoint and the "[Delete a
+    file](https://docs.github.com/enterprise-server@3.9/rest/repos/contents/#delete-a-file)"
+    endpoint in parallel, the concurrent requests will conflict and you will
+    receive errors. You must use these endpoints serially instead.OAuth app
+    tokens and personal access tokens (classic) need the `repo` scope to use
+    this endpoint. The `workflow` scope is also required in order to modify
+    files in the `.github/workflows` directory.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Or Update File Contents
+      description: >-
+        Creates a new file or replaces an existing file in a repository.**Note:** If
+        you use this endpoint and the "[Delete a
+        file](https://docs.github.com/enterprise-server@3.9/rest/repos/contents/#delete-a-file)"
+        endpoint in parallel, the concurrent requests will conflict and you will
+        receive errors. You must use these endpoints serially instead.OAuth app
+        tokens and personal access tokens (classic) need the `repo` scope to use
+        this endpoint. The `workflow` scope is also required in order to modify
+        files in the `.github/workflows` directory.
+    paths:
+      /repos/{owner}/{repo}/contents/{path}:
+        put:
+          summary: Create Or Update File Contents
+          description: >-
+            Creates a new file or replaces an existing file in a
+            repository.**Note:** If you use this endpoint and the "[Delete a
+            file](https://docs.github.com/enterprise-server@3.9/rest/repos/contents/#delete-a-file)"
+            endpoint in parallel, the concurrent requests will conflict and you will
+            receive errors. You must use these endpoints serially instead.OAuth app
+            tokens and personal access tokens (classic) need the `repo` scope to use
+            this endpoint. The `workflow` scope is also required in order to modify
+            files in the `.github/workflows` directory.
+          operationId: createOrUpdateFileContents
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      description: The commit message.
+                    content:
+                      type: string
+                      description: The new file content, using Base64 encoding.
+                    sha:
+                      type: string
+                      description: >-
+                        **Required if you are updating a file**. The blob SHA of the
+                        file being replaced.
+                    branch:
+                      type: string
+                      description: 'The branch name. Default: the repositorys default branch.'
+                    committer:
+                      type: object
+                      description: >-
+                        The person that committed the file. Default: the
+                        authenticated user.
+                      properties:
+                        name:
+                          type: string
+                          description: >-
+                            The name of the author or committer of the commit.
+                            You'll receive a `422` status code if `name` is omitted.
+                        email:
+                          type: string
+                          description: >-
+                            The email of the author or committer of the commit.
+                            You'll receive a `422` status code if `email` is
+                            omitted.
+                        date:
+                          type: string
+                          example: '"2013-01-05T13:13:22+05:00"'
+                      required:
+                        - name
+                        - email
+                    author:
+                      type: object
+                      description: >-
+                        The author of the file. Default: The `committer` or the
+                        authenticated user if you omit `committer`.
+                      properties:
+                        name:
+                          type: string
+                          description: >-
+                            The name of the author or committer of the commit.
+                            You'll receive a `422` status code if `name` is omitted.
+                        email:
+                          type: string
+                          description: >-
+                            The email of the author or committer of the commit.
+                            You'll receive a `422` status code if `email` is
+                            omitted.
+                        date:
+                          type: string
+                          example: '"2013-01-15T17:13:22+05:00"'
+                      required:
+                        - name
+                        - email
+                  required:
+                    - message
+                    - content
+                examples:
+                  example-for-creating-a-file:
+                    summary: Example for creating a file
+                    value:
+                      message: my commit message
+                      committer:
+                        name: Monalisa Octocat
+                        email: octocat@github.com
+                      content: bXkgbmV3IGZpbGUgY29udGVudHM=
+                  example-for-updating-a-file:
+                    summary: Example for updating a file
+                    value:
+                      message: a new commit message
+                      committer:
+                        name: Monalisa Octocat
+                        email: octocat@github.com
+                      content: bXkgdXBkYXRlZCBmaWxlIGNvbnRlbnRz
+                      sha: 95b966ae1c166bd92f8ae7d1c313e738c731dfc3
+          responses:
+            '422':
+              $ref: '#/components/responses/validation_failed'

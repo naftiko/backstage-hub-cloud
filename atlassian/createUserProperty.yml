@@ -1,0 +1,63 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create User Property By Key
+  description: >-
+    Creates a property for a user. For more information  about user properties,
+    see [Confluence entity
+    properties](https://developer.atlassian.com/cloud/confluence/confluence-entity-properties/).`Note`,
+    these properties stored against a user are on a Confluence site level and
+    not space/content level.`Note:` the number of properties which could be
+    created per app in a tenant for each user might berestricted by fixed system
+    limits.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to access the Confluence site ('Can use' global
+    permission).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create User Property By Key
+      description: >-
+        Creates a property for a user. For more information  about user properties,
+        see [Confluence entity
+        properties](https://developer.atlassian.com/cloud/confluence/confluence-entity-properties/).`Note`,
+        these properties stored against a user are on a Confluence site level and
+        not space/content level.`Note:` the number of properties which could be
+        created per app in a tenant for each user might berestricted by fixed system
+        limits.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to access the Confluence site ('Can use' global
+        permission).
+    paths:
+      /wiki/rest/api/user/{userId}/property/{key}:
+        post:
+          summary: Create User Property By Key
+          description: >-
+            Creates a property for a user. For more information  about user
+            properties, see [Confluence entity
+            properties](https://developer.atlassian.com/cloud/confluence/confluence-entity-properties/).`Note`,
+            these properties stored against a user are on a Confluence site level
+            and not space/content level.`Note:` the number of properties which could
+            be created per app in a tenant for each user might berestricted by fixed
+            system limits.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to access the Confluence site ('Can use' global
+            permission).
+          operationId: createUserProperty
+          requestBody:
+            description: The user property to be created.
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/UserPropertyCreate'
+          responses:
+            '409':
+              description: Returned if the key already exists for the user.
+              content: {}

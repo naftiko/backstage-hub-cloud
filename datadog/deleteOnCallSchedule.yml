@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete On-call Schedule
+  description: Delete an On-Call schedule
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete On-call Schedule
+      description: Delete an On-Call schedule
+    paths:
+      /api/v2/on-call/schedules/{schedule_id}:
+        delete:
+          summary: Delete On-call Schedule
+          description: Delete an On-Call schedule
+          operationId: deleteOnCallSchedule
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

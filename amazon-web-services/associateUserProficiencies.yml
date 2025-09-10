@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Associateuserproficiencies
+  description: '&gt;Associates a set of proficiencies with a user.'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Associateuserproficiencies
+      description: '&gt;Associates a set of proficiencies with a user.'
+    paths:
+      /users/{InstanceId}/{UserId}/associate-proficiencies:
+        POST:
+          summary: Associateuserproficiencies
+          description: '&gt;Associates a set of proficiencies with a user.'
+          operationId: associateUserProficiencies

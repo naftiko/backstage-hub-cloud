@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Remove Label From Content Using Query Parameter
+  description: >-
+    Removes a label from a piece of content. Labels can't be deleted from
+    archived content.This is similar to [Remove label from
+    content](#api-content-id-label-label-delete)except that the label name is
+    specified via a query parameter.Use this method if the label name has "/"
+    characters, as[Remove label from content using query
+    parameter](#api-content-id-label-delete)does not accept "/" characters for
+    the label name.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+    required**:Permission to update the content.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Remove Label From Content Using Query Parameter
+      description: >-
+        Removes a label from a piece of content. Labels can't be deleted from
+        archived content.This is similar to [Remove label from
+        content](#api-content-id-label-label-delete)except that the label name is
+        specified via a query parameter.Use this method if the label name has "/"
+        characters, as[Remove label from content using query
+        parameter](#api-content-id-label-delete)does not accept "/" characters for
+        the label name.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+        required**:Permission to update the content.
+    paths:
+      /wiki/rest/api/content/{id}/label:
+        delete:
+          summary: Remove Label From Content Using Query Parameter
+          description: >-
+            Removes a label from a piece of content. Labels can't be deleted from
+            archived content.This is similar to [Remove label from
+            content](#api-content-id-label-label-delete)except that the label name
+            is specified via a query parameter.Use this method if the label name has
+            "/" characters, as[Remove label from content using query
+            parameter](#api-content-id-label-delete)does not accept "/" characters
+            for the label
+            name.**[Permissions](https://confluence.atlassian.com/x/_AozKw)
+            required**:Permission to update the content.
+          operationId: removeLabelFromContentUsingQueryParameter
+          responses:
+            '404':
+              description: |-
+                Returned if;
+
+                - There is no content with the given ID.
+                - The calling user does not have permission to view the content.
+              content: {}

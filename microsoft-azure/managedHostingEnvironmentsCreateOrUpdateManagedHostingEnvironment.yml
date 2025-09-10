@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Or Update A Managed Hosting Environment.
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Or Update A Managed Hosting Environment.
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/managedHostingEnvironments/{name}:
+        put:
+          summary: Create Or Update A Managed Hosting Environment.
+          description: Needs a more full description created.
+          operationId: managedHostingEnvironmentsCreateOrUpdateManagedHostingEnvironment
+          responses:
+            '409':
+              description: Conflict

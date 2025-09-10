@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deleteintegration
+  description: Removes an integration from a specific domain.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deleteintegration
+      description: Removes an integration from a specific domain.
+    paths:
+      /domains/{DomainName}/integrations/delete:
+        POST:
+          summary: Deleteintegration
+          description: Removes an integration from a specific domain.
+          operationId: deleteIntegration

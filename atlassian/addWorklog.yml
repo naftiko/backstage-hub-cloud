@@ -1,0 +1,78 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Add Worklog
+  description: >-
+    Adds a worklog to an issue.Time tracking must be enabled in Jira, otherwise
+    this operation returns an error. For more information, see [Configuring time
+    tracking](https://confluence.atlassian.com/x/qoXKM).This operation can be
+    accessed anonymously.**[Permissions](#permissions) required:** *  *Browse
+    projects* and *Work on issues* [project
+    permission](https://confluence.atlassian.com/x/yodKLg) for the project that
+    the issue is in. *  If [issue-level
+    security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+    issue-level security permission to view the issue.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add Worklog
+      description: >-
+        Adds a worklog to an issue.Time tracking must be enabled in Jira, otherwise
+        this operation returns an error. For more information, see [Configuring time
+        tracking](https://confluence.atlassian.com/x/qoXKM).This operation can be
+        accessed anonymously.**[Permissions](#permissions) required:** *  *Browse
+        projects* and *Work on issues* [project
+        permission](https://confluence.atlassian.com/x/yodKLg) for the project that
+        the issue is in. *  If [issue-level
+        security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+        issue-level security permission to view the issue.
+    paths:
+      /rest/api/3/issue/{issueIdOrKey}/worklog:
+        post:
+          summary: Add Worklog
+          description: >-
+            Adds a worklog to an issue.Time tracking must be enabled in Jira,
+            otherwise this operation returns an error. For more information, see
+            [Configuring time
+            tracking](https://confluence.atlassian.com/x/qoXKM).This operation can
+            be accessed anonymously.**[Permissions](#permissions) required:** * 
+            *Browse projects* and *Work on issues* [project
+            permission](https://confluence.atlassian.com/x/yodKLg) for the project
+            that the issue is in. *  If [issue-level
+            security](https://confluence.atlassian.com/x/J4lKLg) is configured,
+            issue-level security permission to view the issue.
+          operationId: addWorklog
+          requestBody:
+            required: true
+            content:
+              application/json:
+                example:
+                  comment:
+                    content:
+                      - content:
+                          - text: I did some work here.
+                            type: text
+                        type: paragraph
+                    type: doc
+                    version: 1
+                  started: 2021-01-17T12:34:00.000+0000
+                  timeSpentSeconds: 12000
+                  visibility:
+                    identifier: 276f955c-63d7-42c8-9520-92d01dca0625
+                    type: group
+                schema:
+                  $ref: '#/components/schemas/Worklog'
+          responses:
+            '404':
+              description: >-
+                Returned if the issue is not found or the user does not have
+                permission to view it.

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listprincipals
+  description: >-
+    Lists the principals that you are sharing resources with or that are sharing
+    resources with you.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listprincipals
+      description: >-
+        Lists the principals that you are sharing resources with or that are sharing
+        resources with you.
+    paths:
+      /listprincipals:
+        POST:
+          summary: Listprincipals
+          description: >-
+            Lists the principals that you are sharing resources with or that are
+            sharing resources with you.
+          operationId: listPrincipals

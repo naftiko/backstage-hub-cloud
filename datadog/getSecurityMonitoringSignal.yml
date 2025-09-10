@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get A Signal's Details
+  description: Get a signal's details.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Signal's Details
+      description: Get a signal's details.
+    paths:
+      /api/v2/security_monitoring/signals/{signal_id}:
+        get:
+          summary: Get A Signal's Details
+          description: Get a signal's details.
+          operationId: getSecurityMonitoringSignal
+          responses:
+            '429':
+              $ref: '#/components/responses/TooManyRequestsResponse'

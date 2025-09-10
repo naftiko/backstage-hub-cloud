@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Post Sessions Sessionid Statements
+  description: Create statement within a spark session.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Sessions Sessionid Statements
+      description: Create statement within a spark session.
+    paths:
+      /sessions/{sessionId}/statements:
+        post:
+          summary: Post Sessions Sessionid Statements
+          description: Create statement within a spark session.
+          operationId: sparkSessionCreateSparkStatement
+          responses:
+            '200':
+              description: Success
+              schema:
+                $ref: '#/definitions/SparkStatement'

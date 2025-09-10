@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Linkshortening Messagingservice Messagingservicesid Domainconfig
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Linkshortening Messagingservice Messagingservicesid Domainconfig
+      description: Needs a more full description created.
+    paths:
+      /v1/LinkShortening/MessagingService/{MessagingServiceSid}/DomainConfig:
+        get:
+          summary: Get Linkshortening Messagingservice Messagingservicesid Domainconfig
+          description: Needs a more full description created.
+          operationId: fetchDomainConfigMessagingService
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: >-
+                      #/components/schemas/messaging.v1.domain_config_messaging_service
+              description: OK

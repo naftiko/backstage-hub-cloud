@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Details Of All Child Runs.
+  description: >-
+    Get details of all child runs for the specified Run Id with the specified
+    filters.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Details Of All Child Runs.
+      description: >-
+        Get details of all child runs for the specified Run Id with the specified
+        filters.
+    paths:
+      /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/runs/{runId}/children:
+        get:
+          summary: Get Details Of All Child Runs.
+          description: >-
+            Get details of all child runs for the specified Run Id with the
+            specified filters.
+          operationId: runsGetChild
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

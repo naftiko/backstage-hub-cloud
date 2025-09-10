@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Alerts
+  description: List alerts
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Alerts
+      description: List alerts
+    paths:
+      /api/v2/databases/{database}/schemas/{schema}/alerts:
+        get:
+          summary: List Alerts
+          description: List alerts
+          operationId: listAlerts
+          responses:
+            '504':
+              $ref: common.yaml#/components/responses/504GatewayTimeout

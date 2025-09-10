@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Gov Members State-digests Memberid
+  description: >-
+    Get the stateDigest assigned to the given member, which that member must
+    sign to become active.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Gov Members State-digests Memberid
+      description: >-
+        Get the stateDigest assigned to the given member, which that member must
+        sign to become active.
+    paths:
+      /gov/members/state-digests/{memberId}:
+        get:
+          summary: Get Gov Members State-digests Memberid
+          description: >-
+            Get the stateDigest assigned to the given member, which that member must
+            sign to become active.
+          operationId: stateDigestsGet
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/Azure.Core.Foundations.ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: String error code indicating what went wrong.

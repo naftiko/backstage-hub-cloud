@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+    Microsoft.network Virtualnetworks Virtualnetworkname Subnets
+  description: The List subnets operation retrieves all the subnets in a virtual network.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.network Virtualnetworks Virtualnetworkname Subnets
+      description: The List subnets operation retrieves all the subnets in a virtual network.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualnetworks/{virtualNetworkName}/subnets:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.network Virtualnetworks Virtualnetworkname Subnets
+          description: >-
+            The List subnets operation retrieves all the subnets in a virtual
+            network.
+          operationId: subnetsList
+          responses:
+            '200':
+              description: ''
+              schema:
+                $ref: '#/definitions/SubnetListResult'

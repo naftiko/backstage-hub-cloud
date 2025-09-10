@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Deleteappinputsource
+  description: >-
+    Deletes the input source and all of its imported resources from the
+    Resilience Hub application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deleteappinputsource
+      description: >-
+        Deletes the input source and all of its imported resources from the
+        Resilience Hub application.
+    paths:
+      /delete-app-input-source:
+        POST:
+          summary: Deleteappinputsource
+          description: >-
+            Deletes the input source and all of its imported resources from the
+            Resilience Hub application.
+          operationId: deleteAppInputSource

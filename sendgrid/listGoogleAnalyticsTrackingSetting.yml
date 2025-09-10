@@ -1,0 +1,71 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve Google Analytics Settings
+  description: >-
+    **This endpoint allows you to retrieve your current setting for Google
+    Analytics.**Google Analytics helps you understand how users got to your site
+    and what they're doing there. For more information about using Google
+    Analytics, please refer to [Google’s URL
+    Builder](https://support.google.com/analytics/answer/1033867?hl=en) and
+    their article on ["Best Practices for Campaign
+    Building"](https://support.google.com/analytics/answer/1037445).We default
+    the settings to Google’s recommendations. For more information, see [Google
+    Analytics
+    Demystified](https://sendgrid.com/docs/ui/analytics-and-reporting/google-analytics/).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve Google Analytics Settings
+      description: >-
+        **This endpoint allows you to retrieve your current setting for Google
+        Analytics.**Google Analytics helps you understand how users got to your site
+        and what they're doing there. For more information about using Google
+        Analytics, please refer to [Google’s URL
+        Builder](https://support.google.com/analytics/answer/1033867?hl=en) and
+        their article on ["Best Practices for Campaign
+        Building"](https://support.google.com/analytics/answer/1037445).We default
+        the settings to Google’s recommendations. For more information, see [Google
+        Analytics
+        Demystified](https://sendgrid.com/docs/ui/analytics-and-reporting/google-analytics/).
+    paths:
+      /v3/tracking_settings/google_analytics:
+        get:
+          summary: Retrieve Google Analytics Settings
+          description: >-
+            **This endpoint allows you to retrieve your current setting for Google
+            Analytics.**Google Analytics helps you understand how users got to your
+            site and what they're doing there. For more information about using
+            Google Analytics, please refer to [Google’s URL
+            Builder](https://support.google.com/analytics/answer/1033867?hl=en) and
+            their article on ["Best Practices for Campaign
+            Building"](https://support.google.com/analytics/answer/1037445).We
+            default the settings to Google’s recommendations. For more information,
+            see [Google Analytics
+            Demystified](https://sendgrid.com/docs/ui/analytics-and-reporting/google-analytics/).
+          operationId: listGoogleAnalyticsTrackingSetting
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/GoogleAnalyticsSettings'
+                  examples:
+                    response:
+                      value:
+                        enabled: true
+                        utm_campaign: ''
+                        utm_content: lotsandlotsofcontent
+                        utm_medium: ''
+                        utm_source: ''
+                        utm_term: ''

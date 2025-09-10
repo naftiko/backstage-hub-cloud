@@ -1,0 +1,95 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete A Single Event Webhook By Id.
+  description: >-
+    **This endpoint allows you to delete a single Event Webhook by ID.**Unlike
+    the [**Get an Event
+    Webhook**](https://docs.sendgrid.com/api-reference/webhooks/get-an-event-webhook)
+    and [**Update an Event
+    Webhook**](https://docs.sendgrid.com/api-reference/webhooks/update-an-event-webhook)
+    endpoints, which will operate on your oldest webhook by `created_date` when
+    you don't provide an ID, this endpoint will return an error if you do not
+    pass it an ID. This behavior prevents customers from unintentionally
+    deleting a webhook. You can retrieve your webhooks' IDs using the [**Get All
+    Event
+    Webhooks**](https://docs.sendgrid.com/api-reference/webhooks/get-all-event-webhooks)
+    endpoint.### Enable or disable the webhookThis endpoint will permanently
+    delete the webhook specified. If you instead want to disable a webhook, you
+    can set the `enabled` property to `false` with the [**Update an Event
+    Webhook**](https://docs.sendgrid.com/api-reference/webhooks/update-an-event-webhook)
+    endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Single Event Webhook By Id.
+      description: >-
+        **This endpoint allows you to delete a single Event Webhook by ID.**Unlike
+        the [**Get an Event
+        Webhook**](https://docs.sendgrid.com/api-reference/webhooks/get-an-event-webhook)
+        and [**Update an Event
+        Webhook**](https://docs.sendgrid.com/api-reference/webhooks/update-an-event-webhook)
+        endpoints, which will operate on your oldest webhook by `created_date` when
+        you don't provide an ID, this endpoint will return an error if you do not
+        pass it an ID. This behavior prevents customers from unintentionally
+        deleting a webhook. You can retrieve your webhooks' IDs using the [**Get All
+        Event
+        Webhooks**](https://docs.sendgrid.com/api-reference/webhooks/get-all-event-webhooks)
+        endpoint.### Enable or disable the webhookThis endpoint will permanently
+        delete the webhook specified. If you instead want to disable a webhook, you
+        can set the `enabled` property to `false` with the [**Update an Event
+        Webhook**](https://docs.sendgrid.com/api-reference/webhooks/update-an-event-webhook)
+        endpoint.
+    paths:
+      /v3/user/webhooks/event/settings/{id}:
+        delete:
+          summary: Delete A Single Event Webhook By Id.
+          description: >-
+            **This endpoint allows you to delete a single Event Webhook by
+            ID.**Unlike the [**Get an Event
+            Webhook**](https://docs.sendgrid.com/api-reference/webhooks/get-an-event-webhook)
+            and [**Update an Event
+            Webhook**](https://docs.sendgrid.com/api-reference/webhooks/update-an-event-webhook)
+            endpoints, which will operate on your oldest webhook by `created_date`
+            when you don't provide an ID, this endpoint will return an error if you
+            do not pass it an ID. This behavior prevents customers from
+            unintentionally deleting a webhook. You can retrieve your webhooks' IDs
+            using the [**Get All Event
+            Webhooks**](https://docs.sendgrid.com/api-reference/webhooks/get-all-event-webhooks)
+            endpoint.### Enable or disable the webhookThis endpoint will permanently
+            delete the webhook specified. If you instead want to disable a webhook,
+            you can set the `enabled` property to `false` with the [**Update an
+            Event
+            Webhook**](https://docs.sendgrid.com/api-reference/webhooks/update-an-event-webhook)
+            endpoint.
+          operationId: deleteEventWebhook
+          responses:
+            '404':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      errors:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            message:
+                              type: string
+                              description: Error message.
+                  examples:
+                    Not found:
+                      value:
+                        errors:
+                          - message: Invalid id provided.

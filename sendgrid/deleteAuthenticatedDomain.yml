@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Delete An Authenticated Domain.
+  description: '**This endpoint allows you to delete an authenticated domain.**'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete An Authenticated Domain.
+      description: '**This endpoint allows you to delete an authenticated domain.**'
+    paths:
+      /v3/whitelabel/domains/{domain_id}:
+        delete:
+          summary: Delete An Authenticated Domain.
+          description: '**This endpoint allows you to delete an authenticated domain.**'
+          operationId: deleteAuthenticatedDomain
+          responses:
+            '204':
+              description: ''

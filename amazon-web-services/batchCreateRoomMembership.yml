@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Batchcreateroommembership
+  description: >-
+    Adds up to 50 members to a chat room in an Amazon Chime Enterprise account.
+    Members can be users or bots. The member role designates whether the member
+    is a chat room administrator or a general chat room member.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchcreateroommembership
+      description: >-
+        Adds up to 50 members to a chat room in an Amazon Chime Enterprise account.
+        Members can be users or bots. The member role designates whether the member
+        is a chat room administrator or a general chat room member.
+    paths:
+      /accounts/{accountId}/rooms/{roomId}/memberships?operation=batch-create:
+        POST:
+          summary: Batchcreateroommembership
+          description: >-
+            Adds up to 50 members to a chat room in an Amazon Chime Enterprise
+            account. Members can be users or bots. The member role designates
+            whether the member is a chat room administrator or a general chat room
+            member.
+          operationId: batchCreateRoomMembership

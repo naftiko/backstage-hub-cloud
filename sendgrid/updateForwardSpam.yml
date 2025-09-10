@@ -1,0 +1,85 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Forward Spam Mail Settings
+  description: >-
+    **This endpoint allows you to update your current Forward Spam mail
+    settings.**Enabling the Forward Spam setting allows you to specify `email`
+    addresses to which spam reports will be forwarded. You can set multiple
+    addresses by passing this endpoint a comma separated list of emails in a
+    single string.```{  "email": "address1@example.com, address2@exapmle.com", 
+    "enabled": true}```The Forward Spam setting may also be used to receive
+    emails sent to `abuse@` and `postmaster@` role addresses if you have
+    authenticated your domain.For example, if you authenticated `example.com` as
+    your root domain and set a custom return path of `sub` for that domain, you
+    could turn on Forward Spam, and any emails sent to `abuse@sub.example.com`
+    or `postmaster@sub.example.com` would be forwarded to the email address you
+    entered in the `email` field.You can authenticate your domain using the
+    "Authenticate a domain" endpoint or in the [Sender Authentication section of
+    the Twilio SendGrid App](https://app.sendgrid.com/settings/sender_auth). You
+    can also configure the Forward Spam mail settings in the [Mail Settings
+    section of the Twilio SendGrid
+    App](https://app.sendgrid.com/settings/mail_settings).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Forward Spam Mail Settings
+      description: >-
+        **This endpoint allows you to update your current Forward Spam mail
+        settings.**Enabling the Forward Spam setting allows you to specify `email`
+        addresses to which spam reports will be forwarded. You can set multiple
+        addresses by passing this endpoint a comma separated list of emails in a
+        single string.```{  "email": "address1@example.com, address2@exapmle.com", 
+        "enabled": true}```The Forward Spam setting may also be used to receive
+        emails sent to `abuse@` and `postmaster@` role addresses if you have
+        authenticated your domain.For example, if you authenticated `example.com` as
+        your root domain and set a custom return path of `sub` for that domain, you
+        could turn on Forward Spam, and any emails sent to `abuse@sub.example.com`
+        or `postmaster@sub.example.com` would be forwarded to the email address you
+        entered in the `email` field.You can authenticate your domain using the
+        "Authenticate a domain" endpoint or in the [Sender Authentication section of
+        the Twilio SendGrid App](https://app.sendgrid.com/settings/sender_auth). You
+        can also configure the Forward Spam mail settings in the [Mail Settings
+        section of the Twilio SendGrid
+        App](https://app.sendgrid.com/settings/mail_settings).
+    paths:
+      /v3/mail_settings/forward_spam:
+        patch:
+          summary: Update Forward Spam Mail Settings
+          description: >-
+            **This endpoint allows you to update your current Forward Spam mail
+            settings.**Enabling the Forward Spam setting allows you to specify
+            `email` addresses to which spam reports will be forwarded. You can set
+            multiple addresses by passing this endpoint a comma separated list of
+            emails in a single string.```{  "email": "address1@example.com,
+            address2@exapmle.com",  "enabled": true}```The Forward Spam setting may
+            also be used to receive emails sent to `abuse@` and `postmaster@` role
+            addresses if you have authenticated your domain.For example, if you
+            authenticated `example.com` as your root domain and set a custom return
+            path of `sub` for that domain, you could turn on Forward Spam, and any
+            emails sent to `abuse@sub.example.com` or `postmaster@sub.example.com`
+            would be forwarded to the email address you entered in the `email`
+            field.You can authenticate your domain using the "Authenticate a domain"
+            endpoint or in the [Sender Authentication section of the Twilio SendGrid
+            App](https://app.sendgrid.com/settings/sender_auth). You can also
+            configure the Forward Spam mail settings in the [Mail Settings section
+            of the Twilio SendGrid
+            App](https://app.sendgrid.com/settings/mail_settings).
+          operationId: updateForwardSpam
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/MailSettingsForwardSpam'
+          responses:
+            '500':
+              $ref: '#/components/responses/MailSettingsError500'

@@ -1,0 +1,169 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get All Price Lists
+  description: Returns a list of *Price Lists*. Optional parameters can be passed in.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get All Price Lists
+      description: Returns a list of *Price Lists*. Optional parameters can be passed in.
+    paths:
+      /pricelists:
+        get:
+          summary: Get All Price Lists
+          description: Returns a list of *Price Lists*. Optional parameters can be passed in.
+          operationId: getPriceLists
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    title: PriceList Collection Response
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          title: Price List
+                          type: object
+                          allOf:
+                            - type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  description: >
+                                    The unique numeric ID of the `Price List`; this
+                                    number increments sequentially.
+                                  example: 3
+                                date_created:
+                                  type: string
+                                  description: |
+                                    The date on which the `Price List` was created.
+                                  format: date-time
+                                  example: '2018-04-05T16:05:12Z'
+                                date_modified:
+                                  type: string
+                                  description: |
+                                    The date on which the `Price List` was created.
+                                  format: date-time
+                                  example: '2018-04-05T16:05:12Z'
+                            - title: PriceList Base
+                              required:
+                                - name
+                              type: object
+                              properties:
+                                name:
+                                  type: string
+                                  description: >-
+                                    The unique name of the Price List. Required in a
+                                    POST request.
+                                  example: Wholesale
+                                  x-required:
+                                    - post
+                                active:
+                                  type: boolean
+                                  description: >
+                                    Boolean value that specifies whether this `Price
+                                    List` and its prices are active or not. Defaults
+                                    to `true`.
+                                  example: true
+                              description: Specifies the Common Price List properties.
+                      meta:
+                        title: Collection Meta
+                        type: object
+                        properties:
+                          pagination:
+                            title: Pagination
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: |
+                                  Total number of items in the result set.
+                                example: 36
+                              count:
+                                type: integer
+                                description: |
+                                  Total number of items in the collection response.
+                                example: 36
+                              per_page:
+                                type: integer
+                                description: >
+                                  The amount of items returned in the collection per
+                                  page, controlled by the limit parameter.
+                                example: 50
+                              current_page:
+                                type: integer
+                                description: >
+                                  The page you are currently on within the
+                                  collection.
+                                example: 1
+                              total_pages:
+                                type: integer
+                                description: |
+                                  The total number of pages in the collection.
+                                example: 1
+                              links:
+                                type: object
+                                properties:
+                                  previous:
+                                    type: string
+                                    description: >
+                                      Link to the previous page returned in the
+                                      response.
+                                  current:
+                                    type: string
+                                    description: >
+                                      Link to the current page returned in the
+                                      response.
+                                    example: '?page=1&limit=50'
+                                  next:
+                                    type: string
+                                    description: >
+                                      Link to the next page returned in the
+                                      response.
+                                description: >
+                                  Pagination links for the previous and next parts
+                                  of the whole collection.
+                            description: >-
+                              Data related to the response, including pagination and
+                              collection totals.
+                        description: >-
+                          Data related to the response, including pagination and
+                          collection totals.
+                    description: Get All PriceLists.
+                  example:
+                    data:
+                      - id: 1
+                        name: Warehouse
+                        date_created: '2022-02-26T17:33:11Z'
+                        date_modified: '2022-05-08T14:05:27Z'
+                        active: true
+                      - id: 2
+                        name: B2B
+                        date_created: '2022-02-26T17:37:01Z'
+                        date_modified: '2022-02-26T17:37:01Z'
+                        active: true
+                      - id: 3
+                        name: Wholesale
+                        date_created: '2022-04-05T16:05:12Z'
+                        date_modified: '2022-04-05T16:05:12Z'
+                        active: true
+                    meta:
+                      pagination:
+                        total: 3
+                        count: 3
+                        per_page: 50
+                        current_page: 1
+                        total_pages: 1

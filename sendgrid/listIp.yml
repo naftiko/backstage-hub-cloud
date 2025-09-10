@@ -1,0 +1,127 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve All Ip Addresses
+  description: >-
+    **This endpoint allows you to retrieve a paginated list of all assigned and
+    unassigned IPs.**Response includes warm up status, pools, assigned subusers,
+    and reverse DNS info. The start_date field corresponds to when warmup
+    started for that IP.A single IP address or a range of IP addresses may be
+    dedicated to an account in order to send email for multiple domains. The
+    reputation of this IP is determined by the aggregate performance of all
+    email traffic sent from it.You can use the `limit` query parameter to set
+    the page size. If your list contains more items than the page size permits,
+    you can make multiple requests. Use the `offset` query parameter to control
+    the position in the list from which to start retrieving additional items.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve All Ip Addresses
+      description: >-
+        **This endpoint allows you to retrieve a paginated list of all assigned and
+        unassigned IPs.**Response includes warm up status, pools, assigned subusers,
+        and reverse DNS info. The start_date field corresponds to when warmup
+        started for that IP.A single IP address or a range of IP addresses may be
+        dedicated to an account in order to send email for multiple domains. The
+        reputation of this IP is determined by the aggregate performance of all
+        email traffic sent from it.You can use the `limit` query parameter to set
+        the page size. If your list contains more items than the page size permits,
+        you can make multiple requests. Use the `offset` query parameter to control
+        the position in the list from which to start retrieving additional items.
+    paths:
+      /v3/ips:
+        get:
+          summary: Retrieve All Ip Addresses
+          description: >-
+            **This endpoint allows you to retrieve a paginated list of all assigned
+            and unassigned IPs.**Response includes warm up status, pools, assigned
+            subusers, and reverse DNS info. The start_date field corresponds to when
+            warmup started for that IP.A single IP address or a range of IP
+            addresses may be dedicated to an account in order to send email for
+            multiple domains. The reputation of this IP is determined by the
+            aggregate performance of all email traffic sent from it.You can use the
+            `limit` query parameter to set the page size. If your list contains more
+            items than the page size permits, you can make multiple requests. Use
+            the `offset` query parameter to control the position in the list from
+            which to start retrieving additional items.
+          operationId: listIp
+          responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        ip:
+                          type: string
+                          description: An IP address.
+                        subusers:
+                          type: array
+                          description: The subusers that are able to send email from this IP.
+                          items:
+                            type: string
+                        rdns:
+                          type: string
+                          description: The reverse DNS record for this IP address.
+                        pools:
+                          type: array
+                          description: The IP pools that this IP has been added to.
+                          items:
+                            type: string
+                        warmup:
+                          type: boolean
+                          description: Indicates if this IP address is currently warming up.
+                        start_date:
+                          description: The date that the IP address was entered into warmup.
+                          nullable: true
+                          type: number
+                        whitelabeled:
+                          type: boolean
+                          description: >-
+                            Indicates if this IP address is associated with a
+                            reverse DNS record.
+                        assigned_at:
+                          description: The date that the IP address was assigned to the user.
+                          nullable: true
+                          type: integer
+                      required:
+                        - ip
+                        - subusers
+                        - pools
+                        - warmup
+                        - start_date
+                        - whitelabeled
+                        - assigned_at
+                  examples:
+                    response:
+                      value:
+                        - ip: 192.168.1.1
+                          pools:
+                            - pool1
+                            - pool2
+                          whitelabeled: false
+                          start_date: 1409616000
+                          subusers:
+                            - tim@sendgrid.net
+                          warmup: false
+                          assigned_at: 1482883200
+                        - ip: 208.115.214.22
+                          pools: []
+                          whitelabeled: true
+                          rdns: o1.email.example.com
+                          start_date: 1409616000
+                          subusers: []
+                          warmup: false
+                          assigned_at: 1482883200

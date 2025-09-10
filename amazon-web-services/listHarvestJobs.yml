@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Listharvestjobs
+  description: Returns a collection of HarvestJob records.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listharvestjobs
+      description: Returns a collection of HarvestJob records.
+    paths:
+      /harvest_jobs:
+        GET:
+          summary: Listharvestjobs
+          description: Returns a collection of HarvestJob records.
+          operationId: listHarvestJobs
