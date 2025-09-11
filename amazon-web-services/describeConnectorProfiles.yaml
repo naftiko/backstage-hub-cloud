@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: describeconnectorprofiles
+  description: ' Returns a list of connector-profile details matching the provided connector-profile names and connector-types. Both input lists are optional, and you can use them to filter the result.  If no names or connector-types are provided, returns all connector profiles in a paginated form. If there is no match, this operation returns an empty list.'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeconnectorprofiles
+      description: ' Returns a list of connector-profile details matching the provided connector-profile names and connector-types. Both input lists are optional, and you can use them to filter the result.  If no names or connector-types are provided, returns all connector profiles in a paginated form. If there is no match, this operation returns an empty list.'
+    paths:
+      /describe-connector-profiles:
+        POST:
+          summary: Describeconnectorprofiles
+          description: ' Returns a list of connector-profile details matching the provided connector-profile names and connector-types. Both input lists are optional, and you can use them to filter the result.  If no names or connector-types are provided, returns all connector profiles in a paginated form. If there is no match, this operation returns an empty list.'
+          operationId: describeConnectorProfiles

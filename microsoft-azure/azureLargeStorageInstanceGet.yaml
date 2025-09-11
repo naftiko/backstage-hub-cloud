@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftazurelargeinstance-azurelargestorageinstances-azurelargestorageinstancename
+  description: >-
+    Gets an Azure Large Storage instance for the specified subscription,
+    resourcegroup, and instance name.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.azurelargeinstance Azurelargestorageinstances
+        Azurelargestorageinstancename
+      description: >-
+        Gets an Azure Large Storage instance for the specified subscription,
+        resourcegroup, and instance name.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureLargeInstance/azureLargeStorageInstances/{azureLargeStorageInstanceName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.azurelargeinstance Azurelargestorageinstances
+            Azurelargestorageinstancename
+          description: >-
+            Gets an Azure Large Storage instance for the specified subscription,
+            resourcegroup, and instance name.
+          operationId: azureLargeStorageInstanceGet
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

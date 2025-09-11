@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-the-list-of-recovery-points-for-a-replication-protected-item
+  description: Lists the available recovery points for a replication protected item.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The List Of Recovery Points For A Replication Protected Item.
+      description: Lists the available recovery points for a replication protected item.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicatedProtectedItemName}/recoveryPoints:
+        get:
+          summary: Gets The List Of Recovery Points For A Replication Protected Item.
+          description: Lists the available recovery points for a replication protected item.
+          operationId: recoveryPointsListByReplicationProtectedItems
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/RecoveryPointCollection'

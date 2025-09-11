@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listactions
+  description: Retrieves a paginated list of actions for a specific target resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listactions
+      description: Retrieves a paginated list of actions for a specific target resource.
+    paths:
+      /actions:
+        GET:
+          summary: Listactions
+          description: Retrieves a paginated list of actions for a specific target resource.
+          operationId: listActions

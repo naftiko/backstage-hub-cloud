@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getnetworkresourcecounts
+  description: >-
+    Gets the count of network resources, by resource type, for the specified
+    global network.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getnetworkresourcecounts
+      description: >-
+        Gets the count of network resources, by resource type, for the specified
+        global network.
+    paths:
+      /global-networks/{globalNetworkId}/network-resource-count:
+        GET:
+          summary: Getnetworkresourcecounts
+          description: >-
+            Gets the count of network resources, by resource type, for the specified
+            global network.
+          operationId: getNetworkResourceCounts

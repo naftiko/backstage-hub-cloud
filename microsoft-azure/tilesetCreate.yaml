@@ -1,0 +1,79 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-tilesets
+  description: >-
+    **Applies to:** see pricing
+    [tiers](https://aka.ms/AzureMapsPricingTier).Creator makes it possible to
+    develop applications based on your private indoor map data using Azure Maps
+    API and SDK.
+    [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+    article introduces concepts and tools that apply to Azure Maps Creator.
+    [This](https://docs.microsoft.com/en-us/azure/azure-maps/creator-indoor-maps)
+    article introduces concepts and tools that apply to Azure Maps Creator.The
+    Tileset Create API allows the caller to create a tileset from a dataset. A
+    tileset contains a set of tiles that can be consumed from the [Get Map
+    Tile](/rest/api/maps/render/getmaptile) to retrieve custom tiles. To make a
+    dataset, use the [DataSet Create
+    API](/rest/api/maps-creator/dataset/create).## Submit Create RequestTo
+    create your tileset you will make a `POST` request with an empty body. The
+    `datasetId` query parameter will be used as the source of the tileset
+    data.The Create Tileset API is a [long-running
+    operation](https://aka.ms/am-creator-lrt-v2).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Tilesets
+      description: >-
+        **Applies to:** see pricing
+        [tiers](https://aka.ms/AzureMapsPricingTier).Creator makes it possible to
+        develop applications based on your private indoor map data using Azure Maps
+        API and SDK.
+        [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+        article introduces concepts and tools that apply to Azure Maps Creator.
+        [This](https://docs.microsoft.com/en-us/azure/azure-maps/creator-indoor-maps)
+        article introduces concepts and tools that apply to Azure Maps Creator.The
+        Tileset Create API allows the caller to create a tileset from a dataset. A
+        tileset contains a set of tiles that can be consumed from the [Get Map
+        Tile](/rest/api/maps/render/getmaptile) to retrieve custom tiles. To make a
+        dataset, use the [DataSet Create
+        API](/rest/api/maps-creator/dataset/create).## Submit Create RequestTo
+        create your tileset you will make a `POST` request with an empty body. The
+        `datasetId` query parameter will be used as the source of the tileset
+        data.The Create Tileset API is a [long-running
+        operation](https://aka.ms/am-creator-lrt-v2).
+    paths:
+      /tilesets:
+        post:
+          summary: Post Tilesets
+          description: >-
+            **Applies to:** see pricing
+            [tiers](https://aka.ms/AzureMapsPricingTier).Creator makes it possible
+            to develop applications based on your private indoor map data using
+            Azure Maps API and SDK.
+            [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+            article introduces concepts and tools that apply to Azure Maps Creator.
+            [This](https://docs.microsoft.com/en-us/azure/azure-maps/creator-indoor-maps)
+            article introduces concepts and tools that apply to Azure Maps
+            Creator.The Tileset Create API allows the caller to create a tileset
+            from a dataset. A tileset contains a set of tiles that can be consumed
+            from the [Get Map Tile](/rest/api/maps/render/getmaptile) to retrieve
+            custom tiles. To make a dataset, use the [DataSet Create
+            API](/rest/api/maps-creator/dataset/create).## Submit Create RequestTo
+            create your tileset you will make a `POST` request with an empty body.
+            The `datasetId` query parameter will be used as the source of the
+            tileset data.The Create Tileset API is a [long-running
+            operation](https://aka.ms/am-creator-lrt-v2).
+          operationId: tilesetCreate
+          responses:
+            '500':
+              $ref: '#/responses/500'

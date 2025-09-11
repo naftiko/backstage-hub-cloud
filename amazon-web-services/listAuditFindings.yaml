@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listauditfindings
+  description: >-
+    Lists the findings (results) of a Device Defender audit or of the audits
+    performed during a specified time period. (Findings are retained for 90
+    days.) Requires permission to access the ListAuditFindings action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listauditfindings
+      description: >-
+        Lists the findings (results) of a Device Defender audit or of the audits
+        performed during a specified time period. (Findings are retained for 90
+        days.) Requires permission to access the ListAuditFindings action.
+    paths:
+      /audit/findings:
+        POST:
+          summary: Listauditfindings
+          description: >-
+            Lists the findings (results) of a Device Defender audit or of the audits
+            performed during a specified time period. (Findings are retained for 90
+            days.) Requires permission to access the ListAuditFindings action.
+          operationId: listAuditFindings

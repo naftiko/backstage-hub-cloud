@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deletes-a-predefined-tag-value-for-a-predefined-tag-name
+  description: >-
+    This operation allows deleting a value from the list of predefined values
+    for an existing predefined tag name. The value being deleted must not be in
+    use as a tag value for the given tag name for any resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes A Predefined Tag Value For A Predefined Tag Name.
+      description: >-
+        This operation allows deleting a value from the list of predefined values
+        for an existing predefined tag name. The value being deleted must not be in
+        use as a tag value for the given tag name for any resource.
+    paths:
+      /subscriptions/{subscriptionId}/tagNames/{tagName}/tagValues/{tagValue}:
+        delete:
+          summary: Deletes A Predefined Tag Value For A Predefined Tag Name.
+          description: >-
+            This operation allows deleting a value from the list of predefined
+            values for an existing predefined tag name. The value being deleted must
+            not be in use as a tag value for the given tag name for any resource.
+          operationId: tagsDeleteValue
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

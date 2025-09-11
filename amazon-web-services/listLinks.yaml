@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listlinks
+  description: >-
+    Use this operation in a source account to return a list of links to
+    monitoring account sinks that this source account has. To find a list of
+    links for one monitoring account sink, use ListAttachedLinks from within the
+    monitoring account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listlinks
+      description: >-
+        Use this operation in a source account to return a list of links to
+        monitoring account sinks that this source account has. To find a list of
+        links for one monitoring account sink, use ListAttachedLinks from within the
+        monitoring account.
+    paths:
+      /ListLinks:
+        POST:
+          summary: Listlinks
+          description: >-
+            Use this operation in a source account to return a list of links to
+            monitoring account sinks that this source account has. To find a list of
+            links for one monitoring account sink, use ListAttachedLinks from within
+            the monitoring account.
+          operationId: listLinks

@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deletes-existing-image-store-content
+  description: >-
+    Deletes existing image store content being found within the given image
+    store relative path. This command can be used to delete uploaded application
+    packages once they are provisioned.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes Existing Image Store Content.
+      description: >-
+        Deletes existing image store content being found within the given image
+        store relative path. This command can be used to delete uploaded application
+        packages once they are provisioned.
+    paths:
+      /ImageStore/{contentPath}:
+        delete:
+          summary: Deletes Existing Image Store Content.
+          description: >-
+            Deletes existing image store content being found within the given image
+            store relative path. This command can be used to delete uploaded
+            application packages once they are provisioned.
+          operationId: deleteImageStoreContent
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

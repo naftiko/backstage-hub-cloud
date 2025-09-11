@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-the-operation-status-for-an-operation-over-a-backupvaults-context
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The Operation Status For An Operation Over A Backupvault's Context.
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/operationStatus/{operationId}:
+        get:
+          summary: Gets The Operation Status For An Operation Over A Backupvault's Context.
+          description: Needs a more full description created.
+          operationId: operationStatusBackupVaultContextGet
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: implements-get-clouds-in-a-subscription
+  description: List of Clouds in a subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Implements Get Clouds In A Subscription.
+      description: List of Clouds in a subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.ScVmm/clouds:
+        get:
+          summary: Implements Get Clouds In A Subscription.
+          description: List of Clouds in a subscription.
+          operationId: cloudsListBySubscription
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

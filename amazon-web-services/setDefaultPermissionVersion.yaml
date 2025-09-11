@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: setdefaultpermissionversion
+  description: >-
+    Designates the specified version number as the default version for the
+    specified customer managed permission. New resource shares automatically use
+    this new default permission. Existing resource shares continue to use their
+    original permission version, but you can use ReplacePermissionAssociations
+    to update them.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Setdefaultpermissionversion
+      description: >-
+        Designates the specified version number as the default version for the
+        specified customer managed permission. New resource shares automatically use
+        this new default permission. Existing resource shares continue to use their
+        original permission version, but you can use ReplacePermissionAssociations
+        to update them.
+    paths:
+      /setdefaultpermissionversion:
+        POST:
+          summary: Setdefaultpermissionversion
+          description: >-
+            Designates the specified version number as the default version for the
+            specified customer managed permission. New resource shares automatically
+            use this new default permission. Existing resource shares continue to
+            use their original permission version, but you can use
+            ReplacePermissionAssociations to update them.
+          operationId: setDefaultPermissionVersion

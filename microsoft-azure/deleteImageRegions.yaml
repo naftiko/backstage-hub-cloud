@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: delete-a-set-of-image-regions
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete A Set Of Image Regions
+      description: Needs a more full description created.
+    paths:
+      /projects/{projectId}/images/regions:
+        delete:
+          summary: Delete A Set Of Image Regions
+          description: Needs a more full description created.
+          operationId: deleteImageRegions
+          responses:
+            '204':
+              description: No Content

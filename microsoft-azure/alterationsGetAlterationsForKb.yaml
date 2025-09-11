@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: download-alterations-per-knowledgebase-qnamaker-managed
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Download Alterations Per Knowledgebase (qnamaker Managed).
+      description: Needs a more full description created.
+    paths:
+      /alterations/{kbId}:
+        get:
+          summary: Download Alterations Per Knowledgebase (qnamaker Managed).
+          description: Needs a more full description created.
+          operationId: alterationsGetAlterationsForKb
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: install-site-extension-on-a-web-site-or-a-deployment-slot
+  description: Description for Install site extension on a web site, or a deployment slot.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Install Site Extension On A Web Site, Or A Deployment Slot.
+      description: Description for Install site extension on a web site, or a deployment slot.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/siteextensions/{siteExtensionId}:
+        put:
+          summary: Install Site Extension On A Web Site, Or A Deployment Slot.
+          description: >-
+            Description for Install site extension on a web site, or a deployment
+            slot.
+          operationId: webAppsInstallSiteExtension
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

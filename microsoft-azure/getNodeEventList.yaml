@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-a-node-related-events
+  description: The response is list of NodeEvent objects.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets A Node-related Events.
+      description: The response is list of NodeEvent objects.
+    paths:
+      /EventsStore/Nodes/{nodeName}/$/Events:
+        get:
+          summary: Gets A Node-related Events.
+          description: The response is list of NodeEvent objects.
+          operationId: getNodeEventList
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

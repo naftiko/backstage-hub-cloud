@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-multivariate-anomaly-detection-result
+  description: >-
+    For asynchronous inference, get a multivariate anomaly detection result
+    based on theresultId value that the BatchDetectAnomaly API returns.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Multivariate Anomaly Detection Result
+      description: >-
+        For asynchronous inference, get a multivariate anomaly detection result
+        based on theresultId value that the BatchDetectAnomaly API returns.
+    paths:
+      /multivariate/detect-batch/{resultId}:
+        get:
+          summary: Get Multivariate Anomaly Detection Result
+          description: >-
+            For asynchronous inference, get a multivariate anomaly detection result
+            based on theresultId value that the BatchDetectAnomaly API returns.
+          operationId: multivariateGetMultivariateBatchDetectionResult
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/Multivariate.ResponseError'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: Error code.

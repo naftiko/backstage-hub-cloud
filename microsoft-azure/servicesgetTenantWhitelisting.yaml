@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-providers-microsoftadhybridhealthservice-services-servicename-tenantwhitelisting-featurename
+  description: >-
+    Checks if the tenant, to which a service is registered, is listed as allowed
+    to use a feature.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Providers Microsoft.adhybridhealthservice Services Servicename
+        Tenantwhitelisting Featurename
+      description: >-
+        Checks if the tenant, to which a service is registered, is listed as allowed
+        to use a feature.
+    paths:
+      /providers/Microsoft.ADHybridHealthService/services/{serviceName}/TenantWhitelisting/{featureName}:
+        get:
+          summary: >-
+            Get Providers Microsoft.adhybridhealthservice Services Servicename
+            Tenantwhitelisting Featurename
+          description: >-
+            Checks if the tenant, to which a service is registered, is listed as
+            allowed to use a feature.
+          operationId: servicesgetTenantWhitelisting
+          responses:
+            '200':
+              description: Indicates if a tenant is listed as allowed for a feature or not.
+              schema:
+                $ref: '#/definitions/Result'

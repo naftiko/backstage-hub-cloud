@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: describecanaries
+  description: >-
+    This operation returns a list of the canaries in your account, along with
+    full details about each canary. This operation supports resource-level
+    authorization using an IAM policy and the Names parameter. If you specify
+    the Names parameter, the operation is successful only if you have
+    authorization to view all the canaries that you specify in your request. If
+    you do not have permission to view any of the canaries, the request fails
+    with a 403 response. You are required to use the Names parameter if you are
+    logged on to a user or role that has an IAM policy that restricts which
+    canaries that you are allowed to view. For more information, see  Limiting a
+    user to viewing specific canaries.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describecanaries
+      description: >-
+        This operation returns a list of the canaries in your account, along with
+        full details about each canary. This operation supports resource-level
+        authorization using an IAM policy and the Names parameter. If you specify
+        the Names parameter, the operation is successful only if you have
+        authorization to view all the canaries that you specify in your request. If
+        you do not have permission to view any of the canaries, the request fails
+        with a 403 response. You are required to use the Names parameter if you are
+        logged on to a user or role that has an IAM policy that restricts which
+        canaries that you are allowed to view. For more information, see  Limiting a
+        user to viewing specific canaries.
+    paths:
+      /canaries:
+        POST:
+          summary: Describecanaries
+          description: >-
+            This operation returns a list of the canaries in your account, along
+            with full details about each canary. This operation supports
+            resource-level authorization using an IAM policy and the Names
+            parameter. If you specify the Names parameter, the operation is
+            successful only if you have authorization to view all the canaries that
+            you specify in your request. If you do not have permission to view any
+            of the canaries, the request fails with a 403 response. You are required
+            to use the Names parameter if you are logged on to a user or role that
+            has an IAM policy that restricts which canaries that you are allowed to
+            view. For more information, see  Limiting a user to viewing specific
+            canaries.
+          operationId: describeCanaries

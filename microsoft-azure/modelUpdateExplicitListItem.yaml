@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    updates-an-explicit-exception-list-item-for-a-patternany-entity-in-a-version-of-the-application
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Updates An Explicit (exception) List Item For A Pattern.any Entity In A
+        Version Of The Application.
+      description: Needs a more full description created.
+    paths:
+      /apps/{appId}/versions/{versionId}/patternanyentities/{entityId}/explicitlist/{itemId}:
+        put:
+          summary: >-
+            Updates An Explicit (exception) List Item For A Pattern.any Entity In A
+            Version Of The Application.
+          description: Needs a more full description created.
+          operationId: modelUpdateExplicitListItem
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

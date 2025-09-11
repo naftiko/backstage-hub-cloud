@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftmigrate-assessmentprojects-projectname-groups-groupname
+  description: Create a Group
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.migrate Assessmentprojects Projectname Groups Groupname
+      description: Create a Group
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.migrate Assessmentprojects Projectname Groups
+            Groupname
+          description: Create a Group
+          operationId: groupsOperationsCreate
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    gets-a-specific-audio-or-transcription-log-for-the-default-base-model-in-a-given-language
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Gets A Specific Audio Or Transcription Log For The Default Base Model In A
+        Given Language.
+      description: Needs a more full description created.
+    paths:
+      /endpoints/base/{locale}/files/logs/{logId}:
+        get:
+          summary: >-
+            Gets A Specific Audio Or Transcription Log For The Default Base Model In
+            A Given Language.
+          description: Needs a more full description created.
+          operationId: endpointsGetBaseModelLog
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/Error'

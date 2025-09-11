@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftmachinelearningexperimentation-accounts-accountname-workspaces-workspacename-projects
+  description: >-
+    Lists all the available machine learning projects under the specified
+    workspace.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.machinelearningexperimentation Accounts Accountname Workspaces
+        Workspacename Projects
+      description: >-
+        Lists all the available machine learning projects under the specified
+        workspace.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningExperimentation/accounts/{accountName}/workspaces/{workspaceName}/projects:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.machinelearningexperimentation Accounts Accountname
+            Workspaces Workspacename Projects
+          description: >-
+            Lists all the available machine learning projects under the specified
+            workspace.
+          operationId: projectsListByWorkspace
+          responses:
+            default:
+              description: Error response describing why the operation failed
+              schema:
+                $ref: '#/definitions/ErrorResponse'

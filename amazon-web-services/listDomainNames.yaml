@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listdomainnames
+  description: >-
+    Returns the names of all Amazon OpenSearch Service domains owned by the
+    current user in the active Region.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listdomainnames
+      description: >-
+        Returns the names of all Amazon OpenSearch Service domains owned by the
+        current user in the active Region.
+    paths:
+      /2021-01-01/domain:
+        GET:
+          summary: Listdomainnames
+          description: >-
+            Returns the names of all Amazon OpenSearch Service domains owned by the
+            current user in the active Region.
+          operationId: listDomainNames

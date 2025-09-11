@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftdbformariadb-servers-servername-advisors
+  description: List recommendation action advisors.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.dbformariadb Servers Servername Advisors
+      description: List recommendation action advisors.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}/advisors:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.dbformariadb Servers Servername Advisors
+          description: List recommendation action advisors.
+          operationId: advisorsListByServer
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/AdvisorsResultList'

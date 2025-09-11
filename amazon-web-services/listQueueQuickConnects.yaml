@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listqueuequickconnects
+  description: >-
+    This API is in preview release for Amazon Connect and is subject to change.
+    Lists the quick connects associated with a queue.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listqueuequickconnects
+      description: >-
+        This API is in preview release for Amazon Connect and is subject to change.
+        Lists the quick connects associated with a queue.
+    paths:
+      /queues/{InstanceId}/{QueueId}/quick-connects:
+        GET:
+          summary: Listqueuequickconnects
+          description: >-
+            This API is in preview release for Amazon Connect and is subject to
+            change. Lists the quick connects associated with a queue.
+          operationId: listQueueQuickConnects

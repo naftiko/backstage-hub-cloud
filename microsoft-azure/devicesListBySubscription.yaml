@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-providers-microsoftdataboxedge-databoxedgedevices
+  description: Gets all the Data Box Edge/Data Box Gateway devices in a subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft.databoxedge
+        Databoxedgedevices
+      description: Gets all the Data Box Edge/Data Box Gateway devices in a subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft.databoxedge
+            Databoxedgedevices
+          description: Gets all the Data Box Edge/Data Box Gateway devices in a subscription.
+          operationId: devicesListBySubscription
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

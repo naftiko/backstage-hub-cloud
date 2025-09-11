@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listapplicationdependencies
+  description: Retrieves the list of applications nested in the containing application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listapplicationdependencies
+      description: Retrieves the list of applications nested in the containing application.
+    paths:
+      /applications/{applicationId}/dependencies:
+        GET:
+          summary: Listapplicationdependencies
+          description: Retrieves the list of applications nested in the containing application.
+          operationId: listApplicationDependencies

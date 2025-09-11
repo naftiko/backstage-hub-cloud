@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    gets-a-named-operation-for-a-network-trace-capturing-or-deployment-slot-if-specified
+  description: >-
+    Description for Gets a named operation for a network trace capturing (or
+    deployment slot, if specified).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Gets A Named Operation For A Network Trace Capturing (or Deployment Slot, If
+        Specified).
+      description: >-
+        Description for Gets a named operation for a network trace capturing (or
+        deployment slot, if specified).
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/networkTraces/{operationId}:
+        get:
+          summary: >-
+            Gets A Named Operation For A Network Trace Capturing (or Deployment
+            Slot, If Specified).
+          description: >-
+            Description for Gets a named operation for a network trace capturing (or
+            deployment slot, if specified).
+          operationId: webAppsGetNetworkTracesV2
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

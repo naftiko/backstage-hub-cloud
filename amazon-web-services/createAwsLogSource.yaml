@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: createawslogsource
+  description: >-
+    Adds a natively supported Amazon Web Service as an Amazon Security Lake
+    source. Enables source types for member accounts in required Amazon Web
+    Services Regions, based on the parameters you specify. You can choose any
+    source type in any Region for either accounts that are part of a trusted
+    organization or standalone accounts. Once you add an Amazon Web Service as a
+    source, Security Lake starts collecting logs and events from it. You can use
+    this API only to enable natively supported Amazon Web Services as a source.
+    Use CreateCustomLogSource to enable data collection from a custom source.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createawslogsource
+      description: >-
+        Adds a natively supported Amazon Web Service as an Amazon Security Lake
+        source. Enables source types for member accounts in required Amazon Web
+        Services Regions, based on the parameters you specify. You can choose any
+        source type in any Region for either accounts that are part of a trusted
+        organization or standalone accounts. Once you add an Amazon Web Service as a
+        source, Security Lake starts collecting logs and events from it. You can use
+        this API only to enable natively supported Amazon Web Services as a source.
+        Use CreateCustomLogSource to enable data collection from a custom source.
+    paths:
+      /v1/datalake/logsources/aws:
+        POST:
+          summary: Createawslogsource
+          description: >-
+            Adds a natively supported Amazon Web Service as an Amazon Security Lake
+            source. Enables source types for member accounts in required Amazon Web
+            Services Regions, based on the parameters you specify. You can choose
+            any source type in any Region for either accounts that are part of a
+            trusted organization or standalone accounts. Once you add an Amazon Web
+            Service as a source, Security Lake starts collecting logs and events
+            from it. You can use this API only to enable natively supported Amazon
+            Web Services as a source. Use CreateCustomLogSource to enable data
+            collection from a custom source.
+          operationId: createAwsLogSource

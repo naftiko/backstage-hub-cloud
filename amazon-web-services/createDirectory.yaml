@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: createdirectory
+  description: >-
+    Creates a Directory by copying the published schema into the directory. A
+    directory cannot be created without a schema. You can also quickly create a
+    directory using a managed schema, called the QuickStartSchema. For more
+    information, see Managed Schema in the Amazon Cloud Directory Developer
+    Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createdirectory
+      description: >-
+        Creates a Directory by copying the published schema into the directory. A
+        directory cannot be created without a schema. You can also quickly create a
+        directory using a managed schema, called the QuickStartSchema. For more
+        information, see Managed Schema in the Amazon Cloud Directory Developer
+        Guide.
+    paths:
+      /amazonclouddirectory/2017-01-11/directory/create:
+        PUT:
+          summary: Createdirectory
+          description: >-
+            Creates a Directory by copying the published schema into the directory.
+            A directory cannot be created without a schema. You can also quickly
+            create a directory using a managed schema, called the QuickStartSchema.
+            For more information, see Managed Schema in the Amazon Cloud Directory
+            Developer Guide.
+          operationId: createDirectory

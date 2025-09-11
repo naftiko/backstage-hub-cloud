@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-batches
+  description: List all spark batch jobs which are running under a particular spark pool.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Batches
+      description: List all spark batch jobs which are running under a particular spark pool.
+    paths:
+      /batches:
+        get:
+          summary: Get Batches
+          description: >-
+            List all spark batch jobs which are running under a particular spark
+            pool.
+          operationId: sparkBatchGetSparkBatchJobs
+          responses:
+            '200':
+              description: Success
+              schema:
+                $ref: '#/definitions/SparkBatchJobCollection'

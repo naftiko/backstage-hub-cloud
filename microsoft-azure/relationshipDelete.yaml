@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: delete-atlas-relationship-guid-guid
+  description: Delete a relationship between entities by its GUID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Atlas Relationship Guid Guid
+      description: Delete a relationship between entities by its GUID.
+    paths:
+      /atlas/v2/relationship/guid/{guid}:
+        delete:
+          summary: Delete Atlas Relationship Guid Guid
+          description: Delete a relationship between entities by its GUID.
+          operationId: relationshipDelete
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

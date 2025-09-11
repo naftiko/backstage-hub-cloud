@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getdataview
+  description: Gets information about a Dataview.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getdataview
+      description: Gets information about a Dataview.
+    paths:
+      /datasets/{datasetId}/dataviewsv2/{dataviewId}:
+        GET:
+          summary: Getdataview
+          description: Gets information about a Dataview.
+          operationId: getDataView

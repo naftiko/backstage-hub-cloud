@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-providers-microsoftintune-locations-hostname-flaggedusers
+  description: Returns Intune flagged user collection
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Providers Microsoft.intune Locations Hostname Flaggedusers
+      description: Returns Intune flagged user collection
+    paths:
+      /providers/Microsoft.Intune/locations/{hostName}/flaggedUsers:
+        get:
+          summary: Get Providers Microsoft.intune Locations Hostname Flaggedusers
+          description: Returns Intune flagged user collection
+          operationId: getMAMFlaggedUsers
+          responses:
+            default:
+              description: unexpected error
+              schema:
+                $ref: '#/definitions/Error'

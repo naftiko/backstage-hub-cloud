@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updates-the-fabric
+  description: Performs update on the fabric.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updates The Fabric.
+      description: Performs update on the fabric.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationFabrics/{fabricName}:
+        patch:
+          summary: Updates The Fabric.
+          description: Performs update on the fabric.
+          operationId: fabricUpdate
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

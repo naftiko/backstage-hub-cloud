@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listuserassociations
+  description: Lists user associations for an identity provider.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listuserassociations
+      description: Lists user associations for an identity provider.
+    paths:
+      /user/ListUserAssociations:
+        POST:
+          summary: Listuserassociations
+          description: Lists user associations for an identity provider.
+          operationId: listUserAssociations

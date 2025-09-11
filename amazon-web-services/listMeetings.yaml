@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listmeetings
+  description: >-
+    Lists up to 100 active Amazon Chime SDK meetings.  ListMeetings is not
+    supported in the Amazon Chime SDK Meetings Namespace. Update your
+    application to remove calls to this API.  For more information about the
+    Amazon Chime SDK, see Using the Amazon Chime SDK in the Amazon Chime SDK
+    Developer Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listmeetings
+      description: >-
+        Lists up to 100 active Amazon Chime SDK meetings.  ListMeetings is not
+        supported in the Amazon Chime SDK Meetings Namespace. Update your
+        application to remove calls to this API.  For more information about the
+        Amazon Chime SDK, see Using the Amazon Chime SDK in the Amazon Chime SDK
+        Developer Guide.
+    paths:
+      /meetings:
+        GET:
+          summary: Listmeetings
+          description: >-
+            Lists up to 100 active Amazon Chime SDK meetings.  ListMeetings is not
+            supported in the Amazon Chime SDK Meetings Namespace. Update your
+            application to remove calls to this API.  For more information about the
+            Amazon Chime SDK, see Using the Amazon Chime SDK in the Amazon Chime SDK
+            Developer Guide.
+          operationId: listMeetings

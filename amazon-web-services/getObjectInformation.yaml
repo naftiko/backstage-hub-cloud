@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getobjectinformation
+  description: Retrieves metadata about an object.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getobjectinformation
+      description: Retrieves metadata about an object.
+    paths:
+      /amazonclouddirectory/2017-01-11/object/information:
+        POST:
+          summary: Getobjectinformation
+          description: Retrieves metadata about an object.
+          operationId: getObjectInformation

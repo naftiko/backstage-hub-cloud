@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftcache-redisenterprise-clustername-privateendpointconnections
+  description: >-
+    Lists all the private endpoint connections associated with the
+    RedisEnterprise cluster.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.cache Redisenterprise Clustername Privateendpointconnections
+      description: >-
+        Lists all the private endpoint connections associated with the
+        RedisEnterprise cluster.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.cache Redisenterprise Clustername
+            Privateendpointconnections
+          description: >-
+            Lists all the private endpoint connections associated with the
+            RedisEnterprise cluster.
+          operationId: privateEndpointConnectionsList
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

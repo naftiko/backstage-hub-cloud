@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-providers-microsoftauthorization-accessreviewhistorydefinitions-historydefinitionid-instances-instanceid-generatedownloaduri
+  description: >-
+    Generates a uri which can be used to retrieve review history data. This URI
+    has a TTL of 1 day and can be retrieved by fetching the
+    accessReviewHistoryDefinition object.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Providers Microsoft.authorization
+        Accessreviewhistorydefinitions Historydefinitionid Instances Instanceid
+        Generatedownloaduri
+      description: >-
+        Generates a uri which can be used to retrieve review history data. This URI
+        has a TTL of 1 day and can be retrieved by fetching the
+        accessReviewHistoryDefinition object.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewHistoryDefinitions/{historyDefinitionId}/instances/{instanceId}/generateDownloadUri:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Providers Microsoft.authorization
+            Accessreviewhistorydefinitions Historydefinitionid Instances Instanceid
+            Generatedownloaduri
+          description: >-
+            Generates a uri which can be used to retrieve review history data. This
+            URI has a TTL of 1 day and can be retrieved by fetching the
+            accessReviewHistoryDefinition object.
+          operationId: accessReviewHistoryDefinitionInstanceGenerateDownloadUri
+          responses:
+            default:
+              description: Unexpected error
+              schema:
+                $ref: '#/definitions/ErrorDefinition'

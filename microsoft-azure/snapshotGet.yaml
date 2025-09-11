@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-snapshots-snapshotid
+  description: >-
+    Retrieve information about a snapshot. Snapshot is only accessible to the
+    source subscription who took it, and target subscriptions included in the
+    applyScope in Snapshot - Take.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Snapshots Snapshotid
+      description: >-
+        Retrieve information about a snapshot. Snapshot is only accessible to the
+        source subscription who took it, and target subscriptions included in the
+        applyScope in Snapshot - Take.
+    paths:
+      /snapshots/{snapshotId}:
+        get:
+          summary: Get Snapshots Snapshotid
+          description: >-
+            Retrieve information about a snapshot. Snapshot is only accessible to
+            the source subscription who took it, and target subscriptions included
+            in the applyScope in Snapshot - Take.
+          operationId: snapshotGet
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

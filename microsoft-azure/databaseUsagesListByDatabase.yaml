@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftsql-servers-servername-databases-databasename-usages
+  description: Returns database usages.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.sql Servers Servername Databases Databasename Usages
+      description: Returns database usages.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/usages:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.sql Servers Servername Databases Databasename Usages
+          description: Returns database usages.
+          operationId: databaseUsagesListByDatabase
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/DatabaseUsageListResult'

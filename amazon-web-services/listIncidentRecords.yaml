@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listincidentrecords
+  description: >-
+    Lists all incident records in your account. Use this command to retrieve the
+    Amazon Resource Name (ARN) of the incident record you want to update. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listincidentrecords
+      description: >-
+        Lists all incident records in your account. Use this command to retrieve the
+        Amazon Resource Name (ARN) of the incident record you want to update. 
+    paths:
+      /listIncidentRecords:
+        POST:
+          summary: Listincidentrecords
+          description: >-
+            Lists all incident records in your account. Use this command to retrieve
+            the Amazon Resource Name (ARN) of the incident record you want to
+            update. 
+          operationId: listIncidentRecords

@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatesubscription
+  description: >-
+    Updates the details of an existing subscription. Only enter values for
+    parameters you want to change. Empty parameters are not updated.  For
+    accounts that are members of an Organizations organization, Shield Advanced
+    subscriptions are billed against the organization's payer account,
+    regardless of whether the payer account itself is subscribed.  
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatesubscription
+      description: >-
+        Updates the details of an existing subscription. Only enter values for
+        parameters you want to change. Empty parameters are not updated.  For
+        accounts that are members of an Organizations organization, Shield Advanced
+        subscriptions are billed against the organization's payer account,
+        regardless of whether the payer account itself is subscribed.  
+    paths:
+      /:
+        POST:
+          summary: Updatesubscription
+          description: >-
+            Updates the details of an existing subscription. Only enter values for
+            parameters you want to change. Empty parameters are not updated.  For
+            accounts that are members of an Organizations organization, Shield
+            Advanced subscriptions are billed against the organization's payer
+            account, regardless of whether the payer account itself is subscribed.  
+          operationId: updateSubscription

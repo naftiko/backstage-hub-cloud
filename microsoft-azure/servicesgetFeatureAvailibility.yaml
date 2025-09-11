@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-providers-microsoftadhybridhealthservice-services-servicename-checkservicefeatureavailibility-featurename
+  description: Checks if the service has all the pre-requisites met to use a feature.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Providers Microsoft.adhybridhealthservice Services Servicename
+        Checkservicefeatureavailibility Featurename
+      description: Checks if the service has all the pre-requisites met to use a feature.
+    paths:
+      /providers/Microsoft.ADHybridHealthService/services/{serviceName}/checkServiceFeatureAvailibility/{featureName}:
+        get:
+          summary: >-
+            Get Providers Microsoft.adhybridhealthservice Services Servicename
+            Checkservicefeatureavailibility Featurename
+          description: Checks if the service has all the pre-requisites met to use a feature.
+          operationId: servicesgetFeatureAvailibility
+          responses:
+            '200':
+              description: Indicates if the feature is available or not.
+              schema:
+                $ref: '#/definitions/Result'

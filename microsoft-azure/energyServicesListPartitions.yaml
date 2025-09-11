@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftopenenergyplatform-energyservices-resourcename-listpartitions
+  description: Method that gets called when list of partitions is requested.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.openenergyplatform Energyservices Resourcename Listpartitions
+      description: Method that gets called when list of partitions is requested.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OpenEnergyPlatform/energyServices/{resourceName}/listPartitions:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.openenergyplatform Energyservices Resourcename
+            Listpartitions
+          description: Method that gets called when list of partitions is requested.
+          operationId: energyServicesListPartitions
+          responses:
+            default:
+              description: >-
+                Error response describing the reason for operation failure. 404 -
+                NotFound (Confidential Ledger could not be created/updated)
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

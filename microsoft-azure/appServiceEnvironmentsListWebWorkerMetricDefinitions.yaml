@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-metric-definitions-for-a-worker-pool-of-an-app-service-environment
+  description: >-
+    Description for Get metric definitions for a worker pool of an App Service
+    Environment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Metric Definitions For A Worker Pool Of An App Service Environment.
+      description: >-
+        Description for Get metric definitions for a worker pool of an App Service
+        Environment.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/workerPools/{workerPoolName}/metricdefinitions:
+        get:
+          summary: Get Metric Definitions For A Worker Pool Of An App Service Environment.
+          description: >-
+            Description for Get metric definitions for a worker pool of an App
+            Service Environment.
+          operationId: appServiceEnvironmentsListWebWorkerMetricDefinitions
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

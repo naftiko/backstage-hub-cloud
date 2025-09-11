@@ -1,0 +1,98 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listconflictingaliases
+  description: >-
+    Gets a list of aliases (also called CNAMEs or alternate domain names) that
+    conflict or overlap with the provided alias, and the associated CloudFront
+    distributions and Amazon Web Services accounts for each conflicting alias.
+    In the returned list, the distribution and account IDs are partially hidden,
+    which allows you to identify the distributions and accounts that you own,
+    but helps to protect the information of ones that you don't own. Use this
+    operation to find aliases that are in use in CloudFront that conflict or
+    overlap with the provided alias. For example, if you provide www.example.com
+    as input, the returned list can include www.example.com and the overlapping
+    wildcard alternate domain name (*.example.com), if they exist. If you
+    provide *.example.com as input, the returned list can include *.example.com
+    and any alternate domain names covered by that wildcard (for example,
+    www.example.com, test.example.com, dev.example.com, and so on), if they
+    exist. To list conflicting aliases, you provide the alias to search and the
+    ID of a distribution in your account that has an attached SSL/TLS
+    certificate that includes the provided alias. For more information,
+    including how to set up the distribution and certificate, see Moving an
+    alternate domain name to a different distribution in the Amazon CloudFront
+    Developer Guide. You can optionally specify the maximum number of items to
+    receive in the response. If the total number of items in the list exceeds
+    the maximum that you specify, or the default maximum, the response is
+    paginated. To get the next page of items, send a subsequent request that
+    specifies the NextMarker value from the current response as the Marker value
+    in the subsequent request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listconflictingaliases
+      description: >-
+        Gets a list of aliases (also called CNAMEs or alternate domain names) that
+        conflict or overlap with the provided alias, and the associated CloudFront
+        distributions and Amazon Web Services accounts for each conflicting alias.
+        In the returned list, the distribution and account IDs are partially hidden,
+        which allows you to identify the distributions and accounts that you own,
+        but helps to protect the information of ones that you don't own. Use this
+        operation to find aliases that are in use in CloudFront that conflict or
+        overlap with the provided alias. For example, if you provide www.example.com
+        as input, the returned list can include www.example.com and the overlapping
+        wildcard alternate domain name (*.example.com), if they exist. If you
+        provide *.example.com as input, the returned list can include *.example.com
+        and any alternate domain names covered by that wildcard (for example,
+        www.example.com, test.example.com, dev.example.com, and so on), if they
+        exist. To list conflicting aliases, you provide the alias to search and the
+        ID of a distribution in your account that has an attached SSL/TLS
+        certificate that includes the provided alias. For more information,
+        including how to set up the distribution and certificate, see Moving an
+        alternate domain name to a different distribution in the Amazon CloudFront
+        Developer Guide. You can optionally specify the maximum number of items to
+        receive in the response. If the total number of items in the list exceeds
+        the maximum that you specify, or the default maximum, the response is
+        paginated. To get the next page of items, send a subsequent request that
+        specifies the NextMarker value from the current response as the Marker value
+        in the subsequent request.
+    paths:
+      /2020-05-31/conflicting-alias:
+        GET:
+          summary: Listconflictingaliases
+          description: >-
+            Gets a list of aliases (also called CNAMEs or alternate domain names)
+            that conflict or overlap with the provided alias, and the associated
+            CloudFront distributions and Amazon Web Services accounts for each
+            conflicting alias. In the returned list, the distribution and account
+            IDs are partially hidden, which allows you to identify the distributions
+            and accounts that you own, but helps to protect the information of ones
+            that you don't own. Use this operation to find aliases that are in use
+            in CloudFront that conflict or overlap with the provided alias. For
+            example, if you provide www.example.com as input, the returned list can
+            include www.example.com and the overlapping wildcard alternate domain
+            name (*.example.com), if they exist. If you provide *.example.com as
+            input, the returned list can include *.example.com and any alternate
+            domain names covered by that wildcard (for example, www.example.com,
+            test.example.com, dev.example.com, and so on), if they exist. To list
+            conflicting aliases, you provide the alias to search and the ID of a
+            distribution in your account that has an attached SSL/TLS certificate
+            that includes the provided alias. For more information, including how to
+            set up the distribution and certificate, see Moving an alternate domain
+            name to a different distribution in the Amazon CloudFront Developer
+            Guide. You can optionally specify the maximum number of items to receive
+            in the response. If the total number of items in the list exceeds the
+            maximum that you specify, or the default maximum, the response is
+            paginated. To get the next page of items, send a subsequent request that
+            specifies the NextMarker value from the current response as the Marker
+            value in the subsequent request.
+          operationId: listConflictingAliases

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: implements-get-of-customization-policies-list
+  description: Returns list of customization policies in region for private cloud
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Implements Get Of Customization Policies List
+      description: Returns list of customization policies in region for private cloud
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.VMwareCloudSimple/locations/{regionId}/privateClouds/{pcName}/customizationPolicies:
+        get:
+          summary: Implements Get Of Customization Policies List
+          description: Returns list of customization policies in region for private cloud
+          operationId: customizationPoliciesList
+          responses:
+            default:
+              description: General Error
+              schema:
+                $ref: '#/definitions/CSRPError'

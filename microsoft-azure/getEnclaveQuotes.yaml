@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-quotes-for-all-nodes-of-the-confidential-ledger
+  description: >-
+    A quote is an SGX enclave measurement that can be used to verify the
+    validity of a node and its enclave.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets Quotes For All Nodes Of The Confidential Ledger.
+      description: >-
+        A quote is an SGX enclave measurement that can be used to verify the
+        validity of a node and its enclave.
+    paths:
+      /app/enclaveQuotes:
+        get:
+          summary: Gets Quotes For All Nodes Of The Confidential Ledger.
+          description: >-
+            A quote is an SGX enclave measurement that can be used to verify the
+            validity of a node and its enclave.
+          operationId: getEnclaveQuotes
+          responses:
+            default:
+              description: Error response describing why the operation failed
+              schema:
+                $ref: common.json#/definitions/ConfidentialLedgerError

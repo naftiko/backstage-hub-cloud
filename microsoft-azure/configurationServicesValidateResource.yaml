@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftappplatform-spring-servicename-configurationservices-configurationservicename-validateresource
+  description: Check if the Application Configuration Service resource is valid.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.appplatform Spring Servicename Configurationservices
+        Configurationservicename Validateresource
+      description: Check if the Application Configuration Service resource is valid.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/configurationServices/{configurationServiceName}/validateResource:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.appplatform Spring Servicename Configurationservices
+            Configurationservicename Validateresource
+          description: Check if the Application Configuration Service resource is valid.
+          operationId: configurationServicesValidateResource
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getgatewayresponses
+  description: >-
+    Gets the GatewayResponses collection on the given RestApi. If an API
+    developer has not added any definitions for gateway responses, the result
+    will be the API Gateway-generated default GatewayResponses collection for
+    the supported response types.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getgatewayresponses
+      description: >-
+        Gets the GatewayResponses collection on the given RestApi. If an API
+        developer has not added any definitions for gateway responses, the result
+        will be the API Gateway-generated default GatewayResponses collection for
+        the supported response types.
+    paths:
+      /restapis/{restapi_id}/gatewayresponses:
+        GET:
+          summary: Getgatewayresponses
+          description: >-
+            Gets the GatewayResponses collection on the given RestApi. If an API
+            developer has not added any definitions for gateway responses, the
+            result will be the API Gateway-generated default GatewayResponses
+            collection for the supported response types.
+          operationId: getGatewayResponses

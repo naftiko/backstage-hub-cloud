@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: claimdevicesbyclaimcode
+  description: >-
+    Adds device(s) to your account (i.e., claim one or more devices) if and only
+    if you received a claim code with the device(s).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Claimdevicesbyclaimcode
+      description: >-
+        Adds device(s) to your account (i.e., claim one or more devices) if and only
+        if you received a claim code with the device(s).
+    paths:
+      /claims/{claimCode}:
+        PUT:
+          summary: Claimdevicesbyclaimcode
+          description: >-
+            Adds device(s) to your account (i.e., claim one or more devices) if and
+            only if you received a claim code with the device(s).
+          operationId: claimDevicesByClaimCode

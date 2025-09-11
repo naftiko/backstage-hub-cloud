@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: put-parties-cascade-delete-jobid
+  description: Create a cascade delete job for specified party.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Parties Cascade-delete Jobid
+      description: Create a cascade delete job for specified party.
+    paths:
+      /parties/cascade-delete/{jobId}:
+        put:
+          summary: Put Parties Cascade-delete Jobid
+          description: Create a cascade delete job for specified party.
+          operationId: partiesCreateCascadeDeleteJob
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  x-ms-client-name: ErrorCode
+              x-ms-error-response: true

@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    enables-periodic-backup-of-stateful-partitions-under-this-service-fabric-service
+  description: >-
+    Enables periodic backup of stateful partitions which are part of this
+    Service Fabric service. Each partition is backed up individually as per the
+    specified backup policy description. In case the application, which the
+    service is part of, is already enabled for backup then this operation would
+    override the policy being used to take the periodic backup for this service
+    and its partitions (unless explicitly overridden at the partition
+    level).Note only C# based Reliable Actor and Reliable Stateful services are
+    currently supported for periodic backup.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Enables Periodic Backup Of Stateful Partitions Under This Service Fabric
+        Service.
+      description: >-
+        Enables periodic backup of stateful partitions which are part of this
+        Service Fabric service. Each partition is backed up individually as per the
+        specified backup policy description. In case the application, which the
+        service is part of, is already enabled for backup then this operation would
+        override the policy being used to take the periodic backup for this service
+        and its partitions (unless explicitly overridden at the partition
+        level).Note only C# based Reliable Actor and Reliable Stateful services are
+        currently supported for periodic backup.
+    paths:
+      /Services/{serviceId}/$/EnableBackup:
+        post:
+          summary: >-
+            Enables Periodic Backup Of Stateful Partitions Under This Service Fabric
+            Service.
+          description: >-
+            Enables periodic backup of stateful partitions which are part of this
+            Service Fabric service. Each partition is backed up individually as per
+            the specified backup policy description. In case the application, which
+            the service is part of, is already enabled for backup then this
+            operation would override the policy being used to take the periodic
+            backup for this service and its partitions (unless explicitly overridden
+            at the partition level).Note only C# based Reliable Actor and Reliable
+            Stateful services are currently supported for periodic backup.
+          operationId: enableServiceBackup
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

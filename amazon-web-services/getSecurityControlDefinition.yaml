@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getsecuritycontroldefinition
+  description: ' Retrieves the definition of a security control. The definition includes the control title, description, Region availability, parameter definitions, and other details. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getsecuritycontroldefinition
+      description: ' Retrieves the definition of a security control. The definition includes the control title, description, Region availability, parameter definitions, and other details. '
+    paths:
+      /securityControl/definition:
+        GET:
+          summary: Getsecuritycontroldefinition
+          description: ' Retrieves the definition of a security control. The definition includes the control title, description, Region availability, parameter definitions, and other details. '
+          operationId: getSecurityControlDefinition

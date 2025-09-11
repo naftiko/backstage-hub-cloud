@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listappinstancebots
+  description: Lists all AppInstanceBots created under a single AppInstance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listappinstancebots
+      description: Lists all AppInstanceBots created under a single AppInstance.
+    paths:
+      /app-instance-bots:
+        GET:
+          summary: Listappinstancebots
+          description: Lists all AppInstanceBots created under a single AppInstance.
+          operationId: listAppInstanceBots

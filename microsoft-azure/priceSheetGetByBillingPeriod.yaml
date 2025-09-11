@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-providers-microsoftbilling-billingperiods-billingperiodname-providers-microsoftconsumption-pricesheets-default
+  description: >-
+    Get the price sheet for a scope by subscriptionId and billing period. Price
+    sheet is available via this API only for May 1, 2014 or later.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft.billing Billingperiods
+        Billingperiodname Providers Microsoft.consumption Pricesheets Default
+      description: >-
+        Get the price sheet for a scope by subscriptionId and billing period. Price
+        sheet is available via this API only for May 1, 2014 or later.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/pricesheets/default:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft.billing
+            Billingperiods Billingperiodname Providers Microsoft.consumption
+            Pricesheets Default
+          description: >-
+            Get the price sheet for a scope by subscriptionId and billing period.
+            Price sheet is available via this API only for May 1, 2014 or later.
+          operationId: priceSheetGetByBillingPeriod
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

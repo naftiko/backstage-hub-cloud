@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: createtemplate
+  description: >-
+    Creates a template in the Cases domain. This template is used to define the
+    case object model (that is, to define what data can be captured on cases) in
+    a Cases domain. A template must have a unique name within a domain, and it
+    must reference existing field IDs and layout IDs. Additionally, multiple
+    fields with same IDs are not allowed within the same Template. A template
+    can be either Active or Inactive, as indicated by its status. Inactive
+    templates cannot be used to create cases.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createtemplate
+      description: >-
+        Creates a template in the Cases domain. This template is used to define the
+        case object model (that is, to define what data can be captured on cases) in
+        a Cases domain. A template must have a unique name within a domain, and it
+        must reference existing field IDs and layout IDs. Additionally, multiple
+        fields with same IDs are not allowed within the same Template. A template
+        can be either Active or Inactive, as indicated by its status. Inactive
+        templates cannot be used to create cases.
+    paths:
+      /domains/{domainId}/templates:
+        POST:
+          summary: Createtemplate
+          description: >-
+            Creates a template in the Cases domain. This template is used to define
+            the case object model (that is, to define what data can be captured on
+            cases) in a Cases domain. A template must have a unique name within a
+            domain, and it must reference existing field IDs and layout IDs.
+            Additionally, multiple fields with same IDs are not allowed within the
+            same Template. A template can be either Active or Inactive, as indicated
+            by its status. Inactive templates cannot be used to create cases.
+          operationId: createTemplate

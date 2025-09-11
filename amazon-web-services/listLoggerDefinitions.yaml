@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listloggerdefinitions
+  description: Retrieves a list of logger definitions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listloggerdefinitions
+      description: Retrieves a list of logger definitions.
+    paths:
+      /greengrass/definition/loggers:
+        GET:
+          summary: Listloggerdefinitions
+          description: Retrieves a list of logger definitions.
+          operationId: listLoggerDefinitions

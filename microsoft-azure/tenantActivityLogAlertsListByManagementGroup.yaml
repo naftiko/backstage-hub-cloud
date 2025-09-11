@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-providers-microsoftmanagement-managementgroups-managementgroupname-providers-microsoftalertsmanagement-tenantactivitylogalerts
+  description: Get a list of all Tenant Activity Log Alert rules in a management group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Providers Microsoft.management Managementgroups Managementgroupname
+        Providers Microsoft.alertsmanagement Tenantactivitylogalerts
+      description: Get a list of all Tenant Activity Log Alert rules in a management group.
+    paths:
+      /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/Microsoft.AlertsManagement/tenantActivityLogAlerts:
+        get:
+          summary: >-
+            Get Providers Microsoft.management Managementgroups Managementgroupname
+            Providers Microsoft.alertsmanagement Tenantactivitylogalerts
+          description: Get a list of all Tenant Activity Log Alert rules in a management group.
+          operationId: tenantActivityLogAlertsListByManagementGroup
+          responses:
+            default:
+              description: >-
+                An error occurred and the list of Activity Log Alert rules could not
+                be retrieved.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

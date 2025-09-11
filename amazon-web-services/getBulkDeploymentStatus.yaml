@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getbulkdeploymentstatus
+  description: Returns the status of a bulk deployment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getbulkdeploymentstatus
+      description: Returns the status of a bulk deployment.
+    paths:
+      /greengrass/bulk/deployments/{BulkDeploymentId}/status:
+        GET:
+          summary: Getbulkdeploymentstatus
+          description: Returns the status of a bulk deployment.
+          operationId: getBulkDeploymentStatus

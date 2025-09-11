@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: create-a-topic
+  description: Create a topic in Kafka with topic configuration
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Topic
+      description: Create a topic in Kafka with topic configuration
+    paths:
+      /v1/topics/{topic}:
+        put:
+          summary: Create A Topic
+          description: Create a topic in Kafka with topic configuration
+          operationId: adminCreateTopic
+          responses:
+            '500':
+              description: Internal Server Error

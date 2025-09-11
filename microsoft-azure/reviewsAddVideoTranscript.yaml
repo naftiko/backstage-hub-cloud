@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: put-contentmoderator-review-0-teams-teamname-reviews-reviewid-transcript
+  description: >-
+    This API adds a transcript file (text version of all the words spoken in a
+    video) to a video review. The file should be in a valid WebVTT format.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Contentmoderator Review .0 Teams Teamname Reviews Reviewid Transcript
+      description: >-
+        This API adds a transcript file (text version of all the words spoken in a
+        video) to a video review. The file should be in a valid WebVTT format.
+    paths:
+      /contentmoderator/review/v1.0/teams/{teamName}/reviews/{reviewId}/transcript:
+        put:
+          summary: >-
+            Put Contentmoderator Review .0 Teams Teamname Reviews Reviewid
+            Transcript
+          description: >-
+            This API adds a transcript file (text version of all the words spoken in
+            a video) to a video review. The file should be in a valid WebVTT format.
+          operationId: reviewsAddVideoTranscript
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

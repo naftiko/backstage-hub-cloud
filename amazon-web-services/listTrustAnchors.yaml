@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listtrustanchors
+  description: >-
+    Lists the trust anchors in the authenticated account and Amazon Web Services
+    Region.  Required permissions:  rolesanywhere:ListTrustAnchors. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listtrustanchors
+      description: >-
+        Lists the trust anchors in the authenticated account and Amazon Web Services
+        Region.  Required permissions:  rolesanywhere:ListTrustAnchors. 
+    paths:
+      /trustanchors:
+        GET:
+          summary: Listtrustanchors
+          description: >-
+            Lists the trust anchors in the authenticated account and Amazon Web
+            Services Region.  Required permissions: 
+            rolesanywhere:ListTrustAnchors. 
+          operationId: listTrustAnchors

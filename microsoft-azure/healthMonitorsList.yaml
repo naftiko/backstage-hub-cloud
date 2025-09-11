@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-the-current-health-status-of-all-monitors-of-a-virtual-machine-optional-parameters-expand-retrieve-the-monitors-evidence-and-configuration-and-filter-filter-by-monitor-name
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get The Current Health Status Of All Monitors Of A Virtual Machine. Optional
+        Parameters: $expand (retrieve The Monitor's Evidence And Configuration) And
+        $filter (filter By Monitor Name).
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{providerName}/{resourceCollectionName}/{resourceName}/providers/Microsoft.WorkloadMonitor/monitors:
+        get:
+          summary: >-
+            Get The Current Health Status Of All Monitors Of A Virtual Machine.
+            Optional Parameters: $expand (retrieve The Monitor's Evidence And
+            Configuration) And $filter (filter By Monitor Name).
+          description: Needs a more full description created.
+          operationId: healthMonitorsList
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: resetauthorizerscache
+  description: >-
+    Resets all authorizer cache entries for the specified stage. Supported only
+    for HTTP API Lambda authorizers.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Resetauthorizerscache
+      description: >-
+        Resets all authorizer cache entries for the specified stage. Supported only
+        for HTTP API Lambda authorizers.
+    paths:
+      /v2/apis/{apiId}/stages/{stageName}/cache/authorizers:
+        DELETE:
+          summary: Resetauthorizerscache
+          description: >-
+            Resets all authorizer cache entries for the specified stage. Supported
+            only for HTTP API Lambda authorizers.
+          operationId: resetAuthorizersCache

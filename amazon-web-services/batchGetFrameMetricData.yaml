@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: batchgetframemetricdata
+  description: ' Returns the time series of values for a requested list of frame metrics from a time period.'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchgetframemetricdata
+      description: ' Returns the time series of values for a requested list of frame metrics from a time period.'
+    paths:
+      /profilingGroups/{profilingGroupName}/frames/-/metrics:
+        POST:
+          summary: Batchgetframemetricdata
+          description: ' Returns the time series of values for a requested list of frame metrics from a time period.'
+          operationId: batchGetFrameMetricData

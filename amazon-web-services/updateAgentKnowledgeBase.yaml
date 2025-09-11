@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updateagentknowledgebase
+  description: Updates an existing Knowledge Base associated to an Amazon Bedrock Agent
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateagentknowledgebase
+      description: Updates an existing Knowledge Base associated to an Amazon Bedrock Agent
+    paths:
+      /agents/{agentId}/agentversions/{agentVersion}/knowledgebases/{knowledgeBaseId}/:
+        PUT:
+          summary: Updateagentknowledgebase
+          description: Updates an existing Knowledge Base associated to an Amazon Bedrock Agent
+          operationId: updateAgentKnowledgeBase

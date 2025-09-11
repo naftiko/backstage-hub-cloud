@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: describedomainhealth
+  description: >-
+    Returns information about domain and node health, the standby Availability
+    Zone, number of nodes per Availability Zone, and shard count per node.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describedomainhealth
+      description: >-
+        Returns information about domain and node health, the standby Availability
+        Zone, number of nodes per Availability Zone, and shard count per node.
+    paths:
+      /2021-01-01/opensearch/domain/{DomainName}/health:
+        GET:
+          summary: Describedomainhealth
+          description: >-
+            Returns information about domain and node health, the standby
+            Availability Zone, number of nodes per Availability Zone, and shard
+            count per node.
+          operationId: describeDomainHealth

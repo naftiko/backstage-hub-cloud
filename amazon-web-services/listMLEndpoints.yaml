@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listmlendpoints
+  description: >-
+    Lists existing inference endpoints. See Managing inference endpoints using
+    the endpoints command. When invoking this operation in a Neptune cluster
+    that has IAM authentication enabled, the IAM user or role making the request
+    must have a policy attached that allows the neptune-db:ListMLEndpoints IAM
+    action in that cluster.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listmlendpoints
+      description: >-
+        Lists existing inference endpoints. See Managing inference endpoints using
+        the endpoints command. When invoking this operation in a Neptune cluster
+        that has IAM authentication enabled, the IAM user or role making the request
+        must have a policy attached that allows the neptune-db:ListMLEndpoints IAM
+        action in that cluster.
+    paths:
+      /ml/endpoints:
+        GET:
+          summary: Listmlendpoints
+          description: >-
+            Lists existing inference endpoints. See Managing inference endpoints
+            using the endpoints command. When invoking this operation in a Neptune
+            cluster that has IAM authentication enabled, the IAM user or role making
+            the request must have a policy attached that allows the
+            neptune-db:ListMLEndpoints IAM action in that cluster.
+          operationId: listMLEndpoints

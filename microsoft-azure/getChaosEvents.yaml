@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    gets-the-next-segment-of-the-chaos-events-based-on-the-continuation-token-or-the-time-range
+  description: >-
+    To get the next segment of the Chaos events, you can specify the
+    ContinuationToken. To get the start of a new segment of Chaos events, you
+    can specify the time rangethrough StartTimeUtc and EndTimeUtc. You cannot
+    specify both the ContinuationToken and the time range in the same call.When
+    there are more than 100 Chaos events, the Chaos events are returned in
+    multiple segments where a segment contains no more than 100 Chaos events and
+    to get the next segment you make a call to this API with the continuation
+    token.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Gets The Next Segment Of The Chaos Events Based On The Continuation Token Or
+        The Time Range.
+      description: >-
+        To get the next segment of the Chaos events, you can specify the
+        ContinuationToken. To get the start of a new segment of Chaos events, you
+        can specify the time rangethrough StartTimeUtc and EndTimeUtc. You cannot
+        specify both the ContinuationToken and the time range in the same call.When
+        there are more than 100 Chaos events, the Chaos events are returned in
+        multiple segments where a segment contains no more than 100 Chaos events and
+        to get the next segment you make a call to this API with the continuation
+        token.
+    paths:
+      /Tools/Chaos/Events:
+        get:
+          summary: >-
+            Gets The Next Segment Of The Chaos Events Based On The Continuation
+            Token Or The Time Range.
+          description: >-
+            To get the next segment of the Chaos events, you can specify the
+            ContinuationToken. To get the start of a new segment of Chaos events,
+            you can specify the time rangethrough StartTimeUtc and EndTimeUtc. You
+            cannot specify both the ContinuationToken and the time range in the same
+            call.When there are more than 100 Chaos events, the Chaos events are
+            returned in multiple segments where a segment contains no more than 100
+            Chaos events and to get the next segment you make a call to this API
+            with the continuation token.
+          operationId: getChaosEvents
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

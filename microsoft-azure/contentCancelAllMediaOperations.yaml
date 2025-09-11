@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: cancel-all-media-operations-in-a-call
+  description: Cancel all media operations in a call.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Cancel All Media Operations In A Call.
+      description: Cancel all media operations in a call.
+    paths:
+      /calling/callConnections/{callConnectionId}:cancelAllMediaOperations:
+        post:
+          summary: Cancel All Media Operations In A Call.
+          description: Cancel all media operations in a call.
+          operationId: contentCancelAllMediaOperations
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/CommunicationErrorResponse'

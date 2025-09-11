@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: putpolicy
+  description: >-
+    Create or change your policy. For more information about policies, see the
+    user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putpolicy
+      description: >-
+        Create or change your policy. For more information about policies, see the
+        user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+    paths:
+      /2017-08-29/policy:
+        PUT:
+          summary: Putpolicy
+          description: >-
+            Create or change your policy. For more information about policies, see
+            the user guide at
+            http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+          operationId: putPolicy

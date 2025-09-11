@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-a-list-of-kafka-brokers
+  description: Get a list of Kafka brokers with hostname, port, and broker id
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A List Of Kafka Brokers
+      description: Get a list of Kafka brokers with hostname, port, and broker id
+    paths:
+      /v1/metadata/brokers:
+        get:
+          summary: Get A List Of Kafka Brokers
+          description: Get a list of Kafka brokers with hostname, port, and broker id
+          operationId: metadataGetBrokers
+          responses:
+            '500':
+              description: Internal Server Error

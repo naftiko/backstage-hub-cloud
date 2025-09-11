@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftnetwork-expressroutecrossconnections-crossconnectionname-peerings
+  description: Gets all peerings in a specified ExpressRouteCrossConnection.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.network Expressroutecrossconnections Crossconnectionname Peerings
+      description: Gets all peerings in a specified ExpressRouteCrossConnection.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}/peerings:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.network Expressroutecrossconnections
+            Crossconnectionname Peerings
+          description: Gets all peerings in a specified ExpressRouteCrossConnection.
+          operationId: expressRouteCrossConnectionPeeringsList
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./network.json#/definitions/CloudError

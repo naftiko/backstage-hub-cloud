@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deregisteraccount
+  description: ' Deregisters an account in Audit Manager.   Before you deregister, you can use the UpdateSettings API operation to set your preferred data retention policy. By default, Audit Manager retains your data. If you want to delete your data, you can use the DeregistrationPolicy attribute to request the deletion of your data.  For more information about data retention, see Data Protection in the Audit Manager User Guide.  '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deregisteraccount
+      description: ' Deregisters an account in Audit Manager.   Before you deregister, you can use the UpdateSettings API operation to set your preferred data retention policy. By default, Audit Manager retains your data. If you want to delete your data, you can use the DeregistrationPolicy attribute to request the deletion of your data.  For more information about data retention, see Data Protection in the Audit Manager User Guide.  '
+    paths:
+      /account/deregisterAccount:
+        POST:
+          summary: Deregisteraccount
+          description: ' Deregisters an account in Audit Manager.   Before you deregister, you can use the UpdateSettings API operation to set your preferred data retention policy. By default, Audit Manager retains your data. If you want to delete your data, you can use the DeregistrationPolicy attribute to request the deletion of your data.  For more information about data retention, see Data Protection in the Audit Manager User Guide.  '
+          operationId: deregisterAccount

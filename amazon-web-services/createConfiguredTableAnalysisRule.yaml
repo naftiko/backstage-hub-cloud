@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: createconfiguredtableanalysisrule
+  description: >-
+    Creates a new analysis rule for a configured table. Currently, only one
+    analysis rule can be created for a given configured table.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createconfiguredtableanalysisrule
+      description: >-
+        Creates a new analysis rule for a configured table. Currently, only one
+        analysis rule can be created for a given configured table.
+    paths:
+      /configuredTables/{configuredTableIdentifier}/analysisRule:
+        POST:
+          summary: Createconfiguredtableanalysisrule
+          description: >-
+            Creates a new analysis rule for a configured table. Currently, only one
+            analysis rule can be created for a given configured table.
+          operationId: createConfiguredTableAnalysisRule

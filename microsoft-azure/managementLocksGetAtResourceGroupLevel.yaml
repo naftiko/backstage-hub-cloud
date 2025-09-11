@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftauthorization-locks-lockname
+  description: Gets a management lock at the resource group level.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.authorization Locks Lockname
+      description: Gets a management lock at the resource group level.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/locks/{lockName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.authorization Locks Lockname
+          description: Gets a management lock at the resource group level.
+          operationId: managementLocksGetAtResourceGroupLevel
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: accountschecknameavailability
+  description: >-
+    Checks if the specified Visual Studio Team Services account name is
+    available. Resource name can be either an account name or an account name
+    and PUID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Accounts_checknameavailability
+      description: >-
+        Checks if the specified Visual Studio Team Services account name is
+        available. Resource name can be either an account name or an account name
+        and PUID.
+    paths:
+      /subscriptions/{subscriptionId}/providers/microsoft.visualstudio/checkNameAvailability:
+        post:
+          summary: Accounts_checknameavailability
+          description: >-
+            Checks if the specified Visual Studio Team Services account name is
+            available. Resource name can be either an account name or an account
+            name and PUID.
+          operationId: accountsCheckNameAvailability
+          responses:
+            '200':
+              description: >-
+                The operation succeeded. The response contains the result of the
+                name availability check.
+              schema:
+                $ref: '#/definitions/CheckNameAvailabilityResult'

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: create-or-update-a-multi-role-pool
+  description: Description for Create or update a multi-role pool.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Or Update A Multi-role Pool.
+      description: Description for Create or update a multi-role pool.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/multiRolePools/default:
+        put:
+          summary: Create Or Update A Multi-role Pool.
+          description: Description for Create or update a multi-role pool.
+          operationId: appServiceEnvironmentsCreateOrUpdateMultiRolePool
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

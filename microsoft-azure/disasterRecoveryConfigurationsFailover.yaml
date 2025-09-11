@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftsql-servers-servername-disasterrecoveryconfiguration-disasterrecoveryconfigurationname-failover
+  description: Fails over from the current primary server to this server.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.sql Servers Servername Disasterrecoveryconfiguration
+        Disasterrecoveryconfigurationname Failover
+      description: Fails over from the current primary server to this server.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/disasterRecoveryConfiguration/{disasterRecoveryConfigurationName}/failover:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.sql Servers Servername Disasterrecoveryconfiguration
+            Disasterrecoveryconfigurationname Failover
+          description: Fails over from the current primary server to this server.
+          operationId: disasterRecoveryConfigurationsFailover
+          responses:
+            '204':
+              description: No Content

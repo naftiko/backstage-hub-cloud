@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    indicates-to-the-service-fabric-cluster-that-it-should-attempt-to-recover-the-system-services-that-are-currently-stuck-in-quorum-loss
+  description: >-
+    Indicates to the Service Fabric cluster that it should attempt to recover
+    the system services that are currently stuck in quorum loss. This operation
+    should only be performed if it is known that the replicas that are down
+    cannot be recovered. Incorrect use of this API can cause potential data
+    loss.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Indicates To The Service Fabric Cluster That It Should Attempt To Recover
+        The System Services That Are Currently Stuck In Quorum Loss.
+      description: >-
+        Indicates to the Service Fabric cluster that it should attempt to recover
+        the system services that are currently stuck in quorum loss. This operation
+        should only be performed if it is known that the replicas that are down
+        cannot be recovered. Incorrect use of this API can cause potential data
+        loss.
+    paths:
+      /$/RecoverSystemPartitions:
+        post:
+          summary: >-
+            Indicates To The Service Fabric Cluster That It Should Attempt To
+            Recover The System Services That Are Currently Stuck In Quorum Loss.
+          description: >-
+            Indicates to the Service Fabric cluster that it should attempt to
+            recover the system services that are currently stuck in quorum loss.
+            This operation should only be performed if it is known that the replicas
+            that are down cannot be recovered. Incorrect use of this API can cause
+            potential data loss.
+          operationId: recoverSystemPartitions
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

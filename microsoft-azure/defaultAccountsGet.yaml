@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-the-default-account-information-set-for-the-scope
+  description: Get the default account for the scope.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The Default Account Information Set For The Scope.
+      description: Get the default account for the scope.
+    paths:
+      /providers/Microsoft.Purview/getDefaultAccount:
+        get:
+          summary: Gets The Default Account Information Set For The Scope.
+          description: Get the default account for the scope.
+          operationId: defaultAccountsGet
+          responses:
+            default:
+              description: An error response received from the provider.
+              schema:
+                $ref: '#/definitions/ErrorResponseModel'

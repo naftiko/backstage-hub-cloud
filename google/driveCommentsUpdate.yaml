@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: patch-files-fileid-comments-commentid
+  description: Updates a comment with patch semantics.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Patch Files Fileid Comments Commentid
+      description: Updates a comment with patch semantics.
+    paths:
+      /files/{fileId}/comments/{commentId}:
+        patch:
+          summary: Patch Files Fileid Comments Commentid
+          description: Updates a comment with patch semantics.
+          operationId: driveCommentsUpdate
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Comment'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/Comment'
+              description: Successful response

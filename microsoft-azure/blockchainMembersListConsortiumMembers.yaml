@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftblockchain-blockchainmembers-blockchainmembername-consortiummembers
+  description: Lists the consortium members for a blockchain member.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.blockchain Blockchainmembers Blockchainmembername
+        Consortiummembers
+      description: Lists the consortium members for a blockchain member.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/consortiumMembers:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.blockchain Blockchainmembers Blockchainmembername
+            Consortiummembers
+          description: Lists the consortium members for a blockchain member.
+          operationId: blockchainMembersListConsortiumMembers
+          responses:
+            '200':
+              description: Success
+              schema:
+                $ref: '#/definitions/ConsortiumMemberCollection'

@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftdocumentdb-cassandraclusters-clustername-backups-backupid
+  description: >-
+    Get the properties of an individual backup of this cluster that is available
+    to restore.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.documentdb Cassandraclusters Clustername Backups Backupid
+      description: >-
+        Get the properties of an individual backup of this cluster that is available
+        to restore.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/cassandraClusters/{clusterName}/backups/{backupId}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.documentdb Cassandraclusters Clustername Backups
+            Backupid
+          description: >-
+            Get the properties of an individual backup of this cluster that is
+            available to restore.
+          operationId: cassandraClustersGetBackup
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: cosmos-db.json#/definitions/CloudError

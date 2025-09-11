@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: putprojectevents
+  description: >-
+    Sends performance events to Evidently. These events can be used to evaluate
+    a launch or an experiment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putprojectevents
+      description: >-
+        Sends performance events to Evidently. These events can be used to evaluate
+        a launch or an experiment.
+    paths:
+      /events/projects/{project}:
+        POST:
+          summary: Putprojectevents
+          description: >-
+            Sends performance events to Evidently. These events can be used to
+            evaluate a launch or an experiment.
+          operationId: putProjectEvents

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatefunctionurlconfig
+  description: Updates the configuration for a Lambda function URL.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatefunctionurlconfig
+      description: Updates the configuration for a Lambda function URL.
+    paths:
+      /2021-10-31/functions/{FunctionName}/url:
+        PUT:
+          summary: Updatefunctionurlconfig
+          description: Updates the configuration for a Lambda function URL.
+          operationId: updateFunctionUrlConfig

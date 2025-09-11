@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listkeywordsfordatasource
+  description: ' Returns a list of keywords that are pre-mapped to the specified control data source. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listkeywordsfordatasource
+      description: ' Returns a list of keywords that are pre-mapped to the specified control data source. '
+    paths:
+      /dataSourceKeywords:
+        GET:
+          summary: Listkeywordsfordatasource
+          description: ' Returns a list of keywords that are pre-mapped to the specified control data source. '
+          operationId: listKeywordsForDataSource

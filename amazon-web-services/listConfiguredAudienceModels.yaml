@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listconfiguredaudiencemodels
+  description: Returns a list of the configured audience models.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listconfiguredaudiencemodels
+      description: Returns a list of the configured audience models.
+    paths:
+      /configured-audience-model:
+        GET:
+          summary: Listconfiguredaudiencemodels
+          description: Returns a list of the configured audience models.
+          operationId: listConfiguredAudienceModels

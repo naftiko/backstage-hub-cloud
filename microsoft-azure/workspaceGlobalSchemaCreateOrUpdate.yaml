@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftapimanagement-service-servicename-workspaces-workspaceid-schemas-schemaid
+  description: >-
+    Creates new or updates existing specified Schema of the workspace in an API
+    Management service instance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.apimanagement Service Servicename Workspaces Workspaceid Schemas
+        Schemaid
+      description: >-
+        Creates new or updates existing specified Schema of the workspace in an API
+        Management service instance.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/schemas/{schemaId}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.apimanagement Service Servicename Workspaces
+            Workspaceid Schemas Schemaid
+          description: >-
+            Creates new or updates existing specified Schema of the workspace in an
+            API Management service instance.
+          operationId: workspaceGlobalSchemaCreateOrUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./apimanagement.json#/definitions/ErrorResponse

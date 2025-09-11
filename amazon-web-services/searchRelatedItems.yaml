@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: searchrelateditems
+  description: >-
+    Searches for related items that are associated with a case.  If no filters
+    are provided, this returns all related items associated with a case. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Searchrelateditems
+      description: >-
+        Searches for related items that are associated with a case.  If no filters
+        are provided, this returns all related items associated with a case. 
+    paths:
+      /domains/{domainId}/cases/{caseId}/related-items-search:
+        POST:
+          summary: Searchrelateditems
+          description: >-
+            Searches for related items that are associated with a case.  If no
+            filters are provided, this returns all related items associated with a
+            case. 
+          operationId: searchRelatedItems

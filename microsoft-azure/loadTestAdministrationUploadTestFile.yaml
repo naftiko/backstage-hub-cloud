@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    upload-input-file-for-a-given-test-id-file-size-cant-be-more-than-50-mbexisting-file-with-same-name-for-the-given-test-will-be-overwritten-fileshould-be-provided-in-the-request-body-as-applicationoctet-stream
+  description: >-
+    Upload input file for a given test Id. File size can't be more than 50
+    MB.Existing file with same name for the given test will be overwritten.
+    Fileshould be provided in the request body as application/octet-stream.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: |-
+        Upload Input File For A Given Test Id. File Size Can't Be More Than 50 Mb.
+        existing File With Same Name For The Given Test Will Be Overwritten. File
+        should Be Provided In The Request Body As Application/octet-stream.
+      description: >-
+        Upload input file for a given test Id. File size can't be more than 50
+        MB.Existing file with same name for the given test will be overwritten.
+        Fileshould be provided in the request body as application/octet-stream.
+    paths:
+      /tests/{testId}/files/{fileName}:
+        put:
+          summary: >-
+            Upload Input File For A Given Test Id. File Size Can't Be More Than 50
+            Mb.
+
+            existing File With Same Name For The Given Test Will Be Overwritten.
+            File
+
+            should Be Provided In The Request Body As Application/octet-stream.
+          description: >-
+            Upload input file for a given test Id. File size can't be more than 50
+            MB.Existing file with same name for the given test will be overwritten.
+            Fileshould be provided in the request body as application/octet-stream.
+          operationId: loadTestAdministrationUploadTestFile
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/Azure.Core.Foundations.ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: String error code indicating what went wrong.

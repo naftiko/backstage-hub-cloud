@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: performs-planned-failover
+  description: Performs the planned failover on the protected item.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Performs Planned Failover.
+      description: Performs the planned failover on the protected item.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/protectedItems/{protectedItemName}/plannedFailover:
+        post:
+          summary: Performs Planned Failover.
+          description: Performs the planned failover on the protected item.
+          operationId: protectedItemPlannedFailover
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

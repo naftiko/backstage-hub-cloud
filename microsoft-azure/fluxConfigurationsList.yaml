@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-clusterrp-clusterresourcename-clustername-providers-microsoftkubernetesconfiguration-fluxconfigurations
+  description: List all Flux Configurations.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Clusterrp Clusterresourcename Clustername Providers
+        Microsoft.kubernetesconfiguration Fluxconfigurations
+      description: List all Flux Configurations.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{clusterRp}/{clusterResourceName}/{clusterName}/providers/Microsoft.KubernetesConfiguration/fluxConfigurations:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Clusterrp Clusterresourcename Clustername Providers
+            Microsoft.kubernetesconfiguration Fluxconfigurations
+          description: List all Flux Configurations.
+          operationId: fluxConfigurationsList
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

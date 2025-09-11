@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftlogic-integrationaccounts-integrationaccountname
+  description: Creates or updates an integration account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.logic Integrationaccounts Integrationaccountname
+      description: Creates or updates an integration account.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.logic Integrationaccounts Integrationaccountname
+          description: Creates or updates an integration account.
+          operationId: integrationAccountsCreateOrUpdate
+          responses:
+            '201':
+              description: Created
+              schema:
+                $ref: '#/definitions/IntegrationAccount'

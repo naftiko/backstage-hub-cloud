@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-spatial-greatcircledistance-format
+  description: >-
+    **Applies to**: S1 pricing tier.This API will return the great-circle or
+    shortest distance between two points on the surface of a sphere, measured
+    along the surface of the sphere.  This differs from calculating a straight
+    line through the sphere's interior. This method is helpful for estimating
+    travel distances for airplanes by calculating the shortest distance between
+    airports.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Spatial Greatcircledistance Format
+      description: >-
+        **Applies to**: S1 pricing tier.This API will return the great-circle or
+        shortest distance between two points on the surface of a sphere, measured
+        along the surface of the sphere.  This differs from calculating a straight
+        line through the sphere's interior. This method is helpful for estimating
+        travel distances for airplanes by calculating the shortest distance between
+        airports.
+    paths:
+      /spatial/greatCircleDistance/{format}:
+        get:
+          summary: Get Spatial Greatcircledistance Format
+          description: >-
+            **Applies to**: S1 pricing tier.This API will return the great-circle or
+            shortest distance between two points on the surface of a sphere,
+            measured along the surface of the sphere.  This differs from calculating
+            a straight line through the sphere's interior. This method is helpful
+            for estimating travel distances for airplanes by calculating the
+            shortest distance between airports.
+          operationId: spatialGetGreatCircleDistance
+          responses:
+            '500':
+              $ref: '#/responses/500'

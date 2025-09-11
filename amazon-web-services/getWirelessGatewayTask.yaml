@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getwirelessgatewaytask
+  description: Gets information about a wireless gateway task.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getwirelessgatewaytask
+      description: Gets information about a wireless gateway task.
+    paths:
+      /wireless-gateways/{Id}/tasks:
+        GET:
+          summary: Getwirelessgatewaytask
+          description: Gets information about a wireless gateway task.
+          operationId: getWirelessGatewayTask

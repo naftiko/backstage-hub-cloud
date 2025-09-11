@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    retrieves-a-list-of-all-azure-supported-baseline-details-for-the-a-tee-type-along-with-an-indication-of-which-one-is-in-enforced-for-the-attestation-provider
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Retrieves A List Of All Azure Supported Baseline Details For The A Tee Type
+        Along With An Indication Of Which One Is In Enforced For The Attestation
+        Provider.
+      description: Needs a more full description created.
+    paths:
+      /tcbbaselines/{attestationType}:
+        get:
+          summary: >-
+            Retrieves A List Of All Azure Supported Baseline Details For The A Tee
+            Type Along With An Indication Of Which One Is In Enforced For The
+            Attestation Provider.
+          description: Needs a more full description created.
+          operationId: tcbBaselinesGet
+          responses:
+            default:
+              description: Error response describing why the operation failed
+              schema:
+                $ref: '#/definitions/CloudError'

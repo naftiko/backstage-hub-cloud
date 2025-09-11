@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: delete-forwarding-addresses
+  description: >-
+    Deletes the specified forwarding address and revokes any verification that
+    may have been required. This method is only available to service account
+    clients that have been delegated domain-wide authority.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Forwarding Addresses
+      description: >-
+        Deletes the specified forwarding address and revokes any verification that
+        may have been required. This method is only available to service account
+        clients that have been delegated domain-wide authority.
+    paths:
+      /gmail/v1/users/{userId}/settings/forwardingAddresses/{forwardingEmail}:
+        delete:
+          summary: Delete Forwarding Addresses
+          description: >-
+            Deletes the specified forwarding address and revokes any verification
+            that may have been required. This method is only available to service
+            account clients that have been delegated domain-wide authority.
+          operationId: deleteForwardingAddresses
+          responses:
+            '204':
+              description: No Content
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: ''

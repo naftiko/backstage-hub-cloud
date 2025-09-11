@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deletes-the-backup-policy
+  description: >-
+    Deletes an existing backup policy. A backup policy must be created before it
+    can be deleted. A currently active backup policy, associated with any
+    Service Fabric application, service or partition, cannot be deleted without
+    first deleting the mapping.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes The Backup Policy.
+      description: >-
+        Deletes an existing backup policy. A backup policy must be created before it
+        can be deleted. A currently active backup policy, associated with any
+        Service Fabric application, service or partition, cannot be deleted without
+        first deleting the mapping.
+    paths:
+      /BackupRestore/BackupPolicies/{backupPolicyName}/$/Delete:
+        post:
+          summary: Deletes The Backup Policy.
+          description: >-
+            Deletes an existing backup policy. A backup policy must be created
+            before it can be deleted. A currently active backup policy, associated
+            with any Service Fabric application, service or partition, cannot be
+            deleted without first deleting the mapping.
+          operationId: deleteBackupPolicy
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

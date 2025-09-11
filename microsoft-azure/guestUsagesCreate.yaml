@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: creates-a-guest-usages-resource
+  description: >-
+    Creates a Guest Usages resource, which is used to linking a subscription to
+    an instance of Azure AD External Identities. [Learn
+    more](https://aka.ms/extidbilling).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Creates A Guest Usages Resource
+      description: >-
+        Creates a Guest Usages resource, which is used to linking a subscription to
+        an instance of Azure AD External Identities. [Learn
+        more](https://aka.ms/extidbilling).
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureActiveDirectory/guestUsages/{resourceName}:
+        put:
+          summary: Creates A Guest Usages Resource
+          description: >-
+            Creates a Guest Usages resource, which is used to linking a subscription
+            to an instance of Azure AD External Identities. [Learn
+            more](https://aka.ms/extidbilling).
+          operationId: guestUsagesCreate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

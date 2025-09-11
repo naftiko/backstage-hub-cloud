@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftquantum-workspaces-workspacename-storage-sasuri
+  description: >-
+    Gets a URL with SAS token for a container/blob in the storage account
+    associated with the workspace. The SAS URL can be used to upload job input
+    and/or download job output.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.quantum Workspaces Workspacename Storage Sasuri
+      description: >-
+        Gets a URL with SAS token for a container/blob in the storage account
+        associated with the workspace. The SAS URL can be used to upload job input
+        and/or download job output.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Quantum/workspaces/{workspaceName}/storage/sasUri:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.quantum Workspaces Workspacename Storage Sasuri
+          description: >-
+            Gets a URL with SAS token for a container/blob in the storage account
+            associated with the workspace. The SAS URL can be used to upload job
+            input and/or download job output.
+          operationId: storageSasUri
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/RestError'

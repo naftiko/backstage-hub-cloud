@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: putdraftappversiontemplate
+  description: >-
+    Adds or updates the app template for an Resilience Hub application draft
+    version.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putdraftappversiontemplate
+      description: >-
+        Adds or updates the app template for an Resilience Hub application draft
+        version.
+    paths:
+      /put-draft-app-version-template:
+        POST:
+          summary: Putdraftappversiontemplate
+          description: >-
+            Adds or updates the app template for an Resilience Hub application draft
+            version.
+          operationId: putDraftAppVersionTemplate

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-documentmodels-modelidcopyto
+  description: Copies document model to the target resource, region, and modelId.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Documentmodels Modelid:copyto
+      description: Copies document model to the target resource, region, and modelId.
+    paths:
+      /documentModels/{modelId}:copyTo:
+        post:
+          summary: Post Documentmodels Modelid:copyto
+          description: Copies document model to the target resource, region, and modelId.
+          operationId: documentModelsCopyModelTo
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

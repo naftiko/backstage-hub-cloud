@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: lists-all-virtual-machine-images-supported-by-the-azure-batch-service
+  description: Lists all Virtual Machine Images supported by the Azure Batch service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Lists All Virtual Machine Images Supported By The Azure Batch Service.
+      description: Lists all Virtual Machine Images supported by the Azure Batch service.
+    paths:
+      /supportedimages:
+        get:
+          summary: Lists All Virtual Machine Images Supported By The Azure Batch Service.
+          description: Lists all Virtual Machine Images supported by the Azure Batch service.
+          operationId: batchListSupportedImages
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

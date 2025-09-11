@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listaccountpermissions
+  description: Lists the permissions an account has to configure Amazon Inspector.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listaccountpermissions
+      description: Lists the permissions an account has to configure Amazon Inspector.
+    paths:
+      /accountpermissions/list:
+        POST:
+          summary: Listaccountpermissions
+          description: Lists the permissions an account has to configure Amazon Inspector.
+          operationId: listAccountPermissions

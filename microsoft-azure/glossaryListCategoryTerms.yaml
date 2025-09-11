@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-atlas-glossary-category-categoryguid-terms
+  description: Get all terms associated with the specific category.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Atlas Glossary Category Categoryguid Terms
+      description: Get all terms associated with the specific category.
+    paths:
+      /atlas/v2/glossary/category/{categoryGuid}/terms:
+        get:
+          summary: Get Atlas Glossary Category Categoryguid Terms
+          description: Get all terms associated with the specific category.
+          operationId: glossaryListCategoryTerms
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

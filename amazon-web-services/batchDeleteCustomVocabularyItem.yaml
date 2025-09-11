@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: batchdeletecustomvocabularyitem
+  description: >-
+    Delete a batch of custom vocabulary items for a given bot locale's custom
+    vocabulary.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchdeletecustomvocabularyitem
+      description: >-
+        Delete a batch of custom vocabulary items for a given bot locale's custom
+        vocabulary.
+    paths:
+      /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchdelete:
+        POST:
+          summary: Batchdeletecustomvocabularyitem
+          description: >-
+            Delete a batch of custom vocabulary items for a given bot locale's
+            custom vocabulary.
+          operationId: batchDeleteCustomVocabularyItem

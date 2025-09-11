@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: reset-profile
+  description: >-
+    Resets existing profile to its original creation state. The reset operation
+    does the following:* Updates enrollmentStatus to Enrolling.* Updates
+    lastUpdatedDateTime.* Updates enrollmentsCount to 0.* Updates
+    enrollmentsLength to 0.* Updates enrollmentsSpeechLength to 0.* Updates
+    remainingEnrollmentsCount to the initial required number.* Removes all
+    associated enrollments from storage.* Removes chosen passphrase
+    association.* Resets value of modelVersion.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Reset Profile
+      description: >-
+        Resets existing profile to its original creation state. The reset operation
+        does the following:* Updates enrollmentStatus to Enrolling.* Updates
+        lastUpdatedDateTime.* Updates enrollmentsCount to 0.* Updates
+        enrollmentsLength to 0.* Updates enrollmentsSpeechLength to 0.* Updates
+        remainingEnrollmentsCount to the initial required number.* Removes all
+        associated enrollments from storage.* Removes chosen passphrase
+        association.* Resets value of modelVersion.
+    paths:
+      /text-dependent/profiles/{profileId}/reset:
+        post:
+          summary: Reset Profile
+          description: >-
+            Resets existing profile to its original creation state. The reset
+            operation does the following:* Updates enrollmentStatus to Enrolling.*
+            Updates lastUpdatedDateTime.* Updates enrollmentsCount to 0.* Updates
+            enrollmentsLength to 0.* Updates enrollmentsSpeechLength to 0.* Updates
+            remainingEnrollmentsCount to the initial required number.* Removes all
+            associated enrollments from storage.* Removes chosen passphrase
+            association.* Resets value of modelVersion.
+          operationId: textDependentResetProfile
+          responses:
+            '500':
+              $ref: '#/responses/ServerError'

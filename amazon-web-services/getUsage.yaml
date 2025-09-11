@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getusage
+  description: Gets the usage data of a usage plan in a specified time interval.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getusage
+      description: Gets the usage data of a usage plan in a specified time interval.
+    paths:
+      /usageplans/{usageplanId}/usage:
+        GET:
+          summary: Getusage
+          description: Gets the usage data of a usage plan in a specified time interval.
+          operationId: getUsage

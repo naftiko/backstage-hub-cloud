@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: unsubscribefromdataset
+  description: >-
+    Unsubscribes from receiving notifications when a dataset is modified by
+    another device.This API can only be called with temporary credentials
+    provided by Cognito Identity. You cannot call this API with developer
+    credentials.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Unsubscribefromdataset
+      description: >-
+        Unsubscribes from receiving notifications when a dataset is modified by
+        another device.This API can only be called with temporary credentials
+        provided by Cognito Identity. You cannot call this API with developer
+        credentials.
+    paths:
+      /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}:
+        DELETE:
+          summary: Unsubscribefromdataset
+          description: >-
+            Unsubscribes from receiving notifications when a dataset is modified by
+            another device.This API can only be called with temporary credentials
+            provided by Cognito Identity. You cannot call this API with developer
+            credentials.
+          operationId: unsubscribeFromDataset

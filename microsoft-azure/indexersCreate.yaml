@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-indexers
+  description: Creates a new indexer.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Indexers
+      description: Creates a new indexer.
+    paths:
+      /indexers:
+        post:
+          summary: Post Indexers
+          description: Creates a new indexer.
+          operationId: indexersCreate
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/SearchError'

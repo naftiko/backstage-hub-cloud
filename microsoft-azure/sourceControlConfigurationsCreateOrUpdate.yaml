@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-clusterrp-clusterresourcename-clustername-providers-microsoftkubernetesconfiguration-sourcecontrolconfigurations-sourcecontrolconfigurationname
+  description: Create a new Kubernetes Source Control Configuration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Clusterrp Clusterresourcename Clustername Providers
+        Microsoft.kubernetesconfiguration Sourcecontrolconfigurations
+        Sourcecontrolconfigurationname
+      description: Create a new Kubernetes Source Control Configuration.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{clusterRp}/{clusterResourceName}/{clusterName}/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/{sourceControlConfigurationName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Clusterrp Clusterresourcename Clustername Providers
+            Microsoft.kubernetesconfiguration Sourcecontrolconfigurations
+            Sourcecontrolconfigurationname
+          description: Create a new Kubernetes Source Control Configuration.
+          operationId: sourceControlConfigurationsCreateOrUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getdatacellsfilter
+  description: Returns a data cells filter.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getdatacellsfilter
+      description: Returns a data cells filter.
+    paths:
+      /GetDataCellsFilter:
+        POST:
+          summary: Getdatacellsfilter
+          description: Returns a data cells filter.
+          operationId: getDataCellsFilter

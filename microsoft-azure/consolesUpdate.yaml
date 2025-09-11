@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: patch-the-virtual-machine-console
+  description: >-
+    Patch the properties of the provided virtual machine console, or update the
+    tags associated with the virtual machine console. Properties and tag updates
+    can be done independently.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Patch The Virtual Machine Console.
+      description: >-
+        Patch the properties of the provided virtual machine console, or update the
+        tags associated with the virtual machine console. Properties and tag updates
+        can be done independently.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName}/consoles/{consoleName}:
+        patch:
+          summary: Patch The Virtual Machine Console.
+          description: >-
+            Patch the properties of the provided virtual machine console, or update
+            the tags associated with the virtual machine console. Properties and tag
+            updates can be done independently.
+          operationId: consolesUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

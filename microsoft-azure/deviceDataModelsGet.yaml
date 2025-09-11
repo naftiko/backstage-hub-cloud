@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-sensor-partners-sensorpartnerid-device-data-models-devicedatamodelid
+  description: Gets a device data model entity.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Sensor-partners Sensorpartnerid Device-data-models Devicedatamodelid
+      description: Gets a device data model entity.
+    paths:
+      /sensor-partners/{sensorPartnerId}/device-data-models/{deviceDataModelId}:
+        get:
+          summary: Get Sensor-partners Sensorpartnerid Device-data-models Devicedatamodelid
+          description: Gets a device data model entity.
+          operationId: deviceDataModelsGet
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  x-ms-client-name: ErrorCode
+              x-ms-error-response: true

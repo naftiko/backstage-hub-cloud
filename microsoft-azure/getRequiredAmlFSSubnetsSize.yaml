@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-providers-microsoftstoragecache-getrequiredamlfssubnetssize
+  description: >-
+    Get the number of available IP addresses needed for the AML file system
+    information provided.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Providers Microsoft.storagecache
+        Getrequiredamlfssubnetssize
+      description: >-
+        Get the number of available IP addresses needed for the AML file system
+        information provided.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.StorageCache/getRequiredAmlFSSubnetsSize:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Providers Microsoft.storagecache
+            Getrequiredamlfssubnetssize
+          description: >-
+            Get the number of available IP addresses needed for the AML file system
+            information provided.
+          operationId: getRequiredAmlFSSubnetsSize
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: storagecache.json#/definitions/CloudError

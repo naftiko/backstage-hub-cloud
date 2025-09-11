@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftnetwork-virtualhubs-virtualhubname
+  description: >-
+    Creates a VirtualHub resource if it doesn't exist else updates the existing
+    VirtualHub.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.network Virtualhubs Virtualhubname
+      description: >-
+        Creates a VirtualHub resource if it doesn't exist else updates the existing
+        VirtualHub.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.network Virtualhubs Virtualhubname
+          description: >-
+            Creates a VirtualHub resource if it doesn't exist else updates the
+            existing VirtualHub.
+          operationId: virtualHubsCreateOrUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./network.json#/definitions/CloudError

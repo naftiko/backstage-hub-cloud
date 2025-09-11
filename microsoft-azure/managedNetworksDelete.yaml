@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftmanagednetwork-managednetworks-managednetworkname
+  description: >-
+    The Delete ManagedNetworks operation deletes a Managed Network Resource,
+    specified by the  resource group and Managed Network name
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.managednetwork Managednetworks Managednetworkname
+      description: >-
+        The Delete ManagedNetworks operation deletes a Managed Network Resource,
+        specified by the  resource group and Managed Network name
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetwork/managedNetworks/{managedNetworkName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.managednetwork Managednetworks Managednetworkname
+          description: >-
+            The Delete ManagedNetworks operation deletes a Managed Network Resource,
+            specified by the  resource group and Managed Network name
+          operationId: managedNetworksDelete
+          responses:
+            default:
+              description: >-
+                Resource Provider error response describing why the operation
+                failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

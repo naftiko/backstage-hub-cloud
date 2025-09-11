@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-seasonal-fieldssearch
+  description: Search for SeasonalFields across all parties by intersecting geometry.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Seasonal-fields:search
+      description: Search for SeasonalFields across all parties by intersecting geometry.
+    paths:
+      /seasonal-fields:search:
+        post:
+          summary: Post Seasonal-fields:search
+          description: Search for SeasonalFields across all parties by intersecting geometry.
+          operationId: seasonalFieldsSearch
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  x-ms-client-name: ErrorCode
+              x-ms-error-response: true

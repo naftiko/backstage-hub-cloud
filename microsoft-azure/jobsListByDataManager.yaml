@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsofthybriddata-datamanagers-datamanagername-jobs
+  description: This method gets all the jobs at the data manager resource level.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.hybriddata Datamanagers Datamanagername Jobs
+      description: This method gets all the jobs at the data manager resource level.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridData/dataManagers/{dataManagerName}/jobs:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.hybriddata Datamanagers Datamanagername Jobs
+          description: This method gets all the jobs at the data manager resource level.
+          operationId: jobsListByDataManager
+          responses:
+            '200':
+              description: The list of jobs in the resource specified.
+              schema:
+                $ref: '#/definitions/JobList'

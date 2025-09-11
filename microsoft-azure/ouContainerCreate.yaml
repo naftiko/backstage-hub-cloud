@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: create-oucontainer
+  description: >-
+    The Create OuContainer operation creates a new OuContainer under the
+    specified Domain Service instance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Oucontainer
+      description: >-
+        The Create OuContainer operation creates a new OuContainer under the
+        specified Domain Service instance.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Aad/domainServices/{domainServiceName}/ouContainer/{ouContainerName}:
+        put:
+          summary: Create Oucontainer
+          description: >-
+            The Create OuContainer operation creates a new OuContainer under the
+            specified Domain Service instance.
+          operationId: ouContainerCreate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./domainservices.json#/definitions/CloudError

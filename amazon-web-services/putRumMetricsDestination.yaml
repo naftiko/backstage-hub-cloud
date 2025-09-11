@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: putrummetricsdestination
+  description: >-
+    Creates or updates a destination to receive extended metrics from CloudWatch
+    RUM. You can send extended metrics to CloudWatch or to a CloudWatch
+    Evidently experiment. For more information about extended metrics, see
+    BatchCreateRumMetricDefinitions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putrummetricsdestination
+      description: >-
+        Creates or updates a destination to receive extended metrics from CloudWatch
+        RUM. You can send extended metrics to CloudWatch or to a CloudWatch
+        Evidently experiment. For more information about extended metrics, see
+        BatchCreateRumMetricDefinitions.
+    paths:
+      /rummetrics/{AppMonitorName}/metricsdestination:
+        POST:
+          summary: Putrummetricsdestination
+          description: >-
+            Creates or updates a destination to receive extended metrics from
+            CloudWatch RUM. You can send extended metrics to CloudWatch or to a
+            CloudWatch Evidently experiment. For more information about extended
+            metrics, see BatchCreateRumMetricDefinitions.
+          operationId: putRumMetricsDestination

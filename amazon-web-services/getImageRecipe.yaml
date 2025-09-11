@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getimagerecipe
+  description: Gets an image recipe.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getimagerecipe
+      description: Gets an image recipe.
+    paths:
+      /GetImageRecipe:
+        GET:
+          summary: Getimagerecipe
+          description: Gets an image recipe.
+          operationId: getImageRecipe

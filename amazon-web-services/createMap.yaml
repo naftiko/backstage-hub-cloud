@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: createmap
+  description: >-
+    Creates a map resource in your Amazon Web Services account, which provides
+    map tiles of different styles sourced from global location data providers. 
+    If your application is tracking or routing assets you use in your business,
+    such as delivery vehicles or employees, you must not use Esri as your
+    geolocation provider. See section 82 of the Amazon Web Services service
+    terms for more details. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createmap
+      description: >-
+        Creates a map resource in your Amazon Web Services account, which provides
+        map tiles of different styles sourced from global location data providers. 
+        If your application is tracking or routing assets you use in your business,
+        such as delivery vehicles or employees, you must not use Esri as your
+        geolocation provider. See section 82 of the Amazon Web Services service
+        terms for more details. 
+    paths:
+      /maps/v0/maps:
+        POST:
+          summary: Createmap
+          description: >-
+            Creates a map resource in your Amazon Web Services account, which
+            provides map tiles of different styles sourced from global location data
+            providers.  If your application is tracking or routing assets you use in
+            your business, such as delivery vehicles or employees, you must not use
+            Esri as your geolocation provider. See section 82 of the Amazon Web
+            Services service terms for more details. 
+          operationId: createMap

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-providers-microsoftresourcehealth-emergingissues
+  description: Lists Azure services' emerging issues.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Providers Microsoft.resourcehealth Emergingissues
+      description: Lists Azure services' emerging issues.
+    paths:
+      /providers/Microsoft.ResourceHealth/emergingIssues:
+        get:
+          summary: Get Providers Microsoft.resourcehealth Emergingissues
+          description: Lists Azure services' emerging issues.
+          operationId: emergingIssuesList
+          responses:
+            default:
+              description: DefaultErrorResponse
+              schema:
+                $ref: '#/definitions/ErrorResponse'

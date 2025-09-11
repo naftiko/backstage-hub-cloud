@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    patch-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftiotoperationsmq-mq-mqname-mqttbridgeconnector-mqttbridgeconnectorname
+  description: Update a MqttBridgeConnectorResource
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.iotoperationsmq Mq Mqname Mqttbridgeconnector
+        Mqttbridgeconnectorname
+      description: Update a MqttBridgeConnectorResource
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/mqttBridgeConnector/{mqttBridgeConnectorName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.iotoperationsmq Mq Mqname Mqttbridgeconnector
+            Mqttbridgeconnectorname
+          description: Update a MqttBridgeConnectorResource
+          operationId: mqttBridgeConnectorUpdate
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: sendprojectsessionaction
+  description: >-
+    Performs a recipe step within an interactive DataBrew session that's
+    currently open.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Sendprojectsessionaction
+      description: >-
+        Performs a recipe step within an interactive DataBrew session that's
+        currently open.
+    paths:
+      /projects/{name}/sendProjectSessionAction:
+        PUT:
+          summary: Sendprojectsessionaction
+          description: >-
+            Performs a recipe step within an interactive DataBrew session that's
+            currently open.
+          operationId: sendProjectSessionAction

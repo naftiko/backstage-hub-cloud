@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: putappinstancestreamingconfigurations
+  description: >-
+    The data streaming configurations of an AppInstance.   This API is is no
+    longer supported and will not be updated. We recommend using the latest
+    version, PutMessagingStreamingConfigurations, in the Amazon Chime SDK. Using
+    the latest version requires migrating to a dedicated namespace. For more
+    information, refer to Migrating from the Amazon Chime namespace in the
+    Amazon Chime SDK Developer Guide. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putappinstancestreamingconfigurations
+      description: >-
+        The data streaming configurations of an AppInstance.   This API is is no
+        longer supported and will not be updated. We recommend using the latest
+        version, PutMessagingStreamingConfigurations, in the Amazon Chime SDK. Using
+        the latest version requires migrating to a dedicated namespace. For more
+        information, refer to Migrating from the Amazon Chime namespace in the
+        Amazon Chime SDK Developer Guide. 
+    paths:
+      /app-instances/{appInstanceArn}/streaming-configurations:
+        PUT:
+          summary: Putappinstancestreamingconfigurations
+          description: >-
+            The data streaming configurations of an AppInstance.   This API is is no
+            longer supported and will not be updated. We recommend using the latest
+            version, PutMessagingStreamingConfigurations, in the Amazon Chime SDK.
+            Using the latest version requires migrating to a dedicated namespace.
+            For more information, refer to Migrating from the Amazon Chime namespace
+            in the Amazon Chime SDK Developer Guide. 
+          operationId: putAppInstanceStreamingConfigurations

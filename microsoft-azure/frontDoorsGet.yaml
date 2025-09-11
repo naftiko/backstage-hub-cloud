@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftnetwork-frontdoors-frontdoorname
+  description: >-
+    Gets a Front Door with the specified Front Door name under the specified
+    subscription and resource group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.network Frontdoors Frontdoorname
+      description: >-
+        Gets a Front Door with the specified Front Door name under the specified
+        subscription and resource group.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoors/{frontDoorName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.network Frontdoors Frontdoorname
+          description: >-
+            Gets a Front Door with the specified Front Door name under the specified
+            subscription and resource group.
+          operationId: frontDoorsGet
+          responses:
+            default:
+              description: Front Door error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

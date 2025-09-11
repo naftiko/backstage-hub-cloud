@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-providers-microsoftadhybridhealthservice-addsservices-servicename-servicemembers
+  description: >-
+    Onboards  a server, for a given Active Directory Domain Controller service,
+    to Azure Active Directory Connect Health Service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Providers Microsoft.adhybridhealthservice Addsservices Servicename
+        Servicemembers
+      description: >-
+        Onboards  a server, for a given Active Directory Domain Controller service,
+        to Azure Active Directory Connect Health Service.
+    paths:
+      /providers/Microsoft.ADHybridHealthService/addsservices/{serviceName}/servicemembers:
+        post:
+          summary: >-
+            Post Providers Microsoft.adhybridhealthservice Addsservices Servicename
+            Servicemembers
+          description: >-
+            Onboards  a server, for a given Active Directory Domain Controller
+            service, to Azure Active Directory Connect Health Service.
+          operationId: addsServicesServiceMembersadd
+          responses:
+            '200':
+              description: Successfully added the service member.
+              schema:
+                $ref: '#/definitions/ServiceMember'

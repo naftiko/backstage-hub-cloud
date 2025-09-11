@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listidentityresolutionjobs
+  description: >-
+    Lists all of the Identity Resolution Jobs in your domain. The response sorts
+    the list by JobStartTime.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listidentityresolutionjobs
+      description: >-
+        Lists all of the Identity Resolution Jobs in your domain. The response sorts
+        the list by JobStartTime.
+    paths:
+      /domains/{DomainName}/identity-resolution-jobs:
+        GET:
+          summary: Listidentityresolutionjobs
+          description: >-
+            Lists all of the Identity Resolution Jobs in your domain. The response
+            sorts the list by JobStartTime.
+          operationId: listIdentityResolutionJobs

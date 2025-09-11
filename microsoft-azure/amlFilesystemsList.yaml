@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-providers-microsoftstoragecache-amlfilesystems
+  description: Returns all AML file systems the user has access to under a subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft.storagecache
+        Amlfilesystems
+      description: Returns all AML file systems the user has access to under a subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.StorageCache/amlFilesystems:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft.storagecache
+            Amlfilesystems
+          description: >-
+            Returns all AML file systems the user has access to under a
+            subscription.
+          operationId: amlFilesystemsList
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: storagecache.json#/definitions/CloudError

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftdevtestlab-labs-labname-users-username-servicefabrics-servicefabricname-schedules-name
+  description: Create or replace an existing schedule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.devtestlab Labs Labname Users Username Servicefabrics
+        Servicefabricname Schedules Name
+      description: Create or replace an existing schedule.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/servicefabrics/{serviceFabricName}/schedules/{name}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.devtestlab Labs Labname Users Username
+            Servicefabrics Servicefabricname Schedules Name
+          description: Create or replace an existing schedule.
+          operationId: serviceFabricSchedulesCreateOrUpdate
+          responses:
+            default:
+              description: BadRequest
+              schema:
+                $ref: '#/definitions/CloudError'

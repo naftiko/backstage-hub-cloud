@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftagfoodplatform-farmbeats-datamanagerforagricultureresourcename-dataconnectors-dataconnectorname
+  description: Get specific Data Connector resource by DataConnectorName.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.agfoodplatform Farmbeats Datamanagerforagricultureresourcename
+        Dataconnectors Dataconnectorname
+      description: Get specific Data Connector resource by DataConnectorName.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName}/dataConnectors/{dataConnectorName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.agfoodplatform Farmbeats
+            Datamanagerforagricultureresourcename Dataconnectors Dataconnectorname
+          description: Get specific Data Connector resource by DataConnectorName.
+          operationId: dataConnectorsGet
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v4/types.json#/definitions/ErrorResponse

@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listtokenbalances
+  description: >-
+    This action returns the following for a given blockchain network:   Lists
+    all token balances owned by an address (either a contract address or a
+    wallet address).   Lists all token balances for all tokens created by a
+    contract.   Lists all token balances for a given token.    You must always
+    specify the network property of the tokenFilter when using this operation. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listtokenbalances
+      description: >-
+        This action returns the following for a given blockchain network:   Lists
+        all token balances owned by an address (either a contract address or a
+        wallet address).   Lists all token balances for all tokens created by a
+        contract.   Lists all token balances for a given token.    You must always
+        specify the network property of the tokenFilter when using this operation. 
+    paths:
+      /list-token-balances:
+        POST:
+          summary: Listtokenbalances
+          description: >-
+            This action returns the following for a given blockchain network:  
+            Lists all token balances owned by an address (either a contract address
+            or a wallet address).   Lists all token balances for all tokens created
+            by a contract.   Lists all token balances for a given token.    You must
+            always specify the network property of the tokenFilter when using this
+            operation. 
+          operationId: listTokenBalances

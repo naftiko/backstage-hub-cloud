@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updateviewmetadata
+  description: >-
+    Updates the view metadata. Note that either Name or Description must be
+    provided.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateviewmetadata
+      description: >-
+        Updates the view metadata. Note that either Name or Description must be
+        provided.
+    paths:
+      /views/{InstanceId}/{ViewId}/metadata:
+        POST:
+          summary: Updateviewmetadata
+          description: >-
+            Updates the view metadata. Note that either Name or Description must be
+            provided.
+          operationId: updateViewMetadata

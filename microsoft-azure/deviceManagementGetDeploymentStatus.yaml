@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-deviceupdate-instanceid-management-groups-groupid-deployments-deploymentid-status
+  description: >-
+    Gets the status of a deployment including a breakdown of how many devices in
+    the deployment are in progress, completed, or failed.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Deviceupdate Instanceid Management Groups Groupid Deployments
+        Deploymentid Status
+      description: >-
+        Gets the status of a deployment including a breakdown of how many devices in
+        the deployment are in progress, completed, or failed.
+    paths:
+      /deviceUpdate/{instanceId}/management/groups/{groupId}/deployments/{deploymentId}/status:
+        get:
+          summary: >-
+            Get Deviceupdate Instanceid Management Groups Groupid Deployments
+            Deploymentid Status
+          description: >-
+            Gets the status of a deployment including a breakdown of how many
+            devices in the deployment are in progress, completed, or failed.
+          operationId: deviceManagementGetDeploymentStatus
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

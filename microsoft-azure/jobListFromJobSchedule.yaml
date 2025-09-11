@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: lists-the-jobs-that-have-been-created-under-the-specified-job-schedule
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Lists The Jobs That Have Been Created Under The Specified Job Schedule.
+      description: Needs a more full description created.
+    paths:
+      /jobschedules/{jobScheduleId}/jobs:
+        get:
+          summary: Lists The Jobs That Have Been Created Under The Specified Job Schedule.
+          description: Needs a more full description created.
+          operationId: jobListFromJobSchedule
+          responses:
+            default:
+              description: The error from the Batch service.
+              schema:
+                $ref: '#/definitions/BatchError'

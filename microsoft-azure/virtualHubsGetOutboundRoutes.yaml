@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftnetwork-virtualhubs-virtualhubname-outboundroutes
+  description: >-
+    Gets the outbound routes configured for the Virtual Hub on a particular
+    connection.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.network Virtualhubs Virtualhubname Outboundroutes
+      description: >-
+        Gets the outbound routes configured for the Virtual Hub on a particular
+        connection.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/outboundRoutes:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.network Virtualhubs Virtualhubname Outboundroutes
+          description: >-
+            Gets the outbound routes configured for the Virtual Hub on a particular
+            connection.
+          operationId: virtualHubsGetOutboundRoutes
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./network.json#/definitions/CloudError

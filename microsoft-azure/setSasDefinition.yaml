@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: put-storage-storage-account-name-sas-sas-definition-name
+  description: >-
+    Creates or updates a new SAS definition for the specified storage account.
+    This operation requires the storage/setsas permission.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Storage Storage-account-name Sas Sas-definition-name
+      description: >-
+        Creates or updates a new SAS definition for the specified storage account.
+        This operation requires the storage/setsas permission.
+    paths:
+      /storage/{storage-account-name}/sas/{sas-definition-name}:
+        put:
+          summary: Put Storage Storage-account-name Sas Sas-definition-name
+          description: >-
+            Creates or updates a new SAS definition for the specified storage
+            account. This operation requires the storage/setsas permission.
+          operationId: setSasDefinition
+          responses:
+            default:
+              description: Key Vault error response describing why the operation failed.
+              schema:
+                $ref: common.json#/definitions/KeyVaultError

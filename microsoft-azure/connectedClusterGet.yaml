@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-the-properties-of-the-specified-connected-cluster
+  description: >-
+    Returns the properties of the specified connected cluster, including name,
+    identity, properties, and additional cluster details.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get The Properties Of The Specified Connected Cluster.
+      description: >-
+        Returns the properties of the specified connected cluster, including name,
+        identity, properties, and additional cluster details.
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedClusters/{clusterName}:
+        get:
+          summary: Get The Properties Of The Specified Connected Cluster.
+          description: >-
+            Returns the properties of the specified connected cluster, including
+            name, identity, properties, and additional cluster details.
+          operationId: connectedClusterGet
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftlogic-integrationaccounts-integrationaccountname-maps-mapname-listcontentcallbackurl
+  description: Get the content callback url.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.logic Integrationaccounts Integrationaccountname Maps Mapname
+        Listcontentcallbackurl
+      description: Get the content callback url.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/maps/{mapName}/listContentCallbackUrl:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.logic Integrationaccounts Integrationaccountname
+            Maps Mapname Listcontentcallbackurl
+          description: Get the content callback url.
+          operationId: integrationAccountMapsListContentCallbackUrl
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/WorkflowTriggerCallbackUrl'

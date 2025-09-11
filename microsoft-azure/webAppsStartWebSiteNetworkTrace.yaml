@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: start-capturing-network-packets-for-the-site-to-be-deprecated
+  description: >-
+    Description for Start capturing network packets for the site (To be
+    deprecated).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Start Capturing Network Packets For The Site (to Be Deprecated).
+      description: >-
+        Description for Start capturing network packets for the site (To be
+        deprecated).
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/networkTrace/start:
+        post:
+          summary: Start Capturing Network Packets For The Site (to Be Deprecated).
+          description: >-
+            Description for Start capturing network packets for the site (To be
+            deprecated).
+          operationId: webAppsStartWebSiteNetworkTrace
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

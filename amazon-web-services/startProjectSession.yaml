@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: startprojectsession
+  description: >-
+    Creates an interactive session, enabling you to manipulate data in a
+    DataBrew project.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startprojectsession
+      description: >-
+        Creates an interactive session, enabling you to manipulate data in a
+        DataBrew project.
+    paths:
+      /projects/{name}/startProjectSession:
+        PUT:
+          summary: Startprojectsession
+          description: >-
+            Creates an interactive session, enabling you to manipulate data in a
+            DataBrew project.
+          operationId: startProjectSession

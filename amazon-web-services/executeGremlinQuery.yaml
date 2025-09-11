@@ -1,0 +1,62 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: executegremlinquery
+  description: >-
+    This commands executes a Gremlin query. Amazon Neptune is compatible with
+    Apache TinkerPop3 and Gremlin, so you can use the Gremlin traversal language
+    to query the graph, as described under The Graph in the Apache TinkerPop3
+    documentation. More details can also be found in Accessing a Neptune graph
+    with Gremlin. When invoking this operation in a Neptune cluster that has IAM
+    authentication enabled, the IAM user or role making the request must have a
+    policy attached that enables one of the following IAM actions in that
+    cluster, depending on the query:    neptune-db:ReadDataViaQuery    
+    neptune-db:WriteDataViaQuery     neptune-db:DeleteDataViaQuery    Note that
+    the neptune-db:QueryLanguage:Gremlin IAM condition key can be used in the
+    policy document to restrict the use of Gremlin queries (see Condition keys
+    available in Neptune IAM data-access policy statements).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Executegremlinquery
+      description: >-
+        This commands executes a Gremlin query. Amazon Neptune is compatible with
+        Apache TinkerPop3 and Gremlin, so you can use the Gremlin traversal language
+        to query the graph, as described under The Graph in the Apache TinkerPop3
+        documentation. More details can also be found in Accessing a Neptune graph
+        with Gremlin. When invoking this operation in a Neptune cluster that has IAM
+        authentication enabled, the IAM user or role making the request must have a
+        policy attached that enables one of the following IAM actions in that
+        cluster, depending on the query:    neptune-db:ReadDataViaQuery    
+        neptune-db:WriteDataViaQuery     neptune-db:DeleteDataViaQuery    Note that
+        the neptune-db:QueryLanguage:Gremlin IAM condition key can be used in the
+        policy document to restrict the use of Gremlin queries (see Condition keys
+        available in Neptune IAM data-access policy statements).
+    paths:
+      /gremlin:
+        POST:
+          summary: Executegremlinquery
+          description: >-
+            This commands executes a Gremlin query. Amazon Neptune is compatible
+            with Apache TinkerPop3 and Gremlin, so you can use the Gremlin traversal
+            language to query the graph, as described under The Graph in the Apache
+            TinkerPop3 documentation. More details can also be found in Accessing a
+            Neptune graph with Gremlin. When invoking this operation in a Neptune
+            cluster that has IAM authentication enabled, the IAM user or role making
+            the request must have a policy attached that enables one of the
+            following IAM actions in that cluster, depending on the query:   
+            neptune-db:ReadDataViaQuery     neptune-db:WriteDataViaQuery    
+            neptune-db:DeleteDataViaQuery    Note that the
+            neptune-db:QueryLanguage:Gremlin IAM condition key can be used in the
+            policy document to restrict the use of Gremlin queries (see Condition
+            keys available in Neptune IAM data-access policy statements).
+          operationId: executeGremlinQuery

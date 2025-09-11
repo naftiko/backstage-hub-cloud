@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-providers-microsoftmobilepacketcore-nssfdeployments
+  description: List all Network Slice Selection Function Deployments by Subscription ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft.mobilepacketcore
+        Nssfdeployments
+      description: List all Network Slice Selection Function Deployments by Subscription ID.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.MobilePacketCore/nssfDeployments:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft.mobilepacketcore
+            Nssfdeployments
+          description: >-
+            List all Network Slice Selection Function Deployments by Subscription
+            ID.
+          operationId: nssfDeploymentsListBySubscription
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

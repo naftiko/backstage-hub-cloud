@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-providers-microsoftcompute-locations-location-runcommands
+  description: Lists all available run commands for a subscription in a location.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft.compute Locations
+        Location Runcommands
+      description: Lists all available run commands for a subscription in a location.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/runCommands:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft.compute Locations
+            Location Runcommands
+          description: Lists all available run commands for a subscription in a location.
+          operationId: virtualMachineRunCommandsList
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/RunCommandListResult'

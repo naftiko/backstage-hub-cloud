@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getlegalhold
+  description: >-
+    This action returns details for a specified legal hold. The details are the
+    body of a legal hold in JSON format, in addition to metadata.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getlegalhold
+      description: >-
+        This action returns details for a specified legal hold. The details are the
+        body of a legal hold in JSON format, in addition to metadata.
+    paths:
+      /legal-holds/{legalHoldId}/:
+        GET:
+          summary: Getlegalhold
+          description: >-
+            This action returns details for a specified legal hold. The details are
+            the body of a legal hold in JSON format, in addition to metadata.
+          operationId: getLegalHold

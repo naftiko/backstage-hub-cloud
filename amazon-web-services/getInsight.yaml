@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getinsight
+  description: >-
+    Retrieves the summary information of an insight. This includes impact to
+    clients and root cause services, the top anomalous services, the category,
+    the state of the insight, and the start and end time of the insight.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getinsight
+      description: >-
+        Retrieves the summary information of an insight. This includes impact to
+        clients and root cause services, the top anomalous services, the category,
+        the state of the insight, and the start and end time of the insight.
+    paths:
+      /Insight:
+        POST:
+          summary: Getinsight
+          description: >-
+            Retrieves the summary information of an insight. This includes impact to
+            clients and root cause services, the top anomalous services, the
+            category, the state of the insight, and the start and end time of the
+            insight.
+          operationId: getInsight

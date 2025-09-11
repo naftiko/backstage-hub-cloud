@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: associatephonenumberswithvoiceconnectorgroup
+  description: >-
+    Associates phone numbers with the specified Amazon Chime SDK Voice Connector
+    group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Associatephonenumberswithvoiceconnectorgroup
+      description: >-
+        Associates phone numbers with the specified Amazon Chime SDK Voice Connector
+        group.
+    paths:
+      /voice-connector-groups/{voiceConnectorGroupId}?operation=associate-phone-numbers:
+        POST:
+          summary: Associatephonenumberswithvoiceconnectorgroup
+          description: >-
+            Associates phone numbers with the specified Amazon Chime SDK Voice
+            Connector group.
+          operationId: associatePhoneNumbersWithVoiceConnectorGroup

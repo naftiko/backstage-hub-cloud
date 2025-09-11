@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-the-maximum-number-of-hybrid-connections-allowed-in-an-app-service-plan
+  description: >-
+    Description for Get the maximum number of Hybrid Connections allowed in an
+    App Service plan.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get The Maximum Number Of Hybrid Connections Allowed In An App Service Plan.
+      description: >-
+        Description for Get the maximum number of Hybrid Connections allowed in an
+        App Service plan.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/hybridConnectionPlanLimits/limit:
+        get:
+          summary: >-
+            Get The Maximum Number Of Hybrid Connections Allowed In An App Service
+            Plan.
+          description: >-
+            Description for Get the maximum number of Hybrid Connections allowed in
+            an App Service plan.
+          operationId: appServicePlansGetHybridConnectionPlanLimit
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

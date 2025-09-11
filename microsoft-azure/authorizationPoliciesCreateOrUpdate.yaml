@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftcustomerinsights-hubs-hubname-authorizationpolicies-authorizationpolicyname
+  description: Creates an authorization policy or updates an existing authorization policy.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.customerinsights Hubs Hubname Authorizationpolicies
+        Authorizationpolicyname
+      description: Creates an authorization policy or updates an existing authorization policy.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/authorizationPolicies/{authorizationPolicyName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.customerinsights Hubs Hubname Authorizationpolicies
+            Authorizationpolicyname
+          description: >-
+            Creates an authorization policy or updates an existing authorization
+            policy.
+          operationId: authorizationPoliciesCreateOrUpdate
+          responses:
+            '201':
+              description: Created. A new authorization policy is created.
+              schema:
+                $ref: '#/definitions/AuthorizationPolicyResourceFormat'

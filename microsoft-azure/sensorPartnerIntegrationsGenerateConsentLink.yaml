@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-sensor-partners-sensorpartnerid-integrations-integrationid-generate-consent-link
+  description: Generates partner integration consent link.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Sensor-partners Sensorpartnerid Integrations Integrationid
+        :generate-consent-link
+      description: Generates partner integration consent link.
+    paths:
+      /sensor-partners/{sensorPartnerId}/integrations/{integrationId}/:generate-consent-link:
+        post:
+          summary: >-
+            Post Sensor-partners Sensorpartnerid Integrations Integrationid
+            :generate-consent-link
+          description: Generates partner integration consent link.
+          operationId: sensorPartnerIntegrationsGenerateConsentLink
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  x-ms-client-name: ErrorCode
+              x-ms-error-response: true

@@ -1,0 +1,81 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: cancels-a-user-induced-fault-operation
+  description: >-
+    The following APIs start fault operations that may be cancelled by using
+    CancelOperation: StartDataLoss, StartQuorumLoss, StartPartitionRestart,
+    StartNodeTransition.If force is false, then the specified user-induced
+    operation will be gracefully stopped and cleaned up.  If force is true, the
+    command will be aborted, and some internal statemay be left behind. 
+    Specifying force as true should be used with care.  Calling this API with
+    force set to true is not allowed until this API has alreadybeen called on
+    the same test command with force set to false first, or unless the test
+    command already has an OperationState of
+    OperationState.RollingBack.Clarification: OperationState.RollingBack means
+    that the system will be/is cleaning up internal system state caused by
+    executing the command.  It will not restore data if thetest command was to
+    cause data loss.  For example, if you call StartDataLoss then call this API,
+    the system will only clean up internal state from running the command.It
+    will not restore the target partition's data, if the command progressed far
+    enough to cause data loss.Important note:  if this API is invoked with
+    force==true, internal state may be left behind.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Cancels A User-induced Fault Operation.
+      description: >-
+        The following APIs start fault operations that may be cancelled by using
+        CancelOperation: StartDataLoss, StartQuorumLoss, StartPartitionRestart,
+        StartNodeTransition.If force is false, then the specified user-induced
+        operation will be gracefully stopped and cleaned up.  If force is true, the
+        command will be aborted, and some internal statemay be left behind. 
+        Specifying force as true should be used with care.  Calling this API with
+        force set to true is not allowed until this API has alreadybeen called on
+        the same test command with force set to false first, or unless the test
+        command already has an OperationState of
+        OperationState.RollingBack.Clarification: OperationState.RollingBack means
+        that the system will be/is cleaning up internal system state caused by
+        executing the command.  It will not restore data if thetest command was to
+        cause data loss.  For example, if you call StartDataLoss then call this API,
+        the system will only clean up internal state from running the command.It
+        will not restore the target partition's data, if the command progressed far
+        enough to cause data loss.Important note:  if this API is invoked with
+        force==true, internal state may be left behind.
+    paths:
+      /Faults/$/Cancel:
+        post:
+          summary: Cancels A User-induced Fault Operation.
+          description: >-
+            The following APIs start fault operations that may be cancelled by using
+            CancelOperation: StartDataLoss, StartQuorumLoss, StartPartitionRestart,
+            StartNodeTransition.If force is false, then the specified user-induced
+            operation will be gracefully stopped and cleaned up.  If force is true,
+            the command will be aborted, and some internal statemay be left behind. 
+            Specifying force as true should be used with care.  Calling this API
+            with force set to true is not allowed until this API has alreadybeen
+            called on the same test command with force set to false first, or unless
+            the test command already has an OperationState of
+            OperationState.RollingBack.Clarification: OperationState.RollingBack
+            means that the system will be/is cleaning up internal system state
+            caused by executing the command.  It will not restore data if thetest
+            command was to cause data loss.  For example, if you call StartDataLoss
+            then call this API, the system will only clean up internal state from
+            running the command.It will not restore the target partition's data, if
+            the command progressed far enough to cause data loss.Important note:  if
+            this API is invoked with force==true, internal state may be left behind.
+          operationId: cancelOperation
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

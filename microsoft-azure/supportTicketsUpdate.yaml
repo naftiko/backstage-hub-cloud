@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    patch-subscriptions-subscriptionid-providers-microsoftsupport-supporttickets-supportticketname
+  description: >-
+    This API allows you to update the severity level, ticket status, advanced
+    diagnostic consent and your contact information in the support ticket.Note:
+    The severity levels cannot be changed if a support ticket is actively being
+    worked upon by an Azure support engineer. In such a case, contact your
+    support engineer to request severity update by adding a new communication
+    using the Communications API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Providers Microsoft.support
+        Supporttickets Supportticketname
+      description: >-
+        This API allows you to update the severity level, ticket status, advanced
+        diagnostic consent and your contact information in the support ticket.Note:
+        The severity levels cannot be changed if a support ticket is actively being
+        worked upon by an Azure support engineer. In such a case, contact your
+        support engineer to request severity update by adding a new communication
+        using the Communications API.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Support/supportTickets/{supportTicketName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Providers Microsoft.support
+            Supporttickets Supportticketname
+          description: >-
+            This API allows you to update the severity level, ticket status,
+            advanced diagnostic consent and your contact information in the support
+            ticket.Note: The severity levels cannot be changed if a support ticket
+            is actively being worked upon by an Azure support engineer. In such a
+            case, contact your support engineer to request severity update by adding
+            a new communication using the Communications API.
+          operationId: supportTicketsUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

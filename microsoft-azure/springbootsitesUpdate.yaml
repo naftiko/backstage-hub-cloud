@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    patch-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftoffazurespringboot-springbootsites-springbootsitesname
+  description: Update a springbootsites resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.offazurespringboot Springbootsites Springbootsitesname
+      description: Update a springbootsites resource.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{springbootsitesName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.offazurespringboot Springbootsites
+            Springbootsitesname
+          description: Update a springbootsites resource.
+          operationId: springbootsitesUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

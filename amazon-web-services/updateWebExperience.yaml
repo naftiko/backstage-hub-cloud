@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatewebexperience
+  description: 'Updates an Amazon Q web experience. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatewebexperience
+      description: 'Updates an Amazon Q web experience. '
+    paths:
+      /applications/{applicationId}/experiences/{webExperienceId}:
+        PUT:
+          summary: Updatewebexperience
+          description: 'Updates an Amazon Q web experience. '
+          operationId: updateWebExperience

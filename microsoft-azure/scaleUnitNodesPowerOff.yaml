@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftfabricadmin-fabriclocations-location-scaleunitnodes-scaleunitnode-poweroff
+  description: Power off a scale unit node.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.fabric.admin Fabriclocations Location Scaleunitnodes Scaleunitnode
+        Poweroff
+      description: Power off a scale unit node.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Fabric.Admin/fabricLocations/{location}/scaleUnitNodes/{scaleUnitNode}/PowerOff:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.fabric.admin Fabriclocations Location Scaleunitnodes
+            Scaleunitnode Poweroff
+          description: Power off a scale unit node.
+          operationId: scaleUnitNodesPowerOff
+          responses:
+            '202':
+              description: ACCEPTED

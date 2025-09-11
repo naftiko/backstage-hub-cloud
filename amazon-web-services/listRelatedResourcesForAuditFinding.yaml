@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listrelatedresourcesforauditfinding
+  description: >-
+    The related resources of an Audit finding. The following resources can be
+    returned from calling this API:   DEVICE_CERTIFICATE   CA_CERTIFICATE  
+    IOT_POLICY   COGNITO_IDENTITY_POOL   CLIENT_ID   ACCOUNT_SETTINGS  
+    ROLE_ALIAS   IAM_ROLE   ISSUER_CERTIFICATE    This API is similar to
+    DescribeAuditFinding's RelatedResources but provides pagination and is not
+    limited to 10 resources. When calling DescribeAuditFinding for the
+    intermediate CA revoked for active device certificates check,
+    RelatedResources will not be populated. You must use this API,
+    ListRelatedResourcesForAuditFinding, to list the certificates. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listrelatedresourcesforauditfinding
+      description: >-
+        The related resources of an Audit finding. The following resources can be
+        returned from calling this API:   DEVICE_CERTIFICATE   CA_CERTIFICATE  
+        IOT_POLICY   COGNITO_IDENTITY_POOL   CLIENT_ID   ACCOUNT_SETTINGS  
+        ROLE_ALIAS   IAM_ROLE   ISSUER_CERTIFICATE    This API is similar to
+        DescribeAuditFinding's RelatedResources but provides pagination and is not
+        limited to 10 resources. When calling DescribeAuditFinding for the
+        intermediate CA revoked for active device certificates check,
+        RelatedResources will not be populated. You must use this API,
+        ListRelatedResourcesForAuditFinding, to list the certificates. 
+    paths:
+      /audit/relatedResources:
+        GET:
+          summary: Listrelatedresourcesforauditfinding
+          description: >-
+            The related resources of an Audit finding. The following resources can
+            be returned from calling this API:   DEVICE_CERTIFICATE  
+            CA_CERTIFICATE   IOT_POLICY   COGNITO_IDENTITY_POOL   CLIENT_ID  
+            ACCOUNT_SETTINGS   ROLE_ALIAS   IAM_ROLE   ISSUER_CERTIFICATE    This
+            API is similar to DescribeAuditFinding's RelatedResources but provides
+            pagination and is not limited to 10 resources. When calling
+            DescribeAuditFinding for the intermediate CA revoked for active device
+            certificates check, RelatedResources will not be populated. You must use
+            this API, ListRelatedResourcesForAuditFinding, to list the
+            certificates. 
+          operationId: listRelatedResourcesForAuditFinding

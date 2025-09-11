@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getconfigurationset
+  description: >-
+    Get information about an existing configuration set, including the dedicated
+    IP pool that it's associated with, whether or not it's enabled for sending
+    email, and more.  Configuration sets are groups of rules that you can apply
+    to the emails you send. You apply a configuration set to an email by
+    including a reference to the configuration set in the headers of the email.
+    When you apply a configuration set to an email, all of the rules in that
+    configuration set are applied to the email.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getconfigurationset
+      description: >-
+        Get information about an existing configuration set, including the dedicated
+        IP pool that it's associated with, whether or not it's enabled for sending
+        email, and more.  Configuration sets are groups of rules that you can apply
+        to the emails you send. You apply a configuration set to an email by
+        including a reference to the configuration set in the headers of the email.
+        When you apply a configuration set to an email, all of the rules in that
+        configuration set are applied to the email.
+    paths:
+      /v2/email/configuration-sets/{ConfigurationSetName}:
+        GET:
+          summary: Getconfigurationset
+          description: >-
+            Get information about an existing configuration set, including the
+            dedicated IP pool that it's associated with, whether or not it's enabled
+            for sending email, and more.  Configuration sets are groups of rules
+            that you can apply to the emails you send. You apply a configuration set
+            to an email by including a reference to the configuration set in the
+            headers of the email. When you apply a configuration set to an email,
+            all of the rules in that configuration set are applied to the email.
+          operationId: getConfigurationSet

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deletelink
+  description: >-
+    Deletes a link between a monitoring account sink and a source account. You
+    must run this operation in the source account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletelink
+      description: >-
+        Deletes a link between a monitoring account sink and a source account. You
+        must run this operation in the source account.
+    paths:
+      /DeleteLink:
+        POST:
+          summary: Deletelink
+          description: >-
+            Deletes a link between a monitoring account sink and a source account.
+            You must run this operation in the source account.
+          operationId: deleteLink

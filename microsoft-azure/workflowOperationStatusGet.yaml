@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-the-job-workflow-operation-status
+  description: Tracks the results of an asynchronous operation on the job.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The Job (workflow) Operation Status.
+      description: Tracks the results of an asynchronous operation on the job.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/jobs/{jobName}/operations/{operationId}:
+        get:
+          summary: Gets The Job (workflow) Operation Status.
+          description: Tracks the results of an asynchronous operation on the job.
+          operationId: workflowOperationStatusGet
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

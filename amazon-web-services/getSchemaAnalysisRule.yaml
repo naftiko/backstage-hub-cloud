@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getschemaanalysisrule
+  description: Retrieves a schema analysis rule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getschemaanalysisrule
+      description: Retrieves a schema analysis rule.
+    paths:
+      /collaborations/{collaborationIdentifier}/schemas/{name}/analysisRule/{type}:
+        GET:
+          summary: Getschemaanalysisrule
+          description: Retrieves a schema analysis rule.
+          operationId: getSchemaAnalysisRule

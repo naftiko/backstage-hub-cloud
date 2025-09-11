@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updates-an-ongoing-application-upgrade-in-the-service-fabric-cluster
+  description: >-
+    Updates the parameters of an ongoing application upgrade from the ones
+    specified at the time of starting the application upgrade. This may be
+    required to mitigate stuck application upgrades due to incorrect parameters
+    or issues in the application to make progress.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updates An Ongoing Application Upgrade In The Service Fabric Cluster.
+      description: >-
+        Updates the parameters of an ongoing application upgrade from the ones
+        specified at the time of starting the application upgrade. This may be
+        required to mitigate stuck application upgrades due to incorrect parameters
+        or issues in the application to make progress.
+    paths:
+      /Applications/{applicationId}/$/UpdateUpgrade:
+        post:
+          summary: Updates An Ongoing Application Upgrade In The Service Fabric Cluster.
+          description: >-
+            Updates the parameters of an ongoing application upgrade from the ones
+            specified at the time of starting the application upgrade. This may be
+            required to mitigate stuck application upgrades due to incorrect
+            parameters or issues in the application to make progress.
+          operationId: updateApplicationUpgrade
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

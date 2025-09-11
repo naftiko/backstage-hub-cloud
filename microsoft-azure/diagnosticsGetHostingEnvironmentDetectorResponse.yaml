@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-hosting-environment-detector-response
+  description: Description for Get Hosting Environment Detector Response
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Hosting Environment Detector Response
+      description: Description for Get Hosting Environment Detector Response
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/detectors/{detectorName}:
+        get:
+          summary: Get Hosting Environment Detector Response
+          description: Description for Get Hosting Environment Detector Response
+          operationId: diagnosticsGetHostingEnvironmentDetectorResponse
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

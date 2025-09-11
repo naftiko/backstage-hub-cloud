@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: create-configuration-assignment
+  description: Register configuration for resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Configuration Assignment
+      description: Register configuration for resource.
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Maintenance/configurationAssignments/{configurationAssignmentName}:
+        put:
+          summary: Create Configuration Assignment
+          description: Register configuration for resource.
+          operationId: configurationAssignmentsForResourceGroupCreateOrUpdate
+          responses:
+            default:
+              description: BadRequest
+              schema:
+                $ref: '#/definitions/MaintenanceError'

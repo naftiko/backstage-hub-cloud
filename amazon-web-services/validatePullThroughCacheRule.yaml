@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: validatepullthroughcacherule
+  description: >-
+    Validates an existing pull through cache rule for an upstream registry that
+    requires authentication. This will retrieve the contents of the Amazon Web
+    Services Secrets Manager secret, verify the syntax, and then validate that
+    authentication to the upstream registry is successful.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Validatepullthroughcacherule
+      description: >-
+        Validates an existing pull through cache rule for an upstream registry that
+        requires authentication. This will retrieve the contents of the Amazon Web
+        Services Secrets Manager secret, verify the syntax, and then validate that
+        authentication to the upstream registry is successful.
+    paths:
+      /:
+        POST:
+          summary: Validatepullthroughcacherule
+          description: >-
+            Validates an existing pull through cache rule for an upstream registry
+            that requires authentication. This will retrieve the contents of the
+            Amazon Web Services Secrets Manager secret, verify the syntax, and then
+            validate that authentication to the upstream registry is successful.
+          operationId: validatePullThroughCacheRule

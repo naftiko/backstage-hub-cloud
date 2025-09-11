@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-contentmoderator-lists-0-termlists-listid-terms
+  description: Gets all terms from the list with listId equal to the passed list ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Contentmoderator Lists .0 Termlists Listid Terms
+      description: Gets all terms from the list with listId equal to the passed list ID.
+    paths:
+      /contentmoderator/lists/v1.0/termlists/{listId}/terms:
+        get:
+          summary: Get Contentmoderator Lists .0 Termlists Listid Terms
+          description: Gets all terms from the list with listId equal to the passed list ID.
+          operationId: listManagementTermGetAllTerms
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

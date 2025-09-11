@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getapplication
+  description: >-
+    Gets an application registered with AWS Systems Manager for SAP. It also
+    returns the components of the application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getapplication
+      description: >-
+        Gets an application registered with AWS Systems Manager for SAP. It also
+        returns the components of the application.
+    paths:
+      /get-application:
+        POST:
+          summary: Getapplication
+          description: >-
+            Gets an application registered with AWS Systems Manager for SAP. It also
+            returns the components of the application.
+          operationId: getApplication

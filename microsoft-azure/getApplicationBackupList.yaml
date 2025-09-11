@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-the-list-of-backups-available-for-every-partition-in-this-application
+  description: >-
+    Returns a list of backups available for every partition in this Service
+    Fabric application. The server enumerates all the backups available at the
+    backup location configured in the backup policy. It also allows filtering of
+    the result based on start and end datetime or just fetching the latest
+    available backup for every partition.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The List Of Backups Available For Every Partition In This Application.
+      description: >-
+        Returns a list of backups available for every partition in this Service
+        Fabric application. The server enumerates all the backups available at the
+        backup location configured in the backup policy. It also allows filtering of
+        the result based on start and end datetime or just fetching the latest
+        available backup for every partition.
+    paths:
+      /Applications/{applicationId}/$/GetBackups:
+        get:
+          summary: >-
+            Gets The List Of Backups Available For Every Partition In This
+            Application.
+          description: >-
+            Returns a list of backups available for every partition in this Service
+            Fabric application. The server enumerates all the backups available at
+            the backup location configured in the backup policy. It also allows
+            filtering of the result based on start and end datetime or just fetching
+            the latest available backup for every partition.
+          operationId: getApplicationBackupList
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

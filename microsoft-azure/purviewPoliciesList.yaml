@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: api-to-list-the-purview-rbac-policies-based-on-a-scope
+  description: >-
+    The API lists the Azure purview RBAC policies affecting the scope. The scope
+    can be any valid ARM resource id
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Api To List The Purview Rbac Policies Based On A Scope
+      description: >-
+        The API lists the Azure purview RBAC policies affecting the scope. The scope
+        can be any valid ARM resource id
+    paths:
+      /{scope}/providers/Microsoft.Purview/policies:
+        get:
+          summary: Api To List The Purview Rbac Policies Based On A Scope
+          description: >-
+            The API lists the Azure purview RBAC policies affecting the scope. The
+            scope can be any valid ARM resource id
+          operationId: purviewPoliciesList
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

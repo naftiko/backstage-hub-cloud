@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updateclassificationscope
+  description: Updates the classification scope settings for an account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateclassificationscope
+      description: Updates the classification scope settings for an account.
+    paths:
+      /classification-scopes/{id}:
+        PATCH:
+          summary: Updateclassificationscope
+          description: Updates the classification scope settings for an account.
+          operationId: updateClassificationScope

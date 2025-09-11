@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatearchiverule
+  description: Updates the criteria and values for the specified archive rule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatearchiverule
+      description: Updates the criteria and values for the specified archive rule.
+    paths:
+      /analyzer/{analyzerName}/archive-rule/{ruleName}:
+        PUT:
+          summary: Updatearchiverule
+          description: Updates the criteria and values for the specified archive rule.
+          operationId: updateArchiveRule

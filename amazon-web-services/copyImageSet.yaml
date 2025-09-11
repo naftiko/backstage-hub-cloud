@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: copyimageset
+  description: Copy an image set.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Copyimageset
+      description: Copy an image set.
+    paths:
+      /datastore/{datastoreId}/imageSet/{sourceImageSetId}/copyImageSet:
+        POST:
+          summary: Copyimageset
+          description: Copy an image set.
+          operationId: copyImageSet

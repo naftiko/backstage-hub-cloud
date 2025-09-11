@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-providers-microsoftsubscriptionsadmin-checkidentityhealth
+  description: Checks the identity health
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Providers Microsoft.subscriptions.admin
+        Checkidentityhealth
+      description: Checks the identity health
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Subscriptions.Admin/checkIdentityHealth:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Providers
+            Microsoft.subscriptions.admin Checkidentityhealth
+          description: Checks the identity health
+          operationId: subscriptionsCheckIdentityHealth
+          responses:
+            default:
+              description: Unexpected Error
+              schema:
+                $ref: Subscriptions.json#/definitions/Error

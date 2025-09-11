@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftstorage-storageaccounts-accountname
+  description: Deletes a storage account in Microsoft Azure.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.storage Storageaccounts Accountname
+      description: Deletes a storage account in Microsoft Azure.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.storage Storageaccounts Accountname
+          description: Deletes a storage account in Microsoft Azure.
+          operationId: storageAccountsDelete
+          responses:
+            '204':
+              description: NoContent -- account does not exist in the subscription.

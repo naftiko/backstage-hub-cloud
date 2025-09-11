@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftdesktopvirtualization-hostpools-hostpoolname-sessionhostconfigurations-default
+  description: Get a SessionHostConfiguration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.desktopvirtualization Hostpools Hostpoolname
+        Sessionhostconfigurations Default
+      description: Get a SessionHostConfiguration.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHostConfigurations/default:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.desktopvirtualization Hostpools Hostpoolname
+            Sessionhostconfigurations Default
+          description: Get a SessionHostConfiguration.
+          operationId: sessionHostConfigurationsGet
+          responses:
+            default:
+              description: Automation error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

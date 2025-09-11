@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-providers-microsoftcdn-edgenodes
+  description: >-
+    Edgenodes are the global Point of Presence (POP) locations used to deliver
+    CDN content to end users.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Providers Microsoft.cdn Edgenodes
+      description: >-
+        Edgenodes are the global Point of Presence (POP) locations used to deliver
+        CDN content to end users.
+    paths:
+      /providers/Microsoft.Cdn/edgenodes:
+        get:
+          summary: Get Providers Microsoft.cdn Edgenodes
+          description: >-
+            Edgenodes are the global Point of Presence (POP) locations used to
+            deliver CDN content to end users.
+          operationId: edgeNodesList
+          responses:
+            default:
+              description: CDN error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

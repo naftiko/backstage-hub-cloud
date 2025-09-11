@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftoffazure-mastersites-sitename
+  description: Method to delete a site.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.offazure Mastersites Sitename
+      description: Method to delete a site.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.offazure Mastersites Sitename
+          description: Method to delete a site.
+          operationId: masterSitesControllerDelete
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

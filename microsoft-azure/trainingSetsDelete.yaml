@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: delete-trainingsets-id
+  description: Deletes the training set identified by the given ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Trainingsets Id
+      description: Deletes the training set identified by the given ID.
+    paths:
+      /trainingsets/{id}:
+        delete:
+          summary: Delete Trainingsets Id
+          description: Deletes the training set identified by the given ID.
+          operationId: trainingSetsDelete
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

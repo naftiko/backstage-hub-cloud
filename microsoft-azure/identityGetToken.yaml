@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-identity-oauth2-token
+  description: Get a Token from Azure AD
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Identity Oauth2 Token
+      description: Get a Token from Azure AD
+    paths:
+      /identity/oauth2/token:
+        get:
+          summary: Get Identity Oauth2 Token
+          description: Get a Token from Azure AD
+          operationId: identityGetToken
+          responses:
+            default:
+              headers:
+                Www-Authenticate:
+                  type: string
+                  description: >-
+                    This is the response header containing a challenge for the Basic
+                    scheme with a realm value
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/IdentityErrorResponse'

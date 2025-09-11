@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatetimelineevent
+  description: Updates a timeline event. You can update events of type Custom Event.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatetimelineevent
+      description: Updates a timeline event. You can update events of type Custom Event.
+    paths:
+      /updateTimelineEvent:
+        POST:
+          summary: Updatetimelineevent
+          description: Updates a timeline event. You can update events of type Custom Event.
+          operationId: updateTimelineEvent

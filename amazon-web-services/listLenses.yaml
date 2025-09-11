@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listlenses
+  description: List the available lenses.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listlenses
+      description: List the available lenses.
+    paths:
+      /lenses:
+        GET:
+          summary: Listlenses
+          description: List the available lenses.
+          operationId: listLenses

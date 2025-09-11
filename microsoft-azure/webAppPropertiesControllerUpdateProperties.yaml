@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftoffazure-mastersites-sitename-webappsites-webappsitename-updateproperties
+  description: Method to update properties for web applications.            in a site.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.offazure Mastersites Sitename Webappsites Webappsitename
+        Updateproperties
+      description: Method to update properties for web applications.            in a site.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/webAppSites/{webAppSiteName}/updateProperties:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.offazure Mastersites Sitename Webappsites
+            Webappsitename Updateproperties
+          description: Method to update properties for web applications.            in a site.
+          operationId: webAppPropertiesControllerUpdateProperties
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

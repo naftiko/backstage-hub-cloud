@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftnetwork-connections-virtualnetworkgatewayconnectionname
+  description: >-
+    The Delete VirtualNetworkGatewayConnection operation deletes the specified
+    virtual network Gateway connection through Network resource provider.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.network Connections Virtualnetworkgatewayconnectionname 
+      description: >-
+        The Delete VirtualNetworkGatewayConnection operation deletes the specified
+        virtual network Gateway connection through Network resource provider.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/connections/{virtualNetworkGatewayConnectionName}/:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.network Connections
+            Virtualnetworkgatewayconnectionname 
+          description: >-
+            The Delete VirtualNetworkGatewayConnection operation deletes the
+            specified virtual network Gateway connection through Network resource
+            provider.
+          operationId: virtualNetworkGatewayConnectionsDelete
+          responses:
+            '204':
+              description: ''

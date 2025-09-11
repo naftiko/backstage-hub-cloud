@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: startuseraccesstasks
+  description: >-
+    Starts the tasks to search user access status for a specific email address.
+    The tasks are stopped when the user access status data is found. The tasks
+    are terminated when the API calls to the application time out.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startuseraccesstasks
+      description: >-
+        Starts the tasks to search user access status for a specific email address.
+        The tasks are stopped when the user access status data is found. The tasks
+        are terminated when the API calls to the application time out.
+    paths:
+      /useraccess/start:
+        POST:
+          summary: Startuseraccesstasks
+          description: >-
+            Starts the tasks to search user access status for a specific email
+            address. The tasks are stopped when the user access status data is
+            found. The tasks are terminated when the API calls to the application
+            time out.
+          operationId: startUserAccessTasks

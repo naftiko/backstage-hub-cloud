@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: delete-largefacelists-largefacelistid-persistedfaces-persistedfaceid
+  description: >-
+    Delete a face from a large face list by specified largeFaceListId and
+    persistedFaceId. Adding/deleting faces to/from a same large face list are
+    processed sequentially and to/from different large face lists are in
+    parallel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Largefacelists Largefacelistid Persistedfaces Persistedfaceid
+      description: >-
+        Delete a face from a large face list by specified largeFaceListId and
+        persistedFaceId. Adding/deleting faces to/from a same large face list are
+        processed sequentially and to/from different large face lists are in
+        parallel.
+    paths:
+      /largefacelists/{largeFaceListId}/persistedfaces/{persistedFaceId}:
+        delete:
+          summary: Delete Largefacelists Largefacelistid Persistedfaces Persistedfaceid
+          description: >-
+            Delete a face from a large face list by specified largeFaceListId and
+            persistedFaceId. Adding/deleting faces to/from a same large face list
+            are processed sequentially and to/from different large face lists are in
+            parallel.
+          operationId: largeFaceListDeleteFace
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: creates-network-mapping
+  description: The operation to create an ASR network mapping.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Creates Network Mapping.
+      description: The operation to create an ASR network mapping.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationNetworks/{networkName}/replicationNetworkMappings/{networkMappingName}:
+        put:
+          summary: Creates Network Mapping.
+          description: The operation to create an ASR network mapping.
+          operationId: replicationNetworkMappingsCreate
+          responses:
+            '202':
+              description: Accepted

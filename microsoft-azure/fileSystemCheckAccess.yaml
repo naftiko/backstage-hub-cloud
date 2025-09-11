@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-webhdfs-path
+  description: Checks if the specified access is available at the given path.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Webhdfs Path
+      description: Checks if the specified access is available at the given path.
+    paths:
+      /webhdfs/v1/{path}:
+        get:
+          summary: Get Webhdfs Path
+          description: Checks if the specified access is available at the given path.
+          operationId: fileSystemCheckAccess
+          responses:
+            default:
+              description: An unexpected error from the server.
+              schema:
+                $ref: '#/definitions/AdlsError'

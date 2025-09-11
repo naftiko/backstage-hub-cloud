@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: create-an-assistant-with-a-model-and-instructions
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create An Assistant With A Model And Instructions.
+      description: Needs a more full description created.
+    paths:
+      /assistants:
+        post:
+          summary: Create An Assistant With A Model And Instructions.
+          description: Needs a more full description created.
+          operationId: createAssistant
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/createAssistantRequest'
+          responses:
+            '200':
+              description: OK
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/assistantObject'

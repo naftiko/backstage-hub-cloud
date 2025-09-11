@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-reward
+  description: >-
+    Report reward between 0 and 1 that resulted from using the action specified
+    in rewardActionId, for the specified event.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Reward.
+      description: >-
+        Report reward between 0 and 1 that resulted from using the action specified
+        in rewardActionId, for the specified event.
+    paths:
+      /events/{eventId}/reward:
+        post:
+          summary: Post Reward.
+          description: >-
+            Report reward between 0 and 1 that resulted from using the action
+            specified in rewardActionId, for the specified event.
+          operationId: eventsReward
+          responses:
+            default:
+              description: Invalid reward request.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

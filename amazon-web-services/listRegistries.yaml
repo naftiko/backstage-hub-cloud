@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listregistries
+  description: List the registries.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listregistries
+      description: List the registries.
+    paths:
+      /v1/registries:
+        GET:
+          summary: Listregistries
+          description: List the registries.
+          operationId: listRegistries

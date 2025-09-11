@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-tenantid-ismemberof
+  description: >-
+    Checks whether the specified user, group, contact, or service principal is a
+    direct or transitive member of the specified group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Tenantid Ismemberof
+      description: >-
+        Checks whether the specified user, group, contact, or service principal is a
+        direct or transitive member of the specified group.
+    paths:
+      /{tenantID}/isMemberOf:
+        post:
+          summary: Post Tenantid Ismemberof
+          description: >-
+            Checks whether the specified user, group, contact, or service principal
+            is a direct or transitive member of the specified group.
+          operationId: groupsIsMemberOf
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/GraphError'

@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updateexport
+  description: >-
+    Updates the password used to protect an export zip archive. The password is
+    not required. If you don't supply a password, Amazon Lex generates a zip
+    file that is not protected by a password. This is the archive that is
+    available at the pre-signed S3 URL provided by the DescribeExport operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateexport
+      description: >-
+        Updates the password used to protect an export zip archive. The password is
+        not required. If you don't supply a password, Amazon Lex generates a zip
+        file that is not protected by a password. This is the archive that is
+        available at the pre-signed S3 URL provided by the DescribeExport operation.
+    paths:
+      /exports/{exportId}/:
+        PUT:
+          summary: Updateexport
+          description: >-
+            Updates the password used to protect an export zip archive. The password
+            is not required. If you don't supply a password, Amazon Lex generates a
+            zip file that is not protected by a password. This is the archive that
+            is available at the pre-signed S3 URL provided by the DescribeExport
+            operation.
+          operationId: updateExport

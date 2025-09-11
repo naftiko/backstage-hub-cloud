@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listingestiondestinations
+  description: Returns a list of all ingestion destinations configured for an ingestion.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listingestiondestinations
+      description: Returns a list of all ingestion destinations configured for an ingestion.
+    paths:
+      /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations:
+        GET:
+          summary: Listingestiondestinations
+          description: >-
+            Returns a list of all ingestion destinations configured for an
+            ingestion.
+          operationId: listIngestionDestinations

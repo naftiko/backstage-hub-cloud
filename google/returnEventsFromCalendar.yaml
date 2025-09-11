@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: return-events-from-calendar
+  description: Returns events on the specified calendar.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Return Events From Calendar
+      description: Returns events on the specified calendar.
+    paths:
+      /calendars/{calendarId}/events:
+        get:
+          summary: Return Events From Calendar
+          description: Returns events on the specified calendar.
+          operationId: returnEventsFromCalendar
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example: null

@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-providers-microsoftresourcegraph-resources
+  description: >-
+    Queries the resources managed by Azure Resource Manager for scopes specified
+    in the request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Providers Microsoft.resourcegraph Resources
+      description: >-
+        Queries the resources managed by Azure Resource Manager for scopes specified
+        in the request.
+    paths:
+      /providers/Microsoft.ResourceGraph/resources:
+        post:
+          summary: Post Providers Microsoft.resourcegraph Resources
+          description: >-
+            Queries the resources managed by Azure Resource Manager for scopes
+            specified in the request.
+          operationId: resources
+          responses:
+            default:
+              description: >-
+                An error occurred while processing the request. See the error.code
+                parameter to identify the specific error.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

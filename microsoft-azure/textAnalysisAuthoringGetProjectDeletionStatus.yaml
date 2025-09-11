@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-authoring-analyze-text-projects-global-deletion-jobs-jobid
+  description: Gets the status for a project deletion job.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Authoring Analyze-text Projects Global Deletion-jobs Jobid
+      description: Gets the status for a project deletion job.
+    paths:
+      /authoring/analyze-text/projects/global/deletion-jobs/{jobId}:
+        get:
+          summary: Get Authoring Analyze-text Projects Global Deletion-jobs Jobid
+          description: Gets the status for a project deletion job.
+          operationId: textAnalysisAuthoringGetProjectDeletionStatus
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: common.json#/definitions/ErrorResponse

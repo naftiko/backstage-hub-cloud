@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listspaces
+  description: >-
+    Returns a list of AWS re:Post Private private re:Posts in the account with
+    some information about each private re:Post.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listspaces
+      description: >-
+        Returns a list of AWS re:Post Private private re:Posts in the account with
+        some information about each private re:Post.
+    paths:
+      /spaces:
+        GET:
+          summary: Listspaces
+          description: >-
+            Returns a list of AWS re:Post Private private re:Posts in the account
+            with some information about each private re:Post.
+          operationId: listSpaces

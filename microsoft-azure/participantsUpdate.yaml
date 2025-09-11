@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: update-participants-in-a-room
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Participants In A Room.
+      description: Needs a more full description created.
+    paths:
+      /rooms/{roomId}/participants:
+        patch:
+          summary: Update Participants In A Room.
+          description: Needs a more full description created.
+          operationId: participantsUpdate
+          responses:
+            default:
+              description: Error response
+              schema:
+                $ref: '#/definitions/CommunicationErrorResponse'
+              headers:
+                x-ms-error-code:
+                  x-ms-client-name: ErrorCode
+                  type: string

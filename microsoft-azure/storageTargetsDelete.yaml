@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftstoragecache-caches-cachename-storagetargets-storagetargetname
+  description: >-
+    Removes a Storage Target from a cache. This operation is allowed at any
+    time, but if the cache is down or unhealthy, the actual removal of the
+    Storage Target may be delayed until the cache is healthy again. Note that if
+    the cache has data to flush to the Storage Target, the data will be flushed
+    before the Storage Target will be deleted.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.storagecache Caches Cachename Storagetargets
+        Storagetargetname
+      description: >-
+        Removes a Storage Target from a cache. This operation is allowed at any
+        time, but if the cache is down or unhealthy, the actual removal of the
+        Storage Target may be delayed until the cache is healthy again. Note that if
+        the cache has data to flush to the Storage Target, the data will be flushed
+        before the Storage Target will be deleted.
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.StorageCache/caches/{cacheName}/storageTargets/{storageTargetName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.storagecache Caches Cachename Storagetargets
+            Storagetargetname
+          description: >-
+            Removes a Storage Target from a cache. This operation is allowed at any
+            time, but if the cache is down or unhealthy, the actual removal of the
+            Storage Target may be delayed until the cache is healthy again. Note
+            that if the cache has data to flush to the Storage Target, the data will
+            be flushed before the Storage Target will be deleted.
+          operationId: storageTargetsDelete
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

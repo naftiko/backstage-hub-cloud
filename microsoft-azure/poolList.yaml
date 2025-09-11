@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: lists-all-of-the-pools-in-the-specified-account
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Lists All Of The Pools In The Specified Account.
+      description: Needs a more full description created.
+    paths:
+      /pools:
+        get:
+          summary: Lists All Of The Pools In The Specified Account.
+          description: Needs a more full description created.
+          operationId: poolList
+          responses:
+            default:
+              description: The error from the Batch service.
+              schema:
+                $ref: '#/definitions/BatchError'

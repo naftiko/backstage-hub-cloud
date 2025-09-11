@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: describedocumentversions
+  description: >-
+    Retrieves the document versions for the specified document. By default, only
+    active versions are returned.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describedocumentversions
+      description: >-
+        Retrieves the document versions for the specified document. By default, only
+        active versions are returned.
+    paths:
+      /api/v1/documents/{DocumentId}/versions:
+        GET:
+          summary: Describedocumentversions
+          description: >-
+            Retrieves the document versions for the specified document. By default,
+            only active versions are returned.
+          operationId: describeDocumentVersions

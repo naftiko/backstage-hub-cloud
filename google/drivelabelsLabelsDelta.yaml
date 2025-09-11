@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: create-namedelta
+  description: >-
+    Updates a single Label by applying a set of update requests resulting in a
+    new draft revision. The batch update is all-or-nothing: If any of the update
+    requests are invalid, no changes are applied. The resulting draft revision
+    must be published before the changes may be used with Drive Items.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Name:delta
+      description: >-
+        Updates a single Label by applying a set of update requests resulting in a
+        new draft revision. The batch update is all-or-nothing: If any of the update
+        requests are invalid, no changes are applied. The resulting draft revision
+        must be published before the changes may be used with Drive Items.
+    paths:
+      /v2/{name}:delta:
+        post:
+          summary: Create Name:delta
+          description: >-
+            Updates a single Label by applying a set of update requests resulting in
+            a new draft revision. The batch update is all-or-nothing: If any of the
+            update requests are invalid, no changes are applied. The resulting draft
+            revision must be published before the changes may be used with Drive
+            Items.
+          operationId: drivelabelsLabelsDelta
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: >-
+                    #/components/schemas/GoogleAppsDriveLabelsV2DeltaUpdateLabelRequest
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: >-
+                      #/components/schemas/GoogleAppsDriveLabelsV2DeltaUpdateLabelResponse
+              description: Successful response

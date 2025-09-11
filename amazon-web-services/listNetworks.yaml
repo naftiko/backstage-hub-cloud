@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listnetworks
+  description: >-
+    Lists networks. Add filters to your request to return a more specific list
+    of results. Use filters to match the status of the network.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listnetworks
+      description: >-
+        Lists networks. Add filters to your request to return a more specific list
+        of results. Use filters to match the status of the network.
+    paths:
+      /v1/networks/list:
+        POST:
+          summary: Listnetworks
+          description: >-
+            Lists networks. Add filters to your request to return a more specific
+            list of results. Use filters to match the status of the network.
+          operationId: listNetworks

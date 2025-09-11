@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    gets-the-progress-of-a-quorum-loss-operation-on-a-partition-started-using-the-startquorumloss-api
+  description: >-
+    Gets the progress of a quorum loss operation started with StartQuorumLoss,
+    using the provided OperationId.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Gets The Progress Of A Quorum Loss Operation On A Partition Started Using
+        The Startquorumloss Api.
+      description: >-
+        Gets the progress of a quorum loss operation started with StartQuorumLoss,
+        using the provided OperationId.
+    paths:
+      /Faults/Services/{serviceId}/$/GetPartitions/{partitionId}/$/GetQuorumLossProgress:
+        get:
+          summary: >-
+            Gets The Progress Of A Quorum Loss Operation On A Partition Started
+            Using The Startquorumloss Api.
+          description: >-
+            Gets the progress of a quorum loss operation started with
+            StartQuorumLoss, using the provided OperationId.
+          operationId: getQuorumLossProgress
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

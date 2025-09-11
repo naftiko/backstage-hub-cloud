@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    principals-users-groups-and-service-principals-that-are-assigned-to-this-service-principal
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Principals (users, Groups, And Service Principals) That Are Assigned To This
+        Service Principal.
+      description: Needs a more full description created.
+    paths:
+      /{tenantID}/servicePrincipals/{objectId}/appRoleAssignedTo:
+        get:
+          summary: >-
+            Principals (users, Groups, And Service Principals) That Are Assigned To
+            This Service Principal.
+          description: Needs a more full description created.
+          operationId: servicePrincipalsListAppRoleAssignedTo
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/GraphError'

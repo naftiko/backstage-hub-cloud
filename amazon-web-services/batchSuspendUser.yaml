@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: batchsuspenduser
+  description: >-
+    Suspends up to 50 users from a Team or EnterpriseLWA Amazon Chime account.
+    For more information about different account types, see Managing Your Amazon
+    Chime Accounts in the Amazon Chime Administration Guide. Users suspended
+    from a Team account are disassociated from the account,but they can continue
+    to use Amazon Chime as free users. To remove the suspension from suspended
+    Team account users, invite them to the Team account again. You can use the
+    InviteUsers action to do so. Users suspended from an EnterpriseLWA account
+    are immediately signed out of Amazon Chime and can no longer sign in. To
+    remove the suspension from suspended EnterpriseLWA account users, use the
+    BatchUnsuspendUser action.  To sign out users without suspending them, use
+    the LogoutUser action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchsuspenduser
+      description: >-
+        Suspends up to 50 users from a Team or EnterpriseLWA Amazon Chime account.
+        For more information about different account types, see Managing Your Amazon
+        Chime Accounts in the Amazon Chime Administration Guide. Users suspended
+        from a Team account are disassociated from the account,but they can continue
+        to use Amazon Chime as free users. To remove the suspension from suspended
+        Team account users, invite them to the Team account again. You can use the
+        InviteUsers action to do so. Users suspended from an EnterpriseLWA account
+        are immediately signed out of Amazon Chime and can no longer sign in. To
+        remove the suspension from suspended EnterpriseLWA account users, use the
+        BatchUnsuspendUser action.  To sign out users without suspending them, use
+        the LogoutUser action.
+    paths:
+      /accounts/{accountId}/users?operation=suspend:
+        POST:
+          summary: Batchsuspenduser
+          description: >-
+            Suspends up to 50 users from a Team or EnterpriseLWA Amazon Chime
+            account. For more information about different account types, see
+            Managing Your Amazon Chime Accounts in the Amazon Chime Administration
+            Guide. Users suspended from a Team account are disassociated from the
+            account,but they can continue to use Amazon Chime as free users. To
+            remove the suspension from suspended Team account users, invite them to
+            the Team account again. You can use the InviteUsers action to do so.
+            Users suspended from an EnterpriseLWA account are immediately signed out
+            of Amazon Chime and can no longer sign in. To remove the suspension from
+            suspended EnterpriseLWA account users, use the BatchUnsuspendUser
+            action.  To sign out users without suspending them, use the LogoutUser
+            action.
+          operationId: batchSuspendUser

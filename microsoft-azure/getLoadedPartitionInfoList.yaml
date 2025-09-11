@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-ordered-list-of-partitions
+  description: >-
+    Retrieves partitions which are most/least loaded according to specified
+    metric.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets Ordered List Of Partitions.
+      description: >-
+        Retrieves partitions which are most/least loaded according to specified
+        metric.
+    paths:
+      /$/GetLoadedPartitionInfoList:
+        get:
+          summary: Gets Ordered List Of Partitions.
+          description: >-
+            Retrieves partitions which are most/least loaded according to specified
+            metric.
+          operationId: getLoadedPartitionInfoList
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

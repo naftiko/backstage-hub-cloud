@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: delete-synchronizationsetting-in-a-share
+  description: Delete a synchronizationSetting in a share
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Synchronizationsetting In A Share.
+      description: Delete a synchronizationSetting in a share
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName}/synchronizationSettings/{synchronizationSettingName}:
+        delete:
+          summary: Delete Synchronizationsetting In A Share.
+          description: Delete a synchronizationSetting in a share
+          operationId: synchronizationSettingsDelete
+          responses:
+            default:
+              description: >-
+                An error response received from the Microsoft.DataShare resource
+                provider.
+              schema:
+                $ref: '#/definitions/DataShareError'

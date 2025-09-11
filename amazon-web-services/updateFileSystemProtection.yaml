@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatefilesystemprotection
+  description: >-
+    Updates protection on the file system. This operation requires permissions
+    for the elasticfilesystem:UpdateFileSystemProtection action. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatefilesystemprotection
+      description: >-
+        Updates protection on the file system. This operation requires permissions
+        for the elasticfilesystem:UpdateFileSystemProtection action. 
+    paths:
+      /2015-02-01/file-systems/{FileSystemId}/protection:
+        PUT:
+          summary: Updatefilesystemprotection
+          description: >-
+            Updates protection on the file system. This operation requires
+            permissions for the elasticfilesystem:UpdateFileSystemProtection
+            action. 
+          operationId: updateFileSystemProtection

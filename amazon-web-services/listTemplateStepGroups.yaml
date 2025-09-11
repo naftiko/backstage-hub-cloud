@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listtemplatestepgroups
+  description: List the step groups in a template.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listtemplatestepgroups
+      description: List the step groups in a template.
+    paths:
+      /templatestepgroups/{templateId}:
+        GET:
+          summary: Listtemplatestepgroups
+          description: List the step groups in a template.
+          operationId: listTemplateStepGroups

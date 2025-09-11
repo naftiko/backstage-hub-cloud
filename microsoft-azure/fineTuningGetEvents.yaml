@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    gets-the-events-for-the-fine-tune-job-specified-by-the-given-fine-tune-idevents-are-created-when-the-job-status-changes-eg-running-or-complete-and-when-results-are-uploaded
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: "Gets The Events For The Fine-tune Job Specified By The Given Fine-tune-id.\r\nevents Are Created When The Job Status Changes, E.g. Running Or Complete, And When Results Are Uploaded."
+      description: Needs a more full description created.
+    paths:
+      /fine_tuning/jobs/{fine-tuning-job-id}/events:
+        get:
+          summary: "Gets The Events For The Fine-tune Job Specified By The Given Fine-tune-id.\r\nevents Are Created When The Job Status Changes, E.g. Running Or Complete, And When Results Are Uploaded."
+          description: Needs a more full description created.
+          operationId: fineTuningGetEvents
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

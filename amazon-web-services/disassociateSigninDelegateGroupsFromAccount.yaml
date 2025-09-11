@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: disassociatesignindelegategroupsfromaccount
+  description: >-
+    Disassociates the specified sign-in delegate groups from the specified
+    Amazon Chime account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disassociatesignindelegategroupsfromaccount
+      description: >-
+        Disassociates the specified sign-in delegate groups from the specified
+        Amazon Chime account.
+    paths:
+      /accounts/{accountId}?operation=disassociate-signin-delegate-groups:
+        POST:
+          summary: Disassociatesignindelegategroupsfromaccount
+          description: >-
+            Disassociates the specified sign-in delegate groups from the specified
+            Amazon Chime account.
+          operationId: disassociateSigninDelegateGroupsFromAccount

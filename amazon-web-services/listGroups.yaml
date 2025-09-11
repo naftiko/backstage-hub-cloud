@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listgroups
+  description: >-
+    Returns a list of all groups in the account, displaying their names, unique
+    IDs, and ARNs. The groups from all Regions are returned.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listgroups
+      description: >-
+        Returns a list of all groups in the account, displaying their names, unique
+        IDs, and ARNs. The groups from all Regions are returned.
+    paths:
+      /groups:
+        POST:
+          summary: Listgroups
+          description: >-
+            Returns a list of all groups in the account, displaying their names,
+            unique IDs, and ARNs. The groups from all Regions are returned.
+          operationId: listGroups

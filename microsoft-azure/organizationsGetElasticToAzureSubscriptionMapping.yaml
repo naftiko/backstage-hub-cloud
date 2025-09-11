@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-elastic-organization-to-azure-subscription-mapping-details-for-the-logged-in-user
+  description: >-
+    Get Elastic Organization To Azure Subscription Mapping details for the
+    logged-in user.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Elastic Organization To Azure Subscription Mapping Details For The
+        Logged-in User.
+      description: >-
+        Get Elastic Organization To Azure Subscription Mapping details for the
+        logged-in user.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Elastic/getElasticOrganizationToAzureSubscriptionMapping:
+        post:
+          summary: >-
+            Get Elastic Organization To Azure Subscription Mapping Details For The
+            Logged-in User.
+          description: >-
+            Get Elastic Organization To Azure Subscription Mapping details for the
+            logged-in user.
+          operationId: organizationsGetElasticToAzureSubscriptionMapping
+          responses:
+            default:
+              description: Default error response.
+              schema:
+                $ref: '#/definitions/ResourceProviderDefaultErrorResponse'

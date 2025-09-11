@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatefindingsfilter
+  description: Updates the criteria and other settings for a findings filter.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatefindingsfilter
+      description: Updates the criteria and other settings for a findings filter.
+    paths:
+      /findingsfilters/{id}:
+        PATCH:
+          summary: Updatefindingsfilter
+          description: Updates the criteria and other settings for a findings filter.
+          operationId: updateFindingsFilter

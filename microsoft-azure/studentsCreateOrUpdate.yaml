@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-providers-microsoftbilling-billingaccounts-billingaccountname-billingprofiles-billingprofilename-invoicesections-invoicesectionname-providers-microsofteducation-labs-default-students-studentalias
+  description: >-
+    Create and add a new student to the specified lab or update the details of
+    an existing student in a lab. Note the student must have a valid tenant to
+    accept the lab after they have been added to lab.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Providers Microsoft.billing Billingaccounts Billingaccountname
+        Billingprofiles Billingprofilename Invoicesections Invoicesectionname
+        Providers Microsoft.education Labs Default Students Studentalias
+      description: >-
+        Create and add a new student to the specified lab or update the details of
+        an existing student in a lab. Note the student must have a valid tenant to
+        accept the lab after they have been added to lab.
+    paths:
+      /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/providers/Microsoft.Education/labs/default/students/{studentAlias}:
+        put:
+          summary: >-
+            Put Providers Microsoft.billing Billingaccounts Billingaccountname
+            Billingprofiles Billingprofilename Invoicesections Invoicesectionname
+            Providers Microsoft.education Labs Default Students Studentalias
+          description: >-
+            Create and add a new student to the specified lab or update the details
+            of an existing student in a lab. Note the student must have a valid
+            tenant to accept the lab after they have been added to lab.
+          operationId: studentsCreateOrUpdate
+          responses:
+            default:
+              description: Describes the error if the operation is not successful.
+              schema:
+                $ref: '#/definitions/ErrorResponseBody'

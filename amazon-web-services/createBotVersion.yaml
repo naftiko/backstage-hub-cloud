@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: createbotversion
+  description: >-
+    Creates a new version of the bot based on the $LATEST version. If the
+    $LATEST version of this resource hasn't changed since you created the last
+    version, Amazon Lex doesn't create a new version. It returns the last
+    created version.  You can update only the $LATEST version of the bot. You
+    can't update the numbered versions that you create with the CreateBotVersion
+    operation.   When you create the first version of a bot, Amazon Lex sets the
+    version to 1. Subsequent versions increment by 1. For more information, see
+    versioning-intro.   This operation requires permission for the
+    lex:CreateBotVersion action. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createbotversion
+      description: >-
+        Creates a new version of the bot based on the $LATEST version. If the
+        $LATEST version of this resource hasn't changed since you created the last
+        version, Amazon Lex doesn't create a new version. It returns the last
+        created version.  You can update only the $LATEST version of the bot. You
+        can't update the numbered versions that you create with the CreateBotVersion
+        operation.   When you create the first version of a bot, Amazon Lex sets the
+        version to 1. Subsequent versions increment by 1. For more information, see
+        versioning-intro.   This operation requires permission for the
+        lex:CreateBotVersion action. 
+    paths:
+      /bots/{name}/versions:
+        POST:
+          summary: Createbotversion
+          description: >-
+            Creates a new version of the bot based on the $LATEST version. If the
+            $LATEST version of this resource hasn't changed since you created the
+            last version, Amazon Lex doesn't create a new version. It returns the
+            last created version.  You can update only the $LATEST version of the
+            bot. You can't update the numbered versions that you create with the
+            CreateBotVersion operation.   When you create the first version of a
+            bot, Amazon Lex sets the version to 1. Subsequent versions increment by
+            1. For more information, see versioning-intro.   This operation requires
+            permission for the lex:CreateBotVersion action. 
+          operationId: createBotVersion

@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftinsights-components-resourcename-linkedstorageaccounts-storagetype
+  description: >-
+    Returns the current linked storage settings for an Application Insights
+    component.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.insights Components Resourcename Linkedstorageaccounts Storagetype
+      description: >-
+        Returns the current linked storage settings for an Application Insights
+        component.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/linkedStorageAccounts/{storageType}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.insights Components Resourcename
+            Linkedstorageaccounts Storagetype
+          description: >-
+            Returns the current linked storage settings for an Application Insights
+            component.
+          operationId: componentLinkedStorageAccountsGet
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponseLinkedStorage'

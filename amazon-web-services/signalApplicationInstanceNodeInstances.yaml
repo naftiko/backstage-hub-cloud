@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: signalapplicationinstancenodeinstances
+  description: Signal camera nodes to stop or resume.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Signalapplicationinstancenodeinstances
+      description: Signal camera nodes to stop or resume.
+    paths:
+      /application-instances/{ApplicationInstanceId}/node-signals:
+        PUT:
+          summary: Signalapplicationinstancenodeinstances
+          description: Signal camera nodes to stop or resume.
+          operationId: signalApplicationInstanceNodeInstances

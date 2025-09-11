@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: delete-parties-partyid-application-data-applicationdataid
+  description: Deletes a specified application data resource under a particular party.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Parties Partyid Application-data Applicationdataid
+      description: Deletes a specified application data resource under a particular party.
+    paths:
+      /parties/{partyId}/application-data/{applicationDataId}:
+        delete:
+          summary: Delete Parties Partyid Application-data Applicationdataid
+          description: Deletes a specified application data resource under a particular party.
+          operationId: applicationDataDelete
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  x-ms-client-name: ErrorCode
+              x-ms-error-response: true

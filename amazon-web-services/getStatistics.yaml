@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getstatistics
+  description: >-
+    Returns the count, average, sum, minimum, maximum, sum of squares, variance,
+    and standard deviation for the specified aggregated field. If the
+    aggregation field is of type String, only the count statistic is returned.
+    Requires permission to access the GetStatistics action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getstatistics
+      description: >-
+        Returns the count, average, sum, minimum, maximum, sum of squares, variance,
+        and standard deviation for the specified aggregated field. If the
+        aggregation field is of type String, only the count statistic is returned.
+        Requires permission to access the GetStatistics action.
+    paths:
+      /indices/statistics:
+        POST:
+          summary: Getstatistics
+          description: >-
+            Returns the count, average, sum, minimum, maximum, sum of squares,
+            variance, and standard deviation for the specified aggregated field. If
+            the aggregation field is of type String, only the count statistic is
+            returned. Requires permission to access the GetStatistics action.
+          operationId: getStatistics

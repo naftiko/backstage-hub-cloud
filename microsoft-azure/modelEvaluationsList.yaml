@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-a-list-of-the-available-evaluations-for-a-model-status-codes-returned-200-operation-completed-successfully-400-the-request-was-malformed
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: "Get A List Of The Available Evaluations For A Model.\r\n \r\nstatus Codes Returned:\r\n- 200: Operation Completed Successfully.\r\n- 400: The Request Was Malformed."
+      description: Needs a more full description created.
+    paths:
+      /models/{name}/evaluations:
+        get:
+          summary: "Get A List Of The Available Evaluations For A Model.\r\n \r\nstatus Codes Returned:\r\n- 200: Operation Completed Successfully.\r\n- 400: The Request Was Malformed."
+          description: Needs a more full description created.
+          operationId: modelEvaluationsList
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string

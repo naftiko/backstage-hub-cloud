@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-the-service-fabric-application-backup-configuration-information
+  description: >-
+    Gets the Service Fabric backup configuration information for the application
+    and the services and partitions under this application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The Service Fabric Application Backup Configuration Information.
+      description: >-
+        Gets the Service Fabric backup configuration information for the application
+        and the services and partitions under this application.
+    paths:
+      /Applications/{applicationId}/$/GetBackupConfigurationInfo:
+        get:
+          summary: Gets The Service Fabric Application Backup Configuration Information.
+          description: >-
+            Gets the Service Fabric backup configuration information for the
+            application and the services and partitions under this application.
+          operationId: getApplicationBackupConfigurationInfo
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

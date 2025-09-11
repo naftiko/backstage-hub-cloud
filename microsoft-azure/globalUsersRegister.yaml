@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-providers-microsoftlabservices-users-username-register
+  description: Register a user to a managed lab
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Providers Microsoft.labservices Users Username Register
+      description: Register a user to a managed lab
+    paths:
+      /providers/Microsoft.LabServices/users/{userName}/register:
+        post:
+          summary: Post Providers Microsoft.labservices Users Username Register
+          description: Register a user to a managed lab
+          operationId: globalUsersRegister
+          responses:
+            default:
+              description: BadRequest
+              schema:
+                $ref: '#/definitions/CloudError'

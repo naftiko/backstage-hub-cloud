@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: setcognitoevents
+  description: >-
+    Sets the AWS Lambda function for a given event type for an identity pool.
+    This request only updates the key/value pair specified. Other key/values
+    pairs are not updated. To remove a key value pair, pass a empty value for
+    the particular key.This API can only be called with developer credentials.
+    You cannot call this API with the temporary user credentials provided by
+    Cognito Identity.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Setcognitoevents
+      description: >-
+        Sets the AWS Lambda function for a given event type for an identity pool.
+        This request only updates the key/value pair specified. Other key/values
+        pairs are not updated. To remove a key value pair, pass a empty value for
+        the particular key.This API can only be called with developer credentials.
+        You cannot call this API with the temporary user credentials provided by
+        Cognito Identity.
+    paths:
+      /identitypools/{IdentityPoolId}/events:
+        POST:
+          summary: Setcognitoevents
+          description: >-
+            Sets the AWS Lambda function for a given event type for an identity
+            pool. This request only updates the key/value pair specified. Other
+            key/values pairs are not updated. To remove a key value pair, pass a
+            empty value for the particular key.This API can only be called with
+            developer credentials. You cannot call this API with the temporary user
+            credentials provided by Cognito Identity.
+          operationId: setCognitoEvents

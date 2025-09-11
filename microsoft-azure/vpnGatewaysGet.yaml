@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftnetwork-vpngateways-gatewayname
+  description: Retrieves the details of a virtual wan vpn gateway.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.network Vpngateways Gatewayname
+      description: Retrieves the details of a virtual wan vpn gateway.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.network Vpngateways Gatewayname
+          description: Retrieves the details of a virtual wan vpn gateway.
+          operationId: vpnGatewaysGet
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./network.json#/definitions/CloudError

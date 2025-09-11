@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-tenantid-oauth2permissiongrants
+  description: Grants OAuth2 permissions for the relevant resource Ids of an app.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Tenantid Oauth2permissiongrants
+      description: Grants OAuth2 permissions for the relevant resource Ids of an app.
+    paths:
+      /{tenantID}/oauth2PermissionGrants:
+        post:
+          summary: Post Tenantid Oauth2permissiongrants
+          description: Grants OAuth2 permissions for the relevant resource Ids of an app.
+          operationId: oAuth2PermissionGrantCreate
+          responses:
+            '201':
+              description: OK. The operation was successful.
+              schema:
+                $ref: '#/definitions/OAuth2PermissionGrant'

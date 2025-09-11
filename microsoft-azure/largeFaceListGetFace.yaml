@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-largefacelists-largefacelistid-persistedfaces-persistedfaceid
+  description: >-
+    Retrieve information about a persisted face (specified by persistedFaceId
+    and its belonging largeFaceListId).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Largefacelists Largefacelistid Persistedfaces Persistedfaceid
+      description: >-
+        Retrieve information about a persisted face (specified by persistedFaceId
+        and its belonging largeFaceListId).
+    paths:
+      /largefacelists/{largeFaceListId}/persistedfaces/{persistedFaceId}:
+        get:
+          summary: Get Largefacelists Largefacelistid Persistedfaces Persistedfaceid
+          description: >-
+            Retrieve information about a persisted face (specified by
+            persistedFaceId and its belonging largeFaceListId).
+          operationId: largeFaceListGetFace
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

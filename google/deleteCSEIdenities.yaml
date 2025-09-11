@@ -1,0 +1,45 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: delete-cse-idenities
+  description: >-
+    Deletes a client-side encryption identity. The authenticated user can no
+    longer use the identity to send encrypted messages. You cannot restore the
+    identity after you delete it. Instead, use the CreateCseIdentity method to
+    create another identity with the same configuration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Cse Idenities
+      description: >-
+        Deletes a client-side encryption identity. The authenticated user can no
+        longer use the identity to send encrypted messages. You cannot restore the
+        identity after you delete it. Instead, use the CreateCseIdentity method to
+        create another identity with the same configuration.
+    paths:
+      /gmail/v1/users/{userId}/settings/cse/identities/{cseEmailAddress}:
+        delete:
+          summary: Delete Cse Idenities
+          description: >-
+            Deletes a client-side encryption identity. The authenticated user can no
+            longer use the identity to send encrypted messages. You cannot restore
+            the identity after you delete it. Instead, use the CreateCseIdentity
+            method to create another identity with the same configuration.
+          operationId: deleteCSEIdenities
+          responses:
+            '204':
+              description: No Content
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: ''

@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: delete-models-id
+  description: >-
+    Deletes a model. A model can only be deleted if no other models reference
+    it.Status codes:* 204 No Content* 400 Bad Request  * InvalidArgument - The
+    model id is invalid.  * MissingArgument - The model id was not provided.*
+    404 Not Found  * ModelNotFound - The model was not found.* 409 Conflict  *
+    ModelReferencesNotDeleted - The model refers to models that are not deleted.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Models Id
+      description: >-
+        Deletes a model. A model can only be deleted if no other models reference
+        it.Status codes:* 204 No Content* 400 Bad Request  * InvalidArgument - The
+        model id is invalid.  * MissingArgument - The model id was not provided.*
+        404 Not Found  * ModelNotFound - The model was not found.* 409 Conflict  *
+        ModelReferencesNotDeleted - The model refers to models that are not deleted.
+    paths:
+      /models/{id}:
+        delete:
+          summary: Delete Models Id
+          description: >-
+            Deletes a model. A model can only be deleted if no other models
+            reference it.Status codes:* 204 No Content* 400 Bad Request  *
+            InvalidArgument - The model id is invalid.  * MissingArgument - The
+            model id was not provided.* 404 Not Found  * ModelNotFound - The model
+            was not found.* 409 Conflict  * ModelReferencesNotDeleted - The model
+            refers to models that are not deleted.
+          operationId: digitalTwinModelsDelete
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

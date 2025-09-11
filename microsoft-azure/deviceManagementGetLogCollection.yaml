@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-deviceupdate-instanceid-management-devicediagnostics-logcollections-operationid
+  description: Get the device diagnostics log collection
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Deviceupdate Instanceid Management Devicediagnostics Logcollections
+        Operationid
+      description: Get the device diagnostics log collection
+    paths:
+      /deviceUpdate/{instanceId}/management/deviceDiagnostics/logCollections/{operationId}:
+        get:
+          summary: >-
+            Get Deviceupdate Instanceid Management Devicediagnostics Logcollections
+            Operationid
+          description: Get the device diagnostics log collection
+          operationId: deviceManagementGetLogCollection
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    list-all-global-event-subscriptions-under-an-azure-subscription-and-resource-group
+  description: >-
+    List all global event subscriptions under a specific Azure subscription and
+    resource group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        List All Global Event Subscriptions Under An Azure Subscription And Resource
+        Group.
+      description: >-
+        List all global event subscriptions under a specific Azure subscription and
+        resource group.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/eventSubscriptions:
+        get:
+          summary: >-
+            List All Global Event Subscriptions Under An Azure Subscription And
+            Resource Group.
+          description: >-
+            List all global event subscriptions under a specific Azure subscription
+            and resource group.
+          operationId: eventSubscriptionsListGlobalByResourceGroup
+          responses:
+            default:
+              description: |-
+                *** Error Responses: ***
+
+                 * 400 Bad Request.
+
+                 * 500 Internal Server Error.

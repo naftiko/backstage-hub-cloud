@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatecoredefinition
+  description: Updates a core definition.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatecoredefinition
+      description: Updates a core definition.
+    paths:
+      /greengrass/definition/cores/{CoreDefinitionId}:
+        PUT:
+          summary: Updatecoredefinition
+          description: Updates a core definition.
+          operationId: updateCoreDefinition

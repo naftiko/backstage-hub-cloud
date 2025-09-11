@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listextensiblesourceservers
+  description: >-
+    Returns a list of source servers on a staging account that are extensible,
+    which means that: a. The source server is not already extended into this
+    Account. b. The source server on the Account we’re reading from is not an
+    extension of another source server. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listextensiblesourceservers
+      description: >-
+        Returns a list of source servers on a staging account that are extensible,
+        which means that: a. The source server is not already extended into this
+        Account. b. The source server on the Account we’re reading from is not an
+        extension of another source server. 
+    paths:
+      /ListExtensibleSourceServers:
+        POST:
+          summary: Listextensiblesourceservers
+          description: >-
+            Returns a list of source servers on a staging account that are
+            extensible, which means that: a. The source server is not already
+            extended into this Account. b. The source server on the Account we’re
+            reading from is not an extension of another source server. 
+          operationId: listExtensibleSourceServers

@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: batchputdocument
+  description: >-
+    Adds one or more documents to an Amazon Q index. You use this API to:  
+    ingest your structured and unstructured documents and documents stored in an
+    Amazon S3 bucket into an Amazon Q index.   add custom attributes to
+    documents in an Amazon Q index.   attach an access control list to the
+    documents added to an Amazon Q index.   You can see the progress of the
+    deletion, and any error messages related to the process, by using
+    CloudWatch.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchputdocument
+      description: >-
+        Adds one or more documents to an Amazon Q index. You use this API to:  
+        ingest your structured and unstructured documents and documents stored in an
+        Amazon S3 bucket into an Amazon Q index.   add custom attributes to
+        documents in an Amazon Q index.   attach an access control list to the
+        documents added to an Amazon Q index.   You can see the progress of the
+        deletion, and any error messages related to the process, by using
+        CloudWatch.
+    paths:
+      /applications/{applicationId}/indices/{indexId}/documents:
+        POST:
+          summary: Batchputdocument
+          description: >-
+            Adds one or more documents to an Amazon Q index. You use this API to:  
+            ingest your structured and unstructured documents and documents stored
+            in an Amazon S3 bucket into an Amazon Q index.   add custom attributes
+            to documents in an Amazon Q index.   attach an access control list to
+            the documents added to an Amazon Q index.   You can see the progress of
+            the deletion, and any error messages related to the process, by using
+            CloudWatch.
+          operationId: batchPutDocument

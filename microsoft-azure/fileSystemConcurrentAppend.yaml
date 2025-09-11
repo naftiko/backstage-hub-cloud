@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-webhdfsext-path
+  description: >-
+    Appends to the specified file, optionally first creating the file if it does
+    not yet exist. This method supports multiple concurrent appends to the file.
+    NOTE: The target must not contain data added by Create or normal (serial)
+    Append. ConcurrentAppend and Append cannot be used interchangeably; once a
+    target file has been modified using either of these append options, the
+    other append option cannot be used on the target file. ConcurrentAppend does
+    not guarantee order and can result in duplicated data landing in the target
+    file.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Webhdfsext Path
+      description: >-
+        Appends to the specified file, optionally first creating the file if it does
+        not yet exist. This method supports multiple concurrent appends to the file.
+        NOTE: The target must not contain data added by Create or normal (serial)
+        Append. ConcurrentAppend and Append cannot be used interchangeably; once a
+        target file has been modified using either of these append options, the
+        other append option cannot be used on the target file. ConcurrentAppend does
+        not guarantee order and can result in duplicated data landing in the target
+        file.
+    paths:
+      /WebHdfsExt/{path}:
+        post:
+          summary: Post Webhdfsext Path
+          description: >-
+            Appends to the specified file, optionally first creating the file if it
+            does not yet exist. This method supports multiple concurrent appends to
+            the file. NOTE: The target must not contain data added by Create or
+            normal (serial) Append. ConcurrentAppend and Append cannot be used
+            interchangeably; once a target file has been modified using either of
+            these append options, the other append option cannot be used on the
+            target file. ConcurrentAppend does not guarantee order and can result in
+            duplicated data landing in the target file.
+          operationId: fileSystemConcurrentAppend
+          responses:
+            default:
+              description: An unexpected error from the server.
+              schema:
+                $ref: '#/definitions/AdlsError'

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftrecoveryservices-vaults-vaultname-backupstorageconfig-vaultstorageconfig
+  description: Updates vault storage model type.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.recoveryservices Vaults Vaultname Backupstorageconfig
+        Vaultstorageconfig
+      description: Updates vault storage model type.
+    paths:
+      /Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupstorageconfig/vaultstorageconfig:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.recoveryservices Vaults Vaultname
+            Backupstorageconfig Vaultstorageconfig
+          description: Updates vault storage model type.
+          operationId: backupResourceStorageConfigsNonCRRUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/NewErrorResponse'

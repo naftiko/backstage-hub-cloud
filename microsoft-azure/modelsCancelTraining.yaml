@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    cancel-model-training-status-codes-returned-202-operation-completed-successfully-400-the-request-was-malformed-404-a-model-with-the-specified-name-was-not-found
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: "Cancel Model Training.\r\n \r\nstatus Codes Returned:\r\n- 202: Operation Completed Successfully.\r\n- 400: The Request Was Malformed.\r\n- 404: A Model With The Specified Name Was Not Found."
+      description: Needs a more full description created.
+    paths:
+      /models/{name}:cancel:
+        post:
+          summary: "Cancel Model Training.\r\n \r\nstatus Codes Returned:\r\n- 202: Operation Completed Successfully.\r\n- 400: The Request Was Malformed.\r\n- 404: A Model With The Specified Name Was Not Found."
+          description: Needs a more full description created.
+          operationId: modelsCancelTraining
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string

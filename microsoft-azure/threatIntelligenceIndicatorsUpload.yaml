@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: upload-the-indicators-to-the-workspace
+  description: Upload the list of indicators to the workspace specified
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Upload The Indicators To The Workspace
+      description: Upload the list of indicators to the workspace specified
+    paths:
+      /workspaces/{workspaceId}/threatintelligenceindicators:upload:
+        post:
+          summary: Upload The Indicators To The Workspace
+          description: Upload the list of indicators to the workspace specified
+          operationId: threatIntelligenceIndicatorsUpload
+          responses:
+            default:
+              description: Upload Indicators API service error response.
+              schema:
+                $ref: '#/definitions/ErrorResponseBody'
+              x-ms-error-response: true

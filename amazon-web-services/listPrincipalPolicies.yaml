@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listprincipalpolicies
+  description: >-
+    Lists the policies attached to the specified principal. If you use an
+    Cognito identity, the ID must be in AmazonCognito Identity format.  Note:
+    This action is deprecated and works as expected for backward compatibility,
+    but we won't add enhancements. Use ListAttachedPolicies instead. Requires
+    permission to access the ListPrincipalPolicies action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listprincipalpolicies
+      description: >-
+        Lists the policies attached to the specified principal. If you use an
+        Cognito identity, the ID must be in AmazonCognito Identity format.  Note:
+        This action is deprecated and works as expected for backward compatibility,
+        but we won't add enhancements. Use ListAttachedPolicies instead. Requires
+        permission to access the ListPrincipalPolicies action.
+    paths:
+      /principal-policies:
+        GET:
+          summary: Listprincipalpolicies
+          description: >-
+            Lists the policies attached to the specified principal. If you use an
+            Cognito identity, the ID must be in AmazonCognito Identity format. 
+            Note: This action is deprecated and works as expected for backward
+            compatibility, but we won't add enhancements. Use ListAttachedPolicies
+            instead. Requires permission to access the ListPrincipalPolicies action.
+          operationId: listPrincipalPolicies

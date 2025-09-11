@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    patch-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftstandbypool-standbyvirtualmachinepools-standbyvirtualmachinepoolname
+  description: Update a StandbyVirtualMachinePoolResource
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.standbypool Standbyvirtualmachinepools
+        Standbyvirtualmachinepoolname
+      description: Update a StandbyVirtualMachinePoolResource
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyVirtualMachinePoolName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.standbypool Standbyvirtualmachinepools
+            Standbyvirtualmachinepoolname
+          description: Update a StandbyVirtualMachinePoolResource
+          operationId: standbyVirtualMachinePoolsUpdate
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

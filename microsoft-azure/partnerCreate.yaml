@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: create-a-specific-partner
+  description: Create a management partner for the objectId and tenantId.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Specific `partner`.
+      description: Create a management partner for the objectId and tenantId.
+    paths:
+      /providers/Microsoft.ManagementPartner/partners/{partnerId}:
+        put:
+          summary: Create A Specific `partner`.
+          description: Create a management partner for the objectId and tenantId.
+          operationId: partnerCreate
+          responses:
+            default:
+              description: Unexpected error
+              schema:
+                $ref: '#/definitions/Error'

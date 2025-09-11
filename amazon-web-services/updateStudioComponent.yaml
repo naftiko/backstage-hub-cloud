@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatestudiocomponent
+  description: Updates a studio component resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatestudiocomponent
+      description: Updates a studio component resource.
+    paths:
+      /2020-08-01/studios/{studioId}/studio-components/{studioComponentId}:
+        PATCH:
+          summary: Updatestudiocomponent
+          description: Updates a studio component resource.
+          operationId: updateStudioComponent

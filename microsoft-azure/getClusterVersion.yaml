@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-the-current-service-fabric-cluster-version
+  description: >-
+    If a cluster upgrade is happening, then this API will return the lowest
+    (older) version of the current and target cluster runtime versions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get The Current Service Fabric Cluster Version.
+      description: >-
+        If a cluster upgrade is happening, then this API will return the lowest
+        (older) version of the current and target cluster runtime versions.
+    paths:
+      /$/GetClusterVersion:
+        get:
+          summary: Get The Current Service Fabric Cluster Version.
+          description: >-
+            If a cluster upgrade is happening, then this API will return the lowest
+            (older) version of the current and target cluster runtime versions.
+          operationId: getClusterVersion
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

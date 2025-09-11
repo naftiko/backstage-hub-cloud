@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: batchdisassociateresourcesfromcustomlineitem
+  description: ' Disassociates a batch of resources from a percentage custom line item. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchdisassociateresourcesfromcustomlineitem
+      description: ' Disassociates a batch of resources from a percentage custom line item. '
+    paths:
+      /batch-disassociate-resources-from-custom-line-item:
+        PUT:
+          summary: Batchdisassociateresourcesfromcustomlineitem
+          description: ' Disassociates a batch of resources from a percentage custom line item. '
+          operationId: batchDisassociateResourcesFromCustomLineItem

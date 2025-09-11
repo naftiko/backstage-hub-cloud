@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updateworkerfleet
+  description: Grants permission to update a worker fleet
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateworkerfleet
+      description: Grants permission to update a worker fleet
+    paths:
+      /updateWorkerFleet:
+        POST:
+          summary: Updateworkerfleet
+          description: Grants permission to update a worker fleet
+          operationId: updateWorkerFleet

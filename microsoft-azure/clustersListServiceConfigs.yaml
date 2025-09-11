@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsofthdinsight-clusterpools-clusterpoolname-clusters-clustername-serviceconfigs
+  description: Lists the config dump of all services running in cluster.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.hdinsight Clusterpools Clusterpoolname Clusters Clustername
+        Serviceconfigs
+      description: Lists the config dump of all services running in cluster.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusterpools/{clusterPoolName}/clusters/{clusterName}/serviceConfigs:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.hdinsight Clusterpools Clusterpoolname Clusters
+            Clustername Serviceconfigs
+          description: Lists the config dump of all services running in cluster.
+          operationId: clustersListServiceConfigs
+          responses:
+            default:
+              description: Error Response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

@@ -1,0 +1,82 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-spatial-closestpoint-format
+  description: >-
+    **Applies to**: S1 pricing tier.This API returns the closest point between a
+    base point and a given set of points in the user uploaded data set
+    identified by udid. The set of target points is provided by a GeoJSON file
+    which is uploaded via [Data Upload
+    API](https://docs.microsoft.com/en-us/rest/api/maps/data/uploadPreview) and
+    referenced by a unique udid. The GeoJSON file may only contain a collection
+    of Point geometry. MultiPoint or other geometries will be ignored if
+    provided. The maximum number of points accepted is 100,000. The algorithm
+    does not take into account routing or traffic. Information returned includes
+    closest point latitude, longitude, and distance in meters from the closest
+    point.To test this API, you can upload the sample data from [Post Closest
+    Point
+    API](https://docs.microsoft.com/en-us/rest/api/maps/spatial/postclosestpoint#examples)
+    examples (Request Body) via [Data Upload
+    API](https://docs.microsoft.com/en-us/rest/api/maps/data/uploadPreview) and
+    replace the `{udid}` from the [sample request
+    below](https://docs.microsoft.com/en-us/rest/api/maps/spatial/getclosestpoint#examples)
+    with the udid returned by Data Upload API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Spatial Closestpoint Format
+      description: >-
+        **Applies to**: S1 pricing tier.This API returns the closest point between a
+        base point and a given set of points in the user uploaded data set
+        identified by udid. The set of target points is provided by a GeoJSON file
+        which is uploaded via [Data Upload
+        API](https://docs.microsoft.com/en-us/rest/api/maps/data/uploadPreview) and
+        referenced by a unique udid. The GeoJSON file may only contain a collection
+        of Point geometry. MultiPoint or other geometries will be ignored if
+        provided. The maximum number of points accepted is 100,000. The algorithm
+        does not take into account routing or traffic. Information returned includes
+        closest point latitude, longitude, and distance in meters from the closest
+        point.To test this API, you can upload the sample data from [Post Closest
+        Point
+        API](https://docs.microsoft.com/en-us/rest/api/maps/spatial/postclosestpoint#examples)
+        examples (Request Body) via [Data Upload
+        API](https://docs.microsoft.com/en-us/rest/api/maps/data/uploadPreview) and
+        replace the `{udid}` from the [sample request
+        below](https://docs.microsoft.com/en-us/rest/api/maps/spatial/getclosestpoint#examples)
+        with the udid returned by Data Upload API.
+    paths:
+      /spatial/closestPoint/{format}:
+        get:
+          summary: Get Spatial Closestpoint Format
+          description: >-
+            **Applies to**: S1 pricing tier.This API returns the closest point
+            between a base point and a given set of points in the user uploaded data
+            set identified by udid. The set of target points is provided by a
+            GeoJSON file which is uploaded via [Data Upload
+            API](https://docs.microsoft.com/en-us/rest/api/maps/data/uploadPreview)
+            and referenced by a unique udid. The GeoJSON file may only contain a
+            collection of Point geometry. MultiPoint or other geometries will be
+            ignored if provided. The maximum number of points accepted is 100,000.
+            The algorithm does not take into account routing or traffic. Information
+            returned includes closest point latitude, longitude, and distance in
+            meters from the closest point.To test this API, you can upload the
+            sample data from [Post Closest Point
+            API](https://docs.microsoft.com/en-us/rest/api/maps/spatial/postclosestpoint#examples)
+            examples (Request Body) via [Data Upload
+            API](https://docs.microsoft.com/en-us/rest/api/maps/data/uploadPreview)
+            and replace the `{udid}` from the [sample request
+            below](https://docs.microsoft.com/en-us/rest/api/maps/spatial/getclosestpoint#examples)
+            with the udid returned by Data Upload API.
+          operationId: spatialGetClosestPoint
+          responses:
+            '500':
+              $ref: '#/responses/500'

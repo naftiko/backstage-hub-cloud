@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: delete-scope-providers-microsoftconsumption-budgets-budgetname
+  description: The operation to delete a budget.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Scope Providers Microsoft.consumption Budgets Budgetname
+      description: The operation to delete a budget.
+    paths:
+      /{scope}/providers/Microsoft.Consumption/budgets/{budgetName}:
+        delete:
+          summary: Delete Scope Providers Microsoft.consumption Budgets Budgetname
+          description: The operation to delete a budget.
+          operationId: budgetsDelete
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

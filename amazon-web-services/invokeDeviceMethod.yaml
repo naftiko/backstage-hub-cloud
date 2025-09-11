@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: invokedevicemethod
+  description: >-
+    Given a device ID, issues a request to invoke a named device method (with
+    possible parameters). See the "Example POST" code snippet below.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Invokedevicemethod
+      description: >-
+        Given a device ID, issues a request to invoke a named device method (with
+        possible parameters). See the "Example POST" code snippet below.
+    paths:
+      /devices/{deviceId}/methods:
+        POST:
+          summary: Invokedevicemethod
+          description: >-
+            Given a device ID, issues a request to invoke a named device method
+            (with possible parameters). See the "Example POST" code snippet below.
+          operationId: invokeDeviceMethod

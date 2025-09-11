@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-providers-microsoftstoragecache-checkamlfssubnets
+  description: Check that subnets will be valid for AML file system create calls.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Providers Microsoft.storagecache
+        Checkamlfssubnets
+      description: Check that subnets will be valid for AML file system create calls.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.StorageCache/checkAmlFSSubnets:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Providers Microsoft.storagecache
+            Checkamlfssubnets
+          description: Check that subnets will be valid for AML file system create calls.
+          operationId: checkAmlFSSubnets
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: storagecache.json#/definitions/CloudError

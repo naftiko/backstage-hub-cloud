@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: describeflowsourcemetadata
+  description: >-
+    Displays details of the flow's source stream. The response contains
+    information about the contents of the stream and its programs.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeflowsourcemetadata
+      description: >-
+        Displays details of the flow's source stream. The response contains
+        information about the contents of the stream and its programs.
+    paths:
+      /v1/flows/{flowArn}/source-metadata:
+        GET:
+          summary: Describeflowsourcemetadata
+          description: >-
+            Displays details of the flow's source stream. The response contains
+            information about the contents of the stream and its programs.
+          operationId: describeFlowSourceMetadata

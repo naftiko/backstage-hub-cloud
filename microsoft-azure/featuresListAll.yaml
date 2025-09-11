@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-subscriptions-subscriptionid-providers-microsoftfeatures-features
+  description: >-
+    Gets all the preview features that are available through AFEC for the
+    subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Subscriptions Subscriptionid Providers Microsoft.features Features
+      description: >-
+        Gets all the preview features that are available through AFEC for the
+        subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Features/features:
+        get:
+          summary: Get Subscriptions Subscriptionid Providers Microsoft.features Features
+          description: >-
+            Gets all the preview features that are available through AFEC for the
+            subscription.
+          operationId: featuresListAll
+          responses:
+            '200':
+              description: >-
+                OK - Returns an array containing metadata for each feature. The
+                metadata includes the name of the feature, the registration state,
+                the resource ID, and resource type.
+              schema:
+                $ref: '#/definitions/FeatureOperationsListResult'

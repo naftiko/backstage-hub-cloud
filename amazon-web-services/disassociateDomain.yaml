@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: disassociatedomain
+  description: >-
+    Disassociates a domain from Amazon WorkLink. End users lose the ability to
+    access the domain with Amazon WorkLink. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disassociatedomain
+      description: >-
+        Disassociates a domain from Amazon WorkLink. End users lose the ability to
+        access the domain with Amazon WorkLink. 
+    paths:
+      /disassociateDomain:
+        POST:
+          summary: Disassociatedomain
+          description: >-
+            Disassociates a domain from Amazon WorkLink. End users lose the ability
+            to access the domain with Amazon WorkLink. 
+          operationId: disassociateDomain

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: disassociatemergedgraphqlapi
+  description: >-
+    Deletes an association between a Merged API and source API using the source
+    API's identifier and the association ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disassociatemergedgraphqlapi
+      description: >-
+        Deletes an association between a Merged API and source API using the source
+        API's identifier and the association ID.
+    paths:
+      /v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations/{associationId}:
+        DELETE:
+          summary: Disassociatemergedgraphqlapi
+          description: >-
+            Deletes an association between a Merged API and source API using the
+            source API's identifier and the association ID.
+          operationId: disassociateMergedGraphqlApi

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    patch-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftmobilepacketcore-smfdeployments-smfdeploymentname
+  description: Update a SmfDeploymentResource
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.mobilepacketcore Smfdeployments Smfdeploymentname
+      description: Update a SmfDeploymentResource
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobilePacketCore/smfDeployments/{smfDeploymentName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.mobilepacketcore Smfdeployments Smfdeploymentname
+          description: Update a SmfDeploymentResource
+          operationId: smfDeploymentsUpdateTags
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

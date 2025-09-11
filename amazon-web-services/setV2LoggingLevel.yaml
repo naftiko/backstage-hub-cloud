@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: setv2logginglevel
+  description: >-
+    Sets the logging level. Requires permission to access the SetV2LoggingLevel
+    action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Setv2logginglevel
+      description: >-
+        Sets the logging level. Requires permission to access the SetV2LoggingLevel
+        action.
+    paths:
+      /v2LoggingLevel:
+        POST:
+          summary: Setv2logginglevel
+          description: >-
+            Sets the logging level. Requires permission to access the
+            SetV2LoggingLevel action.
+          operationId: setV2LoggingLevel

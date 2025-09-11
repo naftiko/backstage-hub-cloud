@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updateeventintegration
+  description: Updates the description of an event integration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateeventintegration
+      description: Updates the description of an event integration.
+    paths:
+      /eventIntegrations/{Name}:
+        PATCH:
+          summary: Updateeventintegration
+          description: Updates the description of an event integration.
+          operationId: updateEventIntegration

@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatevocabularyfilter
+  description: >-
+    Updates an existing custom vocabulary filter with a new list of words. The
+    new list you provide overwrites all previous entries; you cannot append new
+    terms onto an existing custom vocabulary filter.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatevocabularyfilter
+      description: >-
+        Updates an existing custom vocabulary filter with a new list of words. The
+        new list you provide overwrites all previous entries; you cannot append new
+        terms onto an existing custom vocabulary filter.
+    paths:
+      /:
+        POST:
+          summary: Updatevocabularyfilter
+          description: >-
+            Updates an existing custom vocabulary filter with a new list of words.
+            The new list you provide overwrites all previous entries; you cannot
+            append new terms onto an existing custom vocabulary filter.
+          operationId: updateVocabularyFilter

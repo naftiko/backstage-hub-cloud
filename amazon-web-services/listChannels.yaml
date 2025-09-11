@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listchannels
+  description: >-
+    Retrieves information about the channels that are associated with the
+    current AWS account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listchannels
+      description: >-
+        Retrieves information about the channels that are associated with the
+        current AWS account.
+    paths:
+      /channels:
+        GET:
+          summary: Listchannels
+          description: >-
+            Retrieves information about the channels that are associated with the
+            current AWS account.
+          operationId: listChannels

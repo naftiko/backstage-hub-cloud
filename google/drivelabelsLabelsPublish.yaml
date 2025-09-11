@@ -1,0 +1,75 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: create-namepublish
+  description: >-
+    Publish all draft changes to the Label. Once published, the Label may not
+    return to its draft state. See `google.apps.drive.labels.v2.Lifecycle` for
+    more information. Publishing a Label will result in a new published
+    revision. All previous draft revisions will be deleted. Previous published
+    revisions will be kept but are subject to automated deletion as needed. Once
+    published, some changes are no longer permitted. Generally, any change that
+    would invalidate or cause new restrictions on existing metadata related to
+    the Label will be rejected. For example, the following changes to a Label
+    will be rejected after the Label is published: * The label cannot be
+    directly deleted. It must be disabled first, then deleted. * Field.FieldType
+    cannot be changed. * Changes to Field validation options cannot reject
+    something that was previously accepted. * Reducing the max entries.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Name:publish
+      description: >-
+        Publish all draft changes to the Label. Once published, the Label may not
+        return to its draft state. See `google.apps.drive.labels.v2.Lifecycle` for
+        more information. Publishing a Label will result in a new published
+        revision. All previous draft revisions will be deleted. Previous published
+        revisions will be kept but are subject to automated deletion as needed. Once
+        published, some changes are no longer permitted. Generally, any change that
+        would invalidate or cause new restrictions on existing metadata related to
+        the Label will be rejected. For example, the following changes to a Label
+        will be rejected after the Label is published: * The label cannot be
+        directly deleted. It must be disabled first, then deleted. * Field.FieldType
+        cannot be changed. * Changes to Field validation options cannot reject
+        something that was previously accepted. * Reducing the max entries.
+    paths:
+      /v2/{name}:publish:
+        post:
+          summary: Create Name:publish
+          description: >-
+            Publish all draft changes to the Label. Once published, the Label may
+            not return to its draft state. See
+            `google.apps.drive.labels.v2.Lifecycle` for more information. Publishing
+            a Label will result in a new published revision. All previous draft
+            revisions will be deleted. Previous published revisions will be kept but
+            are subject to automated deletion as needed. Once published, some
+            changes are no longer permitted. Generally, any change that would
+            invalidate or cause new restrictions on existing metadata related to the
+            Label will be rejected. For example, the following changes to a Label
+            will be rejected after the Label is published: * The label cannot be
+            directly deleted. It must be disabled first, then deleted. *
+            Field.FieldType cannot be changed. * Changes to Field validation options
+            cannot reject something that was previously accepted. * Reducing the max
+            entries.
+          operationId: drivelabelsLabelsPublish
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/GoogleAppsDriveLabelsV2PublishLabelRequest'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/GoogleAppsDriveLabelsV2Label'
+              description: Successful response

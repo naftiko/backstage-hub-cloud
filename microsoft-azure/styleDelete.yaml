@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: use-to-delete-a-style
+  description: >-
+    ### Submit Delete RequestThe `Delete` API is an HTTP `DELETE` request that
+    is used to delete the specified style, where the path will contain the
+    `styleId` of the style to delete. #### Delete request "Successful"The Style
+    Delete API returns a HTTP `204 No Content` response with an empty body, if
+    the style was deleted successfully. #### Delete request "Failed"A HTTP `400
+    Bad Request` error response will be returned if the style with the passed-in
+    `styleId` is not found. Here is a sample error response:```json{  "error":
+    {      "code": "400 BadRequest",      "message": "Bad request - Style Id:
+    d85b5b27-5fc4-4599-8b50-47160e90f8ce does not exist."  }}```
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Use To Delete A Style.
+      description: >-
+        ### Submit Delete RequestThe `Delete` API is an HTTP `DELETE` request that
+        is used to delete the specified style, where the path will contain the
+        `styleId` of the style to delete. #### Delete request "Successful"The Style
+        Delete API returns a HTTP `204 No Content` response with an empty body, if
+        the style was deleted successfully. #### Delete request "Failed"A HTTP `400
+        Bad Request` error response will be returned if the style with the passed-in
+        `styleId` is not found. Here is a sample error response:```json{  "error":
+        {      "code": "400 BadRequest",      "message": "Bad request - Style Id:
+        d85b5b27-5fc4-4599-8b50-47160e90f8ce does not exist."  }}```
+    paths:
+      /styles/{styleId}:
+        delete:
+          summary: Use To Delete A Style.
+          description: >-
+            ### Submit Delete RequestThe `Delete` API is an HTTP `DELETE` request
+            that is used to delete the specified style, where the path will contain
+            the `styleId` of the style to delete. #### Delete request
+            "Successful"The Style Delete API returns a HTTP `204 No Content`
+            response with an empty body, if the style was deleted successfully. ####
+            Delete request "Failed"A HTTP `400 Bad Request` error response will be
+            returned if the style with the passed-in `styleId` is not found. Here is
+            a sample error response:```json{  "error": {      "code": "400
+            BadRequest",      "message": "Bad request - Style Id:
+            d85b5b27-5fc4-4599-8b50-47160e90f8ce does not exist."  }}```
+          operationId: styleDelete
+          responses:
+            default:
+              $ref: ../../../Common/preview/1.0/common.json#/responses/default

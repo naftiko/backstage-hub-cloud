@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: startdevenvironmentsession
+  description: Starts a session for a specified Dev Environment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startdevenvironmentsession
+      description: Starts a session for a specified Dev Environment.
+    paths:
+      /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/session:
+        PUT:
+          summary: Startdevenvironmentsession
+          description: Starts a session for a specified Dev Environment.
+          operationId: startDevEnvironmentSession

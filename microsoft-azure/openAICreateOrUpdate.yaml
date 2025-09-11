@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: create-or-update-a-openai-integration-rule-for-a-given-monitor-resource
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Or Update A Openai Integration Rule For A Given Monitor Resource.
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Elastic/monitors/{monitorName}/openAIIntegrations/{integrationName}:
+        put:
+          summary: Create Or Update A Openai Integration Rule For A Given Monitor Resource.
+          description: Needs a more full description created.
+          operationId: openAICreateOrUpdate
+          responses:
+            default:
+              description: Default error response.
+              schema:
+                $ref: '#/definitions/ResourceProviderDefaultErrorResponse'

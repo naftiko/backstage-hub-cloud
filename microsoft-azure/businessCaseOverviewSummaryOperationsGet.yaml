@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftmigrate-assessmentprojects-projectname-businesscases-businesscasename-overviewsummaries-overviewsummaryname
+  description: Get a OverviewSummary
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.migrate Assessmentprojects Projectname Businesscases
+        Businesscasename Overviewsummaries Overviewsummaryname
+      description: Get a OverviewSummary
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/businessCases/{businessCaseName}/overviewSummaries/{overviewSummaryName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.migrate Assessmentprojects Projectname Businesscases
+            Businesscasename Overviewsummaries Overviewsummaryname
+          description: Get a OverviewSummary
+          operationId: businessCaseOverviewSummaryOperationsGet
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

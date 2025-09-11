@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: test-the-new-route
+  description: Test the new route for this Iot Hub
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Test The New Route
+      description: Test the new route for this Iot Hub
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{iotHubName}/routing/routes/$testnew:
+        post:
+          summary: Test The New Route
+          description: Test the new route for this Iot Hub
+          operationId: iotHubResourceTestRoute
+          responses:
+            default:
+              description: DefaultErrorResponse
+              schema:
+                $ref: '#/definitions/ErrorDetails'

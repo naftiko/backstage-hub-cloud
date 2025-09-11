@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-providers-microsoftresourcehealth-events-eventtrackingid-impactedresources
+  description: Lists impacted resources in the subscription by an event.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft.resourcehealth Events
+        Eventtrackingid Impactedresources
+      description: Lists impacted resources in the subscription by an event.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.ResourceHealth/events/{eventTrackingId}/impactedResources:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft.resourcehealth
+            Events Eventtrackingid Impactedresources
+          description: Lists impacted resources in the subscription by an event.
+          operationId: impactedResourcesListBySubscriptionIdAndEventId
+          responses:
+            default:
+              description: DefaultErrorResponse
+              schema:
+                $ref: '#/definitions/ErrorResponse'

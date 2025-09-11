@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: create-nameupdatelabelcopymode
+  description: >-
+    Updates a Label's `CopyMode`. Changes to this policy are not revisioned, do
+    not require publishing, and take effect immediately.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Name:updatelabelcopymode
+      description: >-
+        Updates a Label's `CopyMode`. Changes to this policy are not revisioned, do
+        not require publishing, and take effect immediately.
+    paths:
+      /v2/{name}:updateLabelCopyMode:
+        post:
+          summary: Create Name:updatelabelcopymode
+          description: >-
+            Updates a Label's `CopyMode`. Changes to this policy are not revisioned,
+            do not require publishing, and take effect immediately.
+          operationId: drivelabelsLabelsUpdateLabelCopyMode
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: >-
+                    #/components/schemas/GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequest
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/GoogleAppsDriveLabelsV2Label'
+              description: Successful response

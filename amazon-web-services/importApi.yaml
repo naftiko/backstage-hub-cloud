@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: importapi
+  description: Imports an API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Importapi
+      description: Imports an API.
+    paths:
+      /v2/apis:
+        PUT:
+          summary: Importapi
+          description: Imports an API.
+          operationId: importApi

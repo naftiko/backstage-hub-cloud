@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: searchdatasources
+  description: >-
+    Use the SearchDataSources operation to search for data sources that belong
+    to an account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Searchdatasources
+      description: >-
+        Use the SearchDataSources operation to search for data sources that belong
+        to an account.
+    paths:
+      /accounts/{AwsAccountId}/search/data-sources:
+        POST:
+          summary: Searchdatasources
+          description: >-
+            Use the SearchDataSources operation to search for data sources that
+            belong to an account.
+          operationId: searchDataSources

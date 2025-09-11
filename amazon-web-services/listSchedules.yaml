@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listschedules
+  description: Returns a paginated list of your EventBridge Scheduler schedules.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listschedules
+      description: Returns a paginated list of your EventBridge Scheduler schedules.
+    paths:
+      /schedules:
+        GET:
+          summary: Listschedules
+          description: Returns a paginated list of your EventBridge Scheduler schedules.
+          operationId: listSchedules

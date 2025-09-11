@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deactivatekeysigningkey
+  description: >-
+    Deactivates a key-signing key (KSK) so that it will not be used for signing
+    by DNSSEC. This operation changes the KSK status to INACTIVE.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deactivatekeysigningkey
+      description: >-
+        Deactivates a key-signing key (KSK) so that it will not be used for signing
+        by DNSSEC. This operation changes the KSK status to INACTIVE.
+    paths:
+      /2013-04-01/keysigningkey/{HostedZoneId}/{Name}/deactivate:
+        POST:
+          summary: Deactivatekeysigningkey
+          description: >-
+            Deactivates a key-signing key (KSK) so that it will not be used for
+            signing by DNSSEC. This operation changes the KSK status to INACTIVE.
+          operationId: deactivateKeySigningKey

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listtablerows
+  description: ' The ListTableRows API allows you to retrieve a list of all the rows in a table in a workbook. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listtablerows
+      description: ' The ListTableRows API allows you to retrieve a list of all the rows in a table in a workbook. '
+    paths:
+      /workbooks/{workbookId}/tables/{tableId}/rows/list:
+        POST:
+          summary: Listtablerows
+          description: ' The ListTableRows API allows you to retrieve a list of all the rows in a table in a workbook. '
+          operationId: listTableRows

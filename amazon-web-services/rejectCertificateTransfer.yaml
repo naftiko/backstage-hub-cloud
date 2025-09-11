@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: rejectcertificatetransfer
+  description: >-
+    Rejects a pending certificate transfer. After IoT rejects a certificate
+    transfer, the certificate status changes from PENDING_TRANSFER to INACTIVE.
+    To check for pending certificate transfers, call ListCertificates to
+    enumerate your certificates. This operation can only be called by the
+    transfer destination. After it is called, the certificate will be returned
+    to the source's account in the INACTIVE state. Requires permission to access
+    the RejectCertificateTransfer action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Rejectcertificatetransfer
+      description: >-
+        Rejects a pending certificate transfer. After IoT rejects a certificate
+        transfer, the certificate status changes from PENDING_TRANSFER to INACTIVE.
+        To check for pending certificate transfers, call ListCertificates to
+        enumerate your certificates. This operation can only be called by the
+        transfer destination. After it is called, the certificate will be returned
+        to the source's account in the INACTIVE state. Requires permission to access
+        the RejectCertificateTransfer action.
+    paths:
+      /reject-certificate-transfer/{certificateId}:
+        PATCH:
+          summary: Rejectcertificatetransfer
+          description: >-
+            Rejects a pending certificate transfer. After IoT rejects a certificate
+            transfer, the certificate status changes from PENDING_TRANSFER to
+            INACTIVE. To check for pending certificate transfers, call
+            ListCertificates to enumerate your certificates. This operation can only
+            be called by the transfer destination. After it is called, the
+            certificate will be returned to the source's account in the INACTIVE
+            state. Requires permission to access the RejectCertificateTransfer
+            action.
+          operationId: rejectCertificateTransfer

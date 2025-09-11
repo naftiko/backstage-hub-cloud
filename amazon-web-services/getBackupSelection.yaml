@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getbackupselection
+  description: >-
+    Returns selection metadata and a document in JSON format that specifies a
+    list of resources that are associated with a backup plan.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getbackupselection
+      description: >-
+        Returns selection metadata and a document in JSON format that specifies a
+        list of resources that are associated with a backup plan.
+    paths:
+      /backup/plans/{backupPlanId}/selections/{selectionId}:
+        GET:
+          summary: Getbackupselection
+          description: >-
+            Returns selection metadata and a document in JSON format that specifies
+            a list of resources that are associated with a backup plan.
+          operationId: getBackupSelection

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: accountsdelete
+  description: Deletes a Visual Studio Team Services account resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Accounts_delete
+      description: Deletes a Visual Studio Team Services account resource.
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.visualstudio/account/{resourceName}:
+        delete:
+          summary: Accounts_delete
+          description: Deletes a Visual Studio Team Services account resource.
+          operationId: accountsDelete
+          responses:
+            '200':
+              description: >-
+                The operation succeeded. The Visual Studio Team Services account
+                resource was deleted.

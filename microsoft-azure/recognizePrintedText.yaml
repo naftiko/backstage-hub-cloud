@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-ocr
+  description: >-
+    Optical Character Recognition (OCR) detects printed text in an image and
+    extracts the recognized characters into a machine-usable character stream.  
+    Upon success, the OCR results will be returned. Upon failure, the error code
+    together with an error message will be returned. The error code can be one
+    of InvalidImageUrl, InvalidImageFormat, InvalidImageSize,
+    NotSupportedImage,  NotSupportedLanguage, or InternalServerError.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Ocr
+      description: >-
+        Optical Character Recognition (OCR) detects printed text in an image and
+        extracts the recognized characters into a machine-usable character stream.  
+        Upon success, the OCR results will be returned. Upon failure, the error code
+        together with an error message will be returned. The error code can be one
+        of InvalidImageUrl, InvalidImageFormat, InvalidImageSize,
+        NotSupportedImage,  NotSupportedLanguage, or InternalServerError.
+    paths:
+      /ocr:
+        post:
+          summary: Post Ocr
+          description: >-
+            Optical Character Recognition (OCR) detects printed text in an image and
+            extracts the recognized characters into a machine-usable character
+            stream.   Upon success, the OCR results will be returned. Upon failure,
+            the error code together with an error message will be returned. The
+            error code can be one of InvalidImageUrl, InvalidImageFormat,
+            InvalidImageSize, NotSupportedImage,  NotSupportedLanguage, or
+            InternalServerError.
+          operationId: recognizePrintedText
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/ComputerVisionError'

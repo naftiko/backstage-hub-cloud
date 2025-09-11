@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-the-comments-of-a-given-review
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get The Comments Of A Given Review
+      description: Needs a more full description created.
+    paths:
+      /products/{uniqueProductId}/reviews/{reviewId}/comments:
+        get:
+          summary: Get The Comments Of A Given Review
+          description: Needs a more full description created.
+          operationId: commentsGet
+          responses:
+            default:
+              description: |-
+                *** Error Responses: ***
+
+                 * 400 - In case request malformed.
+
+                 * 500 - In case internal error.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

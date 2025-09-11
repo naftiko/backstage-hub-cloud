@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    the-bing-spell-check-api-lets-you-perform-contextual-grammar-and-spell-checking-bing-has-developed-a-web-based-spell-checker-that-leverages-machine-learning-and-statistical-machine-translation-to-dynamically-train-a-constantly-evolving-and-highly-contextual-algorithm-the-spell-checker-is-based-on-a-massive-corpus-of-web-searches-and-documents
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        The Bing Spell Check Api Lets You Perform Contextual Grammar And Spell
+        Checking. Bing Has Developed A Web-based Spell-checker That Leverages
+        Machine Learning And Statistical Machine Translation To Dynamically Train A
+        Constantly Evolving And Highly Contextual Algorithm. The Spell-checker Is
+        Based On A Massive Corpus Of Web Searches And Documents.
+      description: Needs a more full description created.
+    paths:
+      /spellcheck:
+        post:
+          summary: >-
+            The Bing Spell Check Api Lets You Perform Contextual Grammar And Spell
+            Checking. Bing Has Developed A Web-based Spell-checker That Leverages
+            Machine Learning And Statistical Machine Translation To Dynamically
+            Train A Constantly Evolving And Highly Contextual Algorithm. The
+            Spell-checker Is Based On A Massive Corpus Of Web Searches And
+            Documents.
+          description: Needs a more full description created.
+          operationId: spellChecker
+          responses:
+            default:
+              description: >-
+                An error has occurred. Check the response type and/or status code
+                for more details.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

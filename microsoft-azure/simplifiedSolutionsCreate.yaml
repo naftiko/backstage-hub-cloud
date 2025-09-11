@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-scope-providers-microsofthelp-simplifiedsolutions-simplifiedsolutionsresourcename
+  description: >-
+    Creates Simplified Solutions for an Azure subscription using 'solutionId'
+    from Discovery Solutions as the input.  Simplified Solutions API makes the
+    consumption of solutions APIs easier while still providing access to the
+    same powerful solutions rendered in Solutions API. With Simplified
+    Solutions, users don't have to worry about stitching together the article
+    using replacement maps and can use the content in the API response to
+    directly render as HTML content.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Scope Providers Microsoft.help Simplifiedsolutions
+        Simplifiedsolutionsresourcename
+      description: >-
+        Creates Simplified Solutions for an Azure subscription using 'solutionId'
+        from Discovery Solutions as the input.  Simplified Solutions API makes the
+        consumption of solutions APIs easier while still providing access to the
+        same powerful solutions rendered in Solutions API. With Simplified
+        Solutions, users don't have to worry about stitching together the article
+        using replacement maps and can use the content in the API response to
+        directly render as HTML content.
+    paths:
+      /{scope}/providers/Microsoft.Help/simplifiedSolutions/{simplifiedSolutionsResourceName}:
+        put:
+          summary: >-
+            Put Scope Providers Microsoft.help Simplifiedsolutions
+            Simplifiedsolutionsresourcename
+          description: >-
+            Creates Simplified Solutions for an Azure subscription using
+            'solutionId' from Discovery Solutions as the input.  Simplified
+            Solutions API makes the consumption of solutions APIs easier while still
+            providing access to the same powerful solutions rendered in Solutions
+            API. With Simplified Solutions, users don't have to worry about
+            stitching together the article using replacement maps and can use the
+            content in the API response to directly render as HTML content.
+          operationId: simplifiedSolutionsCreate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

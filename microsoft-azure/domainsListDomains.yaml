@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-domains
+  description: List the domains in the account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Domains
+      description: List the domains in the account.
+    paths:
+      /domains:
+        get:
+          summary: Get Domains
+          description: List the domains in the account.
+          operationId: domainsListDomains
+          responses:
+            default:
+              description: An error response received from the provider.
+              schema:
+                $ref: '#/definitions/ErrorResponseModel'

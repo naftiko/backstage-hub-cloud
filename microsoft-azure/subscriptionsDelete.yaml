@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-providers-microsoftsubscriptionsadmin-subscriptions-targetsubscriptionid
+  description: Delete the specified subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Providers Microsoft.subscriptions.admin
+        Subscriptions Targetsubscriptionid
+      description: Delete the specified subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Subscriptions.Admin/subscriptions/{targetSubscriptionId}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Providers
+            Microsoft.subscriptions.admin Subscriptions Targetsubscriptionid
+          description: Delete the specified subscription.
+          operationId: subscriptionsDelete
+          responses:
+            default:
+              description: Unexpected Error
+              schema:
+                $ref: Subscriptions.json#/definitions/Error

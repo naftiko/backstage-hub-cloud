@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-the-list-of-users-of-a-static-site
+  description: Description for Gets the list of users of a static site.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The List Of Users Of A Static Site.
+      description: Description for Gets the list of users of a static site.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/authproviders/{authprovider}/listUsers:
+        post:
+          summary: Gets The List Of Users Of A Static Site.
+          description: Description for Gets the list of users of a static site.
+          operationId: staticSitesListStaticSiteUsers
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftcustomerinsights-hubs-hubname-authorizationpolicies-authorizationpolicyname-regeneratesecondarykey
+  description: Regenerates the secondary policy key of the specified authorization policy.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.customerinsights Hubs Hubname Authorizationpolicies
+        Authorizationpolicyname Regeneratesecondarykey
+      description: Regenerates the secondary policy key of the specified authorization policy.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/authorizationPolicies/{authorizationPolicyName}/regenerateSecondaryKey:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.customerinsights Hubs Hubname Authorizationpolicies
+            Authorizationpolicyname Regeneratesecondarykey
+          description: >-
+            Regenerates the secondary policy key of the specified authorization
+            policy.
+          operationId: authorizationPoliciesRegenerateSecondaryKey
+          responses:
+            '200':
+              description: OK. The secondary key of the authorization policy is regenerated.
+              schema:
+                $ref: '#/definitions/AuthorizationPolicy'

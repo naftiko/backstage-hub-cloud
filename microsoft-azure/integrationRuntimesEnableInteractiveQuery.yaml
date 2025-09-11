@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-integrationruntimes-integrationruntimenameenableinteractivequery
+  description: Enables interactive querying
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Integrationruntimes Integrationruntimename:enableinteractivequery
+      description: Enables interactive querying
+    paths:
+      /integrationruntimes/{integrationRuntimeName}:enableInteractiveQuery:
+        post:
+          summary: Post Integrationruntimes Integrationruntimename:enableinteractivequery
+          description: Enables interactive querying
+          operationId: integrationRuntimesEnableInteractiveQuery
+          responses:
+            default:
+              description: An error response received from the Scanning Service
+              schema:
+                $ref: '#/definitions/ErrorResponseModel'

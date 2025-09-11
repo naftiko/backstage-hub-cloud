@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: creates-a-job-to-the-specified-account
+  description: >-
+    The Batch service supports two ways to control the work done as part of a
+    Job.In the first approach, the user specifies a Job Manager Task. The Batch
+    servicelaunches this Task when it is ready to start the Job. The Job Manager
+    Taskcontrols all other Tasks that run under this Job, by using the Task
+    APIs. Inthe second approach, the user directly controls the execution of
+    Tasks under anactive Job, by using the Task APIs. Also note: when naming
+    Jobs, avoidincluding sensitive information such as user names or secret
+    project names.This information may appear in telemetry logs accessible to
+    Microsoft Supportengineers.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Creates A Job To The Specified Account.
+      description: >-
+        The Batch service supports two ways to control the work done as part of a
+        Job.In the first approach, the user specifies a Job Manager Task. The Batch
+        servicelaunches this Task when it is ready to start the Job. The Job Manager
+        Taskcontrols all other Tasks that run under this Job, by using the Task
+        APIs. Inthe second approach, the user directly controls the execution of
+        Tasks under anactive Job, by using the Task APIs. Also note: when naming
+        Jobs, avoidincluding sensitive information such as user names or secret
+        project names.This information may appear in telemetry logs accessible to
+        Microsoft Supportengineers.
+    paths:
+      /jobs:
+        post:
+          summary: Creates A Job To The Specified Account.
+          description: >-
+            The Batch service supports two ways to control the work done as part of
+            a Job.In the first approach, the user specifies a Job Manager Task. The
+            Batch servicelaunches this Task when it is ready to start the Job. The
+            Job Manager Taskcontrols all other Tasks that run under this Job, by
+            using the Task APIs. Inthe second approach, the user directly controls
+            the execution of Tasks under anactive Job, by using the Task APIs. Also
+            note: when naming Jobs, avoidincluding sensitive information such as
+            user names or secret project names.This information may appear in
+            telemetry logs accessible to Microsoft Supportengineers.
+          operationId: batchCreateJob
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

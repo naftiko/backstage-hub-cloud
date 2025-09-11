@@ -1,0 +1,62 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: put-scope-providers-microsofthelp-solutions-solutionresourcename
+  description: >-
+    Creates a solution for the specific Azure resource or subscription using the
+    inputs ‘solutionId and requiredInputs’ from discovery solutions.  Azure
+    solutions comprise a comprehensive library of self-help resources that have
+    been thoughtfully curated by Azure engineers to aid customers in resolving
+    typical troubleshooting issues. These solutions encompass:  (1.) Dynamic and
+    context-aware diagnostics, guided troubleshooting wizards, and data
+    visualizations.  (2.) Rich instructional video tutorials and illustrative
+    diagrams and images.  (3.) Thoughtfully assembled textual troubleshooting
+    instructions.  All these components are seamlessly converged into unified
+    solutions tailored to address a specific support problem area.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Scope Providers Microsoft.help Solutions Solutionresourcename
+      description: >-
+        Creates a solution for the specific Azure resource or subscription using the
+        inputs ‘solutionId and requiredInputs’ from discovery solutions.  Azure
+        solutions comprise a comprehensive library of self-help resources that have
+        been thoughtfully curated by Azure engineers to aid customers in resolving
+        typical troubleshooting issues. These solutions encompass:  (1.) Dynamic and
+        context-aware diagnostics, guided troubleshooting wizards, and data
+        visualizations.  (2.) Rich instructional video tutorials and illustrative
+        diagrams and images.  (3.) Thoughtfully assembled textual troubleshooting
+        instructions.  All these components are seamlessly converged into unified
+        solutions tailored to address a specific support problem area.
+    paths:
+      /{scope}/providers/Microsoft.Help/solutions/{solutionResourceName}:
+        put:
+          summary: Put Scope Providers Microsoft.help Solutions Solutionresourcename
+          description: >-
+            Creates a solution for the specific Azure resource or subscription using
+            the inputs ‘solutionId and requiredInputs’ from discovery solutions. 
+            Azure solutions comprise a comprehensive library of self-help resources
+            that have been thoughtfully curated by Azure engineers to aid customers
+            in resolving typical troubleshooting issues. These solutions encompass: 
+            (1.) Dynamic and context-aware diagnostics, guided troubleshooting
+            wizards, and data visualizations.  (2.) Rich instructional video
+            tutorials and illustrative diagrams and images.  (3.) Thoughtfully
+            assembled textual troubleshooting instructions.  All these components
+            are seamlessly converged into unified solutions tailored to address a
+            specific support problem area.
+          operationId: solutionCreate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

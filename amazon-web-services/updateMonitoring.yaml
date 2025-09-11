@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatemonitoring
+  description: >-
+    Updates the monitoring settings for the cluster. You can use this operation
+    to specify which Apache Kafka metrics you want Amazon MSK to send to Amazon
+    CloudWatch. You can also specify settings for open monitoring with
+    Prometheus.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatemonitoring
+      description: >-
+        Updates the monitoring settings for the cluster. You can use this operation
+        to specify which Apache Kafka metrics you want Amazon MSK to send to Amazon
+        CloudWatch. You can also specify settings for open monitoring with
+        Prometheus.
+    paths:
+      /v1/clusters/{clusterArn}/monitoring:
+        PUT:
+          summary: Updatemonitoring
+          description: >-
+            Updates the monitoring settings for the cluster. You can use this
+            operation to specify which Apache Kafka metrics you want Amazon MSK to
+            send to Amazon CloudWatch. You can also specify settings for open
+            monitoring with Prometheus.
+          operationId: updateMonitoring

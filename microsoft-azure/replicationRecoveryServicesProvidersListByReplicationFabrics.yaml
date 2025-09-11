@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-the-list-of-registered-recovery-services-providers-for-the-fabric
+  description: Lists the registered recovery services providers for the specified fabric.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The List Of Registered Recovery Services Providers For The Fabric.
+      description: Lists the registered recovery services providers for the specified fabric.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationRecoveryServicesProviders:
+        get:
+          summary: Gets The List Of Registered Recovery Services Providers For The Fabric.
+          description: >-
+            Lists the registered recovery services providers for the specified
+            fabric.
+          operationId: replicationRecoveryServicesProvidersListByReplicationFabrics
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/RecoveryServicesProviderCollection'

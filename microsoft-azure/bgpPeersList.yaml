@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-resourceuri-providers-microsoftkubernetesruntime-bgppeers
+  description: List BgpPeer resources by parent
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Resourceuri Providers Microsoft.kubernetesruntime Bgppeers
+      description: List BgpPeer resources by parent
+    paths:
+      /{resourceUri}/providers/Microsoft.KubernetesRuntime/bgpPeers:
+        get:
+          summary: Get Resourceuri Providers Microsoft.kubernetesruntime Bgppeers
+          description: List BgpPeer resources by parent
+          operationId: bgpPeersList
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

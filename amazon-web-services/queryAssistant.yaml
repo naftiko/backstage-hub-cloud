@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: queryassistant
+  description: >-
+    Performs a manual search against the specified assistant. To retrieve
+    recommendations for an assistant, use GetRecommendations. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Queryassistant
+      description: >-
+        Performs a manual search against the specified assistant. To retrieve
+        recommendations for an assistant, use GetRecommendations. 
+    paths:
+      /assistants/{assistantId}/query:
+        POST:
+          summary: Queryassistant
+          description: >-
+            Performs a manual search against the specified assistant. To retrieve
+            recommendations for an assistant, use GetRecommendations. 
+          operationId: queryAssistant

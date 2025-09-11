@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: implements-list-virtual-machine-instances
+  description: >-
+    Lists all of the virtual machine instances within the specified parent
+    resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Implements List Virtual Machine Instances.
+      description: >-
+        Lists all of the virtual machine instances within the specified parent
+        resource.
+    paths:
+      /{resourceUri}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachineInstances:
+        get:
+          summary: Implements List Virtual Machine Instances.
+          description: >-
+            Lists all of the virtual machine instances within the specified parent
+            resource.
+          operationId: virtualMachineInstancesList
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

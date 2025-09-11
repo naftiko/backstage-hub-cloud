@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: terminates-the-specified-job-marking-it-as-completed
+  description: >-
+    When a Terminate Job request is received, the Batch service sets the Job to
+    the terminating state. The Batch service then terminates any running Tasks
+    associated with the Job and runs any required Job release Tasks. Then the
+    Job moves into the completed state. If there are any Tasks in the Job in the
+    active state, they will remain in the active state. Once a Job is
+    terminated, new Tasks cannot be added and any remaining active Tasks will
+    not be scheduled.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Terminates The Specified Job, Marking It As Completed.
+      description: >-
+        When a Terminate Job request is received, the Batch service sets the Job to
+        the terminating state. The Batch service then terminates any running Tasks
+        associated with the Job and runs any required Job release Tasks. Then the
+        Job moves into the completed state. If there are any Tasks in the Job in the
+        active state, they will remain in the active state. Once a Job is
+        terminated, new Tasks cannot be added and any remaining active Tasks will
+        not be scheduled.
+    paths:
+      /jobs/{jobId}/terminate:
+        post:
+          summary: Terminates The Specified Job, Marking It As Completed.
+          description: >-
+            When a Terminate Job request is received, the Batch service sets the Job
+            to the terminating state. The Batch service then terminates any running
+            Tasks associated with the Job and runs any required Job release Tasks.
+            Then the Job moves into the completed state. If there are any Tasks in
+            the Job in the active state, they will remain in the active state. Once
+            a Job is terminated, new Tasks cannot be added and any remaining active
+            Tasks will not be scheduled.
+          operationId: jobTerminate
+          responses:
+            default:
+              description: The error from the Batch service.
+              schema:
+                $ref: '#/definitions/BatchError'

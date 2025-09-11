@@ -1,0 +1,70 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deletes-a-certificate-from-the-specified-account
+  description: >-
+    You cannot delete a Certificate if a resource (Pool or Compute Node) is
+    using it. Before you can delete a Certificate, you must therefore make sure
+    that the Certificate is not associated with any existing Pools, the
+    Certificate is not installed on any Nodes (even if you remove a Certificate
+    from a Pool, it is not removed from existing Compute Nodes in that Pool
+    until they restart), and no running Tasks depend on the Certificate. If you
+    try to delete a Certificate that is in use, the deletion fails. The
+    Certificate status changes to deleteFailed. You can use Cancel Delete
+    Certificate to set the status back to active if you decide that you want to
+    continue using the Certificate.Warning: This operation is deprecated and
+    will be removed after February, 2024. Please use the [Azure KeyVault
+    Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide)
+    instead.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes A Certificate From The Specified Account.
+      description: >-
+        You cannot delete a Certificate if a resource (Pool or Compute Node) is
+        using it. Before you can delete a Certificate, you must therefore make sure
+        that the Certificate is not associated with any existing Pools, the
+        Certificate is not installed on any Nodes (even if you remove a Certificate
+        from a Pool, it is not removed from existing Compute Nodes in that Pool
+        until they restart), and no running Tasks depend on the Certificate. If you
+        try to delete a Certificate that is in use, the deletion fails. The
+        Certificate status changes to deleteFailed. You can use Cancel Delete
+        Certificate to set the status back to active if you decide that you want to
+        continue using the Certificate.Warning: This operation is deprecated and
+        will be removed after February, 2024. Please use the [Azure KeyVault
+        Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide)
+        instead.
+    paths:
+      /certificates(thumbprintAlgorithm={thumbprintAlgorithm},thumbprint={thumbprint}):
+        delete:
+          summary: Deletes A Certificate From The Specified Account.
+          description: >-
+            You cannot delete a Certificate if a resource (Pool or Compute Node) is
+            using it. Before you can delete a Certificate, you must therefore make
+            sure that the Certificate is not associated with any existing Pools, the
+            Certificate is not installed on any Nodes (even if you remove a
+            Certificate from a Pool, it is not removed from existing Compute Nodes
+            in that Pool until they restart), and no running Tasks depend on the
+            Certificate. If you try to delete a Certificate that is in use, the
+            deletion fails. The Certificate status changes to deleteFailed. You can
+            use Cancel Delete Certificate to set the status back to active if you
+            decide that you want to continue using the Certificate.Warning: This
+            operation is deprecated and will be removed after February, 2024. Please
+            use the [Azure KeyVault
+            Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide)
+            instead.
+          operationId: certificateDelete
+          responses:
+            default:
+              description: The error from the Batch service.
+              schema:
+                $ref: '#/definitions/BatchError'

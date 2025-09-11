@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: adds-a-new-synchronization-setting-to-an-existing-share
+  description: Create a synchronizationSetting
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Adds A New Synchronization Setting To An Existing Share.
+      description: Create a synchronizationSetting
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName}/synchronizationSettings/{synchronizationSettingName}:
+        put:
+          summary: Adds A New Synchronization Setting To An Existing Share.
+          description: Create a synchronizationSetting
+          operationId: synchronizationSettingsCreate
+          responses:
+            default:
+              description: >-
+                An error response received from the Microsoft.DataShare resource
+                provider.
+              schema:
+                $ref: '#/definitions/DataShareError'

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: quick-test-an-image-url
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Quick Test An Image Url
+      description: Needs a more full description created.
+    paths:
+      /projects/{projectId}/quicktest/url:
+        post:
+          summary: Quick Test An Image Url
+          description: Needs a more full description created.
+          operationId: quickTestImageUrl
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/ImagePrediction'

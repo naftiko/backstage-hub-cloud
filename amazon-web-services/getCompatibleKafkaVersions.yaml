@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getcompatiblekafkaversions
+  description: Gets the Apache Kafka versions to which you can update the MSK cluster.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getcompatiblekafkaversions
+      description: Gets the Apache Kafka versions to which you can update the MSK cluster.
+    paths:
+      /v1/compatible-kafka-versions:
+        GET:
+          summary: Getcompatiblekafkaversions
+          description: Gets the Apache Kafka versions to which you can update the MSK cluster.
+          operationId: getCompatibleKafkaVersions

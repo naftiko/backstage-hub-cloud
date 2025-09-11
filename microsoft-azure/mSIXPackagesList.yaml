@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftdesktopvirtualization-hostpools-hostpoolname-msixpackages
+  description: List MSIX packages in hostpool.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.desktopvirtualization Hostpools Hostpoolname Msixpackages
+      description: List MSIX packages in hostpool.
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/msixPackages:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.desktopvirtualization Hostpools Hostpoolname
+            Msixpackages
+          description: List MSIX packages in hostpool.
+          operationId: mSIXPackagesList
+          responses:
+            default:
+              description: Automation error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

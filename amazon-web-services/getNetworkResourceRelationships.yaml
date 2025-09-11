@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getnetworkresourcerelationships
+  description: Gets the network resource relationships for the specified global network.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getnetworkresourcerelationships
+      description: Gets the network resource relationships for the specified global network.
+    paths:
+      /global-networks/{globalNetworkId}/network-resource-relationships:
+        GET:
+          summary: Getnetworkresourcerelationships
+          description: >-
+            Gets the network resource relationships for the specified global
+            network.
+          operationId: getNetworkResourceRelationships

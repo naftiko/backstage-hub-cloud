@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deletes-a-user-account-from-the-specified-compute-node
+  description: >-
+    You can delete a user Account to a Compute Node only when it is in the idle
+    orrunning state.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes A User Account From The Specified Compute Node.
+      description: >-
+        You can delete a user Account to a Compute Node only when it is in the idle
+        orrunning state.
+    paths:
+      /pools/{poolId}/nodes/{nodeId}/users/{userName}:
+        delete:
+          summary: Deletes A User Account From The Specified Compute Node.
+          description: >-
+            You can delete a user Account to a Compute Node only when it is in the
+            idle orrunning state.
+          operationId: batchDeleteNodeUser
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

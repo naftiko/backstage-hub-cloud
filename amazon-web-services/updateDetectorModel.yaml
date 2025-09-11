@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatedetectormodel
+  description: >-
+    Updates a detector model. Detectors (instances) spawned by the previous
+    version are deleted and then re-created as new inputs arrive.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatedetectormodel
+      description: >-
+        Updates a detector model. Detectors (instances) spawned by the previous
+        version are deleted and then re-created as new inputs arrive.
+    paths:
+      /detector-models/{detectorModelName}:
+        POST:
+          summary: Updatedetectormodel
+          description: >-
+            Updates a detector model. Detectors (instances) spawned by the previous
+            version are deleted and then re-created as new inputs arrive.
+          operationId: updateDetectorModel

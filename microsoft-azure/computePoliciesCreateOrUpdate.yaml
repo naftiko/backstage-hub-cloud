@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftdatalakeanalytics-accounts-accountname-computepolicies-computepolicyname
+  description: >-
+    Creates or updates the specified compute policy. During update, the compute
+    policy with the specified name will be replaced with this new compute
+    policy. An account supports, at most, 50 policies
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.datalakeanalytics Accounts Accountname Computepolicies
+        Computepolicyname
+      description: >-
+        Creates or updates the specified compute policy. During update, the compute
+        policy with the specified name will be replaced with this new compute
+        policy. An account supports, at most, 50 policies
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeAnalytics/accounts/{accountName}/computePolicies/{computePolicyName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.datalakeanalytics Accounts Accountname
+            Computepolicies Computepolicyname
+          description: >-
+            Creates or updates the specified compute policy. During update, the
+            compute policy with the specified name will be replaced with this new
+            compute policy. An account supports, at most, 50 policies
+          operationId: computePoliciesCreateOrUpdate
+          responses:
+            default:
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse
+              description: ''

@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: streamjournaltokinesis
+  description: >-
+    Creates a journal stream for a given Amazon QLDB ledger. The stream captures
+    every document revision that is committed to the ledger's journal and
+    delivers the data to a specified Amazon Kinesis Data Streams resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Streamjournaltokinesis
+      description: >-
+        Creates a journal stream for a given Amazon QLDB ledger. The stream captures
+        every document revision that is committed to the ledger's journal and
+        delivers the data to a specified Amazon Kinesis Data Streams resource.
+    paths:
+      /ledgers/{name}/journal-kinesis-streams:
+        POST:
+          summary: Streamjournaltokinesis
+          description: >-
+            Creates a journal stream for a given Amazon QLDB ledger. The stream
+            captures every document revision that is committed to the ledger's
+            journal and delivers the data to a specified Amazon Kinesis Data Streams
+            resource.
+          operationId: streamJournalToKinesis

@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftweb-sites-name-hostruntime-runtime-webhooks-workflow-api-management-workflows-workflowname-triggers-triggername-histories-historyname-resubmit
+  description: Resubmits a workflow run based on the trigger history.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.web Sites Name Hostruntime Runtime Webhooks Workflow Api
+        Management Workflows Workflowname Triggers Triggername Histories Historyname
+        Resubmit
+      description: Resubmits a workflow run based on the trigger history.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/hostruntime/runtime/webhooks/workflow/api/management/workflows/{workflowName}/triggers/{triggerName}/histories/{historyName}/resubmit:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.web Sites Name Hostruntime Runtime Webhooks Workflow
+            Api Management Workflows Workflowname Triggers Triggername Histories
+            Historyname Resubmit
+          description: Resubmits a workflow run based on the trigger history.
+          operationId: workflowTriggerHistoriesResubmit
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

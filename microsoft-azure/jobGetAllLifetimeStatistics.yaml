@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    gets-lifetime-summary-statistics-for-all-of-the-jobs-in-the-specified-account
+  description: >-
+    Statistics are aggregated across all Jobs that have ever existed in the
+    Account, from Account creation to the last update time of the statistics.
+    The statistics may not be immediately available. The Batch service performs
+    periodic roll-up of statistics. The typical delay is about 30 minutes.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Gets Lifetime Summary Statistics For All Of The Jobs In The Specified
+        Account.
+      description: >-
+        Statistics are aggregated across all Jobs that have ever existed in the
+        Account, from Account creation to the last update time of the statistics.
+        The statistics may not be immediately available. The Batch service performs
+        periodic roll-up of statistics. The typical delay is about 30 minutes.
+    paths:
+      /lifetimejobstats:
+        get:
+          summary: >-
+            Gets Lifetime Summary Statistics For All Of The Jobs In The Specified
+            Account.
+          description: >-
+            Statistics are aggregated across all Jobs that have ever existed in the
+            Account, from Account creation to the last update time of the
+            statistics. The statistics may not be immediately available. The Batch
+            service performs periodic roll-up of statistics. The typical delay is
+            about 30 minutes.
+          operationId: jobGetAllLifetimeStatistics
+          responses:
+            default:
+              description: The error from the Batch service.
+              schema:
+                $ref: '#/definitions/BatchError'

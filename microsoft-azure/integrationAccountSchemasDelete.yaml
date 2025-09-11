@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftlogic-integrationaccounts-integrationaccountname-schemas-schemaname
+  description: Deletes an integration account schema.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.logic Integrationaccounts Integrationaccountname Schemas
+        Schemaname
+      description: Deletes an integration account schema.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/schemas/{schemaName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.logic Integrationaccounts Integrationaccountname
+            Schemas Schemaname
+          description: Deletes an integration account schema.
+          operationId: integrationAccountSchemasDelete
+          responses:
+            '204':
+              description: No Content

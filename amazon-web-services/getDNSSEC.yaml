@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getdnssec
+  description: >-
+    Returns information about DNSSEC for a specific hosted zone, including the
+    key-signing keys (KSKs) in the hosted zone.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getdnssec
+      description: >-
+        Returns information about DNSSEC for a specific hosted zone, including the
+        key-signing keys (KSKs) in the hosted zone.
+    paths:
+      /2013-04-01/hostedzone/{Id}/dnssec:
+        GET:
+          summary: Getdnssec
+          description: >-
+            Returns information about DNSSEC for a specific hosted zone, including
+            the key-signing keys (KSKs) in the hosted zone.
+          operationId: getDNSSEC

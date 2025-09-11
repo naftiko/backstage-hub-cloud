@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftsecurityandcompliance-privatelinkservicesforsccpowershell-resourcename
+  description: Delete a service instance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.securityandcompliance
+        Privatelinkservicesforsccpowershell Resourcename
+      description: Delete a service instance.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SecurityAndCompliance/privateLinkServicesForSCCPowershell/{resourceName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.securityandcompliance
+            Privatelinkservicesforsccpowershell Resourcename
+          description: Delete a service instance.
+          operationId: privateLinkServicesForSCCPowershellDelete
+          responses:
+            default:
+              description: DefaultErrorResponse
+              schema:
+                $ref: ./common-types.json#/definitions/ErrorDetails

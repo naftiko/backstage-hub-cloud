@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    patch-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftgraphservices-accounts-resourcename
+  description: Update account details.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.graphservices Accounts Resourcename
+      description: Update account details.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.GraphServices/accounts/{resourceName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.graphservices Accounts Resourcename
+          description: Update account details.
+          operationId: accountUpdate
+          responses:
+            default:
+              description: Error response describing the reason for operation failure.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

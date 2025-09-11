@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ungroupresources
+  description: >-
+    Removes the specified resources from the specified group. This operation
+    works only with static groups that you populated using the GroupResources
+    operation. It doesn't work with any resource groups that are automatically
+    populated by tag-based or CloudFormation stack-based queries.  Minimum
+    permissions  To run this command, you must have the following
+    permissions:    resource-groups:UngroupResources   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Ungroupresources
+      description: >-
+        Removes the specified resources from the specified group. This operation
+        works only with static groups that you populated using the GroupResources
+        operation. It doesn't work with any resource groups that are automatically
+        populated by tag-based or CloudFormation stack-based queries.  Minimum
+        permissions  To run this command, you must have the following
+        permissions:    resource-groups:UngroupResources   
+    paths:
+      /ungroup-resources:
+        POST:
+          summary: Ungroupresources
+          description: >-
+            Removes the specified resources from the specified group. This operation
+            works only with static groups that you populated using the
+            GroupResources operation. It doesn't work with any resource groups that
+            are automatically populated by tag-based or CloudFormation stack-based
+            queries.  Minimum permissions  To run this command, you must have the
+            following permissions:    resource-groups:UngroupResources   
+          operationId: ungroupResources

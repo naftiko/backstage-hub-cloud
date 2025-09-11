@@ -1,0 +1,117 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-search-geometry-format
+  description: >-
+    **Applies to**: S0 and S1 pricing tiers.The Search Geometry endpoint allows
+    you to perform a free form search inside a single geometry or many of them.
+    The search results that fall inside the geometry/geometries will be
+    returned.To send the geometry you will use a `POST` request where the
+    request body will contain the `geometry` object represented as a `GeoJSON`
+    type and the `Content-Type` header will be set to `application/json`. The
+    geographical features to be searched can be modeled as Polygon and/or Circle
+    geometries represented using any one of the following `GeoJSON`
+    types:**GeoJSON FeatureCollection** The `geometry` can be represented as a
+    `GeoJSON FeatureCollection` object. This is the recommended option if the
+    geometry contains both Polygons and Circles. The `FeatureCollection` can
+    contain a max of 50 `GeoJSON Feature` objects. Each `Feature` object should
+    represent either a Polygon or a Circle with the following conditions:A
+    `Feature` object for the Polygon geometry can have a max of 50 coordinates
+    and it's properties must be empty.A `Feature` object for the Circle geometry
+    is composed of a _center_ represented using a `GeoJSON Point` type and a
+    _radius_ value (in meters) which must be specified in the object's
+    properties along with the _subType_ property whose value should be 'Circle'.
+    Please see the Examples section below for a sample `FeatureCollection`
+    representation.**GeoJSON GeometryCollection**The `geometry` can be
+    represented as a `GeoJSON GeometryCollection` object. This is the
+    recommended option if the geometry contains a list of Polygons only. The
+    `GeometryCollection` can contain a max of 50 `GeoJSON Polygon` objects. Each
+    `Polygon` object can have a max of 50 coordinates. Please see the Examples
+    section below for a sample `GeometryCollection` representation.**GeoJSON
+    Polygon**The `geometry` can be represented as a `GeoJSON Polygon` object.
+    This is the recommended option if the geometry contains a single Polygon.
+    The `Polygon` object can have a max of 50 coordinates. Please see the
+    Examples section below for a sample `Polygon` representation..
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Search Geometry Format
+      description: >-
+        **Applies to**: S0 and S1 pricing tiers.The Search Geometry endpoint allows
+        you to perform a free form search inside a single geometry or many of them.
+        The search results that fall inside the geometry/geometries will be
+        returned.To send the geometry you will use a `POST` request where the
+        request body will contain the `geometry` object represented as a `GeoJSON`
+        type and the `Content-Type` header will be set to `application/json`. The
+        geographical features to be searched can be modeled as Polygon and/or Circle
+        geometries represented using any one of the following `GeoJSON`
+        types:**GeoJSON FeatureCollection** The `geometry` can be represented as a
+        `GeoJSON FeatureCollection` object. This is the recommended option if the
+        geometry contains both Polygons and Circles. The `FeatureCollection` can
+        contain a max of 50 `GeoJSON Feature` objects. Each `Feature` object should
+        represent either a Polygon or a Circle with the following conditions:A
+        `Feature` object for the Polygon geometry can have a max of 50 coordinates
+        and it's properties must be empty.A `Feature` object for the Circle geometry
+        is composed of a _center_ represented using a `GeoJSON Point` type and a
+        _radius_ value (in meters) which must be specified in the object's
+        properties along with the _subType_ property whose value should be 'Circle'.
+        Please see the Examples section below for a sample `FeatureCollection`
+        representation.**GeoJSON GeometryCollection**The `geometry` can be
+        represented as a `GeoJSON GeometryCollection` object. This is the
+        recommended option if the geometry contains a list of Polygons only. The
+        `GeometryCollection` can contain a max of 50 `GeoJSON Polygon` objects. Each
+        `Polygon` object can have a max of 50 coordinates. Please see the Examples
+        section below for a sample `GeometryCollection` representation.**GeoJSON
+        Polygon**The `geometry` can be represented as a `GeoJSON Polygon` object.
+        This is the recommended option if the geometry contains a single Polygon.
+        The `Polygon` object can have a max of 50 coordinates. Please see the
+        Examples section below for a sample `Polygon` representation..
+    paths:
+      /search/geometry/{format}:
+        post:
+          summary: Post Search Geometry Format
+          description: >-
+            **Applies to**: S0 and S1 pricing tiers.The Search Geometry endpoint
+            allows you to perform a free form search inside a single geometry or
+            many of them. The search results that fall inside the
+            geometry/geometries will be returned.To send the geometry you will use a
+            `POST` request where the request body will contain the `geometry` object
+            represented as a `GeoJSON` type and the `Content-Type` header will be
+            set to `application/json`. The geographical features to be searched can
+            be modeled as Polygon and/or Circle geometries represented using any one
+            of the following `GeoJSON` types:**GeoJSON FeatureCollection** The
+            `geometry` can be represented as a `GeoJSON FeatureCollection` object.
+            This is the recommended option if the geometry contains both Polygons
+            and Circles. The `FeatureCollection` can contain a max of 50 `GeoJSON
+            Feature` objects. Each `Feature` object should represent either a
+            Polygon or a Circle with the following conditions:A `Feature` object for
+            the Polygon geometry can have a max of 50 coordinates and it's
+            properties must be empty.A `Feature` object for the Circle geometry is
+            composed of a _center_ represented using a `GeoJSON Point` type and a
+            _radius_ value (in meters) which must be specified in the object's
+            properties along with the _subType_ property whose value should be
+            'Circle'. Please see the Examples section below for a sample
+            `FeatureCollection` representation.**GeoJSON GeometryCollection**The
+            `geometry` can be represented as a `GeoJSON GeometryCollection` object.
+            This is the recommended option if the geometry contains a list of
+            Polygons only. The `GeometryCollection` can contain a max of 50 `GeoJSON
+            Polygon` objects. Each `Polygon` object can have a max of 50
+            coordinates. Please see the Examples section below for a sample
+            `GeometryCollection` representation.**GeoJSON Polygon**The `geometry`
+            can be represented as a `GeoJSON Polygon` object. This is the
+            recommended option if the geometry contains a single Polygon. The
+            `Polygon` object can have a max of 50 coordinates. Please see the
+            Examples section below for a sample `Polygon` representation..
+          operationId: searchPostSearchInsideGeometry
+          responses:
+            '500':
+              $ref: '#/responses/500'

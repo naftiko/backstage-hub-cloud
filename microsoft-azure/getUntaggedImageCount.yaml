@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-the-number-of-untagged-images
+  description: >-
+    This API returns the images which have no tags for a given project and
+    optionally an iteration. If no iteration is specified thecurrent workspace
+    is used.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The Number Of Untagged Images
+      description: >-
+        This API returns the images which have no tags for a given project and
+        optionally an iteration. If no iteration is specified thecurrent workspace
+        is used.
+    paths:
+      /projects/{projectId}/images/untagged/count:
+        get:
+          summary: Gets The Number Of Untagged Images
+          description: >-
+            This API returns the images which have no tags for a given project and
+            optionally an iteration. If no iteration is specified thecurrent
+            workspace is used.
+          operationId: getUntaggedImageCount
+          responses:
+            '200':
+              description: OK
+              schema:
+                format: int32
+                type: integer
+                x-nullable: false

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listmultiplexprograms
+  description: List the programs that currently exist for a specific multiplex.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listmultiplexprograms
+      description: List the programs that currently exist for a specific multiplex.
+    paths:
+      /prod/multiplexes/{multiplexId}/programs:
+        GET:
+          summary: Listmultiplexprograms
+          description: List the programs that currently exist for a specific multiplex.
+          operationId: listMultiplexPrograms

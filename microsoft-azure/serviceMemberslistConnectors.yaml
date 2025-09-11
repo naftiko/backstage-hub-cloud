@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-providers-microsoftadhybridhealthservice-service-servicename-servicemembers-servicememberid-connectors
+  description: Gets the connector details for a service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Providers Microsoft.adhybridhealthservice Service Servicename
+        Servicemembers Servicememberid Connectors
+      description: Gets the connector details for a service.
+    paths:
+      /providers/Microsoft.ADHybridHealthService/service/{serviceName}/servicemembers/{serviceMemberId}/connectors:
+        get:
+          summary: >-
+            Get Providers Microsoft.adhybridhealthservice Service Servicename
+            Servicemembers Servicememberid Connectors
+          description: Gets the connector details for a service.
+          operationId: serviceMemberslistConnectors
+          responses:
+            '200':
+              description: The list of connector details.
+              schema:
+                $ref: '#/definitions/Connectors'

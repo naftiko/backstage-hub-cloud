@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: list-smime-info
+  description: Lists S/MIME configs for the specified send-as alias.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Smime Info
+      description: Lists S/MIME configs for the specified send-as alias.
+    paths:
+      /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo:
+        get:
+          summary: List Smime Info
+          description: Lists S/MIME configs for the specified send-as alias.
+          operationId: listSMIMEInfo
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    smimeInfo:
+                      - id: Lorem culpa eiusmod
+                        issuerCn: dolore eiusmod laborum
+                        isDefault: false
+                        expiration: eiusmod incidid
+                        pem: minim voluptate non
+                        pkcs12: et Duis
+                        encryptedKeyPassword: tempor proiden
+                      - id: dolore
+                        issuerCn: aliqua velit qui
+                        isDefault: false
+                        expiration: occaeca
+                        pem: eu minim consequat sunt
+                        pkcs12: sunt anim ipsum nulla
+                        encryptedKeyPassword: laboris ex sint

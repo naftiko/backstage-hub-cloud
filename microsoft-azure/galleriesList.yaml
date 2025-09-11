@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-subscriptions-subscriptionid-providers-microsoftcompute-galleries
+  description: List galleries under a subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Subscriptions Subscriptionid Providers Microsoft.compute Galleries
+      description: List galleries under a subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Compute/galleries:
+        get:
+          summary: Get Subscriptions Subscriptionid Providers Microsoft.compute Galleries
+          description: List galleries under a subscription.
+          operationId: galleriesList
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

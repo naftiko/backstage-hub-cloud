@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    the-image-trending-search-api-lets-you-search-on-bing-and-get-back-a-list-of-images-that-are-trending-based-on-search-requests-made-by-others-the-images-are-broken-out-into-different-categories-for-example-popular-people-searches-for-a-list-of-markets-that-support-trending-images-see-trending-imageshttpsdocsmicrosoftcomen-usazurecognitive-servicesbing-image-searchtrending-images
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        The Image Trending Search Api Lets You Search On Bing And Get Back A List Of
+        Images That Are Trending Based On Search Requests Made By Others. The Images
+        Are Broken Out Into Different Categories. For Example, Popular People
+        Searches. For A List Of Markets That Support Trending Images, See [trending
+        Images](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/trending-images).
+      description: Needs a more full description created.
+    paths:
+      /images/trending:
+        get:
+          summary: >-
+            The Image Trending Search Api Lets You Search On Bing And Get Back A
+            List Of Images That Are Trending Based On Search Requests Made By
+            Others. The Images Are Broken Out Into Different Categories. For
+            Example, Popular People Searches. For A List Of Markets That Support
+            Trending Images, See [trending
+            Images](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/trending-images).
+          description: Needs a more full description created.
+          operationId: imagesTrending
+          responses:
+            default:
+              description: >-
+                An error has occurred. Check the response type and/or status code
+                for more details.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

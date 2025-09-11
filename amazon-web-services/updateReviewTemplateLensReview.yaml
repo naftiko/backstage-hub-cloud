@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatereviewtemplatelensreview
+  description: Update a lens review associated with a review template.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatereviewtemplatelensreview
+      description: Update a lens review associated with a review template.
+    paths:
+      /reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}:
+        PATCH:
+          summary: Updatereviewtemplatelensreview
+          description: Update a lens review associated with a review template.
+          operationId: updateReviewTemplateLensReview

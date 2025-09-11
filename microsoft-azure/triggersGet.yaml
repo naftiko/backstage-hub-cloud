@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-trigger-in-a-sharesubscription
+  description: Get a Trigger in a shareSubscription
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Trigger In A Sharesubscription.
+      description: Get a Trigger in a shareSubscription
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/triggers/{triggerName}:
+        get:
+          summary: Get Trigger In A Sharesubscription.
+          description: Get a Trigger in a shareSubscription
+          operationId: triggersGet
+          responses:
+            default:
+              description: >-
+                An error response received from the Microsoft.DataShare resource
+                provider.
+              schema:
+                $ref: '#/definitions/DataShareError'

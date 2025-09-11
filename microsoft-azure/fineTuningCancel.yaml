@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    cancels-the-processing-of-the-fine-tune-job-specified-by-the-given-fine-tune-id
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Cancels The Processing Of The Fine-tune Job Specified By The Given
+        Fine-tune-id.
+      description: Needs a more full description created.
+    paths:
+      /fine_tuning/jobs/{fine-tuning-job-id}/cancel:
+        post:
+          summary: >-
+            Cancels The Processing Of The Fine-tune Job Specified By The Given
+            Fine-tune-id.
+          description: Needs a more full description created.
+          operationId: fineTuningCancel
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: validatepipelinedefinition
+  description: >-
+    Validates the specified pipeline definition to ensure that it is well formed
+    and can be run without error.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Validatepipelinedefinition
+      description: >-
+        Validates the specified pipeline definition to ensure that it is well formed
+        and can be run without error.
+    paths:
+      /:
+        POST:
+          summary: Validatepipelinedefinition
+          description: >-
+            Validates the specified pipeline definition to ensure that it is well
+            formed and can be run without error.
+          operationId: validatePipelineDefinition

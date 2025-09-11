@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: upgradelensreview
+  description: Upgrade lens review for a particular workload.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Upgradelensreview
+      description: Upgrade lens review for a particular workload.
+    paths:
+      /workloads/{WorkloadId}/lensReviews/{LensAlias}/upgrade:
+        PUT:
+          summary: Upgradelensreview
+          description: Upgrade lens review for a particular workload.
+          operationId: upgradeLensReview

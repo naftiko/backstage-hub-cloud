@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: createlogicallyairgappedbackupvault
+  description: >-
+    This request creates a logical container to where backups may be copied.
+    This request includes a name, the Region, the maximum number of retention
+    days, the minimum number of retention days, and optionally can include tags
+    and a creator request ID.  Do not include sensitive data, such as passport
+    numbers, in the name of a backup vault. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createlogicallyairgappedbackupvault
+      description: >-
+        This request creates a logical container to where backups may be copied.
+        This request includes a name, the Region, the maximum number of retention
+        days, the minimum number of retention days, and optionally can include tags
+        and a creator request ID.  Do not include sensitive data, such as passport
+        numbers, in the name of a backup vault. 
+    paths:
+      /logically-air-gapped-backup-vaults/{backupVaultName}:
+        PUT:
+          summary: Createlogicallyairgappedbackupvault
+          description: >-
+            This request creates a logical container to where backups may be copied.
+            This request includes a name, the Region, the maximum number of
+            retention days, the minimum number of retention days, and optionally can
+            include tags and a creator request ID.  Do not include sensitive data,
+            such as passport numbers, in the name of a backup vault. 
+          operationId: createLogicallyAirGappedBackupVault

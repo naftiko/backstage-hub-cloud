@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-providers-microsoftaddons-supportproviders-providername-supportplantypes-plantypename
+  description: >-
+    Returns whether or not the canonical support plan of type {type} is enabled
+    for the subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft.addons Supportproviders
+        Providername Supportplantypes Plantypename
+      description: >-
+        Returns whether or not the canonical support plan of type {type} is enabled
+        for the subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Addons/supportProviders/{providerName}/supportPlanTypes/{planTypeName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft.addons
+            Supportproviders Providername Supportplantypes Plantypename
+          description: >-
+            Returns whether or not the canonical support plan of type {type} is
+            enabled for the subscription.
+          operationId: supportPlanTypesGet
+          responses:
+            default:
+              description: |-
+                '404' - 'Not Found'.
+                '400' - 'Bad Request'
+              schema:
+                $ref: '#/definitions/ErrorDefinition'

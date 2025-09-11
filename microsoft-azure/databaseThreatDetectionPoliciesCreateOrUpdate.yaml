@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftsql-servers-servername-databases-databasename-securityalertpolicies-securityalertpolicyname
+  description: Creates or updates a database's threat detection policy.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.sql Servers Servername Databases Databasename
+        Securityalertpolicies Securityalertpolicyname
+      description: Creates or updates a database's threat detection policy.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/securityAlertPolicies/{securityAlertPolicyName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.sql Servers Servername Databases Databasename
+            Securityalertpolicies Securityalertpolicyname
+          description: Creates or updates a database's threat detection policy.
+          operationId: databaseThreatDetectionPoliciesCreateOrUpdate
+          responses:
+            default:
+              description: |-
+                *** Error Responses: ***
+
+                 * 500 UpsertDatabaseSecurityAlertPolicyFailed - An error has occurred while saving Threat detection settings, please try again later * 500 DatabaseIsUnavailable - Your settings are currently unavailable, please try again later

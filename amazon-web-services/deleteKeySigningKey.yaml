@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deletekeysigningkey
+  description: >-
+    Deletes a key-signing key (KSK). Before you can delete a KSK, you must
+    deactivate it. The KSK must be deactivated before you can delete it
+    regardless of whether the hosted zone is enabled for DNSSEC signing. You can
+    use DeactivateKeySigningKey to deactivate the key before you delete it. Use
+    GetDNSSEC to verify that the KSK is in an INACTIVE status.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletekeysigningkey
+      description: >-
+        Deletes a key-signing key (KSK). Before you can delete a KSK, you must
+        deactivate it. The KSK must be deactivated before you can delete it
+        regardless of whether the hosted zone is enabled for DNSSEC signing. You can
+        use DeactivateKeySigningKey to deactivate the key before you delete it. Use
+        GetDNSSEC to verify that the KSK is in an INACTIVE status.
+    paths:
+      /2013-04-01/keysigningkey/{HostedZoneId}/{Name}:
+        DELETE:
+          summary: Deletekeysigningkey
+          description: >-
+            Deletes a key-signing key (KSK). Before you can delete a KSK, you must
+            deactivate it. The KSK must be deactivated before you can delete it
+            regardless of whether the hosted zone is enabled for DNSSEC signing. You
+            can use DeactivateKeySigningKey to deactivate the key before you delete
+            it. Use GetDNSSEC to verify that the KSK is in an INACTIVE status.
+          operationId: deleteKeySigningKey

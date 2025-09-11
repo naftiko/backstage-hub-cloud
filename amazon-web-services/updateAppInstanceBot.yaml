@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updateappinstancebot
+  description: Updates the name and metadata of an AppInstanceBot.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateappinstancebot
+      description: Updates the name and metadata of an AppInstanceBot.
+    paths:
+      /app-instance-bots/{appInstanceBotArn}:
+        PUT:
+          summary: Updateappinstancebot
+          description: Updates the name and metadata of an AppInstanceBot.
+          operationId: updateAppInstanceBot

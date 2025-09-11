@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listlinuxsubscriptioninstances
+  description: >-
+    Lists the running Amazon EC2 instances that were discovered with commercial
+    Linux subscriptions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listlinuxsubscriptioninstances
+      description: >-
+        Lists the running Amazon EC2 instances that were discovered with commercial
+        Linux subscriptions.
+    paths:
+      /subscription/ListLinuxSubscriptionInstances:
+        POST:
+          summary: Listlinuxsubscriptioninstances
+          description: >-
+            Lists the running Amazon EC2 instances that were discovered with
+            commercial Linux subscriptions.
+          operationId: listLinuxSubscriptionInstances

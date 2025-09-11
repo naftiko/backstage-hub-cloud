@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    patch-providers-microsoftintune-locations-hostname-androidpolicies-policyname
+  description: Patch AndroidMAMPolicy.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Providers Microsoft.intune Locations Hostname Androidpolicies
+        Policyname
+      description: Patch AndroidMAMPolicy.
+    paths:
+      /providers/Microsoft.Intune/locations/{hostName}/androidPolicies/{policyName}:
+        patch:
+          summary: >-
+            Patch Providers Microsoft.intune Locations Hostname Androidpolicies
+            Policyname
+          description: Patch AndroidMAMPolicy.
+          operationId: androidPatchMAMPolicy
+          responses:
+            default:
+              description: unexpected error
+              schema:
+                $ref: '#/definitions/Error'

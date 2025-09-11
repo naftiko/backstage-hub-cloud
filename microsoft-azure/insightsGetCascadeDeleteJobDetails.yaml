@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-insights-cascade-delete-jobid
+  description: Get a cascade delete job for specified insight.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Insights Cascade-delete Jobid
+      description: Get a cascade delete job for specified insight.
+    paths:
+      /insights/cascade-delete/{jobId}:
+        get:
+          summary: Get Insights Cascade-delete Jobid
+          description: Get a cascade delete job for specified insight.
+          operationId: insightsGetCascadeDeleteJobDetails
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  x-ms-client-name: ErrorCode
+              x-ms-error-response: true

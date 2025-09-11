@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    patch-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftsearch-searchservices-searchservicename
+  description: Updates an existing search service in the given resource group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.search Searchservices Searchservicename
+      description: Updates an existing search service in the given resource group.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.search Searchservices Searchservicename
+          description: Updates an existing search service in the given resource group.
+          operationId: servicesUpdate
+          responses:
+            default:
+              description: >-
+                HTTP 400 (Bad Request): The given service definition is invalid or
+                you attempted to change a property that is immutable; See the error
+                code and message in the response for details. HTTP 404 (Not Found):
+                The subscription or resource group could not be found. HTTP 409
+                (Conflict): The specified subscription is disabled.
+              schema:
+                $ref: '#/definitions/CloudError'

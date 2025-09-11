@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftdocumentdb-cassandraclusters-clustername-datacenters-datacentername
+  description: Get the properties of a managed Cassandra data center.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.documentdb Cassandraclusters Clustername Datacenters
+        Datacentername
+      description: Get the properties of a managed Cassandra data center.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/cassandraClusters/{clusterName}/dataCenters/{dataCenterName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.documentdb Cassandraclusters Clustername Datacenters
+            Datacentername
+          description: Get the properties of a managed Cassandra data center.
+          operationId: cassandraDataCentersGet
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: cosmos-db.json#/definitions/CloudError

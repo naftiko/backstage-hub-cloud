@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: approves-or-rejects-a-private-endpoint-connection
+  description: Description for Approves or rejects a private endpoint connection
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Approves Or Rejects A Private Endpoint Connection
+      description: Description for Approves or rejects a private endpoint connection
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/privateEndpointConnections/{privateEndpointConnectionName}:
+        put:
+          summary: Approves Or Rejects A Private Endpoint Connection
+          description: Description for Approves or rejects a private endpoint connection
+          operationId: appServiceEnvironmentsApproveOrRejectPrivateEndpointConnection
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listlambdafunctions
+  description: >-
+    This API is in preview release for Amazon Connect and is subject to change.
+    Returns a paginated list of all Lambda functions that display in the
+    dropdown options in the relevant flow blocks.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listlambdafunctions
+      description: >-
+        This API is in preview release for Amazon Connect and is subject to change.
+        Returns a paginated list of all Lambda functions that display in the
+        dropdown options in the relevant flow blocks.
+    paths:
+      /instance/{InstanceId}/lambda-functions:
+        GET:
+          summary: Listlambdafunctions
+          description: >-
+            This API is in preview release for Amazon Connect and is subject to
+            change. Returns a paginated list of all Lambda functions that display in
+            the dropdown options in the relevant flow blocks.
+          operationId: listLambdaFunctions

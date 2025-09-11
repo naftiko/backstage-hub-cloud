@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: create-or-update-a-segment-by-id-in-a-private-cloud-workload-network
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Or Update A Segment By Id In A Private Cloud Workload Network.
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId}:
+        patch:
+          summary: Create Or Update A Segment By Id In A Private Cloud Workload Network.
+          description: Needs a more full description created.
+          operationId: workloadNetworksUpdateSegments
+          responses:
+            default:
+              description: Error response describing why the operation failed
+              schema:
+                $ref: '#/definitions/CloudError'

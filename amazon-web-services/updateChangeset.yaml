@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatechangeset
+  description: Updates a FinSpace Changeset.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatechangeset
+      description: Updates a FinSpace Changeset.
+    paths:
+      /datasets/{datasetId}/changesetsv2/{changesetId}:
+        PUT:
+          summary: Updatechangeset
+          description: Updates a FinSpace Changeset.
+          operationId: updateChangeset

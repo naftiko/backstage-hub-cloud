@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: create-or-update-the-virtual-machine-console
+  description: >-
+    Create a new virtual machine console or update the properties of the
+    existing virtual machine console.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Or Update The Virtual Machine Console.
+      description: >-
+        Create a new virtual machine console or update the properties of the
+        existing virtual machine console.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName}/consoles/{consoleName}:
+        put:
+          summary: Create Or Update The Virtual Machine Console.
+          description: >-
+            Create a new virtual machine console or update the properties of the
+            existing virtual machine console.
+          operationId: consolesCreateOrUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

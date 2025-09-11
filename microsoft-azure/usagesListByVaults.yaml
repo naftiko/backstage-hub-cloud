@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftrecoveryservices-vaults-vaultname-usages
+  description: Fetches the usages of the vault.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.recoveryservices Vaults Vaultname Usages
+      description: Fetches the usages of the vault.
+    paths:
+      /Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/usages:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.recoveryservices Vaults Vaultname Usages
+          description: Fetches the usages of the vault.
+          operationId: usagesListByVaults
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/VaultUsageList'

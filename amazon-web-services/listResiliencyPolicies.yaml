@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listresiliencypolicies
+  description: Lists the resiliency policies for the Resilience Hub applications.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listresiliencypolicies
+      description: Lists the resiliency policies for the Resilience Hub applications.
+    paths:
+      /list-resiliency-policies:
+        GET:
+          summary: Listresiliencypolicies
+          description: Lists the resiliency policies for the Resilience Hub applications.
+          operationId: listResiliencyPolicies

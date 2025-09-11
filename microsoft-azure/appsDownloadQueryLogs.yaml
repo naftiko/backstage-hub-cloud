@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-apps-appid-querylogs
+  description: Gets the logs of the past month's endpoint queries for the application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Apps Appid Querylogs
+      description: Gets the logs of the past month's endpoint queries for the application.
+    paths:
+      /apps/{appId}/querylogs:
+        get:
+          summary: Get Apps Appid Querylogs
+          description: Gets the logs of the past month's endpoint queries for the application.
+          operationId: appsDownloadQueryLogs
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

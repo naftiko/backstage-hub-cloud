@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    create-an-assistant-file-by-attaching-a-filedocsapi-referencefiles-to-an-assistantdocsapi-referenceassistants
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Create An Assistant File By Attaching A [file](/docs/api-reference/files) To
+        An [assistant](/docs/api-reference/assistants).
+      description: Needs a more full description created.
+    paths:
+      /assistants/{assistant_id}/files:
+        post:
+          summary: >-
+            Create An Assistant File By Attaching A
+            [file](/docs/api-reference/files) To An
+            [assistant](/docs/api-reference/assistants).
+          description: Needs a more full description created.
+          operationId: createAssistantFile
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/createAssistantFileRequest'
+          responses:
+            '200':
+              description: OK
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/assistantFileObject'

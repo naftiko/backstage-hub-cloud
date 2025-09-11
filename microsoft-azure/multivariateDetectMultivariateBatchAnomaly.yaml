@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: detect-multivariate-anomaly
+  description: >-
+    Submit a multivariate anomaly detection task with the modelId value of a
+    trained modeland inference data. The input schema should be the same with
+    the trainingrequest. The request will finish asynchronously and return a
+    resultId value toquery the detection result. The request should be a source
+    link to indicate anexternally accessible Azure Storage URI that either
+    points to an Azure BlobStorage folder or points to a CSV file in Azure Blob
+    Storage.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Detect Multivariate Anomaly
+      description: >-
+        Submit a multivariate anomaly detection task with the modelId value of a
+        trained modeland inference data. The input schema should be the same with
+        the trainingrequest. The request will finish asynchronously and return a
+        resultId value toquery the detection result. The request should be a source
+        link to indicate anexternally accessible Azure Storage URI that either
+        points to an Azure BlobStorage folder or points to a CSV file in Azure Blob
+        Storage.
+    paths:
+      /multivariate/models/{modelId}:detect-batch:
+        post:
+          summary: Detect Multivariate Anomaly
+          description: >-
+            Submit a multivariate anomaly detection task with the modelId value of a
+            trained modeland inference data. The input schema should be the same
+            with the trainingrequest. The request will finish asynchronously and
+            return a resultId value toquery the detection result. The request should
+            be a source link to indicate anexternally accessible Azure Storage URI
+            that either points to an Azure BlobStorage folder or points to a CSV
+            file in Azure Blob Storage.
+          operationId: multivariateDetectMultivariateBatchAnomaly
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/Multivariate.ResponseError'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: Error code.

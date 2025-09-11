@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: delete-skillsetsskillsetname
+  description: Deletes a skillset in a search service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Skillsets('skillsetname')
+      description: Deletes a skillset in a search service.
+    paths:
+      /skillsets('{skillsetName}'):
+        delete:
+          summary: Delete Skillsets('skillsetname')
+          description: Deletes a skillset in a search service.
+          operationId: skillsetsDelete
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/SearchError'

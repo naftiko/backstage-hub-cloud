@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: batchgetfindings
+  description: Returns a list of all requested findings.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchgetfindings
+      description: Returns a list of all requested findings.
+    paths:
+      /batchGetFindings:
+        POST:
+          summary: Batchgetfindings
+          description: Returns a list of all requested findings.
+          operationId: batchGetFindings

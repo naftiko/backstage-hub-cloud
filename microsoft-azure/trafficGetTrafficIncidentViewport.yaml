@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-traffic-incident-viewport-format
+  description: >-
+    __Traffic Incident Viewport__**Applies to**: S0 and S1 pricing tiers.This
+    API returns legal and technical information for the viewport described in
+    the request. It should be called  by client applications whenever the
+    viewport changes (for instance, through zooming, panning, going to a 
+    location, or displaying a route). The request should contain the bounding
+    box and zoom level of the viewport  whose information is needed. The return
+    will contain map version information, as well as the current Traffic  Model
+    ID and copyright IDs. The Traffic Model ID returned by the Viewport
+    Description is used by other APIs to  retrieve last traffic information for
+    further processing.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Traffic Incident Viewport Format
+      description: >-
+        __Traffic Incident Viewport__**Applies to**: S0 and S1 pricing tiers.This
+        API returns legal and technical information for the viewport described in
+        the request. It should be called  by client applications whenever the
+        viewport changes (for instance, through zooming, panning, going to a 
+        location, or displaying a route). The request should contain the bounding
+        box and zoom level of the viewport  whose information is needed. The return
+        will contain map version information, as well as the current Traffic  Model
+        ID and copyright IDs. The Traffic Model ID returned by the Viewport
+        Description is used by other APIs to  retrieve last traffic information for
+        further processing.
+    paths:
+      /traffic/incident/viewport/{format}:
+        get:
+          summary: Get Traffic Incident Viewport Format
+          description: >-
+            __Traffic Incident Viewport__**Applies to**: S0 and S1 pricing
+            tiers.This API returns legal and technical information for the viewport
+            described in the request. It should be called  by client applications
+            whenever the viewport changes (for instance, through zooming, panning,
+            going to a  location, or displaying a route). The request should contain
+            the bounding box and zoom level of the viewport  whose information is
+            needed. The return will contain map version information, as well as the
+            current Traffic  Model ID and copyright IDs. The Traffic Model ID
+            returned by the Viewport Description is used by other APIs to  retrieve
+            last traffic information for further processing.
+          operationId: trafficGetTrafficIncidentViewport
+          responses:
+            '500':
+              $ref: '#/responses/500'

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updateagentalias
+  description: Updates an existing Alias for an Amazon Bedrock Agent
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateagentalias
+      description: Updates an existing Alias for an Amazon Bedrock Agent
+    paths:
+      /agents/{agentId}/agentaliases/{agentAliasId}/:
+        PUT:
+          summary: Updateagentalias
+          description: Updates an existing Alias for an Amazon Bedrock Agent
+          operationId: updateAgentAlias

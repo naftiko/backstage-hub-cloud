@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    list-all-currently-running-operations-on-the-hostingenvironment-app-service-environment
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        List All Currently Running Operations On The Hostingenvironment (app Service
+        Environment)
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/operations:
+        get:
+          summary: >-
+            List All Currently Running Operations On The Hostingenvironment (app
+            Service Environment)
+          description: Needs a more full description created.
+          operationId: hostingEnvironmentsGetHostingEnvironmentOperations
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/Object'

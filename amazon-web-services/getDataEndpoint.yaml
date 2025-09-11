@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getdataendpoint
+  description: >-
+    Gets an endpoint for a specified stream for either reading or writing. Use
+    this endpoint in your application to read from the specified stream (using
+    the GetMedia or GetMediaForFragmentList operations) or write to it (using
+    the PutMedia operation).   The returned endpoint does not have the API name
+    appended. The client needs to add the API name to the returned endpoint.  In
+    the request, specify the stream either by StreamName or StreamARN.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getdataendpoint
+      description: >-
+        Gets an endpoint for a specified stream for either reading or writing. Use
+        this endpoint in your application to read from the specified stream (using
+        the GetMedia or GetMediaForFragmentList operations) or write to it (using
+        the PutMedia operation).   The returned endpoint does not have the API name
+        appended. The client needs to add the API name to the returned endpoint.  In
+        the request, specify the stream either by StreamName or StreamARN.
+    paths:
+      /getDataEndpoint:
+        POST:
+          summary: Getdataendpoint
+          description: >-
+            Gets an endpoint for a specified stream for either reading or writing.
+            Use this endpoint in your application to read from the specified stream
+            (using the GetMedia or GetMediaForFragmentList operations) or write to
+            it (using the PutMedia operation).   The returned endpoint does not have
+            the API name appended. The client needs to add the API name to the
+            returned endpoint.  In the request, specify the stream either by
+            StreamName or StreamARN.
+          operationId: getDataEndpoint

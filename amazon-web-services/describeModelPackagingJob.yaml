@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: describemodelpackagingjob
+  description: >-
+    Describes an Amazon Lookout for Vision model packaging job.  This operation
+    requires permissions to perform the lookoutvision:DescribeModelPackagingJob
+    operation. For more information, see Using your Amazon Lookout for Vision
+    model on an edge device in the Amazon Lookout for Vision Developer Guide. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describemodelpackagingjob
+      description: >-
+        Describes an Amazon Lookout for Vision model packaging job.  This operation
+        requires permissions to perform the lookoutvision:DescribeModelPackagingJob
+        operation. For more information, see Using your Amazon Lookout for Vision
+        model on an edge device in the Amazon Lookout for Vision Developer Guide. 
+    paths:
+      /2020-11-20/projects/{projectName}/modelpackagingjobs/{jobName}:
+        GET:
+          summary: Describemodelpackagingjob
+          description: >-
+            Describes an Amazon Lookout for Vision model packaging job.  This
+            operation requires permissions to perform the
+            lookoutvision:DescribeModelPackagingJob operation. For more information,
+            see Using your Amazon Lookout for Vision model on an edge device in the
+            Amazon Lookout for Vision Developer Guide. 
+          operationId: describeModelPackagingJob

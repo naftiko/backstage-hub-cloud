@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatevariantstore
+  description: Updates a variant store.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatevariantstore
+      description: Updates a variant store.
+    paths:
+      /variantStore/{name}:
+        POST:
+          summary: Updatevariantstore
+          description: Updates a variant store.
+          operationId: updateVariantStore

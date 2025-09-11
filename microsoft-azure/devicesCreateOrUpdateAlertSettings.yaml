@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftstorsimple-managers-managername-devices-devicename-alertsettings-default
+  description: Creates or updates the alert settings
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.storsimple Managers Managername Devices Devicename Alertsettings
+        Default
+      description: Creates or updates the alert settings
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorSimple/managers/{managerName}/devices/{deviceName}/alertSettings/default:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.storsimple Managers Managername Devices Devicename
+            Alertsettings Default
+          description: Creates or updates the alert settings
+          operationId: devicesCreateOrUpdateAlertSettings
+          responses:
+            default:
+              description: >-
+                Default Response. It will be deserialized as per the Error
+                definition specified in the schema. Exception will be thrown.
+              schema:
+                $ref: '#/definitions/Error'

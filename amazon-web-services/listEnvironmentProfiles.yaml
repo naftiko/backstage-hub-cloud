@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listenvironmentprofiles
+  description: Lists Amazon DataZone environment profiles.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listenvironmentprofiles
+      description: Lists Amazon DataZone environment profiles.
+    paths:
+      /v2/domains/{domainIdentifier}/environment-profiles:
+        GET:
+          summary: Listenvironmentprofiles
+          description: Lists Amazon DataZone environment profiles.
+          operationId: listEnvironmentProfiles

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: putchunk
+  description: Upload chunk.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putchunk
+      description: Upload chunk.
+    paths:
+      /backup-jobs/{jobId}/chunk/{uploadId}/{chunkIndex}:
+        PUT:
+          summary: Putchunk
+          description: Upload chunk.
+          operationId: putChunk

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: patch-scope-providers-microsoftsoftwareplan-hybridusebenefits-planid
+  description: Updates an existing hybrid use benefit
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Patch Scope Providers Microsoft.softwareplan Hybridusebenefits Planid
+      description: Updates an existing hybrid use benefit
+    paths:
+      /{scope}/providers/Microsoft.SoftwarePlan/hybridUseBenefits/{planId}:
+        patch:
+          summary: Patch Scope Providers Microsoft.softwareplan Hybridusebenefits Planid
+          description: Updates an existing hybrid use benefit
+          operationId: hybridUseBenefitUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/Error'

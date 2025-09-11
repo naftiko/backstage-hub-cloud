@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: createdeploymentjob
+  description: >-
+    Deploys a specific version of a robot application to robots in a fleet. 
+    This API is no longer supported and will throw an error if used.  The robot
+    application must have a numbered applicationVersion for consistency reasons.
+    To create a new version, use CreateRobotApplicationVersion or see Creating a
+    Robot Application Version.   After 90 days, deployment jobs expire and will
+    be deleted. They will no longer be accessible.  
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createdeploymentjob
+      description: >-
+        Deploys a specific version of a robot application to robots in a fleet. 
+        This API is no longer supported and will throw an error if used.  The robot
+        application must have a numbered applicationVersion for consistency reasons.
+        To create a new version, use CreateRobotApplicationVersion or see Creating a
+        Robot Application Version.   After 90 days, deployment jobs expire and will
+        be deleted. They will no longer be accessible.  
+    paths:
+      /createDeploymentJob:
+        POST:
+          summary: Createdeploymentjob
+          description: >-
+            Deploys a specific version of a robot application to robots in a fleet. 
+            This API is no longer supported and will throw an error if used.  The
+            robot application must have a numbered applicationVersion for
+            consistency reasons. To create a new version, use
+            CreateRobotApplicationVersion or see Creating a Robot Application
+            Version.   After 90 days, deployment jobs expire and will be deleted.
+            They will no longer be accessible.  
+          operationId: createDeploymentJob

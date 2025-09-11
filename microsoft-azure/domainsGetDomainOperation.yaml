@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: retrieves-the-latest-status-of-a-domain-purchase-operation
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves The Latest Status Of A Domain Purchase Operation
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}/operationresults/{operationId}:
+        get:
+          summary: Retrieves The Latest Status Of A Domain Purchase Operation
+          description: Needs a more full description created.
+          operationId: domainsGetDomainOperation
+          responses:
+            '500':
+              description: Domain purchase request failed

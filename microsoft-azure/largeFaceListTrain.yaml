@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-largefacelists-largefacelistid-train
+  description: >-
+    Queue a large face list training task, the training task may not be started
+    immediately.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Largefacelists Largefacelistid Train
+      description: >-
+        Queue a large face list training task, the training task may not be started
+        immediately.
+    paths:
+      /largefacelists/{largeFaceListId}/train:
+        post:
+          summary: Post Largefacelists Largefacelistid Train
+          description: >-
+            Queue a large face list training task, the training task may not be
+            started immediately.
+          operationId: largeFaceListTrain
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

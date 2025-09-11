@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftstorsimple-managers-managername-devices-devicename-listfailoversets
+  description: >-
+    Returns all failover sets for a given device and their eligibility for
+    participating in a failover. A failover set refers to a set of volume
+    containers that need to be failed-over as a single unit to maintain data
+    integrity.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.storsimple Managers Managername Devices Devicename
+        Listfailoversets
+      description: >-
+        Returns all failover sets for a given device and their eligibility for
+        participating in a failover. A failover set refers to a set of volume
+        containers that need to be failed-over as a single unit to maintain data
+        integrity.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorSimple/managers/{managerName}/devices/{deviceName}/listFailoverSets:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.storsimple Managers Managername Devices Devicename
+            Listfailoversets
+          description: >-
+            Returns all failover sets for a given device and their eligibility for
+            participating in a failover. A failover set refers to a set of volume
+            containers that need to be failed-over as a single unit to maintain data
+            integrity.
+          operationId: devicesListFailoverSets
+          responses:
+            '200':
+              description: Returns the list of failover sets on the given device.
+              schema:
+                $ref: '#/definitions/FailoverSetsList'

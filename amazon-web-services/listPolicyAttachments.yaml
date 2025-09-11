@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listpolicyattachments
+  description: Returns all of the ObjectIdentifiers to which a given policy is attached.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listpolicyattachments
+      description: Returns all of the ObjectIdentifiers to which a given policy is attached.
+    paths:
+      /amazonclouddirectory/2017-01-11/policy/attachment:
+        POST:
+          summary: Listpolicyattachments
+          description: >-
+            Returns all of the ObjectIdentifiers to which a given policy is
+            attached.
+          operationId: listPolicyAttachments

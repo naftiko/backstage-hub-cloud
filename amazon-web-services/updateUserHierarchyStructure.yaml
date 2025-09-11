@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updateuserhierarchystructure
+  description: >-
+    Updates the user hierarchy structure: add, remove, and rename user hierarchy
+    levels.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateuserhierarchystructure
+      description: >-
+        Updates the user hierarchy structure: add, remove, and rename user hierarchy
+        levels.
+    paths:
+      /user-hierarchy-structure/{InstanceId}:
+        POST:
+          summary: Updateuserhierarchystructure
+          description: >-
+            Updates the user hierarchy structure: add, remove, and rename user
+            hierarchy levels.
+          operationId: updateUserHierarchyStructure

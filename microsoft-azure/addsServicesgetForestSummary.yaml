@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-providers-microsoftadhybridhealthservice-addsservices-servicename-forestsummary
+  description: >-
+    Gets the forest summary for a given Active Directory Domain Service, that is
+    onboarded to Azure Active Directory Connect Health.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Providers Microsoft.adhybridhealthservice Addsservices Servicename
+        Forestsummary
+      description: >-
+        Gets the forest summary for a given Active Directory Domain Service, that is
+        onboarded to Azure Active Directory Connect Health.
+    paths:
+      /providers/Microsoft.ADHybridHealthService/addsservices/{serviceName}/forestsummary:
+        get:
+          summary: >-
+            Get Providers Microsoft.adhybridhealthservice Addsservices Servicename
+            Forestsummary
+          description: >-
+            Gets the forest summary for a given Active Directory Domain Service,
+            that is onboarded to Azure Active Directory Connect Health.
+          operationId: addsServicesgetForestSummary
+          responses:
+            '200':
+              description: 'The list of forest summary for the service. '
+              schema:
+                $ref: '#/definitions/ForestSummary'

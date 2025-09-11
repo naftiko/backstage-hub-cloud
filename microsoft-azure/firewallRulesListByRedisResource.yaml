@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftcache-redis-cachename-firewallrules
+  description: Gets all firewall rules in the specified redis cache.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.cache Redis Cachename Firewallrules
+      description: Gets all firewall rules in the specified redis cache.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/Redis/{cacheName}/firewallRules:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.cache Redis Cachename Firewallrules
+          description: Gets all firewall rules in the specified redis cache.
+          operationId: firewallRulesListByRedisResource
+          responses:
+            '200':
+              description: Successfully got the current rules
+              schema:
+                $ref: '#/definitions/RedisFirewallRuleListResult'

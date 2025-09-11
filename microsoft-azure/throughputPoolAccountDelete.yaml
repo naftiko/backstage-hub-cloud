@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftdocumentdb-throughputpools-throughputpoolname-throughputpoolaccounts-throughputpoolaccountname
+  description: Removes an existing Azure Cosmos DB database account from a throughput pool.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.documentdb Throughputpools Throughputpoolname
+        Throughputpoolaccounts Throughputpoolaccountname
+      description: Removes an existing Azure Cosmos DB database account from a throughput pool.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/throughputPools/{throughputPoolName}/throughputPoolAccounts/{throughputPoolAccountName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.documentdb Throughputpools Throughputpoolname
+            Throughputpoolaccounts Throughputpoolaccountname
+          description: >-
+            Removes an existing Azure Cosmos DB database account from a throughput
+            pool.
+          operationId: throughputPoolAccountDelete
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-source-datasets-of-a-sharesubscription
+  description: Get source dataSets of a shareSubscription
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Source Datasets Of A Sharesubscription.
+      description: Get source dataSets of a shareSubscription
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/consumerSourceDataSets:
+        get:
+          summary: Get Source Datasets Of A Sharesubscription.
+          description: Get source dataSets of a shareSubscription
+          operationId: consumerSourceDataSetsListByShareSubscription
+          responses:
+            default:
+              description: >-
+                An error response received from the Microsoft.DataShare resource
+                provider.
+              schema:
+                $ref: '#/definitions/DataShareError'

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getresources
+  description: >-
+    Retrieves a collection of resources, including folders and documents. The
+    only CollectionType supported is SHARED_WITH_ME.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getresources
+      description: >-
+        Retrieves a collection of resources, including folders and documents. The
+        only CollectionType supported is SHARED_WITH_ME.
+    paths:
+      /api/v1/resources:
+        GET:
+          summary: Getresources
+          description: >-
+            Retrieves a collection of resources, including folders and documents.
+            The only CollectionType supported is SHARED_WITH_ME.
+          operationId: getResources

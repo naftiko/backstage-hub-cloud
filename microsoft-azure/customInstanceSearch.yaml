@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    the-custom-search-api-lets-you-send-a-search-query-to-bing-and-get-back-web-pages-found-in-your-custom-view-of-the-web
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        The Custom Search Api Lets You Send A Search Query To Bing And Get Back Web
+        Pages Found In Your Custom View Of The Web.
+      description: Needs a more full description created.
+    paths:
+      /search:
+        get:
+          summary: >-
+            The Custom Search Api Lets You Send A Search Query To Bing And Get Back
+            Web Pages Found In Your Custom View Of The Web.
+          description: Needs a more full description created.
+          operationId: customInstanceSearch
+          responses:
+            default:
+              description: >-
+                An error has occurred. Check the response type and/or status code
+                for more details.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

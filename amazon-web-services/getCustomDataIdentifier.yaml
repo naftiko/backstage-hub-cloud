@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getcustomdataidentifier
+  description: Retrieves the criteria and other settings for a custom data identifier.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getcustomdataidentifier
+      description: Retrieves the criteria and other settings for a custom data identifier.
+    paths:
+      /custom-data-identifiers/{id}:
+        GET:
+          summary: Getcustomdataidentifier
+          description: Retrieves the criteria and other settings for a custom data identifier.
+          operationId: getCustomDataIdentifier

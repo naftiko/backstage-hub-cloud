@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getplaybackkeypair
+  description: >-
+    Gets a specified playback authorization key pair and returns the arn and
+    fingerprint. The privateKey held by the caller can be used to generate
+    viewer authorization tokens, to grant viewers access to private channels.
+    For more information, see Setting Up Private Channels in the Amazon IVS User
+    Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getplaybackkeypair
+      description: >-
+        Gets a specified playback authorization key pair and returns the arn and
+        fingerprint. The privateKey held by the caller can be used to generate
+        viewer authorization tokens, to grant viewers access to private channels.
+        For more information, see Setting Up Private Channels in the Amazon IVS User
+        Guide.
+    paths:
+      /GetPlaybackKeyPair:
+        POST:
+          summary: Getplaybackkeypair
+          description: >-
+            Gets a specified playback authorization key pair and returns the arn and
+            fingerprint. The privateKey held by the caller can be used to generate
+            viewer authorization tokens, to grant viewers access to private
+            channels. For more information, see Setting Up Private Channels in the
+            Amazon IVS User Guide.
+          operationId: getPlaybackKeyPair

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getreplicationset
+  description: Retrieve your Incident Manager replication set.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getreplicationset
+      description: Retrieve your Incident Manager replication set.
+    paths:
+      /getReplicationSet:
+        GET:
+          summary: Getreplicationset
+          description: Retrieve your Incident Manager replication set.
+          operationId: getReplicationSet

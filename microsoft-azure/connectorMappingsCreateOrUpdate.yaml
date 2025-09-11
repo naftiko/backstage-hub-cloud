@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftcustomerinsights-hubs-hubname-connectors-connectorname-mappings-mappingname
+  description: >-
+    Creates a connector mapping or updates an existing connector mapping in the
+    connector.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.customerinsights Hubs Hubname Connectors Connectorname Mappings
+        Mappingname
+      description: >-
+        Creates a connector mapping or updates an existing connector mapping in the
+        connector.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/connectors/{connectorName}/mappings/{mappingName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.customerinsights Hubs Hubname Connectors
+            Connectorname Mappings Mappingname
+          description: >-
+            Creates a connector mapping or updates an existing connector mapping in
+            the connector.
+          operationId: connectorMappingsCreateOrUpdate
+          responses:
+            '201':
+              description: Created. A new connector mapping is created.
+              schema:
+                $ref: '#/definitions/ConnectorMappingResourceFormat'

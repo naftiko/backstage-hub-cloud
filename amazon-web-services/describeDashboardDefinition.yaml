@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: describedashboarddefinition
+  description: >-
+    Provides a detailed description of the definition of a dashboard.  If you do
+    not need to know details about the content of a dashboard, for instance if
+    you are trying to check the status of a recently created or updated
+    dashboard, use the  DescribeDashboard  instead.  
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describedashboarddefinition
+      description: >-
+        Provides a detailed description of the definition of a dashboard.  If you do
+        not need to know details about the content of a dashboard, for instance if
+        you are trying to check the status of a recently created or updated
+        dashboard, use the  DescribeDashboard  instead.  
+    paths:
+      /accounts/{AwsAccountId}/dashboards/{DashboardId}/definition:
+        GET:
+          summary: Describedashboarddefinition
+          description: >-
+            Provides a detailed description of the definition of a dashboard.  If
+            you do not need to know details about the content of a dashboard, for
+            instance if you are trying to check the status of a recently created or
+            updated dashboard, use the  DescribeDashboard  instead.  
+          operationId: describeDashboardDefinition

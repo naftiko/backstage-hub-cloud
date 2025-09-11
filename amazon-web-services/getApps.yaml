@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getapps
+  description: >-
+    Retrieves information about all the applications that are associated with
+    your Amazon Pinpoint account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getapps
+      description: >-
+        Retrieves information about all the applications that are associated with
+        your Amazon Pinpoint account.
+    paths:
+      /v1/apps:
+        GET:
+          summary: Getapps
+          description: >-
+            Retrieves information about all the applications that are associated
+            with your Amazon Pinpoint account.
+          operationId: getApps

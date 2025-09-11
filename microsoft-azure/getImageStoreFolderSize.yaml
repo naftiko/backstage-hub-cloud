@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-the-size-of-a-folder-in-image-store
+  description: >-
+    Gets the total size of file under a image store folder, specified by
+    contentPath. The contentPath is relative to the root of the image store.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get The Size Of A Folder In Image Store
+      description: >-
+        Gets the total size of file under a image store folder, specified by
+        contentPath. The contentPath is relative to the root of the image store.
+    paths:
+      /ImageStore/{contentPath}/$/FolderSize:
+        get:
+          summary: Get The Size Of A Folder In Image Store
+          description: >-
+            Gets the total size of file under a image store folder, specified by
+            contentPath. The contentPath is relative to the root of the image store.
+          operationId: getImageStoreFolderSize
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

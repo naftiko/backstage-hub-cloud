@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-authoring-analyze-text-projects-projectname-exported-models-exportedmodelname-jobs-jobid
+  description: Gets the status for an existing job to create or update an exported model.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Authoring Analyze-text Projects Projectname Exported-models
+        Exportedmodelname Jobs Jobid
+      description: Gets the status for an existing job to create or update an exported model.
+    paths:
+      /authoring/analyze-text/projects/{projectName}/exported-models/{exportedModelName}/jobs/{jobId}:
+        get:
+          summary: >-
+            Get Authoring Analyze-text Projects Projectname Exported-models
+            Exportedmodelname Jobs Jobid
+          description: >-
+            Gets the status for an existing job to create or update an exported
+            model.
+          operationId: textAnalysisAuthoringGetExportedModelJobStatus
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: common.json#/definitions/ErrorResponse

@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    deletes-provider-from-fabric-note-deleting-provider-for-any-fabric-other-than-singlehost-is-unsupported-to-maintain-backward-compatibility-for-released-clients-the-object-deleterspinput-is-used-if-the-object-is-empty-we-assume-that-it-is-old-client-and-continue-the-old-behavior
+  description: >-
+    The operation to removes/delete(unregister) a recovery services provider
+    from the vault.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Deletes Provider From Fabric. Note: Deleting Provider For Any Fabric Other
+        Than Singlehost Is Unsupported. To Maintain Backward Compatibility For
+        Released Clients The Object "deleterspinput" Is Used (if The Object Is Empty
+        We Assume That It Is Old Client And Continue The Old Behavior).
+      description: >-
+        The operation to removes/delete(unregister) a recovery services provider
+        from the vault.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationRecoveryServicesProviders/{providerName}/remove:
+        post:
+          summary: >-
+            Deletes Provider From Fabric. Note: Deleting Provider For Any Fabric
+            Other Than Singlehost Is Unsupported. To Maintain Backward Compatibility
+            For Released Clients The Object "deleterspinput" Is Used (if The Object
+            Is Empty We Assume That It Is Old Client And Continue The Old Behavior).
+          description: >-
+            The operation to removes/delete(unregister) a recovery services provider
+            from the vault.
+          operationId: replicationRecoveryServicesProvidersDelete
+          responses:
+            '204':
+              description: NoContent

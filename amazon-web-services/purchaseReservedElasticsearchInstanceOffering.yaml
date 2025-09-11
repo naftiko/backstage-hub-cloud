@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: purchasereservedelasticsearchinstanceoffering
+  description: Allows you to purchase reserved Elasticsearch instances.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Purchasereservedelasticsearchinstanceoffering
+      description: Allows you to purchase reserved Elasticsearch instances.
+    paths:
+      /2015-01-01/es/purchaseReservedInstanceOffering:
+        POST:
+          summary: Purchasereservedelasticsearchinstanceoffering
+          description: Allows you to purchase reserved Elasticsearch instances.
+          operationId: purchaseReservedElasticsearchInstanceOffering

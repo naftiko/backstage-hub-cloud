@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getaccesspointpolicystatus
+  description: ' This operation is not supported by directory buckets.  Indicates whether the specified access point currently has a policy that allows public access. For more information about public access through access points, see Managing Data Access with Amazon S3 access points in the Amazon S3 User Guide.'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getaccesspointpolicystatus
+      description: ' This operation is not supported by directory buckets.  Indicates whether the specified access point currently has a policy that allows public access. For more information about public access through access points, see Managing Data Access with Amazon S3 access points in the Amazon S3 User Guide.'
+    paths:
+      /v20180820/accesspoint/{name}/policyStatus:
+        GET:
+          summary: Getaccesspointpolicystatus
+          description: ' This operation is not supported by directory buckets.  Indicates whether the specified access point currently has a policy that allows public access. For more information about public access through access points, see Managing Data Access with Amazon S3 access points in the Amazon S3 User Guide.'
+          operationId: getAccessPointPolicyStatus

@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-app-components-for-a-test-model-or-a-test-run-of-given-name-in-query-param
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get App Components For A Test Model Or A Test Run Of Given Name In Query
+        Param.
+      description: Needs a more full description created.
+    paths:
+      /appcomponents:
+        get:
+          summary: >-
+            Get App Components For A Test Model Or A Test Run Of Given Name In Query
+            Param.
+          description: Needs a more full description created.
+          operationId: appComponentGetAppComponent
+          responses:
+            default:
+              description: |-
+                ***Error Responses: ***
+
+                 * "400", "InvalidHostOrResourceName", "Host name or domain is not valid" .
+
+                  * "400", "RequiredTestOrTestRun", "Either test name or test run name is required"
+
+                  * "404", "TestRunNotFound", "test run not found with given name"
+
+                 * "404", "TestNotFound", "Test not found with given name"
+
+                 * "500", "InternalServerError", "Unable to process the request, please retry"
+              schema:
+                $ref: '#/definitions/DefaultErrorResponseBody'
+              headers:
+                x-ms-error-code:
+                  description: The error code for specific error that occurred.
+                  type: string

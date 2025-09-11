@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: startmedicalstreamtranscription
+  description: >-
+    Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
+    Amazon Transcribe Medical and the transcription results are streamed to your
+    application. The following parameters are required:    language-code    
+    media-encoding     sample-rate    For more information on streaming with
+    Amazon Transcribe Medical, see Transcribing streaming audio.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startmedicalstreamtranscription
+      description: >-
+        Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
+        Amazon Transcribe Medical and the transcription results are streamed to your
+        application. The following parameters are required:    language-code    
+        media-encoding     sample-rate    For more information on streaming with
+        Amazon Transcribe Medical, see Transcribing streaming audio.
+    paths:
+      /medical-stream-transcription:
+        POST:
+          summary: Startmedicalstreamtranscription
+          description: >-
+            Starts a bidirectional HTTP/2 or WebSocket stream where audio is
+            streamed to Amazon Transcribe Medical and the transcription results are
+            streamed to your application. The following parameters are required:   
+            language-code     media-encoding     sample-rate    For more information
+            on streaming with Amazon Transcribe Medical, see Transcribing streaming
+            audio.
+          operationId: startMedicalStreamTranscription

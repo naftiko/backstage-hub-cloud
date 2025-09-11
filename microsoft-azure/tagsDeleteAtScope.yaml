@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deletes-the-entire-set-of-tags-on-a-resource-or-subscription
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes The Entire Set Of Tags On A Resource Or Subscription.
+      description: Needs a more full description created.
+    paths:
+      /{scope}/providers/Microsoft.Resources/tags/default:
+        delete:
+          summary: Deletes The Entire Set Of Tags On A Resource Or Subscription.
+          description: Needs a more full description created.
+          operationId: tagsDeleteAtScope
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

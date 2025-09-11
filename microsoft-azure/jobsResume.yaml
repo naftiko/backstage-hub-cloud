@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsofthybriddata-datamanagers-datamanagername-dataservices-dataservicename-jobdefinitions-jobdefinitionname-jobs-jobid-resume
+  description: Resumes the given job.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.hybriddata Datamanagers Datamanagername Dataservices
+        Dataservicename Jobdefinitions Jobdefinitionname Jobs Jobid Resume
+      description: Resumes the given job.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridData/dataManagers/{dataManagerName}/dataServices/{dataServiceName}/jobDefinitions/{jobDefinitionName}/jobs/{jobId}/resume:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.hybriddata Datamanagers Datamanagername Dataservices
+            Dataservicename Jobdefinitions Jobdefinitionname Jobs Jobid Resume
+          description: Resumes the given job.
+          operationId: jobsResume
+          responses:
+            '204':
+              description: Job resumed.

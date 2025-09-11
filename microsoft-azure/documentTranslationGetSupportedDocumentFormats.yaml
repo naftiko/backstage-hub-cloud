@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: returns-a-list-of-supported-document-formats
+  description: >-
+    The list of supported document formats supported by the Document Translation
+    service.The list includes the common file extension, as well as the
+    content-type if using the upload API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Returns A List Of Supported Document Formats
+      description: >-
+        The list of supported document formats supported by the Document Translation
+        service.The list includes the common file extension, as well as the
+        content-type if using the upload API.
+    paths:
+      /documents/formats:
+        get:
+          summary: Returns A List Of Supported Document Formats
+          description: >-
+            The list of supported document formats supported by the Document
+            Translation service.The list includes the common file extension, as well
+            as the content-type if using the upload API.
+          operationId: documentTranslationGetSupportedDocumentFormats
+          responses:
+            '503':
+              description: Server temporary unavailable
+              schema:
+                $ref: '#/definitions/TranslationErrorResponse'
+              examples:
+                application/json: "{\r\n  \"error\": {\r\n    \"code\": \"ServiceUnavailable\",\r\n    \"message\": \"Service is temporary unavailable\",\r\n    \"target\": \"format\",\r\n    \"innerError\": {\r\n      \"code\": \"ServiceTemporaryUnavailable\",\r\n      \"message\": \"Service is currently unavailable.  Please try again later\"\r\n    }\r\n  }\r\n}"
+              x-ms-error-response: true

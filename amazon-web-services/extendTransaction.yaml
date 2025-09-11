@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: extendtransaction
+  description: >-
+    Indicates to the service that the specified transaction is still active and
+    should not be treated as idle and aborted. Write transactions that remain
+    idle for a long period are automatically aborted unless explicitly extended.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Extendtransaction
+      description: >-
+        Indicates to the service that the specified transaction is still active and
+        should not be treated as idle and aborted. Write transactions that remain
+        idle for a long period are automatically aborted unless explicitly extended.
+    paths:
+      /ExtendTransaction:
+        POST:
+          summary: Extendtransaction
+          description: >-
+            Indicates to the service that the specified transaction is still active
+            and should not be treated as idle and aborted. Write transactions that
+            remain idle for a long period are automatically aborted unless
+            explicitly extended.
+          operationId: extendTransaction

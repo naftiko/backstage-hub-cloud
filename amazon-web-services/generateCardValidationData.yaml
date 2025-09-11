@@ -1,0 +1,74 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: generatecardvalidationdata
+  description: >-
+    Generates card-related validation data using algorithms such as Card
+    Verification Values (CVV/CVV2), Dynamic Card Verification Values
+    (dCVV/dCVV2), or Card Security Codes (CSC). For more information, see
+    Generate card data in the Amazon Web Services Payment Cryptography User
+    Guide. This operation generates a CVV or CSC value that is printed on a
+    payment credit or debit card during card production. The CVV or CSC, PAN
+    (Primary Account Number) and expiration date of the card are required to
+    check its validity during transaction processing. To begin this operation, a
+    CVK (Card Verification Key) encryption key is required. You can use
+    CreateKey or ImportKey to establish a CVK within Amazon Web Services Payment
+    Cryptography. The KeyModesOfUse should be set to Generate and Verify for a
+    CVK encryption key.  For information about valid keys for this operation,
+    see Understanding key attributes and Key types for specific data operations
+    in the Amazon Web Services Payment Cryptography User Guide.   Cross-account
+    use: This operation can't be used across different Amazon Web Services
+    accounts.  Related operations:     ImportKey     VerifyCardValidationData   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Generatecardvalidationdata
+      description: >-
+        Generates card-related validation data using algorithms such as Card
+        Verification Values (CVV/CVV2), Dynamic Card Verification Values
+        (dCVV/dCVV2), or Card Security Codes (CSC). For more information, see
+        Generate card data in the Amazon Web Services Payment Cryptography User
+        Guide. This operation generates a CVV or CSC value that is printed on a
+        payment credit or debit card during card production. The CVV or CSC, PAN
+        (Primary Account Number) and expiration date of the card are required to
+        check its validity during transaction processing. To begin this operation, a
+        CVK (Card Verification Key) encryption key is required. You can use
+        CreateKey or ImportKey to establish a CVK within Amazon Web Services Payment
+        Cryptography. The KeyModesOfUse should be set to Generate and Verify for a
+        CVK encryption key.  For information about valid keys for this operation,
+        see Understanding key attributes and Key types for specific data operations
+        in the Amazon Web Services Payment Cryptography User Guide.   Cross-account
+        use: This operation can't be used across different Amazon Web Services
+        accounts.  Related operations:     ImportKey     VerifyCardValidationData   
+    paths:
+      /cardvalidationdata/generate:
+        POST:
+          summary: Generatecardvalidationdata
+          description: >-
+            Generates card-related validation data using algorithms such as Card
+            Verification Values (CVV/CVV2), Dynamic Card Verification Values
+            (dCVV/dCVV2), or Card Security Codes (CSC). For more information, see
+            Generate card data in the Amazon Web Services Payment Cryptography User
+            Guide. This operation generates a CVV or CSC value that is printed on a
+            payment credit or debit card during card production. The CVV or CSC, PAN
+            (Primary Account Number) and expiration date of the card are required to
+            check its validity during transaction processing. To begin this
+            operation, a CVK (Card Verification Key) encryption key is required. You
+            can use CreateKey or ImportKey to establish a CVK within Amazon Web
+            Services Payment Cryptography. The KeyModesOfUse should be set to
+            Generate and Verify for a CVK encryption key.  For information about
+            valid keys for this operation, see Understanding key attributes and Key
+            types for specific data operations in the Amazon Web Services Payment
+            Cryptography User Guide.   Cross-account use: This operation can't be
+            used across different Amazon Web Services accounts.  Related
+            operations:     ImportKey     VerifyCardValidationData   
+          operationId: generateCardValidationData

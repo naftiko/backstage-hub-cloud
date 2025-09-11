@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getdeviceregistration
+  description: Use to check if a device is registered with SageMaker Edge Manager.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getdeviceregistration
+      description: Use to check if a device is registered with SageMaker Edge Manager.
+    paths:
+      /GetDeviceRegistration:
+        POST:
+          summary: Getdeviceregistration
+          description: Use to check if a device is registered with SageMaker Edge Manager.
+          operationId: getDeviceRegistration

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: retrieves-the-managementassociations-list-for-the-subscription
+  description: Retrieves the ManagementAssociations list.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves The Managementassociations List For The Subscription
+      description: Retrieves the ManagementAssociations list.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.OperationsManagement/ManagementAssociations:
+        get:
+          summary: Retrieves The Managementassociations List For The Subscription
+          description: Retrieves the ManagementAssociations list.
+          operationId: managementAssociationsListBySubscription
+          responses:
+            default:
+              schema:
+                $ref: '#/definitions/CodeMessageError'
+              description: Error response definition.

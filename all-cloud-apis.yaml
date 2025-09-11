@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: All API Resources
+  description: These are all API resources for this hub.
+spec:
+  targets:
+    - ./amazon-web-services.yaml
+    - ./google.yaml
+    - ./microsoft-azure.yaml

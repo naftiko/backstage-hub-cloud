@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getorganizationadminaccount
+  description: ' Gets the name of the delegated Amazon Web Services administrator account for a specified organization. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getorganizationadminaccount
+      description: ' Gets the name of the delegated Amazon Web Services administrator account for a specified organization. '
+    paths:
+      /account/organizationAdminAccount:
+        GET:
+          summary: Getorganizationadminaccount
+          description: ' Gets the name of the delegated Amazon Web Services administrator account for a specified organization. '
+          operationId: getOrganizationAdminAccount

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listappinstances
+  description: Lists all Amazon Chime AppInstances created under a single AWS account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listappinstances
+      description: Lists all Amazon Chime AppInstances created under a single AWS account.
+    paths:
+      /app-instances:
+        GET:
+          summary: Listappinstances
+          description: Lists all Amazon Chime AppInstances created under a single AWS account.
+          operationId: listAppInstances

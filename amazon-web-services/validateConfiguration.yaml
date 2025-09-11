@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: validateconfiguration
+  description: Uses the validators in a configuration profile to validate a configuration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Validateconfiguration
+      description: Uses the validators in a configuration profile to validate a configuration.
+    paths:
+      /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators:
+        POST:
+          summary: Validateconfiguration
+          description: >-
+            Uses the validators in a configuration profile to validate a
+            configuration.
+          operationId: validateConfiguration

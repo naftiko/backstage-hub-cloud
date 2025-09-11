@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: putmodelinvocationloggingconfiguration
+  description: Set the configuration values for model invocation logging.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putmodelinvocationloggingconfiguration
+      description: Set the configuration values for model invocation logging.
+    paths:
+      /logging/modelinvocations:
+        PUT:
+          summary: Putmodelinvocationloggingconfiguration
+          description: Set the configuration values for model invocation logging.
+          operationId: putModelInvocationLoggingConfiguration

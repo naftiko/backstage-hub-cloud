@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    lists-all-the-containers-of-a-storage-account-in-a-data-box-edgedata-box-gateway-device
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Lists All The Containers Of A Storage Account In A Data Box Edge/data Box
+        Gateway Device.
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/storageAccounts/{storageAccountName}/containers:
+        get:
+          summary: >-
+            Lists All The Containers Of A Storage Account In A Data Box Edge/data
+            Box Gateway Device.
+          description: Needs a more full description created.
+          operationId: containersListByStorageAccount
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

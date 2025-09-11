@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-docs-searchsuggest
+  description: >-
+    Suggests documents in the Azure Search index that match the given partial
+    query text.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Docs Search.suggest
+      description: >-
+        Suggests documents in the Azure Search index that match the given partial
+        query text.
+    paths:
+      /docs/search.suggest:
+        get:
+          summary: Get Docs Search.suggest
+          description: >-
+            Suggests documents in the Azure Search index that match the given
+            partial query text.
+          operationId: documentsSuggestGet
+          responses:
+            '200':
+              description: >-
+                Response containing suggested documents that match the partial
+                input.
+              schema:
+                $ref: '#/definitions/DocumentSuggestResult'

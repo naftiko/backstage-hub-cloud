@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-the-list-of-networks-under-a-fabric
+  description: Lists the networks available for a fabric.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The List Of Networks Under A Fabric.
+      description: Lists the networks available for a fabric.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationNetworks:
+        get:
+          summary: Gets The List Of Networks Under A Fabric.
+          description: Lists the networks available for a fabric.
+          operationId: replicationNetworksListByReplicationFabrics
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/NetworkCollection'

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: update-a-virtual-network-gateway
+  description: Description for Update a Virtual Network gateway.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Virtual Network Gateway.
+      description: Description for Update a Virtual Network gateway.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}/gateways/{gatewayName}:
+        put:
+          summary: Update A Virtual Network Gateway.
+          description: Description for Update a Virtual Network gateway.
+          operationId: appServicePlansUpdateVnetGateway
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

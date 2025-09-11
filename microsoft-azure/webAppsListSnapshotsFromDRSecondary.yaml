@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: returns-all-snapshots-to-the-user-from-drsecondary-endpoint
+  description: Description for Returns all Snapshots to the user from DRSecondary endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Returns All Snapshots To The User From Drsecondary Endpoint.
+      description: Description for Returns all Snapshots to the user from DRSecondary endpoint.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/snapshotsdr:
+        get:
+          summary: Returns All Snapshots To The User From Drsecondary Endpoint.
+          description: >-
+            Description for Returns all Snapshots to the user from DRSecondary
+            endpoint.
+          operationId: webAppsListSnapshotsFromDRSecondary
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

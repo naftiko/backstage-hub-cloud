@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-regeneratekeys
+  description: >-
+    Regenerates either the primary or secondary key of the Managed Event Hub, if
+    it is provisioned.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Regeneratekeys
+      description: >-
+        Regenerates either the primary or secondary key of the Managed Event Hub, if
+        it is provisioned.
+    paths:
+      /regeneratekeys:
+        post:
+          summary: Post Regeneratekeys
+          description: >-
+            Regenerates either the primary or secondary key of the Managed Event
+            Hub, if it is provisioned.
+          operationId: accountsRegenerateAccessKeys
+          responses:
+            default:
+              description: An error response received from the provider.
+              schema:
+                $ref: '#/definitions/ErrorResponseModel'

@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftelasticsan-elasticsans-elasticsanname
+  description: Create ElasticSan.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.elasticsan Elasticsans Elasticsanname
+      description: Create ElasticSan.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.elasticsan Elasticsans Elasticsanname
+          description: Create ElasticSan.
+          operationId: elasticSansCreate
+          responses:
+            default:
+              description: Error from the ElasticSan Resource Provider
+              schema:
+                $ref: '#/definitions/Error'

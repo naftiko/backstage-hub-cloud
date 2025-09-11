@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftapimanagement-service-servicename-workspaces-workspaceid-policies-policyid
+  description: Creates or updates policy configuration for the workspace.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.apimanagement Service Servicename Workspaces Workspaceid Policies
+        Policyid
+      description: Creates or updates policy configuration for the workspace.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policies/{policyId}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.apimanagement Service Servicename Workspaces
+            Workspaceid Policies Policyid
+          description: Creates or updates policy configuration for the workspace.
+          operationId: workspacePolicyCreateOrUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./apimanagement.json#/definitions/ErrorResponse

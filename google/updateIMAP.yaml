@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: update-imap
+  description: Updates IMAP settings.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Imap
+      description: Updates IMAP settings.
+    paths:
+      /gmail/v1/users/{userId}/settings/imap:
+        put:
+          summary: Update Imap
+          description: Updates IMAP settings.
+          operationId: updateIMAP
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    enabled: false
+                    autoExpunge: false
+                    expungeBehavior: deleteForever
+                    maxFolderSize: -49364914
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    enabled: false
+                    autoExpunge: false
+                    expungeBehavior: deleteForever
+                    maxFolderSize: -49364914

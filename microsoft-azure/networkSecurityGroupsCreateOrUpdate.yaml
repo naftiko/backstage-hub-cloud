@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftnetwork-networksecuritygroups-networksecuritygroupname
+  description: >-
+    The Put NetworkSecurityGroup operation creates/updates a network security
+    group in the specified resource group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.network Networksecuritygroups Networksecuritygroupname
+      description: >-
+        The Put NetworkSecurityGroup operation creates/updates a network security
+        group in the specified resource group.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{networkSecurityGroupName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.network Networksecuritygroups
+            Networksecuritygroupname
+          description: >-
+            The Put NetworkSecurityGroup operation creates/updates a network
+            security group in the specified resource group.
+          operationId: networkSecurityGroupsCreateOrUpdate
+          responses:
+            '201':
+              description: ''
+              schema:
+                $ref: '#/definitions/NetworkSecurityGroup'

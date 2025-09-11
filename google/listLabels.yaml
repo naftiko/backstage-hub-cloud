@@ -1,0 +1,63 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: list-labels
+  description: Lists all labels in the user's mailbox.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Labels
+      description: Lists all labels in the user's mailbox.
+    paths:
+      /gmail/v1/users/{userId}/labels:
+        get:
+          summary: List Labels
+          description: Lists all labels in the user's mailbox.
+          operationId: listLabels
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    labels:
+                      - id: mollit enim dolore reprehenderit
+                        name: non consequat
+                        messageListVisibility: show
+                        labelListVisibility: labelShow
+                        type: user
+                        messagesTotal: -89757017
+                        messagesUnread: 37713675
+                        threadsTotal: -34499465
+                        threadsUnread: 38690910
+                        color:
+                          textColor: ut minim Excepteur Ut
+                          backgroundColor: dolor id fugiat consectetur
+                      - id: ut incididunt anim esse dolore
+                        name: magna voluptate in aliquip et
+                        messageListVisibility: hide
+                        labelListVisibility: labelShow
+                        type: user
+                        messagesTotal: -45069202
+                        messagesUnread: -69687222
+                        threadsTotal: -63655159
+                        threadsUnread: -93904503
+                        color:
+                          textColor: irure t
+                          backgroundColor: occaecat aliquip

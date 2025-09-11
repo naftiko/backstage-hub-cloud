@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listdedicatedippools
+  description: >-
+    List all of the dedicated IP pools that exist in your Amazon Web Services
+    account in the current Region.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listdedicatedippools
+      description: >-
+        List all of the dedicated IP pools that exist in your Amazon Web Services
+        account in the current Region.
+    paths:
+      /v2/email/dedicated-ip-pools:
+        GET:
+          summary: Listdedicatedippools
+          description: >-
+            List all of the dedicated IP pools that exist in your Amazon Web
+            Services account in the current Region.
+          operationId: listDedicatedIpPools

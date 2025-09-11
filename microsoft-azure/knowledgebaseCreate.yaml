@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: asynchronous-operation-to-create-a-new-knowledgebase
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Asynchronous Operation To Create A New Knowledgebase.
+      description: Needs a more full description created.
+    paths:
+      /knowledgebases/create:
+        post:
+          summary: Asynchronous Operation To Create A New Knowledgebase.
+          description: Needs a more full description created.
+          operationId: knowledgebaseCreate
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

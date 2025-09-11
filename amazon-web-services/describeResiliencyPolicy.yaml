@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: describeresiliencypolicy
+  description: >-
+    Describes a specified resiliency policy for an Resilience Hub application.
+    The returned policy object includes creation time, data location
+    constraints, the Amazon Resource Name (ARN) for the policy, tags, tier, and
+    more.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeresiliencypolicy
+      description: >-
+        Describes a specified resiliency policy for an Resilience Hub application.
+        The returned policy object includes creation time, data location
+        constraints, the Amazon Resource Name (ARN) for the policy, tags, tier, and
+        more.
+    paths:
+      /describe-resiliency-policy:
+        POST:
+          summary: Describeresiliencypolicy
+          description: >-
+            Describes a specified resiliency policy for an Resilience Hub
+            application. The returned policy object includes creation time, data
+            location constraints, the Amazon Resource Name (ARN) for the policy,
+            tags, tier, and more.
+          operationId: describeResiliencyPolicy

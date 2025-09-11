@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-the-specified-deleted-storage-account
+  description: >-
+    The Get Deleted Storage Account operation returns the specified deleted
+    storage account along with its attributes. This operation requires the
+    storage/get permission.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The Specified Deleted Storage Account.
+      description: >-
+        The Get Deleted Storage Account operation returns the specified deleted
+        storage account along with its attributes. This operation requires the
+        storage/get permission.
+    paths:
+      /deletedstorage/{storage-account-name}:
+        get:
+          summary: Gets The Specified Deleted Storage Account.
+          description: >-
+            The Get Deleted Storage Account operation returns the specified deleted
+            storage account along with its attributes. This operation requires the
+            storage/get permission.
+          operationId: getDeletedStorageAccount
+          responses:
+            default:
+              description: Key Vault error response describing why the operation failed.
+              schema:
+                $ref: common.json#/definitions/KeyVaultError

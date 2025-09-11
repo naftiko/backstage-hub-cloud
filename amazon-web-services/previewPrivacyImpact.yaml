@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: previewprivacyimpact
+  description: >-
+    An estimate of the number of aggregation functions that the member who can
+    query can run given epsilon and noise parameters.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Previewprivacyimpact
+      description: >-
+        An estimate of the number of aggregation functions that the member who can
+        query can run given epsilon and noise parameters.
+    paths:
+      /memberships/{membershipIdentifier}/previewprivacyimpact:
+        POST:
+          summary: Previewprivacyimpact
+          description: >-
+            An estimate of the number of aggregation functions that the member who
+            can query can run given epsilon and noise parameters.
+          operationId: previewPrivacyImpact

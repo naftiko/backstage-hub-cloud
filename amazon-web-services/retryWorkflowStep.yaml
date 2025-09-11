@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: retryworkflowstep
+  description: Retry a failed step in a migration workflow.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retryworkflowstep
+      description: Retry a failed step in a migration workflow.
+    paths:
+      /retryworkflowstep/{id}:
+        POST:
+          summary: Retryworkflowstep
+          description: Retry a failed step in a migration workflow.
+          operationId: retryWorkflowStep

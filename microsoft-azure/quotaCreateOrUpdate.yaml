@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-providers-microsoftcapacity-resourceproviders-providerid-locations-location-servicelimits-resourcename
+  description: >-
+    Create or update the service limits (quota) of a resource to requested
+    value. Steps:  1. Make the Get request to get the quota information for
+    specific resource.  2. To increase the quota, update the limit field in the
+    response from Get request to new value.  3. Submit the JSON to the quota
+    request API to update the quota.  The Create quota request may be
+    constructed as follows. The PUT operation can be used to update the quota.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Providers Microsoft.capacity
+        Resourceproviders Providerid Locations Location Servicelimits Resourcename
+      description: >-
+        Create or update the service limits (quota) of a resource to requested
+        value. Steps:  1. Make the Get request to get the quota information for
+        specific resource.  2. To increase the quota, update the limit field in the
+        response from Get request to new value.  3. Submit the JSON to the quota
+        request API to update the quota.  The Create quota request may be
+        constructed as follows. The PUT operation can be used to update the quota.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Capacity/resourceProviders/{providerId}/locations/{location}/serviceLimits/{resourceName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Providers Microsoft.capacity
+            Resourceproviders Providerid Locations Location Servicelimits
+            Resourcename
+          description: >-
+            Create or update the service limits (quota) of a resource to requested
+            value. Steps:  1. Make the Get request to get the quota information for
+            specific resource.  2. To increase the quota, update the limit field in
+            the response from Get request to new value.  3. Submit the JSON to the
+            quota request API to update the quota.  The Create quota request may be
+            constructed as follows. The PUT operation can be used to update the
+            quota.
+          operationId: quotaCreateOrUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ExceptionResponse'

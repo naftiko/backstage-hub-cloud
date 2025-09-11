@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listthemeversions
+  description: >-
+    Lists all the versions of the themes in the current Amazon Web Services
+    account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listthemeversions
+      description: >-
+        Lists all the versions of the themes in the current Amazon Web Services
+        account.
+    paths:
+      /accounts/{AwsAccountId}/themes/{ThemeId}/versions:
+        GET:
+          summary: Listthemeversions
+          description: >-
+            Lists all the versions of the themes in the current Amazon Web Services
+            account.
+          operationId: listThemeVersions

@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: putdatalakesettings
+  description: >-
+    Sets the list of data lake administrators who have admin privileges on all
+    resources managed by Lake Formation. For more information on admin
+    privileges, see Granting Lake Formation Permissions. This API replaces the
+    current list of data lake admins with the new list being passed. To add an
+    admin, fetch the current list and add the new admin to that list and pass
+    that list in this API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putdatalakesettings
+      description: >-
+        Sets the list of data lake administrators who have admin privileges on all
+        resources managed by Lake Formation. For more information on admin
+        privileges, see Granting Lake Formation Permissions. This API replaces the
+        current list of data lake admins with the new list being passed. To add an
+        admin, fetch the current list and add the new admin to that list and pass
+        that list in this API.
+    paths:
+      /PutDataLakeSettings:
+        POST:
+          summary: Putdatalakesettings
+          description: >-
+            Sets the list of data lake administrators who have admin privileges on
+            all resources managed by Lake Formation. For more information on admin
+            privileges, see Granting Lake Formation Permissions. This API replaces
+            the current list of data lake admins with the new list being passed. To
+            add an admin, fetch the current list and add the new admin to that list
+            and pass that list in this API.
+          operationId: putDataLakeSettings

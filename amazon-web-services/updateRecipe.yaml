@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updaterecipe
+  description: Modifies the definition of the LATEST_WORKING version of a DataBrew recipe.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updaterecipe
+      description: Modifies the definition of the LATEST_WORKING version of a DataBrew recipe.
+    paths:
+      /recipes/{name}:
+        PUT:
+          summary: Updaterecipe
+          description: >-
+            Modifies the definition of the LATEST_WORKING version of a DataBrew
+            recipe.
+          operationId: updateRecipe

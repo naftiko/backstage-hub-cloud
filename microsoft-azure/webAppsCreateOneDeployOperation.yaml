@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: invoke-the-onedeploy-publish-web-app-extension
+  description: Description for Invoke the OneDeploy publish web app extension.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Invoke The Onedeploy Publish Web App Extension.
+      description: Description for Invoke the OneDeploy publish web app extension.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/extensions/onedeploy:
+        put:
+          summary: Invoke The Onedeploy Publish Web App Extension.
+          description: Description for Invoke the OneDeploy publish web app extension.
+          operationId: webAppsCreateOneDeployOperation
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

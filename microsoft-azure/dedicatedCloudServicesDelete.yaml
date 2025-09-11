@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: implements-dedicatedcloudservice-delete-method
+  description: Delete dedicate cloud service
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Implements Dedicatedcloudservice Delete Method
+      description: Delete dedicate cloud service
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMwareCloudSimple/dedicatedCloudServices/{dedicatedCloudServiceName}:
+        delete:
+          summary: Implements Dedicatedcloudservice Delete Method
+          description: Delete dedicate cloud service
+          operationId: dedicatedCloudServicesDelete
+          responses:
+            default:
+              description: General Error
+              schema:
+                $ref: '#/definitions/CSRPError'
+              headers:
+                Content-Type:
+                  type: string
+                  default: application/json

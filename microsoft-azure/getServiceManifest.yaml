@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-the-manifest-describing-a-service-type
+  description: >-
+    Gets the manifest describing a service type. The response contains the
+    service manifest XML as a string.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets The Manifest Describing A Service Type.
+      description: >-
+        Gets the manifest describing a service type. The response contains the
+        service manifest XML as a string.
+    paths:
+      /ApplicationTypes/{applicationTypeName}/$/GetServiceManifest:
+        get:
+          summary: Gets The Manifest Describing A Service Type.
+          description: >-
+            Gets the manifest describing a service type. The response contains the
+            service manifest XML as a string.
+          operationId: getServiceManifest
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updateroommembership
+  description: >-
+    Updates room membership details, such as the member role, for a room in an
+    Amazon Chime Enterprise account. The member role designates whether the
+    member is a chat room administrator or a general chat room member. The
+    member role can be updated only for user IDs.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateroommembership
+      description: >-
+        Updates room membership details, such as the member role, for a room in an
+        Amazon Chime Enterprise account. The member role designates whether the
+        member is a chat room administrator or a general chat room member. The
+        member role can be updated only for user IDs.
+    paths:
+      /accounts/{accountId}/rooms/{roomId}/memberships/{memberId}:
+        POST:
+          summary: Updateroommembership
+          description: >-
+            Updates room membership details, such as the member role, for a room in
+            an Amazon Chime Enterprise account. The member role designates whether
+            the member is a chat room administrator or a general chat room member.
+            The member role can be updated only for user IDs.
+          operationId: updateRoomMembership

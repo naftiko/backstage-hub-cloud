@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftnotificationhubs-namespaces-namespacename-notificationhubs-notificationhubname
+  description: Creates/Update a NotificationHub in a namespace.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.notificationhubs Namespaces Namespacename Notificationhubs
+        Notificationhubname
+      description: Creates/Update a NotificationHub in a namespace.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/{notificationHubName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.notificationhubs Namespaces Namespacename
+            Notificationhubs Notificationhubname
+          description: Creates/Update a NotificationHub in a namespace.
+          operationId: notificationHubsCreateOrUpdate
+          responses:
+            '201':
+              description: NotificationHub is Created/Updated
+              schema:
+                $ref: '#/definitions/NotificationHubResource'

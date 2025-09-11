@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: create-sharesubscription-in-an-account
+  description: Create a shareSubscription in an account
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Sharesubscription In An Account.
+      description: Create a shareSubscription in an account
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}:
+        put:
+          summary: Create Sharesubscription In An Account.
+          description: Create a shareSubscription in an account
+          operationId: shareSubscriptionsCreate
+          responses:
+            default:
+              description: >-
+                An error response received from the Microsoft.DataShare resource
+                provider.
+              schema:
+                $ref: '#/definitions/DataShareError'

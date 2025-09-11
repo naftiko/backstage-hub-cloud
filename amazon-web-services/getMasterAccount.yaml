@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getmasteraccount
+  description: >-
+    This method is deprecated. Instead, use GetAdministratorAccount. The
+    Security Hub console continues to use GetMasterAccount. It will eventually
+    change to use GetAdministratorAccount. Any IAM policies that specifically
+    control access to this function must continue to use GetMasterAccount. You
+    should also add GetAdministratorAccount to your policies to ensure that the
+    correct permissions are in place after the console begins to use
+    GetAdministratorAccount. Provides the details for the Security Hub
+    administrator account for the current member account. Can be used by both
+    member accounts that are managed using Organizations and accounts that were
+    invited manually.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getmasteraccount
+      description: >-
+        This method is deprecated. Instead, use GetAdministratorAccount. The
+        Security Hub console continues to use GetMasterAccount. It will eventually
+        change to use GetAdministratorAccount. Any IAM policies that specifically
+        control access to this function must continue to use GetMasterAccount. You
+        should also add GetAdministratorAccount to your policies to ensure that the
+        correct permissions are in place after the console begins to use
+        GetAdministratorAccount. Provides the details for the Security Hub
+        administrator account for the current member account. Can be used by both
+        member accounts that are managed using Organizations and accounts that were
+        invited manually.
+    paths:
+      /master:
+        GET:
+          summary: Getmasteraccount
+          description: >-
+            This method is deprecated. Instead, use GetAdministratorAccount. The
+            Security Hub console continues to use GetMasterAccount. It will
+            eventually change to use GetAdministratorAccount. Any IAM policies that
+            specifically control access to this function must continue to use
+            GetMasterAccount. You should also add GetAdministratorAccount to your
+            policies to ensure that the correct permissions are in place after the
+            console begins to use GetAdministratorAccount. Provides the details for
+            the Security Hub administrator account for the current member account.
+            Can be used by both member accounts that are managed using Organizations
+            and accounts that were invited manually.
+          operationId: getMasterAccount

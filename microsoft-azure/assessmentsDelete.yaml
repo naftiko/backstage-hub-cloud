@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deletes-an-assessment-from-the-project
+  description: >-
+    Delete an assessment from the project. The machines remain in the
+    assessment. Deleting a non-existent assessment results in a
+    no-operation.When an assessment is under computation, as indicated by the
+    'computationState' field, it cannot be deleted. Any such attempt will return
+    a 400 - Bad Request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes An Assessment From The Project.
+      description: >-
+        Delete an assessment from the project. The machines remain in the
+        assessment. Deleting a non-existent assessment results in a
+        no-operation.When an assessment is under computation, as indicated by the
+        'computationState' field, it cannot be deleted. Any such attempt will return
+        a 400 - Bad Request.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}:
+        delete:
+          summary: Deletes An Assessment From The Project.
+          description: >-
+            Delete an assessment from the project. The machines remain in the
+            assessment. Deleting a non-existent assessment results in a
+            no-operation.When an assessment is under computation, as indicated by
+            the 'computationState' field, it cannot be deleted. Any such attempt
+            will return a 400 - Bad Request.
+          operationId: assessmentsDelete
+          responses:
+            '503':
+              description: Service Unavailable.

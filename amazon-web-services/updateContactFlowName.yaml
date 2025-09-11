@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatecontactflowname
+  description: >-
+    The name of the flow. You can also create and update flows using the Amazon
+    Connect Flow language.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatecontactflowname
+      description: >-
+        The name of the flow. You can also create and update flows using the Amazon
+        Connect Flow language.
+    paths:
+      /contact-flows/{InstanceId}/{ContactFlowId}/name:
+        POST:
+          summary: Updatecontactflowname
+          description: >-
+            The name of the flow. You can also create and update flows using the
+            Amazon Connect Flow language.
+          operationId: updateContactFlowName

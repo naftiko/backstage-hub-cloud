@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: acceptinvitation
+  description: >-
+    Accepts an Amazon Macie membership invitation that was received from a
+    specific account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Acceptinvitation
+      description: >-
+        Accepts an Amazon Macie membership invitation that was received from a
+        specific account.
+    paths:
+      /invitations/accept:
+        POST:
+          summary: Acceptinvitation
+          description: >-
+            Accepts an Amazon Macie membership invitation that was received from a
+            specific account.
+          operationId: acceptInvitation

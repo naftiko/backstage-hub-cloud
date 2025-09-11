@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: putmetadata
+  description: >-
+    Inserts metadata into the active stream of the specified channel. At most 5
+    requests per second per channel are allowed, each with a maximum 1 KB
+    payload. (If 5 TPS is not sufficient for your needs, we recommend batching
+    your data into a single PutMetadata call.) At most 155 requests per second
+    per account are allowed. Also see Embedding Metadata within a Video Stream
+    in the Amazon IVS User Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putmetadata
+      description: >-
+        Inserts metadata into the active stream of the specified channel. At most 5
+        requests per second per channel are allowed, each with a maximum 1 KB
+        payload. (If 5 TPS is not sufficient for your needs, we recommend batching
+        your data into a single PutMetadata call.) At most 155 requests per second
+        per account are allowed. Also see Embedding Metadata within a Video Stream
+        in the Amazon IVS User Guide.
+    paths:
+      /PutMetadata:
+        POST:
+          summary: Putmetadata
+          description: >-
+            Inserts metadata into the active stream of the specified channel. At
+            most 5 requests per second per channel are allowed, each with a maximum
+            1 KB payload. (If 5 TPS is not sufficient for your needs, we recommend
+            batching your data into a single PutMetadata call.) At most 155 requests
+            per second per account are allowed. Also see Embedding Metadata within a
+            Video Stream in the Amazon IVS User Guide.
+          operationId: putMetadata

@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftnetwork-privatednszones-privatezonename
+  description: >-
+    Creates or updates a Private DNS zone. Does not modify Links to virtual
+    networks or DNS records within the zone.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.network Privatednszones Privatezonename
+      description: >-
+        Creates or updates a Private DNS zone. Does not modify Links to virtual
+        networks or DNS records within the zone.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.network Privatednszones Privatezonename
+          description: >-
+            Creates or updates a Private DNS zone. Does not modify Links to virtual
+            networks or DNS records within the zone.
+          operationId: privateZonesCreateOrUpdate
+          responses:
+            default:
+              description: >-
+                Default response. It will be deserialized as per the Error
+                definition.
+              schema:
+                $ref: '#/definitions/CloudError'

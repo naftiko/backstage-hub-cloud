@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftnetworkfunction-azuretrafficcollectors-azuretrafficcollectorname-collectorpolicies-collectorpolicyname
+  description: Deletes a specified Collector Policy resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.networkfunction Azuretrafficcollectors
+        Azuretrafficcollectorname Collectorpolicies Collectorpolicyname
+      description: Deletes a specified Collector Policy resource.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkFunction/azureTrafficCollectors/{azureTrafficCollectorName}/collectorPolicies/{collectorPolicyName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.networkfunction Azuretrafficcollectors
+            Azuretrafficcollectorname Collectorpolicies Collectorpolicyname
+          description: Deletes a specified Collector Policy resource.
+          operationId: collectorPoliciesDelete
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

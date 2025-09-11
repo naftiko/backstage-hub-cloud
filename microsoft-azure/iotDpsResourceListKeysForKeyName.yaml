@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-a-shared-access-policy-by-name-from-a-provisioning-service
+  description: List primary and secondary keys for a specific key name
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Shared Access Policy By Name From A Provisioning Service.
+      description: List primary and secondary keys for a specific key name
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}/keys/{keyName}/listkeys:
+        post:
+          summary: Get A Shared Access Policy By Name From A Provisioning Service.
+          description: List primary and secondary keys for a specific key name
+          operationId: iotDpsResourceListKeysForKeyName
+          responses:
+            default:
+              description: Default error response.
+              schema:
+                $ref: '#/definitions/ErrorDetails'

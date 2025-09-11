@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: finalizedeviceclaim
+  description: >-
+    Given a device ID, finalizes the claim request for the associated device.
+    Claiming a device consists of initiating a claim, then publishing a device
+    event, and finalizing the claim. For a device of type button, a device event
+    can be published by simply clicking the device. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Finalizedeviceclaim
+      description: >-
+        Given a device ID, finalizes the claim request for the associated device.
+        Claiming a device consists of initiating a claim, then publishing a device
+        event, and finalizing the claim. For a device of type button, a device event
+        can be published by simply clicking the device. 
+    paths:
+      /devices/{deviceId}/finalize-claim:
+        PUT:
+          summary: Finalizedeviceclaim
+          description: >-
+            Given a device ID, finalizes the claim request for the associated
+            device. Claiming a device consists of initiating a claim, then
+            publishing a device event, and finalizing the claim. For a device of
+            type button, a device event can be published by simply clicking the
+            device. 
+          operationId: finalizeDeviceClaim

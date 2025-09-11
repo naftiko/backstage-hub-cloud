@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftstorage-storageaccounts-accountname
+  description: >-
+    Returns the properties for the specified storage account including but not
+    limited to name, SKU name, location, and account status. The ListKeys
+    operation should be used to retrieve storage keys.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.storage Storageaccounts Accountname
+      description: >-
+        Returns the properties for the specified storage account including but not
+        limited to name, SKU name, location, and account status. The ListKeys
+        operation should be used to retrieve storage keys.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.storage Storageaccounts Accountname
+          description: >-
+            Returns the properties for the specified storage account including but
+            not limited to name, SKU name, location, and account status. The
+            ListKeys operation should be used to retrieve storage keys.
+          operationId: storageAccountsGetProperties
+          responses:
+            '200':
+              description: OK -- properties retrieved successfully for the storage account.
+              schema:
+                $ref: '#/definitions/StorageAccount'

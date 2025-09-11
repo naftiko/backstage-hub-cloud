@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-scope-providers-microsoftmanagedservices-registrationdefinitions-registrationdefinitionid
+  description: Deletes the registration definition.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Scope Providers Microsoft.managedservices Registrationdefinitions
+        Registrationdefinitionid
+      description: Deletes the registration definition.
+    paths:
+      /{scope}/providers/Microsoft.ManagedServices/registrationDefinitions/{registrationDefinitionId}:
+        delete:
+          summary: >-
+            Delete Scope Providers Microsoft.managedservices Registrationdefinitions
+            Registrationdefinitionid
+          description: Deletes the registration definition.
+          operationId: registrationDefinitionsDelete
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

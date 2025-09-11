@@ -1,0 +1,63 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    reactivates-a-task-allowing-it-to-run-again-even-if-its-retry-count-has-beenexhausted
+  description: >-
+    Reactivation makes a Task eligible to be retried again up to its maximum
+    retrycount. The Task's state is changed to active. As the Task is no longer
+    in thecompleted state, any previous exit code or failure information is no
+    longeravailable after reactivation. Each time a Task is reactivated, its
+    retry countis reset to 0. Reactivation will fail for Tasks that are not
+    completed or thatpreviously completed successfully (with an exit code of 0).
+    Additionally, itwill fail if the Job has completed (or is terminating or
+    deleting).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Reactivates A Task, Allowing It To Run Again Even If Its Retry Count Has
+        Been
+
+        exhausted.
+      description: >-
+        Reactivation makes a Task eligible to be retried again up to its maximum
+        retrycount. The Task's state is changed to active. As the Task is no longer
+        in thecompleted state, any previous exit code or failure information is no
+        longeravailable after reactivation. Each time a Task is reactivated, its
+        retry countis reset to 0. Reactivation will fail for Tasks that are not
+        completed or thatpreviously completed successfully (with an exit code of 0).
+        Additionally, itwill fail if the Job has completed (or is terminating or
+        deleting).
+    paths:
+      /jobs/{jobId}/tasks/{taskId}/reactivate:
+        post:
+          summary: >-
+            Reactivates A Task, Allowing It To Run Again Even If Its Retry Count Has
+            Been
+
+            exhausted.
+          description: >-
+            Reactivation makes a Task eligible to be retried again up to its maximum
+            retrycount. The Task's state is changed to active. As the Task is no
+            longer in thecompleted state, any previous exit code or failure
+            information is no longeravailable after reactivation. Each time a Task
+            is reactivated, its retry countis reset to 0. Reactivation will fail for
+            Tasks that are not completed or thatpreviously completed successfully
+            (with an exit code of 0). Additionally, itwill fail if the Job has
+            completed (or is terminating or deleting).
+          operationId: batchReactivateTask
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

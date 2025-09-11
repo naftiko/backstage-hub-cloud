@@ -1,0 +1,293 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftsqlvirtualmachine-sqlvirtualmachines-sqlvirtualmachinename-redeploy
+  description: Uninstalls and reinstalls the SQL IaaS Extension.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.sqlvirtualmachine Sqlvirtualmachines Sqlvirtualmachinename
+        Redeploy
+      description: Uninstalls and reinstalls the SQL IaaS Extension.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/{sqlVirtualMachineName}/redeploy:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.sqlvirtualmachine Sqlvirtualmachines
+            Sqlvirtualmachinename Redeploy
+          description: Uninstalls and reinstalls the SQL IaaS Extension.
+          operationId: sqlVirtualMachinesRedeploy
+          responses:
+            default:
+              description: |-
+                *** Error Responses: ***
+
+                 * 400 RestoreJobIdsMismatch - Restore Job Id mismatch, current restore job id is {0} while input is {1}.
+
+                 * 400 RestoreJobSetToAutoCutover - Restore Job is set to AutoCutover. No Operation will be accept except Cancel.
+
+                 * 400 AutoBackupEncryptionPasswordNotSpecified - Password not provided when enabling encryption as auto backup setting.
+
+                 * 400 BackupScheduleTypeNotSet - Backup schedule type needs to be set.
+
+                 * 400 BackupStorageCredentialsNotSpecified - Backup storage credentials are not specified.
+
+                 * 400 KeyVaultCredentialsNotSpecified - Key vault credentials not specified.
+
+                 * 400 SqlCredentialsNotSpecified - SQL Server credentials are not specified.
+
+                 * 400 IncompleteAutoPatchingSettings - Incomplete auto patching settings specified.
+
+                 * 400 IncompleteAutoBackupSettings - Incomplete auto backup settings specified.
+
+                 * 400 IncompleteSqlStorageSettings - Incomplete SQL storage settings specified.
+
+                 * 400 InvalidVmResourceIdChange - Virtual machine resource id property cannot be updated.
+
+                 * 400 SqlVmAlreadyIncludedInGroup - SQL virtual machine cannot be moved from one group to another in same operation.
+
+                 * 400 SqlVmCannotRemoveFromGroup - SQL virtual machine cannot be removed from group.
+
+                 * 400 VmLocationMismatch - VM location does not match that of SQL virtual machine.
+
+                 * 400 VmInsufficientPermission - Insufficient permission to Vm.
+
+                 * 400 SingleNicOnVmAllowed - Only Single NIC virtual machines are allowed in a SQL VM Group.
+
+                 * 400 InvalidSqlVmGroupResourceIdParameterValue - SQL virtual machine group resource id is not in correct format.
+
+                 * 400 MismatchVmGroupSubscription - Subscription id for SQL virtual machine and SQL virtual machine group are different.
+
+                 * 400 IncompleteDomainCredentialsProperty - Incomplete input provided for domain credentials property.
+
+                 * 400 BYOLChangeToPAYGNotSupported - The conversion from AHUB to PAYG is not supported for BYOL images
+
+                 * 400 InvalidVmResourceIdParameterValue - Provided virtual machine resource id is not valid.
+
+                 * 400 MismatchInSqlVmAndVmResourceIdSubscription - Mismatch in subscription id for SQL virtual machine and virtual machine resource id property.
+
+                 * 400 MismatchSqlVmAndVmName - SQL virtual machine name is not same as the virtual machine name provided on VirtualMachineResourceId property.
+
+                 * 400 MismatchSqlVmAndVmRgName - SQL virtual machine resource group name is not same as the virtual machine resource group name provided on VirtualMachineResourceId property.
+
+                 * 400 NotSupportedSqlVmOSVersion - Virtual machine OS type is not Windows. Only Windows OS versions are supported
+
+                 * 400 VmNotRunning - The VM is not in running state.
+
+                 * 400 VmAgentNotRunning - The VM agent is not installed or in running state.
+
+                 * 400 PAYGNotSupportedForNonGalleryVM - License type PAYG is invalid for this Virtual Machine as this was not created from Azure marketplace image.
+
+                 * 400 CannotDetermineSqlVersionAndEditionFromVm - Sql IaaS Extension cannot determine the SQL version and edition from the vm.
+
+                 * 400 MismatchSqlVmSku - Sql virtual machine sku mismatch.
+
+                 * 400 CannotConvertToFreeBenefit - Cannot convert Free SQL editions to {0}. 
+
+                 * 400 SqlEvaluationSkuNotSupported - SQL Evaluation version does not support licensing changes.
+
+                 * 400 IncompleteStorageConfigurationSettings - Incomplete Storage Configuration Settings
+
+                 * 400 InvalidDefaultFilePath - Invalid Default File Path 
+
+                 * 400 InvalidLUNSpecified - Invalid Logical Unit number specified, Logical Unit number should be a non-negative number.
+
+                 * 400 BothStorageV1V2Specified - Invalid Request. Only one of SQL Storage Storage Setting or Storage Configuration Settings should be specified
+
+                 * 400 InvalidLUNsSpecifiedForSameDrive - Invalid Logical Unit numbers specified. Logical Unit number used for the same drive need to be the same.
+
+                 * 400 InvalidLUNsSpecifiedForDifferentDrives - Invalid Logical Unit numbers specified. Different drive could not reuse the same Logical Unit number.
+
+                 * 400 InvalidExtendPayload - Invalid Sql Storage Settings Extend Payload. Only support extend one drive at a time.
+
+                 * 400 SqlLicenseTypeMissing - Please specify license type for Sql Virtual Machine. The property is 'SqlServerLicenceType' and allowed values are PAYG, AHUB and DR.
+
+                 * 400 VmAgentIsRunningForNoAgent - Cannot create or update as NoAgent model while the Guest Agent is running.
+
+                 * 400 InvalidSqlManagementMode - Cannot update the SQL management mode to {0}, the current mode is {1}. Please specify the value of property 'SqlManagement' as {1}.
+
+                 * 400 CannotDetermineSqlEditionFromRequest - Cannot determine the SQL edition.
+
+                 * 400 SqlManagementMissing - Please specify the Management Mode for Sql Virtual Machine. The property is 'SqlManagement' and allowed values are LightWeight or Full.
+
+                 * 400 SqlImageSkuMissingNoAgent - Please specify the Sql Server Edition for Sql Virtual Machine in NoAgent Mode. The property is 'SqlImageSku' and allowed values are Developer, Express, Web, Standard, or Enterprise.
+
+                 * 400 SqlImageOfferMissingNoAgent - Please specify the Sql Server Version and OS Version for Sql Virtual Machine in NoAgent Mode. The property is 'SqlImageOffer' and allowed values are SQL2008-WS2008 and SQL2008R2-WS2008.
+
+                 * 400 InvalidSqlImageOfferChange - SqlImageOffer property cannot be updated.
+
+                 * 400 SqlLicenseTypeNotSupported - SqlLicenseType NotSet incorrectly provided
+
+                 * 400 UnsupportedSqlManagementMode - Cannot update the SQL management mode to {0}, only {1} mode is supported for {2}.
+
+                 * 400 SqlVmInValidState - Cannot delete SqlVm since it's provisioned.
+
+                 * 400 ClusterOperatorAccountIsEmpty - Cannot add a VM to a SQLVM Group when cluster operator account is null or empty. Please update the group resource: {0} with the cluster operator account.
+
+                 * 400 SqlServiceAccountIsEmpty - Cannot add a VM to a SQLVM Group when SQL service account is null or empty. Please update the group resource: {0} with the SQL service account.
+
+                 * 400 UnknownSqlManagementMode - Cannot update the SQL management mode to {0}, please use one of the supported values.
+
+                 * 400 CandidateCurrentTimeIsAfterRegEndTime - Cannot register candidate entity as current time {0} is after allowed end time {1}.
+
+                 * 400 CandidateRegStartTimeIsAfterRegEndTime - Cannot register candidate entity as allowed start time {0} is after allowed end time {1}.
+
+                 * 400 VmOsTypeNotFound - OS type is not found.
+
+                 * 400 SqlLicenseManagementNotAllowed - Please set the License type of sql vm resource to null. License type manageability is currently not supported in this cloud.
+
+                 * 400 IPNotInSubnet - IP not part of subnet.
+
+                 * 400 InvalidSqlSkuUpdate - SqlImageSku property cannot be updated when license type management is blocked.
+
+                 * 400 VmOsVersionIsUnsupported - OS version is unsupported.
+
+                 * 400 RedeployIsNotSupported - Redeploy is not supported when SqlVm is not provisioned.
+
+                 * 400 InvalidLightweightMode - Invalid SQL VM Management mode. Please change SQL VM property 'SqlManagement' to FULL
+
+                 * 400 InvalidAssessmentSettingsEnableIsFalse - Invalid assessment settings specified. Enable must be set to true to use other assessment settings.
+
+                 * 400 SqlInstanceSettingsSet1NotAllowed - SQL Instance Settings MAXDOP, and Collation are not allowed to be configured if the Feature Switch is disabled
+
+                 * 400 InvalidAssessmentScheduleSettings - Invalid assessment schedule settings specified.
+
+                 * 400 LinuxDistroIsNotSupported - Linux distro is unsupported
+
+                 * 400 SqlServerSettingCollationNotAllowedToUpdate - SQL Server collation is not allowed to be updated in manageability.
+
+                 * 400 SqlServerSettingMinMemoryGreaterThanMaxMemory - SQL Server Min Server Memory (MB) cannot be greater than Max Server Memory (MB)
+
+                 * 400 SqlInstanceSettingsSet2NotAllowed - SQL Instance Settings Optimize for adhoc workloads, Min server memory (MB) and Max server memory (MB) are not allowed to be configured if the Feature Switch is disabled
+
+                 * 400 ClusterIpShouldBeEmpty - Argument wsfcStaticIp should be empty for single subnet listener
+
+                 * 400 InvalidClusterIpAddress - Invalid cluster ip address provided.
+
+                 * 400 SqlServerSettingLPIMNotAllowedToUpdate - SQL Server Lock Pages In Memory is not allowed to be updated in manageability.
+
+                 * 400 SqlServerSettingIFINotAllowedToUpdate - SQL Server IFI is not allowed to be updated in manageability.
+
+                 * 400 LeastPrivilegeModeEnableNotSupported - Least Privilege mode is not supported on LightWeight or NoAgent extension mode.
+
+                 * 400 LeastPrivilegeModeChangeNotSupported - Cannot disable Least Privilege mode once enabled. 
+
+                 * 400 VmOSUnsupportedForAzureAD - OS is unsupported for Azure AD authentication.
+
+                 * 400 SqlVersionUnsupportedForAzureAD - SQL version is unsupported for Azure AD authentication.
+
+                 * 400 EnableAzureADInProvisionUnsupported - Enable Azure AD authentication in provision is unsupported.
+
+                 * 400 MSIClientIdRequired - MSI client Id is required for Azure AD authentication.
+
+                 * 400 AzureADAuthenticationNotAllowed - Configuring Azure AD authentication is currently not allowed.
+
+                 * 400 CannotFindExtensionVersion - Cannot determine SQL IaaS Extension version.
+
+                 * 400 InvalidFileSizeSpecified - Invalid Request. File Size cannot be negative
+
+                 * 400 InvalidFileCountSpecified - Invalid Request. File Count cannot be negative 
+
+                 * 400 SubscriptionNotReady - Subscription not ready
+
+                 * 400 SqlVersionMismatchWithGroup - SQL version mismatch with SQL virtual machine group.
+
+                 * 400 VmOSVersionMismatchWithGroup - OS version mismatch with group.
+
+                 * 400 InvalidSqlImageOffer - Provided SQL image offer is invalid.
+
+                 * 400 SqlSkuMismatchWithGroup - SQL sku set on the SQL virtual machine group does not match that of the SQL virtual machine.
+
+                 * 400 InvalidParameterValue - An invalid value was given to parameter.
+
+                 * 400 RPGenericUser - User Failure when calling other Resource Provider.
+
+                 * 400 RPResponseMissingAsyncOperationHeader - Response is missing Async operation header information
+
+                 * 400 InvalidArgument - Invalid argument '{0}'.
+
+                 * 400 ArgumentNotInRange - Argument '{0}' not in range.
+
+                 * 400 ResourceNotProvisioned - As the resource: {0} is not in a provisioned state, the request cannot be proceeded forward
+
+                 * 400 CRPNotAllowedOperation - Operation cannot be completed due to the following error: {0}
+
+                 * 400 AadAppDisabled - Microsoft AAD app SQLVMResourceProviderAuth ({0}) is disabled in your tenant.
+
+                 * 400 InternalAPIAccessDenied - Internal API Access denied. App Id {0} is not valid to use this API.
+
+                 * 400 InvalidSQLAuthPasswordLength - SQL auth password should not be greater than 128 characters
+
+                 * 400 InvalidRgResourceId - Invalid Resourcegroup resource id specified.
+
+                 * 403 AccessDenied - Access denied.
+
+                 * 404 SubscriptionDoesNotHaveSqlVMInResourceGroup - Subscription does not have SQL virtual machine Instance in resource group.
+
+                 * 404 SubscriptionDoesNotExist - Subscription id does not exist.
+
+                 * 404 SubscriptionDoesNotHaveSqlVMGroupInResourceGroup - Subscription does not have SQL virtual machine group in resource group.
+
+                 * 404 ResourceNotFound - The requested resource was not found.
+
+                 * 404 SubscriptionDoesNotExist - Subscription id does not exist.
+
+                 * 404 ResourceDoesNotExist - Resource does not exist.
+
+                 * 404 RPOperationNotFound - Operation not found
+
+                 * 404 OperationIdNotFound - Operation id could not be found.
+
+                 * 404 OperationTypeNotFound - Operation Type not found.
+
+                 * 409 IPNotAvailable - IP {0} is not available{1}. Consider using one from ({2})
+
+                 * 409 IpAddressAlreadyReserved - IP address reserved for this listener already exists. Please use the IP address
+
+                 * 409 OperationInProgress - Operation in progress on resource already.
+
+                 * 409 OperationCanceled - Operation Cancelled.
+
+                 * 409 ResourceAlreadyExists - Resource already exists.
+
+                 * 409 LBGenericErrors - LB operation failed
+
+                 * 409 NICGenericError - NIC operation failed
+
+                 * 409 SqlExtensionNotInstalled - SQL extension not installed.
+
+                 * 409 RPPluginSubstatusMissing - RP plugin substatus missing
+
+                 * 409 MissingMoveResources - Cannot move resources(s) because some resources are missing in the request.
+
+                 * 409 ResourceExists - There was an internal error in cleaning up of resources.
+
+                 * 409 SubscriptionOperationInProgress - An operation on subscription is already in progress
+
+                 * 429 TooManyRequestsReceived - Request throttled due to too many requests.
+
+                 * 429 ArgumentMissingForSetup - Argument is missing for setup. Please provide a value for the argument.
+
+                 * 429 MultisubnetOperationNotAllowed - Multi subnet HA setup operation is not allowed.
+
+                 * 500 UnExpectedErrorOccurred - Unexpected error occurred.
+
+                 * 500 OperationTimeout - Operation timed out.
+
+                 * 500 RPGenericSystem - System Failure when calling other Resource Provider.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

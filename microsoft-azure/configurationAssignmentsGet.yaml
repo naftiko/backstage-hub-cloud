@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-configuration-assignment
+  description: Get configuration assignment for resource..
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Configuration Assignment
+      description: Get configuration assignment for resource..
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceName}/providers/Microsoft.Maintenance/configurationAssignments/{configurationAssignmentName}:
+        get:
+          summary: Get Configuration Assignment
+          description: Get configuration assignment for resource..
+          operationId: configurationAssignmentsGet
+          responses:
+            default:
+              description: BadRequest
+              schema:
+                $ref: '#/definitions/MaintenanceError'

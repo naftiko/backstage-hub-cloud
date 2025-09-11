@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: adds-a-gateway-to-a-connected-virtual-network-put-or-updates-it-patch
+  description: >-
+    Description for Adds a gateway to a connected Virtual Network (PUT) or
+    updates it (PATCH).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Adds A Gateway To A Connected Virtual Network (put) Or Updates It (patch).
+      description: >-
+        Description for Adds a gateway to a connected Virtual Network (PUT) or
+        updates it (PATCH).
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/virtualNetworkConnections/{vnetName}/gateways/{gatewayName}:
+        put:
+          summary: >-
+            Adds A Gateway To A Connected Virtual Network (put) Or Updates It
+            (patch).
+          description: >-
+            Description for Adds a gateway to a connected Virtual Network (PUT) or
+            updates it (PATCH).
+          operationId: webAppsCreateOrUpdateVnetConnectionGateway
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

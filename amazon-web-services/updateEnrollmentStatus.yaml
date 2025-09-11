@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updateenrollmentstatus
+  description: >-
+    Updates the enrollment (opt in and opt out) status of an account to the
+    Compute Optimizer service. If the account is a management account of an
+    organization, this action can also be used to enroll member accounts of the
+    organization. You must have the appropriate permissions to opt in to Compute
+    Optimizer, to view its recommendations, and to opt out. For more
+    information, see Controlling access with Amazon Web Services Identity and
+    Access Management in the Compute Optimizer User Guide. When you opt in,
+    Compute Optimizer automatically creates a service-linked role in your
+    account to access its data. For more information, see Using Service-Linked
+    Roles for Compute Optimizer in the Compute Optimizer User Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateenrollmentstatus
+      description: >-
+        Updates the enrollment (opt in and opt out) status of an account to the
+        Compute Optimizer service. If the account is a management account of an
+        organization, this action can also be used to enroll member accounts of the
+        organization. You must have the appropriate permissions to opt in to Compute
+        Optimizer, to view its recommendations, and to opt out. For more
+        information, see Controlling access with Amazon Web Services Identity and
+        Access Management in the Compute Optimizer User Guide. When you opt in,
+        Compute Optimizer automatically creates a service-linked role in your
+        account to access its data. For more information, see Using Service-Linked
+        Roles for Compute Optimizer in the Compute Optimizer User Guide.
+    paths:
+      /:
+        POST:
+          summary: Updateenrollmentstatus
+          description: >-
+            Updates the enrollment (opt in and opt out) status of an account to the
+            Compute Optimizer service. If the account is a management account of an
+            organization, this action can also be used to enroll member accounts of
+            the organization. You must have the appropriate permissions to opt in to
+            Compute Optimizer, to view its recommendations, and to opt out. For more
+            information, see Controlling access with Amazon Web Services Identity
+            and Access Management in the Compute Optimizer User Guide. When you opt
+            in, Compute Optimizer automatically creates a service-linked role in
+            your account to access its data. For more information, see Using
+            Service-Linked Roles for Compute Optimizer in the Compute Optimizer User
+            Guide.
+          operationId: updateEnrollmentStatus

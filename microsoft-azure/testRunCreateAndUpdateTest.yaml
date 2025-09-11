@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    create-and-start-new-test-run-of-the-given-name-test-run-name-must-be-a-valid-url-character-a-z0-9-
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Create And Start New Test Run Of The Given Name, Test Run Name Must Be A
+        Valid Url Character ^[a-z0-9_-]*$
+      description: Needs a more full description created.
+    paths:
+      /testruns/{testRunId}:
+        patch:
+          summary: >-
+            Create And Start New Test Run Of The Given Name, Test Run Name Must Be A
+            Valid Url Character ^[a-z0-9_-]*$
+          description: Needs a more full description created.
+          operationId: testRunCreateAndUpdateTest
+          responses:
+            default:
+              description: |-
+                *** Error Responses: ***
+
+                 * "400", "InvalidHostOrResourceName", "Host name or domain is not valid"
+
+                 * "400", "RequiredTestRunId", "testRunId field is required"
+
+                 * "400", "InvalidTestRunId", "testRunId field should be valid"
+
+                 * "500", "InternalServerError", "Unable to process the request, please retry" * "400", "ResourceMetadataNotFound", "Resource metadata not found"
+
+                  * "400", "ManagedIdentityNotEnabled", "Managed identity is not enabled over resource"
+
+                  * "400", "SecretNotFound", "Unable to find the given secret"
+
+                 
+              schema:
+                $ref: '#/definitions/DefaultErrorResponseBody'
+              headers:
+                x-ms-error-code:
+                  description: The error code for specific error that occurred.
+                  type: string

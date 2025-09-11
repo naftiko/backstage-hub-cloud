@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: identify-single-speaker-profile
+  description: >-
+    Identifies who is speaking in input audio among a list of candidate
+    profiles.Limitations:* Minimum audio input length is **1 second*** Maximum
+    audio input length is **120 seconds*** Minimum candidate speakers count is
+    **1*** Maximum candidate speakers count is **50*** Minimum effective speech
+    length (excluding silence and other non-speech frames) is **4 seconds** 
+    This limitation can be disabled by setting "ignoreMinLength" to **true**.*
+    Minimum audio Signal-to-noise ratio (SNR) is **2dB**
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Identify Single Speaker Profile
+      description: >-
+        Identifies who is speaking in input audio among a list of candidate
+        profiles.Limitations:* Minimum audio input length is **1 second*** Maximum
+        audio input length is **120 seconds*** Minimum candidate speakers count is
+        **1*** Maximum candidate speakers count is **50*** Minimum effective speech
+        length (excluding silence and other non-speech frames) is **4 seconds** 
+        This limitation can be disabled by setting "ignoreMinLength" to **true**.*
+        Minimum audio Signal-to-noise ratio (SNR) is **2dB**
+    paths:
+      /text-independent/profiles:identifySingleSpeaker:
+        post:
+          summary: Identify Single Speaker Profile
+          description: >-
+            Identifies who is speaking in input audio among a list of candidate
+            profiles.Limitations:* Minimum audio input length is **1 second***
+            Maximum audio input length is **120 seconds*** Minimum candidate
+            speakers count is **1*** Maximum candidate speakers count is **50***
+            Minimum effective speech length (excluding silence and other non-speech
+            frames) is **4 seconds**  This limitation can be disabled by setting
+            "ignoreMinLength" to **true**.* Minimum audio Signal-to-noise ratio
+            (SNR) is **2dB**
+          operationId: textIndependentIdentifySingleSpeaker
+          responses:
+            default:
+              $ref: '#/responses/SpeakerErrorResponse'

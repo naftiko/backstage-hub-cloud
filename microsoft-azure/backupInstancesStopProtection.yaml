@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftdataprotection-backupvaults-vaultname-backupinstances-backupinstancename-stopprotection
+  description: >-
+    This operation will stop protection of a backup instance and data will be
+    held forever
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.dataprotection Backupvaults Vaultname Backupinstances
+        Backupinstancename Stopprotection
+      description: >-
+        This operation will stop protection of a backup instance and data will be
+        held forever
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName}/stopProtection:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.dataprotection Backupvaults Vaultname
+            Backupinstances Backupinstancename Stopprotection
+          description: >-
+            This operation will stop protection of a backup instance and data will
+            be held forever
+          operationId: backupInstancesStopProtection
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    gets-a-privately-linkable-resources-for-an-account-with-given-group-identifier
+  description: >-
+    Gets a privately linkable resources for an account with given group
+    identifier
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Gets A Privately Linkable Resources For An Account With Given Group
+        Identifier.
+      description: >-
+        Gets a privately linkable resources for an account with given group
+        identifier
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/privateLinkResources/{groupId}:
+        get:
+          summary: >-
+            Gets A Privately Linkable Resources For An Account With Given Group
+            Identifier.
+          description: >-
+            Gets a privately linkable resources for an account with given group
+            identifier
+          operationId: privateLinkResourcesGetByGroupId
+          responses:
+            default:
+              description: An error response received from the provider.
+              schema:
+                $ref: '#/definitions/ErrorResponseModel'

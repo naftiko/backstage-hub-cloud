@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listvirtualservices
+  description: Returns a list of existing virtual services in a service mesh.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listvirtualservices
+      description: Returns a list of existing virtual services in a service mesh.
+    paths:
+      /v20190125/meshes/{meshName}/virtualServices:
+        GET:
+          summary: Listvirtualservices
+          description: Returns a list of existing virtual services in a service mesh.
+          operationId: listVirtualServices

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: stopdevenvironmentsession
+  description: Stops a session for a specified Dev Environment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Stopdevenvironmentsession
+      description: Stops a session for a specified Dev Environment.
+    paths:
+      /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/session/{sessionId}:
+        DELETE:
+          summary: Stopdevenvironmentsession
+          description: Stops a session for a specified Dev Environment.
+          operationId: stopDevEnvironmentSession

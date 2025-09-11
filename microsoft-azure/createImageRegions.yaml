@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: create-a-set-of-image-regions
+  description: >-
+    This API accepts a batch of image regions, and optionally tags, to update
+    existing images with region information.There is a limit of 64 entries in
+    the batch.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create A Set Of Image Regions
+      description: >-
+        This API accepts a batch of image regions, and optionally tags, to update
+        existing images with region information.There is a limit of 64 entries in
+        the batch.
+    paths:
+      /projects/{projectId}/images/regions:
+        post:
+          summary: Create A Set Of Image Regions
+          description: >-
+            This API accepts a batch of image regions, and optionally tags, to
+            update existing images with region information.There is a limit of 64
+            entries in the batch.
+          operationId: createImageRegions
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/ImageRegionCreateSummary'

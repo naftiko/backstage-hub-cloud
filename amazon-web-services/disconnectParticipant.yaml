@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: disconnectparticipant
+  description: >-
+    Disconnects a specified participant and revokes the participant permanently
+    from a specified stage.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disconnectparticipant
+      description: >-
+        Disconnects a specified participant and revokes the participant permanently
+        from a specified stage.
+    paths:
+      /DisconnectParticipant:
+        POST:
+          summary: Disconnectparticipant
+          description: >-
+            Disconnects a specified participant and revokes the participant
+            permanently from a specified stage.
+          operationId: disconnectParticipant

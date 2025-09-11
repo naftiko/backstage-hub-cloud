@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: dissociatepackage
+  description: >-
+    Removes a package from the specified Amazon OpenSearch Service domain. The
+    package can't be in use with any OpenSearch index for the dissociation to
+    succeed. The package is still available in OpenSearch Service for
+    association later. For more information, see Custom packages for Amazon
+    OpenSearch Service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Dissociatepackage
+      description: >-
+        Removes a package from the specified Amazon OpenSearch Service domain. The
+        package can't be in use with any OpenSearch index for the dissociation to
+        succeed. The package is still available in OpenSearch Service for
+        association later. For more information, see Custom packages for Amazon
+        OpenSearch Service.
+    paths:
+      /2021-01-01/packages/dissociate/{PackageID}/{DomainName}:
+        POST:
+          summary: Dissociatepackage
+          description: >-
+            Removes a package from the specified Amazon OpenSearch Service domain.
+            The package can't be in use with any OpenSearch index for the
+            dissociation to succeed. The package is still available in OpenSearch
+            Service for association later. For more information, see Custom packages
+            for Amazon OpenSearch Service.
+          operationId: dissociatePackage

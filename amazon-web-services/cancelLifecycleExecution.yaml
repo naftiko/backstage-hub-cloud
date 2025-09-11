@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: cancellifecycleexecution
+  description: Cancel a specific image lifecycle policy runtime instance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Cancellifecycleexecution
+      description: Cancel a specific image lifecycle policy runtime instance.
+    paths:
+      /CancelLifecycleExecution:
+        PUT:
+          summary: Cancellifecycleexecution
+          description: Cancel a specific image lifecycle policy runtime instance.
+          operationId: cancelLifecycleExecution

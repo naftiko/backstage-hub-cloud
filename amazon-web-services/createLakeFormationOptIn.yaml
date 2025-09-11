@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: createlakeformationoptin
+  description: >-
+    Enforce Lake Formation permissions for the given databases, tables, and
+    principals.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createlakeformationoptin
+      description: >-
+        Enforce Lake Formation permissions for the given databases, tables, and
+        principals.
+    paths:
+      /CreateLakeFormationOptIn:
+        POST:
+          summary: Createlakeformationoptin
+          description: >-
+            Enforce Lake Formation permissions for the given databases, tables, and
+            principals.
+          operationId: createLakeFormationOptIn

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: implements-dedicated-cloud-node-patch-method
+  description: Patches dedicated node properties
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Implements Dedicated Cloud Node Patch Method
+      description: Patches dedicated node properties
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMwareCloudSimple/dedicatedCloudNodes/{dedicatedCloudNodeName}:
+        patch:
+          summary: Implements Dedicated Cloud Node Patch Method
+          description: Patches dedicated node properties
+          operationId: dedicatedCloudNodesUpdate
+          responses:
+            default:
+              description: General Error
+              schema:
+                $ref: '#/definitions/CSRPError'

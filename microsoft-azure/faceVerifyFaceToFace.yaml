@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-verify
+  description: >-
+    Verify whether two faces belong to a same person or whether one face belongs
+    to a person.Remarks:* Higher face image quality means better identification
+    precision. Please consider high-quality faces: frontal, clear, and face size
+    is 200x200 pixels (100 pixels between eyes) or bigger.* For the scenarios
+    that are sensitive to accuracy please make your own judgment.* The
+    'recognitionModel' associated with the query faces' faceIds should be the
+    same as the 'recognitionModel' used by the target face, person group or
+    large person group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Verify
+      description: >-
+        Verify whether two faces belong to a same person or whether one face belongs
+        to a person.Remarks:* Higher face image quality means better identification
+        precision. Please consider high-quality faces: frontal, clear, and face size
+        is 200x200 pixels (100 pixels between eyes) or bigger.* For the scenarios
+        that are sensitive to accuracy please make your own judgment.* The
+        'recognitionModel' associated with the query faces' faceIds should be the
+        same as the 'recognitionModel' used by the target face, person group or
+        large person group.
+    paths:
+      /verify:
+        post:
+          summary: Post Verify
+          description: >-
+            Verify whether two faces belong to a same person or whether one face
+            belongs to a person.Remarks:* Higher face image quality means better
+            identification precision. Please consider high-quality faces: frontal,
+            clear, and face size is 200x200 pixels (100 pixels between eyes) or
+            bigger.* For the scenarios that are sensitive to accuracy please make
+            your own judgment.* The 'recognitionModel' associated with the query
+            faces' faceIds should be the same as the 'recognitionModel' used by the
+            target face, person group or large person group.
+          operationId: faceVerifyFaceToFace
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

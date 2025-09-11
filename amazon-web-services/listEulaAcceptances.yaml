@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listeulaacceptances
+  description: List EULA acceptances.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listeulaacceptances
+      description: List EULA acceptances.
+    paths:
+      /2020-08-01/studios/{studioId}/eula-acceptances:
+        GET:
+          summary: Listeulaacceptances
+          description: List EULA acceptances.
+          operationId: listEulaAcceptances

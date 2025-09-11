@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    patch-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftnotificationhubs-namespaces-namespacename-notificationhubs-notificationhubname
+  description: Patch a NotificationHub in a namespace.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.notificationhubs Namespaces Namespacename
+        Notificationhubs Notificationhubname
+      description: Patch a NotificationHub in a namespace.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/{notificationHubName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.notificationhubs Namespaces Namespacename
+            Notificationhubs Notificationhubname
+          description: Patch a NotificationHub in a namespace.
+          operationId: notificationHubsPatch
+          responses:
+            '200':
+              description: NotificationHub is patched
+              schema:
+                $ref: '#/definitions/NotificationHubResource'

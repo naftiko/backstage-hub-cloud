@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getmeeting
+  description: >-
+    Gets the Amazon Chime SDK meeting details for the specified meeting ID. For
+    more information about the Amazon Chime SDK, see Using the Amazon Chime SDK
+    in the Amazon Chime Developer Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getmeeting
+      description: >-
+        Gets the Amazon Chime SDK meeting details for the specified meeting ID. For
+        more information about the Amazon Chime SDK, see Using the Amazon Chime SDK
+        in the Amazon Chime Developer Guide.
+    paths:
+      /meetings/{MeetingId}:
+        GET:
+          summary: Getmeeting
+          description: >-
+            Gets the Amazon Chime SDK meeting details for the specified meeting ID.
+            For more information about the Amazon Chime SDK, see Using the Amazon
+            Chime SDK in the Amazon Chime Developer Guide.
+          operationId: getMeeting

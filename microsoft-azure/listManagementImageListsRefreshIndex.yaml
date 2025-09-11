@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-contentmoderator-lists-0-imagelists-listid-refreshindex
+  description: Refreshes the index of the list with listId equal to the passed list ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Contentmoderator Lists .0 Imagelists Listid Refreshindex
+      description: Refreshes the index of the list with listId equal to the passed list ID.
+    paths:
+      /contentmoderator/lists/v1.0/imagelists/{listId}/RefreshIndex:
+        post:
+          summary: Post Contentmoderator Lists .0 Imagelists Listid Refreshindex
+          description: Refreshes the index of the list with listId equal to the passed list ID.
+          operationId: listManagementImageListsRefreshIndex
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

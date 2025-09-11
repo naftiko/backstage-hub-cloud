@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: lists-the-managed-network-outbound-rules-for-a-machine-learning-workspace
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Lists The Managed Network Outbound Rules For A Machine Learning Workspace.
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/outboundRules:
+        get:
+          summary: >-
+            Lists The Managed Network Outbound Rules For A Machine Learning
+            Workspace.
+          description: Needs a more full description created.
+          operationId: managedNetworkSettingsRuleList
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

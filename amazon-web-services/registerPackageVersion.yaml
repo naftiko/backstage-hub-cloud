@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: registerpackageversion
+  description: Registers a package version.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Registerpackageversion
+      description: Registers a package version.
+    paths:
+      /packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion}:
+        PUT:
+          summary: Registerpackageversion
+          description: Registers a package version.
+          operationId: registerPackageVersion

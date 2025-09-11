@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftmigrate-assessmentprojects-projectname-groups-groupname-sqlassessments-assessmentname-assessedsqlinstances
+  description: List AssessedSqlInstanceV2 resources by SqlAssessmentV2
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.migrate Assessmentprojects Projectname Groups Groupname
+        Sqlassessments Assessmentname Assessedsqlinstances
+      description: List AssessedSqlInstanceV2 resources by SqlAssessmentV2
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/sqlAssessments/{assessmentName}/assessedSqlInstances:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.migrate Assessmentprojects Projectname Groups
+            Groupname Sqlassessments Assessmentname Assessedsqlinstances
+          description: List AssessedSqlInstanceV2 resources by SqlAssessmentV2
+          operationId: assessedSqlInstanceV2OperationsListBySqlAssessmentV2
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

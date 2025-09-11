@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: liststreamingimages
+  description: >-
+    List the streaming image resources available to this studio. This list will
+    contain both images provided by Amazon Web Services, as well as streaming
+    images that you have created in your studio.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Liststreamingimages
+      description: >-
+        List the streaming image resources available to this studio. This list will
+        contain both images provided by Amazon Web Services, as well as streaming
+        images that you have created in your studio.
+    paths:
+      /2020-08-01/studios/{studioId}/streaming-images:
+        GET:
+          summary: Liststreamingimages
+          description: >-
+            List the streaming image resources available to this studio. This list
+            will contain both images provided by Amazon Web Services, as well as
+            streaming images that you have created in your studio.
+          operationId: listStreamingImages

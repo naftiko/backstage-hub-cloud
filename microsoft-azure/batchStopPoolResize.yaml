@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: stops-an-ongoing-resize-operation-on-the-pool
+  description: >-
+    This does not restore the Pool to its previous state before the
+    resizeoperation: it only stops any further changes being made, and the Pool
+    maintainsits current state. After stopping, the Pool stabilizes at the
+    number of ComputeNodes it was at when the stop operation was done. During
+    the stop operation,the Pool allocation state changes first to stopping and
+    then to steady. Aresize operation need not be an explicit resize Pool
+    request; this API can alsobe used to halt the initial sizing of the Pool
+    when it is created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Stops An Ongoing Resize Operation On The Pool.
+      description: >-
+        This does not restore the Pool to its previous state before the
+        resizeoperation: it only stops any further changes being made, and the Pool
+        maintainsits current state. After stopping, the Pool stabilizes at the
+        number of ComputeNodes it was at when the stop operation was done. During
+        the stop operation,the Pool allocation state changes first to stopping and
+        then to steady. Aresize operation need not be an explicit resize Pool
+        request; this API can alsobe used to halt the initial sizing of the Pool
+        when it is created.
+    paths:
+      /pools/{poolId}/stopresize:
+        post:
+          summary: Stops An Ongoing Resize Operation On The Pool.
+          description: >-
+            This does not restore the Pool to its previous state before the
+            resizeoperation: it only stops any further changes being made, and the
+            Pool maintainsits current state. After stopping, the Pool stabilizes at
+            the number of ComputeNodes it was at when the stop operation was done.
+            During the stop operation,the Pool allocation state changes first to
+            stopping and then to steady. Aresize operation need not be an explicit
+            resize Pool request; this API can alsobe used to halt the initial sizing
+            of the Pool when it is created.
+          operationId: batchStopPoolResize
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

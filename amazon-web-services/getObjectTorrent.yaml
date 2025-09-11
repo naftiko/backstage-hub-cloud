@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getobjecttorrent
+  description: ' This operation is not supported by directory buckets.  Returns torrent files from a bucket. BitTorrent can save you bandwidth when you''re distributing large files.  You can get torrent only for objects that are less than 5 GB in size, and that are not encrypted using server-side encryption with a customer-provided encryption key.  To use GET, you must have READ access to the object. This functionality is not supported for Amazon S3 on Outposts. The following action is related to GetObjectTorrent:    GetObject   '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getobjecttorrent
+      description: ' This operation is not supported by directory buckets.  Returns torrent files from a bucket. BitTorrent can save you bandwidth when you''re distributing large files.  You can get torrent only for objects that are less than 5 GB in size, and that are not encrypted using server-side encryption with a customer-provided encryption key.  To use GET, you must have READ access to the object. This functionality is not supported for Amazon S3 on Outposts. The following action is related to GetObjectTorrent:    GetObject   '
+    paths:
+      /{Bucket}/{Key+}?torrent:
+        GET:
+          summary: Getobjecttorrent
+          description: ' This operation is not supported by directory buckets.  Returns torrent files from a bucket. BitTorrent can save you bandwidth when you''re distributing large files.  You can get torrent only for objects that are less than 5 GB in size, and that are not encrypted using server-side encryption with a customer-provided encryption key.  To use GET, you must have READ access to the object. This functionality is not supported for Amazon S3 on Outposts. The following action is related to GetObjectTorrent:    GetObject   '
+          operationId: getObjectTorrent

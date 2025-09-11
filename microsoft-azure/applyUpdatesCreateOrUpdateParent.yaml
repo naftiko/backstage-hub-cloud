@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: apply-updates-to-resource-with-parent
+  description: Apply maintenance updates to resource with parent
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Apply Updates To Resource With Parent
+      description: Apply maintenance updates to resource with parent
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceParentType}/{resourceParentName}/{resourceType}/{resourceName}/providers/Microsoft.Maintenance/applyUpdates/default:
+        put:
+          summary: Apply Updates To Resource With Parent
+          description: Apply maintenance updates to resource with parent
+          operationId: applyUpdatesCreateOrUpdateParent
+          responses:
+            default:
+              description: BadRequest
+              schema:
+                $ref: '#/definitions/MaintenanceError'

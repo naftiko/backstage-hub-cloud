@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsofthybriddata-datamanagers-datamanagername-dataservices
+  description: This method gets all the data services.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.hybriddata Datamanagers Datamanagername Dataservices
+      description: This method gets all the data services.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridData/dataManagers/{dataManagerName}/dataServices:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.hybriddata Datamanagers Datamanagername Dataservices
+          description: This method gets all the data services.
+          operationId: dataServicesListByDataManager
+          responses:
+            '200':
+              description: The list of data services.
+              schema:
+                $ref: '#/definitions/DataServiceList'

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listjourneys
+  description: >-
+    Retrieves information about the status, configuration, and other settings
+    for all the journeys that are associated with an application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listjourneys
+      description: >-
+        Retrieves information about the status, configuration, and other settings
+        for all the journeys that are associated with an application.
+    paths:
+      /v1/apps/{application-id}/journeys:
+        GET:
+          summary: Listjourneys
+          description: >-
+            Retrieves information about the status, configuration, and other
+            settings for all the journeys that are associated with an application.
+          operationId: listJourneys

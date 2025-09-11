@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-providers-microsoftattestation-locations-location-defaultprovider
+  description: Get the default provider by location.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft.attestation Locations
+        Location Defaultprovider
+      description: Get the default provider by location.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Attestation/locations/{location}/defaultProvider:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft.attestation
+            Locations Location Defaultprovider
+          description: Get the default provider by location.
+          operationId: attestationProvidersGetDefaultByLocation
+          responses:
+            default:
+              description: Attestation service error result
+              schema:
+                $ref: '#/definitions/CloudError'

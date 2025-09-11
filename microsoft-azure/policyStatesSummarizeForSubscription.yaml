@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-providers-microsoftpolicyinsights-policystates-policystatessummaryresource-summarize
+  description: Summarizes policy states for the resources under the subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Providers Microsoft.policyinsights
+        Policystates Policystatessummaryresource Summarize
+      description: Summarizes policy states for the resources under the subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/{policyStatesSummaryResource}/summarize:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Providers Microsoft.policyinsights
+            Policystates Policystatessummaryresource Summarize
+          description: Summarizes policy states for the resources under the subscription.
+          operationId: policyStatesSummarizeForSubscription
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/QueryFailure'

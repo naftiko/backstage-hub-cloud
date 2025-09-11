@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listcompositions
+  description: >-
+    Gets summary information about all Compositions in your account, in the AWS
+    region where the API request is processed. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listcompositions
+      description: >-
+        Gets summary information about all Compositions in your account, in the AWS
+        region where the API request is processed. 
+    paths:
+      /ListCompositions:
+        POST:
+          summary: Listcompositions
+          description: >-
+            Gets summary information about all Compositions in your account, in the
+            AWS region where the API request is processed. 
+          operationId: listCompositions

@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listtrafficpolicyinstancesbypolicy
+  description: >-
+    Gets information about the traffic policy instances that you created by
+    using a specify traffic policy version.  After you submit a
+    CreateTrafficPolicyInstance or an UpdateTrafficPolicyInstance request,
+    there's a brief delay while Amazon Route 53 creates the resource record sets
+    that are specified in the traffic policy definition. For more information,
+    see the State response element.  Route 53 returns a maximum of 100 items in
+    each response. If you have a lot of traffic policy instances, you can use
+    the MaxItems parameter to list them in groups of up to 100.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listtrafficpolicyinstancesbypolicy
+      description: >-
+        Gets information about the traffic policy instances that you created by
+        using a specify traffic policy version.  After you submit a
+        CreateTrafficPolicyInstance or an UpdateTrafficPolicyInstance request,
+        there's a brief delay while Amazon Route 53 creates the resource record sets
+        that are specified in the traffic policy definition. For more information,
+        see the State response element.  Route 53 returns a maximum of 100 items in
+        each response. If you have a lot of traffic policy instances, you can use
+        the MaxItems parameter to list them in groups of up to 100.
+    paths:
+      /2013-04-01/trafficpolicyinstances/trafficpolicy:
+        GET:
+          summary: Listtrafficpolicyinstancesbypolicy
+          description: >-
+            Gets information about the traffic policy instances that you created by
+            using a specify traffic policy version.  After you submit a
+            CreateTrafficPolicyInstance or an UpdateTrafficPolicyInstance request,
+            there's a brief delay while Amazon Route 53 creates the resource record
+            sets that are specified in the traffic policy definition. For more
+            information, see the State response element.  Route 53 returns a maximum
+            of 100 items in each response. If you have a lot of traffic policy
+            instances, you can use the MaxItems parameter to list them in groups of
+            up to 100.
+          operationId: listTrafficPolicyInstancesByPolicy

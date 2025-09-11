@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: enables-periodic-backup-of-the-stateful-persisted-partition
+  description: >-
+    Enables periodic backup of stateful persisted partition. Each partition is
+    backed up as per the specified backup policy description. In case the
+    application or service, which is partition is part of, is already enabled
+    for backup then this operation would override the policy being used to take
+    the periodic backup of this partition.Note only C# based Reliable Actor and
+    Reliable Stateful services are currently supported for periodic backup.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Enables Periodic Backup Of The Stateful Persisted Partition.
+      description: >-
+        Enables periodic backup of stateful persisted partition. Each partition is
+        backed up as per the specified backup policy description. In case the
+        application or service, which is partition is part of, is already enabled
+        for backup then this operation would override the policy being used to take
+        the periodic backup of this partition.Note only C# based Reliable Actor and
+        Reliable Stateful services are currently supported for periodic backup.
+    paths:
+      /Partitions/{partitionId}/$/EnableBackup:
+        post:
+          summary: Enables Periodic Backup Of The Stateful Persisted Partition.
+          description: >-
+            Enables periodic backup of stateful persisted partition. Each partition
+            is backed up as per the specified backup policy description. In case the
+            application or service, which is partition is part of, is already
+            enabled for backup then this operation would override the policy being
+            used to take the periodic backup of this partition.Note only C# based
+            Reliable Actor and Reliable Stateful services are currently supported
+            for periodic backup.
+          operationId: enablePartitionBackup
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

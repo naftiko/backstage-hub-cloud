@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatevirtualrouter
+  description: Updates an existing virtual router in a specified service mesh.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatevirtualrouter
+      description: Updates an existing virtual router in a specified service mesh.
+    paths:
+      /v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}:
+        PUT:
+          summary: Updatevirtualrouter
+          description: Updates an existing virtual router in a specified service mesh.
+          operationId: updateVirtualRouter

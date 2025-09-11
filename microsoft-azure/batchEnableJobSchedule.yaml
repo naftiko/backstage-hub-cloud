@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: enables-a-job-schedule
+  description: Enables a Job Schedule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Enables A Job Schedule.
+      description: Enables a Job Schedule.
+    paths:
+      /jobschedules/{jobScheduleId}/enable:
+        post:
+          summary: Enables A Job Schedule.
+          description: Enables a Job Schedule.
+          operationId: batchEnableJobSchedule
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

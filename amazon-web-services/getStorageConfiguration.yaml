@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getstorageconfiguration
+  description: Gets the storage configuration for the specified ARN.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getstorageconfiguration
+      description: Gets the storage configuration for the specified ARN.
+    paths:
+      /GetStorageConfiguration:
+        POST:
+          summary: Getstorageconfiguration
+          description: Gets the storage configuration for the specified ARN.
+          operationId: getStorageConfiguration

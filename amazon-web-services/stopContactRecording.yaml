@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: stopcontactrecording
+  description: >-
+    Stops recording a call when a contact is being recorded.
+    StopContactRecording is a one-time action. If you use StopContactRecording
+    to stop recording an ongoing call, you can't use StartContactRecording to
+    restart it. For scenarios where the recording has started and you want to
+    suspend it for sensitive information (for example, to collect a credit card
+    number), and then restart it, use SuspendContactRecording and
+    ResumeContactRecording. Only voice recordings are supported at this time.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Stopcontactrecording
+      description: >-
+        Stops recording a call when a contact is being recorded.
+        StopContactRecording is a one-time action. If you use StopContactRecording
+        to stop recording an ongoing call, you can't use StartContactRecording to
+        restart it. For scenarios where the recording has started and you want to
+        suspend it for sensitive information (for example, to collect a credit card
+        number), and then restart it, use SuspendContactRecording and
+        ResumeContactRecording. Only voice recordings are supported at this time.
+    paths:
+      /contact/stop-recording:
+        POST:
+          summary: Stopcontactrecording
+          description: >-
+            Stops recording a call when a contact is being recorded.
+            StopContactRecording is a one-time action. If you use
+            StopContactRecording to stop recording an ongoing call, you can't use
+            StartContactRecording to restart it. For scenarios where the recording
+            has started and you want to suspend it for sensitive information (for
+            example, to collect a credit card number), and then restart it, use
+            SuspendContactRecording and ResumeContactRecording. Only voice
+            recordings are supported at this time.
+          operationId: stopContactRecording

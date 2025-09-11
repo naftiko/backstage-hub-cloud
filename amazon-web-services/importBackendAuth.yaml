@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: importbackendauth
+  description: Imports an existing backend authentication resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Importbackendauth
+      description: Imports an existing backend authentication resource.
+    paths:
+      /backend/{appId}/auth/{backendEnvironmentName}/import:
+        POST:
+          summary: Importbackendauth
+          description: Imports an existing backend authentication resource.
+          operationId: importBackendAuth

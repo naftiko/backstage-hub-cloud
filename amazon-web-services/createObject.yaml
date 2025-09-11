@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: createobject
+  description: >-
+    Creates an object in a Directory. Additionally attaches the object to a
+    parent, if a parent reference and LinkName is specified. An object is simply
+    a collection of Facet attributes. You can also use this API call to create a
+    policy object, if the facet from which you create the object is a policy
+    facet. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createobject
+      description: >-
+        Creates an object in a Directory. Additionally attaches the object to a
+        parent, if a parent reference and LinkName is specified. An object is simply
+        a collection of Facet attributes. You can also use this API call to create a
+        policy object, if the facet from which you create the object is a policy
+        facet. 
+    paths:
+      /amazonclouddirectory/2017-01-11/object:
+        PUT:
+          summary: Createobject
+          description: >-
+            Creates an object in a Directory. Additionally attaches the object to a
+            parent, if a parent reference and LinkName is specified. An object is
+            simply a collection of Facet attributes. You can also use this API call
+            to create a policy object, if the facet from which you create the object
+            is a policy facet. 
+          operationId: createObject

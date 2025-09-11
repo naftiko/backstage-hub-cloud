@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: describerecoverysnapshots
+  description: Lists all Recovery Snapshots for a single Source Server.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describerecoverysnapshots
+      description: Lists all Recovery Snapshots for a single Source Server.
+    paths:
+      /DescribeRecoverySnapshots:
+        POST:
+          summary: Describerecoverysnapshots
+          description: Lists all Recovery Snapshots for a single Source Server.
+          operationId: describeRecoverySnapshots

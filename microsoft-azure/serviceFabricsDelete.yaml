@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftdevtestlab-labs-labname-users-username-servicefabrics-name
+  description: Delete service fabric. This operation can take a while to complete.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.devtestlab Labs Labname Users Username Servicefabrics
+        Name
+      description: Delete service fabric. This operation can take a while to complete.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/servicefabrics/{name}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.devtestlab Labs Labname Users Username
+            Servicefabrics Name
+          description: Delete service fabric. This operation can take a while to complete.
+          operationId: serviceFabricsDelete
+          responses:
+            default:
+              description: BadRequest
+              schema:
+                $ref: '#/definitions/CloudError'

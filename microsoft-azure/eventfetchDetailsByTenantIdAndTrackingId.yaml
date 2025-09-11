@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-providers-microsoftresourcehealth-events-eventtrackingid-fetcheventdetails
+  description: >-
+    Service health event details in the tenant by event tracking id. This can be
+    used to fetch sensitive properties for Security Advisory events
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Providers Microsoft.resourcehealth Events Eventtrackingid
+        Fetcheventdetails
+      description: >-
+        Service health event details in the tenant by event tracking id. This can be
+        used to fetch sensitive properties for Security Advisory events
+    paths:
+      /providers/Microsoft.ResourceHealth/events/{eventTrackingId}/fetchEventDetails:
+        post:
+          summary: >-
+            Post Providers Microsoft.resourcehealth Events Eventtrackingid
+            Fetcheventdetails
+          description: >-
+            Service health event details in the tenant by event tracking id. This
+            can be used to fetch sensitive properties for Security Advisory events
+          operationId: eventfetchDetailsByTenantIdAndTrackingId
+          responses:
+            default:
+              description: DefaultErrorResponse
+              schema:
+                $ref: '#/definitions/ErrorResponse'

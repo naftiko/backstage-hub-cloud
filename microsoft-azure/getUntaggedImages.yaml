@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-untagged-images-for-a-given-project-iteration
+  description: >-
+    This API supports batching and range selection. By default it will only
+    return first 50 images matching images.Use the {take} and {skip} parameters
+    to control how many images to return in a given batch.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Untagged Images For A Given Project Iteration
+      description: >-
+        This API supports batching and range selection. By default it will only
+        return first 50 images matching images.Use the {take} and {skip} parameters
+        to control how many images to return in a given batch.
+    paths:
+      /projects/{projectId}/images/untagged:
+        get:
+          summary: Get Untagged Images For A Given Project Iteration
+          description: >-
+            This API supports batching and range selection. By default it will only
+            return first 50 images matching images.Use the {take} and {skip}
+            parameters to control how many images to return in a given batch.
+          operationId: getUntaggedImages
+          responses:
+            '200':
+              description: OK
+              schema:
+                type: array
+                items:
+                  $ref: '#/definitions/Image'
+                x-nullable: true

@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: batchupdatefindings
+  description: >-
+    Used by Security Hub customers to update information about their
+    investigation into a finding. Requested by administrator accounts or member
+    accounts. Administrator accounts can update findings for their account and
+    their member accounts. Member accounts can update findings for their
+    account. Updates from BatchUpdateFindings do not affect the value of
+    UpdatedAt for a finding. Administrator and member accounts can use
+    BatchUpdateFindings to update the following finding fields and objects.   
+    Confidence     Criticality     Note     RelatedFindings     Severity    
+    Types     UserDefinedFields     VerificationState     Workflow    You can
+    configure IAM policies to restrict access to fields and field values. For
+    example, you might not want member accounts to be able to suppress findings
+    or change the finding severity. See Configuring access to
+    BatchUpdateFindings in the Security Hub User Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchupdatefindings
+      description: >-
+        Used by Security Hub customers to update information about their
+        investigation into a finding. Requested by administrator accounts or member
+        accounts. Administrator accounts can update findings for their account and
+        their member accounts. Member accounts can update findings for their
+        account. Updates from BatchUpdateFindings do not affect the value of
+        UpdatedAt for a finding. Administrator and member accounts can use
+        BatchUpdateFindings to update the following finding fields and objects.   
+        Confidence     Criticality     Note     RelatedFindings     Severity    
+        Types     UserDefinedFields     VerificationState     Workflow    You can
+        configure IAM policies to restrict access to fields and field values. For
+        example, you might not want member accounts to be able to suppress findings
+        or change the finding severity. See Configuring access to
+        BatchUpdateFindings in the Security Hub User Guide.
+    paths:
+      /findings/batchupdate:
+        PATCH:
+          summary: Batchupdatefindings
+          description: >-
+            Used by Security Hub customers to update information about their
+            investigation into a finding. Requested by administrator accounts or
+            member accounts. Administrator accounts can update findings for their
+            account and their member accounts. Member accounts can update findings
+            for their account. Updates from BatchUpdateFindings do not affect the
+            value of UpdatedAt for a finding. Administrator and member accounts can
+            use BatchUpdateFindings to update the following finding fields and
+            objects.    Confidence     Criticality     Note     RelatedFindings    
+            Severity     Types     UserDefinedFields     VerificationState    
+            Workflow    You can configure IAM policies to restrict access to fields
+            and field values. For example, you might not want member accounts to be
+            able to suppress findings or change the finding severity. See
+            Configuring access to BatchUpdateFindings in the Security Hub User
+            Guide.
+          operationId: batchUpdateFindings

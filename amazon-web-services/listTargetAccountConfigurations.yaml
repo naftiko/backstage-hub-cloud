@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listtargetaccountconfigurations
+  description: >-
+    Lists the target account configurations of the specified experiment
+    template.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listtargetaccountconfigurations
+      description: >-
+        Lists the target account configurations of the specified experiment
+        template.
+    paths:
+      /experimentTemplates/{id}/targetAccountConfigurations:
+        GET:
+          summary: Listtargetaccountconfigurations
+          description: >-
+            Lists the target account configurations of the specified experiment
+            template.
+          operationId: listTargetAccountConfigurations

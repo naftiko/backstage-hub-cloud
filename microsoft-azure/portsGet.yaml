@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftoperationalinsights-workspaces-workspacename-features-servicemap-machines-machinename-ports-portname
+  description: >-
+    Returns the specified port. The port must be live during the specified time
+    interval. If the port is not live during the interval, status 404 (Not
+    Found) is returned.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.operationalinsights Workspaces Workspacename Features Servicemap
+        Machines Machinename Ports Portname
+      description: >-
+        Returns the specified port. The port must be live during the specified time
+        interval. If the port is not live during the interval, status 404 (Not
+        Found) is returned.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/serviceMap/machines/{machineName}/ports/{portName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.operationalinsights Workspaces Workspacename
+            Features Servicemap Machines Machinename Ports Portname
+          description: >-
+            Returns the specified port. The port must be live during the specified
+            time interval. If the port is not live during the interval, status 404
+            (Not Found) is returned.
+          operationId: portsGet
+          responses:
+            default:
+              description: >-
+                An error occurred while processing the request. See the error.code
+                parameter to identify the specific error.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

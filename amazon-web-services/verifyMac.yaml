@@ -1,0 +1,62 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: verifymac
+  description: >-
+    Verifies a Message Authentication Code (MAC).  You can use this operation
+    when keys won't be shared but mutual data is present on both ends for
+    validation. In this case, known data values are used to generate a MAC on
+    both ends for verification without sending or receiving data in ciphertext
+    or plaintext. You can use this operation to verify a DUPKT, HMAC or EMV MAC
+    by setting generation attributes and algorithm to the associated values. Use
+    the same encryption key for MAC verification as you use for GenerateMac. 
+    For information about valid keys for this operation, see Understanding key
+    attributes and Key types for specific data operations in the Amazon Web
+    Services Payment Cryptography User Guide.   Cross-account use: This
+    operation can't be used across different Amazon Web Services accounts. 
+    Related operations:     GenerateMac   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Verifymac
+      description: >-
+        Verifies a Message Authentication Code (MAC).  You can use this operation
+        when keys won't be shared but mutual data is present on both ends for
+        validation. In this case, known data values are used to generate a MAC on
+        both ends for verification without sending or receiving data in ciphertext
+        or plaintext. You can use this operation to verify a DUPKT, HMAC or EMV MAC
+        by setting generation attributes and algorithm to the associated values. Use
+        the same encryption key for MAC verification as you use for GenerateMac. 
+        For information about valid keys for this operation, see Understanding key
+        attributes and Key types for specific data operations in the Amazon Web
+        Services Payment Cryptography User Guide.   Cross-account use: This
+        operation can't be used across different Amazon Web Services accounts. 
+        Related operations:     GenerateMac   
+    paths:
+      /mac/verify:
+        POST:
+          summary: Verifymac
+          description: >-
+            Verifies a Message Authentication Code (MAC).  You can use this
+            operation when keys won't be shared but mutual data is present on both
+            ends for validation. In this case, known data values are used to
+            generate a MAC on both ends for verification without sending or
+            receiving data in ciphertext or plaintext. You can use this operation to
+            verify a DUPKT, HMAC or EMV MAC by setting generation attributes and
+            algorithm to the associated values. Use the same encryption key for MAC
+            verification as you use for GenerateMac.  For information about valid
+            keys for this operation, see Understanding key attributes and Key types
+            for specific data operations in the Amazon Web Services Payment
+            Cryptography User Guide.   Cross-account use: This operation can't be
+            used across different Amazon Web Services accounts.  Related
+            operations:     GenerateMac   
+          operationId: verifyMac

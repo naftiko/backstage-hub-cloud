@@ -1,0 +1,68 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: submit-a-document-translation-request-to-the-document-translation-service
+  description: >-
+    Use this API to submit a bulk (batch) translation request to the Document
+    Translation service.Each request can contain multiple documents and must
+    contain a source and destination container for each document.            The
+    prefix and suffix filter (if supplied) are used to filter folders. The
+    prefix is applied to the subpath after the container name.           
+    Glossaries / Translation memory can be included in the request and are
+    applied by the service when the document is translated.            If the
+    glossary is invalid or unreachable during translation, an error is indicated
+    in the document status.If a file with the same name already exists at the
+    destination, it will be overwritten. The targetUrl for each target language
+    must be unique.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Submit A Document Translation Request To The Document Translation Service
+      description: >-
+        Use this API to submit a bulk (batch) translation request to the Document
+        Translation service.Each request can contain multiple documents and must
+        contain a source and destination container for each document.            The
+        prefix and suffix filter (if supplied) are used to filter folders. The
+        prefix is applied to the subpath after the container name.           
+        Glossaries / Translation memory can be included in the request and are
+        applied by the service when the document is translated.            If the
+        glossary is invalid or unreachable during translation, an error is indicated
+        in the document status.If a file with the same name already exists at the
+        destination, it will be overwritten. The targetUrl for each target language
+        must be unique.
+    paths:
+      /batches:
+        post:
+          summary: >-
+            Submit A Document Translation Request To The Document Translation
+            Service
+          description: >-
+            Use this API to submit a bulk (batch) translation request to the
+            Document Translation service.Each request can contain multiple documents
+            and must contain a source and destination container for each
+            document.            The prefix and suffix filter (if supplied) are used
+            to filter folders. The prefix is applied to the subpath after the
+            container name.            Glossaries / Translation memory can be
+            included in the request and are applied by the service when the document
+            is translated.            If the glossary is invalid or unreachable
+            during translation, an error is indicated in the document status.If a
+            file with the same name already exists at the destination, it will be
+            overwritten. The targetUrl for each target language must be unique.
+          operationId: documentTranslationStartTranslation
+          responses:
+            default:
+              description: Internal Server Error
+              schema:
+                $ref: '#/definitions/TranslationErrorResponse'
+              examples:
+                application/json: "{\r\n  \"error\": {\r\n    \"code\": \"InternalServerError\",\r\n    \"message\": \"Internal Server Error\",\r\n    \"target\": \"batch\",\r\n    \"innerError\": {\r\n      \"code\": \"InternalServerError\",\r\n      \"message\": \"Unexpected internal server error has occurred\"\r\n    }\r\n  }\r\n}"
+              x-ms-error-response: true

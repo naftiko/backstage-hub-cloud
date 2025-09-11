@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftcustomerinsights-hubs-hubname-profiles-profilename
+  description: Deletes a profile within a hub
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.customerinsights Hubs Hubname Profiles Profilename
+      description: Deletes a profile within a hub
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/profiles/{profileName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.customerinsights Hubs Hubname Profiles Profilename
+          description: Deletes a profile within a hub
+          operationId: profilesDelete
+          responses:
+            '204':
+              description: >-
+                NoContent. Successfully requested delete operation, but the response
+                is intentionally empty.

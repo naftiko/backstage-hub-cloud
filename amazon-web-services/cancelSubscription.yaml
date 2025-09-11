@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: cancelsubscription
+  description: Cancels the subscription to the specified asset.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Cancelsubscription
+      description: Cancels the subscription to the specified asset.
+    paths:
+      /v2/domains/{domainIdentifier}/subscriptions/{identifier}/cancel:
+        PUT:
+          summary: Cancelsubscription
+          description: Cancels the subscription to the specified asset.
+          operationId: cancelSubscription

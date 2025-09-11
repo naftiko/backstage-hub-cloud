@@ -1,0 +1,75 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    this-api-will-induce-data-loss-for-the-specified-partition-it-will-trigger-a-call-to-the-ondatalossasync-api-of-the-partition
+  description: >-
+    This API will induce data loss for the specified partition. It will trigger
+    a call to the OnDataLoss API of the partition.Actual data loss will depend
+    on the specified DataLossMode.- PartialDataLoss - Only a quorum of replicas
+    are removed and OnDataLoss is triggered for the partition but actual data
+    loss depends on the presence of in-flight replication.- FullDataLoss - All
+    replicas are removed hence all data is lost and OnDataLoss is triggered.This
+    API should only be called with a stateful service as the target.Calling this
+    API with a system service as the target is not advised.Note:  Once this API
+    has been called, it cannot be reversed. Calling CancelOperation will only
+    stop execution and clean up internal system state.It will not restore data
+    if the command has progressed far enough to cause data loss.Call the
+    GetDataLossProgress API with the same OperationId to return information on
+    the operation started with this API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        This Api Will Induce Data Loss For The Specified Partition. It Will Trigger
+        A Call To The Ondatalossasync Api Of The Partition.
+      description: >-
+        This API will induce data loss for the specified partition. It will trigger
+        a call to the OnDataLoss API of the partition.Actual data loss will depend
+        on the specified DataLossMode.- PartialDataLoss - Only a quorum of replicas
+        are removed and OnDataLoss is triggered for the partition but actual data
+        loss depends on the presence of in-flight replication.- FullDataLoss - All
+        replicas are removed hence all data is lost and OnDataLoss is triggered.This
+        API should only be called with a stateful service as the target.Calling this
+        API with a system service as the target is not advised.Note:  Once this API
+        has been called, it cannot be reversed. Calling CancelOperation will only
+        stop execution and clean up internal system state.It will not restore data
+        if the command has progressed far enough to cause data loss.Call the
+        GetDataLossProgress API with the same OperationId to return information on
+        the operation started with this API.
+    paths:
+      /Faults/Services/{serviceId}/$/GetPartitions/{partitionId}/$/StartDataLoss:
+        post:
+          summary: >-
+            This Api Will Induce Data Loss For The Specified Partition. It Will
+            Trigger A Call To The Ondatalossasync Api Of The Partition.
+          description: >-
+            This API will induce data loss for the specified partition. It will
+            trigger a call to the OnDataLoss API of the partition.Actual data loss
+            will depend on the specified DataLossMode.- PartialDataLoss - Only a
+            quorum of replicas are removed and OnDataLoss is triggered for the
+            partition but actual data loss depends on the presence of in-flight
+            replication.- FullDataLoss - All replicas are removed hence all data is
+            lost and OnDataLoss is triggered.This API should only be called with a
+            stateful service as the target.Calling this API with a system service as
+            the target is not advised.Note:  Once this API has been called, it
+            cannot be reversed. Calling CancelOperation will only stop execution and
+            clean up internal system state.It will not restore data if the command
+            has progressed far enough to cause data loss.Call the
+            GetDataLossProgress API with the same OperationId to return information
+            on the operation started with this API.
+          operationId: startDataLoss
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

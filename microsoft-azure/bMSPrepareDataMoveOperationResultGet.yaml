@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftrecoveryservices-vaults-vaultname-backupstorageconfig-vaultstorageconfig-operationresults-operationid
+  description: Fetches Operation Result for Prepare Data Move
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.recoveryservices Vaults Vaultname Backupstorageconfig
+        Vaultstorageconfig Operationresults Operationid
+      description: Fetches Operation Result for Prepare Data Move
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupstorageconfig/vaultstorageconfig/operationResults/{operationId}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.recoveryservices Vaults Vaultname
+            Backupstorageconfig Vaultstorageconfig Operationresults Operationid
+          description: Fetches Operation Result for Prepare Data Move
+          operationId: bMSPrepareDataMoveOperationResultGet
+          responses:
+            default:
+              description: 'Error response describing why the operation failed. '
+              schema:
+                $ref: '#/definitions/NewErrorResponse'

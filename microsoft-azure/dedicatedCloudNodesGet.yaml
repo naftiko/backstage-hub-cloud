@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: implements-dedicated-cloud-node-get-method
+  description: Returns dedicated cloud node
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Implements Dedicated Cloud Node Get Method
+      description: Returns dedicated cloud node
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMwareCloudSimple/dedicatedCloudNodes/{dedicatedCloudNodeName}:
+        get:
+          summary: Implements Dedicated Cloud Node Get Method
+          description: Returns dedicated cloud node
+          operationId: dedicatedCloudNodesGet
+          responses:
+            default:
+              description: General Error
+              schema:
+                $ref: '#/definitions/CSRPError'

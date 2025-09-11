@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: replaces-an-existing-custom-api
+  description: Creates or updates an existing custom API
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Replaces An Existing Custom Api
+      description: Creates or updates an existing custom API
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/customApis/{apiName}:
+        put:
+          summary: Replaces An Existing Custom Api
+          description: Creates or updates an existing custom API
+          operationId: customApisCreateOrUpdate
+          responses:
+            '200':
+              description: The replacing custom API
+              schema:
+                $ref: '#/definitions/CustomApiDefinition'

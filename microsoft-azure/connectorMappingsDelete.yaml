@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftcustomerinsights-hubs-hubname-connectors-connectorname-mappings-mappingname
+  description: Deletes a connector mapping in the connector.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.customerinsights Hubs Hubname Connectors Connectorname
+        Mappings Mappingname
+      description: Deletes a connector mapping in the connector.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/connectors/{connectorName}/mappings/{mappingName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.customerinsights Hubs Hubname Connectors
+            Connectorname Mappings Mappingname
+          description: Deletes a connector mapping in the connector.
+          operationId: connectorMappingsDelete
+          responses:
+            '204':
+              description: >-
+                NoContent. Successfully requested delete operation, but the response
+                is intentionally empty.

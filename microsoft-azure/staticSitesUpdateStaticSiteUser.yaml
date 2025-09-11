@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updates-a-user-entry-with-the-listed-roles
+  description: Description for Updates a user entry with the listed roles
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updates A User Entry With The Listed Roles
+      description: Description for Updates a user entry with the listed roles
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/authproviders/{authprovider}/users/{userid}:
+        patch:
+          summary: Updates A User Entry With The Listed Roles
+          description: Description for Updates a user entry with the listed roles
+          operationId: staticSitesUpdateStaticSiteUser
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

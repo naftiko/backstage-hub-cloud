@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-authoring-analyze-text-projects-projectname-import
+  description: >-
+    Triggers a job to import a project. If a project with the same name already
+    exists, the data of that project is replaced.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Authoring Analyze-text Projects Projectname :import
+      description: >-
+        Triggers a job to import a project. If a project with the same name already
+        exists, the data of that project is replaced.
+    paths:
+      /authoring/analyze-text/projects/{projectName}/:import:
+        post:
+          summary: Post Authoring Analyze-text Projects Projectname :import
+          description: >-
+            Triggers a job to import a project. If a project with the same name
+            already exists, the data of that project is replaced.
+          operationId: textAnalysisAuthoringImport
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: common.json#/definitions/ErrorResponse

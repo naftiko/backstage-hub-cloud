@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-timezone-byid-format
+  description: >-
+    __Time Zone by Id__**Applies to**: S0 and S1 pricing tiers.This API returns
+    current, historical, and future time zone information for the specified IANA
+    time zone ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Timezone Byid Format
+      description: >-
+        __Time Zone by Id__**Applies to**: S0 and S1 pricing tiers.This API returns
+        current, historical, and future time zone information for the specified IANA
+        time zone ID.
+    paths:
+      /timezone/byId/{format}:
+        get:
+          summary: Get Timezone Byid Format
+          description: >-
+            __Time Zone by Id__**Applies to**: S0 and S1 pricing tiers.This API
+            returns current, historical, and future time zone information for the
+            specified IANA time zone ID.
+          operationId: timezoneGetTimezoneByID
+          responses:
+            '500':
+              $ref: '#/responses/500'

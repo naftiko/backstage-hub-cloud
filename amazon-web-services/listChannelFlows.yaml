@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listchannelflows
+  description: >-
+    Returns a paginated lists of all the channel flows created under a single
+    Chime. This is a developer API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listchannelflows
+      description: >-
+        Returns a paginated lists of all the channel flows created under a single
+        Chime. This is a developer API.
+    paths:
+      /channel-flows:
+        GET:
+          summary: Listchannelflows
+          description: >-
+            Returns a paginated lists of all the channel flows created under a
+            single Chime. This is a developer API.
+          operationId: listChannelFlows

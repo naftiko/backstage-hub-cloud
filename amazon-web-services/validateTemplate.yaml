@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: validatetemplate
+  description: >-
+    Validates a specified template. CloudFormation first checks if the template
+    is valid JSON. If it isn't, CloudFormation checks if the template is valid
+    YAML. If both these checks fail, CloudFormation returns a template
+    validation error.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Validatetemplate
+      description: >-
+        Validates a specified template. CloudFormation first checks if the template
+        is valid JSON. If it isn't, CloudFormation checks if the template is valid
+        YAML. If both these checks fail, CloudFormation returns a template
+        validation error.
+    paths:
+      /:
+        POST:
+          summary: Validatetemplate
+          description: >-
+            Validates a specified template. CloudFormation first checks if the
+            template is valid JSON. If it isn't, CloudFormation checks if the
+            template is valid YAML. If both these checks fail, CloudFormation
+            returns a template validation error.
+          operationId: validateTemplate

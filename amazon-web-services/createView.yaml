@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: createview
+  description: >-
+    Creates a view that users can query by using the Search operation. Results
+    from queries that you make using this view include only resources that match
+    the view's Filters. For more information about Amazon Web Services Resource
+    Explorer views, see Managing views in the Amazon Web Services Resource
+    Explorer User Guide. Only the principals with an IAM identity-based policy
+    that grants Allow to the Search action on a Resource with the Amazon
+    resource name (ARN) of this view can Search using views you create with this
+    operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createview
+      description: >-
+        Creates a view that users can query by using the Search operation. Results
+        from queries that you make using this view include only resources that match
+        the view's Filters. For more information about Amazon Web Services Resource
+        Explorer views, see Managing views in the Amazon Web Services Resource
+        Explorer User Guide. Only the principals with an IAM identity-based policy
+        that grants Allow to the Search action on a Resource with the Amazon
+        resource name (ARN) of this view can Search using views you create with this
+        operation.
+    paths:
+      /CreateView:
+        POST:
+          summary: Createview
+          description: >-
+            Creates a view that users can query by using the Search operation.
+            Results from queries that you make using this view include only
+            resources that match the view's Filters. For more information about
+            Amazon Web Services Resource Explorer views, see Managing views in the
+            Amazon Web Services Resource Explorer User Guide. Only the principals
+            with an IAM identity-based policy that grants Allow to the Search action
+            on a Resource with the Amazon resource name (ARN) of this view can
+            Search using views you create with this operation.
+          operationId: createView

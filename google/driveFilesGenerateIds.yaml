@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-files-generateids
+  description: >-
+    Generates a set of file IDs which can be provided in create or copy
+    requests.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Files Generateids
+      description: >-
+        Generates a set of file IDs which can be provided in create or copy
+        requests.
+    paths:
+      /files/generateIds:
+        get:
+          summary: Get Files Generateids
+          description: >-
+            Generates a set of file IDs which can be provided in create or copy
+            requests.
+          operationId: driveFilesGenerateIds
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/GeneratedIds'
+              description: Successful response

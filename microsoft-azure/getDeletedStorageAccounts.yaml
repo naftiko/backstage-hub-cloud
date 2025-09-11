@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: lists-deleted-storage-accounts-for-the-specified-vault
+  description: >-
+    The Get Deleted Storage Accounts operation returns the storage accounts that
+    have been deleted for a vault enabled for soft-delete. This operation
+    requires the storage/list permission.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Lists Deleted Storage Accounts For The Specified Vault.
+      description: >-
+        The Get Deleted Storage Accounts operation returns the storage accounts that
+        have been deleted for a vault enabled for soft-delete. This operation
+        requires the storage/list permission.
+    paths:
+      /deletedstorage:
+        get:
+          summary: Lists Deleted Storage Accounts For The Specified Vault.
+          description: >-
+            The Get Deleted Storage Accounts operation returns the storage accounts
+            that have been deleted for a vault enabled for soft-delete. This
+            operation requires the storage/list permission.
+          operationId: getDeletedStorageAccounts
+          responses:
+            default:
+              description: Key Vault error response describing why the operation failed.
+              schema:
+                $ref: common.json#/definitions/KeyVaultError

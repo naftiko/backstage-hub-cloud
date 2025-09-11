@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listcopyjobsummaries
+  description: >-
+    This request obtains a list of copy jobs created or running within the the
+    most recent 30 days. You can include parameters AccountID, State,
+    ResourceType, MessageCategory, AggregationPeriod, MaxResults, or NextToken
+    to filter results. This request returns a summary that contains Region,
+    Account, State, RestourceType, MessageCategory, StartTime, EndTime, and
+    Count of included jobs.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listcopyjobsummaries
+      description: >-
+        This request obtains a list of copy jobs created or running within the the
+        most recent 30 days. You can include parameters AccountID, State,
+        ResourceType, MessageCategory, AggregationPeriod, MaxResults, or NextToken
+        to filter results. This request returns a summary that contains Region,
+        Account, State, RestourceType, MessageCategory, StartTime, EndTime, and
+        Count of included jobs.
+    paths:
+      /audit/copy-job-summaries:
+        GET:
+          summary: Listcopyjobsummaries
+          description: >-
+            This request obtains a list of copy jobs created or running within the
+            the most recent 30 days. You can include parameters AccountID, State,
+            ResourceType, MessageCategory, AggregationPeriod, MaxResults, or
+            NextToken to filter results. This request returns a summary that
+            contains Region, Account, State, RestourceType, MessageCategory,
+            StartTime, EndTime, and Count of included jobs.
+          operationId: listCopyJobSummaries

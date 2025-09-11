@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deletes-the-workload-instance
+  description: Deletes the workload instance in the given modernizeProject.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes The Workload Instance.
+      description: Deletes the workload instance in the given modernizeProject.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}/workloadInstances/{workloadInstanceName}:
+        delete:
+          summary: Deletes The Workload Instance.
+          description: Deletes the workload instance in the given modernizeProject.
+          operationId: workloadInstanceDelete
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ArmError'

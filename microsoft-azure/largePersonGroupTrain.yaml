@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-largepersongroups-largepersongroupid-train
+  description: >-
+    Queue a large person group training task, the training task may not be
+    started immediately.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Largepersongroups Largepersongroupid Train
+      description: >-
+        Queue a large person group training task, the training task may not be
+        started immediately.
+    paths:
+      /largepersongroups/{largePersonGroupId}/train:
+        post:
+          summary: Post Largepersongroups Largepersongroupid Train
+          description: >-
+            Queue a large person group training task, the training task may not be
+            started immediately.
+          operationId: largePersonGroupTrain
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

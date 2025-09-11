@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deletedeploymentstrategy
+  description: >-
+    Deletes a deployment strategy. Deleting a deployment strategy does not
+    delete a configuration from a host.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletedeploymentstrategy
+      description: >-
+        Deletes a deployment strategy. Deleting a deployment strategy does not
+        delete a configuration from a host.
+    paths:
+      /deployementstrategies/{DeploymentStrategyId}:
+        DELETE:
+          summary: Deletedeploymentstrategy
+          description: >-
+            Deletes a deployment strategy. Deleting a deployment strategy does not
+            delete a configuration from a host.
+          operationId: deleteDeploymentStrategy

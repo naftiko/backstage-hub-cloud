@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getcodebindingsource
+  description: Get the code binding source URI.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getcodebindingsource
+      description: Get the code binding source URI.
+    paths:
+      /v1/registries/name/{registryName}/schemas/name/{schemaName}/language/{language}/source:
+        GET:
+          summary: Getcodebindingsource
+          description: Get the code binding source URI.
+          operationId: getCodeBindingSource

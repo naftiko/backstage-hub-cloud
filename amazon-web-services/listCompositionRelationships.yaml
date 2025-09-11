@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listcompositionrelationships
+  description: >-
+    Retrieves a paginated list of composition relationships for an asset model
+    of type COMPONENT_MODEL.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listcompositionrelationships
+      description: >-
+        Retrieves a paginated list of composition relationships for an asset model
+        of type COMPONENT_MODEL.
+    paths:
+      /asset-models/{assetModelId}/composition-relationships:
+        GET:
+          summary: Listcompositionrelationships
+          description: >-
+            Retrieves a paginated list of composition relationships for an asset
+            model of type COMPONENT_MODEL.
+          operationId: listCompositionRelationships

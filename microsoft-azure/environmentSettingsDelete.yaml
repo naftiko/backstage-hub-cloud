@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftlabservices-labaccounts-labaccountname-labs-labname-environmentsettings-environmentsettingname
+  description: Delete environment setting. This operation can take a while to complete
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.labservices Labaccounts Labaccountname Labs Labname
+        Environmentsettings Environmentsettingname
+      description: Delete environment setting. This operation can take a while to complete
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labaccounts/{labAccountName}/labs/{labName}/environmentsettings/{environmentSettingName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.labservices Labaccounts Labaccountname Labs Labname
+            Environmentsettings Environmentsettingname
+          description: Delete environment setting. This operation can take a while to complete
+          operationId: environmentSettingsDelete
+          responses:
+            default:
+              description: BadRequest
+              schema:
+                $ref: '#/definitions/CloudError'

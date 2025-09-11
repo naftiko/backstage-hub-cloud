@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: triggers-backup-of-the-partitions-state
+  description: >-
+    Creates a backup of the stateful persisted partition's state. In case the
+    partition is already being periodically backed up, then by default the new
+    backup is created at the same backup storage. One can also override the same
+    by specifying the backup storage details as part of the request body. Once
+    the backup is initiated, its progress can be tracked using the
+    GetBackupProgress operation. In case, the operation times out, specify a
+    greater backup timeout value in the query parameter.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Triggers Backup Of The Partition's State.
+      description: >-
+        Creates a backup of the stateful persisted partition's state. In case the
+        partition is already being periodically backed up, then by default the new
+        backup is created at the same backup storage. One can also override the same
+        by specifying the backup storage details as part of the request body. Once
+        the backup is initiated, its progress can be tracked using the
+        GetBackupProgress operation. In case, the operation times out, specify a
+        greater backup timeout value in the query parameter.
+    paths:
+      /Partitions/{partitionId}/$/Backup:
+        post:
+          summary: Triggers Backup Of The Partition's State.
+          description: >-
+            Creates a backup of the stateful persisted partition's state. In case
+            the partition is already being periodically backed up, then by default
+            the new backup is created at the same backup storage. One can also
+            override the same by specifying the backup storage details as part of
+            the request body. Once the backup is initiated, its progress can be
+            tracked using the GetBackupProgress operation. In case, the operation
+            times out, specify a greater backup timeout value in the query
+            parameter.
+          operationId: backupPartition
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

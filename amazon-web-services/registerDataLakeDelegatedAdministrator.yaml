@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: registerdatalakedelegatedadministrator
+  description: >-
+    Designates the Amazon Security Lake delegated administrator account for the
+    organization. This API can only be called by the organization management
+    account. The organization management account cannot be the delegated
+    administrator account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Registerdatalakedelegatedadministrator
+      description: >-
+        Designates the Amazon Security Lake delegated administrator account for the
+        organization. This API can only be called by the organization management
+        account. The organization management account cannot be the delegated
+        administrator account.
+    paths:
+      /v1/datalake/delegate:
+        POST:
+          summary: Registerdatalakedelegatedadministrator
+          description: >-
+            Designates the Amazon Security Lake delegated administrator account for
+            the organization. This API can only be called by the organization
+            management account. The organization management account cannot be the
+            delegated administrator account.
+          operationId: registerDataLakeDelegatedAdministrator

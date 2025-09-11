@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: inquires-all-the-protectable-items-under-the-given-container
+  description: >-
+    This is an async operation and the results should be tracked using location
+    header or Azure-async-url.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Inquires All The Protectable Items Under The Given Container.
+      description: >-
+        This is an async operation and the results should be tracked using location
+        header or Azure-async-url.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/inquire:
+        post:
+          summary: Inquires All The Protectable Items Under The Given Container.
+          description: >-
+            This is an async operation and the results should be tracked using
+            location header or Azure-async-url.
+          operationId: protectionContainersInquire
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

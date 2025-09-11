@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-providers-microsoftauthorization-accessreviewscheduledefinitions-scheduledefinitionid-stop
+  description: Stop access review definition
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Providers Microsoft.authorization
+        Accessreviewscheduledefinitions Scheduledefinitionid Stop
+      description: Stop access review definition
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/stop:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Providers Microsoft.authorization
+            Accessreviewscheduledefinitions Scheduledefinitionid Stop
+          description: Stop access review definition
+          operationId: accessReviewScheduleDefinitionsStop
+          responses:
+            default:
+              description: Unexpected error
+              schema:
+                $ref: '#/definitions/ErrorDefinition'

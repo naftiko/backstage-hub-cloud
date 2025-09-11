@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: describeendpoints
+  description: >-
+    Send an request with an empty body to the regional API endpoint to get your
+    account API endpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeendpoints
+      description: >-
+        Send an request with an empty body to the regional API endpoint to get your
+        account API endpoint.
+    paths:
+      /2017-08-29/endpoints:
+        POST:
+          summary: Describeendpoints
+          description: >-
+            Send an request with an empty body to the regional API endpoint to get
+            your account API endpoint.
+          operationId: describeEndpoints

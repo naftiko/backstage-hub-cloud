@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-apps-appid-versions-versionid-train
+  description: >-
+    Sends a training request for a version of a specified LUIS app. This POST
+    request initiates a request asynchronously. To determine whether the
+    training request is successful, submit a GET request to get training status.
+    Note: The application version is not fully trained unless all the models
+    (intents and entities) are trained successfully or are up to date. To verify
+    training success, get the training status at least once after training is
+    complete.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Apps Appid Versions Versionid Train
+      description: >-
+        Sends a training request for a version of a specified LUIS app. This POST
+        request initiates a request asynchronously. To determine whether the
+        training request is successful, submit a GET request to get training status.
+        Note: The application version is not fully trained unless all the models
+        (intents and entities) are trained successfully or are up to date. To verify
+        training success, get the training status at least once after training is
+        complete.
+    paths:
+      /apps/{appId}/versions/{versionId}/train:
+        post:
+          summary: Post Apps Appid Versions Versionid Train
+          description: >-
+            Sends a training request for a version of a specified LUIS app. This
+            POST request initiates a request asynchronously. To determine whether
+            the training request is successful, submit a GET request to get training
+            status. Note: The application version is not fully trained unless all
+            the models (intents and entities) are trained successfully or are up to
+            date. To verify training success, get the training status at least once
+            after training is complete.
+          operationId: trainTrainVersion
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

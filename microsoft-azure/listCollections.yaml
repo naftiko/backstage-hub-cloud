@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: retrieves-a-list-of-collection-ids-present-in-the-confidential-ledger
+  description: Collection ids are user-created collections of ledger entries
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves A List Of Collection Ids Present In The Confidential Ledger
+      description: Collection ids are user-created collections of ledger entries
+    paths:
+      /app/collections:
+        get:
+          summary: Retrieves A List Of Collection Ids Present In The Confidential Ledger
+          description: Collection ids are user-created collections of ledger entries
+          operationId: listCollections
+          responses:
+            default:
+              description: Error response describing why the operation failed
+              schema:
+                $ref: common.json#/definitions/ConfidentialLedgerError

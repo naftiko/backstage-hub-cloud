@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listcatalogitems
+  description: >-
+    Lists the items in the catalog. Use filters to return specific results. If
+    you specify multiple filters, the results include only the resources that
+    match all of the specified filters. For a filter where you can specify
+    multiple values, the results include items that match any of the values that
+    you specify for the filter.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listcatalogitems
+      description: >-
+        Lists the items in the catalog. Use filters to return specific results. If
+        you specify multiple filters, the results include only the resources that
+        match all of the specified filters. For a filter where you can specify
+        multiple values, the results include items that match any of the values that
+        you specify for the filter.
+    paths:
+      /catalog/items:
+        GET:
+          summary: Listcatalogitems
+          description: >-
+            Lists the items in the catalog. Use filters to return specific results.
+            If you specify multiple filters, the results include only the resources
+            that match all of the specified filters. For a filter where you can
+            specify multiple values, the results include items that match any of the
+            values that you specify for the filter.
+          operationId: listCatalogItems

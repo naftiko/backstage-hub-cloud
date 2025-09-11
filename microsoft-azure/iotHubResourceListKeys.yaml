@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-the-security-metadata-for-an-iot-hub-for-more-information-see-httpsdocsmicrosoftcomazureiot-hubiot-hub-devguide-security
+  description: >-
+    Get the security metadata for an IoT hub. For more information, see:
+    https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get The Security Metadata For An Iot Hub. For More Information, See:
+        Https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security
+      description: >-
+        Get the security metadata for an IoT hub. For more information, see:
+        https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/listkeys:
+        post:
+          summary: >-
+            Get The Security Metadata For An Iot Hub. For More Information, See:
+            Https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security
+          description: >-
+            Get the security metadata for an IoT hub. For more information, see:
+            https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
+          operationId: iotHubResourceListKeys
+          responses:
+            default:
+              description: DefaultErrorResponse
+              schema:
+                $ref: '#/definitions/ErrorDetails'

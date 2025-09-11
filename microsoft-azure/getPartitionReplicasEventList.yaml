@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gets-all-replicas-related-events-for-a-partition
+  description: The response is list of ReplicaEvent objects.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets All Replicas-related Events For A Partition.
+      description: The response is list of ReplicaEvent objects.
+    paths:
+      /EventsStore/Partitions/{partitionId}/$/Replicas/Events:
+        get:
+          summary: Gets All Replicas-related Events For A Partition.
+          description: The response is list of ReplicaEvent objects.
+          operationId: getPartitionReplicasEventList
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

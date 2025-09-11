@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftcache-redis-name
+  description: >-
+    Create or replace (overwrite/recreate, with potential downtime) an existing
+    Redis cache.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.cache Redis Name
+      description: >-
+        Create or replace (overwrite/recreate, with potential downtime) an existing
+        Redis cache.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/Redis/{name}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.cache Redis Name
+          description: >-
+            Create or replace (overwrite/recreate, with potential downtime) an
+            existing Redis cache.
+          operationId: redisCreate
+          responses:
+            '201':
+              description: >-
+                The new redis cache was successfully created. Check
+                provisioningState to see detailed status.
+              schema:
+                $ref: '#/definitions/RedisResource'

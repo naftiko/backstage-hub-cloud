@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: put-apps-appid-publishsettings
+  description: Updates the application publish settings including 'UseAllTrainingData'.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Apps Appid Publishsettings
+      description: Updates the application publish settings including 'UseAllTrainingData'.
+    paths:
+      /apps/{appId}/publishsettings:
+        put:
+          summary: Put Apps Appid Publishsettings
+          description: Updates the application publish settings including 'UseAllTrainingData'.
+          operationId: appsUpdatePublishSettings
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

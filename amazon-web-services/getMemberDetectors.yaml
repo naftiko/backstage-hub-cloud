@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getmemberdetectors
+  description: >-
+    Describes which data sources are enabled for the member account's detector.
+    There might be regional differences because some data sources might not be
+    available in all the Amazon Web Services Regions where GuardDuty is
+    presently supported. For more information, see Regions and endpoints.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getmemberdetectors
+      description: >-
+        Describes which data sources are enabled for the member account's detector.
+        There might be regional differences because some data sources might not be
+        available in all the Amazon Web Services Regions where GuardDuty is
+        presently supported. For more information, see Regions and endpoints.
+    paths:
+      /detector/{detectorId}/member/detector/get:
+        POST:
+          summary: Getmemberdetectors
+          description: >-
+            Describes which data sources are enabled for the member account's
+            detector. There might be regional differences because some data sources
+            might not be available in all the Amazon Web Services Regions where
+            GuardDuty is presently supported. For more information, see Regions and
+            endpoints.
+          operationId: getMemberDetectors

@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getassetpropertyvalue
+  description: >-
+    Gets an asset property's current value. For more information, see Querying
+    current values in the IoT SiteWise User Guide. To identify an asset
+    property, you must specify one of the following:   The assetId and
+    propertyId of an asset property.   A propertyAlias, which is a data stream
+    alias (for example, /company/windfarm/3/turbine/7/temperature). To define an
+    asset property's alias, see UpdateAssetProperty.  
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getassetpropertyvalue
+      description: >-
+        Gets an asset property's current value. For more information, see Querying
+        current values in the IoT SiteWise User Guide. To identify an asset
+        property, you must specify one of the following:   The assetId and
+        propertyId of an asset property.   A propertyAlias, which is a data stream
+        alias (for example, /company/windfarm/3/turbine/7/temperature). To define an
+        asset property's alias, see UpdateAssetProperty.  
+    paths:
+      /properties/latest:
+        GET:
+          summary: Getassetpropertyvalue
+          description: >-
+            Gets an asset property's current value. For more information, see
+            Querying current values in the IoT SiteWise User Guide. To identify an
+            asset property, you must specify one of the following:   The assetId and
+            propertyId of an asset property.   A propertyAlias, which is a data
+            stream alias (for example, /company/windfarm/3/turbine/7/temperature).
+            To define an asset property's alias, see UpdateAssetProperty.  
+          operationId: getAssetPropertyValue

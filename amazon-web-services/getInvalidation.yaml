@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getinvalidation
+  description: Get the information about an invalidation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getinvalidation
+      description: Get the information about an invalidation.
+    paths:
+      /2020-05-31/distribution/{DistributionId}/invalidation/{Id}:
+        GET:
+          summary: Getinvalidation
+          description: Get the information about an invalidation.
+          operationId: getInvalidation

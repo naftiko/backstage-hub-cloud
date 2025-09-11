@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-the-status-of-chaos
+  description: >-
+    Get the status of Chaos indicating whether or not Chaos is running, the
+    Chaos parameters used for running Chaos and the status of the Chaos
+    Schedule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get The Status Of Chaos.
+      description: >-
+        Get the status of Chaos indicating whether or not Chaos is running, the
+        Chaos parameters used for running Chaos and the status of the Chaos
+        Schedule.
+    paths:
+      /Tools/Chaos:
+        get:
+          summary: Get The Status Of Chaos.
+          description: >-
+            Get the status of Chaos indicating whether or not Chaos is running, the
+            Chaos parameters used for running Chaos and the status of the Chaos
+            Schedule.
+          operationId: getChaos
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

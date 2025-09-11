@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-providers-microsoftmanagement-managementgroups-groupid-providers-microsoftresources-deployments-deploymentname-exporttemplate
+  description: Exports the template used for specified deployment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Providers Microsoft.management Managementgroups Groupid Providers
+        Microsoft.resources Deployments Deploymentname Exporttemplate
+      description: Exports the template used for specified deployment.
+    paths:
+      /providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}/exportTemplate:
+        post:
+          summary: >-
+            Post Providers Microsoft.management Managementgroups Groupid Providers
+            Microsoft.resources Deployments Deploymentname Exporttemplate
+          description: Exports the template used for specified deployment.
+          operationId: deploymentsExportTemplateAtManagementGroupScope
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

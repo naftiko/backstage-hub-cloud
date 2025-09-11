@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listthingprincipals
+  description: >-
+    Lists the principals associated with the specified thing. A principal can be
+    X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities
+    or federated identities. Requires permission to access the
+    ListThingPrincipals action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listthingprincipals
+      description: >-
+        Lists the principals associated with the specified thing. A principal can be
+        X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities
+        or federated identities. Requires permission to access the
+        ListThingPrincipals action.
+    paths:
+      /things/{thingName}/principals:
+        GET:
+          summary: Listthingprincipals
+          description: >-
+            Lists the principals associated with the specified thing. A principal
+            can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito
+            identities or federated identities. Requires permission to access the
+            ListThingPrincipals action.
+          operationId: listThingPrincipals

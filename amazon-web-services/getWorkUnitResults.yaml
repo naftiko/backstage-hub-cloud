@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getworkunitresults
+  description: >-
+    Returns the work units resulting from the query. Work units can be executed
+    in any order and in parallel. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getworkunitresults
+      description: >-
+        Returns the work units resulting from the query. Work units can be executed
+        in any order and in parallel. 
+    paths:
+      /GetWorkUnitResults:
+        POST:
+          summary: Getworkunitresults
+          description: >-
+            Returns the work units resulting from the query. Work units can be
+            executed in any order and in parallel. 
+          operationId: getWorkUnitResults

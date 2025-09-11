@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    gets-the-detailed-properties-of-the-recommendation-object-for-the-specified-web-site
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Gets The Detailed Properties Of The Recommendation Object For The Specified
+        Web Site.
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/recommendations/{name}:
+        get:
+          summary: >-
+            Gets The Detailed Properties Of The Recommendation Object For The
+            Specified Web Site.
+          description: Needs a more full description created.
+          operationId: recommendationsGetRuleDetailsBySiteName
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/RecommendationRule'

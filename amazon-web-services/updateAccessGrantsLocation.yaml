@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updateaccessgrantslocation
+  description: >-
+    Updates the IAM role of a registered location in your S3 Access Grants
+    instance.  Permissions  You must have the s3:UpdateAccessGrantsLocation
+    permission to use this operation.   Additional Permissions  You must also
+    have the following permission: iam:PassRole   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateaccessgrantslocation
+      description: >-
+        Updates the IAM role of a registered location in your S3 Access Grants
+        instance.  Permissions  You must have the s3:UpdateAccessGrantsLocation
+        permission to use this operation.   Additional Permissions  You must also
+        have the following permission: iam:PassRole   
+    paths:
+      /v20180820/accessgrantsinstance/location/{id}:
+        PUT:
+          summary: Updateaccessgrantslocation
+          description: >-
+            Updates the IAM role of a registered location in your S3 Access Grants
+            instance.  Permissions  You must have the s3:UpdateAccessGrantsLocation
+            permission to use this operation.   Additional Permissions  You must
+            also have the following permission: iam:PassRole   
+          operationId: updateAccessGrantsLocation

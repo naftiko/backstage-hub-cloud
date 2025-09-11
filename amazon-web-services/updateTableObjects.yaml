@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatetableobjects
+  description: >-
+    Updates the manifest of Amazon S3 objects that make up the specified
+    governed table.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatetableobjects
+      description: >-
+        Updates the manifest of Amazon S3 objects that make up the specified
+        governed table.
+    paths:
+      /UpdateTableObjects:
+        POST:
+          summary: Updatetableobjects
+          description: >-
+            Updates the manifest of Amazon S3 objects that make up the specified
+            governed table.
+          operationId: updateTableObjects

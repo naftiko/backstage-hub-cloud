@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: check-if-a-provisioning-service-name-is-available
+  description: >-
+    Check if a provisioning service name is available. This will validate if the
+    name is syntactically valid and if the name is usable
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Check If A Provisioning Service Name Is Available.
+      description: >-
+        Check if a provisioning service name is available. This will validate if the
+        name is syntactically valid and if the name is usable
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Devices/checkProvisioningServiceNameAvailability:
+        post:
+          summary: Check If A Provisioning Service Name Is Available.
+          description: >-
+            Check if a provisioning service name is available. This will validate if
+            the name is syntactically valid and if the name is usable
+          operationId: iotDpsResourceCheckProvisioningServiceNameAvailability
+          responses:
+            default:
+              description: Default error response.
+              schema:
+                $ref: '#/definitions/ErrorDetails'

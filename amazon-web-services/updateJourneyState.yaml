@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatejourneystate
+  description: Pause, resume or cancels (stops) a journey.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatejourneystate
+      description: Pause, resume or cancels (stops) a journey.
+    paths:
+      /v1/apps/{application-id}/journeys/{journey-id}/state:
+        PUT:
+          summary: Updatejourneystate
+          description: Pause, resume or cancels (stops) a journey.
+          operationId: updateJourneyState

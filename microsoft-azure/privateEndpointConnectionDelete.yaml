@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftrecoveryservices-vaults-vaultname-privateendpointconnections-privateendpointconnectionname
+  description: Delete Private Endpoint requests. This call is made by Backup Admin.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.recoveryservices Vaults Vaultname
+        Privateendpointconnections Privateendpointconnectionname
+      description: Delete Private Endpoint requests. This call is made by Backup Admin.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.recoveryservices Vaults Vaultname
+            Privateendpointconnections Privateendpointconnectionname
+          description: Delete Private Endpoint requests. This call is made by Backup Admin.
+          operationId: privateEndpointConnectionDelete
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

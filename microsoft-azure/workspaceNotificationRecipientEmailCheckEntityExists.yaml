@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    head-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftapimanagement-service-servicename-workspaces-workspaceid-notifications-notificationname-recipientemails-email
+  description: Determine if Notification Recipient Email subscribed to the notification.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Head Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.apimanagement Service Servicename Workspaces Workspaceid
+        Notifications Notificationname Recipientemails Email
+      description: Determine if Notification Recipient Email subscribed to the notification.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/notifications/{notificationName}/recipientEmails/{email}:
+        head:
+          summary: >-
+            Head Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.apimanagement Service Servicename Workspaces
+            Workspaceid Notifications Notificationname Recipientemails Email
+          description: >-
+            Determine if Notification Recipient Email subscribed to the
+            notification.
+          operationId: workspaceNotificationRecipientEmailCheckEntityExists
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./apimanagement.json#/definitions/ErrorResponse

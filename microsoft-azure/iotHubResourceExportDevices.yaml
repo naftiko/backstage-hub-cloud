@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    exports-all-the-device-identities-in-the-iot-hub-identity-registry-to-an-azure-storage-blob-container-for-more-information-see-httpsdocsmicrosoftcomazureiot-hubiot-hub-devguide-identity-registryimport-and-export-device-identities
+  description: >-
+    Exports all the device identities in the IoT hub identity registry to an
+    Azure Storage blob container. For more information, see:
+    https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#import-and-export-device-identities.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Exports All The Device Identities In The Iot Hub Identity Registry To An
+        Azure Storage Blob Container. For More Information, See:
+        Https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#import-and-export-device-identities
+      description: >-
+        Exports all the device identities in the IoT hub identity registry to an
+        Azure Storage blob container. For more information, see:
+        https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#import-and-export-device-identities.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/exportDevices:
+        post:
+          summary: >-
+            Exports All The Device Identities In The Iot Hub Identity Registry To An
+            Azure Storage Blob Container. For More Information, See:
+            Https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#import-and-export-device-identities
+          description: >-
+            Exports all the device identities in the IoT hub identity registry to an
+            Azure Storage blob container. For more information, see:
+            https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#import-and-export-device-identities.
+          operationId: iotHubResourceExportDevices
+          responses:
+            default:
+              description: DefaultErrorResponse
+              schema:
+                $ref: '#/definitions/ErrorDetails'

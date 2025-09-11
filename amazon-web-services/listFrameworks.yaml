@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listframeworks
+  description: >-
+    Returns a list of all frameworks for an Amazon Web Services account and
+    Amazon Web Services Region.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listframeworks
+      description: >-
+        Returns a list of all frameworks for an Amazon Web Services account and
+        Amazon Web Services Region.
+    paths:
+      /audit/frameworks:
+        GET:
+          summary: Listframeworks
+          description: >-
+            Returns a list of all frameworks for an Amazon Web Services account and
+            Amazon Web Services Region.
+          operationId: listFrameworks

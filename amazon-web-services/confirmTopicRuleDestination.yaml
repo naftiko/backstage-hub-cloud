@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: confirmtopicruledestination
+  description: >-
+    Confirms a topic rule destination. When you create a rule requiring a
+    destination, IoT sends a confirmation message to the endpoint or base
+    address you specify. The message includes a token which you pass back when
+    calling ConfirmTopicRuleDestination to confirm that you own or have access
+    to the endpoint. Requires permission to access the
+    ConfirmTopicRuleDestination action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Confirmtopicruledestination
+      description: >-
+        Confirms a topic rule destination. When you create a rule requiring a
+        destination, IoT sends a confirmation message to the endpoint or base
+        address you specify. The message includes a token which you pass back when
+        calling ConfirmTopicRuleDestination to confirm that you own or have access
+        to the endpoint. Requires permission to access the
+        ConfirmTopicRuleDestination action.
+    paths:
+      /confirmdestination/{confirmationToken+}:
+        GET:
+          summary: Confirmtopicruledestination
+          description: >-
+            Confirms a topic rule destination. When you create a rule requiring a
+            destination, IoT sends a confirmation message to the endpoint or base
+            address you specify. The message includes a token which you pass back
+            when calling ConfirmTopicRuleDestination to confirm that you own or have
+            access to the endpoint. Requires permission to access the
+            ConfirmTopicRuleDestination action.
+          operationId: confirmTopicRuleDestination

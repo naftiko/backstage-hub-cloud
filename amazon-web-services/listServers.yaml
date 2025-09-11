@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listservers
+  description: ' Returns a list of all the servers. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listservers
+      description: ' Returns a list of all the servers. '
+    paths:
+      /list-servers:
+        POST:
+          summary: Listservers
+          description: ' Returns a list of all the servers. '
+          operationId: listServers

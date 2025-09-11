@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gettokenbalance
+  description: >-
+    Gets the balance of a specific token, including native tokens, for a given
+    address (wallet or contract) on the blockchain.  Only the native tokens BTC
+    and ETH, and the ERC-20, ERC-721, and ERC 1155 token standards are
+    supported. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gettokenbalance
+      description: >-
+        Gets the balance of a specific token, including native tokens, for a given
+        address (wallet or contract) on the blockchain.  Only the native tokens BTC
+        and ETH, and the ERC-20, ERC-721, and ERC 1155 token standards are
+        supported. 
+    paths:
+      /get-token-balance:
+        POST:
+          summary: Gettokenbalance
+          description: >-
+            Gets the balance of a specific token, including native tokens, for a
+            given address (wallet or contract) on the blockchain.  Only the native
+            tokens BTC and ETH, and the ERC-20, ERC-721, and ERC 1155 token
+            standards are supported. 
+          operationId: getTokenBalance

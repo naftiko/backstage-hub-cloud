@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftdesktopvirtualization-workspaces-workspacename-privateendpointconnections-privateendpointconnectionname
+  description: Remove a connection.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft.desktopvirtualization Workspaces Workspacename
+        Privateendpointconnections Privateendpointconnectionname
+      description: Remove a connection.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/workspaces/{workspaceName}/privateEndpointConnections/{privateEndpointConnectionName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.desktopvirtualization Workspaces Workspacename
+            Privateendpointconnections Privateendpointconnectionname
+          description: Remove a connection.
+          operationId: privateEndpointConnectionsDeleteByWorkspace
+          responses:
+            default:
+              description: Automation error response describing why the operation failed.
+              x-ms-error-response: true
+              schema:
+                $ref: '#/definitions/CloudError'

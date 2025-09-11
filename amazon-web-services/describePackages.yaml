@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: describepackages
+  description: >-
+    Describes all packages available to OpenSearch Service. For more
+    information, see Custom packages for Amazon OpenSearch Service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describepackages
+      description: >-
+        Describes all packages available to OpenSearch Service. For more
+        information, see Custom packages for Amazon OpenSearch Service.
+    paths:
+      /2021-01-01/packages/describe:
+        POST:
+          summary: Describepackages
+          description: >-
+            Describes all packages available to OpenSearch Service. For more
+            information, see Custom packages for Amazon OpenSearch Service.
+          operationId: describePackages

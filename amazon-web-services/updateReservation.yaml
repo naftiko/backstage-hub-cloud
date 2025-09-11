@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatereservation
+  description: Update reservation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatereservation
+      description: Update reservation.
+    paths:
+      /prod/reservations/{reservationId}:
+        PUT:
+          summary: Updatereservation
+          description: Update reservation.
+          operationId: updateReservation

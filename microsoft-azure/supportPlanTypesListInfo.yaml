@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-providers-microsoftaddons-supportproviders-canonical-listsupportplaninfo
+  description: >-
+    Returns the canonical support plan information for all types for the
+    subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Providers Microsoft.addons
+        Supportproviders Canonical Listsupportplaninfo
+      description: >-
+        Returns the canonical support plan information for all types for the
+        subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Addons/supportProviders/canonical/listSupportPlanInfo:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Providers Microsoft.addons
+            Supportproviders Canonical Listsupportplaninfo
+          description: >-
+            Returns the canonical support plan information for all types for the
+            subscription.
+          operationId: supportPlanTypesListInfo
+          responses:
+            default:
+              description: BadRequest
+              schema:
+                $ref: '#/definitions/ErrorDefinition'

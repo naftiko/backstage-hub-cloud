@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatedatasetpermissions
+  description: >-
+    Updates the permissions on a dataset. The permissions resource is
+    arn:aws:quicksight:region:aws-account-id:dataset/data-set-id.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatedatasetpermissions
+      description: >-
+        Updates the permissions on a dataset. The permissions resource is
+        arn:aws:quicksight:region:aws-account-id:dataset/data-set-id.
+    paths:
+      /accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions:
+        POST:
+          summary: Updatedatasetpermissions
+          description: >-
+            Updates the permissions on a dataset. The permissions resource is
+            arn:aws:quicksight:region:aws-account-id:dataset/data-set-id.
+          operationId: updateDataSetPermissions

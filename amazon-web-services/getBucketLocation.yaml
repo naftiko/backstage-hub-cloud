@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getbucketlocation
+  description: ' This operation is not supported by directory buckets.  Returns the Region the bucket resides in. You set the bucket''s Region using the LocationConstraint request parameter in a CreateBucket request. For more information, see CreateBucket. When you use this API operation with an access point, provide the alias of the access point in place of the bucket name. When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code InvalidAccessPointAliasError is returned. For more information about InvalidAccessPointAliasError, see List of Error Codes.  We recommend that you use HeadBucket to return the Region that a bucket resides in. For backward compatibility, Amazon S3 continues to support GetBucketLocation.  The following operations are related to GetBucketLocation:    GetObject     CreateBucket   '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getbucketlocation
+      description: ' This operation is not supported by directory buckets.  Returns the Region the bucket resides in. You set the bucket''s Region using the LocationConstraint request parameter in a CreateBucket request. For more information, see CreateBucket. When you use this API operation with an access point, provide the alias of the access point in place of the bucket name. When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code InvalidAccessPointAliasError is returned. For more information about InvalidAccessPointAliasError, see List of Error Codes.  We recommend that you use HeadBucket to return the Region that a bucket resides in. For backward compatibility, Amazon S3 continues to support GetBucketLocation.  The following operations are related to GetBucketLocation:    GetObject     CreateBucket   '
+    paths:
+      /{Bucket}?location:
+        GET:
+          summary: Getbucketlocation
+          description: ' This operation is not supported by directory buckets.  Returns the Region the bucket resides in. You set the bucket''s Region using the LocationConstraint request parameter in a CreateBucket request. For more information, see CreateBucket. When you use this API operation with an access point, provide the alias of the access point in place of the bucket name. When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code InvalidAccessPointAliasError is returned. For more information about InvalidAccessPointAliasError, see List of Error Codes.  We recommend that you use HeadBucket to return the Region that a bucket resides in. For backward compatibility, Amazon S3 continues to support GetBucketLocation.  The following operations are related to GetBucketLocation:    GetObject     CreateBucket   '
+          operationId: getBucketLocation

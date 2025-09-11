@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: startcontentupload
+  description: >-
+    Get a URL to upload content to a knowledge base. To upload content, first
+    make a PUT request to the returned URL with your file, making sure to
+    include the required headers. Then use CreateContent to finalize the content
+    creation process or UpdateContent to modify an existing resource. You can
+    only upload content to a knowledge base of type CUSTOM.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startcontentupload
+      description: >-
+        Get a URL to upload content to a knowledge base. To upload content, first
+        make a PUT request to the returned URL with your file, making sure to
+        include the required headers. Then use CreateContent to finalize the content
+        creation process or UpdateContent to modify an existing resource. You can
+        only upload content to a knowledge base of type CUSTOM.
+    paths:
+      /knowledgeBases/{knowledgeBaseId}/upload:
+        POST:
+          summary: Startcontentupload
+          description: >-
+            Get a URL to upload content to a knowledge base. To upload content,
+            first make a PUT request to the returned URL with your file, making sure
+            to include the required headers. Then use CreateContent to finalize the
+            content creation process or UpdateContent to modify an existing
+            resource. You can only upload content to a knowledge base of type
+            CUSTOM.
+          operationId: startContentUpload

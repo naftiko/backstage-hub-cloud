@@ -1,0 +1,120 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: modify-threads
+  description: >-
+    Modifies the labels applied to the thread. This applies to all messages in
+    the thread.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Modify Threads
+      description: >-
+        Modifies the labels applied to the thread. This applies to all messages in
+        the thread.
+    paths:
+      /gmail/v1/users/{userId}/threads/{id}/modify:
+        post:
+          summary: Modify Threads
+          description: >-
+            Modifies the labels applied to the thread. This applies to all messages
+            in the thread.
+          operationId: modifyThreads
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    addLabelIds:
+                      - labore anim culpa aliqua
+                      - Duis sed irure Ut aliqua
+                    removeLabelIds:
+                      - consectetur et dolore Lorem
+                      - reprehenderit tempor id dolore incididunt
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    id: nostrud deserunt
+                    snippet: cillum quis
+                    historyId: id ea ad amet venia
+                    messages:
+                      - id: exercitation sint
+                        threadId: Ut sed occaecat
+                        labelIds:
+                          - in commodo
+                          - sit dolor
+                        snippet: dolor fugiat Ut
+                        historyId: Lorem quis ullamco veniam
+                        internalDate: consectetur elit dolor
+                        payload:
+                          partId: mi
+                          mimeType: elit
+                          filename: ex
+                          headers:
+                            - name: velit do voluptate
+                              value: in reprehenderit sit pariatur
+                            - name: enim
+                              value: vel
+                          body:
+                            attachmentId: e
+                            size: 62147464
+                            data: aliquip aute in Excepteur
+                          parts:
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                        sizeEstimate: -33441686
+                        raw: Ut sit
+                      - id: magna pariatur
+                        threadId: et
+                        labelIds:
+                          - est dolore
+                          - Lorem Duis amet dolore
+                        snippet: dolore est reprehender
+                        historyId: in ex veniam nulla
+                        internalDate: ut
+                        payload:
+                          partId: do consectetur tempor qui in
+                          mimeType: Excepteur in
+                          filename: reprehenderit
+                          headers:
+                            - name: nulla sed ut
+                              value: et occaecat
+                            - name: mollit elit commodo nostrud pariatur
+                              value: aliqua
+                          body:
+                            attachmentId: sit sunt occaecat
+                            size: 23654047
+                            data: dolor ut
+                          parts:
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                            - value: >-
+                                <Circular reference to
+                                #/components/schemas/MessagePart detected>
+                        sizeEstimate: 2028457
+                        raw: ipsum enim minim

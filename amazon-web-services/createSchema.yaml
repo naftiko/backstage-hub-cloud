@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: createschema
+  description: >-
+    Creates a new schema in a development state. A schema can exist in three
+    phases:    Development: This is a mutable phase of the schema. All new
+    schemas are in the development phase. Once the schema is finalized, it can
+    be published.    Published: Published schemas are immutable and have a
+    version associated with them.    Applied: Applied schemas are mutable in a
+    way that allows you to add new schema facets. You can also add new,
+    nonrequired attributes to existing schema facets. You can apply only
+    published schemas to directories.   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createschema
+      description: >-
+        Creates a new schema in a development state. A schema can exist in three
+        phases:    Development: This is a mutable phase of the schema. All new
+        schemas are in the development phase. Once the schema is finalized, it can
+        be published.    Published: Published schemas are immutable and have a
+        version associated with them.    Applied: Applied schemas are mutable in a
+        way that allows you to add new schema facets. You can also add new,
+        nonrequired attributes to existing schema facets. You can apply only
+        published schemas to directories.   
+    paths:
+      /amazonclouddirectory/2017-01-11/schema/create:
+        PUT:
+          summary: Createschema
+          description: >-
+            Creates a new schema in a development state. A schema can exist in three
+            phases:    Development: This is a mutable phase of the schema. All new
+            schemas are in the development phase. Once the schema is finalized, it
+            can be published.    Published: Published schemas are immutable and have
+            a version associated with them.    Applied: Applied schemas are mutable
+            in a way that allows you to add new schema facets. You can also add new,
+            nonrequired attributes to existing schema facets. You can apply only
+            published schemas to directories.   
+          operationId: createSchema

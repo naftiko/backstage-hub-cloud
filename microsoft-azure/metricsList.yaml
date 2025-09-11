@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-resourceuri-providers-microsoftinsights-metrics
+  description: Lists the metric values for a resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Resourceuri Providers Microsoft.insights Metrics
+      description: Lists the metric values for a resource.
+    paths:
+      /{resourceUri}/providers/microsoft.insights/metrics:
+        get:
+          summary: Get Resourceuri Providers Microsoft.insights Metrics
+          description: Lists the metric values for a resource.
+          operationId: metricsList
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

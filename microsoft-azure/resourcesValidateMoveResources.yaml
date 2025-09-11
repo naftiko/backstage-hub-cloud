@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    validates-whether-resources-can-be-moved-from-one-resource-group-to-another-resource-group
+  description: >-
+    This operation checks whether the specified resources can be moved to the
+    target. The resources to be moved must be in the same source resource group
+    in the source subscription being used. The target resource group may be in a
+    different subscription. If validation succeeds, it returns HTTP response
+    code 204 (no content). If validation fails, it returns HTTP response code
+    409 (Conflict) with an error message. Retrieve the URL in the Location
+    header value to check the result of the long-running operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Validates Whether Resources Can Be Moved From One Resource Group To Another
+        Resource Group.
+      description: >-
+        This operation checks whether the specified resources can be moved to the
+        target. The resources to be moved must be in the same source resource group
+        in the source subscription being used. The target resource group may be in a
+        different subscription. If validation succeeds, it returns HTTP response
+        code 204 (no content). If validation fails, it returns HTTP response code
+        409 (Conflict) with an error message. Retrieve the URL in the Location
+        header value to check the result of the long-running operation.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{sourceResourceGroupName}/validateMoveResources:
+        post:
+          summary: >-
+            Validates Whether Resources Can Be Moved From One Resource Group To
+            Another Resource Group.
+          description: >-
+            This operation checks whether the specified resources can be moved to
+            the target. The resources to be moved must be in the same source
+            resource group in the source subscription being used. The target
+            resource group may be in a different subscription. If validation
+            succeeds, it returns HTTP response code 204 (no content). If validation
+            fails, it returns HTTP response code 409 (Conflict) with an error
+            message. Retrieve the URL in the Location header value to check the
+            result of the long-running operation.
+          operationId: resourcesValidateMoveResources
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

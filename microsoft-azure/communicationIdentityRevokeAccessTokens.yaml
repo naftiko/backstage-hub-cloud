@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: revoke-all-access-tokens-for-the-specific-identity
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Revoke All Access Tokens For The Specific Identity.
+      description: Needs a more full description created.
+    paths:
+      /identities/{id}/:revokeAccessTokens:
+        post:
+          summary: Revoke All Access Tokens For The Specific Identity.
+          description: Needs a more full description created.
+          operationId: communicationIdentityRevokeAccessTokens
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: >-
+                  ../../../Common/stable/2021-03-07/common.json#/definitions/CommunicationErrorResponse

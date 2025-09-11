@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-atlas-glossary-glossaryguid-categories
+  description: >-
+    Get the categories belonging to a specific glossary. Recommend using
+    limit/offset to get pagination result.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Atlas Glossary Glossaryguid Categories
+      description: >-
+        Get the categories belonging to a specific glossary. Recommend using
+        limit/offset to get pagination result.
+    paths:
+      /atlas/v2/glossary/{glossaryGuid}/categories:
+        get:
+          summary: Get Atlas Glossary Glossaryguid Categories
+          description: >-
+            Get the categories belonging to a specific glossary. Recommend using
+            limit/offset to get pagination result.
+          operationId: glossaryListGlossaryCategories
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

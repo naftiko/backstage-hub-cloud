@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-providers-microsoftadhybridhealthservice-addsservices-servicename-metricmetadata-metricname-groups-groupname
+  description: Gets the service related metrics for a given metric and group combination.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Providers Microsoft.adhybridhealthservice Addsservices Servicename
+        Metricmetadata Metricname Groups Groupname
+      description: Gets the service related metrics for a given metric and group combination.
+    paths:
+      /providers/Microsoft.ADHybridHealthService/addsservices/{serviceName}/metricmetadata/{metricName}/groups/{groupName}:
+        get:
+          summary: >-
+            Get Providers Microsoft.adhybridhealthservice Addsservices Servicename
+            Metricmetadata Metricname Groups Groupname
+          description: >-
+            Gets the service related metrics for a given metric and group
+            combination.
+          operationId: addsServicesgetMetricMetadataForGroup
+          responses:
+            '200':
+              description: 'The metric sets for a given service and group. '
+              schema:
+                $ref: '#/definitions/MetricSets'

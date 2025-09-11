@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updates-a-service-fabric-service-using-the-specified-update-description
+  description: >-
+    This API allows updating properties of a running Service Fabric service. The
+    set of properties that can be updated are a subset of the properties that
+    were specified at the time of creating the service. The current set of
+    properties can be obtained using `GetServiceDescription` API. Note that
+    updating the properties of a running service is different than upgrading
+    your application using `StartApplicationUpgrade` API. The upgrade is a long
+    running background operation that involves moving the application from one
+    version to another, one upgrade domain at a time, whereas update applies the
+    new properties immediately to the service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updates A Service Fabric Service Using The Specified Update Description.
+      description: >-
+        This API allows updating properties of a running Service Fabric service. The
+        set of properties that can be updated are a subset of the properties that
+        were specified at the time of creating the service. The current set of
+        properties can be obtained using `GetServiceDescription` API. Note that
+        updating the properties of a running service is different than upgrading
+        your application using `StartApplicationUpgrade` API. The upgrade is a long
+        running background operation that involves moving the application from one
+        version to another, one upgrade domain at a time, whereas update applies the
+        new properties immediately to the service.
+    paths:
+      /Services/{serviceId}/$/Update:
+        post:
+          summary: Updates A Service Fabric Service Using The Specified Update Description.
+          description: >-
+            This API allows updating properties of a running Service Fabric service.
+            The set of properties that can be updated are a subset of the properties
+            that were specified at the time of creating the service. The current set
+            of properties can be obtained using `GetServiceDescription` API. Note
+            that updating the properties of a running service is different than
+            upgrading your application using `StartApplicationUpgrade` API. The
+            upgrade is a long running background operation that involves moving the
+            application from one version to another, one upgrade domain at a time,
+            whereas update applies the new properties immediately to the service.
+          operationId: updateService
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

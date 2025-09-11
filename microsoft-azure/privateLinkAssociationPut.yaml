@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    put-providers-microsoftmanagement-managementgroups-groupid-providers-microsoftauthorization-privatelinkassociations-plaid
+  description: Create a PrivateLinkAssociation
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Providers Microsoft.management Managementgroups Groupid Providers
+        Microsoft.authorization Privatelinkassociations Plaid
+      description: Create a PrivateLinkAssociation
+    paths:
+      /providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Authorization/privateLinkAssociations/{plaId}:
+        put:
+          summary: >-
+            Put Providers Microsoft.management Managementgroups Groupid Providers
+            Microsoft.authorization Privatelinkassociations Plaid
+          description: Create a PrivateLinkAssociation
+          operationId: privateLinkAssociationPut
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

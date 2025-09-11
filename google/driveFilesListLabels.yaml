@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-files-fileid-listlabels
+  description: Lists the labels on a file.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Files Fileid Listlabels
+      description: Lists the labels on a file.
+    paths:
+      /files/{fileId}/listLabels:
+        get:
+          summary: Get Files Fileid Listlabels
+          description: Lists the labels on a file.
+          operationId: driveFilesListLabels
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/LabelList'
+              description: Successful response

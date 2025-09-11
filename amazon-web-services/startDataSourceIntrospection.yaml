@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: startdatasourceintrospection
+  description: >-
+    Creates a new introspection. Returns the introspectionId of the new
+    introspection after its creation. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startdatasourceintrospection
+      description: >-
+        Creates a new introspection. Returns the introspectionId of the new
+        introspection after its creation. 
+    paths:
+      /v1/datasources/introspections:
+        POST:
+          summary: Startdatasourceintrospection
+          description: >-
+            Creates a new introspection. Returns the introspectionId of the new
+            introspection after its creation. 
+          operationId: startDataSourceIntrospection

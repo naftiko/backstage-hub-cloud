@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listrestoretestingplans
+  description: Returns a list of restore testing plans.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listrestoretestingplans
+      description: Returns a list of restore testing plans.
+    paths:
+      /restore-testing/plans:
+        GET:
+          summary: Listrestoretestingplans
+          description: Returns a list of restore testing plans.
+          operationId: listRestoreTestingPlans

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-providers-microsoftdevops-pipelinetemplatedefinitions
+  description: Lists all pipeline templates which can be used to configure a Pipeline.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Providers Microsoft.devops Pipelinetemplatedefinitions
+      description: Lists all pipeline templates which can be used to configure a Pipeline.
+    paths:
+      /providers/Microsoft.DevOps/pipelineTemplateDefinitions:
+        get:
+          summary: Get Providers Microsoft.devops Pipelinetemplatedefinitions
+          description: Lists all pipeline templates which can be used to configure a Pipeline.
+          operationId: pipelineTemplateDefinitionsList
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

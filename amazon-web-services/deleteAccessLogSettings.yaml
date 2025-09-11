@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deleteaccesslogsettings
+  description: >-
+    Deletes the AccessLogSettings for a Stage. To disable access logging for a
+    Stage, delete its AccessLogSettings.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deleteaccesslogsettings
+      description: >-
+        Deletes the AccessLogSettings for a Stage. To disable access logging for a
+        Stage, delete its AccessLogSettings.
+    paths:
+      /v2/apis/{apiId}/stages/{stageName}/accesslogsettings:
+        DELETE:
+          summary: Deleteaccesslogsettings
+          description: >-
+            Deletes the AccessLogSettings for a Stage. To disable access logging for
+            a Stage, delete its AccessLogSettings.
+          operationId: deleteAccessLogSettings

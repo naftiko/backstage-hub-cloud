@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatesignalingchannel
+  description: >-
+    Updates the existing signaling channel. This is an asynchronous operation
+    and takes time to complete.  If the MessageTtlSeconds value is updated
+    (either increased or reduced), it only applies to new messages sent via this
+    channel after it's been updated. Existing messages are still expired as per
+    the previous MessageTtlSeconds value.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatesignalingchannel
+      description: >-
+        Updates the existing signaling channel. This is an asynchronous operation
+        and takes time to complete.  If the MessageTtlSeconds value is updated
+        (either increased or reduced), it only applies to new messages sent via this
+        channel after it's been updated. Existing messages are still expired as per
+        the previous MessageTtlSeconds value.
+    paths:
+      /updateSignalingChannel:
+        POST:
+          summary: Updatesignalingchannel
+          description: >-
+            Updates the existing signaling channel. This is an asynchronous
+            operation and takes time to complete.  If the MessageTtlSeconds value is
+            updated (either increased or reduced), it only applies to new messages
+            sent via this channel after it's been updated. Existing messages are
+            still expired as per the previous MessageTtlSeconds value.
+          operationId: updateSignalingChannel

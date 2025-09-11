@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: package-gets-published-luis-application-package-in-binary-stream-gzip-format
+  description: >-
+    Packages a published LUIS application as a GZip file to be used in the LUIS
+    container.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Package - Gets Published Luis Application Package In Binary Stream Gzip
+        Format
+      description: >-
+        Packages a published LUIS application as a GZip file to be used in the LUIS
+        container.
+    paths:
+      /package/{appId}/slot/{slotName}/gzip:
+        get:
+          summary: >-
+            Package - Gets Published Luis Application Package In Binary Stream Gzip
+            Format
+          description: >-
+            Packages a published LUIS application as a GZip file to be used in the
+            LUIS container.
+          operationId: appsPackagePublishedApplicationAsGzip
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

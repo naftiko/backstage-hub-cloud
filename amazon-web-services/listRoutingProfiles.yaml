@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listroutingprofiles
+  description: >-
+    Provides summary information about the routing profiles for the specified
+    Amazon Connect instance. For more information about routing profiles, see
+    Routing Profiles and Create a Routing Profile in the Amazon Connect
+    Administrator Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listroutingprofiles
+      description: >-
+        Provides summary information about the routing profiles for the specified
+        Amazon Connect instance. For more information about routing profiles, see
+        Routing Profiles and Create a Routing Profile in the Amazon Connect
+        Administrator Guide.
+    paths:
+      /routing-profiles-summary/{InstanceId}:
+        GET:
+          summary: Listroutingprofiles
+          description: >-
+            Provides summary information about the routing profiles for the
+            specified Amazon Connect instance. For more information about routing
+            profiles, see Routing Profiles and Create a Routing Profile in the
+            Amazon Connect Administrator Guide.
+          operationId: listRoutingProfiles

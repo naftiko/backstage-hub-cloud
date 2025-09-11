@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: generate-verification-code-for-proof-of-possession-flow
+  description: >-
+    Generates verification code for proof of possession flow. The verification
+    code will be used to generate a leaf certificate.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Generate Verification Code For Proof Of Possession Flow.
+      description: >-
+        Generates verification code for proof of possession flow. The verification
+        code will be used to generate a leaf certificate.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/certificates/{certificateName}/generateVerificationCode:
+        post:
+          summary: Generate Verification Code For Proof Of Possession Flow.
+          description: >-
+            Generates verification code for proof of possession flow. The
+            verification code will be used to generate a leaf certificate.
+          operationId: certificatesGenerateVerificationCode
+          responses:
+            default:
+              description: DefaultErrorResponse
+              schema:
+                $ref: '#/definitions/ErrorDetails'

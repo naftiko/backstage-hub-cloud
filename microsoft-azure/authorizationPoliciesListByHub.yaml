@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftcustomerinsights-hubs-hubname-authorizationpolicies
+  description: Gets all the authorization policies in a specified hub.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.customerinsights Hubs Hubname Authorizationpolicies
+      description: Gets all the authorization policies in a specified hub.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/authorizationPolicies:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.customerinsights Hubs Hubname Authorizationpolicies
+          description: Gets all the authorization policies in a specified hub.
+          operationId: authorizationPoliciesListByHub
+          responses:
+            '200':
+              description: OK. Successfully get all the authorization policies in the hub.
+              schema:
+                $ref: '#/definitions/AuthorizationPolicyListResult'

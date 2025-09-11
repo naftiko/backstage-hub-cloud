@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deletes-the-management-lock-at-the-subscription-level
+  description: >-
+    To delete management locks, you must have access to
+    Microsoft.Authorization/* or Microsoft.Authorization/locks/* actions. Of the
+    built-in roles, only Owner and User Access Administrator are granted those
+    actions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletes The Management Lock At The Subscription Level.
+      description: >-
+        To delete management locks, you must have access to
+        Microsoft.Authorization/* or Microsoft.Authorization/locks/* actions. Of the
+        built-in roles, only Owner and User Access Administrator are granted those
+        actions.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/locks/{lockName}:
+        delete:
+          summary: Deletes The Management Lock At The Subscription Level.
+          description: >-
+            To delete management locks, you must have access to
+            Microsoft.Authorization/* or Microsoft.Authorization/locks/* actions. Of
+            the built-in roles, only Owner and User Access Administrator are granted
+            those actions.
+          operationId: managementLocksDeleteAtSubscriptionLevel
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

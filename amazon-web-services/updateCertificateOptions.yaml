@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatecertificateoptions
+  description: >-
+    Updates a certificate. Currently, you can use this function to specify
+    whether to opt in to or out of recording your certificate in a certificate
+    transparency log. For more information, see  Opting Out of Certificate
+    Transparency Logging. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatecertificateoptions
+      description: >-
+        Updates a certificate. Currently, you can use this function to specify
+        whether to opt in to or out of recording your certificate in a certificate
+        transparency log. For more information, see  Opting Out of Certificate
+        Transparency Logging. 
+    paths:
+      /:
+        POST:
+          summary: Updatecertificateoptions
+          description: >-
+            Updates a certificate. Currently, you can use this function to specify
+            whether to opt in to or out of recording your certificate in a
+            certificate transparency log. For more information, see  Opting Out of
+            Certificate Transparency Logging. 
+          operationId: updateCertificateOptions

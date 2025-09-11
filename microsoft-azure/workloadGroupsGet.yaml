@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoftsql-servers-servername-databases-databasename-workloadgroups-workloadgroupname
+  description: Gets a workload group
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft.sql Servers Servername Databases Databasename Workloadgroups
+        Workloadgroupname
+      description: Gets a workload group
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/workloadGroups/{workloadGroupName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft.sql Servers Servername Databases Databasename
+            Workloadgroups Workloadgroupname
+          description: Gets a workload group
+          operationId: workloadGroupsGet
+          responses:
+            default:
+              description: |-
+                *** Error Responses: ***
+
+                 * 400 ManagedInstanceStoppingOrStopped - Conflicting operation submitted while instance is in stopping/stopped state
+
+                 * 400 ManagedInstanceStarting - Conflicting operation submitted while instance is in starting state
+
+                 * 400 OperationNotAllowedOnPausedDatabase - Operation is not allowed on a paused database.
+
+                 * 400 FeatureDisabledOnSelectedEdition - User attempted to use a feature which is disabled on current database edition.
+
+                 * 404 SubscriptionDoesNotHaveServer - The requested server was not found
+
+                 * 404 ServerNotInSubscriptionResourceGroup - Specified server does not exist in the specified resource group and subscription.
+
+                 * 404 DatabaseDoesNotExist - User has specified a database name that does not exist on this server instance.
+
+                 * 404 ResourceNotFound - The requested resource was not found.
+
+                 * 409 ConflictingDatabaseOperation - There is already some operation on the database and the current operation should wait till it is done.
+
+                 * 409 ConflictingSystemOperationInProgress - A system maintenance operation is in progress on the database and further operations need to wait until it is completed.
+
+                 * 503 TooManyRequests - Requests beyond max requests that can be processed by available resources.
+
+                 * 503 DatabaseUnavailable - The operation failed because the database is unavailable.
+
+                 * 504 RequestTimeout - Service request exceeded the allowed timeout.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

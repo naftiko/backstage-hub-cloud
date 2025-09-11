@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: put-apps-appid-versions-versionid-intents-intentid-features
+  description: >-
+    Updates the information of the features used by the intent in a version of
+    the application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Apps Appid Versions Versionid Intents Intentid Features
+      description: >-
+        Updates the information of the features used by the intent in a version of
+        the application.
+    paths:
+      /apps/{appId}/versions/{versionId}/intents/{intentId}/features:
+        put:
+          summary: Put Apps Appid Versions Versionid Intents Intentid Features
+          description: >-
+            Updates the information of the features used by the intent in a version
+            of the application.
+          operationId: modelReplaceIntentFeatures
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

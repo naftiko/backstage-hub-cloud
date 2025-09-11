@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listdevicedefinitionversions
+  description: Lists the versions of a device definition.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listdevicedefinitionversions
+      description: Lists the versions of a device definition.
+    paths:
+      /greengrass/definition/devices/{DeviceDefinitionId}/versions:
+        GET:
+          summary: Listdevicedefinitionversions
+          description: Lists the versions of a device definition.
+          operationId: listDeviceDefinitionVersions

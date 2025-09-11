@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deprecatethingtype
+  description: >-
+    Deprecates a thing type. You can not associate new things with deprecated
+    thing type. Requires permission to access the DeprecateThingType action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deprecatethingtype
+      description: >-
+        Deprecates a thing type. You can not associate new things with deprecated
+        thing type. Requires permission to access the DeprecateThingType action.
+    paths:
+      /thing-types/{thingTypeName}/deprecate:
+        POST:
+          summary: Deprecatethingtype
+          description: >-
+            Deprecates a thing type. You can not associate new things with
+            deprecated thing type. Requires permission to access the
+            DeprecateThingType action.
+          operationId: deprecateThingType

@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listmodels
+  description: >-
+    Lists the versions of a model in an Amazon Lookout for Vision project. The
+    ListModels operation is eventually consistent. Recent calls to CreateModel
+    might take a while to appear in the response from ListProjects. This
+    operation requires permissions to perform the lookoutvision:ListModels
+    operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listmodels
+      description: >-
+        Lists the versions of a model in an Amazon Lookout for Vision project. The
+        ListModels operation is eventually consistent. Recent calls to CreateModel
+        might take a while to appear in the response from ListProjects. This
+        operation requires permissions to perform the lookoutvision:ListModels
+        operation.
+    paths:
+      /2020-11-20/projects/{projectName}/models:
+        GET:
+          summary: Listmodels
+          description: >-
+            Lists the versions of a model in an Amazon Lookout for Vision project.
+            The ListModels operation is eventually consistent. Recent calls to
+            CreateModel might take a while to appear in the response from
+            ListProjects. This operation requires permissions to perform the
+            lookoutvision:ListModels operation.
+          operationId: listModels

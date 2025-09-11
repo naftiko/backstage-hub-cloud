@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updateresourceeventconfiguration
+  description: Update the event configuration for a particular resource identifier.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateresourceeventconfiguration
+      description: Update the event configuration for a particular resource identifier.
+    paths:
+      /event-configurations/{Identifier}:
+        PATCH:
+          summary: Updateresourceeventconfiguration
+          description: Update the event configuration for a particular resource identifier.
+          operationId: updateResourceEventConfiguration

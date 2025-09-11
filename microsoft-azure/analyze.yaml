@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: submit-analysis-job
+  description: >-
+    Submit a collection of text documents for analysis. Specify one or more
+    unique tasks to be executed.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Submit Analysis Job
+      description: >-
+        Submit a collection of text documents for analysis. Specify one or more
+        unique tasks to be executed.
+    paths:
+      /analyze:
+        post:
+          summary: Submit Analysis Job
+          description: >-
+            Submit a collection of text documents for analysis. Specify one or more
+            unique tasks to be executed.
+          operationId: analyze
+          responses:
+            '500':
+              description: Internal error response
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              x-ms-error-response: true

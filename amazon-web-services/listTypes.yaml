@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listtypes
+  description: Lists the types for a given API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listtypes
+      description: Lists the types for a given API.
+    paths:
+      /v1/apis/{apiId}/types:
+        GET:
+          summary: Listtypes
+          description: Lists the types for a given API.
+          operationId: listTypes

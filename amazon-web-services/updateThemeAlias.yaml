@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updatethemealias
+  description: Updates an alias of a theme.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatethemealias
+      description: Updates an alias of a theme.
+    paths:
+      /accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}:
+        PUT:
+          summary: Updatethemealias
+          description: Updates an alias of a theme.
+          operationId: updateThemeAlias

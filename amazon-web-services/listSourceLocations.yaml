@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listsourcelocations
+  description: >-
+    Lists the source locations for a channel. A source location defines the host
+    server URL, and contains a list of sources.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listsourcelocations
+      description: >-
+        Lists the source locations for a channel. A source location defines the host
+        server URL, and contains a list of sources.
+    paths:
+      /sourceLocations:
+        GET:
+          summary: Listsourcelocations
+          description: >-
+            Lists the source locations for a channel. A source location defines the
+            host server URL, and contains a list of sources.
+          operationId: listSourceLocations

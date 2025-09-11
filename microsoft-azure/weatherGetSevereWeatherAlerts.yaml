@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-weather-severe-alerts-format
+  description: >-
+    **Get Severe Weather Alerts****Applies to**: S0 and S1 pricing tiers.Severe
+    weather phenomenon can significantly impact our everyday life and business
+    operations. For example, severe weather conditions such as tropical storms,
+    high winds or flooding can close roads and force logistics companies to
+    reroute their fleet causing delays in reaching destinations and breaking the
+    cold chain of refrigerated food products.  Azure Maps Severe Weather Alerts
+    API returns the severe weather alerts that are available worldwide
+    from both official Government Meteorological Agencies and leading global to
+    regional weather alert providers. The service can return details such as
+    alert type, category, level and detailed description about the active severe
+    alerts for the requested location, like hurricanes, thunderstorms,
+    lightning, heat waves or forest fires.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Weather Severe Alerts Format
+      description: >-
+        **Get Severe Weather Alerts****Applies to**: S0 and S1 pricing tiers.Severe
+        weather phenomenon can significantly impact our everyday life and business
+        operations. For example, severe weather conditions such as tropical storms,
+        high winds or flooding can close roads and force logistics companies to
+        reroute their fleet causing delays in reaching destinations and breaking the
+        cold chain of refrigerated food products.  Azure Maps Severe Weather Alerts
+        API returns the severe weather alerts that are available worldwide
+        from both official Government Meteorological Agencies and leading global to
+        regional weather alert providers. The service can return details such as
+        alert type, category, level and detailed description about the active severe
+        alerts for the requested location, like hurricanes, thunderstorms,
+        lightning, heat waves or forest fires.
+    paths:
+      /weather/severe/alerts/{format}:
+        get:
+          summary: Get Weather Severe Alerts Format
+          description: >-
+            **Get Severe Weather Alerts****Applies to**: S0 and S1 pricing
+            tiers.Severe weather phenomenon can significantly impact our everyday
+            life and business operations. For example, severe weather conditions
+            such as tropical storms, high winds or flooding can close roads and
+            force logistics companies to reroute their fleet causing delays in
+            reaching destinations and breaking the cold chain of refrigerated food
+            products.  Azure Maps Severe Weather Alerts API returns the
+            severe weather alerts that are available worldwide from both official
+            Government Meteorological Agencies and leading global to
+            regional weather alert providers. The service can return details such as
+            alert type, category, level and detailed description about the active
+            severe alerts for the requested location, like hurricanes,
+            thunderstorms, lightning, heat waves or forest fires.
+          operationId: weatherGetSevereWeatherAlerts
+          responses:
+            '500':
+              $ref: '#/responses/500'

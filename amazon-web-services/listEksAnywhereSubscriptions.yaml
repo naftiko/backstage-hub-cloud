@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listeksanywheresubscriptions
+  description: Displays the full description of the subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listeksanywheresubscriptions
+      description: Displays the full description of the subscription.
+    paths:
+      /eks-anywhere-subscriptions:
+        GET:
+          summary: Listeksanywheresubscriptions
+          description: Displays the full description of the subscription.
+          operationId: listEksAnywhereSubscriptions

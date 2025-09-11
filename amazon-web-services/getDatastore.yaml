@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: getdatastore
+  description: Get data store properties.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getdatastore
+      description: Get data store properties.
+    paths:
+      /datastore/{datastoreId}:
+        GET:
+          summary: Getdatastore
+          description: Get data store properties.
+          operationId: getDatastore

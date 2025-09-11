@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-apps-appid-versions-versionid-compositeentities-centityid-children
+  description: >-
+    Creates a single child in an existing composite entity model in a version of
+    the application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Apps Appid Versions Versionid Compositeentities Centityid Children
+      description: >-
+        Creates a single child in an existing composite entity model in a version of
+        the application.
+    paths:
+      /apps/{appId}/versions/{versionId}/compositeentities/{cEntityId}/children:
+        post:
+          summary: Post Apps Appid Versions Versionid Compositeentities Centityid Children
+          description: >-
+            Creates a single child in an existing composite entity model in a
+            version of the application.
+          operationId: modelAddCompositeEntityChild
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

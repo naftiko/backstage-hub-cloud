@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    get-a-list-of-container-groups-in-the-specified-subscription-and-resource-group
+  description: >-
+    Get a list of container groups in a specified subscription and resource
+    group. This operation returns properties of each container group including
+    containers, image registry credentials, restart policy, IP address type, OS
+    type, state, and volumes.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get A List Of Container Groups In The Specified Subscription And Resource
+        Group.
+      description: >-
+        Get a list of container groups in a specified subscription and resource
+        group. This operation returns properties of each container group including
+        containers, image registry credentials, restart policy, IP address type, OS
+        type, state, and volumes.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups:
+        get:
+          summary: >-
+            Get A List Of Container Groups In The Specified Subscription And
+            Resource Group.
+          description: >-
+            Get a list of container groups in a specified subscription and resource
+            group. This operation returns properties of each container group
+            including containers, image registry credentials, restart policy, IP
+            address type, OS type, state, and volumes.
+          operationId: containerGroupsListByResourceGroup
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

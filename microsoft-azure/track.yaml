@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: track-telemetry-events
+  description: >-
+    This operation sends a sequence of telemetry events that will be monitored
+    by Azure Monitor.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Track Telemetry Events
+      description: >-
+        This operation sends a sequence of telemetry events that will be monitored
+        by Azure Monitor.
+    paths:
+      /track:
+        post:
+          summary: Track Telemetry Events
+          description: >-
+            This operation sends a sequence of telemetry events that will be
+            monitored by Azure Monitor.
+          operationId: track
+          responses:
+            '503':
+              description: Service Unavailable
+              x-ms-error-response: true
+              schema:
+                $ref: '#/definitions/TrackResponse'

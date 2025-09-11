@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: updateimagepipeline
+  description: >-
+    Updates an image pipeline. Image pipelines enable you to automate the
+    creation and distribution of images. You must specify exactly one recipe for
+    your image, using either a containerRecipeArn or an imageRecipeArn. 
+    UpdateImagePipeline does not support selective updates for the pipeline. You
+    must specify all of the required properties in the update request, not just
+    the properties that have changed. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateimagepipeline
+      description: >-
+        Updates an image pipeline. Image pipelines enable you to automate the
+        creation and distribution of images. You must specify exactly one recipe for
+        your image, using either a containerRecipeArn or an imageRecipeArn. 
+        UpdateImagePipeline does not support selective updates for the pipeline. You
+        must specify all of the required properties in the update request, not just
+        the properties that have changed. 
+    paths:
+      /UpdateImagePipeline:
+        PUT:
+          summary: Updateimagepipeline
+          description: >-
+            Updates an image pipeline. Image pipelines enable you to automate the
+            creation and distribution of images. You must specify exactly one recipe
+            for your image, using either a containerRecipeArn or an imageRecipeArn. 
+            UpdateImagePipeline does not support selective updates for the pipeline.
+            You must specify all of the required properties in the update request,
+            not just the properties that have changed. 
+          operationId: updateImagePipeline

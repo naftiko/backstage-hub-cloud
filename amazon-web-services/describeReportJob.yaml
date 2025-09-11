@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: describereportjob
+  description: >-
+    Returns the details associated with creating a report as specified by its
+    ReportJobId.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describereportjob
+      description: >-
+        Returns the details associated with creating a report as specified by its
+        ReportJobId.
+    paths:
+      /audit/report-jobs/{reportJobId}:
+        GET:
+          summary: Describereportjob
+          description: >-
+            Returns the details associated with creating a report as specified by
+            its ReportJobId.
+          operationId: describeReportJob

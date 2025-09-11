@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: get-contentmoderator-review-0-teams-teamname-reviews-reviewid-frames
+  description: >-
+    The created reviews appear for reviewers on your team. As reviewers finish
+    reviewing, results of the reviews are posted (that is, HTTP POST) on the
+    specified CallBackEndpoint value.CallBack Schemas Review Completion CallBack
+    Sample{  "ReviewId": "",  "ModifiedOn": "2016-10-11T22:36:32.9934851Z", 
+    "ModifiedBy": "",  "CallBackType": "Review",  "ContentId": "",  "Metadata":
+    {    "adultscore": "0.xxx",    "a": "False",    "racyscore": "0.xxx",   
+    "r": "True"  },  "ReviewerResultTags": {    "a": "False",    "r": "True" 
+    }}.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Contentmoderator Review .0 Teams Teamname Reviews Reviewid Frames
+      description: >-
+        The created reviews appear for reviewers on your team. As reviewers finish
+        reviewing, results of the reviews are posted (that is, HTTP POST) on the
+        specified CallBackEndpoint value.CallBack Schemas Review Completion CallBack
+        Sample{  "ReviewId": "",  "ModifiedOn": "2016-10-11T22:36:32.9934851Z", 
+        "ModifiedBy": "",  "CallBackType": "Review",  "ContentId": "",  "Metadata":
+        {    "adultscore": "0.xxx",    "a": "False",    "racyscore": "0.xxx",   
+        "r": "True"  },  "ReviewerResultTags": {    "a": "False",    "r": "True" 
+        }}.
+    paths:
+      /contentmoderator/review/v1.0/teams/{teamName}/reviews/{reviewId}/frames:
+        get:
+          summary: Get Contentmoderator Review .0 Teams Teamname Reviews Reviewid Frames
+          description: >-
+            The created reviews appear for reviewers on your team. As reviewers
+            finish reviewing, results of the reviews are posted (that is, HTTP POST)
+            on the specified CallBackEndpoint value.CallBack Schemas Review
+            Completion CallBack Sample{  "ReviewId": "",  "ModifiedOn":
+            "2016-10-11T22:36:32.9934851Z",  "ModifiedBy": "",  "CallBackType":
+            "Review",  "ContentId": "",  "Metadata": {    "adultscore": "0.xxx",   
+            "a": "False",    "racyscore": "0.xxx",    "r": "True"  }, 
+            "ReviewerResultTags": {    "a": "False",    "r": "True"  }}.
+          operationId: reviewsGetVideoFrames
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

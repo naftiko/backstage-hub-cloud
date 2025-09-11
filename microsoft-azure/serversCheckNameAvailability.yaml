@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    post-subscriptions-subscriptionid-providers-microsoftanalysisservices-locations-location-checknameavailability
+  description: Check the name availability in the target location.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Providers Microsoft.analysisservices
+        Locations Location Checknameavailability
+      description: Check the name availability in the target location.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.AnalysisServices/locations/{location}/checkNameAvailability:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Providers Microsoft.analysisservices
+            Locations Location Checknameavailability
+          description: Check the name availability in the target location.
+          operationId: serversCheckNameAvailability
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

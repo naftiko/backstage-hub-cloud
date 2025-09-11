@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: batchunsuspenduser
+  description: >-
+    Removes the suspension from up to 50 previously suspended users for the
+    specified Amazon Chime EnterpriseLWA account. Only users on EnterpriseLWA
+    accounts can be unsuspended using this action. For more information about
+    different account types, see  Managing Your Amazon Chime Accounts  in the
+    account types, in the Amazon Chime Administration Guide.  Previously
+    suspended users who are unsuspended using this action are returned to
+    Registered status. Users who are not previously suspended are ignored.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchunsuspenduser
+      description: >-
+        Removes the suspension from up to 50 previously suspended users for the
+        specified Amazon Chime EnterpriseLWA account. Only users on EnterpriseLWA
+        accounts can be unsuspended using this action. For more information about
+        different account types, see  Managing Your Amazon Chime Accounts  in the
+        account types, in the Amazon Chime Administration Guide.  Previously
+        suspended users who are unsuspended using this action are returned to
+        Registered status. Users who are not previously suspended are ignored.
+    paths:
+      /accounts/{accountId}/users?operation=unsuspend:
+        POST:
+          summary: Batchunsuspenduser
+          description: >-
+            Removes the suspension from up to 50 previously suspended users for the
+            specified Amazon Chime EnterpriseLWA account. Only users on
+            EnterpriseLWA accounts can be unsuspended using this action. For more
+            information about different account types, see  Managing Your Amazon
+            Chime Accounts  in the account types, in the Amazon Chime Administration
+            Guide.  Previously suspended users who are unsuspended using this action
+            are returned to Registered status. Users who are not previously
+            suspended are ignored.
+          operationId: batchUnsuspendUser

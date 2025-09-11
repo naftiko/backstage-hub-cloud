@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: listresourceprofileartifacts
+  description: >-
+    Retrieves information about objects that were selected from an S3 bucket for
+    automated sensitive data discovery.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listresourceprofileartifacts
+      description: >-
+        Retrieves information about objects that were selected from an S3 bucket for
+        automated sensitive data discovery.
+    paths:
+      /resource-profiles/artifacts:
+        GET:
+          summary: Listresourceprofileartifacts
+          description: >-
+            Retrieves information about objects that were selected from an S3 bucket
+            for automated sensitive data discovery.
+          operationId: listResourceProfileArtifacts

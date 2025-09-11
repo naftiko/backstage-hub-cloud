@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: testinvokeauthorizer
+  description: >-
+    Tests a custom authorization behavior by invoking a specified custom
+    authorizer. Use this to test and debug the custom authorization behavior of
+    devices that connect to the IoT device gateway. Requires permission to
+    access the TestInvokeAuthorizer action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Testinvokeauthorizer
+      description: >-
+        Tests a custom authorization behavior by invoking a specified custom
+        authorizer. Use this to test and debug the custom authorization behavior of
+        devices that connect to the IoT device gateway. Requires permission to
+        access the TestInvokeAuthorizer action.
+    paths:
+      /authorizer/{authorizerName}/test:
+        POST:
+          summary: Testinvokeauthorizer
+          description: >-
+            Tests a custom authorization behavior by invoking a specified custom
+            authorizer. Use this to test and debug the custom authorization behavior
+            of devices that connect to the IoT device gateway. Requires permission
+            to access the TestInvokeAuthorizer action.
+          operationId: testInvokeAuthorizer

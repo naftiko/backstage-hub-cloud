@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: post-interactions
+  description: >-
+    The endpoint is intended to be used from within a SDK for logging
+    interactions and accepts specific format defined in
+    https://github.com/VowpalWabbit/reinforcement_learning. This endpoint should
+    not be used by the customer.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Interactions.
+      description: >-
+        The endpoint is intended to be used from within a SDK for logging
+        interactions and accepts specific format defined in
+        https://github.com/VowpalWabbit/reinforcement_learning. This endpoint should
+        not be used by the customer.
+    paths:
+      /logs/interactions:
+        post:
+          summary: Post Interactions.
+          description: >-
+            The endpoint is intended to be used from within a SDK for logging
+            interactions and accepts specific format defined in
+            https://github.com/VowpalWabbit/reinforcement_learning. This endpoint
+            should not be used by the customer.
+          operationId: logInteractions
+          responses:
+            default:
+              description: Invalid request.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

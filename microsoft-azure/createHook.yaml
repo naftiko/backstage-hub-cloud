@@ -1,0 +1,72 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: creates-a-new-web-hook
+  description: >-
+    If the property secret in the configuration is present and contains a
+    non-empty string, it will be used to create a SHA256 hash of the payload
+    withthe secret as HMAC key. This hash will be set as
+    X-MicrosoftSpeechServices-Signature header when calling back into the
+    registered URL.            When calling back into the registered URL, the
+    request will contain a X-MicrosoftSpeechServices-Event header containing one
+    of the registered eventtypes. There will be one request per registered event
+    type.            After successfully registering the web hook, it will not be
+    usable until a challenge/response is completed. To do this, a request with
+    the event typechallenge will be made with a query parameter called
+    validationToken. Respond to the challenge with a 200 OK containing the value
+    of the validationTokenquery parameter as the response body. When the
+    challenge/response is successfully completed, the web hook will begin
+    receiving events.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Creates A New Web Hook.
+      description: >-
+        If the property secret in the configuration is present and contains a
+        non-empty string, it will be used to create a SHA256 hash of the payload
+        withthe secret as HMAC key. This hash will be set as
+        X-MicrosoftSpeechServices-Signature header when calling back into the
+        registered URL.            When calling back into the registered URL, the
+        request will contain a X-MicrosoftSpeechServices-Event header containing one
+        of the registered eventtypes. There will be one request per registered event
+        type.            After successfully registering the web hook, it will not be
+        usable until a challenge/response is completed. To do this, a request with
+        the event typechallenge will be made with a query parameter called
+        validationToken. Respond to the challenge with a 200 OK containing the value
+        of the validationTokenquery parameter as the response body. When the
+        challenge/response is successfully completed, the web hook will begin
+        receiving events.
+    paths:
+      /webhooks:
+        post:
+          summary: Creates A New Web Hook.
+          description: >-
+            If the property secret in the configuration is present and contains a
+            non-empty string, it will be used to create a SHA256 hash of the payload
+            withthe secret as HMAC key. This hash will be set as
+            X-MicrosoftSpeechServices-Signature header when calling back into the
+            registered URL.            When calling back into the registered URL,
+            the request will contain a X-MicrosoftSpeechServices-Event header
+            containing one of the registered eventtypes. There will be one request
+            per registered event type.            After successfully registering the
+            web hook, it will not be usable until a challenge/response is completed.
+            To do this, a request with the event typechallenge will be made with a
+            query parameter called validationToken. Respond to the challenge with a
+            200 OK containing the value of the validationTokenquery parameter as the
+            response body. When the challenge/response is successfully completed,
+            the web hook will begin receiving events.
+          operationId: createHook
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/Error'

@@ -1,0 +1,59 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: createaccessgrant
+  description: >-
+    Creates an access grant that gives a grantee access to your S3 data. The
+    grantee can be an IAM user or role or a directory user, or group. Before you
+    can create a grant, you must have an S3 Access Grants instance in the same
+    Region as the S3 data. You can create an S3 Access Grants instance using the
+    CreateAccessGrantsInstance. You must also have registered at least one S3
+    data location in your S3 Access Grants instance using
+    CreateAccessGrantsLocation.   Permissions  You must have the
+    s3:CreateAccessGrant permission to use this operation.   Additional
+    Permissions  For any directory identity - sso:DescribeInstance and
+    sso:DescribeApplication  For directory users - identitystore:DescribeUser 
+    For directory groups - identitystore:DescribeGroup   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createaccessgrant
+      description: >-
+        Creates an access grant that gives a grantee access to your S3 data. The
+        grantee can be an IAM user or role or a directory user, or group. Before you
+        can create a grant, you must have an S3 Access Grants instance in the same
+        Region as the S3 data. You can create an S3 Access Grants instance using the
+        CreateAccessGrantsInstance. You must also have registered at least one S3
+        data location in your S3 Access Grants instance using
+        CreateAccessGrantsLocation.   Permissions  You must have the
+        s3:CreateAccessGrant permission to use this operation.   Additional
+        Permissions  For any directory identity - sso:DescribeInstance and
+        sso:DescribeApplication  For directory users - identitystore:DescribeUser 
+        For directory groups - identitystore:DescribeGroup   
+    paths:
+      /v20180820/accessgrantsinstance/grant:
+        POST:
+          summary: Createaccessgrant
+          description: >-
+            Creates an access grant that gives a grantee access to your S3 data. The
+            grantee can be an IAM user or role or a directory user, or group. Before
+            you can create a grant, you must have an S3 Access Grants instance in
+            the same Region as the S3 data. You can create an S3 Access Grants
+            instance using the CreateAccessGrantsInstance. You must also have
+            registered at least one S3 data location in your S3 Access Grants
+            instance using CreateAccessGrantsLocation.   Permissions  You must have
+            the s3:CreateAccessGrant permission to use this operation.   Additional
+            Permissions  For any directory identity - sso:DescribeInstance and
+            sso:DescribeApplication  For directory users -
+            identitystore:DescribeUser  For directory groups -
+            identitystore:DescribeGroup   
+          operationId: createAccessGrant

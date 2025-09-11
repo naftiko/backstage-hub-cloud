@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: setdataretrievalpolicy
+  description: >-
+    This operation sets and then enacts a data retrieval policy in the region
+    specified in the PUT request. You can set one policy per region for an AWS
+    account. The policy is enacted within a few minutes of a successful PUT
+    operation. The set policy operation does not affect retrieval jobs that were
+    in progress before the policy was enacted. For more information about data
+    retrieval policies, see Amazon Glacier Data Retrieval Policies. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Setdataretrievalpolicy
+      description: >-
+        This operation sets and then enacts a data retrieval policy in the region
+        specified in the PUT request. You can set one policy per region for an AWS
+        account. The policy is enacted within a few minutes of a successful PUT
+        operation. The set policy operation does not affect retrieval jobs that were
+        in progress before the policy was enacted. For more information about data
+        retrieval policies, see Amazon Glacier Data Retrieval Policies. 
+    paths:
+      /{accountId}/policies/data-retrieval:
+        PUT:
+          summary: Setdataretrievalpolicy
+          description: >-
+            This operation sets and then enacts a data retrieval policy in the
+            region specified in the PUT request. You can set one policy per region
+            for an AWS account. The policy is enacted within a few minutes of a
+            successful PUT operation. The set policy operation does not affect
+            retrieval jobs that were in progress before the policy was enacted. For
+            more information about data retrieval policies, see Amazon Glacier Data
+            Retrieval Policies. 
+          operationId: setDataRetrievalPolicy

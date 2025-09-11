@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: delete-providers-microsoftsaas-saasresources-resourceid
+  description: Deletes the specified SaaS.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Providers Microsoft.saas Saasresources Resourceid
+      description: Deletes the specified SaaS.
+    paths:
+      /providers/Microsoft.SaaS/saasresources/{resourceId}:
+        delete:
+          summary: Delete Providers Microsoft.saas Saasresources Resourceid
+          description: Deletes the specified SaaS.
+          operationId: saaSDelete
+          responses:
+            default:
+              description: A response indicating an error.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

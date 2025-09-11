@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: swaps-two-deployment-slots-of-an-app
+  description: Description for Swaps two deployment slots of an app.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Swaps Two Deployment Slots Of An App.
+      description: Description for Swaps two deployment slots of an app.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slotsswap:
+        post:
+          summary: Swaps Two Deployment Slots Of An App.
+          description: Description for Swaps two deployment slots of an app.
+          operationId: webAppsSwapSlotWithProduction
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse
