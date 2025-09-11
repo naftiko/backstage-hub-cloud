@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureCatalogGetview
+  description: Retrieves the specified view from the Data Lake Analytics catalog.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Catalog Usql Databases Databasename Schemas Schemaname Views Viewname
+      description: Retrieves the specified view from the Data Lake Analytics catalog.
+    paths:
+      /catalog/usql/databases/{databaseName}/schemas/{schemaName}/views/{viewName}:
+        get:
+          summary: >-
+            Get Catalog Usql Databases Databasename Schemas Schemaname Views
+            Viewname
+          description: Retrieves the specified view from the Data Lake Analytics catalog.
+          operationId: microsoftAzureCatalogGetview
+          responses:
+            '200':
+              description: ''
+              schema:
+                $ref: '#/definitions/USqlView'

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGetmanifest
+  description: >-
+    Pulls the image manifest file associated with the specified name and
+    reference. Reference may be a tag or a digest
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get  Name Manifests Reference
+      description: >-
+        Pulls the image manifest file associated with the specified name and
+        reference. Reference may be a tag or a digest
+    paths:
+      /v2/{name}/manifests/{reference}:
+        get:
+          summary: Get  Name Manifests Reference
+          description: >-
+            Pulls the image manifest file associated with the specified name and
+            reference. Reference may be a tag or a digest
+          operationId: microsoftAzureGetmanifest
+          responses:
+            default:
+              description: ACR error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/AcrErrors'

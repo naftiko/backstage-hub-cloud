@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureImageanalysisAnalyze
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Analyze The Input Image The Request Either Contains Image Stream With Any
+        Content Type [ Image * , Application Octet Stream ], Or A Json Payload Which
+        Includes An Url Property To Be Used To Retrieve The Image Stream 
+      description: Needs a more full description created.
+    paths:
+      /imageanalysis:analyze:
+        post:
+          summary: >-
+            Analyze The Input Image The Request Either Contains Image Stream With
+            Any Content Type [ Image * , Application Octet Stream ], Or A Json
+            Payload Which Includes An Url Property To Be Used To Retrieve The Image
+            Stream 
+          description: Needs a more full description created.
+          operationId: microsoftAzureImageanalysisAnalyze
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string

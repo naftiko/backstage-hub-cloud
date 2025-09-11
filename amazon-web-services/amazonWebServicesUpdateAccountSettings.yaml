@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateAccountSettings
+  description: >-
+    Turns on or turns off optional features in Resource Groups. The preceding
+    example shows that the request to turn on group lifecycle events is
+    IN_PROGRESS. You can call the GetAccountSettings operation to check for
+    completion by looking for GroupLifecycleEventsStatus to change to ACTIVE.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateaccountsettings
+      description: >-
+        Turns on or turns off optional features in Resource Groups. The preceding
+        example shows that the request to turn on group lifecycle events is
+        IN_PROGRESS. You can call the GetAccountSettings operation to check for
+        completion by looking for GroupLifecycleEventsStatus to change to ACTIVE.
+    paths:
+      /update-account-settings:
+        POST:
+          summary: Updateaccountsettings
+          description: >-
+            Turns on or turns off optional features in Resource Groups. The
+            preceding example shows that the request to turn on group lifecycle
+            events is IN_PROGRESS. You can call the GetAccountSettings operation to
+            check for completion by looking for GroupLifecycleEventsStatus to change
+            to ACTIVE.
+          operationId: amazonWebServicesUpdateAccountSettings

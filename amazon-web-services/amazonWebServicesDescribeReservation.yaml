@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDescribeReservation
+  description: >-
+    Displays the details of a reservation. The response includes the reservation
+    name, state, start date and time, and the details of the offering that make
+    up the rest of the reservation (such as price, duration, and outbound
+    bandwidth).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describereservation
+      description: >-
+        Displays the details of a reservation. The response includes the reservation
+        name, state, start date and time, and the details of the offering that make
+        up the rest of the reservation (such as price, duration, and outbound
+        bandwidth).
+    paths:
+      /v1/reservations/{reservationArn}:
+        GET:
+          summary: Describereservation
+          description: >-
+            Displays the details of a reservation. The response includes the
+            reservation name, state, start date and time, and the details of the
+            offering that make up the rest of the reservation (such as price,
+            duration, and outbound bandwidth).
+          operationId: amazonWebServicesDescribeReservation

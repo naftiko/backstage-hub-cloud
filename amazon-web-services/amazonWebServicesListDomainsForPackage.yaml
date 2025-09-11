@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListDomainsForPackage
+  description: >-
+    Lists all Amazon OpenSearch Service domains associated with a given package.
+    For more information, see Custom packages for Amazon OpenSearch Service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listdomainsforpackage
+      description: >-
+        Lists all Amazon OpenSearch Service domains associated with a given package.
+        For more information, see Custom packages for Amazon OpenSearch Service.
+    paths:
+      /2021-01-01/packages/{PackageID}/domains:
+        GET:
+          summary: Listdomainsforpackage
+          description: >-
+            Lists all Amazon OpenSearch Service domains associated with a given
+            package. For more information, see Custom packages for Amazon OpenSearch
+            Service.
+          operationId: amazonWebServicesListDomainsForPackage

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureTenantactiongroupsListbymanagementgroupid
+  description: Get a list of all tenant action groups in a management group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Providers Microsoft Management Managementgroups Managementgroupid
+        Providers Microsoft Insights Tenantactiongroups
+      description: Get a list of all tenant action groups in a management group.
+    paths:
+      /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/tenantActionGroups:
+        get:
+          summary: >-
+            Get Providers Microsoft Management Managementgroups Managementgroupid
+            Providers Microsoft Insights Tenantactiongroups
+          description: Get a list of all tenant action groups in a management group.
+          operationId: microsoftAzureTenantactiongroupsListbymanagementgroupid
+          responses:
+            default:
+              description: >-
+                An error occurred and the list of tenant action groups could not be
+                retrieved.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

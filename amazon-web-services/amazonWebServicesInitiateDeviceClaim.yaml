@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesInitiateDeviceClaim
+  description: >-
+    Given a device ID, initiates a claim request for the associated device.<br>
+    Claiming a device consists of initiating a claim, then publishing a device
+    event,<br> and finalizing the claim. For a device of type button, a device
+    event can<br> be published by simply clicking the device.<br> 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Initiatedeviceclaim
+      description: >-
+        Given a device ID, initiates a claim request for the associated device.<br>
+        Claiming a device consists of initiating a claim, then publishing a device
+        event,<br> and finalizing the claim. For a device of type button, a device
+        event can<br> be published by simply clicking the device.<br> 
+    paths:
+      /devices/{deviceId}/initiate-claim:
+        PUT:
+          summary: Initiatedeviceclaim
+          description: >-
+            Given a device ID, initiates a claim request for the associated
+            device.<br> Claiming a device consists of initiating a claim, then
+            publishing a device event,<br> and finalizing the claim. For a device of
+            type button, a device event can<br> be published by simply clicking the
+            device.<br> 
+          operationId: amazonWebServicesInitiateDeviceClaim

@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSystemtopiceventsubscriptionsDelete
+  description: Delete an existing event subscription of a system topic.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Delete An Event Subscription Of A System Topic '
+      description: Delete an existing event subscription of a system topic.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/systemTopics/{systemTopicName}/eventSubscriptions/{eventSubscriptionName}:
+        delete:
+          summary: 'Delete An Event Subscription Of A System Topic '
+          description: Delete an existing event subscription of a system topic.
+          operationId: microsoftAzureSystemtopiceventsubscriptionsDelete
+          responses:
+            default:
+              description: |-
+                *** Error Responses: ***
+
+                 * 400 Bad Request.
+
+                 * 404 Not Found.
+
+                 * 500 Internal Server Error.

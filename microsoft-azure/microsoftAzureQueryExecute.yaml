@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureQueryExecute
+  description: >-
+    Executes an Analytics query for data.
+    [Here](https://dev.loganalytics.io/documentation/Using-the-API) is an
+    example for using POST with an Analytics query.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Execute An Analytics Query
+      description: >-
+        Executes an Analytics query for data.
+        [Here](https://dev.loganalytics.io/documentation/Using-the-API) is an
+        example for using POST with an Analytics query.
+    paths:
+      /workspaces/{workspaceId}/query:
+        post:
+          summary: Execute An Analytics Query
+          description: >-
+            Executes an Analytics query for data.
+            [Here](https://dev.loganalytics.io/documentation/Using-the-API) is an
+            example for using POST with an Analytics query.
+          operationId: microsoftAzureQueryExecute
+          responses:
+            default:
+              description: An error response object.
+              schema:
+                $ref: '#/definitions/errorResponse'

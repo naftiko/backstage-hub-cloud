@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListLexicons
+  description: >-
+    Returns a list of pronunciation lexicons stored in an Amazon Web Services
+    Region. For more information, see Managing Lexicons.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listlexicons
+      description: >-
+        Returns a list of pronunciation lexicons stored in an Amazon Web Services
+        Region. For more information, see Managing Lexicons.
+    paths:
+      /v1/lexicons:
+        GET:
+          summary: Listlexicons
+          description: >-
+            Returns a list of pronunciation lexicons stored in an Amazon Web
+            Services Region. For more information, see Managing Lexicons.
+          operationId: amazonWebServicesListLexicons

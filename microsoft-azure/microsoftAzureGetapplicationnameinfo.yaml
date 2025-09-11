@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGetapplicationnameinfo
+  description: >-
+    Gets the name of the application for the specified service. A 404
+    FABRIC_E_SERVICE_DOES_NOT_EXIST error is returned if a service with the
+    provided service ID does not exist.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Gets The Name Of The Service Fabric Application For A Service '
+      description: >-
+        Gets the name of the application for the specified service. A 404
+        FABRIC_E_SERVICE_DOES_NOT_EXIST error is returned if a service with the
+        provided service ID does not exist.
+    paths:
+      /Services/{serviceId}/$/GetApplicationName:
+        get:
+          summary: 'Gets The Name Of The Service Fabric Application For A Service '
+          description: >-
+            Gets the name of the application for the specified service. A 404
+            FABRIC_E_SERVICE_DOES_NOT_EXIST error is returned if a service with the
+            provided service ID does not exist.
+          operationId: microsoftAzureGetapplicationnameinfo
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

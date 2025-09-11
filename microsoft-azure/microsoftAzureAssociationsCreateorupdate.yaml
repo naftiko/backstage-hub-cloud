@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAssociationsCreateorupdate
+  description: Create or update an association.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Scope Providers Microsoft Customproviders Associations Associationname
+      description: Create or update an association.
+    paths:
+      /{scope}/providers/Microsoft.CustomProviders/associations/{associationName}:
+        put:
+          summary: >-
+            Put Scope Providers Microsoft Customproviders Associations
+            Associationname
+          description: Create or update an association.
+          operationId: microsoftAzureAssociationsCreateorupdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

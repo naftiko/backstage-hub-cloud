@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAttestedGetdocument
+  description: Get Attested Data for the Virtual Machine.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Attested Document
+      description: Get Attested Data for the Virtual Machine.
+    paths:
+      /attested/document:
+        get:
+          summary: Get Attested Document
+          description: Get Attested Data for the Virtual Machine.
+          operationId: microsoftAzureAttestedGetdocument
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureFinetuningCreate
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: "Creates A Job That Fine Tunes A Specified Model From A Given Training File \r\nresponse Includes Details Of The Enqueued Job Including Job Status And Hyper Parameters \r\nthe Name Of The Fine Tuned Model Is Added To The Response Once Complete "
+      description: Needs a more full description created.
+    paths:
+      /fine_tuning/jobs:
+        post:
+          summary: "Creates A Job That Fine Tunes A Specified Model From A Given Training File \r\nresponse Includes Details Of The Enqueued Job Including Job Status And Hyper Parameters \r\nthe Name Of The Fine Tuned Model Is Added To The Response Once Complete "
+          description: Needs a more full description created.
+          operationId: microsoftAzureFinetuningCreate
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

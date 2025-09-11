@@ -1,0 +1,100 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSupportticketsCreate
+  description: >-
+    Creates a new support ticket for Subscription and Service limits (Quota),
+    Technical, Billing, and Subscription Management issues for the specified
+    subscription. Learn the [prerequisites](https://aka.ms/supportAPI) required
+    to create a support ticket.Always call the Services and
+    ProblemClassifications API to get the most recent set of services and
+    problem categories required for support ticket creation.Adding attachments
+    is not currently supported via the API. To add a file to an existing support
+    ticket, visit the [Manage support
+    ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/managesupportrequest)
+    page in the Azure portal, select the support ticket, and use the file upload
+    control to add a new file.Providing consent to share diagnostic information
+    with Azure support is currently not supported via the API. The Azure support
+    engineer working on your ticket will reach out to you for consent if your
+    issue requires gathering diagnostic information from your Azure
+    resources.**Creating a support ticket for on-behalf-of**: Include
+    _x-ms-authorization-auxiliary_ header to provide an auxiliary token as per
+    [documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/authenticate-multi-tenant).
+    The primary token will be from the tenant for whom a support ticket is being
+    raised against the subscription, i.e. Cloud solution provider (CSP) customer
+    tenant. The auxiliary token will be from the Cloud solution provider (CSP)
+    partner tenant.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Providers Microsoft Support Supporttickets
+        Supportticketname
+      description: >-
+        Creates a new support ticket for Subscription and Service limits (Quota),
+        Technical, Billing, and Subscription Management issues for the specified
+        subscription. Learn the [prerequisites](https://aka.ms/supportAPI) required
+        to create a support ticket.Always call the Services and
+        ProblemClassifications API to get the most recent set of services and
+        problem categories required for support ticket creation.Adding attachments
+        is not currently supported via the API. To add a file to an existing support
+        ticket, visit the [Manage support
+        ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/managesupportrequest)
+        page in the Azure portal, select the support ticket, and use the file upload
+        control to add a new file.Providing consent to share diagnostic information
+        with Azure support is currently not supported via the API. The Azure support
+        engineer working on your ticket will reach out to you for consent if your
+        issue requires gathering diagnostic information from your Azure
+        resources.**Creating a support ticket for on-behalf-of**: Include
+        _x-ms-authorization-auxiliary_ header to provide an auxiliary token as per
+        [documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/authenticate-multi-tenant).
+        The primary token will be from the tenant for whom a support ticket is being
+        raised against the subscription, i.e. Cloud solution provider (CSP) customer
+        tenant. The auxiliary token will be from the Cloud solution provider (CSP)
+        partner tenant.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Support/supportTickets/{supportTicketName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Providers Microsoft Support
+            Supporttickets Supportticketname
+          description: >-
+            Creates a new support ticket for Subscription and Service limits
+            (Quota), Technical, Billing, and Subscription Management issues for the
+            specified subscription. Learn the
+            [prerequisites](https://aka.ms/supportAPI) required to create a support
+            ticket.Always call the Services and ProblemClassifications API to get
+            the most recent set of services and problem categories required for
+            support ticket creation.Adding attachments is not currently supported
+            via the API. To add a file to an existing support ticket, visit the
+            [Manage support
+            ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/managesupportrequest)
+            page in the Azure portal, select the support ticket, and use the file
+            upload control to add a new file.Providing consent to share diagnostic
+            information with Azure support is currently not supported via the API.
+            The Azure support engineer working on your ticket will reach out to you
+            for consent if your issue requires gathering diagnostic information from
+            your Azure resources.**Creating a support ticket for on-behalf-of**:
+            Include _x-ms-authorization-auxiliary_ header to provide an auxiliary
+            token as per
+            [documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/authenticate-multi-tenant).
+            The primary token will be from the tenant for whom a support ticket is
+            being raised against the subscription, i.e. Cloud solution provider
+            (CSP) customer tenant. The auxiliary token will be from the Cloud
+            solution provider (CSP) partner tenant.
+          operationId: microsoftAzureSupportticketsCreate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

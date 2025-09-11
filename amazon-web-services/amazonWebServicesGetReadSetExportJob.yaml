@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetReadSetExportJob
+  description: Gets information about a read set export job.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getreadsetexportjob
+      description: Gets information about a read set export job.
+    paths:
+      /sequencestore/{sequenceStoreId}/exportjob/{id}:
+        GET:
+          summary: Getreadsetexportjob
+          description: Gets information about a read set export job.
+          operationId: amazonWebServicesGetReadSetExportJob

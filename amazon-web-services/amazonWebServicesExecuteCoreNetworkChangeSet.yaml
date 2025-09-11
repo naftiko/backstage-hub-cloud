@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesExecuteCoreNetworkChangeSet
+  description: >-
+    Executes a change set on your core network. Deploys changes globally based
+    on the policy submitted..
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Executecorenetworkchangeset
+      description: >-
+        Executes a change set on your core network. Deploys changes globally based
+        on the policy submitted..
+    paths:
+      /core-networks/{coreNetworkId}/core-network-change-sets/{policyVersionId}/execute:
+        POST:
+          summary: Executecorenetworkchangeset
+          description: >-
+            Executes a change set on your core network. Deploys changes globally
+            based on the policy submitted..
+          operationId: amazonWebServicesExecuteCoreNetworkChangeSet

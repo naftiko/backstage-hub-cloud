@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetQueryResults
+  description: >-
+    Return the data for a query with the Amazon CloudWatch Internet Monitor
+    query interface. Specify the query that you want to return results for by
+    providing a QueryId and a monitor name. For more information about using the
+    query interface, including examples, see Using the Amazon CloudWatch
+    Internet Monitor query interface in the Amazon CloudWatch Internet Monitor
+    User Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getqueryresults
+      description: >-
+        Return the data for a query with the Amazon CloudWatch Internet Monitor
+        query interface. Specify the query that you want to return results for by
+        providing a QueryId and a monitor name. For more information about using the
+        query interface, including examples, see Using the Amazon CloudWatch
+        Internet Monitor query interface in the Amazon CloudWatch Internet Monitor
+        User Guide.
+    paths:
+      /v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Results:
+        GET:
+          summary: Getqueryresults
+          description: >-
+            Return the data for a query with the Amazon CloudWatch Internet Monitor
+            query interface. Specify the query that you want to return results for
+            by providing a QueryId and a monitor name. For more information about
+            using the query interface, including examples, see Using the Amazon
+            CloudWatch Internet Monitor query interface in the Amazon CloudWatch
+            Internet Monitor User Guide.
+          operationId: amazonWebServicesGetQueryResults

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureServicemembersGetconnectormetadata
+  description: Gets the list of connectors and run profile names.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Providers Microsoft Adhybridhealthservice Services Servicename
+        Servicemembers Servicememberid Metrics Metricname
+      description: Gets the list of connectors and run profile names.
+    paths:
+      /providers/Microsoft.ADHybridHealthService/services/{serviceName}/servicemembers/{serviceMemberId}/metrics/{metricName}:
+        get:
+          summary: >-
+            Get Providers Microsoft Adhybridhealthservice Services Servicename
+            Servicemembers Servicememberid Metrics Metricname
+          description: Gets the list of connectors and run profile names.
+          operationId: microsoftAzureServicemembersGetconnectormetadata
+          responses:
+            '200':
+              description: >-
+                Gets the list of connectors and run profile names for the given
+                service and service member.
+              schema:
+                $ref: '#/definitions/ConnectorMetadata'

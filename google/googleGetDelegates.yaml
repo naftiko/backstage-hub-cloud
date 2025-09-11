@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googleGetDelegates
+  description: >-
+    Gets the specified delegate. Note that a delegate user must be referred to
+    by their primary email address, and not an email alias. This method is only
+    available to service account clients that have been delegated domain-wide
+    authority.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Delegates
+      description: >-
+        Gets the specified delegate. Note that a delegate user must be referred to
+        by their primary email address, and not an email alias. This method is only
+        available to service account clients that have been delegated domain-wide
+        authority.
+    paths:
+      /gmail/v1/users/{userId}/settings/delegates/{delegateEmail}:
+        get:
+          summary: Get Delegates
+          description: >-
+            Gets the specified delegate. Note that a delegate user must be referred
+            to by their primary email address, and not an email alias. This method
+            is only available to service account clients that have been delegated
+            domain-wide authority.
+          operationId: googleGetDelegates
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    delegateEmail: Duis commodo enim irure
+                    verificationStatus: rejected

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureMeshservicereplicaList
+  description: >-
+    Gets the information about all replicas of a service. The information
+    include the description and other properties of the service replica.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Lists All The Replicas Of A Service '
+      description: >-
+        Gets the information about all replicas of a service. The information
+        include the description and other properties of the service replica.
+    paths:
+      /Resources/Applications/{applicationResourceName}/Services/{serviceResourceName}/Replicas:
+        get:
+          summary: 'Lists All The Replicas Of A Service '
+          description: >-
+            Gets the information about all replicas of a service. The information
+            include the description and other properties of the service replica.
+          operationId: microsoftAzureMeshservicereplicaList
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/FabricError'

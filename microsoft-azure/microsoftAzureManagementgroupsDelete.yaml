@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureManagementgroupsDelete
+  description: >-
+    Delete management group.<br>If a management group contains child resources,
+    the request will fail.<br>
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Providers Microsoft Management Managementgroups Groupid
+      description: >-
+        Delete management group.<br>If a management group contains child resources,
+        the request will fail.<br>
+    paths:
+      /providers/Microsoft.Management/managementGroups/{groupId}:
+        delete:
+          summary: Delete Providers Microsoft Management Managementgroups Groupid
+          description: >-
+            Delete management group.<br>If a management group contains child
+            resources, the request will fail.<br>
+          operationId: microsoftAzureManagementgroupsDelete
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'

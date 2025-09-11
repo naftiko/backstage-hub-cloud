@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureReplicationlinksFailoverallowdataloss
+  description: >-
+    Sets which replica database is primary by failing over from the current
+    primary replica database. This operation might result in data loss.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Sql Servers Servername Databases Databasename Replicationlinks
+        Linkid Forcefailoverallowdataloss
+      description: >-
+        Sets which replica database is primary by failing over from the current
+        primary replica database. This operation might result in data loss.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/replicationLinks/{linkId}/forceFailoverAllowDataLoss:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Sql Servers Servername Databases Databasename
+            Replicationlinks Linkid Forcefailoverallowdataloss
+          description: >-
+            Sets which replica database is primary by failing over from the current
+            primary replica database. This operation might result in data loss.
+          operationId: microsoftAzureReplicationlinksFailoverallowdataloss
+          responses:
+            '204':
+              description: No Content

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebappsDeletepremieraddon
+  description: Description for Delete a premier add-on from an app.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Delete A Premier Add On From An App '
+      description: Description for Delete a premier add-on from an app.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/premieraddons/{premierAddOnName}:
+        delete:
+          summary: 'Delete A Premier Add On From An App '
+          description: Description for Delete a premier add-on from an app.
+          operationId: microsoftAzureWebappsDeletepremieraddon
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

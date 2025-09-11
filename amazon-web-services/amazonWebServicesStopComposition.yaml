@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesStopComposition
+  description: >-
+    Stops and deletes a Composition resource. Any broadcast from the Composition
+    resource is stopped.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Stopcomposition
+      description: >-
+        Stops and deletes a Composition resource. Any broadcast from the Composition
+        resource is stopped.
+    paths:
+      /StopComposition:
+        POST:
+          summary: Stopcomposition
+          description: >-
+            Stops and deletes a Composition resource. Any broadcast from the
+            Composition resource is stopped.
+          operationId: amazonWebServicesStopComposition

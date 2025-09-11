@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetActionRecommendations
+  description: >-
+    Returns a list of recommended actions in sorted in descending order by
+    prediction score. Use the GetActionRecommendations API if you have a custom
+    campaign that deploys a solution version trained with a PERSONALIZED_ACTIONS
+    recipe.  For more information about PERSONALIZED_ACTIONS recipes, see
+    PERSONALIZED_ACTIONS recipes. For more information about getting action
+    recommendations, see Getting action recommendations.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getactionrecommendations
+      description: >-
+        Returns a list of recommended actions in sorted in descending order by
+        prediction score. Use the GetActionRecommendations API if you have a custom
+        campaign that deploys a solution version trained with a PERSONALIZED_ACTIONS
+        recipe.  For more information about PERSONALIZED_ACTIONS recipes, see
+        PERSONALIZED_ACTIONS recipes. For more information about getting action
+        recommendations, see Getting action recommendations.
+    paths:
+      /action-recommendations:
+        POST:
+          summary: Getactionrecommendations
+          description: >-
+            Returns a list of recommended actions in sorted in descending order by
+            prediction score. Use the GetActionRecommendations API if you have a
+            custom campaign that deploys a solution version trained with a
+            PERSONALIZED_ACTIONS recipe.  For more information about
+            PERSONALIZED_ACTIONS recipes, see PERSONALIZED_ACTIONS recipes. For more
+            information about getting action recommendations, see Getting action
+            recommendations.
+          operationId: amazonWebServicesGetActionRecommendations

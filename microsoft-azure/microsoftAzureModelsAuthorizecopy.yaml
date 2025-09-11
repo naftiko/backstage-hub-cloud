@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureModelsAuthorizecopy
+  description: >-
+    This method can be used to allow copying a model from another speech
+    resource.<br>Only custom models can be copied from another speech resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Allows Another Speech Resource Source To Copy A Model To This Speech
+        Resource Target 
+      description: >-
+        This method can be used to allow copying a model from another speech
+        resource.<br>Only custom models can be copied from another speech resource.
+    paths:
+      /models:authorizecopy:
+        post:
+          summary: >-
+            Allows Another Speech Resource Source To Copy A Model To This Speech
+            Resource Target 
+          description: >-
+            This method can be used to allow copying a model from another speech
+            resource.<br>Only custom models can be copied from another speech
+            resource.
+          operationId: microsoftAzureModelsAuthorizecopy
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/Error'

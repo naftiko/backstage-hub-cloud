@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesRejectSubscriptionRequest
+  description: Rejects the specified subscription request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Rejectsubscriptionrequest
+      description: Rejects the specified subscription request.
+    paths:
+      /v2/domains/{domainIdentifier}/subscription-requests/{identifier}/reject:
+        PUT:
+          summary: Rejectsubscriptionrequest
+          description: Rejects the specified subscription request.
+          operationId: amazonWebServicesRejectSubscriptionRequest

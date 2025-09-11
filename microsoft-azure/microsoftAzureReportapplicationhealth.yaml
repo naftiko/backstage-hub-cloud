@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureReportapplicationhealth
+  description: >-
+    Reports health state of the specified Service Fabric application. The report
+    must contain the information about the source of the health report and
+    property on which it is reported.<br>The report is sent to a Service Fabric
+    gateway Application, which forwards to the health store.<br>The report may
+    be accepted by the gateway, but rejected by the health store after extra
+    validation.<br>For example, the health store may reject the report because
+    of an invalid parameter, like a stale sequence number.<br>To see whether the
+    report was applied in the health store, get application health and check
+    that the report appears in the HealthEvents section.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Sends A Health Report On The Service Fabric Application '
+      description: >-
+        Reports health state of the specified Service Fabric application. The report
+        must contain the information about the source of the health report and
+        property on which it is reported.<br>The report is sent to a Service Fabric
+        gateway Application, which forwards to the health store.<br>The report may
+        be accepted by the gateway, but rejected by the health store after extra
+        validation.<br>For example, the health store may reject the report because
+        of an invalid parameter, like a stale sequence number.<br>To see whether the
+        report was applied in the health store, get application health and check
+        that the report appears in the HealthEvents section.
+    paths:
+      /Applications/{applicationId}/$/ReportHealth:
+        post:
+          summary: 'Sends A Health Report On The Service Fabric Application '
+          description: >-
+            Reports health state of the specified Service Fabric application. The
+            report must contain the information about the source of the health
+            report and property on which it is reported.<br>The report is sent to a
+            Service Fabric gateway Application, which forwards to the health
+            store.<br>The report may be accepted by the gateway, but rejected by the
+            health store after extra validation.<br>For example, the health store
+            may reject the report because of an invalid parameter, like a stale
+            sequence number.<br>To see whether the report was applied in the health
+            store, get application health and check that the report appears in the
+            HealthEvents section.
+          operationId: microsoftAzureReportapplicationhealth
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

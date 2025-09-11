@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePrefixlistlocalrulestackDelete
+  description: Delete a PrefixListResource
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Paloaltonetworks Cloudngfw Localrulestacks Localrulestackname
+        Prefixlists Name
+      description: Delete a PrefixListResource
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/prefixlists/{name}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Paloaltonetworks Cloudngfw Localrulestacks Localrulestackname
+            Prefixlists Name
+          description: Delete a PrefixListResource
+          operationId: microsoftAzurePrefixlistlocalrulestackDelete
+          responses:
+            default:
+              description: >-
+                Common error response for all Azure Resource Manager APIs to return
+                error details for failed operations.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

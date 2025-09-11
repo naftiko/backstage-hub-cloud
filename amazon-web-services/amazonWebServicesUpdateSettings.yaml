@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateSettings
+  description: ' Updates Audit Manager settings for the current account. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatesettings
+      description: ' Updates Audit Manager settings for the current account. '
+    paths:
+      /settings:
+        PUT:
+          summary: Updatesettings
+          description: ' Updates Audit Manager settings for the current account. '
+          operationId: amazonWebServicesUpdateSettings

@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureExtensiontypesList
+  description: >-
+    List installable Extension Types for the cluster based region and type for
+    the cluster.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Clusterrp Clusterresourcename Clustername Providers Microsoft
+        Kubernetesconfiguration Extensiontypes
+      description: >-
+        List installable Extension Types for the cluster based region and type for
+        the cluster.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{clusterRp}/{clusterResourceName}/{clusterName}/providers/Microsoft.KubernetesConfiguration/extensionTypes:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Clusterrp Clusterresourcename Clustername Providers Microsoft
+            Kubernetesconfiguration Extensiontypes
+          description: >-
+            List installable Extension Types for the cluster based region and type
+            for the cluster.
+          operationId: microsoftAzureExtensiontypesList
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

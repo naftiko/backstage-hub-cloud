@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureNetworkListbyresourcegroup
+  description: >-
+    Gets the information about all network resources in a given resource group.
+    The information includes the network description and other runtime
+    properties.<br>
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Gets All The Network Resources In A Given Resource Group '
+      description: >-
+        Gets the information about all network resources in a given resource group.
+        The information includes the network description and other runtime
+        properties.<br>
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabricMesh/networks:
+        get:
+          summary: 'Gets All The Network Resources In A Given Resource Group '
+          description: >-
+            Gets the information about all network resources in a given resource
+            group. The information includes the network description and other
+            runtime properties.<br>
+          operationId: microsoftAzureNetworkListbyresourcegroup
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorModel'

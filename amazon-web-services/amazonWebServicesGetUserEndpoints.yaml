@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetUserEndpoints
+  description: >-
+    Retrieves information about all the endpoints that are associated with a
+    specific user ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getuserendpoints
+      description: >-
+        Retrieves information about all the endpoints that are associated with a
+        specific user ID.
+    paths:
+      /v1/apps/{application-id}/users/{user-id}:
+        GET:
+          summary: Getuserendpoints
+          description: >-
+            Retrieves information about all the endpoints that are associated with a
+            specific user ID.
+          operationId: amazonWebServicesGetUserEndpoints

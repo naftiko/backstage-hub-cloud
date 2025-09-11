@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreateWorkflow
+  description: Create a workflow to orchestrate your migrations.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createworkflow
+      description: Create a workflow to orchestrate your migrations.
+    paths:
+      /migrationworkflow/:
+        POST:
+          summary: Createworkflow
+          description: Create a workflow to orchestrate your migrations.
+          operationId: amazonWebServicesCreateWorkflow

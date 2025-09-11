@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureServicesFlushvnetdnssetting
+  description: Flush Virtual Network DNS settings for a VNET injected Service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Appplatform Spring Servicename Flushvirtualnetworkdnssettings
+      description: Flush Virtual Network DNS settings for a VNET injected Service.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/flushVirtualNetworkDnsSettings:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Appplatform Spring Servicename
+            Flushvirtualnetworkdnssettings
+          description: Flush Virtual Network DNS settings for a VNET injected Service.
+          operationId: microsoftAzureServicesFlushvnetdnssetting
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetQueryState
+  description: >-
+    Returns the state of a query previously submitted. Clients are expected to
+    poll GetQueryState to monitor the current state of the planning before
+    retrieving the work units. A query state is only visible to the principal
+    that made the initial call to StartQueryPlanning.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getquerystate
+      description: >-
+        Returns the state of a query previously submitted. Clients are expected to
+        poll GetQueryState to monitor the current state of the planning before
+        retrieving the work units. A query state is only visible to the principal
+        that made the initial call to StartQueryPlanning.
+    paths:
+      /GetQueryState:
+        POST:
+          summary: Getquerystate
+          description: >-
+            Returns the state of a query previously submitted. Clients are expected
+            to poll GetQueryState to monitor the current state of the planning
+            before retrieving the work units. A query state is only visible to the
+            principal that made the initial call to StartQueryPlanning.
+          operationId: amazonWebServicesGetQueryState

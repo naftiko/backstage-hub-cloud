@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSuspendservicebackup
+  description: >-
+    The service which is configured to take periodic backups, is suspended for
+    taking further backups till it is resumed again. This operation applies to
+    the entire service's hierarchy. It means all the partitions under this
+    service are now suspended for backup.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Suspends Periodic Backup For The Specified Service Fabric Service '
+      description: >-
+        The service which is configured to take periodic backups, is suspended for
+        taking further backups till it is resumed again. This operation applies to
+        the entire service's hierarchy. It means all the partitions under this
+        service are now suspended for backup.
+    paths:
+      /Services/{serviceId}/$/SuspendBackup:
+        post:
+          summary: 'Suspends Periodic Backup For The Specified Service Fabric Service '
+          description: >-
+            The service which is configured to take periodic backups, is suspended
+            for taking further backups till it is resumed again. This operation
+            applies to the entire service's hierarchy. It means all the partitions
+            under this service are now suspended for backup.
+          operationId: microsoftAzureSuspendservicebackup
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

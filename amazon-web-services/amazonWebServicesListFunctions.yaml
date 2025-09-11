@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListFunctions
+  description: >-
+    Returns a list of Lambda functions, with the version-specific configuration
+    of each. Lambda returns up to 50 functions per call. Set FunctionVersion to
+    ALL to include all published versions of each function in addition to the
+    unpublished version.  The ListFunctions operation returns a subset of the
+    FunctionConfiguration fields. To get the additional fields (State,
+    StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason,
+    LastUpdateStatusReasonCode, RuntimeVersionConfig) for a function or version,
+    use GetFunction. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listfunctions
+      description: >-
+        Returns a list of Lambda functions, with the version-specific configuration
+        of each. Lambda returns up to 50 functions per call. Set FunctionVersion to
+        ALL to include all published versions of each function in addition to the
+        unpublished version.  The ListFunctions operation returns a subset of the
+        FunctionConfiguration fields. To get the additional fields (State,
+        StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason,
+        LastUpdateStatusReasonCode, RuntimeVersionConfig) for a function or version,
+        use GetFunction. 
+    paths:
+      /2015-03-31/functions/:
+        GET:
+          summary: Listfunctions
+          description: >-
+            Returns a list of Lambda functions, with the version-specific
+            configuration of each. Lambda returns up to 50 functions per call. Set
+            FunctionVersion to ALL to include all published versions of each
+            function in addition to the unpublished version.  The ListFunctions
+            operation returns a subset of the FunctionConfiguration fields. To get
+            the additional fields (State, StateReasonCode, StateReason,
+            LastUpdateStatus, LastUpdateStatusReason, LastUpdateStatusReasonCode,
+            RuntimeVersionConfig) for a function or version, use GetFunction. 
+          operationId: amazonWebServicesListFunctions

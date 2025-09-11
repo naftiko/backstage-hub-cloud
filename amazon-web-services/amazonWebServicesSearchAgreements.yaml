@@ -1,0 +1,77 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesSearchAgreements
+  description: >-
+    Searches across all agreements that a proposer or an acceptor has in AWS
+    Marketplace. The search returns a list of agreements with basic agreement
+    information. The following filter combinations are supported:    PartyType
+    as Proposer + AgreementType + ResourceIdentifier     PartyType as Proposer +
+    AgreementType + OfferId     PartyType as Proposer + AgreementType +
+    AcceptorAccountId     PartyType as Proposer + AgreementType + Status    
+    PartyType as Proposer + AgreementType + ResourceIdentifier + Status    
+    PartyType as Proposer + AgreementType + OfferId + Status     PartyType as
+    Proposer + AgreementType + AcceptorAccountId + Status     PartyType as
+    Proposer + AgreementType + ResourceType + Status     PartyType as Proposer +
+    AgreementType + AcceptorAccountId + ResourceType + Status     PartyType as
+    Proposer + AgreementType + AcceptorAccountId + OfferId     PartyType as
+    Proposer + AgreementType + AcceptorAccountId + OfferId + Status    
+    PartyType as Proposer + AgreementType + AcceptorAccountId +
+    ResourceIdentifier     PartyType as Proposer + AgreementType +
+    AcceptorAccountId + ResourceIdentifier + Status     PartyType as Proposer +
+    AgreementType + AcceptorAccountId + ResourceType   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Searchagreements
+      description: >-
+        Searches across all agreements that a proposer or an acceptor has in AWS
+        Marketplace. The search returns a list of agreements with basic agreement
+        information. The following filter combinations are supported:    PartyType
+        as Proposer + AgreementType + ResourceIdentifier     PartyType as Proposer +
+        AgreementType + OfferId     PartyType as Proposer + AgreementType +
+        AcceptorAccountId     PartyType as Proposer + AgreementType + Status    
+        PartyType as Proposer + AgreementType + ResourceIdentifier + Status    
+        PartyType as Proposer + AgreementType + OfferId + Status     PartyType as
+        Proposer + AgreementType + AcceptorAccountId + Status     PartyType as
+        Proposer + AgreementType + ResourceType + Status     PartyType as Proposer +
+        AgreementType + AcceptorAccountId + ResourceType + Status     PartyType as
+        Proposer + AgreementType + AcceptorAccountId + OfferId     PartyType as
+        Proposer + AgreementType + AcceptorAccountId + OfferId + Status    
+        PartyType as Proposer + AgreementType + AcceptorAccountId +
+        ResourceIdentifier     PartyType as Proposer + AgreementType +
+        AcceptorAccountId + ResourceIdentifier + Status     PartyType as Proposer +
+        AgreementType + AcceptorAccountId + ResourceType   
+    paths:
+      /:
+        POST:
+          summary: Searchagreements
+          description: >-
+            Searches across all agreements that a proposer or an acceptor has in AWS
+            Marketplace. The search returns a list of agreements with basic
+            agreement information. The following filter combinations are
+            supported:    PartyType as Proposer + AgreementType +
+            ResourceIdentifier     PartyType as Proposer + AgreementType +
+            OfferId     PartyType as Proposer + AgreementType +
+            AcceptorAccountId     PartyType as Proposer + AgreementType + Status    
+            PartyType as Proposer + AgreementType + ResourceIdentifier + Status    
+            PartyType as Proposer + AgreementType + OfferId + Status     PartyType
+            as Proposer + AgreementType + AcceptorAccountId + Status     PartyType
+            as Proposer + AgreementType + ResourceType + Status     PartyType as
+            Proposer + AgreementType + AcceptorAccountId + ResourceType + Status    
+            PartyType as Proposer + AgreementType + AcceptorAccountId + OfferId    
+            PartyType as Proposer + AgreementType + AcceptorAccountId + OfferId +
+            Status     PartyType as Proposer + AgreementType + AcceptorAccountId +
+            ResourceIdentifier     PartyType as Proposer + AgreementType +
+            AcceptorAccountId + ResourceIdentifier + Status     PartyType as
+            Proposer + AgreementType + AcceptorAccountId + ResourceType   
+          operationId: amazonWebServicesSearchAgreements

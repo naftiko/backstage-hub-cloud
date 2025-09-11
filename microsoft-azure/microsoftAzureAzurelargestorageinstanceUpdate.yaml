@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAzurelargestorageinstanceUpdate
+  description: >-
+    Patches the Tags field of a Azure Large Storage Instance for the
+    specified<br>subscription, resource group, and instance name.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft Azurelargeinstance Azurelargestorageinstances
+        Azurelargestorageinstancename
+      description: >-
+        Patches the Tags field of a Azure Large Storage Instance for the
+        specified<br>subscription, resource group, and instance name.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureLargeInstance/azureLargeStorageInstances/{azureLargeStorageInstanceName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Azurelargeinstance Azurelargestorageinstances
+            Azurelargestorageinstancename
+          description: >-
+            Patches the Tags field of a Azure Large Storage Instance for the
+            specified<br>subscription, resource group, and instance name.
+          operationId: microsoftAzureAzurelargestorageinstanceUpdate
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

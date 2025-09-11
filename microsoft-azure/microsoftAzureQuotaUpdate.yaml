@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureQuotaUpdate
+  description: >-
+    Update the service limits (quota) of a resource to requested value.<br>
+    Steps:<br>  1. Make the Get request to get the quota information for
+    specific resource.<br>  2. To increase the quota, update the limit field in
+    the response from Get request to new value.<br>  3. Submit the JSON to the
+    quota request API to update the quota.<br>  The Update quota request may be
+    constructed as follows. The PATCH operation can be used to update the quota.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Providers Microsoft Capacity
+        Resourceproviders Providerid Locations Location Servicelimits Resourcename
+      description: >-
+        Update the service limits (quota) of a resource to requested value.<br>
+        Steps:<br>  1. Make the Get request to get the quota information for
+        specific resource.<br>  2. To increase the quota, update the limit field in
+        the response from Get request to new value.<br>  3. Submit the JSON to the
+        quota request API to update the quota.<br>  The Update quota request may be
+        constructed as follows. The PATCH operation can be used to update the quota.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Capacity/resourceProviders/{providerId}/locations/{location}/serviceLimits/{resourceName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Providers Microsoft Capacity
+            Resourceproviders Providerid Locations Location Servicelimits
+            Resourcename
+          description: >-
+            Update the service limits (quota) of a resource to requested value.<br>
+            Steps:<br>  1. Make the Get request to get the quota information for
+            specific resource.<br>  2. To increase the quota, update the limit field
+            in the response from Get request to new value.<br>  3. Submit the JSON
+            to the quota request API to update the quota.<br>  The Update quota
+            request may be constructed as follows. The PATCH operation can be used
+            to update the quota.
+          operationId: microsoftAzureQuotaUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ExceptionResponse'

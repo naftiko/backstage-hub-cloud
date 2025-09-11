@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureCollectionsCreateorupdatecollection
+  description: Creates or updates a collection entity.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Collections Collectionname
+      description: Creates or updates a collection entity.
+    paths:
+      /collections/{collectionName}:
+        put:
+          summary: Put Collections Collectionname
+          description: Creates or updates a collection entity.
+          operationId: microsoftAzureCollectionsCreateorupdatecollection
+          responses:
+            default:
+              description: An error response received from the provider.
+              schema:
+                $ref: '#/definitions/ErrorResponseModel'

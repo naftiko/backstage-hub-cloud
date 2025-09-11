@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesReplicateInstance
+  description: >-
+    Replicates an Amazon Connect instance in the specified Amazon Web Services
+    Region and copies configuration information for Amazon Connect resources
+    across Amazon Web Services Regions.  For more information about replicating
+    an Amazon Connect instance, see Create a replica of your existing Amazon
+    Connect instance in the Amazon Connect Administrator Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Replicateinstance
+      description: >-
+        Replicates an Amazon Connect instance in the specified Amazon Web Services
+        Region and copies configuration information for Amazon Connect resources
+        across Amazon Web Services Regions.  For more information about replicating
+        an Amazon Connect instance, see Create a replica of your existing Amazon
+        Connect instance in the Amazon Connect Administrator Guide.
+    paths:
+      /instance/{InstanceId}/replicate:
+        POST:
+          summary: Replicateinstance
+          description: >-
+            Replicates an Amazon Connect instance in the specified Amazon Web
+            Services Region and copies configuration information for Amazon Connect
+            resources across Amazon Web Services Regions.  For more information
+            about replicating an Amazon Connect instance, see Create a replica of
+            your existing Amazon Connect instance in the Amazon Connect
+            Administrator Guide.
+          operationId: amazonWebServicesReplicateInstance

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureResourcesyncrulesCreateorupdate
+  description: >-
+    Creates or updates a Resource Sync Rule in the parent Custom Location,
+    Subscription Id and Resource Group
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Creates Or Updates A Resource Sync Rule '
+      description: >-
+        Creates or updates a Resource Sync Rule in the parent Custom Location,
+        Subscription Id and Resource Group
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ExtendedLocation/customLocations/{resourceName}/resourceSyncRules/{childResourceName}:
+        put:
+          summary: 'Creates Or Updates A Resource Sync Rule '
+          description: >-
+            Creates or updates a Resource Sync Rule in the parent Custom Location,
+            Subscription Id and Resource Group
+          operationId: microsoftAzureResourcesyncrulesCreateorupdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

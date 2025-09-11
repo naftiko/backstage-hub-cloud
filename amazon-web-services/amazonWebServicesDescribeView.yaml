@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDescribeView
+  description: Retrieves the view for the specified view token.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeview
+      description: Retrieves the view for the specified view token.
+    paths:
+      /participant/views/{ViewToken}:
+        GET:
+          summary: Describeview
+          description: Retrieves the view for the specified view token.
+          operationId: amazonWebServicesDescribeView

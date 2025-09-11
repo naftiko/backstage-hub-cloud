@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDisassociateUserFromPermissionGroup
+  description: Removes a user from a permission group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disassociateuserfrompermissiongroup
+      description: Removes a user from a permission group.
+    paths:
+      /permission-group/{permissionGroupId}/users/{userId}:
+        DELETE:
+          summary: Disassociateuserfrompermissiongroup
+          description: Removes a user from a permission group.
+          operationId: amazonWebServicesDisassociateUserFromPermissionGroup

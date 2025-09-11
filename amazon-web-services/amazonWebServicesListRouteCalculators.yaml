@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListRouteCalculators
+  description: Lists route calculator resources in your Amazon Web Services account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listroutecalculators
+      description: Lists route calculator resources in your Amazon Web Services account.
+    paths:
+      /routes/v0/list-calculators:
+        POST:
+          summary: Listroutecalculators
+          description: Lists route calculator resources in your Amazon Web Services account.
+          operationId: amazonWebServicesListRouteCalculators

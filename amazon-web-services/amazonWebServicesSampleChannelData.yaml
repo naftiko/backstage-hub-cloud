@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesSampleChannelData
+  description: >-
+    Retrieves a sample of messages from the specified channel ingested during
+    the specified timeframe. Up to 10 messages can be retrieved.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Samplechanneldata
+      description: >-
+        Retrieves a sample of messages from the specified channel ingested during
+        the specified timeframe. Up to 10 messages can be retrieved.
+    paths:
+      /channels/{channelName}/sample:
+        GET:
+          summary: Samplechanneldata
+          description: >-
+            Retrieves a sample of messages from the specified channel ingested
+            during the specified timeframe. Up to 10 messages can be retrieved.
+          operationId: amazonWebServicesSampleChannelData

@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureListnetworkmanagereffectivesecurityadminrules
+  description: List all effective security admin rules applied on a virtual network.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Network Virtualnetworks Virtualnetworkname
+        Listnetworkmanagereffectivesecurityadminrules
+      description: List all effective security admin rules applied on a virtual network.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/listNetworkManagerEffectiveSecurityAdminRules:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Network Virtualnetworks Virtualnetworkname
+            Listnetworkmanagereffectivesecurityadminrules
+          description: List all effective security admin rules applied on a virtual network.
+          operationId: microsoftAzureListnetworkmanagereffectivesecurityadminrules
+          responses:
+            default:
+              description: >-
+                Resource Provider error response describing why the operation
+                failed.
+              schema:
+                $ref: ./network.json#/definitions/CloudError

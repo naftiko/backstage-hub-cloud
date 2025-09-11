@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetHostedZoneLimit
+  description: >-
+    Gets the specified limit for a specified hosted zone, for example, the
+    maximum number of records that you can create in the hosted zone.  For the
+    default limit, see Limits in the Amazon Route 53 Developer Guide. To request
+    a higher limit, open a case.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gethostedzonelimit
+      description: >-
+        Gets the specified limit for a specified hosted zone, for example, the
+        maximum number of records that you can create in the hosted zone.  For the
+        default limit, see Limits in the Amazon Route 53 Developer Guide. To request
+        a higher limit, open a case.
+    paths:
+      /2013-04-01/hostedzonelimit/{Id}/{Type}:
+        GET:
+          summary: Gethostedzonelimit
+          description: >-
+            Gets the specified limit for a specified hosted zone, for example, the
+            maximum number of records that you can create in the hosted zone.  For
+            the default limit, see Limits in the Amazon Route 53 Developer Guide. To
+            request a higher limit, open a case.
+          operationId: amazonWebServicesGetHostedZoneLimit

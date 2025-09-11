@@ -1,0 +1,73 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureLargefacelistList
+  description: >-
+    List large face lists’ information of largeFaceListId, name, userData and
+    recognitionModel.  <br>To get face information inside largeFaceList use
+    [LargeFaceList Face -
+    Get](https://docs.microsoft.com/rest/api/faceapi/largefacelist/getface)<br>*
+    Large face lists are stored in alphabetical order of largeFaceListId.<br>*
+    "start" parameter (string, optional) is a user-provided largeFaceListId
+    value that returned entries have larger ids by string comparison. "start"
+    set to empty to indicate return from the first item.<br>* "top" parameter
+    (int, optional) specifies the number of entries to return. A maximal of 1000
+    entries can be returned in one call. To fetch more, you can specify "start"
+    with the last returned entry’s Id of the current call.<br><br>For example,
+    total 5 large person lists: "list1", ..., "list5".<br> "start=&top=" will
+    return all 5 lists.<br> "start=&top=2" will return "list1", "list2".<br>
+    "start=list2&top=3" will return "list3", "list4", "list5".<br>
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Largefacelists
+      description: >-
+        List large face lists’ information of largeFaceListId, name, userData and
+        recognitionModel.  <br>To get face information inside largeFaceList use
+        [LargeFaceList Face -
+        Get](https://docs.microsoft.com/rest/api/faceapi/largefacelist/getface)<br>*
+        Large face lists are stored in alphabetical order of largeFaceListId.<br>*
+        "start" parameter (string, optional) is a user-provided largeFaceListId
+        value that returned entries have larger ids by string comparison. "start"
+        set to empty to indicate return from the first item.<br>* "top" parameter
+        (int, optional) specifies the number of entries to return. A maximal of 1000
+        entries can be returned in one call. To fetch more, you can specify "start"
+        with the last returned entry’s Id of the current call.<br><br>For example,
+        total 5 large person lists: "list1", ..., "list5".<br> "start=&top=" will
+        return all 5 lists.<br> "start=&top=2" will return "list1", "list2".<br>
+        "start=list2&top=3" will return "list3", "list4", "list5".<br>
+    paths:
+      /largefacelists:
+        get:
+          summary: Get Largefacelists
+          description: >-
+            List large face lists’ information of largeFaceListId, name, userData
+            and recognitionModel.  <br>To get face information inside largeFaceList
+            use [LargeFaceList Face -
+            Get](https://docs.microsoft.com/rest/api/faceapi/largefacelist/getface)<br>*
+            Large face lists are stored in alphabetical order of
+            largeFaceListId.<br>* "start" parameter (string, optional) is a
+            user-provided largeFaceListId value that returned entries have larger
+            ids by string comparison. "start" set to empty to indicate return from
+            the first item.<br>* "top" parameter (int, optional) specifies the
+            number of entries to return. A maximal of 1000 entries can be returned
+            in one call. To fetch more, you can specify "start" with the last
+            returned entry’s Id of the current call.<br><br>For example, total 5
+            large person lists: "list1", ..., "list5".<br> "start=&top=" will return
+            all 5 lists.<br> "start=&top=2" will return "list1", "list2".<br>
+            "start=list2&top=3" will return "list3", "list4", "list5".<br>
+          operationId: microsoftAzureLargefacelistList
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

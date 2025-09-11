@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreateUser
+  description: >-
+    Creates a universally unique identifier (UUID) mapped to a list of local
+    user ids within an application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createuser
+      description: >-
+        Creates a universally unique identifier (UUID) mapped to a list of local
+        user ids within an application.
+    paths:
+      /applications/{applicationId}/users:
+        POST:
+          summary: Createuser
+          description: >-
+            Creates a universally unique identifier (UUID) mapped to a list of local
+            user ids within an application.
+          operationId: amazonWebServicesCreateUser

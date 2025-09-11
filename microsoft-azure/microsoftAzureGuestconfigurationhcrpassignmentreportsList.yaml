@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGuestconfigurationhcrpassignmentreportsList
+  description: >-
+    List all reports for the guest configuration assignment, latest report
+    first.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Hybridcompute Machines Machinename Providers Microsoft
+        Guestconfiguration Guestconfigurationassignments
+        Guestconfigurationassignmentname Reports
+      description: >-
+        List all reports for the guest configuration assignment, latest report
+        first.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName}/reports:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Hybridcompute Machines Machinename Providers
+            Microsoft Guestconfiguration Guestconfigurationassignments
+            Guestconfigurationassignmentname Reports
+          description: >-
+            List all reports for the guest configuration assignment, latest report
+            first.
+          operationId: microsoftAzureGuestconfigurationhcrpassignmentreportsList
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ../../common/v1/definitions.json#/definitions/ErrorResponse

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateAppInstanceUser
+  description: >-
+    Updates the details of an AppInstanceUser. You can update names and
+    metadata.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateappinstanceuser
+      description: >-
+        Updates the details of an AppInstanceUser. You can update names and
+        metadata.
+    paths:
+      /app-instance-users/{appInstanceUserArn}:
+        PUT:
+          summary: Updateappinstanceuser
+          description: >-
+            Updates the details of an AppInstanceUser. You can update names and
+            metadata.
+          operationId: amazonWebServicesUpdateAppInstanceUser

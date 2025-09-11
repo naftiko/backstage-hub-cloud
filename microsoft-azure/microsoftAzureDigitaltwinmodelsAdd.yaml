@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDigitaltwinmodelsAdd
+  description: >-
+    Uploads one or more models. When any error occurs, no models are
+    uploaded.<br>Status codes:<br>* 201 Created<br>* 400 Bad Request<br>  *
+    DTDLParserError - The models provided are not valid DTDL.<br>  *
+    InvalidArgument - The model id is invalid.<br>  * LimitExceeded - The
+    maximum number of model ids allowed in 'dependenciesFor' has been
+    reached.<br>  * ModelVersionNotSupported - The version of DTDL used is not
+    supported.<br>* 409 Conflict<br>  * ModelAlreadyExists - The model provided
+    already exists.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Models
+      description: >-
+        Uploads one or more models. When any error occurs, no models are
+        uploaded.<br>Status codes:<br>* 201 Created<br>* 400 Bad Request<br>  *
+        DTDLParserError - The models provided are not valid DTDL.<br>  *
+        InvalidArgument - The model id is invalid.<br>  * LimitExceeded - The
+        maximum number of model ids allowed in 'dependenciesFor' has been
+        reached.<br>  * ModelVersionNotSupported - The version of DTDL used is not
+        supported.<br>* 409 Conflict<br>  * ModelAlreadyExists - The model provided
+        already exists.
+    paths:
+      /models:
+        post:
+          summary: Post Models
+          description: >-
+            Uploads one or more models. When any error occurs, no models are
+            uploaded.<br>Status codes:<br>* 201 Created<br>* 400 Bad Request<br>  *
+            DTDLParserError - The models provided are not valid DTDL.<br>  *
+            InvalidArgument - The model id is invalid.<br>  * LimitExceeded - The
+            maximum number of model ids allowed in 'dependenciesFor' has been
+            reached.<br>  * ModelVersionNotSupported - The version of DTDL used is
+            not supported.<br>* 409 Conflict<br>  * ModelAlreadyExists - The model
+            provided already exists.
+          operationId: microsoftAzureDigitaltwinmodelsAdd
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

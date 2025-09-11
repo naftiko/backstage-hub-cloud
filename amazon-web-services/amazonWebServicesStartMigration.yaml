@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesStartMigration
+  description: >-
+    Starts migrating a bot from Amazon Lex V1 to Amazon Lex V2. Migrate your bot
+    when you want to take advantage of the new features of Amazon Lex V2. For
+    more information, see Migrating a bot in the Amazon Lex developer guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startmigration
+      description: >-
+        Starts migrating a bot from Amazon Lex V1 to Amazon Lex V2. Migrate your bot
+        when you want to take advantage of the new features of Amazon Lex V2. For
+        more information, see Migrating a bot in the Amazon Lex developer guide.
+    paths:
+      /migrations:
+        POST:
+          summary: Startmigration
+          description: >-
+            Starts migrating a bot from Amazon Lex V1 to Amazon Lex V2. Migrate your
+            bot when you want to take advantage of the new features of Amazon Lex
+            V2. For more information, see Migrating a bot in the Amazon Lex
+            developer guide.
+          operationId: amazonWebServicesStartMigration

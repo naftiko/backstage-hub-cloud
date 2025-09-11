@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWorkflowsGet
+  description: Get Workflows resource
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Storagesync Storagesyncservices Storagesyncservicename Workflows
+        Workflowid
+      description: Get Workflows resource
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/workflows/{workflowId}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Storagesync Storagesyncservices
+            Storagesyncservicename Workflows Workflowid
+          description: Get Workflows resource
+          operationId: microsoftAzureWorkflowsGet
+          responses:
+            default:
+              description: Error message indicating why the operation failed.
+              schema:
+                $ref: '#/definitions/StorageSyncError'

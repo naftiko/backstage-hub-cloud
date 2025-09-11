@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListEntitlements
+  description: >-
+    Displays a list of all entitlements that have been granted to this account.
+    This request returns 20 results per page.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listentitlements
+      description: >-
+        Displays a list of all entitlements that have been granted to this account.
+        This request returns 20 results per page.
+    paths:
+      /v1/entitlements:
+        GET:
+          summary: Listentitlements
+          description: >-
+            Displays a list of all entitlements that have been granted to this
+            account. This request returns 20 results per page.
+          operationId: amazonWebServicesListEntitlements

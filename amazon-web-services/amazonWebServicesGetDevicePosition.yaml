@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetDevicePosition
+  description: >-
+    Retrieves a device's most recent position according to its sample time. 
+    Device positions are deleted after 30 days. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getdeviceposition
+      description: >-
+        Retrieves a device's most recent position according to its sample time. 
+        Device positions are deleted after 30 days. 
+    paths:
+      /tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/positions/latest:
+        GET:
+          summary: Getdeviceposition
+          description: >-
+            Retrieves a device's most recent position according to its sample time. 
+            Device positions are deleted after 30 days. 
+          operationId: amazonWebServicesGetDevicePosition

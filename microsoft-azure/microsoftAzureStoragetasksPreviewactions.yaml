@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureStoragetasksPreviewactions
+  description: >-
+    Runs the input conditions against input object metadata properties and
+    designates matched objects in response.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Providers Microsoft Storageactions
+        Locations Location Previewactions
+      description: >-
+        Runs the input conditions against input object metadata properties and
+        designates matched objects in response.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.StorageActions/locations/{location}/previewActions:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Providers Microsoft Storageactions
+            Locations Location Previewactions
+          description: >-
+            Runs the input conditions against input object metadata properties and
+            designates matched objects in response.
+          operationId: microsoftAzureStoragetasksPreviewactions
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

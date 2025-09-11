@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureStartnodetransition
+  description: >-
+    Starts or stops a cluster node.  A cluster node is a process, not the OS
+    instance itself.  To start a node, pass in "Start" for the
+    NodeTransitionType parameter.<br>To stop a node, pass in "Stop" for the
+    NodeTransitionType parameter.  This API starts the operation - when the API
+    returns the node may not have finished transitioning yet.<br>Call
+    GetNodeTransitionProgress with the same OperationId to get the progress of
+    the operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Starts Or Stops A Cluster Node '
+      description: >-
+        Starts or stops a cluster node.  A cluster node is a process, not the OS
+        instance itself.  To start a node, pass in "Start" for the
+        NodeTransitionType parameter.<br>To stop a node, pass in "Stop" for the
+        NodeTransitionType parameter.  This API starts the operation - when the API
+        returns the node may not have finished transitioning yet.<br>Call
+        GetNodeTransitionProgress with the same OperationId to get the progress of
+        the operation.
+    paths:
+      /Faults/Nodes/{nodeName}/$/StartTransition/:
+        post:
+          summary: 'Starts Or Stops A Cluster Node '
+          description: >-
+            Starts or stops a cluster node.  A cluster node is a process, not the OS
+            instance itself.  To start a node, pass in "Start" for the
+            NodeTransitionType parameter.<br>To stop a node, pass in "Stop" for the
+            NodeTransitionType parameter.  This API starts the operation - when the
+            API returns the node may not have finished transitioning yet.<br>Call
+            GetNodeTransitionProgress with the same OperationId to get the progress
+            of the operation.
+          operationId: microsoftAzureStartnodetransition
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

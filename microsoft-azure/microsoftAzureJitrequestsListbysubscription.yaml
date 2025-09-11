@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureJitrequestsListbysubscription
+  description: Lists all JIT requests within the subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Subscriptions Subscriptionid Providers Microsoft Solutions Jitrequests
+      description: Lists all JIT requests within the subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Solutions/jitRequests:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft Solutions
+            Jitrequests
+          description: Lists all JIT requests within the subscription.
+          operationId: microsoftAzureJitrequestsListbysubscription
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListPackagingConfigurations
+  description: Returns a collection of MediaPackage VOD PackagingConfiguration resources.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listpackagingconfigurations
+      description: Returns a collection of MediaPackage VOD PackagingConfiguration resources.
+    paths:
+      /packaging_configurations:
+        GET:
+          summary: Listpackagingconfigurations
+          description: >-
+            Returns a collection of MediaPackage VOD PackagingConfiguration
+            resources.
+          operationId: amazonWebServicesListPackagingConfigurations

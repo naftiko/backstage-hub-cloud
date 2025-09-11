@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGettags
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get The Tags For A Given Project And Iteration
+      description: Needs a more full description created.
+    paths:
+      /projects/{projectId}/tags:
+        get:
+          summary: Get The Tags For A Given Project And Iteration
+          description: Needs a more full description created.
+          operationId: microsoftAzureGettags
+          responses:
+            '200':
+              description: OK
+              schema:
+                type: array
+                items:
+                  $ref: '#/definitions/Tag'
+                x-nullable: true

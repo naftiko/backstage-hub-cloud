@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureConsumerConsumetopicinpartitionwithoffset
+  description: >-
+    Consume records from one partition of a topic beginning with a specific
+    offset. By default count is 1. It can read maximum of 6 megabytes of data at
+    once
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Consume Records Using A Simple Consumer
+      description: >-
+        Consume records from one partition of a topic beginning with a specific
+        offset. By default count is 1. It can read maximum of 6 megabytes of data at
+        once
+    paths:
+      /v1/consumer/topics/{topic}/partitions/{partition}/offsets/{offset}:
+        get:
+          summary: Consume Records Using A Simple Consumer
+          description: >-
+            Consume records from one partition of a topic beginning with a specific
+            offset. By default count is 1. It can read maximum of 6 megabytes of
+            data at once
+          operationId: microsoftAzureConsumerConsumetopicinpartitionwithoffset
+          responses:
+            '500':
+              description: Internal Server Error

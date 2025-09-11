@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAppsGet
+  description: Gets the application info.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Apps Appid
+      description: Gets the application info.
+    paths:
+      /apps/{appId}:
+        get:
+          summary: Get Apps Appid
+          description: Gets the application info.
+          operationId: microsoftAzureAppsGet
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

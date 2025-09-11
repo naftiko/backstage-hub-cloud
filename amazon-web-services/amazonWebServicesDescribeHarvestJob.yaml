@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDescribeHarvestJob
+  description: Gets details about an existing HarvestJob.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeharvestjob
+      description: Gets details about an existing HarvestJob.
+    paths:
+      /harvest_jobs/{id}:
+        GET:
+          summary: Describeharvestjob
+          description: Gets details about an existing HarvestJob.
+          operationId: amazonWebServicesDescribeHarvestJob

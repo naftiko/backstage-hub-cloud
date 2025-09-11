@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateContactEvaluation
+  description: >-
+    Updates details about a contact evaluation in the specified Amazon Connect
+    instance. A contact evaluation must be in draft state. Answers included in
+    the request are merged with existing answers for the given evaluation. An
+    answer or note can be deleted by passing an empty object ({}) to the
+    question identifier. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatecontactevaluation
+      description: >-
+        Updates details about a contact evaluation in the specified Amazon Connect
+        instance. A contact evaluation must be in draft state. Answers included in
+        the request are merged with existing answers for the given evaluation. An
+        answer or note can be deleted by passing an empty object ({}) to the
+        question identifier. 
+    paths:
+      /contact-evaluations/{InstanceId}/{EvaluationId}:
+        POST:
+          summary: Updatecontactevaluation
+          description: >-
+            Updates details about a contact evaluation in the specified Amazon
+            Connect instance. A contact evaluation must be in draft state. Answers
+            included in the request are merged with existing answers for the given
+            evaluation. An answer or note can be deleted by passing an empty object
+            ({}) to the question identifier. 
+          operationId: amazonWebServicesUpdateContactEvaluation

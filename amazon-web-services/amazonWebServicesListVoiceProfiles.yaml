@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListVoiceProfiles
+  description: Lists the voice profiles in a voice profile domain.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listvoiceprofiles
+      description: Lists the voice profiles in a voice profile domain.
+    paths:
+      /voice-profiles:
+        GET:
+          summary: Listvoiceprofiles
+          description: Lists the voice profiles in a voice profile domain.
+          operationId: amazonWebServicesListVoiceProfiles

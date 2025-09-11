@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSearchGet
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Public Search Api Provides An Unauthenticated Endpoint For Consuming List Of
+        Marketplace Public Products, Total Count Of Products Returned, And Facets
+        Per Requested Properties In Addition, It Enables Filtering On Selected
+        Product properties, Search, And Getting Product Details Each Api Request
+        Must Include An Api Key Allocated To You See X Api Key Description  Send An
+        Email To Mkpl Platform Api Dl@microsoft Com Including The Following Details
+        To Get The Api Key:
+         Customer Name
+         Service Product Name
+         Ad Registered App Id If Available 
+         Focal Point Email
+         Use Case Scenario
+         Expected Traffic Volume, Including Peak Requests Per Second Daily 
+      description: Needs a more full description created.
+    paths:
+      /search:
+        get:
+          summary: >-
+            Public Search Api Provides An Unauthenticated Endpoint For Consuming
+            List Of Marketplace Public Products, Total Count Of Products Returned,
+            And Facets Per Requested Properties In Addition, It Enables Filtering On
+            Selected Product properties, Search, And Getting Product Details Each
+            Api Request Must Include An Api Key Allocated To You See X Api Key
+            Description  Send An Email To Mkpl Platform Api Dl@microsoft Com
+            Including The Following Details To Get The Api Key:
+             Customer Name
+             Service Product Name
+             Ad Registered App Id If Available 
+             Focal Point Email
+             Use Case Scenario
+             Expected Traffic Volume, Including Peak Requests Per Second Daily 
+          description: Needs a more full description created.
+          operationId: microsoftAzureSearchGet
+          responses:
+            default:
+              description: |2-
+                 Error Responses: 
+
+                 * 400 - In case request malformed.
+
+                 * 401 - In case of a missing or invalid api key header
+
+                 * 500 - In case internal error.
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: Error code

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googleDriveChangesWatch
+  description: Subscribes to changes for a user.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Changes Watch
+      description: Subscribes to changes for a user.
+    paths:
+      /changes/watch:
+        post:
+          summary: Post Changes Watch
+          description: Subscribes to changes for a user.
+          operationId: googleDriveChangesWatch
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Channel'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/Channel'
+              description: Successful response

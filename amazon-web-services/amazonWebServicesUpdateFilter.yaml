@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateFilter
+  description: >-
+    Specifies the action that is to be applied to the findings that match the
+    filter.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatefilter
+      description: >-
+        Specifies the action that is to be applied to the findings that match the
+        filter.
+    paths:
+      /filters/update:
+        POST:
+          summary: Updatefilter
+          description: >-
+            Specifies the action that is to be applied to the findings that match
+            the filter.
+          operationId: amazonWebServicesUpdateFilter

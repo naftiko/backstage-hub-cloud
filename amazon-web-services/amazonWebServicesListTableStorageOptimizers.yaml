@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListTableStorageOptimizers
+  description: >-
+    Returns the configuration of all storage optimizers associated with a
+    specified table.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listtablestorageoptimizers
+      description: >-
+        Returns the configuration of all storage optimizers associated with a
+        specified table.
+    paths:
+      /ListTableStorageOptimizers:
+        POST:
+          summary: Listtablestorageoptimizers
+          description: >-
+            Returns the configuration of all storage optimizers associated with a
+            specified table.
+          operationId: amazonWebServicesListTableStorageOptimizers

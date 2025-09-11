@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureProtectioncontainersUnregister
+  description: >-
+    Unregisters the given container from your Recovery Services Vault. This is
+    an asynchronous operation. To determine<br>whether the backend service has
+    finished processing the request, call Get Container Operation Result API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft Recoveryservices Vaults Vaultname Backupfabrics
+        Fabricname Protectioncontainers Containername
+      description: >-
+        Unregisters the given container from your Recovery Services Vault. This is
+        an asynchronous operation. To determine<br>whether the backend service has
+        finished processing the request, call Get Container Operation Result API.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Recoveryservices Vaults Vaultname Backupfabrics
+            Fabricname Protectioncontainers Containername
+          description: >-
+            Unregisters the given container from your Recovery Services Vault. This
+            is an asynchronous operation. To determine<br>whether the backend
+            service has finished processing the request, call Get Container
+            Operation Result API.
+          operationId: microsoftAzureProtectioncontainersUnregister
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

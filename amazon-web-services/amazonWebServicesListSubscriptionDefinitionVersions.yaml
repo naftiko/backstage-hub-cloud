@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListSubscriptionDefinitionVersions
+  description: Lists the versions of a subscription definition.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listsubscriptiondefinitionversions
+      description: Lists the versions of a subscription definition.
+    paths:
+      /greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions:
+        GET:
+          summary: Listsubscriptiondefinitionversions
+          description: Lists the versions of a subscription definition.
+          operationId: amazonWebServicesListSubscriptionDefinitionVersions

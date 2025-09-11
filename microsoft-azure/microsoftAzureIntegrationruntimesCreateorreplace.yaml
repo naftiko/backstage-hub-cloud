@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureIntegrationruntimesCreateorreplace
+  description: Create or replace an instance of a integrationRuntime
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Integrationruntimes Integrationruntimename
+      description: Create or replace an instance of a integrationRuntime
+    paths:
+      /integrationruntimes/{integrationRuntimeName}:
+        put:
+          summary: Put Integrationruntimes Integrationruntimename
+          description: Create or replace an instance of a integrationRuntime
+          operationId: microsoftAzureIntegrationruntimesCreateorreplace
+          responses:
+            default:
+              description: An error response received from the Scanning Service
+              schema:
+                $ref: '#/definitions/ErrorResponseModel'

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureResourcegroupsCreateorupdate
+  description: Creates or updates a resource group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+      description: Creates or updates a resource group.
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}:
+        put:
+          summary: Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+          description: Creates or updates a resource group.
+          operationId: microsoftAzureResourcegroupsCreateorupdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

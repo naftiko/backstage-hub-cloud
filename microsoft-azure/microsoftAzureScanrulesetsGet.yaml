@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureScanrulesetsGet
+  description: Get a scan ruleset
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Scanrulesets Scanrulesetname
+      description: Get a scan ruleset
+    paths:
+      /scanrulesets/{scanRulesetName}:
+        get:
+          summary: Get Scanrulesets Scanrulesetname
+          description: Get a scan ruleset
+          operationId: microsoftAzureScanrulesetsGet
+          responses:
+            default:
+              description: An error response received from the Scanning Service
+              schema:
+                $ref: '#/definitions/ErrorResponseModel'

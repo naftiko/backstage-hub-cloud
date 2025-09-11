@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListUsersByPermissionGroup
+  description: Lists details of all the users in a specific permission group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listusersbypermissiongroup
+      description: Lists details of all the users in a specific permission group.
+    paths:
+      /permission-group/{permissionGroupId}/users:
+        GET:
+          summary: Listusersbypermissiongroup
+          description: Lists details of all the users in a specific permission group.
+          operationId: amazonWebServicesListUsersByPermissionGroup

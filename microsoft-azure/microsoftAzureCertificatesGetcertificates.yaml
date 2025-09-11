@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureCertificatesGetcertificates
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Get Certificates For A Subscription In The Specified Resource Group '
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/certificates:
+        get:
+          summary: 'Get Certificates For A Subscription In The Specified Resource Group '
+          description: Needs a more full description created.
+          operationId: microsoftAzureCertificatesGetcertificates
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/CertificateCollection'

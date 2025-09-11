@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureConversationalanalysisauthoringCopyproject
+  description: Copies an existing project to another Azure resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Authoring Analyze Conversations Projects Projectname :copy
+      description: Copies an existing project to another Azure resource.
+    paths:
+      /authoring/analyze-conversations/projects/{projectName}/:copy:
+        post:
+          summary: Post Authoring Analyze Conversations Projects Projectname :copy
+          description: Copies an existing project to another Azure resource.
+          operationId: microsoftAzureConversationalanalysisauthoringCopyproject
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: common.json#/definitions/ErrorResponse

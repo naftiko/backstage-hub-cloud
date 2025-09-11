@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureReplicationpoliciesDelete
+  description: The operation to delete a replication policy.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Delete The Policy '
+      description: The operation to delete a replication policy.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationPolicies/{policyName}:
+        delete:
+          summary: 'Delete The Policy '
+          description: The operation to delete a replication policy.
+          operationId: microsoftAzureReplicationpoliciesDelete
+          responses:
+            '204':
+              description: NoContent

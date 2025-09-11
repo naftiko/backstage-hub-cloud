@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureProtecteditemsGet
+  description: >-
+    Provides the details of the backed up item. This is an asynchronous
+    operation. To know the status of the operation,<br>call the
+    GetItemOperationResult API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Recoveryservices Vaults Vaultname Backupfabrics Fabricname
+        Protectioncontainers Containername Protecteditems Protecteditemname
+      description: >-
+        Provides the details of the backed up item. This is an asynchronous
+        operation. To know the status of the operation,<br>call the
+        GetItemOperationResult API.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Recoveryservices Vaults Vaultname Backupfabrics
+            Fabricname Protectioncontainers Containername Protecteditems
+            Protecteditemname
+          description: >-
+            Provides the details of the backed up item. This is an asynchronous
+            operation. To know the status of the operation,<br>call the
+            GetItemOperationResult API.
+          operationId: microsoftAzureProtecteditemsGet
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

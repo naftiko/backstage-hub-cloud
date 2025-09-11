@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetIntegrations
+  description: Gets the Integrations for an API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getintegrations
+      description: Gets the Integrations for an API.
+    paths:
+      /v2/apis/{apiId}/integrations:
+        GET:
+          summary: Getintegrations
+          description: Gets the Integrations for an API.
+          operationId: amazonWebServicesGetIntegrations

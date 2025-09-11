@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAzuretrafficcollectorsUpdatetags
+  description: Updates the specified Azure Traffic Collector tags.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft Networkfunction Azuretrafficcollectors
+        Azuretrafficcollectorname
+      description: Updates the specified Azure Traffic Collector tags.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkFunction/azureTrafficCollectors/{azureTrafficCollectorName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Networkfunction Azuretrafficcollectors
+            Azuretrafficcollectorname
+          description: Updates the specified Azure Traffic Collector tags.
+          operationId: microsoftAzureAzuretrafficcollectorsUpdatetags
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreateConfigurationPolicy
+  description: ' Creates a configuration policy with the defined configuration. Only the Security Hub delegated administrator can invoke this operation from the home Region. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createconfigurationpolicy
+      description: ' Creates a configuration policy with the defined configuration. Only the Security Hub delegated administrator can invoke this operation from the home Region. '
+    paths:
+      /configurationPolicy/create:
+        POST:
+          summary: Createconfigurationpolicy
+          description: ' Creates a configuration policy with the defined configuration. Only the Security Hub delegated administrator can invoke this operation from the home Region. '
+          operationId: amazonWebServicesCreateConfigurationPolicy

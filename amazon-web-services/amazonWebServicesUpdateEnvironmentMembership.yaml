@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateEnvironmentMembership
+  description: >-
+    Changes the settings of an existing environment member for an Cloud9
+    development environment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateenvironmentmembership
+      description: >-
+        Changes the settings of an existing environment member for an Cloud9
+        development environment.
+    paths:
+      /:
+        POST:
+          summary: Updateenvironmentmembership
+          description: >-
+            Changes the settings of an existing environment member for an Cloud9
+            development environment.
+          operationId: amazonWebServicesUpdateEnvironmentMembership

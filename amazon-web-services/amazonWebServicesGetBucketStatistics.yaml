@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetBucketStatistics
+  description: >-
+    Retrieves (queries) aggregated statistical data about all the S3 buckets
+    that Amazon Macie monitors and analyzes for an account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getbucketstatistics
+      description: >-
+        Retrieves (queries) aggregated statistical data about all the S3 buckets
+        that Amazon Macie monitors and analyzes for an account.
+    paths:
+      /datasources/s3/statistics:
+        POST:
+          summary: Getbucketstatistics
+          description: >-
+            Retrieves (queries) aggregated statistical data about all the S3 buckets
+            that Amazon Macie monitors and analyzes for an account.
+          operationId: amazonWebServicesGetBucketStatistics

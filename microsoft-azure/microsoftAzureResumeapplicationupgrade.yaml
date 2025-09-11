@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureResumeapplicationupgrade
+  description: >-
+    Resumes an unmonitored manual Service Fabric application upgrade. Service
+    Fabric upgrades one upgrade domain at a time. For unmonitored manual
+    upgrades, after Service Fabric finishes an upgrade domain, it waits for you
+    to call this API before proceeding to the next upgrade domain.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Resumes Upgrading An Application In The Service Fabric Cluster '
+      description: >-
+        Resumes an unmonitored manual Service Fabric application upgrade. Service
+        Fabric upgrades one upgrade domain at a time. For unmonitored manual
+        upgrades, after Service Fabric finishes an upgrade domain, it waits for you
+        to call this API before proceeding to the next upgrade domain.
+    paths:
+      /Applications/{applicationId}/$/MoveToNextUpgradeDomain:
+        post:
+          summary: 'Resumes Upgrading An Application In The Service Fabric Cluster '
+          description: >-
+            Resumes an unmonitored manual Service Fabric application upgrade.
+            Service Fabric upgrades one upgrade domain at a time. For unmonitored
+            manual upgrades, after Service Fabric finishes an upgrade domain, it
+            waits for you to call this API before proceeding to the next upgrade
+            domain.
+          operationId: microsoftAzureResumeapplicationupgrade
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

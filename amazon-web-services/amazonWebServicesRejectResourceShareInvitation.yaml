@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesRejectResourceShareInvitation
+  description: >-
+    Rejects an invitation to a resource share from another Amazon Web Services
+    account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Rejectresourceshareinvitation
+      description: >-
+        Rejects an invitation to a resource share from another Amazon Web Services
+        account.
+    paths:
+      /rejectresourceshareinvitation:
+        POST:
+          summary: Rejectresourceshareinvitation
+          description: >-
+            Rejects an invitation to a resource share from another Amazon Web
+            Services account.
+          operationId: amazonWebServicesRejectResourceShareInvitation

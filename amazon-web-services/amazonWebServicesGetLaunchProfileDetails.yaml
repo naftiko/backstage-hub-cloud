@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetLaunchProfileDetails
+  description: >-
+    Launch profile details include the launch profile resource and summary
+    information of resources that are used by, or available to, the launch
+    profile. This includes the name and description of all studio components
+    used by the launch profiles, and the name and description of streaming
+    images that can be used with this launch profile.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getlaunchprofiledetails
+      description: >-
+        Launch profile details include the launch profile resource and summary
+        information of resources that are used by, or available to, the launch
+        profile. This includes the name and description of all studio components
+        used by the launch profiles, and the name and description of streaming
+        images that can be used with this launch profile.
+    paths:
+      /2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/details:
+        GET:
+          summary: Getlaunchprofiledetails
+          description: >-
+            Launch profile details include the launch profile resource and summary
+            information of resources that are used by, or available to, the launch
+            profile. This includes the name and description of all studio components
+            used by the launch profiles, and the name and description of streaming
+            images that can be used with this launch profile.
+          operationId: amazonWebServicesGetLaunchProfileDetails

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateMitigationAction
+  description: >-
+    Updates the definition for the specified mitigation action. Requires
+    permission to access the UpdateMitigationAction action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatemitigationaction
+      description: >-
+        Updates the definition for the specified mitigation action. Requires
+        permission to access the UpdateMitigationAction action.
+    paths:
+      /mitigationactions/actions/{actionName}:
+        PATCH:
+          summary: Updatemitigationaction
+          description: >-
+            Updates the definition for the specified mitigation action. Requires
+            permission to access the UpdateMitigationAction action.
+          operationId: amazonWebServicesUpdateMitigationAction

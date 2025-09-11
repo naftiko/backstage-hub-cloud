@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureEntityGetbyguid
+  description: Get complete definition of an entity given its GUID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Atlas Entity Guid Guid
+      description: Get complete definition of an entity given its GUID.
+    paths:
+      /atlas/v2/entity/guid/{guid}:
+        get:
+          summary: Get Atlas Entity Guid Guid
+          description: Get complete definition of an entity given its GUID.
+          operationId: microsoftAzureEntityGetbyguid
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

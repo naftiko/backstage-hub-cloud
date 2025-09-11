@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureServiceValidateinputsbyresourcegroup
+  description: >-
+    This method does all necessary pre-job creation validation under resource
+    group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Databox Locations Location Validateinputs
+      description: >-
+        This method does all necessary pre-job creation validation under resource
+        group.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBox/locations/{location}/validateInputs:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Databox Locations Location Validateinputs
+          description: >-
+            This method does all necessary pre-job creation validation under
+            resource group.
+          operationId: microsoftAzureServiceValidateinputsbyresourcegroup
+          responses:
+            default:
+              description: Error response describing reason for operation failure.
+              schema:
+                $ref: '#/definitions/ApiError'

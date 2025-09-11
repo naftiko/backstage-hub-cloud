@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetTemplate
+  description: Get the template you want to use for creating a migration workflow.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gettemplate
+      description: Get the template you want to use for creating a migration workflow.
+    paths:
+      /migrationworkflowtemplate/{id}:
+        GET:
+          summary: Gettemplate
+          description: Get the template you want to use for creating a migration workflow.
+          operationId: amazonWebServicesGetTemplate

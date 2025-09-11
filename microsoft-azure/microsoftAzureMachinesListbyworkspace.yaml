@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureMachinesListbyworkspace
+  description: >-
+    Returns a collection of machines matching the specified conditions.  The
+    returned collection represents either machines that are active/live during
+    the specified interval  of time (`live=true` and `startTime`/`endTime` are
+    specified) or that are known to have existed at or  some time prior to the
+    specified point in time (`live=false` and `timestamp` is specified).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Operationalinsights Workspaces Workspacename Features Servicemap
+        Machines
+      description: >-
+        Returns a collection of machines matching the specified conditions.  The
+        returned collection represents either machines that are active/live during
+        the specified interval  of time (`live=true` and `startTime`/`endTime` are
+        specified) or that are known to have existed at or  some time prior to the
+        specified point in time (`live=false` and `timestamp` is specified).
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/serviceMap/machines:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Operationalinsights Workspaces Workspacename
+            Features Servicemap Machines
+          description: >-
+            Returns a collection of machines matching the specified conditions.  The
+            returned collection represents either machines that are active/live
+            during the specified interval  of time (`live=true` and
+            `startTime`/`endTime` are specified) or that are known to have existed
+            at or  some time prior to the specified point in time (`live=false` and
+            `timestamp` is specified).
+          operationId: microsoftAzureMachinesListbyworkspace
+          responses:
+            default:
+              description: >-
+                An error occurred while processing the request. See the error.code
+                parameter to identify the specific error.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

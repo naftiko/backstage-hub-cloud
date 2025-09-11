@@ -1,0 +1,80 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googleDisableCSEKeypairs
+  description: >-
+    Turns off a client-side encryption key pair. The authenticated user can no
+    longer use the key pair to decrypt incoming CSE message texts or sign
+    outgoing CSE mail. To regain access, use the EnableCseKeyPair to turn on the
+    key pair. After 30 days, you can permanently delete the key pair by using
+    the ObliterateCseKeyPair method.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disable Cse Keypairs
+      description: >-
+        Turns off a client-side encryption key pair. The authenticated user can no
+        longer use the key pair to decrypt incoming CSE message texts or sign
+        outgoing CSE mail. To regain access, use the EnableCseKeyPair to turn on the
+        key pair. After 30 days, you can permanently delete the key pair by using
+        the ObliterateCseKeyPair method.
+    paths:
+      /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:disable:
+        post:
+          summary: Disable Cse Keypairs
+          description: >-
+            Turns off a client-side encryption key pair. The authenticated user can
+            no longer use the key pair to decrypt incoming CSE message texts or sign
+            outgoing CSE mail. To regain access, use the EnableCseKeyPair to turn on
+            the key pair. After 30 days, you can permanently delete the key pair by
+            using the ObliterateCseKeyPair method.
+          operationId: googleDisableCSEKeypairs
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example: {}
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    keyPairId: Lorem eiusmod
+                    pkcs7: ex incididunt
+                    pem: irure quis
+                    subjectEmailAddresses:
+                      - Excepteur Ut commodo aliquip
+                      - eu Lorem nulla
+                    enablementState: disabled
+                    disableTime: cill
+                    privateKeyMetadata:
+                      - privateKeyMetadataId: proident fugiat eu dolore
+                        kaclsKeyMetadata:
+                          kaclsUri: voluptate ipsum ad
+                          kaclsData: Duis laborum aute
+                        hardwareKeyMetadata:
+                          description: mollit la
+                      - privateKeyMetadataId: nulla ullamco
+                        kaclsKeyMetadata:
+                          kaclsUri: minim in
+                          kaclsData: sint eiusmod
+                        hardwareKeyMetadata:
+                          description: ut

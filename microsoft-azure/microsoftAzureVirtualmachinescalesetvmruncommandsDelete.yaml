@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureVirtualmachinescalesetvmruncommandsDelete
+  description: The operation to delete the VMSS VM run command.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft Compute Virtualmachinescalesets Vmscalesetname
+        Virtualmachines Instanceid Runcommands Runcommandname
+      description: The operation to delete the VMSS VM run command.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines/{instanceId}/runCommands/{runCommandName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Compute Virtualmachinescalesets Vmscalesetname
+            Virtualmachines Instanceid Runcommands Runcommandname
+          description: The operation to delete the VMSS VM run command.
+          operationId: microsoftAzureVirtualmachinescalesetvmruncommandsDelete
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ../../../common-types/v1/common.json#/definitions/CloudError

@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureExpressroutecircuitpeeringsDelete
+  description: >-
+    The delete peering operation deletes the specified peering from the
+    ExpressRouteCircuit.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft Network Expressroutecircuits Circuitname Peerings
+        Peeringname
+      description: >-
+        The delete peering operation deletes the specified peering from the
+        ExpressRouteCircuit.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Network Expressroutecircuits Circuitname Peerings
+            Peeringname
+          description: >-
+            The delete peering operation deletes the specified peering from the
+            ExpressRouteCircuit.
+          operationId: microsoftAzureExpressroutecircuitpeeringsDelete
+          responses:
+            '204':
+              description: ''

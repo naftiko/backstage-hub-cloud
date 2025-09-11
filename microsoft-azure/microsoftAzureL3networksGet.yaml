@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureL3networksGet
+  description: Get properties of the provided layer 3 (L3) network.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Retrieve The Layer 3 L3 Network '
+      description: Get properties of the provided layer 3 (L3) network.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l3Networks/{l3NetworkName}:
+        get:
+          summary: 'Retrieve The Layer 3 L3 Network '
+          description: Get properties of the provided layer 3 (L3) network.
+          operationId: microsoftAzureL3networksGet
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

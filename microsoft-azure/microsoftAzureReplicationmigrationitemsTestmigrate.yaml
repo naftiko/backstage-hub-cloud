@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureReplicationmigrationitemsTestmigrate
+  description: The operation to initiate test migration of the item.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Test Migrate Item '
+      description: The operation to initiate test migration of the item.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationMigrationItems/{migrationItemName}/testMigrate:
+        post:
+          summary: 'Test Migrate Item '
+          description: The operation to initiate test migration of the item.
+          operationId: microsoftAzureReplicationmigrationitemsTestmigrate
+          responses:
+            '202':
+              description: Accepted

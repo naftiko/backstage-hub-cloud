@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesSetSubnets
+  description: >-
+    Enables the Availability Zones for the specified public subnets for the
+    specified Application Load Balancer, Network Load Balancer or Gateway Load
+    Balancer. The specified subnets replace the previously enabled subnets. When
+    you specify subnets for a Network Load Balancer, or Gateway Load Balancer
+    you must include all subnets that were enabled previously, with their
+    existing configurations, plus any additional subnets.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Setsubnets
+      description: >-
+        Enables the Availability Zones for the specified public subnets for the
+        specified Application Load Balancer, Network Load Balancer or Gateway Load
+        Balancer. The specified subnets replace the previously enabled subnets. When
+        you specify subnets for a Network Load Balancer, or Gateway Load Balancer
+        you must include all subnets that were enabled previously, with their
+        existing configurations, plus any additional subnets.
+    paths:
+      /:
+        POST:
+          summary: Setsubnets
+          description: >-
+            Enables the Availability Zones for the specified public subnets for the
+            specified Application Load Balancer, Network Load Balancer or Gateway
+            Load Balancer. The specified subnets replace the previously enabled
+            subnets. When you specify subnets for a Network Load Balancer, or
+            Gateway Load Balancer you must include all subnets that were enabled
+            previously, with their existing configurations, plus any additional
+            subnets.
+          operationId: amazonWebServicesSetSubnets

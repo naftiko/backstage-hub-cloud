@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListAudienceModels
+  description: Returns a list of audience models.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listaudiencemodels
+      description: Returns a list of audience models.
+    paths:
+      /audience-model:
+        GET:
+          summary: Listaudiencemodels
+          description: Returns a list of audience models.
+          operationId: amazonWebServicesListAudienceModels

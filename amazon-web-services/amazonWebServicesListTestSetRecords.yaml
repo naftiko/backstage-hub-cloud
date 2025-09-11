@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListTestSetRecords
+  description: The list of test set records.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listtestsetrecords
+      description: The list of test set records.
+    paths:
+      /testsets/{testSetId}/records:
+        POST:
+          summary: Listtestsetrecords
+          description: The list of test set records.
+          operationId: amazonWebServicesListTestSetRecords

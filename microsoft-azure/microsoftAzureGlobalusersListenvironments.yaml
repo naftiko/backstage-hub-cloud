@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGlobalusersListenvironments
+  description: List Environments for the user
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Providers Microsoft Labservices Users Username Listenvironments
+      description: List Environments for the user
+    paths:
+      /providers/Microsoft.LabServices/users/{userName}/listEnvironments:
+        post:
+          summary: Post Providers Microsoft Labservices Users Username Listenvironments
+          description: List Environments for the user
+          operationId: microsoftAzureGlobalusersListenvironments
+          responses:
+            default:
+              description: BadRequest
+              schema:
+                $ref: '#/definitions/CloudError'

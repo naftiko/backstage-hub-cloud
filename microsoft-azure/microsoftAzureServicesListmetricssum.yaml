@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureServicesListmetricssum
+  description: Gets the sum of the metric values for a given metric and group combination.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Providers Microsoft Adhybridhealthservice Services Servicename Metrics
+        Metricname Groups Groupname Sum
+      description: Gets the sum of the metric values for a given metric and group combination.
+    paths:
+      /providers/Microsoft.ADHybridHealthService/services/{serviceName}/metrics/{metricName}/groups/{groupName}/sum:
+        get:
+          summary: >-
+            Get Providers Microsoft Adhybridhealthservice Services Servicename
+            Metrics Metricname Groups Groupname Sum
+          description: >-
+            Gets the sum of the metric values for a given metric and group
+            combination.
+          operationId: microsoftAzureServicesListmetricssum
+          responses:
+            '200':
+              description: The list of metrics for a given service.
+              schema:
+                $ref: '#/definitions/Metrics'

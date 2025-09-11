@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureMultivariateGetmultivariatemodel
+  description: >-
+    Get detailed information about the multivariate model, including the
+    training status<br>and variables used in the model.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Multivariate Model
+      description: >-
+        Get detailed information about the multivariate model, including the
+        training status<br>and variables used in the model.
+    paths:
+      /multivariate/models/{modelId}:
+        get:
+          summary: Get Multivariate Model
+          description: >-
+            Get detailed information about the multivariate model, including the
+            training status<br>and variables used in the model.
+          operationId: microsoftAzureMultivariateGetmultivariatemodel
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/Multivariate.ResponseError'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: Error code.

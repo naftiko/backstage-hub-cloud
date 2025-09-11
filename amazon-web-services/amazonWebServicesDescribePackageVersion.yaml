@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDescribePackageVersion
+  description: Returns information about a package version.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describepackageversion
+      description: Returns information about a package version.
+    paths:
+      /packages/metadata/{PackageId}/versions/{PackageVersion}:
+        GET:
+          summary: Describepackageversion
+          description: Returns information about a package version.
+          operationId: amazonWebServicesDescribePackageVersion

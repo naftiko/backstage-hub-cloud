@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDescribeChannelModerator
+  description: >-
+    Returns the full details of a single ChannelModerator.  The
+    x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn
+    of the user that makes the API call as the value in the header. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describechannelmoderator
+      description: >-
+        Returns the full details of a single ChannelModerator.  The
+        x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn
+        of the user that makes the API call as the value in the header. 
+    paths:
+      /channels/{channelArn}/moderators/{channelModeratorArn}:
+        GET:
+          summary: Describechannelmoderator
+          description: >-
+            Returns the full details of a single ChannelModerator.  The
+            x-amz-chime-bearer request header is mandatory. Use the
+            AppInstanceUserArn of the user that makes the API call as the value in
+            the header. 
+          operationId: amazonWebServicesDescribeChannelModerator

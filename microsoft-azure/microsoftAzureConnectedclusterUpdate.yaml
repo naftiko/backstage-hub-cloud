@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureConnectedclusterUpdate
+  description: API to update certain properties of the connected cluster resource
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Updates A Connected Cluster '
+      description: API to update certain properties of the connected cluster resource
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedClusters/{clusterName}:
+        patch:
+          summary: 'Updates A Connected Cluster '
+          description: API to update certain properties of the connected cluster resource
+          operationId: microsoftAzureConnectedclusterUpdate
+          responses:
+            default:
+              description: >-
+                Resource Provider error response describing why the operation
+                failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

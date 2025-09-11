@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureBuildpackbindingList
+  description: Handles requests to list all buildpack bindings in a builder.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Appplatform Spring Servicename Buildservices Buildservicename
+        Builders Buildername Buildpackbindings
+      description: Handles requests to list all buildpack bindings in a builder.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/buildServices/{buildServiceName}/builders/{builderName}/buildpackBindings:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Appplatform Spring Servicename Buildservices
+            Buildservicename Builders Buildername Buildpackbindings
+          description: Handles requests to list all buildpack bindings in a builder.
+          operationId: microsoftAzureBuildpackbindingList
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

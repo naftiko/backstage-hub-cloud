@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesBatchGetTokenBalance
+  description: >-
+    Gets the token balance for a batch of tokens by using the
+    BatchGetTokenBalance action for every token in the request.  Only the native
+    tokens BTC and ETH, and the ERC-20, ERC-721, and ERC 1155 token standards
+    are supported. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchgettokenbalance
+      description: >-
+        Gets the token balance for a batch of tokens by using the
+        BatchGetTokenBalance action for every token in the request.  Only the native
+        tokens BTC and ETH, and the ERC-20, ERC-721, and ERC 1155 token standards
+        are supported. 
+    paths:
+      /batch-get-token-balance:
+        POST:
+          summary: Batchgettokenbalance
+          description: >-
+            Gets the token balance for a batch of tokens by using the
+            BatchGetTokenBalance action for every token in the request.  Only the
+            native tokens BTC and ETH, and the ERC-20, ERC-721, and ERC 1155 token
+            standards are supported. 
+          operationId: amazonWebServicesBatchGetTokenBalance

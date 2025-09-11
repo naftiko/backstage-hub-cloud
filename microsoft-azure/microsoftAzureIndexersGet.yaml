@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureIndexersGet
+  description: Retrieves an indexer definition.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Get Indexers Indexername '
+      description: Retrieves an indexer definition.
+    paths:
+      /indexers('{indexerName}'):
+        get:
+          summary: 'Get Indexers Indexername '
+          description: Retrieves an indexer definition.
+          operationId: microsoftAzureIndexersGet
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/SearchError'

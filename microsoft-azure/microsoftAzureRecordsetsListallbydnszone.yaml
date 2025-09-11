@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureRecordsetsListallbydnszone
+  description: Lists all record sets in a DNS zone.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Network Dnszones Zonename All
+      description: Lists all record sets in a DNS zone.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName}/all:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Network Dnszones Zonename All
+          description: Lists all record sets in a DNS zone.
+          operationId: microsoftAzureRecordsetsListallbydnszone
+          responses:
+            default:
+              description: >-
+                Default response. It will be deserialized as per the Error
+                definition.
+              schema:
+                $ref: '#/definitions/CloudError'

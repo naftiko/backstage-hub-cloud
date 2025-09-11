@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateSoftwareSet
+  description: Updates a software set.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatesoftwareset
+      description: Updates a software set.
+    paths:
+      /softwaresets/{id}:
+        PATCH:
+          summary: Updatesoftwareset
+          description: Updates a software set.
+          operationId: amazonWebServicesUpdateSoftwareSet

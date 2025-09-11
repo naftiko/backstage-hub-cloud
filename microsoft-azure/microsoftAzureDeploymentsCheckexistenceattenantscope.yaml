@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDeploymentsCheckexistenceattenantscope
+  description: Checks whether the deployment exists.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Head Providers Microsoft Resources Deployments Deploymentname
+      description: Checks whether the deployment exists.
+    paths:
+      /providers/Microsoft.Resources/deployments/{deploymentName}:
+        head:
+          summary: Head Providers Microsoft Resources Deployments Deploymentname
+          description: Checks whether the deployment exists.
+          operationId: microsoftAzureDeploymentsCheckexistenceattenantscope
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

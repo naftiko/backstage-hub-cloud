@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesMarkAsArchived
+  description: >-
+    Archives specific Source Servers by setting the SourceServer.isArchived
+    property to true for specified SourceServers by ID. This command only works
+    for SourceServers with a lifecycle. state which equals DISCONNECTED or
+    CUTOVER.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Markasarchived
+      description: >-
+        Archives specific Source Servers by setting the SourceServer.isArchived
+        property to true for specified SourceServers by ID. This command only works
+        for SourceServers with a lifecycle. state which equals DISCONNECTED or
+        CUTOVER.
+    paths:
+      /MarkAsArchived:
+        POST:
+          summary: Markasarchived
+          description: >-
+            Archives specific Source Servers by setting the SourceServer.isArchived
+            property to true for specified SourceServers by ID. This command only
+            works for SourceServers with a lifecycle. state which equals
+            DISCONNECTED or CUTOVER.
+          operationId: amazonWebServicesMarkAsArchived

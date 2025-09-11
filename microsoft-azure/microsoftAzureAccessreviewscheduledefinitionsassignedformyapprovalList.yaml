@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAccessreviewscheduledefinitionsassignedformyapprovalList
+  description: Get access review instances assigned for my approval.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Providers Microsoft Authorization Accessreviewscheduledefinitions
+      description: Get access review instances assigned for my approval.
+    paths:
+      /providers/Microsoft.Authorization/accessReviewScheduleDefinitions:
+        get:
+          summary: Get Providers Microsoft Authorization Accessreviewscheduledefinitions
+          description: Get access review instances assigned for my approval.
+          operationId: microsoftAzureAccessreviewscheduledefinitionsassignedformyapprovalList
+          responses:
+            default:
+              description: Unexpected error
+              schema:
+                $ref: '#/definitions/ErrorDefinition'

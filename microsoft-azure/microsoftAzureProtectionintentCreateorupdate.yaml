@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureProtectionintentCreateorupdate
+  description: >-
+    Create Intent for Enabling backup of an item. This is a synchronous
+    operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Recoveryservices Vaults Vaultname Backupfabrics Fabricname
+        Backupprotectionintent Intentobjectname
+      description: >-
+        Create Intent for Enabling backup of an item. This is a synchronous
+        operation.
+    paths:
+      /Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/backupProtectionIntent/{intentObjectName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Recoveryservices Vaults Vaultname Backupfabrics
+            Fabricname Backupprotectionintent Intentobjectname
+          description: >-
+            Create Intent for Enabling backup of an item. This is a synchronous
+            operation.
+          operationId: microsoftAzureProtectionintentCreateorupdate
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/ProtectionIntentResource'

@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDevicemanagementRetrydeployment
+  description: Retries a deployment with failed devices.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Deviceupdate Instanceid Management Groups Groupid Deviceclasssubgroups
+        Deviceclassid Deployments Deploymentid:retry
+      description: Retries a deployment with failed devices.
+    paths:
+      /deviceUpdate/{instanceId}/management/groups/{groupId}/deviceClassSubgroups/{deviceClassId}/deployments/{deploymentId}:retry:
+        post:
+          summary: >-
+            Post Deviceupdate Instanceid Management Groups Groupid
+            Deviceclasssubgroups Deviceclassid Deployments Deploymentid:retry
+          description: Retries a deployment with failed devices.
+          operationId: microsoftAzureDevicemanagementRetrydeployment
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

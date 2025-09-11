@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListFieldLevelEncryptionConfigs
+  description: >-
+    List all field-level encryption configurations that have been created in
+    CloudFront for this account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listfieldlevelencryptionconfigs
+      description: >-
+        List all field-level encryption configurations that have been created in
+        CloudFront for this account.
+    paths:
+      /2020-05-31/field-level-encryption:
+        GET:
+          summary: Listfieldlevelencryptionconfigs
+          description: >-
+            List all field-level encryption configurations that have been created in
+            CloudFront for this account.
+          operationId: amazonWebServicesListFieldLevelEncryptionConfigs

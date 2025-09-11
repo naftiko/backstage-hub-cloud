@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureActiongroupsCreateorupdate
+  description: Create a new action group or update an existing one.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Insights Actiongroups Actiongroupname
+      description: Create a new action group or update an existing one.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/actionGroups/{actionGroupName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Insights Actiongroups Actiongroupname
+          description: Create a new action group or update an existing one.
+          operationId: microsoftAzureActiongroupsCreateorupdate
+          responses:
+            default:
+              description: >-
+                An error occurred and the action group could not be created or
+                updated.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

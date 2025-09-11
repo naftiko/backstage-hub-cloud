@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureStaticsitesCreateuserrolesinvitationlink
+  description: Description for Creates an invitation link for a user with the role
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Creates An Invitation Link For A User With The Role
+      description: Description for Creates an invitation link for a user with the role
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/createUserInvitation:
+        post:
+          summary: Creates An Invitation Link For A User With The Role
+          description: Description for Creates an invitation link for a user with the role
+          operationId: microsoftAzureStaticsitesCreateuserrolesinvitationlink
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

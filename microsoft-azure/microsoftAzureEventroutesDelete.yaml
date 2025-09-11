@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureEventroutesDelete
+  description: >-
+    Deletes an event route.<br>Status codes:<br>* 204 No Content<br>* 404 Not
+    Found<br>  * EventRouteNotFound - The event route was not found.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Eventroutes Id
+      description: >-
+        Deletes an event route.<br>Status codes:<br>* 204 No Content<br>* 404 Not
+        Found<br>  * EventRouteNotFound - The event route was not found.
+    paths:
+      /eventroutes/{id}:
+        delete:
+          summary: Delete Eventroutes Id
+          description: >-
+            Deletes an event route.<br>Status codes:<br>* 204 No Content<br>* 404
+            Not Found<br>  * EventRouteNotFound - The event route was not found.
+          operationId: microsoftAzureEventroutesDelete
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

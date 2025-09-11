@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListAnomaliesForInsight
+  description: ' Returns a list of the anomalies that belong to an insight that you specify using its ID. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listanomaliesforinsight
+      description: ' Returns a list of the anomalies that belong to an insight that you specify using its ID. '
+    paths:
+      /anomalies/insight/{InsightId}:
+        POST:
+          summary: Listanomaliesforinsight
+          description: ' Returns a list of the anomalies that belong to an insight that you specify using its ID. '
+          operationId: amazonWebServicesListAnomaliesForInsight

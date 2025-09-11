@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateLaunchProfileMember
+  description: Update a user persona in launch profile membership.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatelaunchprofilemember
+      description: Update a user persona in launch profile membership.
+    paths:
+      /2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}:
+        PATCH:
+          summary: Updatelaunchprofilemember
+          description: Update a user persona in launch profile membership.
+          operationId: amazonWebServicesUpdateLaunchProfileMember

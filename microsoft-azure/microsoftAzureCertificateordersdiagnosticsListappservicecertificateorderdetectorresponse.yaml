@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: >-
+    microsoftAzureCertificateordersdiagnosticsListappservicecertificateorderdetectorresponse
+  description: >-
+    Description for Microsoft.CertificateRegistration to get the list of
+    detectors for this RP.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Microsoft Certificateregistration To Get The List Of Detectors For This Rp '
+      description: >-
+        Description for Microsoft.CertificateRegistration to get the list of
+        detectors for this RP.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}/detectors:
+        get:
+          summary: >-
+            Microsoft Certificateregistration To Get The List Of Detectors For This
+            Rp 
+          description: >-
+            Description for Microsoft.CertificateRegistration to get the list of
+            detectors for this RP.
+          operationId: >-
+            microsoftAzureCertificateordersdiagnosticsListappservicecertificateorderdetectorresponse
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: >-
+                  ../../../Microsoft.Web/stable/2023-01-01/CommonDefinitions.json#/definitions/DefaultErrorResponse

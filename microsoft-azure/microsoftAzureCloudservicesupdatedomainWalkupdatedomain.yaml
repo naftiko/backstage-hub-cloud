@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureCloudservicesupdatedomainWalkupdatedomain
+  description: Updates the role instances in the specified update domain.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Compute Cloudservices Cloudservicename Updatedomains Updatedomain
+      description: Updates the role instances in the specified update domain.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/updateDomains/{updateDomain}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Compute Cloudservices Cloudservicename Updatedomains
+            Updatedomain
+          description: Updates the role instances in the specified update domain.
+          operationId: microsoftAzureCloudservicesupdatedomainWalkupdatedomain
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: ./common.json#/definitions/CloudError

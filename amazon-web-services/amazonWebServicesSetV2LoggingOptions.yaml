@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesSetV2LoggingOptions
+  description: >-
+    Sets the logging options for the V2 logging service. Requires permission to
+    access the SetV2LoggingOptions action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Setv2loggingoptions
+      description: >-
+        Sets the logging options for the V2 logging service. Requires permission to
+        access the SetV2LoggingOptions action.
+    paths:
+      /v2LoggingOptions:
+        POST:
+          summary: Setv2loggingoptions
+          description: >-
+            Sets the logging options for the V2 logging service. Requires permission
+            to access the SetV2LoggingOptions action.
+          operationId: amazonWebServicesSetV2LoggingOptions

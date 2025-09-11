@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDocumentsSearchpost
+  description: Searches for documents in the Azure Search index.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Docs Search Post Search
+      description: Searches for documents in the Azure Search index.
+    paths:
+      /docs/search.post.search:
+        post:
+          summary: Post Docs Search Post Search
+          description: Searches for documents in the Azure Search index.
+          operationId: microsoftAzureDocumentsSearchpost
+          responses:
+            '200':
+              description: Response containing documents that match the search criteria.
+              schema:
+                $ref: '#/definitions/DocumentSearchResult'

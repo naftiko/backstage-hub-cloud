@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureCodesigningaccountsChecknameavailability
+  description: >-
+    Checks that the trusted signing account name is valid and is not already in
+    use.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Providers Microsoft Codesigning
+        Checknameavailability
+      description: >-
+        Checks that the trusted signing account name is valid and is not already in
+        use.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.CodeSigning/checkNameAvailability:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Providers Microsoft Codesigning
+            Checknameavailability
+          description: >-
+            Checks that the trusted signing account name is valid and is not already
+            in use.
+          operationId: microsoftAzureCodesigningaccountsChecknameavailability
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

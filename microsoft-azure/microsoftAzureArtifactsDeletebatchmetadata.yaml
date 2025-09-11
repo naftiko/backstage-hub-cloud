@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureArtifactsDeletebatchmetadata
+  description: Delete a Batch of Artifact Metadata.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Delete Batch Of Artifact Metadata '
+      description: Delete a Batch of Artifact Metadata.
+    paths:
+      /artifact/v2.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/artifacts/{origin}/{container}/batch/metadata:delete:
+        post:
+          summary: 'Delete Batch Of Artifact Metadata '
+          description: Delete a Batch of Artifact Metadata.
+          operationId: microsoftAzureArtifactsDeletebatchmetadata
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

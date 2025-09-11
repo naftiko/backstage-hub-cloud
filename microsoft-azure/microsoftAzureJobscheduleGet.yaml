@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureJobscheduleGet
+  description: Gets information about the specified Job Schedule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Jobschedules Jobscheduleid
+      description: Gets information about the specified Job Schedule.
+    paths:
+      /jobschedules/{jobScheduleId}:
+        get:
+          summary: Get Jobschedules Jobscheduleid
+          description: Gets information about the specified Job Schedule.
+          operationId: microsoftAzureJobscheduleGet
+          responses:
+            default:
+              description: The error from the Batch service.
+              schema:
+                $ref: '#/definitions/BatchError'

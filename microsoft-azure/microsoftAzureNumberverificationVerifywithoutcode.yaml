@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureNumberverificationVerifywithoutcode
+  description: >-
+    Verifies the phone number (MSISDN) associated with a device. As part of the
+    frontend authorization flow, the device is redirected to the operator
+    network to authenticate directly.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Number Verification Number:verify
+      description: >-
+        Verifies the phone number (MSISDN) associated with a device. As part of the
+        frontend authorization flow, the device is redirected to the operator
+        network to authenticate directly.
+    paths:
+      /number-verification/number:verify:
+        post:
+          summary: Post Number Verification Number:verify
+          description: >-
+            Verifies the phone number (MSISDN) associated with a device. As part of
+            the frontend authorization flow, the device is redirected to the
+            operator network to authenticate directly.
+          operationId: microsoftAzureNumberverificationVerifywithoutcode
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/Azure.Core.Foundations.ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: String error code indicating what went wrong.

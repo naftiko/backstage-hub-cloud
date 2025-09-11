@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureJobcollectionsGet
+  description: Gets a job collection.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Scheduler Jobcollections Jobcollectionname
+      description: Gets a job collection.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Scheduler Jobcollections Jobcollectionname
+          description: Gets a job collection.
+          operationId: microsoftAzureJobcollectionsGet
+          responses:
+            '200':
+              description: The job collection has been successfully returned.
+              schema:
+                $ref: '#/definitions/JobCollectionDefinition'

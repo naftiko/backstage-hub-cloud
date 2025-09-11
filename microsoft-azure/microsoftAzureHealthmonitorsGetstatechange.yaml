@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureHealthmonitorsGetstatechange
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get The Health State Change Of A Monitor Of A Virtual Machine At The
+        Provided Timestamp Optional Parameter: $expand Retrieve The Monitor S
+        Evidence And Configuration 
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{providerName}/{resourceCollectionName}/{resourceName}/providers/Microsoft.WorkloadMonitor/monitors/{monitorId}/history/{timestampUnix}:
+        get:
+          summary: >-
+            Get The Health State Change Of A Monitor Of A Virtual Machine At The
+            Provided Timestamp Optional Parameter: $expand Retrieve The Monitor S
+            Evidence And Configuration 
+          description: Needs a more full description created.
+          operationId: microsoftAzureHealthmonitorsGetstatechange
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

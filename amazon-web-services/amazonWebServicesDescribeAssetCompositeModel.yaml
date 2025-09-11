@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDescribeAssetCompositeModel
+  description: >-
+    Retrieves information about an asset composite model (also known as an asset
+    component). An AssetCompositeModel is an instance of an
+    AssetModelCompositeModel. If you want to see information about the model
+    this is based on, call DescribeAssetModelCompositeModel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeassetcompositemodel
+      description: >-
+        Retrieves information about an asset composite model (also known as an asset
+        component). An AssetCompositeModel is an instance of an
+        AssetModelCompositeModel. If you want to see information about the model
+        this is based on, call DescribeAssetModelCompositeModel.
+    paths:
+      /assets/{assetId}/composite-models/{assetCompositeModelId}:
+        GET:
+          summary: Describeassetcompositemodel
+          description: >-
+            Retrieves information about an asset composite model (also known as an
+            asset component). An AssetCompositeModel is an instance of an
+            AssetModelCompositeModel. If you want to see information about the model
+            this is based on, call DescribeAssetModelCompositeModel.
+          operationId: amazonWebServicesDescribeAssetCompositeModel

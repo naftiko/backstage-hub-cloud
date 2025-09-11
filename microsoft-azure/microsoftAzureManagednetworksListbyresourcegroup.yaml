@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureManagednetworksListbyresourcegroup
+  description: >-
+    The ListByResourceGroup ManagedNetwork operation retrieves all the Managed
+    Network resources in a resource group in a paginated format.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Managednetwork Managednetworks
+      description: >-
+        The ListByResourceGroup ManagedNetwork operation retrieves all the Managed
+        Network resources in a resource group in a paginated format.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetwork/managedNetworks:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Managednetwork Managednetworks
+          description: >-
+            The ListByResourceGroup ManagedNetwork operation retrieves all the
+            Managed Network resources in a resource group in a paginated format.
+          operationId: microsoftAzureManagednetworksListbyresourcegroup
+          responses:
+            default:
+              description: >-
+                Resource Provider error response describing why the operation
+                failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

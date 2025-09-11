@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDescribeTransaction
+  description: Returns the details of a single transaction.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describetransaction
+      description: Returns the details of a single transaction.
+    paths:
+      /DescribeTransaction:
+        POST:
+          summary: Describetransaction
+          description: Returns the details of a single transaction.
+          operationId: amazonWebServicesDescribeTransaction

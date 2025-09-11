@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListContacts
+  description: Lists the contacts present in a specific contact list.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listcontacts
+      description: Lists the contacts present in a specific contact list.
+    paths:
+      /v2/email/contact-lists/{ContactListName}/contacts:
+        GET:
+          summary: Listcontacts
+          description: Lists the contacts present in a specific contact list.
+          operationId: amazonWebServicesListContacts

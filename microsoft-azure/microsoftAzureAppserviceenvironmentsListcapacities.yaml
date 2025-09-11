@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAppserviceenvironmentsListcapacities
+  description: >-
+    Description for Get the used, available, and total worker capacity an App
+    Service Environment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get The Used, Available, And Total Worker Capacity An App Service
+        Environment 
+      description: >-
+        Description for Get the used, available, and total worker capacity an App
+        Service Environment.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/capacities/compute:
+        get:
+          summary: >-
+            Get The Used, Available, And Total Worker Capacity An App Service
+            Environment 
+          description: >-
+            Description for Get the used, available, and total worker capacity an
+            App Service Environment.
+          operationId: microsoftAzureAppserviceenvironmentsListcapacities
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

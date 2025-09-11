@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebappsUpdaterelayserviceconnectionslot
+  description: >-
+    Description for Creates a new hybrid connection configuration (PUT), or
+    updates an existing one (PATCH).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Creates A New Hybrid Connection Configuration Put , Or Updates An Existing
+        One Patch 
+      description: >-
+        Description for Creates a new hybrid connection configuration (PUT), or
+        updates an existing one (PATCH).
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/hybridconnection/{entityName}:
+        patch:
+          summary: >-
+            Creates A New Hybrid Connection Configuration Put , Or Updates An
+            Existing One Patch 
+          description: >-
+            Description for Creates a new hybrid connection configuration (PUT), or
+            updates an existing one (PATCH).
+          operationId: microsoftAzureWebappsUpdaterelayserviceconnectionslot
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

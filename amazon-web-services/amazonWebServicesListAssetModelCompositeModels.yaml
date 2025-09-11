@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListAssetModelCompositeModels
+  description: >-
+    Retrieves a paginated list of composite models associated with the asset
+    model
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listassetmodelcompositemodels
+      description: >-
+        Retrieves a paginated list of composite models associated with the asset
+        model
+    paths:
+      /asset-models/{assetModelId}/composite-models:
+        GET:
+          summary: Listassetmodelcompositemodels
+          description: >-
+            Retrieves a paginated list of composite models associated with the asset
+            model
+          operationId: amazonWebServicesListAssetModelCompositeModels

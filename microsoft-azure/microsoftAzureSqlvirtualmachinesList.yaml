@@ -1,0 +1,104 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSqlvirtualmachinesList
+  description: Gets all SQL virtual machines in a subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft Sqlvirtualmachine
+        Sqlvirtualmachines
+      description: Gets all SQL virtual machines in a subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft Sqlvirtualmachine
+            Sqlvirtualmachines
+          description: Gets all SQL virtual machines in a subscription.
+          operationId: microsoftAzureSqlvirtualmachinesList
+          responses:
+            default:
+              description: |-
+                *** Error Responses: ***
+
+                 * 400 InvalidParameterValue - An invalid value was given to parameter.
+
+                 * 400 RPGenericUser - User Failure when calling other Resource Provider.
+
+                 * 400 RPResponseMissingAsyncOperationHeader - Response is missing Async operation header information
+
+                 * 400 InvalidArgument - Invalid argument '{0}'.
+
+                 * 400 ArgumentNotInRange - Argument '{0}' not in range.
+
+                 * 400 ResourceNotProvisioned - As the resource: {0} is not in a provisioned state, the request cannot be proceeded forward
+
+                 * 400 CRPNotAllowedOperation - Operation cannot be completed due to the following error: {0}
+
+                 * 400 AadAppDisabled - Microsoft AAD app SQLVMResourceProviderAuth ({0}) is disabled in your tenant.
+
+                 * 400 InternalAPIAccessDenied - Internal API Access denied. App Id {0} is not valid to use this API.
+
+                 * 400 InvalidSQLAuthPasswordLength - SQL auth password should not be greater than 128 characters
+
+                 * 400 InvalidRgResourceId - Invalid Resourcegroup resource id specified.
+
+                 * 403 AccessDenied - Access denied.
+
+                 * 404 ResourceNotFound - The requested resource was not found.
+
+                 * 404 SubscriptionDoesNotExist - Subscription id does not exist.
+
+                 * 404 ResourceDoesNotExist - Resource does not exist.
+
+                 * 404 RPOperationNotFound - Operation not found
+
+                 * 404 OperationIdNotFound - Operation id could not be found.
+
+                 * 404 OperationTypeNotFound - Operation Type not found.
+
+                 * 409 OperationInProgress - Operation in progress on resource already.
+
+                 * 409 OperationCanceled - Operation Cancelled.
+
+                 * 409 ResourceAlreadyExists - Resource already exists.
+
+                 * 409 LBGenericErrors - LB operation failed
+
+                 * 409 NICGenericError - NIC operation failed
+
+                 * 409 SqlExtensionNotInstalled - SQL extension not installed.
+
+                 * 409 RPPluginSubstatusMissing - RP plugin substatus missing
+
+                 * 409 MissingMoveResources - Cannot move resources(s) because some resources are missing in the request.
+
+                 * 409 ResourceExists - There was an internal error in cleaning up of resources.
+
+                 * 409 SubscriptionOperationInProgress - An operation on subscription is already in progress
+
+                 * 429 TooManyRequestsReceived - Request throttled due to too many requests.
+
+                 * 429 ArgumentMissingForSetup - Argument is missing for setup. Please provide a value for the argument.
+
+                 * 429 MultisubnetOperationNotAllowed - Multi subnet HA setup operation is not allowed.
+
+                 * 500 UnExpectedErrorOccurred - Unexpected error occurred.
+
+                 * 500 OperationTimeout - Operation timed out.
+
+                 * 500 RPGenericSystem - System Failure when calling other Resource Provider.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

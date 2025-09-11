@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebappsCreateorupdateconfiguration
+  description: Description for Updates the configuration of an app.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Updates The Configuration Of An App '
+      description: Description for Updates the configuration of an app.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/web:
+        put:
+          summary: 'Updates The Configuration Of An App '
+          description: Description for Updates the configuration of an app.
+          operationId: microsoftAzureWebappsCreateorupdateconfiguration
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

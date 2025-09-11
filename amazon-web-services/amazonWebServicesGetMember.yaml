@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetMember
+  description: >-
+    Retrieves information about an account that's associated with an Amazon
+    Macie administrator account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getmember
+      description: >-
+        Retrieves information about an account that's associated with an Amazon
+        Macie administrator account.
+    paths:
+      /members/{id}:
+        GET:
+          summary: Getmember
+          description: >-
+            Retrieves information about an account that's associated with an Amazon
+            Macie administrator account.
+          operationId: amazonWebServicesGetMember

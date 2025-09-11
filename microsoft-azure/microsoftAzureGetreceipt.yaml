@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGetreceipt
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Gets A Receipt Certifying Ledger Contents At A Particular Transaction Id '
+      description: Needs a more full description created.
+    paths:
+      /app/transactions/{transactionId}/receipt:
+        get:
+          summary: >-
+            Gets A Receipt Certifying Ledger Contents At A Particular Transaction
+            Id 
+          description: Needs a more full description created.
+          operationId: microsoftAzureGetreceipt
+          responses:
+            default:
+              description: Error response describing why the operation failed
+              schema:
+                $ref: common.json#/definitions/ConfidentialLedgerError

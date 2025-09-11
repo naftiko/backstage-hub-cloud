@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDeleteRouteRequestParameter
+  description: Deletes a route request parameter.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deleterouterequestparameter
+      description: Deletes a route request parameter.
+    paths:
+      /v2/apis/{apiId}/routes/{routeId}/requestparameters/{requestParameterKey}:
+        DELETE:
+          summary: Deleterouterequestparameter
+          description: Deletes a route request parameter.
+          operationId: amazonWebServicesDeleteRouteRequestParameter

@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureBudgetsCreateorupdate
+  description: >-
+    The operation to create or update a budget. Update operation requires latest
+    eTag to be set in the request mandatorily. You may obtain the latest eTag by
+    performing a get operation. Create operation does not require eTag.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Scope Providers Microsoft Consumption Budgets Budgetname
+      description: >-
+        The operation to create or update a budget. Update operation requires latest
+        eTag to be set in the request mandatorily. You may obtain the latest eTag by
+        performing a get operation. Create operation does not require eTag.
+    paths:
+      /{scope}/providers/Microsoft.Consumption/budgets/{budgetName}:
+        put:
+          summary: Put Scope Providers Microsoft Consumption Budgets Budgetname
+          description: >-
+            The operation to create or update a budget. Update operation requires
+            latest eTag to be set in the request mandatorily. You may obtain the
+            latest eTag by performing a get operation. Create operation does not
+            require eTag.
+          operationId: microsoftAzureBudgetsCreateorupdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

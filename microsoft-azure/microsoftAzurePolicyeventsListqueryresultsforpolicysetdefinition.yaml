@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePolicyeventsListqueryresultsforpolicysetdefinition
+  description: Queries policy events for the subscription level policy set definition.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Providers Authorizationnamespace
+        Policysetdefinitions Policysetdefinitionname Providers Microsoft
+        Policyinsights Policyevents Policyeventsresource Queryresults
+      description: Queries policy events for the subscription level policy set definition.
+    paths:
+      /subscriptions/{subscriptionId}/providers/{authorizationNamespace}/policySetDefinitions/{policySetDefinitionName}/providers/Microsoft.PolicyInsights/policyEvents/{policyEventsResource}/queryResults:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Providers Authorizationnamespace
+            Policysetdefinitions Policysetdefinitionname Providers Microsoft
+            Policyinsights Policyevents Policyeventsresource Queryresults
+          description: Queries policy events for the subscription level policy set definition.
+          operationId: microsoftAzurePolicyeventsListqueryresultsforpolicysetdefinition
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/QueryFailure'

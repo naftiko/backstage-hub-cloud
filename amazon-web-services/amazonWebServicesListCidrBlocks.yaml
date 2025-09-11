@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListCidrBlocks
+  description: Returns a paginated list of location objects and their CIDR blocks.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listcidrblocks
+      description: Returns a paginated list of location objects and their CIDR blocks.
+    paths:
+      /2013-04-01/cidrcollection/{CidrCollectionId}/cidrblocks:
+        GET:
+          summary: Listcidrblocks
+          description: Returns a paginated list of location objects and their CIDR blocks.
+          operationId: amazonWebServicesListCidrBlocks

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCancelTask
+  description: >-
+    Sends a cancel request for a specified task. You can cancel a task only if
+    it's still in a QUEUED state. Tasks that are already running can't be
+    cancelled.  A task might still run if it's processed from the queue before
+    the CancelTask operation changes the task's state. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Canceltask
+      description: >-
+        Sends a cancel request for a specified task. You can cancel a task only if
+        it's still in a QUEUED state. Tasks that are already running can't be
+        cancelled.  A task might still run if it's processed from the queue before
+        the CancelTask operation changes the task's state. 
+    paths:
+      /task/{taskId}/cancel:
+        POST:
+          summary: Canceltask
+          description: >-
+            Sends a cancel request for a specified task. You can cancel a task only
+            if it's still in a QUEUED state. Tasks that are already running can't be
+            cancelled.  A task might still run if it's processed from the queue
+            before the CancelTask operation changes the task's state. 
+          operationId: amazonWebServicesCancelTask

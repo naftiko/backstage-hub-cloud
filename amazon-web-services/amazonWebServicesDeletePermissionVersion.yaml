@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDeletePermissionVersion
+  description: >-
+    Deletes one version of a customer managed permission. The version you
+    specify must not be attached to any resource share and must not be the
+    default version for the permission. If a customer managed permission has the
+    maximum of 5 versions, then you must delete at least one version before you
+    can create another.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletepermissionversion
+      description: >-
+        Deletes one version of a customer managed permission. The version you
+        specify must not be attached to any resource share and must not be the
+        default version for the permission. If a customer managed permission has the
+        maximum of 5 versions, then you must delete at least one version before you
+        can create another.
+    paths:
+      /deletepermissionversion:
+        DELETE:
+          summary: Deletepermissionversion
+          description: >-
+            Deletes one version of a customer managed permission. The version you
+            specify must not be attached to any resource share and must not be the
+            default version for the permission. If a customer managed permission has
+            the maximum of 5 versions, then you must delete at least one version
+            before you can create another.
+          operationId: amazonWebServicesDeletePermissionVersion

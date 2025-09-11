@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateScheduledQuery
+  description: Update a scheduled query.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatescheduledquery
+      description: Update a scheduled query.
+    paths:
+      /:
+        POST:
+          summary: Updatescheduledquery
+          description: Update a scheduled query.
+          operationId: amazonWebServicesUpdateScheduledQuery

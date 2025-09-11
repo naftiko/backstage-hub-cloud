@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebappsCreateorupdatedomainownershipidentifier
+  description: >-
+    Description for Creates a domain ownership identifier for web app, or
+    updates an existing ownership identifier.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Creates A Domain Ownership Identifier For Web App, Or Updates An Existing
+        Ownership Identifier 
+      description: >-
+        Description for Creates a domain ownership identifier for web app, or
+        updates an existing ownership identifier.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/domainOwnershipIdentifiers/{domainOwnershipIdentifierName}:
+        put:
+          summary: >-
+            Creates A Domain Ownership Identifier For Web App, Or Updates An
+            Existing Ownership Identifier 
+          description: >-
+            Description for Creates a domain ownership identifier for web app, or
+            updates an existing ownership identifier.
+          operationId: microsoftAzureWebappsCreateorupdatedomainownershipidentifier
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

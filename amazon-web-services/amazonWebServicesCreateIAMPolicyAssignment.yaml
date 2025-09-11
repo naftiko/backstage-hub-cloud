@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreateIAMPolicyAssignment
+  description: >-
+    Creates an assignment with one specified IAM policy, identified by its
+    Amazon Resource Name (ARN). This policy assignment is attached to the
+    specified groups or users of Amazon QuickSight. Assignment names are unique
+    per Amazon Web Services account. To avoid overwriting rules in other
+    namespaces, use assignment names that are unique.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createiampolicyassignment
+      description: >-
+        Creates an assignment with one specified IAM policy, identified by its
+        Amazon Resource Name (ARN). This policy assignment is attached to the
+        specified groups or users of Amazon QuickSight. Assignment names are unique
+        per Amazon Web Services account. To avoid overwriting rules in other
+        namespaces, use assignment names that are unique.
+    paths:
+      /accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/:
+        POST:
+          summary: Createiampolicyassignment
+          description: >-
+            Creates an assignment with one specified IAM policy, identified by its
+            Amazon Resource Name (ARN). This policy assignment is attached to the
+            specified groups or users of Amazon QuickSight. Assignment names are
+            unique per Amazon Web Services account. To avoid overwriting rules in
+            other namespaces, use assignment names that are unique.
+          operationId: amazonWebServicesCreateIAMPolicyAssignment

@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureEntityGetentitiesbyuniqueattributes
+  description: >-
+    Bulk API to retrieve list of entities identified by its unique
+    attributes.<br><br>In addition to the typeName path parameter, attribute
+    key-value pair(s) can be provided in the following
+    format<br><br>typeName=\&attr_1:\=\&attr_2:\=\&attr_3:\=\<br><br>NOTE: The
+    attrName should be an unique attribute for the given entity-type<br><br>The
+    REST request would look something like this<br><br>GET
+    /v2/entity/bulk/uniqueAttribute/type/hive_db?attr_1:qualifiedName=db1@cl1&attr_2:qualifiedName=db2@cl1<br>Note:
+    at least one unique attribute must be provided.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Atlas Entity Bulk Uniqueattribute Type Typename
+      description: >-
+        Bulk API to retrieve list of entities identified by its unique
+        attributes.<br><br>In addition to the typeName path parameter, attribute
+        key-value pair(s) can be provided in the following
+        format<br><br>typeName=\&attr_1:\=\&attr_2:\=\&attr_3:\=\<br><br>NOTE: The
+        attrName should be an unique attribute for the given entity-type<br><br>The
+        REST request would look something like this<br><br>GET
+        /v2/entity/bulk/uniqueAttribute/type/hive_db?attr_1:qualifiedName=db1@cl1&attr_2:qualifiedName=db2@cl1<br>Note:
+        at least one unique attribute must be provided.
+    paths:
+      /atlas/v2/entity/bulk/uniqueAttribute/type/{typeName}:
+        get:
+          summary: Get Atlas Entity Bulk Uniqueattribute Type Typename
+          description: >-
+            Bulk API to retrieve list of entities identified by its unique
+            attributes.<br><br>In addition to the typeName path parameter, attribute
+            key-value pair(s) can be provided in the following
+            format<br><br>typeName=\&attr_1:\=\&attr_2:\=\&attr_3:\=\<br><br>NOTE:
+            The attrName should be an unique attribute for the given
+            entity-type<br><br>The REST request would look something like
+            this<br><br>GET
+            /v2/entity/bulk/uniqueAttribute/type/hive_db?attr_1:qualifiedName=db1@cl1&attr_2:qualifiedName=db2@cl1<br>Note:
+            at least one unique attribute must be provided.
+          operationId: microsoftAzureEntityGetentitiesbyuniqueattributes
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesRemoveApplicationInstance
+  description: Removes an application instance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Removeapplicationinstance
+      description: Removes an application instance.
+    paths:
+      /application-instances/{ApplicationInstanceId}:
+        DELETE:
+          summary: Removeapplicationinstance
+          description: Removes an application instance.
+          operationId: amazonWebServicesRemoveApplicationInstance

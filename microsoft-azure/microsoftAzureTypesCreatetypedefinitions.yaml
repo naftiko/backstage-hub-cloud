@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureTypesCreatetypedefinitions
+  description: >-
+    Create all atlas type definitions in bulk, only new definitions will be
+    created.<br>Any changes to the existing definitions will be discarded.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Atlas Types Typedefs
+      description: >-
+        Create all atlas type definitions in bulk, only new definitions will be
+        created.<br>Any changes to the existing definitions will be discarded.
+    paths:
+      /atlas/v2/types/typedefs:
+        post:
+          summary: Post Atlas Types Typedefs
+          description: >-
+            Create all atlas type definitions in bulk, only new definitions will be
+            created.<br>Any changes to the existing definitions will be discarded.
+          operationId: microsoftAzureTypesCreatetypedefinitions
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

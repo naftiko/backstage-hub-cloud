@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDocumentmodelsAuthorizemodelcopy
+  description: >-
+    Generates authorization to copy a document model to this location
+    with<br>specified modelId and optional description.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Documentmodels:authorizecopy
+      description: >-
+        Generates authorization to copy a document model to this location
+        with<br>specified modelId and optional description.
+    paths:
+      /documentModels:authorizeCopy:
+        post:
+          summary: Post Documentmodels:authorizecopy
+          description: >-
+            Generates authorization to copy a document model to this location
+            with<br>specified modelId and optional description.
+          operationId: microsoftAzureDocumentmodelsAuthorizemodelcopy
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

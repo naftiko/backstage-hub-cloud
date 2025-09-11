@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePhonenumbersGetoperation
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Gets An Operation By Its Id '
+      description: Needs a more full description created.
+    paths:
+      /phoneNumbers/operations/{operationId}:
+        get:
+          summary: 'Gets An Operation By Its Id '
+          description: Needs a more full description created.
+          operationId: microsoftAzurePhonenumbersGetoperation
+          responses:
+            default:
+              description: Failure
+              schema:
+                $ref: >-
+                  ../../../Common/stable/2021-03-07/common.json#/definitions/CommunicationErrorResponse

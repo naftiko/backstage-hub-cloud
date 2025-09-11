@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGlobaldomainregistrationCheckdomainavailability
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Checks If A Domain Is Available For Registration
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.DomainRegistration/checkDomainAvailability:
+        post:
+          summary: Checks If A Domain Is Available For Registration
+          description: Needs a more full description created.
+          operationId: microsoftAzureGlobaldomainregistrationCheckdomainavailability
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/DomainAvailablilityCheckResult'

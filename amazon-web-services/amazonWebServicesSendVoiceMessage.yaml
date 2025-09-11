@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesSendVoiceMessage
+  description: Create a new voice message and send it to a recipient's phone number.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Sendvoicemessage
+      description: Create a new voice message and send it to a recipient's phone number.
+    paths:
+      /v1/sms-voice/voice/message:
+        POST:
+          summary: Sendvoicemessage
+          description: Create a new voice message and send it to a recipient's phone number.
+          operationId: amazonWebServicesSendVoiceMessage

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureConnectionsGet
+  description: Get a specific connection
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A Connection
+      description: Get a specific connection
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connectionName}:
+        get:
+          summary: Get A Connection
+          description: Get a specific connection
+          operationId: microsoftAzureConnectionsGet
+          responses:
+            '200':
+              description: An API connection
+              schema:
+                $ref: '#/definitions/ApiConnectionDefinition'

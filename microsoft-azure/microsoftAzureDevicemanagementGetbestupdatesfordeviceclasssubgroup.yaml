@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDevicemanagementGetbestupdatesfordeviceclasssubgroup
+  description: >-
+    Get the best available update for a device class subgroup and a count of how
+    many devices need this update.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Deviceupdate Instanceid Management Groups Groupid Deviceclasssubgroups
+        Deviceclassid Bestupdates
+      description: >-
+        Get the best available update for a device class subgroup and a count of how
+        many devices need this update.
+    paths:
+      /deviceUpdate/{instanceId}/management/groups/{groupId}/deviceClassSubgroups/{deviceClassId}/bestUpdates:
+        get:
+          summary: >-
+            Get Deviceupdate Instanceid Management Groups Groupid
+            Deviceclasssubgroups Deviceclassid Bestupdates
+          description: >-
+            Get the best available update for a device class subgroup and a count of
+            how many devices need this update.
+          operationId: microsoftAzureDevicemanagementGetbestupdatesfordeviceclasssubgroup
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

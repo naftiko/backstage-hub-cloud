@@ -1,0 +1,64 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateStateMachineAlias
+  description: >-
+    Updates the configuration of an existing state machine alias by modifying
+    its description or routingConfiguration. You must specify at least one of
+    the description or routingConfiguration parameters to update a state machine
+    alias.   UpdateStateMachineAlias is an idempotent API. Step Functions bases
+    the idempotency check on the stateMachineAliasArn, description, and
+    routingConfiguration parameters. Requests with the same parameters return an
+    idempotent response.   This operation is eventually consistent. All
+    StartExecution requests made within a few seconds use the latest alias
+    configuration. Executions started immediately after calling
+    UpdateStateMachineAlias may use the previous routing configuration.  
+    Related operations:     CreateStateMachineAlias    
+    DescribeStateMachineAlias     ListStateMachineAliases    
+    DeleteStateMachineAlias   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatestatemachinealias
+      description: >-
+        Updates the configuration of an existing state machine alias by modifying
+        its description or routingConfiguration. You must specify at least one of
+        the description or routingConfiguration parameters to update a state machine
+        alias.   UpdateStateMachineAlias is an idempotent API. Step Functions bases
+        the idempotency check on the stateMachineAliasArn, description, and
+        routingConfiguration parameters. Requests with the same parameters return an
+        idempotent response.   This operation is eventually consistent. All
+        StartExecution requests made within a few seconds use the latest alias
+        configuration. Executions started immediately after calling
+        UpdateStateMachineAlias may use the previous routing configuration.  
+        Related operations:     CreateStateMachineAlias    
+        DescribeStateMachineAlias     ListStateMachineAliases    
+        DeleteStateMachineAlias   
+    paths:
+      /:
+        POST:
+          summary: Updatestatemachinealias
+          description: >-
+            Updates the configuration of an existing state machine alias by
+            modifying its description or routingConfiguration. You must specify at
+            least one of the description or routingConfiguration parameters to
+            update a state machine alias.   UpdateStateMachineAlias is an idempotent
+            API. Step Functions bases the idempotency check on the
+            stateMachineAliasArn, description, and routingConfiguration parameters.
+            Requests with the same parameters return an idempotent response.   This
+            operation is eventually consistent. All StartExecution requests made
+            within a few seconds use the latest alias configuration. Executions
+            started immediately after calling UpdateStateMachineAlias may use the
+            previous routing configuration.   Related operations:    
+            CreateStateMachineAlias     DescribeStateMachineAlias    
+            ListStateMachineAliases     DeleteStateMachineAlias   
+          operationId: amazonWebServicesUpdateStateMachineAlias

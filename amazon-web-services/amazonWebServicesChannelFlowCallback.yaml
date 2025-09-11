@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesChannelFlowCallback
+  description: >-
+    Calls back Amazon Chime SDK messaging with a processing response message.
+    This should be invoked from the processor Lambda. This is a developer API.
+    You can return one of the following processing responses:   Update message
+    content or metadata   Deny a message   Make no changes to the message  
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Channelflowcallback
+      description: >-
+        Calls back Amazon Chime SDK messaging with a processing response message.
+        This should be invoked from the processor Lambda. This is a developer API.
+        You can return one of the following processing responses:   Update message
+        content or metadata   Deny a message   Make no changes to the message  
+    paths:
+      /channels/{channelArn}?operation=channel-flow-callback:
+        POST:
+          summary: Channelflowcallback
+          description: >-
+            Calls back Amazon Chime SDK messaging with a processing response
+            message. This should be invoked from the processor Lambda. This is a
+            developer API. You can return one of the following processing
+            responses:   Update message content or metadata   Deny a message   Make
+            no changes to the message  
+          operationId: amazonWebServicesChannelFlowCallback

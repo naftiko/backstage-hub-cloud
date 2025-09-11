@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureMoveinstance
+  description: >-
+    This command moves the instance of a partition of a stateless service,
+    respecting all constraints.<br>Partition id and service name must be
+    specified to be able to move the instance.<br>CurrentNodeName when specified
+    identifies the instance that is moved. If not specified, random instance
+    will be moved <br>New node name can be omitted, and in that case instance is
+    moved to a random node.<br>If IgnoreConstraints parameter is specified and
+    set to true, then instance will be moved regardless of the constraints.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Moves The Instance Of A Partition Of A Stateless Service '
+      description: >-
+        This command moves the instance of a partition of a stateless service,
+        respecting all constraints.<br>Partition id and service name must be
+        specified to be able to move the instance.<br>CurrentNodeName when specified
+        identifies the instance that is moved. If not specified, random instance
+        will be moved <br>New node name can be omitted, and in that case instance is
+        moved to a random node.<br>If IgnoreConstraints parameter is specified and
+        set to true, then instance will be moved regardless of the constraints.
+    paths:
+      /Services/{serviceId}/$/GetPartitions/{partitionId}/$/MoveInstance:
+        post:
+          summary: 'Moves The Instance Of A Partition Of A Stateless Service '
+          description: >-
+            This command moves the instance of a partition of a stateless service,
+            respecting all constraints.<br>Partition id and service name must be
+            specified to be able to move the instance.<br>CurrentNodeName when
+            specified identifies the instance that is moved. If not specified,
+            random instance will be moved <br>New node name can be omitted, and in
+            that case instance is moved to a random node.<br>If IgnoreConstraints
+            parameter is specified and set to true, then instance will be moved
+            regardless of the constraints.
+          operationId: microsoftAzureMoveinstance
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

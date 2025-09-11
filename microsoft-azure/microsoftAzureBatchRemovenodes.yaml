@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureBatchRemovenodes
+  description: >-
+    This operation can only run when the allocation state of the Pool is
+    steady.<br>When this operation runs, the allocation state changes from
+    steady to resizing.<br>Each request may remove up to 100 nodes.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Removes Compute Nodes From The Specified Pool '
+      description: >-
+        This operation can only run when the allocation state of the Pool is
+        steady.<br>When this operation runs, the allocation state changes from
+        steady to resizing.<br>Each request may remove up to 100 nodes.
+    paths:
+      /pools/{poolId}/removenodes:
+        post:
+          summary: 'Removes Compute Nodes From The Specified Pool '
+          description: >-
+            This operation can only run when the allocation state of the Pool is
+            steady.<br>When this operation runs, the allocation state changes from
+            steady to resizing.<br>Each request may remove up to 100 nodes.
+          operationId: microsoftAzureBatchRemovenodes
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

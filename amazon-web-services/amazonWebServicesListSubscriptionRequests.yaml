@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListSubscriptionRequests
+  description: Lists Amazon DataZone subscription requests.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listsubscriptionrequests
+      description: Lists Amazon DataZone subscription requests.
+    paths:
+      /v2/domains/{domainIdentifier}/subscription-requests:
+        GET:
+          summary: Listsubscriptionrequests
+          description: Lists Amazon DataZone subscription requests.
+          operationId: amazonWebServicesListSubscriptionRequests

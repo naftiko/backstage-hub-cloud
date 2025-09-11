@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSkusavailabilityList
+  description: Returns list of available resources in region
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Implements Skuavailability List Method
+      description: Returns list of available resources in region
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.VMwareCloudSimple/locations/{regionId}/availabilities:
+        get:
+          summary: Implements Skuavailability List Method
+          description: Returns list of available resources in region
+          operationId: microsoftAzureSkusavailabilityList
+          responses:
+            default:
+              description: General Error
+              schema:
+                $ref: '#/definitions/CSRPError'

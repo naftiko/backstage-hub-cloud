@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googleListCSEIdentites
+  description: Lists the client-side encrypted identities for an authenticated user.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Cse Identites
+      description: Lists the client-side encrypted identities for an authenticated user.
+    paths:
+      /gmail/v1/users/{userId}/settings/cse/identities:
+        get:
+          summary: List Cse Identites
+          description: Lists the client-side encrypted identities for an authenticated user.
+          operationId: googleListCSEIdentites
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    cseIdentities:
+                      - emailAddress: adipisicing culpa ipsum
+                        primaryKeyPairId: incididunt pariatur cupidatat in
+                        signAndEncryptKeyPairs:
+                          signingKeyPairId: Ut sunt proident consectetur
+                          encryptionKeyPairId: esse id
+                      - emailAddress: elit dolore laboris
+                        primaryKeyPairId: eu Excepteur sint
+                        signAndEncryptKeyPairs:
+                          signingKeyPairId: culpa
+                          encryptionKeyPairId: dolore Excepteur ipsum Lorem
+                    nextPageToken: eiusmod amet voluptate veniam in

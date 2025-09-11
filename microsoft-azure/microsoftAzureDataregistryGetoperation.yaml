@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDataregistryGetoperation
+  description: >-
+    The `Get Operation` API is an HTTP `GET` request used to get the status of a
+    [data register or replace](/rest/api/maps/data-registry/register-or-replace)
+    request is returned in the header of the register or replace response as the
+    value of the `Operation-Location` key. While in progress, a HTTP `200 OK`
+    response will be returned with `Retry-After` header - followed by a HTTP
+    `200 OK` with no extra header once completed.<br><br>The data registry
+    service endpoint is limited in scope to the region of your Azure Maps
+    account and is not available for global Azure Maps accounts.<br><br>
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Use To Check The Status Of The [data Register Or Replace] Rest Api Maps Data
+        Registry Register Or Replace Request 
+      description: >-
+        The `Get Operation` API is an HTTP `GET` request used to get the status of a
+        [data register or replace](/rest/api/maps/data-registry/register-or-replace)
+        request is returned in the header of the register or replace response as the
+        value of the `Operation-Location` key. While in progress, a HTTP `200 OK`
+        response will be returned with `Retry-After` header - followed by a HTTP
+        `200 OK` with no extra header once completed.<br><br>The data registry
+        service endpoint is limited in scope to the region of your Azure Maps
+        account and is not available for global Azure Maps accounts.<br><br>
+    paths:
+      /dataRegistries/operations/{operationId}:
+        get:
+          summary: >-
+            Use To Check The Status Of The [data Register Or Replace] Rest Api Maps
+            Data Registry Register Or Replace Request 
+          description: >-
+            The `Get Operation` API is an HTTP `GET` request used to get the status
+            of a [data register or
+            replace](/rest/api/maps/data-registry/register-or-replace) request is
+            returned in the header of the register or replace response as the value
+            of the `Operation-Location` key. While in progress, a HTTP `200 OK`
+            response will be returned with `Retry-After` header - followed by a HTTP
+            `200 OK` with no extra header once completed.<br><br>The data registry
+            service endpoint is limited in scope to the region of your Azure Maps
+            account and is not available for global Azure Maps accounts.<br><br>
+          operationId: microsoftAzureDataregistryGetoperation
+          responses:
+            default:
+              description: An unexpected error occurred.
+              schema:
+                $ref: >-
+                  ../../../Common/preview/1.0/common.json#/definitions/MapsErrorResponse
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: Error code of the error that occurred.
+              x-ms-error-response: true

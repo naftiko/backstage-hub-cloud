@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesStopBackupJob
+  description: >-
+    Attempts to cancel a job to create a one-time backup of a resource. This
+    action is not supported for the following services: Amazon FSx for Windows
+    File Server, Amazon FSx for Lustre, FSx for ONTAP , Amazon FSx for OpenZFS,
+    Amazon DocumentDB (with MongoDB compatibility), Amazon RDS, Amazon Aurora,
+    and Amazon Neptune.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Stopbackupjob
+      description: >-
+        Attempts to cancel a job to create a one-time backup of a resource. This
+        action is not supported for the following services: Amazon FSx for Windows
+        File Server, Amazon FSx for Lustre, FSx for ONTAP , Amazon FSx for OpenZFS,
+        Amazon DocumentDB (with MongoDB compatibility), Amazon RDS, Amazon Aurora,
+        and Amazon Neptune.
+    paths:
+      /backup-jobs/{backupJobId}:
+        POST:
+          summary: Stopbackupjob
+          description: >-
+            Attempts to cancel a job to create a one-time backup of a resource. This
+            action is not supported for the following services: Amazon FSx for
+            Windows File Server, Amazon FSx for Lustre, FSx for ONTAP , Amazon FSx
+            for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon RDS,
+            Amazon Aurora, and Amazon Neptune.
+          operationId: amazonWebServicesStopBackupJob

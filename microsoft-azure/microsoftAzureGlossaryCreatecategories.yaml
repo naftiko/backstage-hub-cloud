@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGlossaryCreatecategories
+  description: Create glossary category in bulk.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Atlas Glossary Categories
+      description: Create glossary category in bulk.
+    paths:
+      /atlas/v2/glossary/categories:
+        post:
+          summary: Post Atlas Glossary Categories
+          description: Create glossary category in bulk.
+          operationId: microsoftAzureGlossaryCreatecategories
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

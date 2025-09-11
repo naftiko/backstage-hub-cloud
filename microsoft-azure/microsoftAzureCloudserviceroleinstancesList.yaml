@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureCloudserviceroleinstancesList
+  description: >-
+    Gets the list of all role instances in a cloud service. Use nextLink
+    property in the response to get the next page of role instances. Do this
+    till nextLink is null to fetch all the role instances.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Compute Cloudservices Cloudservicename Roleinstances
+      description: >-
+        Gets the list of all role instances in a cloud service. Use nextLink
+        property in the response to get the next page of role instances. Do this
+        till nextLink is null to fetch all the role instances.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Compute Cloudservices Cloudservicename Roleinstances
+          description: >-
+            Gets the list of all role instances in a cloud service. Use nextLink
+            property in the response to get the next page of role instances. Do this
+            till nextLink is null to fetch all the role instances.
+          operationId: microsoftAzureCloudserviceroleinstancesList
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: ./common.json#/definitions/CloudError

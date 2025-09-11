@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureChapsettingsCreateorupdate
+  description: Creates or updates the chap setting.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Storsimple Managers Managername Devices Devicename Chapsettings
+        Chapusername
+      description: Creates or updates the chap setting.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorSimple/managers/{managerName}/devices/{deviceName}/chapSettings/{chapUserName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Storsimple Managers Managername Devices Devicename
+            Chapsettings Chapusername
+          description: Creates or updates the chap setting.
+          operationId: microsoftAzureChapsettingsCreateorupdate
+          responses:
+            default:
+              description: >-
+                Default Response. It will be deserialized as per the Error
+                definition specified in the schema. Exception will be thrown.
+              schema:
+                $ref: '#/definitions/Error'

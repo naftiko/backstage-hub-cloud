@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureCustomlocationsFindtargetresourcegroup
+  description: >-
+    Returns the target resource group associated with the resource sync rules of
+    the Custom Location that match the rules passed in with the Find Target
+    Resource Group Request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Gets Matching Target Resource Group For Resource Sync '
+      description: >-
+        Returns the target resource group associated with the resource sync rules of
+        the Custom Location that match the rules passed in with the Find Target
+        Resource Group Request.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ExtendedLocation/customLocations/{resourceName}/findTargetResourceGroup:
+        post:
+          summary: 'Gets Matching Target Resource Group For Resource Sync '
+          description: >-
+            Returns the target resource group associated with the resource sync
+            rules of the Custom Location that match the rules passed in with the
+            Find Target Resource Group Request.
+          operationId: microsoftAzureCustomlocationsFindtargetresourcegroup
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

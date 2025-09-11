@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureIotdpsresourceGet
+  description: Get the metadata of the provisioning service without SAS keys.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Get The Non Security Related Metadata Of The Provisioning Service '
+      description: Get the metadata of the provisioning service without SAS keys.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}:
+        get:
+          summary: 'Get The Non Security Related Metadata Of The Provisioning Service '
+          description: Get the metadata of the provisioning service without SAS keys.
+          operationId: microsoftAzureIotdpsresourceGet
+          responses:
+            default:
+              description: Default error response
+              schema:
+                $ref: '#/definitions/ErrorDetails'

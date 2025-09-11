@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListSupportedResourceTypes
+  description: >-
+    Retrieves a list of all resource types currently supported by Amazon Web
+    Services Resource Explorer.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listsupportedresourcetypes
+      description: >-
+        Retrieves a list of all resource types currently supported by Amazon Web
+        Services Resource Explorer.
+    paths:
+      /ListSupportedResourceTypes:
+        POST:
+          summary: Listsupportedresourcetypes
+          description: >-
+            Retrieves a list of all resource types currently supported by Amazon Web
+            Services Resource Explorer.
+          operationId: amazonWebServicesListSupportedResourceTypes

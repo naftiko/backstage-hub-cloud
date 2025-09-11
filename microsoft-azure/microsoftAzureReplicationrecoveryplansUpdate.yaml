@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureReplicationrecoveryplansUpdate
+  description: The operation to update a recovery plan.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Updates The Given Recovery Plan '
+      description: The operation to update a recovery plan.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationRecoveryPlans/{recoveryPlanName}:
+        patch:
+          summary: 'Updates The Given Recovery Plan '
+          description: The operation to update a recovery plan.
+          operationId: microsoftAzureReplicationrecoveryplansUpdate
+          responses:
+            '202':
+              description: Accepted

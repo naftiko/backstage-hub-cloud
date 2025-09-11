@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureCustomapisMove
+  description: Moves a specific custom API
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Moves The Custom Api
+      description: Moves a specific custom API
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/customApis/{apiName}/move:
+        post:
+          summary: Moves The Custom Api
+          description: Moves a specific custom API
+          operationId: microsoftAzureCustomapisMove
+          responses:
+            '200':
+              description: custom API successfully moved

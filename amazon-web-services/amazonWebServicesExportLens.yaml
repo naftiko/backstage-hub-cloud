@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesExportLens
+  description: >-
+    Export an existing lens. Only the owner of a lens can export it. Lenses
+    provided by Amazon Web Services (Amazon Web Services Official Content)
+    cannot be exported. Lenses are defined in JSON. For more information, see
+    JSON format specification in the Well-Architected Tool User Guide.  
+    Disclaimer  Do not include or gather personal identifiable information (PII)
+    of end users or other identifiable individuals in or via your custom lenses.
+    If your custom lens or those shared with you and used in your account do
+    include or collect PII you are responsible for: ensuring that the included
+    PII is processed in accordance with applicable law, providing adequate
+    privacy notices, and obtaining necessary consents for processing such data. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Exportlens
+      description: >-
+        Export an existing lens. Only the owner of a lens can export it. Lenses
+        provided by Amazon Web Services (Amazon Web Services Official Content)
+        cannot be exported. Lenses are defined in JSON. For more information, see
+        JSON format specification in the Well-Architected Tool User Guide.  
+        Disclaimer  Do not include or gather personal identifiable information (PII)
+        of end users or other identifiable individuals in or via your custom lenses.
+        If your custom lens or those shared with you and used in your account do
+        include or collect PII you are responsible for: ensuring that the included
+        PII is processed in accordance with applicable law, providing adequate
+        privacy notices, and obtaining necessary consents for processing such data. 
+    paths:
+      /lenses/{LensAlias}/export:
+        GET:
+          summary: Exportlens
+          description: >-
+            Export an existing lens. Only the owner of a lens can export it. Lenses
+            provided by Amazon Web Services (Amazon Web Services Official Content)
+            cannot be exported. Lenses are defined in JSON. For more information,
+            see JSON format specification in the Well-Architected Tool User Guide.  
+            Disclaimer  Do not include or gather personal identifiable information
+            (PII) of end users or other identifiable individuals in or via your
+            custom lenses. If your custom lens or those shared with you and used in
+            your account do include or collect PII you are responsible for: ensuring
+            that the included PII is processed in accordance with applicable law,
+            providing adequate privacy notices, and obtaining necessary consents for
+            processing such data. 
+          operationId: amazonWebServicesExportLens

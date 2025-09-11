@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSetstorageaccount
+  description: >-
+    Creates or updates a new storage account. This operation requires the
+    storage/set permission.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Storage Storage Account Name
+      description: >-
+        Creates or updates a new storage account. This operation requires the
+        storage/set permission.
+    paths:
+      /storage/{storage-account-name}:
+        put:
+          summary: Put Storage Storage Account Name
+          description: >-
+            Creates or updates a new storage account. This operation requires the
+            storage/set permission.
+          operationId: microsoftAzureSetstorageaccount
+          responses:
+            default:
+              description: Key Vault error response describing why the operation failed.
+              schema:
+                $ref: common.json#/definitions/KeyVaultError

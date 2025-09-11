@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureProvidersList
+  description: Gets all resource providers for a subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Subscriptions Subscriptionid Providers
+      description: Gets all resource providers for a subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers:
+        get:
+          summary: Get Subscriptions Subscriptionid Providers
+          description: Gets all resource providers for a subscription.
+          operationId: microsoftAzureProvidersList
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

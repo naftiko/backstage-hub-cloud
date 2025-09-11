@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureHybridcloudListoperations
+  description: Lists all of the available HybridCloud Rest API operations.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Providers Microsoft Hybridcloud Operations
+      description: Lists all of the available HybridCloud Rest API operations.
+    paths:
+      /providers/Microsoft.HybridCloud/operations:
+        get:
+          summary: Get Providers Microsoft Hybridcloud Operations
+          description: Lists all of the available HybridCloud Rest API operations.
+          operationId: microsoftAzureHybridcloudListoperations
+          responses:
+            default:
+              description: >-
+                Error response describing why the operation failed. If the resource
+                group does not exist, 404 (NotFound) will be returned.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

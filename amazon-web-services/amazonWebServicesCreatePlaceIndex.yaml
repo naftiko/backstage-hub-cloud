@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreatePlaceIndex
+  description: >-
+    Creates a place index resource in your Amazon Web Services account. Use a
+    place index resource to geocode addresses and other text queries by using
+    the SearchPlaceIndexForText operation, and reverse geocode coordinates by
+    using the SearchPlaceIndexForPosition operation, and enable autosuggestions
+    by using the SearchPlaceIndexForSuggestions operation.  If your application
+    is tracking or routing assets you use in your business, such as delivery
+    vehicles or employees, you must not use Esri as your geolocation provider.
+    See section 82 of the Amazon Web Services service terms for more details. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createplaceindex
+      description: >-
+        Creates a place index resource in your Amazon Web Services account. Use a
+        place index resource to geocode addresses and other text queries by using
+        the SearchPlaceIndexForText operation, and reverse geocode coordinates by
+        using the SearchPlaceIndexForPosition operation, and enable autosuggestions
+        by using the SearchPlaceIndexForSuggestions operation.  If your application
+        is tracking or routing assets you use in your business, such as delivery
+        vehicles or employees, you must not use Esri as your geolocation provider.
+        See section 82 of the Amazon Web Services service terms for more details. 
+    paths:
+      /places/v0/indexes:
+        POST:
+          summary: Createplaceindex
+          description: >-
+            Creates a place index resource in your Amazon Web Services account. Use
+            a place index resource to geocode addresses and other text queries by
+            using the SearchPlaceIndexForText operation, and reverse geocode
+            coordinates by using the SearchPlaceIndexForPosition operation, and
+            enable autosuggestions by using the SearchPlaceIndexForSuggestions
+            operation.  If your application is tracking or routing assets you use in
+            your business, such as delivery vehicles or employees, you must not use
+            Esri as your geolocation provider. See section 82 of the Amazon Web
+            Services service terms for more details. 
+          operationId: amazonWebServicesCreatePlaceIndex

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebappsMigratemysql
+  description: >-
+    Description for Migrates a local (in-app) MySql database to a remote MySql
+    database.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Migrates A Local In App Mysql Database To A Remote Mysql Database '
+      description: >-
+        Description for Migrates a local (in-app) MySql database to a remote MySql
+        database.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/migratemysql:
+        post:
+          summary: 'Migrates A Local In App Mysql Database To A Remote Mysql Database '
+          description: >-
+            Description for Migrates a local (in-app) MySql database to a remote
+            MySql database.
+          operationId: microsoftAzureWebappsMigratemysql
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

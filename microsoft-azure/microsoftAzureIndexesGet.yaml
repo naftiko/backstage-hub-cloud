@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureIndexesGet
+  description: Retrieves an index definition.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Get Indexes Indexname '
+      description: Retrieves an index definition.
+    paths:
+      /indexes('{indexName}'):
+        get:
+          summary: 'Get Indexes Indexname '
+          description: Retrieves an index definition.
+          operationId: microsoftAzureIndexesGet
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/SearchError'

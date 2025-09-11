@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAppserviceenvironmentsListwebapps
+  description: Description for Get all apps in an App Service Environment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Get All Apps In An App Service Environment '
+      description: Description for Get all apps in an App Service Environment.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/sites:
+        get:
+          summary: 'Get All Apps In An App Service Environment '
+          description: Description for Get all apps in an App Service Environment.
+          operationId: microsoftAzureAppserviceenvironmentsListwebapps
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGetservicedescription
+  description: >-
+    Gets the description of an existing Service Fabric service. A service must
+    be created before its description can be obtained.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Gets The Description Of An Existing Service Fabric Service '
+      description: >-
+        Gets the description of an existing Service Fabric service. A service must
+        be created before its description can be obtained.
+    paths:
+      /Services/{serviceId}/$/GetDescription:
+        get:
+          summary: 'Gets The Description Of An Existing Service Fabric Service '
+          description: >-
+            Gets the description of an existing Service Fabric service. A service
+            must be created before its description can be obtained.
+          operationId: microsoftAzureGetservicedescription
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

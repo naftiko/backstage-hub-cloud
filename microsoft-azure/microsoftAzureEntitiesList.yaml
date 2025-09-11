@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureEntitiesList
+  description: >-
+    List all entities (Management Groups, Subscriptions, etc.) for the
+    authenticated user.<br>
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Providers Microsoft Management Getentities
+      description: >-
+        List all entities (Management Groups, Subscriptions, etc.) for the
+        authenticated user.<br>
+    paths:
+      /providers/Microsoft.Management/getEntities:
+        post:
+          summary: Post Providers Microsoft Management Getentities
+          description: >-
+            List all entities (Management Groups, Subscriptions, etc.) for the
+            authenticated user.<br>
+          operationId: microsoftAzureEntitiesList
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'

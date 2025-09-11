@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureTaskReactivate
+  description: >-
+    Reactivation makes a Task eligible to be retried again up to its maximum
+    retry count. The Task's state is changed to active. As the Task is no longer
+    in the completed state, any previous exit code or failure information is no
+    longer available after reactivation. Each time a Task is reactivated, its
+    retry count is reset to 0. Reactivation will fail for Tasks that are not
+    completed or that previously completed successfully (with an exit code of
+    0). Additionally, it will fail if the Job has completed (or is terminating
+    or deleting).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Reactivates A Task, Allowing It To Run Again Even If Its Retry Count Has
+        Been Exhausted 
+      description: >-
+        Reactivation makes a Task eligible to be retried again up to its maximum
+        retry count. The Task's state is changed to active. As the Task is no longer
+        in the completed state, any previous exit code or failure information is no
+        longer available after reactivation. Each time a Task is reactivated, its
+        retry count is reset to 0. Reactivation will fail for Tasks that are not
+        completed or that previously completed successfully (with an exit code of
+        0). Additionally, it will fail if the Job has completed (or is terminating
+        or deleting).
+    paths:
+      /jobs/{jobId}/tasks/{taskId}/reactivate:
+        post:
+          summary: >-
+            Reactivates A Task, Allowing It To Run Again Even If Its Retry Count Has
+            Been Exhausted 
+          description: >-
+            Reactivation makes a Task eligible to be retried again up to its maximum
+            retry count. The Task's state is changed to active. As the Task is no
+            longer in the completed state, any previous exit code or failure
+            information is no longer available after reactivation. Each time a Task
+            is reactivated, its retry count is reset to 0. Reactivation will fail
+            for Tasks that are not completed or that previously completed
+            successfully (with an exit code of 0). Additionally, it will fail if the
+            Job has completed (or is terminating or deleting).
+          operationId: microsoftAzureTaskReactivate
+          responses:
+            default:
+              description: The error from the Batch service.
+              schema:
+                $ref: '#/definitions/BatchError'

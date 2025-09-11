@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGuestdiagnosticssettingsDelete
+  description: Delete guest diagnostics settings.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft Insights Guestdiagnosticsettings Diagnosticsettingsname
+      description: Delete guest diagnostics settings.
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.insights/guestDiagnosticSettings/{diagnosticSettingsName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Insights Guestdiagnosticsettings
+            Diagnosticsettingsname
+          description: Delete guest diagnostics settings.
+          operationId: microsoftAzureGuestdiagnosticssettingsDelete
+          responses:
+            default:
+              description: An error occurred and the diagnostic settings could not be deleted.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

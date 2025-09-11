@@ -1,0 +1,66 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDataregistryList
+  description: >-
+    <br><br>The `List` API is an HTTP `GET` request that returns an array
+    containing all data registries previously registered using the [Register or
+    Replace
+    API](https://docs.microsoft.com/rest/api/maps/data-registry/register-or-replace).<br><br>The
+    data registry service endpoint is limited in scope to the region of your
+    Azure Maps account and is not available for global Azure Maps
+    accounts.<br><br>## Submit List Request<br><br>To list all your data
+    registries, issue a `GET` request with no additional parameters.<br><br>##
+    List Response<br><br>The `List` request returns an array of data registries
+    in `JSON` format in the body of the response.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Use To Get A List Of All Data Registries In The Azure Maps Account '
+      description: >-
+        <br><br>The `List` API is an HTTP `GET` request that returns an array
+        containing all data registries previously registered using the [Register or
+        Replace
+        API](https://docs.microsoft.com/rest/api/maps/data-registry/register-or-replace).<br><br>The
+        data registry service endpoint is limited in scope to the region of your
+        Azure Maps account and is not available for global Azure Maps
+        accounts.<br><br>## Submit List Request<br><br>To list all your data
+        registries, issue a `GET` request with no additional parameters.<br><br>##
+        List Response<br><br>The `List` request returns an array of data registries
+        in `JSON` format in the body of the response.
+    paths:
+      /dataRegistries:
+        get:
+          summary: 'Use To Get A List Of All Data Registries In The Azure Maps Account '
+          description: >-
+            <br><br>The `List` API is an HTTP `GET` request that returns an array
+            containing all data registries previously registered using the [Register
+            or Replace
+            API](https://docs.microsoft.com/rest/api/maps/data-registry/register-or-replace).<br><br>The
+            data registry service endpoint is limited in scope to the region of your
+            Azure Maps account and is not available for global Azure Maps
+            accounts.<br><br>## Submit List Request<br><br>To list all your data
+            registries, issue a `GET` request with no additional
+            parameters.<br><br>## List Response<br><br>The `List` request returns an
+            array of data registries in `JSON` format in the body of the response.
+          operationId: microsoftAzureDataregistryList
+          responses:
+            default:
+              description: An unexpected error occurred.
+              schema:
+                $ref: >-
+                  ../../../Common/preview/1.0/common.json#/definitions/MapsErrorResponse
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: Error code of the error that occurred.
+              x-ms-error-response: true

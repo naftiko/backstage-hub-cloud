@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDigitaltwinmodelsGetbyid
+  description: >-
+    Retrieves model metadata and optionally the model definition.<br>Status
+    codes:<br>* 200 OK<br>* 400 Bad Request<br>  * InvalidArgument - The model
+    id is invalid.<br>  * MissingArgument - The model id was not provided.<br>*
+    404 Not Found<br>  * ModelNotFound - The model was not found.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Models Id
+      description: >-
+        Retrieves model metadata and optionally the model definition.<br>Status
+        codes:<br>* 200 OK<br>* 400 Bad Request<br>  * InvalidArgument - The model
+        id is invalid.<br>  * MissingArgument - The model id was not provided.<br>*
+        404 Not Found<br>  * ModelNotFound - The model was not found.
+    paths:
+      /models/{id}:
+        get:
+          summary: Get Models Id
+          description: >-
+            Retrieves model metadata and optionally the model definition.<br>Status
+            codes:<br>* 200 OK<br>* 400 Bad Request<br>  * InvalidArgument - The
+            model id is invalid.<br>  * MissingArgument - The model id was not
+            provided.<br>* 404 Not Found<br>  * ModelNotFound - The model was not
+            found.
+          operationId: microsoftAzureDigitaltwinmodelsGetbyid
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

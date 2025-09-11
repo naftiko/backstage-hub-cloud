@@ -1,0 +1,73 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googleBatchClearValues
+  description: >-
+    Clears one or more ranges of values from a spreadsheet. The caller must
+    specify the spreadsheet ID and one or more ranges. Only values are cleared
+    -- all other properties of the cell (such as formatting and data validation)
+    are kept.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batch Clear Values
+      description: >-
+        Clears one or more ranges of values from a spreadsheet. The caller must
+        specify the spreadsheet ID and one or more ranges. Only values are cleared
+        -- all other properties of the cell (such as formatting and data validation)
+        are kept.
+    paths:
+      /v4/spreadsheets/{spreadsheetId}/values:batchClear:
+        post:
+          summary: Batch Clear Values
+          description: >-
+            Clears one or more ranges of values from a spreadsheet. The caller must
+            specify the spreadsheet ID and one or more ranges. Only values are
+            cleared -- all other properties of the cell (such as formatting and data
+            validation) are kept.
+          operationId: googleBatchClearValues
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    ranges:
+                      - nostrud sunt reprehenderit proident cillum
+                      - laborum eiusmod dolor ali
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  examples:
+                    example-0:
+                      summary: Successful response
+                      value:
+                        clearedRanges:
+                          - laboris in mollit
+                          - magna adipisicing
+                        spreadsheetId: cupidatat eiusmod commodo ad
+                    example-1:
+                      summary: Successful response
+                      value:
+                        clearedRanges:
+                          - laboris in mollit
+                          - magna adipisicing
+                        spreadsheetId: cupidatat eiusmod commodo ad

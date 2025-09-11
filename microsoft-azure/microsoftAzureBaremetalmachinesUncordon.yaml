@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureBaremetalmachinesUncordon
+  description: Uncordon the provided bare metal machine's Kubernetes node.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Uncordon The Bare Metal Machine '
+      description: Uncordon the provided bare metal machine's Kubernetes node.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/bareMetalMachines/{bareMetalMachineName}/uncordon:
+        post:
+          summary: 'Uncordon The Bare Metal Machine '
+          description: Uncordon the provided bare metal machine's Kubernetes node.
+          operationId: microsoftAzureBaremetalmachinesUncordon
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

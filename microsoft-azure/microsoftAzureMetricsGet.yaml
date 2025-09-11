@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureMetricsGet
+  description: Gets metric values for a single metric
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve Metric Data
+      description: Gets metric values for a single metric
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/components/{applicationName}/metrics/{metricId}:
+        get:
+          summary: Retrieve Metric Data
+          description: Gets metric values for a single metric
+          operationId: microsoftAzureMetricsGet
+          responses:
+            default:
+              description: An error response object.
+              schema:
+                $ref: '#/definitions/errorResponse'

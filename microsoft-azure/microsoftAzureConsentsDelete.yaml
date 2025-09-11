@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureConsentsDelete
+  description: Deletes the consent identified by the given ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Consents Id
+      description: Deletes the consent identified by the given ID.
+    paths:
+      /consents/{id}:
+        delete:
+          summary: Delete Consents Id
+          description: Deletes the consent identified by the given ID.
+          operationId: microsoftAzureConsentsDelete
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureStoragetasksCreate
+  description: >-
+    Asynchronously creates a new storage task resource with the specified
+    parameters. If a storage task is already created and a subsequent create
+    request is issued with different properties, the storage task properties
+    will be updated. If a storage task is already created and a subsequent
+    create or update request is issued with the exact same set of properties,
+    the request will succeed.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Storageactions Storagetasks Storagetaskname
+      description: >-
+        Asynchronously creates a new storage task resource with the specified
+        parameters. If a storage task is already created and a subsequent create
+        request is issued with different properties, the storage task properties
+        will be updated. If a storage task is already created and a subsequent
+        create or update request is issued with the exact same set of properties,
+        the request will succeed.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageActions/storageTasks/{storageTaskName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Storageactions Storagetasks Storagetaskname
+          description: >-
+            Asynchronously creates a new storage task resource with the specified
+            parameters. If a storage task is already created and a subsequent create
+            request is issued with different properties, the storage task properties
+            will be updated. If a storage task is already created and a subsequent
+            create or update request is issued with the exact same set of
+            properties, the request will succeed.
+          operationId: microsoftAzureStoragetasksCreate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesBackTestAnomalyDetector
+  description: Runs a backtest for anomaly detection for the specified resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Backtestanomalydetector
+      description: Runs a backtest for anomaly detection for the specified resource.
+    paths:
+      /BackTestAnomalyDetector:
+        POST:
+          summary: Backtestanomalydetector
+          description: Runs a backtest for anomaly detection for the specified resource.
+          operationId: amazonWebServicesBackTestAnomalyDetector

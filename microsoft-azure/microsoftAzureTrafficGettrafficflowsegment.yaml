@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureTrafficGettrafficflowsegment
+  description: >-
+    __Traffic Flow Segment__<br><br><br>**Applies to**: S0 and S1 pricing
+    tiers.<br><br>This service provides information about the speeds and travel
+    times of the road fragment closest to the given coordinates. It is designed
+    to work alongside the Flow layer of the Render Service to support clickable 
+    flow data visualizations. With this API, the client side can connect any
+    place in the map with flow data on the  closest road and present it to the
+    user.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Traffic Flow Segment Format
+      description: >-
+        __Traffic Flow Segment__<br><br><br>**Applies to**: S0 and S1 pricing
+        tiers.<br><br>This service provides information about the speeds and travel
+        times of the road fragment closest to the given coordinates. It is designed
+        to work alongside the Flow layer of the Render Service to support clickable 
+        flow data visualizations. With this API, the client side can connect any
+        place in the map with flow data on the  closest road and present it to the
+        user.
+    paths:
+      /traffic/flow/segment/{format}:
+        get:
+          summary: Get Traffic Flow Segment Format
+          description: >-
+            __Traffic Flow Segment__<br><br><br>**Applies to**: S0 and S1 pricing
+            tiers.<br><br>This service provides information about the speeds and
+            travel times of the road fragment closest to the given coordinates. It
+            is designed to work alongside the Flow layer of the Render Service to
+            support clickable  flow data visualizations. With this API, the client
+            side can connect any place in the map with flow data on the  closest
+            road and present it to the user.
+          operationId: microsoftAzureTrafficGettrafficflowsegment
+          responses:
+            '500':
+              $ref: '#/responses/500'

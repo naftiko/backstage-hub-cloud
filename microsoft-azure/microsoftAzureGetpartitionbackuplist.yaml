@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGetpartitionbackuplist
+  description: >-
+    Returns a list of backups available for the specified partition. The server
+    enumerates all the backups available in the backup store configured in the
+    backup policy. It also allows filtering of the result based on start and end
+    datetime or just fetching the latest available backup for the partition.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Gets The List Of Backups Available For The Specified Partition '
+      description: >-
+        Returns a list of backups available for the specified partition. The server
+        enumerates all the backups available in the backup store configured in the
+        backup policy. It also allows filtering of the result based on start and end
+        datetime or just fetching the latest available backup for the partition.
+    paths:
+      /Partitions/{partitionId}/$/GetBackups:
+        get:
+          summary: 'Gets The List Of Backups Available For The Specified Partition '
+          description: >-
+            Returns a list of backups available for the specified partition. The
+            server enumerates all the backups available in the backup store
+            configured in the backup policy. It also allows filtering of the result
+            based on start and end datetime or just fetching the latest available
+            backup for the partition.
+          operationId: microsoftAzureGetpartitionbackuplist
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSkusDelete
+  description: Deletes a resource type sku.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Providers Microsoft Providerhub
+        Providerregistrations Providernamespace Resourcetyperegistrations
+        Resourcetype Skus Sku
+      description: Deletes a resource type sku.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/resourcetypeRegistrations/{resourceType}/skus/{sku}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Providers Microsoft Providerhub
+            Providerregistrations Providernamespace Resourcetyperegistrations
+            Resourcetype Skus Sku
+          description: Deletes a resource type sku.
+          operationId: microsoftAzureSkusDelete
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureManagednetworksListbysubscription
+  description: >-
+    The ListBySubscription  ManagedNetwork operation retrieves all the Managed
+    Network Resources in the current subscription in a paginated format.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft Managednetwork
+        Managednetworks
+      description: >-
+        The ListBySubscription  ManagedNetwork operation retrieves all the Managed
+        Network Resources in the current subscription in a paginated format.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.ManagedNetwork/managedNetworks:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft Managednetwork
+            Managednetworks
+          description: >-
+            The ListBySubscription  ManagedNetwork operation retrieves all the
+            Managed Network Resources in the current subscription in a paginated
+            format.
+          operationId: microsoftAzureManagednetworksListbysubscription
+          responses:
+            default:
+              description: >-
+                Resource Provider error response describing why the operation
+                failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

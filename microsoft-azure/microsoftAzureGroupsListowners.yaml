@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGroupsListowners
+  description: >-
+    The owners are a set of non-admin users who are allowed to modify this
+    object.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Directory Objects That Are Owners Of The Group '
+      description: >-
+        The owners are a set of non-admin users who are allowed to modify this
+        object.
+    paths:
+      /{tenantID}/groups/{objectId}/owners:
+        get:
+          summary: 'Directory Objects That Are Owners Of The Group '
+          description: >-
+            The owners are a set of non-admin users who are allowed to modify this
+            object.
+          operationId: microsoftAzureGroupsListowners
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/GraphError'

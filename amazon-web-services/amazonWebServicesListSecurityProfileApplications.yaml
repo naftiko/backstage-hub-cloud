@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListSecurityProfileApplications
+  description: Returns a list of third-party applications in a specific security profile.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listsecurityprofileapplications
+      description: Returns a list of third-party applications in a specific security profile.
+    paths:
+      /security-profiles-applications/{InstanceId}/{SecurityProfileId}:
+        GET:
+          summary: Listsecurityprofileapplications
+          description: >-
+            Returns a list of third-party applications in a specific security
+            profile.
+          operationId: amazonWebServicesListSecurityProfileApplications

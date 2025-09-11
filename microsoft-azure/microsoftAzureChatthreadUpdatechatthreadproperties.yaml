@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureChatthreadUpdatechatthreadproperties
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Updates A Thread S Properties '
+      description: Needs a more full description created.
+    paths:
+      /chat/threads/{chatThreadId}:
+        patch:
+          summary: 'Updates A Thread S Properties '
+          description: Needs a more full description created.
+          operationId: microsoftAzureChatthreadUpdatechatthreadproperties
+          responses:
+            '503':
+              description: Service unavailable.
+              schema:
+                $ref: '#/definitions/CommunicationErrorResponse'
+              x-ms-error-response: true

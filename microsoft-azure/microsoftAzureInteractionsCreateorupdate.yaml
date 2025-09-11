@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureInteractionsCreateorupdate
+  description: Creates an interaction or updates an existing interaction within a hub.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Customerinsights Hubs Hubname Interactions Interactionname
+      description: Creates an interaction or updates an existing interaction within a hub.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/interactions/{interactionName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Customerinsights Hubs Hubname Interactions
+            Interactionname
+          description: Creates an interaction or updates an existing interaction within a hub.
+          operationId: microsoftAzureInteractionsCreateorupdate
+          responses:
+            '202':
+              description: Accepted. The create interaction operation is accepted.

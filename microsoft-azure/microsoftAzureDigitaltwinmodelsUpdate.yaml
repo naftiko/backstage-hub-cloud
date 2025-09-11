@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDigitaltwinmodelsUpdate
+  description: >-
+    Updates the metadata for a model.<br>Status codes:<br>* 204 No Content<br>*
+    400 Bad Request<br>  * InvalidArgument - The model id is invalid.<br>  *
+    JsonPatchInvalid - The JSON Patch provided is invalid.<br>  *
+    MissingArgument - The model id was not provided.<br>* 404 Not Found<br>  *
+    ModelNotFound - The model was not found.<br>* 409 Conflict<br>  *
+    ModelReferencesNotDecommissioned - The model refers to models that are not
+    decommissioned.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Patch Models Id
+      description: >-
+        Updates the metadata for a model.<br>Status codes:<br>* 204 No Content<br>*
+        400 Bad Request<br>  * InvalidArgument - The model id is invalid.<br>  *
+        JsonPatchInvalid - The JSON Patch provided is invalid.<br>  *
+        MissingArgument - The model id was not provided.<br>* 404 Not Found<br>  *
+        ModelNotFound - The model was not found.<br>* 409 Conflict<br>  *
+        ModelReferencesNotDecommissioned - The model refers to models that are not
+        decommissioned.
+    paths:
+      /models/{id}:
+        patch:
+          summary: Patch Models Id
+          description: >-
+            Updates the metadata for a model.<br>Status codes:<br>* 204 No
+            Content<br>* 400 Bad Request<br>  * InvalidArgument - The model id is
+            invalid.<br>  * JsonPatchInvalid - The JSON Patch provided is
+            invalid.<br>  * MissingArgument - The model id was not provided.<br>*
+            404 Not Found<br>  * ModelNotFound - The model was not found.<br>* 409
+            Conflict<br>  * ModelReferencesNotDecommissioned - The model refers to
+            models that are not decommissioned.
+          operationId: microsoftAzureDigitaltwinmodelsUpdate
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

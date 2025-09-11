@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUntagQueue
+  description: >-
+    Remove cost allocation tags from the specified Amazon SQS queue. For an
+    overview, see Tagging Your Amazon SQS Queues in the Amazon SQS Developer
+    Guide.  Cross-account permissions don't apply to this action. For more
+    information, see Grant cross-account permissions to a role and a username in
+    the Amazon SQS Developer Guide. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Untagqueue
+      description: >-
+        Remove cost allocation tags from the specified Amazon SQS queue. For an
+        overview, see Tagging Your Amazon SQS Queues in the Amazon SQS Developer
+        Guide.  Cross-account permissions don't apply to this action. For more
+        information, see Grant cross-account permissions to a role and a username in
+        the Amazon SQS Developer Guide. 
+    paths:
+      /:
+        POST:
+          summary: Untagqueue
+          description: >-
+            Remove cost allocation tags from the specified Amazon SQS queue. For an
+            overview, see Tagging Your Amazon SQS Queues in the Amazon SQS Developer
+            Guide.  Cross-account permissions don't apply to this action. For more
+            information, see Grant cross-account permissions to a role and a
+            username in the Amazon SQS Developer Guide. 
+          operationId: amazonWebServicesUntagQueue

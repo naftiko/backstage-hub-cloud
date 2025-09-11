@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSkusGetnestedresourcetypethird
+  description: Gets the sku details for the given resource type and sku name.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft Providerhub
+        Providerregistrations Providernamespace Resourcetyperegistrations
+        Resourcetype Resourcetyperegistrations Nestedresourcetypefirst
+        Resourcetyperegistrations Nestedresourcetypesecond Resourcetyperegistrations
+        Nestedresourcetypethird Skus Sku
+      description: Gets the sku details for the given resource type and sku name.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/resourcetypeRegistrations/{resourceType}/resourcetypeRegistrations/{nestedResourceTypeFirst}/resourcetypeRegistrations/{nestedResourceTypeSecond}/resourcetypeRegistrations/{nestedResourceTypeThird}/skus/{sku}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft Providerhub
+            Providerregistrations Providernamespace Resourcetyperegistrations
+            Resourcetype Resourcetyperegistrations Nestedresourcetypefirst
+            Resourcetyperegistrations Nestedresourcetypesecond
+            Resourcetyperegistrations Nestedresourcetypethird Skus Sku
+          description: Gets the sku details for the given resource type and sku name.
+          operationId: microsoftAzureSkusGetnestedresourcetypethird
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'

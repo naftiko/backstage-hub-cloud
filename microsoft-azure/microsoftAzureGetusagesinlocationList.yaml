@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGetusagesinlocationList
+  description: >-
+    List usages in cores for all skus used by a subscription in a given
+    location, for a specific quota type.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Lists Subscription Core Usages For All Skus Used In A Location, For A Given
+        Type Of Quota 
+      description: >-
+        List usages in cores for all skus used by a subscription in a given
+        location, for a specific quota type.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Web/locations/{location}/usages:
+        get:
+          summary: >-
+            Lists Subscription Core Usages For All Skus Used In A Location, For A
+            Given Type Of Quota 
+          description: >-
+            List usages in cores for all skus used by a subscription in a given
+            location, for a specific quota type.
+          operationId: microsoftAzureGetusagesinlocationList
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

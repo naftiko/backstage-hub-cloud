@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetArtifactUrl
+  description: 'Returns the artifact info that corresponds to an artifact id. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getartifacturl
+      description: 'Returns the artifact info that corresponds to an artifact id. '
+    paths:
+      /artifacts/{artifactId}:
+        GET:
+          summary: Getartifacturl
+          description: 'Returns the artifact info that corresponds to an artifact id. '
+          operationId: amazonWebServicesGetArtifactUrl

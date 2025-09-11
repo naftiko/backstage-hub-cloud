@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureProviderGetfunctionappstacksforlocation
+  description: >-
+    Description for Get available Function app frameworks and their versions for
+    location
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Available Function App Frameworks And Their Versions For Location
+      description: >-
+        Description for Get available Function app frameworks and their versions for
+        location
+    paths:
+      /providers/Microsoft.Web/locations/{location}/functionAppStacks:
+        get:
+          summary: Get Available Function App Frameworks And Their Versions For Location
+          description: >-
+            Description for Get available Function app frameworks and their versions
+            for location
+          operationId: microsoftAzureProviderGetfunctionappstacksforlocation
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

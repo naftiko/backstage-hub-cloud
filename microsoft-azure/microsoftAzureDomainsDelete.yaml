@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDomainsDelete
+  description: Delete existing domain.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Delete A Domain '
+      description: Delete existing domain.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/domains/{domainName}:
+        delete:
+          summary: 'Delete A Domain '
+          description: Delete existing domain.
+          operationId: microsoftAzureDomainsDelete
+          responses:
+            default:
+              description: |-
+                *** Error Responses: ***
+
+                 * 400 Bad Request.
+
+                 * 404 Not Found.
+
+                 * 500 Internal Server Error.

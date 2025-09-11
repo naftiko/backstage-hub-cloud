@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAdccatalogsUpdate
+  description: >-
+    The Update Azure Data Catalog Service operation can be used to update the
+    existing deployment. The update call only supports the properties listed in
+    the PATCH body.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Update Azure Data Catalog Service Patch Resource '
+      description: >-
+        The Update Azure Data Catalog Service operation can be used to update the
+        existing deployment. The update call only supports the properties listed in
+        the PATCH body.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataCatalog/catalogs/{catalogName}:
+        patch:
+          summary: 'Update Azure Data Catalog Service Patch Resource '
+          description: >-
+            The Update Azure Data Catalog Service operation can be used to update
+            the existing deployment. The update call only supports the properties
+            listed in the PATCH body.
+          operationId: microsoftAzureAdccatalogsUpdate
+          responses:
+            '200':
+              description: HTTP 200 (OK) if the operation was successful.
+              schema:
+                $ref: '#/definitions/ADCCatalog'

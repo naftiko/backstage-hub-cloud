@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListResources
+  description: >-
+    Lists the resources that you added to a resource share or the resources that
+    are shared with you.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listresources
+      description: >-
+        Lists the resources that you added to a resource share or the resources that
+        are shared with you.
+    paths:
+      /listresources:
+        POST:
+          summary: Listresources
+          description: >-
+            Lists the resources that you added to a resource share or the resources
+            that are shared with you.
+          operationId: amazonWebServicesListResources

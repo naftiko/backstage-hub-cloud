@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureVolumesPerformreplicationtransfer
+  description: Performs an adhoc replication transfer on a volume with volumeType Migration
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Perform A Replication Transfer
+      description: Performs an adhoc replication transfer on a volume with volumeType Migration
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/performReplicationTransfer:
+        post:
+          summary: Perform A Replication Transfer
+          description: >-
+            Performs an adhoc replication transfer on a volume with volumeType
+            Migration
+          operationId: microsoftAzureVolumesPerformreplicationtransfer
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

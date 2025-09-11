@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWorkspacepolicyfragmentCreateorupdate
+  description: Creates or updates a policy fragment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Apimanagement Service Servicename Workspaces Workspaceid
+        Policyfragments Id
+      description: Creates or updates a policy fragment.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policyFragments/{id}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Apimanagement Service Servicename Workspaces
+            Workspaceid Policyfragments Id
+          description: Creates or updates a policy fragment.
+          operationId: microsoftAzureWorkspacepolicyfragmentCreateorupdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./apimanagement.json#/definitions/ErrorResponse

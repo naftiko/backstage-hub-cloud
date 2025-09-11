@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSitesGetsitenetworkfeatures
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Retrieves A View Of All Network Features In Use On This Web App '
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/networkFeatures/{view}:
+        get:
+          summary: 'Retrieves A View Of All Network Features In Use On This Web App '
+          description: Needs a more full description created.
+          operationId: microsoftAzureSitesGetsitenetworkfeatures
+          responses:
+            '404':
+              description: The requested view does not exist.

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureManageinventorymetadata
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Api For Updating Inventory Metadata And Inventory Configuration
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.EdgeOrderPartner/locations/{location}/productFamilies/{familyIdentifier}/inventories/{serialNumber}/manageInventoryMetadata:
+        post:
+          summary: Api For Updating Inventory Metadata And Inventory Configuration
+          description: Needs a more full description created.
+          operationId: microsoftAzureManageinventorymetadata
+          responses:
+            default:
+              description: Error response describing reason for operation failure.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

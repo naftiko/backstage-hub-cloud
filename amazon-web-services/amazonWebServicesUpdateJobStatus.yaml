@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateJobStatus
+  description: >-
+    Updates the status for the specified job. Use this operation to confirm that
+    you want to run a job or to cancel an existing job. For more information,
+    see S3 Batch Operations in the Amazon S3 User Guide.  Permissions  To use
+    the UpdateJobStatus operation, you must have permission to perform the
+    s3:UpdateJobStatus action.   Related actions include:    CreateJob    
+    ListJobs     DescribeJob     UpdateJobStatus   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatejobstatus
+      description: >-
+        Updates the status for the specified job. Use this operation to confirm that
+        you want to run a job or to cancel an existing job. For more information,
+        see S3 Batch Operations in the Amazon S3 User Guide.  Permissions  To use
+        the UpdateJobStatus operation, you must have permission to perform the
+        s3:UpdateJobStatus action.   Related actions include:    CreateJob    
+        ListJobs     DescribeJob     UpdateJobStatus   
+    paths:
+      /v20180820/jobs/{id}/status:
+        POST:
+          summary: Updatejobstatus
+          description: >-
+            Updates the status for the specified job. Use this operation to confirm
+            that you want to run a job or to cancel an existing job. For more
+            information, see S3 Batch Operations in the Amazon S3 User Guide. 
+            Permissions  To use the UpdateJobStatus operation, you must have
+            permission to perform the s3:UpdateJobStatus action.   Related actions
+            include:    CreateJob     ListJobs     DescribeJob    
+            UpdateJobStatus   
+          operationId: amazonWebServicesUpdateJobStatus

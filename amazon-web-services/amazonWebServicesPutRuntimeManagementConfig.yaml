@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesPutRuntimeManagementConfig
+  description: >-
+    Sets the runtime management configuration for a function's version. For more
+    information, see Runtime updates.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putruntimemanagementconfig
+      description: >-
+        Sets the runtime management configuration for a function's version. For more
+        information, see Runtime updates.
+    paths:
+      /2021-07-20/functions/{FunctionName}/runtime-management-config:
+        PUT:
+          summary: Putruntimemanagementconfig
+          description: >-
+            Sets the runtime management configuration for a function's version. For
+            more information, see Runtime updates.
+          operationId: amazonWebServicesPutRuntimeManagementConfig

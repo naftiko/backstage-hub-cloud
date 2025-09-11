@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureImagemoderationOcr
+  description: >-
+    Returns any text found in the image for the specified language. If no
+    language is specified in the input, the detection defaults to English.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Contentmoderator Moderate 0 Processimage Ocr
+      description: >-
+        Returns any text found in the image for the specified language. If no
+        language is specified in the input, the detection defaults to English.
+    paths:
+      /contentmoderator/moderate/v1.0/ProcessImage/OCR:
+        post:
+          summary: Post Contentmoderator Moderate 0 Processimage Ocr
+          description: >-
+            Returns any text found in the image for the specified language. If no
+            language is specified in the input, the detection defaults to English.
+          operationId: microsoftAzureImagemoderationOcr
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

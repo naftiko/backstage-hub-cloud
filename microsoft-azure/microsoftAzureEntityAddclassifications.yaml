@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureEntityAddclassifications
+  description: Add classifications to an existing entity represented by a GUID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Atlas Entity Guid Guid Classifications
+      description: Add classifications to an existing entity represented by a GUID.
+    paths:
+      /atlas/v2/entity/guid/{guid}/classifications:
+        post:
+          summary: Post Atlas Entity Guid Guid Classifications
+          description: Add classifications to an existing entity represented by a GUID.
+          operationId: microsoftAzureEntityAddclassifications
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

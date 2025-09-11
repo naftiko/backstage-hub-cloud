@@ -1,0 +1,119 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googleImportMessages
+  description: >-
+    Imports a message into only this user's mailbox, with standard email
+    delivery scanning and classification similar to receiving via SMTP. This
+    method doesn't perform SPF checks, so it might not work for some spam
+    messages, such as those attempting to perform domain spoofing. This method
+    does not send a message.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Import Messages
+      description: >-
+        Imports a message into only this user's mailbox, with standard email
+        delivery scanning and classification similar to receiving via SMTP. This
+        method doesn't perform SPF checks, so it might not work for some spam
+        messages, such as those attempting to perform domain spoofing. This method
+        does not send a message.
+    paths:
+      /gmail/v1/users/{userId}/messages/import:
+        post:
+          summary: Import Messages
+          description: >-
+            Imports a message into only this user's mailbox, with standard email
+            delivery scanning and classification similar to receiving via SMTP. This
+            method doesn't perform SPF checks, so it might not work for some spam
+            messages, such as those attempting to perform domain spoofing. This
+            method does not send a message.
+          operationId: googleImportMessages
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    id: eu incididunt laborum irure
+                    threadId: magna Ut officia
+                    labelIds:
+                      - mollit amet dolore cupidatat
+                      - cupidatat deserunt mollit
+                    snippet: ut dolor
+                    historyId: nisi tempor do
+                    internalDate: cupidatat officia anim
+                    payload:
+                      partId: dolore velit incididunt est a
+                      mimeType: sit dolor mollit
+                      filename: ea commodo dolor nisi
+                      headers:
+                        - name: quis id velit laborum
+                          value: et voluptate dolor ea
+                        - name: sit nostrud
+                          value: deserunt fugiat ex
+                      body:
+                        attachmentId: id nulla consequat
+                        size: -93837667
+                        data: ad in occaecat
+                      parts:
+                        - value: >-
+                            <Circular reference to #/components/schemas/MessagePart
+                            detected>
+                        - value: >-
+                            <Circular reference to #/components/schemas/MessagePart
+                            detected>
+                    sizeEstimate: 21128811
+                    raw: do laboris
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    id: eu incididunt laborum irure
+                    threadId: magna Ut officia
+                    labelIds:
+                      - mollit amet dolore cupidatat
+                      - cupidatat deserunt mollit
+                    snippet: ut dolor
+                    historyId: nisi tempor do
+                    internalDate: cupidatat officia anim
+                    payload:
+                      partId: dolore velit incididunt est a
+                      mimeType: sit dolor mollit
+                      filename: ea commodo dolor nisi
+                      headers:
+                        - name: quis id velit laborum
+                          value: et voluptate dolor ea
+                        - name: sit nostrud
+                          value: deserunt fugiat ex
+                      body:
+                        attachmentId: id nulla consequat
+                        size: -93837667
+                        data: ad in occaecat
+                      parts:
+                        - value: >-
+                            <Circular reference to #/components/schemas/MessagePart
+                            detected>
+                        - value: >-
+                            <Circular reference to #/components/schemas/MessagePart
+                            detected>
+                    sizeEstimate: 21128811
+                    raw: do laboris

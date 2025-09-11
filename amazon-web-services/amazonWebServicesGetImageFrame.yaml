@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetImageFrame
+  description: Get an image frame (pixel data) for an image set.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getimageframe
+      description: Get an image frame (pixel data) for an image set.
+    paths:
+      /datastore/{datastoreId}/imageSet/{imageSetId}/getImageFrame:
+        POST:
+          summary: Getimageframe
+          description: Get an image frame (pixel data) for an image set.
+          operationId: amazonWebServicesGetImageFrame

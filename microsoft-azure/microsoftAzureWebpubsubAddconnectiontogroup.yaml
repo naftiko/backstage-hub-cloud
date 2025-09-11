@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebpubsubAddconnectiontogroup
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Add A Connection To The Target Group '
+      description: Needs a more full description created.
+    paths:
+      /api/hubs/{hub}/groups/{group}/connections/{connectionId}:
+        put:
+          summary: 'Add A Connection To The Target Group '
+          description: Needs a more full description created.
+          operationId: microsoftAzureWebpubsubAddconnectiontogroup
+          responses:
+            default:
+              description: Error response
+              x-ms-error-response: true

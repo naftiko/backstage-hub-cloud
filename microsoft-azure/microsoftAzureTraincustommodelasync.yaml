@@ -1,0 +1,66 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureTraincustommodelasync
+  description: >-
+    Create and train a custom model. The request must include a source parameter
+    that is either an externally accessible Azure storage blob container Uri
+    (preferably a Shared Access Signature Uri) or valid path to a data folder in
+    a locally mounted drive. When local paths are specified, they must follow
+    the Linux/Unix path format and be an absolute path rooted to the input mount
+    configuration setting value e.g., if '{Mounts:Input}' configuration setting
+    value is '/input' then a valid source path would be '/input/contosodataset'.
+    All data to be trained is expected to be under the source folder or sub
+    folders under it. Models are trained using documents that are of the
+    following content type - 'application/pdf', 'image/jpeg', 'image/png',
+    'image/tiff' or 'image/bmp'. Other type of content is ignored.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Train Custom Model
+      description: >-
+        Create and train a custom model. The request must include a source parameter
+        that is either an externally accessible Azure storage blob container Uri
+        (preferably a Shared Access Signature Uri) or valid path to a data folder in
+        a locally mounted drive. When local paths are specified, they must follow
+        the Linux/Unix path format and be an absolute path rooted to the input mount
+        configuration setting value e.g., if '{Mounts:Input}' configuration setting
+        value is '/input' then a valid source path would be '/input/contosodataset'.
+        All data to be trained is expected to be under the source folder or sub
+        folders under it. Models are trained using documents that are of the
+        following content type - 'application/pdf', 'image/jpeg', 'image/png',
+        'image/tiff' or 'image/bmp'. Other type of content is ignored.
+    paths:
+      /custom/models:
+        post:
+          summary: Train Custom Model
+          description: >-
+            Create and train a custom model. The request must include a source
+            parameter that is either an externally accessible Azure storage blob
+            container Uri (preferably a Shared Access Signature Uri) or valid path
+            to a data folder in a locally mounted drive. When local paths are
+            specified, they must follow the Linux/Unix path format and be an
+            absolute path rooted to the input mount configuration setting value
+            e.g., if '{Mounts:Input}' configuration setting value is '/input' then a
+            valid source path would be '/input/contosodataset'. All data to be
+            trained is expected to be under the source folder or sub folders under
+            it. Models are trained using documents that are of the following content
+            type - 'application/pdf', 'image/jpeg', 'image/png', 'image/tiff' or
+            'image/bmp'. Other type of content is ignored.
+          operationId: microsoftAzureTraincustommodelasync
+          responses:
+            default:
+              description: >-
+                Response entity accompanying non-successful responses containing
+                additional details about the error.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

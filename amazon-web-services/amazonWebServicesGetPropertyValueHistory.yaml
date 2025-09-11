@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetPropertyValueHistory
+  description: >-
+    Retrieves information about the history of a time series property value for
+    a component, component type, entity, or workspace. You must specify a value
+    for workspaceId. For entity-specific queries, specify values for
+    componentName and entityId. For cross-entity quries, specify a value for
+    componentTypeId.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getpropertyvaluehistory
+      description: >-
+        Retrieves information about the history of a time series property value for
+        a component, component type, entity, or workspace. You must specify a value
+        for workspaceId. For entity-specific queries, specify values for
+        componentName and entityId. For cross-entity quries, specify a value for
+        componentTypeId.
+    paths:
+      /workspaces/{workspaceId}/entity-properties/history:
+        POST:
+          summary: Getpropertyvaluehistory
+          description: >-
+            Retrieves information about the history of a time series property value
+            for a component, component type, entity, or workspace. You must specify
+            a value for workspaceId. For entity-specific queries, specify values for
+            componentName and entityId. For cross-entity quries, specify a value for
+            componentTypeId.
+          operationId: amazonWebServicesGetPropertyValueHistory

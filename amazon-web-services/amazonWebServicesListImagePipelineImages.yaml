@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListImagePipelineImages
+  description: Returns a list of images created by the specified pipeline.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listimagepipelineimages
+      description: Returns a list of images created by the specified pipeline.
+    paths:
+      /ListImagePipelineImages:
+        POST:
+          summary: Listimagepipelineimages
+          description: Returns a list of images created by the specified pipeline.
+          operationId: amazonWebServicesListImagePipelineImages

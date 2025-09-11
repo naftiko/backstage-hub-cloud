@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesImportRestApi
+  description: >-
+    A feature of the API Gateway control service for creating a new API from an
+    external API definition file.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Importrestapi
+      description: >-
+        A feature of the API Gateway control service for creating a new API from an
+        external API definition file.
+    paths:
+      /restapis?mode=import:
+        POST:
+          summary: Importrestapi
+          description: >-
+            A feature of the API Gateway control service for creating a new API from
+            an external API definition file.
+          operationId: amazonWebServicesImportRestApi

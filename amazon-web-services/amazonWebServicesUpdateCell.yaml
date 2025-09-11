@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateCell
+  description: >-
+    Updates a cell to replace the list of nested cells with a new list of nested
+    cells.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatecell
+      description: >-
+        Updates a cell to replace the list of nested cells with a new list of nested
+        cells.
+    paths:
+      /cells/{cellName}:
+        PUT:
+          summary: Updatecell
+          description: >-
+            Updates a cell to replace the list of nested cells with a new list of
+            nested cells.
+          operationId: amazonWebServicesUpdateCell

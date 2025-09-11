@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePostchaosschedule
+  description: >-
+    Chaos will automatically schedule runs based on the Chaos Schedule.<br>The
+    Chaos Schedule will be updated if the provided version matches the version
+    on the server.<br>When updating the Chaos Schedule, the version on the
+    server is incremented by 1.<br>The version on the server will wrap back to 0
+    after reaching a large number.<br>If Chaos is running when this call is
+    made, the call will fail.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Set The Schedule Used By Chaos '
+      description: >-
+        Chaos will automatically schedule runs based on the Chaos Schedule.<br>The
+        Chaos Schedule will be updated if the provided version matches the version
+        on the server.<br>When updating the Chaos Schedule, the version on the
+        server is incremented by 1.<br>The version on the server will wrap back to 0
+        after reaching a large number.<br>If Chaos is running when this call is
+        made, the call will fail.
+    paths:
+      /Tools/Chaos/Schedule:
+        post:
+          summary: 'Set The Schedule Used By Chaos '
+          description: >-
+            Chaos will automatically schedule runs based on the Chaos
+            Schedule.<br>The Chaos Schedule will be updated if the provided version
+            matches the version on the server.<br>When updating the Chaos Schedule,
+            the version on the server is incremented by 1.<br>The version on the
+            server will wrap back to 0 after reaching a large number.<br>If Chaos is
+            running when this call is made, the call will fail.
+          operationId: microsoftAzurePostchaosschedule
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

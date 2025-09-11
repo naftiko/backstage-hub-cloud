@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetSequenceStore
+  description: Gets information about a sequence store.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getsequencestore
+      description: Gets information about a sequence store.
+    paths:
+      /sequencestore/{id}:
+        GET:
+          summary: Getsequencestore
+          description: Gets information about a sequence store.
+          operationId: amazonWebServicesGetSequenceStore

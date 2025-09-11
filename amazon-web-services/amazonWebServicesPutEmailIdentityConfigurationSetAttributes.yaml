@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesPutEmailIdentityConfigurationSetAttributes
+  description: Used to associate a configuration set with an email identity.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putemailidentityconfigurationsetattributes
+      description: Used to associate a configuration set with an email identity.
+    paths:
+      /v2/email/identities/{EmailIdentity}/configuration-set:
+        PUT:
+          summary: Putemailidentityconfigurationsetattributes
+          description: Used to associate a configuration set with an email identity.
+          operationId: amazonWebServicesPutEmailIdentityConfigurationSetAttributes

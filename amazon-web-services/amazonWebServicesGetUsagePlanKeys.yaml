@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetUsagePlanKeys
+  description: >-
+    Gets all the usage plan keys representing the API keys added to a specified
+    usage plan.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getusageplankeys
+      description: >-
+        Gets all the usage plan keys representing the API keys added to a specified
+        usage plan.
+    paths:
+      /usageplans/{usageplanId}/keys:
+        GET:
+          summary: Getusageplankeys
+          description: >-
+            Gets all the usage plan keys representing the API keys added to a
+            specified usage plan.
+          operationId: amazonWebServicesGetUsagePlanKeys

@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWorkspacenotificationrecipientuserCreateorupdate
+  description: Adds the API Management User to the list of Recipients for the Notification.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Apimanagement Service Servicename Workspaces Workspaceid
+        Notifications Notificationname Recipientusers Userid
+      description: Adds the API Management User to the list of Recipients for the Notification.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/notifications/{notificationName}/recipientUsers/{userId}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Apimanagement Service Servicename Workspaces
+            Workspaceid Notifications Notificationname Recipientusers Userid
+          description: >-
+            Adds the API Management User to the list of Recipients for the
+            Notification.
+          operationId: microsoftAzureWorkspacenotificationrecipientuserCreateorupdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./apimanagement.json#/definitions/ErrorResponse

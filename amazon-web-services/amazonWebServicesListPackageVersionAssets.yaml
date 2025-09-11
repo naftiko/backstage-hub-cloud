@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListPackageVersionAssets
+  description: ' Returns a list of AssetSummary objects for assets in a package version. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listpackageversionassets
+      description: ' Returns a list of AssetSummary objects for assets in a package version. '
+    paths:
+      /v1/package/version/assets:
+        POST:
+          summary: Listpackageversionassets
+          description: ' Returns a list of AssetSummary objects for assets in a package version. '
+          operationId: amazonWebServicesListPackageVersionAssets

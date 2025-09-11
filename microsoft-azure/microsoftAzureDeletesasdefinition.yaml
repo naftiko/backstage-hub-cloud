@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDeletesasdefinition
+  description: >-
+    Deletes a SAS definition from a specified storage account. This operation
+    requires the storage/deletesas permission.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Storage Storage Account Name Sas Sas Definition Name
+      description: >-
+        Deletes a SAS definition from a specified storage account. This operation
+        requires the storage/deletesas permission.
+    paths:
+      /storage/{storage-account-name}/sas/{sas-definition-name}:
+        delete:
+          summary: Delete Storage Storage Account Name Sas Sas Definition Name
+          description: >-
+            Deletes a SAS definition from a specified storage account. This
+            operation requires the storage/deletesas permission.
+          operationId: microsoftAzureDeletesasdefinition
+          responses:
+            default:
+              description: Key Vault error response describing why the operation failed.
+              schema:
+                $ref: common.json#/definitions/KeyVaultError

@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePrivatelinkscopesGetvalidationdetailsformachine
+  description: >-
+    Returns a Azure Arc PrivateLinkScope's validation details for a given
+    machine.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Hybridcompute Machines Machinename Privatelinkscopes Current
+      description: >-
+        Returns a Azure Arc PrivateLinkScope's validation details for a given
+        machine.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/privateLinkScopes/current:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Hybridcompute Machines Machinename Privatelinkscopes
+            Current
+          description: >-
+            Returns a Azure Arc PrivateLinkScope's validation details for a given
+            machine.
+          operationId: microsoftAzurePrivatelinkscopesGetvalidationdetailsformachine
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

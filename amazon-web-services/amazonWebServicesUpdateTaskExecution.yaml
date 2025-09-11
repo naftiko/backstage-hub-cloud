@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateTaskExecution
+  description: >-
+    Updates the configuration of a running DataSync task execution.  Currently,
+    the only Option that you can modify with UpdateTaskExecution is 
+    BytesPerSecond , which throttles bandwidth for a running or queued task
+    execution. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatetaskexecution
+      description: >-
+        Updates the configuration of a running DataSync task execution.  Currently,
+        the only Option that you can modify with UpdateTaskExecution is 
+        BytesPerSecond , which throttles bandwidth for a running or queued task
+        execution. 
+    paths:
+      /:
+        POST:
+          summary: Updatetaskexecution
+          description: >-
+            Updates the configuration of a running DataSync task execution. 
+            Currently, the only Option that you can modify with UpdateTaskExecution
+            is  BytesPerSecond , which throttles bandwidth for a running or queued
+            task execution. 
+          operationId: amazonWebServicesUpdateTaskExecution

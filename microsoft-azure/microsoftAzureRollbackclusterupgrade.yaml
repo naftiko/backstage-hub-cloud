@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureRollbackclusterupgrade
+  description: Roll back the code or configuration upgrade of a Service Fabric cluster.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Roll Back The Upgrade Of A Service Fabric Cluster '
+      description: Roll back the code or configuration upgrade of a Service Fabric cluster.
+    paths:
+      /$/RollbackUpgrade:
+        post:
+          summary: 'Roll Back The Upgrade Of A Service Fabric Cluster '
+          description: Roll back the code or configuration upgrade of a Service Fabric cluster.
+          operationId: microsoftAzureRollbackclusterupgrade
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

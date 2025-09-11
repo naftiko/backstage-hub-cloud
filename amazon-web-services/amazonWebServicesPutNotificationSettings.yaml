@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesPutNotificationSettings
+  description: >-
+    Attaches a list of notification settings to a trust anchor. A notification
+    setting includes information such as event name, threshold, status of the
+    notification setting, and the channel to notify.  Required permissions: 
+    rolesanywhere:PutNotificationSettings. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putnotificationsettings
+      description: >-
+        Attaches a list of notification settings to a trust anchor. A notification
+        setting includes information such as event name, threshold, status of the
+        notification setting, and the channel to notify.  Required permissions: 
+        rolesanywhere:PutNotificationSettings. 
+    paths:
+      /put-notifications-settings:
+        PATCH:
+          summary: Putnotificationsettings
+          description: >-
+            Attaches a list of notification settings to a trust anchor. A
+            notification setting includes information such as event name, threshold,
+            status of the notification setting, and the channel to notify.  Required
+            permissions:  rolesanywhere:PutNotificationSettings. 
+          operationId: amazonWebServicesPutNotificationSettings

@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureVolumesCreateonpremmigrationreplication
+  description: >-
+    Starts SVM peering and returns a command to be run on the external ONTAP to
+    accept it.  Once the SVMs have been peered a SnapMirror will be created
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Start Migration Process
+      description: >-
+        Starts SVM peering and returns a command to be run on the external ONTAP to
+        accept it.  Once the SVMs have been peered a SnapMirror will be created
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/createOnPremMigrationReplication:
+        post:
+          summary: Start Migration Process
+          description: >-
+            Starts SVM peering and returns a command to be run on the external ONTAP
+            to accept it.  Once the SVMs have been peered a SnapMirror will be
+            created
+          operationId: microsoftAzureVolumesCreateonpremmigrationreplication
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

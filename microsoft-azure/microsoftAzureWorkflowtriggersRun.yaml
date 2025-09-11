@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWorkflowtriggersRun
+  description: Runs a workflow trigger.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Web Sites Name Hostruntime Runtime Webhooks Workflow Api
+        Management Workflows Workflowname Triggers Triggername Run
+      description: Runs a workflow trigger.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/hostruntime/runtime/webhooks/workflow/api/management/workflows/{workflowName}/triggers/{triggerName}/run:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Web Sites Name Hostruntime Runtime Webhooks Workflow
+            Api Management Workflows Workflowname Triggers Triggername Run
+          description: Runs a workflow trigger.
+          operationId: microsoftAzureWorkflowtriggersRun
+          responses:
+            default:
+              description: Error response describing why the trigger run failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

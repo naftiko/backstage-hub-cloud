@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListLFTags
+  description: 'Lists LF-tags that the requester has permission to view. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listlftags
+      description: 'Lists LF-tags that the requester has permission to view. '
+    paths:
+      /ListLFTags:
+        POST:
+          summary: Listlftags
+          description: 'Lists LF-tags that the requester has permission to view. '
+          operationId: amazonWebServicesListLFTags

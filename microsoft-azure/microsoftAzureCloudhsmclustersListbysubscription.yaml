@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureCloudhsmclustersListbysubscription
+  description: >-
+    The List operation gets information about the Cloud HSM Clusters associated
+    with the subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft Hardwaresecuritymodules
+        Cloudhsmclusters
+      description: >-
+        The List operation gets information about the Cloud HSM Clusters associated
+        with the subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft
+            Hardwaresecuritymodules Cloudhsmclusters
+          description: >-
+            The List operation gets information about the Cloud HSM Clusters
+            associated with the subscription.
+          operationId: microsoftAzureCloudhsmclustersListbysubscription
+          responses:
+            default:
+              description: The error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudHsmClusterError'

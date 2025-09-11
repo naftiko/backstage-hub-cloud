@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureTranslatorDetect
+  description: Identifies the language of a string of text.<br>
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Detect
+      description: Identifies the language of a string of text.<br>
+    paths:
+      /Detect:
+        post:
+          summary: Post Detect
+          description: Identifies the language of a string of text.<br>
+          operationId: microsoftAzureTranslatorDetect
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/ErrorMessage'

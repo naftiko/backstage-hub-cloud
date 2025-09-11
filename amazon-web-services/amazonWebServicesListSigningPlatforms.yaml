@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListSigningPlatforms
+  description: >-
+    Lists all signing platforms available in AWS Signer that match the request
+    parameters. If additional jobs remain to be listed, Signer returns a
+    nextToken value. Use this value in subsequent calls to ListSigningJobs to
+    fetch the remaining values. You can continue calling ListSigningJobs with
+    your maxResults parameter and with new values that Signer returns in the
+    nextToken parameter until all of your signing jobs have been returned.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listsigningplatforms
+      description: >-
+        Lists all signing platforms available in AWS Signer that match the request
+        parameters. If additional jobs remain to be listed, Signer returns a
+        nextToken value. Use this value in subsequent calls to ListSigningJobs to
+        fetch the remaining values. You can continue calling ListSigningJobs with
+        your maxResults parameter and with new values that Signer returns in the
+        nextToken parameter until all of your signing jobs have been returned.
+    paths:
+      /signing-platforms:
+        GET:
+          summary: Listsigningplatforms
+          description: >-
+            Lists all signing platforms available in AWS Signer that match the
+            request parameters. If additional jobs remain to be listed, Signer
+            returns a nextToken value. Use this value in subsequent calls to
+            ListSigningJobs to fetch the remaining values. You can continue calling
+            ListSigningJobs with your maxResults parameter and with new values that
+            Signer returns in the nextToken parameter until all of your signing jobs
+            have been returned.
+          operationId: amazonWebServicesListSigningPlatforms

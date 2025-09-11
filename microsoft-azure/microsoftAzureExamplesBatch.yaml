@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureExamplesBatch
+  description: Adds a batch of labeled example utterances to a version of the application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Apps Appid Versions Versionid Examples
+      description: Adds a batch of labeled example utterances to a version of the application.
+    paths:
+      /apps/{appId}/versions/{versionId}/examples:
+        post:
+          summary: Post Apps Appid Versions Versionid Examples
+          description: >-
+            Adds a batch of labeled example utterances to a version of the
+            application.
+          operationId: microsoftAzureExamplesBatch
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

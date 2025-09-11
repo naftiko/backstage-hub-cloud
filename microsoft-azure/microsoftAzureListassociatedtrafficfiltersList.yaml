@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureListassociatedtrafficfiltersList
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Get The List Of All Associated Traffic Filters For The Given Deployment '
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Elastic/monitors/{monitorName}/listAssociatedTrafficFilters:
+        post:
+          summary: 'Get The List Of All Associated Traffic Filters For The Given Deployment '
+          description: Needs a more full description created.
+          operationId: microsoftAzureListassociatedtrafficfiltersList
+          responses:
+            default:
+              description: Default error response.
+              schema:
+                $ref: '#/definitions/ResourceProviderDefaultErrorResponse'

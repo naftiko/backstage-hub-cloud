@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureExtensionsCreate
+  description: Registers the extension with a Visual Studio Team Services account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Extensions Create
+      description: Registers the extension with a Visual Studio Team Services account.
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.visualstudio/account/{accountResourceName}/extension/{extensionResourceName}:
+        put:
+          summary: Extensions Create
+          description: Registers the extension with a Visual Studio Team Services account.
+          operationId: microsoftAzureExtensionsCreate
+          responses:
+            '200':
+              description: >-
+                The operation succeeded. The extension resource was created for the
+                specified account.
+              schema:
+                $ref: '#/definitions/ExtensionResource'

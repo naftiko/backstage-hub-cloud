@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureRollbackapplicationupgrade
+  description: >-
+    Starts rolling back the current application upgrade to the previous version.
+    This API can only be used to roll back the current in-progress upgrade that
+    is rolling forward to new version. If the application is not currently being
+    upgraded use StartApplicationUpgrade API to upgrade it to desired version,
+    including rolling back to a previous version.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Starts Rolling Back The Currently On Going Upgrade Of An Application In The
+        Service Fabric Cluster 
+      description: >-
+        Starts rolling back the current application upgrade to the previous version.
+        This API can only be used to roll back the current in-progress upgrade that
+        is rolling forward to new version. If the application is not currently being
+        upgraded use StartApplicationUpgrade API to upgrade it to desired version,
+        including rolling back to a previous version.
+    paths:
+      /Applications/{applicationId}/$/RollbackUpgrade:
+        post:
+          summary: >-
+            Starts Rolling Back The Currently On Going Upgrade Of An Application In
+            The Service Fabric Cluster 
+          description: >-
+            Starts rolling back the current application upgrade to the previous
+            version. This API can only be used to roll back the current in-progress
+            upgrade that is rolling forward to new version. If the application is
+            not currently being upgraded use StartApplicationUpgrade API to upgrade
+            it to desired version, including rolling back to a previous version.
+          operationId: microsoftAzureRollbackapplicationupgrade
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

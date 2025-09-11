@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAnalyzetextSubmitjob
+  description: >-
+    Submit a collection of text documents for analysis. Specify one or more
+    unique tasks to be executed as a long-running operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Submit Text Analysis Job
+      description: >-
+        Submit a collection of text documents for analysis. Specify one or more
+        unique tasks to be executed as a long-running operation.
+    paths:
+      /analyze-text/jobs:
+        post:
+          summary: Submit Text Analysis Job
+          description: >-
+            Submit a collection of text documents for analysis. Specify one or more
+            unique tasks to be executed as a long-running operation.
+          operationId: microsoftAzureAnalyzetextSubmitjob
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: common.json#/definitions/ErrorResponse

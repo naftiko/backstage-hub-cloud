@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebappsApplyslotconfigtoproduction
+  description: >-
+    Description for Applies the configuration settings from the target slot onto
+    the current slot.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Applies The Configuration Settings From The Target Slot Onto The Current
+        Slot 
+      description: >-
+        Description for Applies the configuration settings from the target slot onto
+        the current slot.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/applySlotConfig:
+        post:
+          summary: >-
+            Applies The Configuration Settings From The Target Slot Onto The Current
+            Slot 
+          description: >-
+            Description for Applies the configuration settings from the target slot
+            onto the current slot.
+          operationId: microsoftAzureWebappsApplyslotconfigtoproduction
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

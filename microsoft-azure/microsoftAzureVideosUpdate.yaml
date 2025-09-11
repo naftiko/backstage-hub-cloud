@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureVideosUpdate
+  description: >-
+    Updates individual properties of an existing video resource with the given
+    name.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Updates Individual Properties Of An Existing Video Resource '
+      description: >-
+        Updates individual properties of an existing video resource with the given
+        name.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/videos/{videoName}:
+        patch:
+          summary: 'Updates Individual Properties Of An Existing Video Resource '
+          description: >-
+            Updates individual properties of an existing video resource with the
+            given name.
+          operationId: microsoftAzureVideosUpdate
+          responses:
+            default:
+              description: Detailed error information.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

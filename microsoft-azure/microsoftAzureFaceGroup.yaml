@@ -1,0 +1,69 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureFaceGroup
+  description: >-
+    Divide candidate faces into groups based on face similarity.<br>* The output
+    is one or more disjointed face groups and a messyGroup. A face group
+    contains faces that have similar looking, often of the same person. Face
+    groups are ranked by group size, i.e. number of faces. Notice that faces
+    belonging to a same person might be split into several groups in the
+    result.<br>* MessyGroup is a special face group containing faces that cannot
+    find any similar counterpart face from original faces. The messyGroup will
+    not appear in the result if all faces found their counterparts.<br>* Group
+    API needs at least 2 candidate faces and 1000 at most. We suggest to try
+    [Face -
+    Verify](https://docs.microsoft.com/rest/api/faceapi/face/verifyfacetoface)
+    when you only have 2 candidate faces.<br>* The 'recognitionModel' associated
+    with the query faces' faceIds should be the same.<br>
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Group
+      description: >-
+        Divide candidate faces into groups based on face similarity.<br>* The output
+        is one or more disjointed face groups and a messyGroup. A face group
+        contains faces that have similar looking, often of the same person. Face
+        groups are ranked by group size, i.e. number of faces. Notice that faces
+        belonging to a same person might be split into several groups in the
+        result.<br>* MessyGroup is a special face group containing faces that cannot
+        find any similar counterpart face from original faces. The messyGroup will
+        not appear in the result if all faces found their counterparts.<br>* Group
+        API needs at least 2 candidate faces and 1000 at most. We suggest to try
+        [Face -
+        Verify](https://docs.microsoft.com/rest/api/faceapi/face/verifyfacetoface)
+        when you only have 2 candidate faces.<br>* The 'recognitionModel' associated
+        with the query faces' faceIds should be the same.<br>
+    paths:
+      /group:
+        post:
+          summary: Post Group
+          description: >-
+            Divide candidate faces into groups based on face similarity.<br>* The
+            output is one or more disjointed face groups and a messyGroup. A face
+            group contains faces that have similar looking, often of the same
+            person. Face groups are ranked by group size, i.e. number of faces.
+            Notice that faces belonging to a same person might be split into several
+            groups in the result.<br>* MessyGroup is a special face group containing
+            faces that cannot find any similar counterpart face from original faces.
+            The messyGroup will not appear in the result if all faces found their
+            counterparts.<br>* Group API needs at least 2 candidate faces and 1000
+            at most. We suggest to try [Face -
+            Verify](https://docs.microsoft.com/rest/api/faceapi/face/verifyfacetoface)
+            when you only have 2 candidate faces.<br>* The 'recognitionModel'
+            associated with the query faces' faceIds should be the same.<br>
+          operationId: microsoftAzureFaceGroup
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

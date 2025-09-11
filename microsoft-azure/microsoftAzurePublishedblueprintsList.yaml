@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePublishedblueprintsList
+  description: List published versions of given blueprint definition.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Resourcescope Providers Microsoft Blueprint Blueprints Blueprintname
+        Versions
+      description: List published versions of given blueprint definition.
+    paths:
+      /{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/versions:
+        get:
+          summary: >-
+            Get Resourcescope Providers Microsoft Blueprint Blueprints Blueprintname
+            Versions
+          description: List published versions of given blueprint definition.
+          operationId: microsoftAzurePublishedblueprintsList
+          responses:
+            default:
+              description: Blueprints error response.
+              schema:
+                $ref: '#/definitions/CloudError'

@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateSolFunctionPackage
+  description: >-
+    Updates the operational state of function package. A function package is a
+    .zip file in CSAR (Cloud Service Archive) format that contains a network
+    function (an ETSI standard telecommunication application) and function
+    package descriptor that uses the TOSCA standard to describe how the network
+    functions should run on your network.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatesolfunctionpackage
+      description: >-
+        Updates the operational state of function package. A function package is a
+        .zip file in CSAR (Cloud Service Archive) format that contains a network
+        function (an ETSI standard telecommunication application) and function
+        package descriptor that uses the TOSCA standard to describe how the network
+        functions should run on your network.
+    paths:
+      /sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}:
+        PATCH:
+          summary: Updatesolfunctionpackage
+          description: >-
+            Updates the operational state of function package. A function package is
+            a .zip file in CSAR (Cloud Service Archive) format that contains a
+            network function (an ETSI standard telecommunication application) and
+            function package descriptor that uses the TOSCA standard to describe how
+            the network functions should run on your network.
+          operationId: amazonWebServicesUpdateSolFunctionPackage

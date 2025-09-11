@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetPortfolioSummary
+  description: ' Retrieves overall summary including the number of servers to rehost and the overall number of anti-patterns. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getportfoliosummary
+      description: ' Retrieves overall summary including the number of servers to rehost and the overall number of anti-patterns. '
+    paths:
+      /get-portfolio-summary:
+        GET:
+          summary: Getportfoliosummary
+          description: ' Retrieves overall summary including the number of servers to rehost and the overall number of anti-patterns. '
+          operationId: amazonWebServicesGetPortfolioSummary

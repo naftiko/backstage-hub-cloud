@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureMonitorsListbysubscription
+  description: List NewRelicMonitorResource resources by subscription ID
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Subscriptions Subscriptionid Providers Newrelic Observability Monitors
+      description: List NewRelicMonitorResource resources by subscription ID
+    paths:
+      /subscriptions/{subscriptionId}/providers/NewRelic.Observability/monitors:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Newrelic Observability
+            Monitors
+          description: List NewRelicMonitorResource resources by subscription ID
+          operationId: microsoftAzureMonitorsListbysubscription
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetSolFunctionInstance
+  description: >-
+    Gets the details of a network function instance, including the instantation
+    state and metadata from the function package descriptor in the network
+    function package. A network function instance is a function in a function
+    package .
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getsolfunctioninstance
+      description: >-
+        Gets the details of a network function instance, including the instantation
+        state and metadata from the function package descriptor in the network
+        function package. A network function instance is a function in a function
+        package .
+    paths:
+      /sol/vnflcm/v1/vnf_instances/{vnfInstanceId}:
+        GET:
+          summary: Getsolfunctioninstance
+          description: >-
+            Gets the details of a network function instance, including the
+            instantation state and metadata from the function package descriptor in
+            the network function package. A network function instance is a function
+            in a function package .
+          operationId: amazonWebServicesGetSolFunctionInstance

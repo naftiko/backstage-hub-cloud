@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesInvokeAgent
+  description: >-
+    Invokes the specified Bedrock model to run inference using the input
+    provided in the request body.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Invokeagent
+      description: >-
+        Invokes the specified Bedrock model to run inference using the input
+        provided in the request body.
+    paths:
+      /agents/{agentId}/agentAliases/{agentAliasId}/sessions/{sessionId}/text:
+        POST:
+          summary: Invokeagent
+          description: >-
+            Invokes the specified Bedrock model to run inference using the input
+            provided in the request body.
+          operationId: amazonWebServicesInvokeAgent

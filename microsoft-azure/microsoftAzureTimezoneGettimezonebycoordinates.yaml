@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureTimezoneGettimezonebycoordinates
+  description: >-
+    __Time Zone by Coordinates__<br><br>**Applies to**: S0 and S1 pricing
+    tiers.<br><br><br>This API returns current, historical, and future time zone
+    information for a specified latitude-longitude pair. In addition, the API
+    provides sunset and sunrise times for a given location.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Timezone Bycoordinates Format
+      description: >-
+        __Time Zone by Coordinates__<br><br>**Applies to**: S0 and S1 pricing
+        tiers.<br><br><br>This API returns current, historical, and future time zone
+        information for a specified latitude-longitude pair. In addition, the API
+        provides sunset and sunrise times for a given location.
+    paths:
+      /timezone/byCoordinates/{format}:
+        get:
+          summary: Get Timezone Bycoordinates Format
+          description: >-
+            __Time Zone by Coordinates__<br><br>**Applies to**: S0 and S1 pricing
+            tiers.<br><br><br>This API returns current, historical, and future time
+            zone information for a specified latitude-longitude pair. In addition,
+            the API provides sunset and sunrise times for a given location.
+          operationId: microsoftAzureTimezoneGettimezonebycoordinates
+          responses:
+            '500':
+              $ref: '#/responses/500'

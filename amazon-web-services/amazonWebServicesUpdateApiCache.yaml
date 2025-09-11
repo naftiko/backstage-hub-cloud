@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateApiCache
+  description: Updates the cache for the GraphQL API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateapicache
+      description: Updates the cache for the GraphQL API.
+    paths:
+      /v1/apis/{apiId}/ApiCaches/update:
+        POST:
+          summary: Updateapicache
+          description: Updates the cache for the GraphQL API.
+          operationId: amazonWebServicesUpdateApiCache

@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebhooksPing
+  description: >-
+    The request body of the POST request sent to the registered web hook URL is
+    of the same shape as in the GET request for a specific hook.<br>The Swagger
+    Schema ID of the model is WebHookV3.<br>            <br>The request will
+    contain a X-MicrosoftSpeechServices-Event header with the value ping. If the
+    web hook was registered with<br>a secret it will contain a
+    X-MicrosoftSpeechServices-Signature header with an SHA256 hash of the
+    payload with<br>the secret as HMAC key. The hash is base64 encoded.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Sends A Ping Event To The Registered Url '
+      description: >-
+        The request body of the POST request sent to the registered web hook URL is
+        of the same shape as in the GET request for a specific hook.<br>The Swagger
+        Schema ID of the model is WebHookV3.<br>            <br>The request will
+        contain a X-MicrosoftSpeechServices-Event header with the value ping. If the
+        web hook was registered with<br>a secret it will contain a
+        X-MicrosoftSpeechServices-Signature header with an SHA256 hash of the
+        payload with<br>the secret as HMAC key. The hash is base64 encoded.
+    paths:
+      /webhooks/{id}:ping:
+        post:
+          summary: 'Sends A Ping Event To The Registered Url '
+          description: >-
+            The request body of the POST request sent to the registered web hook URL
+            is of the same shape as in the GET request for a specific hook.<br>The
+            Swagger Schema ID of the model is WebHookV3.<br>            <br>The
+            request will contain a X-MicrosoftSpeechServices-Event header with the
+            value ping. If the web hook was registered with<br>a secret it will
+            contain a X-MicrosoftSpeechServices-Signature header with an SHA256 hash
+            of the payload with<br>the secret as HMAC key. The hash is base64
+            encoded.
+          operationId: microsoftAzureWebhooksPing
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/Error'

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListAnalyzers
+  description: Retrieves a list of analyzers.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listanalyzers
+      description: Retrieves a list of analyzers.
+    paths:
+      /analyzer:
+        GET:
+          summary: Listanalyzers
+          description: Retrieves a list of analyzers.
+          operationId: amazonWebServicesListAnalyzers

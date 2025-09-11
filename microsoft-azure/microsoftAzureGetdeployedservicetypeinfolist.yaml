@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGetdeployedservicetypeinfolist
+  description: >-
+    Gets the list containing the information about service types from the
+    applications deployed on a node in a Service Fabric cluster. The response
+    includes the name of the service type, its registration status, the code
+    package that registered it and activation ID of the service package.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Gets The List Containing The Information About Service Types From The
+        Applications Deployed On A Node In A Service Fabric Cluster 
+      description: >-
+        Gets the list containing the information about service types from the
+        applications deployed on a node in a Service Fabric cluster. The response
+        includes the name of the service type, its registration status, the code
+        package that registered it and activation ID of the service package.
+    paths:
+      /Nodes/{nodeName}/$/GetApplications/{applicationId}/$/GetServiceTypes:
+        get:
+          summary: >-
+            Gets The List Containing The Information About Service Types From The
+            Applications Deployed On A Node In A Service Fabric Cluster 
+          description: >-
+            Gets the list containing the information about service types from the
+            applications deployed on a node in a Service Fabric cluster. The
+            response includes the name of the service type, its registration status,
+            the code package that registered it and activation ID of the service
+            package.
+          operationId: microsoftAzureGetdeployedservicetypeinfolist
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

@@ -1,0 +1,103 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDatabasemigrationssqlmiCutover
+  description: >-
+    Initiate cutover for in-progress online database migration to SQL Managed
+    Instance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Sql Managedinstances Managedinstancename Providers Microsoft
+        Datamigration Databasemigrations Targetdbname Cutover
+      description: >-
+        Initiate cutover for in-progress online database migration to SQL Managed
+        Instance.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/providers/Microsoft.DataMigration/databaseMigrations/{targetDbName}/cutover:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Sql Managedinstances Managedinstancename Providers
+            Microsoft Datamigration Databasemigrations Targetdbname Cutover
+          description: >-
+            Initiate cutover for in-progress online database migration to SQL
+            Managed Instance.
+          operationId: microsoftAzureDatabasemigrationssqlmiCutover
+          responses:
+            default:
+              description: |-
+                *** Error Responses: ***
+
+                 * 400 InvalidParameterValue - An invalid value was provided for parameter '{0}'.
+
+                 * 400 GenericUser - User Failure when calling other Resource Provider.
+
+                 * 400 OperationIdNotFound - Operation ID '{0}' not found.
+
+                 * 400 OperationTypeNotFound - Operation Type '{0}' not found.
+
+                 * 400 InvalidArgument - Invalid argument '{0}'.
+
+                 * 400 InvalidStorageAccount - Invalid storage account: '{0}'. Only BlockBlobStorage kind is supported for premium tier.
+
+                 * 400 InvalidLocation - Invalid Location: '{0}'. Location should match selected Azure target location '{1}'.
+
+                 * 400 MigrationNotReadyForCancelError - Database '{0}' is not ready for Cancel operation
+
+                 * 400 RestoreJobCompletedDuringCancel - Migration cannot be canceled as Restore Job was completed during the cancel process. Target server:'{0}', Target database: '{1}'.
+
+                 * 400 SqlVmGenericUserError - 
+
+                 * 400 IntegrationRuntimeIsNotSelfHosted - Integration Runtime is not self-hosted for subscription '{0}' resource group '{1}' and name '{2}'
+
+                 * 400 MigrationNotReadyForCutoverError - Database '{0}' is not ready for Cutover operation
+
+                 * 400 CutoverFailedOrCancelled - Cutover failed or cancelled for database '{0}'. Error details: '{1}'
+
+                 * 400 MigrationCancelFailed - Cancel could not be performed on operation '{0}' for database '{1}'. This can happen if the migration with MigrationId '{0}' is already completed or canceled. Please check the migration for details.
+
+                 * 400 TestConnectionFailed - Failed to test connections using provided Integration Runtime. Error details: '{0}'
+
+                 * 400 CutoverNotAllowedMigrationCompleteError - Cutover is not allowed as migration for database '{0}' is already complete
+
+                 * 400 IntegrationRuntimeIsNotOnline - Integration Runtime '{0}' is not online for resource group '{1}' subscription '{2}'
+
+                 * 403 AccessDenied - Access denied.
+
+                 * 404 ResourceNotFound - The requested resource was not found.
+
+                 * 404 SubscriptionDoesNotExist - Subscription id does not exist.
+
+                 * 404 ResourceDoesNotExist - Resource does not exist.
+
+                 * 409 OperationInProgress - Operation in progress on resource already.
+
+                 * 409 OperationCanceled - Operation Cancelled.
+
+                 * 409 ResourceAlreadyExists - Resource already exists.
+
+                 * 409 SubscriptionOperationInProgress - An operation on subscription is already in progress
+
+                 * 500 UnExpectedErrorOccurred - Unexpected error occurred.
+
+                 * 500 OperationTimeout - Operation timed out.
+
+                 * 500 GenericSystem - System Failure when calling other Resource Provider.
+
+                 * 500 CancelVmRestoreJobFailed - Failed to cancel VM restore job. Target server:'{0}', Target database: '{1}', Error details: '{2}'.
+
+                 * 500 AdfCleanupFailureAfterMigration - Failed to clean up ADF resources after migration has completed successfully. Target server:'{0}', Target database: '{1}', Error details: '{2}'.
+
+                 * 500 CancelMigrationFailed - Failed to cancel migration. Target server:'{0}', Target database: '{1}', Migration Id: '{2}', Error details: '{3}'.

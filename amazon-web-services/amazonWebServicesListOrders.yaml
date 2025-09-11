@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListOrders
+  description: >-
+    Lists orders. Add filters to your request to return a more specific list of
+    results. Use filters to match the Amazon Resource Name (ARN) of the network
+    site or the status of the order. If you specify multiple filters, filters
+    are joined with an OR, and the request returns results that match all of the
+    specified filters.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listorders
+      description: >-
+        Lists orders. Add filters to your request to return a more specific list of
+        results. Use filters to match the Amazon Resource Name (ARN) of the network
+        site or the status of the order. If you specify multiple filters, filters
+        are joined with an OR, and the request returns results that match all of the
+        specified filters.
+    paths:
+      /v1/orders/list:
+        POST:
+          summary: Listorders
+          description: >-
+            Lists orders. Add filters to your request to return a more specific list
+            of results. Use filters to match the Amazon Resource Name (ARN) of the
+            network site or the status of the order. If you specify multiple
+            filters, filters are joined with an OR, and the request returns results
+            that match all of the specified filters.
+          operationId: amazonWebServicesListOrders

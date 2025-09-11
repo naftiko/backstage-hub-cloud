@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureValidatemove
+  description: Description for Validate whether a resource can be moved.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Validate Whether A Resource Can Be Moved '
+      description: Description for Validate whether a resource can be moved.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources:
+        post:
+          summary: 'Validate Whether A Resource Can Be Moved '
+          description: Description for Validate whether a resource can be moved.
+          operationId: microsoftAzureValidatemove
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

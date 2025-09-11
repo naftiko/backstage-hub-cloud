@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDescribeNotificationRule
+  description: Returns information about a specified notification rule.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describenotificationrule
+      description: Returns information about a specified notification rule.
+    paths:
+      /describeNotificationRule:
+        POST:
+          summary: Describenotificationrule
+          description: Returns information about a specified notification rule.
+          operationId: amazonWebServicesDescribeNotificationRule

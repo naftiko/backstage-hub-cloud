@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureTypesGetrelationshipdefbyname
+  description: Get the relationship definition by its name (unique).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Atlas Types Relationshipdef Name Name
+      description: Get the relationship definition by its name (unique).
+    paths:
+      /atlas/v2/types/relationshipdef/name/{name}:
+        get:
+          summary: Get Atlas Types Relationshipdef Name Name
+          description: Get the relationship definition by its name (unique).
+          operationId: microsoftAzureTypesGetrelationshipdefbyname
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

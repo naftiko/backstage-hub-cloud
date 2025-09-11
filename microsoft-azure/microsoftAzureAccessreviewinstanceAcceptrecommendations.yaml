@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAccessreviewinstanceAcceptrecommendations
+  description: >-
+    An action to accept recommendations for decision in an access review
+    instance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Providers Microsoft Authorization Accessreviewscheduledefinitions
+        Scheduledefinitionid Instances Id Acceptrecommendations
+      description: >-
+        An action to accept recommendations for decision in an access review
+        instance.
+    paths:
+      /providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/acceptRecommendations:
+        post:
+          summary: >-
+            Post Providers Microsoft Authorization Accessreviewscheduledefinitions
+            Scheduledefinitionid Instances Id Acceptrecommendations
+          description: >-
+            An action to accept recommendations for decision in an access review
+            instance.
+          operationId: microsoftAzureAccessreviewinstanceAcceptrecommendations
+          responses:
+            default:
+              description: Unexpected error
+              schema:
+                $ref: '#/definitions/ErrorDefinition'

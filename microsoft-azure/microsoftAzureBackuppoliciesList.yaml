@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureBackuppoliciesList
+  description: >-
+    Lists of backup policies associated with Recovery Services Vault. API
+    provides pagination parameters to fetch<br>scoped results.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Recoveryservices Vaults Vaultname Backuppolicies
+      description: >-
+        Lists of backup policies associated with Recovery Services Vault. API
+        provides pagination parameters to fetch<br>scoped results.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Recoveryservices Vaults Vaultname Backuppolicies
+          description: >-
+            Lists of backup policies associated with Recovery Services Vault. API
+            provides pagination parameters to fetch<br>scoped results.
+          operationId: microsoftAzureBackuppoliciesList
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

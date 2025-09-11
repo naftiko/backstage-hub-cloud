@@ -1,0 +1,83 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureTilesetDelete
+  description: >-
+    **Applies to:** see pricing
+    [tiers](https://aka.ms/AzureMapsPricingTier).<br><br>Creator makes it
+    possible to develop applications based on your private indoor map data using
+    Azure Maps API and SDK.
+    [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+    article introduces concepts and tools that apply to Azure Maps
+    Creator.<br><br>This API allows the caller to delete a created tileset.   
+    <br>You can use this API if a tileset is no longer needed. <br><br>###
+    Submit Delete Request<br><br>To delete your content you will issue a
+    `DELETE` request where the path will contain the `tilesetId` of the tileset
+    to delete.    <br><br>#### Delete request "Successful"<br><br>The Tileset
+    Delete API returns a HTTP `204 No Content` response with an empty body, if
+    the tileset was deleted successfully.    <br><br>#### Delete request
+    "Failed"<br><br>A HTTP `400 Bad Request` error response will be returned if
+    the tileset with the passed-in `tilesetId` is not found. <br><br>Here is a
+    sample error response:<br><br><br><br>```json<br>{<br>  "error": {<br>     
+    "code": "400 BadRequest",<br>      "message": "Bad request - Tileset Id:
+    d85b5b27-5fc4-4599-8b50-47160e90f8ce does not exist."<br>  }<br>}<br>```
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Tilesets Tilesetid
+      description: >-
+        **Applies to:** see pricing
+        [tiers](https://aka.ms/AzureMapsPricingTier).<br><br>Creator makes it
+        possible to develop applications based on your private indoor map data using
+        Azure Maps API and SDK.
+        [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+        article introduces concepts and tools that apply to Azure Maps
+        Creator.<br><br>This API allows the caller to delete a created tileset.   
+        <br>You can use this API if a tileset is no longer needed. <br><br>###
+        Submit Delete Request<br><br>To delete your content you will issue a
+        `DELETE` request where the path will contain the `tilesetId` of the tileset
+        to delete.    <br><br>#### Delete request "Successful"<br><br>The Tileset
+        Delete API returns a HTTP `204 No Content` response with an empty body, if
+        the tileset was deleted successfully.    <br><br>#### Delete request
+        "Failed"<br><br>A HTTP `400 Bad Request` error response will be returned if
+        the tileset with the passed-in `tilesetId` is not found. <br><br>Here is a
+        sample error response:<br><br><br><br>```json<br>{<br>  "error": {<br>     
+        "code": "400 BadRequest",<br>      "message": "Bad request - Tileset Id:
+        d85b5b27-5fc4-4599-8b50-47160e90f8ce does not exist."<br>  }<br>}<br>```
+    paths:
+      /tilesets/{tilesetId}:
+        delete:
+          summary: Delete Tilesets Tilesetid
+          description: >-
+            **Applies to:** see pricing
+            [tiers](https://aka.ms/AzureMapsPricingTier).<br><br>Creator makes it
+            possible to develop applications based on your private indoor map data
+            using Azure Maps API and SDK.
+            [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+            article introduces concepts and tools that apply to Azure Maps
+            Creator.<br><br>This API allows the caller to delete a created
+            tileset.    <br>You can use this API if a tileset is no longer needed.
+            <br><br>### Submit Delete Request<br><br>To delete your content you will
+            issue a `DELETE` request where the path will contain the `tilesetId` of
+            the tileset to delete.    <br><br>#### Delete request
+            "Successful"<br><br>The Tileset Delete API returns a HTTP `204 No
+            Content` response with an empty body, if the tileset was deleted
+            successfully.    <br><br>#### Delete request "Failed"<br><br>A HTTP `400
+            Bad Request` error response will be returned if the tileset with the
+            passed-in `tilesetId` is not found. <br><br>Here is a sample error
+            response:<br><br><br><br>```json<br>{<br>  "error": {<br>      "code":
+            "400 BadRequest",<br>      "message": "Bad request - Tileset Id:
+            d85b5b27-5fc4-4599-8b50-47160e90f8ce does not exist."<br>  }<br>}<br>```
+          operationId: microsoftAzureTilesetDelete
+          responses:
+            '500':
+              $ref: '#/responses/500'

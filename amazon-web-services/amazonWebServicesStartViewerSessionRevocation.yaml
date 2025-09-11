@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesStartViewerSessionRevocation
+  description: >-
+    Starts the process of revoking the viewer session associated with a
+    specified channel ARN and viewer ID. Optionally, you can provide a version
+    to revoke viewer sessions less than and including that version. For
+    instructions on associating a viewer ID with a viewer session, see Setting
+    Up Private Channels.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startviewersessionrevocation
+      description: >-
+        Starts the process of revoking the viewer session associated with a
+        specified channel ARN and viewer ID. Optionally, you can provide a version
+        to revoke viewer sessions less than and including that version. For
+        instructions on associating a viewer ID with a viewer session, see Setting
+        Up Private Channels.
+    paths:
+      /StartViewerSessionRevocation:
+        POST:
+          summary: Startviewersessionrevocation
+          description: >-
+            Starts the process of revoking the viewer session associated with a
+            specified channel ARN and viewer ID. Optionally, you can provide a
+            version to revoke viewer sessions less than and including that version.
+            For instructions on associating a viewer ID with a viewer session, see
+            Setting Up Private Channels.
+          operationId: amazonWebServicesStartViewerSessionRevocation

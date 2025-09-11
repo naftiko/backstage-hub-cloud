@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateRestoreTestingSelection
+  description: >-
+    Most elements except the RestoreTestingSelectionName can be updated with
+    this request.  RestoreTestingSelection can use either protected resource
+    ARNs or conditions, but not both. That is, if your selection has
+    ProtectedResourceArns, requesting an update with the parameter
+    ProtectedResourceConditions will be unsuccessful.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updaterestoretestingselection
+      description: >-
+        Most elements except the RestoreTestingSelectionName can be updated with
+        this request.  RestoreTestingSelection can use either protected resource
+        ARNs or conditions, but not both. That is, if your selection has
+        ProtectedResourceArns, requesting an update with the parameter
+        ProtectedResourceConditions will be unsuccessful.
+    paths:
+      /restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}:
+        PUT:
+          summary: Updaterestoretestingselection
+          description: >-
+            Most elements except the RestoreTestingSelectionName can be updated with
+            this request.  RestoreTestingSelection can use either protected resource
+            ARNs or conditions, but not both. That is, if your selection has
+            ProtectedResourceArns, requesting an update with the parameter
+            ProtectedResourceConditions will be unsuccessful.
+          operationId: amazonWebServicesUpdateRestoreTestingSelection

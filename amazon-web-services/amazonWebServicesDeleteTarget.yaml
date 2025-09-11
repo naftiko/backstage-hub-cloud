@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDeleteTarget
+  description: Deletes a specified target for notifications.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletetarget
+      description: Deletes a specified target for notifications.
+    paths:
+      /deleteTarget:
+        POST:
+          summary: Deletetarget
+          description: Deletes a specified target for notifications.
+          operationId: amazonWebServicesDeleteTarget

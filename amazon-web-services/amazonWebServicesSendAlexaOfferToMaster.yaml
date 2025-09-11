@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesSendAlexaOfferToMaster
+  description: >-
+    This API allows you to connect WebRTC-enabled devices with Alexa display
+    devices. When invoked, it sends the Alexa Session Description Protocol (SDP)
+    offer to the master peer. The offer is delivered as soon as the master is
+    connected to the specified signaling channel. This API returns the SDP
+    answer from the connected master. If the master is not connected to the
+    signaling channel, redelivery requests are made until the message expires.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Sendalexaoffertomaster
+      description: >-
+        This API allows you to connect WebRTC-enabled devices with Alexa display
+        devices. When invoked, it sends the Alexa Session Description Protocol (SDP)
+        offer to the master peer. The offer is delivered as soon as the master is
+        connected to the specified signaling channel. This API returns the SDP
+        answer from the connected master. If the master is not connected to the
+        signaling channel, redelivery requests are made until the message expires.
+    paths:
+      /v1/send-alexa-offer-to-master:
+        POST:
+          summary: Sendalexaoffertomaster
+          description: >-
+            This API allows you to connect WebRTC-enabled devices with Alexa display
+            devices. When invoked, it sends the Alexa Session Description Protocol
+            (SDP) offer to the master peer. The offer is delivered as soon as the
+            master is connected to the specified signaling channel. This API returns
+            the SDP answer from the connected master. If the master is not connected
+            to the signaling channel, redelivery requests are made until the message
+            expires.
+          operationId: amazonWebServicesSendAlexaOfferToMaster

@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureActivitylogalertsUpdate
+  description: >-
+    Updates 'tags' and 'enabled' fields in an existing Alert rule. This method
+    is used to update the Alert rule tags, and to enable or disable the Alert
+    rule. To update other fields use CreateOrUpdate operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft Insights Activitylogalerts Activitylogalertname
+      description: >-
+        Updates 'tags' and 'enabled' fields in an existing Alert rule. This method
+        is used to update the Alert rule tags, and to enable or disable the Alert
+        rule. To update other fields use CreateOrUpdate operation.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/activityLogAlerts/{activityLogAlertName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Insights Activitylogalerts Activitylogalertname
+          description: >-
+            Updates 'tags' and 'enabled' fields in an existing Alert rule. This
+            method is used to update the Alert rule tags, and to enable or disable
+            the Alert rule. To update other fields use CreateOrUpdate operation.
+          operationId: microsoftAzureActivitylogalertsUpdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

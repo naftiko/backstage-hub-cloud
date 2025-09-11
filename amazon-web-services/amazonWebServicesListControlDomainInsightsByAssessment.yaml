@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListControlDomainInsightsByAssessment
+  description: >-
+    Lists analytics data for control domains within a specified active
+    assessment.  A control domain is listed only if at least one of the controls
+    within that domain collected evidence on the lastUpdated date of
+    controlDomainInsights. If this condition isn’t met, no data is listed for
+    that domain. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listcontroldomaininsightsbyassessment
+      description: >-
+        Lists analytics data for control domains within a specified active
+        assessment.  A control domain is listed only if at least one of the controls
+        within that domain collected evidence on the lastUpdated date of
+        controlDomainInsights. If this condition isn’t met, no data is listed for
+        that domain. 
+    paths:
+      /insights/control-domains-by-assessment:
+        GET:
+          summary: Listcontroldomaininsightsbyassessment
+          description: >-
+            Lists analytics data for control domains within a specified active
+            assessment.  A control domain is listed only if at least one of the
+            controls within that domain collected evidence on the lastUpdated date
+            of controlDomainInsights. If this condition isn’t met, no data is listed
+            for that domain. 
+          operationId: amazonWebServicesListControlDomainInsightsByAssessment

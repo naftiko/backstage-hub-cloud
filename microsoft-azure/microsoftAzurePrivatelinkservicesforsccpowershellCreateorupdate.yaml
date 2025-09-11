@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePrivatelinkservicesforsccpowershellCreateorupdate
+  description: >-
+    Create or update the metadata of a privateLinkServicesForSCCPowershell
+    instance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Securityandcompliance Privatelinkservicesforsccpowershell
+        Resourcename
+      description: >-
+        Create or update the metadata of a privateLinkServicesForSCCPowershell
+        instance.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SecurityAndCompliance/privateLinkServicesForSCCPowershell/{resourceName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Securityandcompliance
+            Privatelinkservicesforsccpowershell Resourcename
+          description: >-
+            Create or update the metadata of a privateLinkServicesForSCCPowershell
+            instance.
+          operationId: microsoftAzurePrivatelinkservicesforsccpowershellCreateorupdate
+          responses:
+            default:
+              description: DefaultErrorResponse
+              schema:
+                $ref: ./common-types.json#/definitions/ErrorDetails

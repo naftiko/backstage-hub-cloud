@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateExtension
+  description: >-
+    Updates an AppConfig extension. For more information about extensions, see
+    Working with AppConfig extensions in the AppConfig User Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateextension
+      description: >-
+        Updates an AppConfig extension. For more information about extensions, see
+        Working with AppConfig extensions in the AppConfig User Guide.
+    paths:
+      /extensions/{ExtensionIdentifier}:
+        PATCH:
+          summary: Updateextension
+          description: >-
+            Updates an AppConfig extension. For more information about extensions,
+            see Working with AppConfig extensions in the AppConfig User Guide.
+          operationId: amazonWebServicesUpdateExtension

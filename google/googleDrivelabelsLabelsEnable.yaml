@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googleDrivelabelsLabelsEnable
+  description: >-
+    Enable a disabled Label and restore it to its published state. This will
+    result in a new published revision based on the current disabled published
+    revision. If there is an existing disabled draft revision, a new revision
+    will be created based on that draft and will be enabled.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Name:enable
+      description: >-
+        Enable a disabled Label and restore it to its published state. This will
+        result in a new published revision based on the current disabled published
+        revision. If there is an existing disabled draft revision, a new revision
+        will be created based on that draft and will be enabled.
+    paths:
+      /v2/{name}:enable:
+        post:
+          summary: Create Name:enable
+          description: >-
+            Enable a disabled Label and restore it to its published state. This will
+            result in a new published revision based on the current disabled
+            published revision. If there is an existing disabled draft revision, a
+            new revision will be created based on that draft and will be enabled.
+          operationId: googleDrivelabelsLabelsEnable
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/GoogleAppsDriveLabelsV2EnableLabelRequest'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/GoogleAppsDriveLabelsV2Label'
+              description: Successful response

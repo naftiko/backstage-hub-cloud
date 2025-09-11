@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googleDeleteDrafts
+  description: >-
+    Immediately and permanently deletes the specified draft. Does not simply
+    trash it.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Drafts
+      description: >-
+        Immediately and permanently deletes the specified draft. Does not simply
+        trash it.
+    paths:
+      /gmail/v1/users/{userId}/drafts/{id}:
+        delete:
+          summary: Delete Drafts
+          description: >-
+            Immediately and permanently deletes the specified draft. Does not simply
+            trash it.
+          operationId: googleDeleteDrafts
+          responses:
+            '204':
+              description: No Content
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: ''

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListBundles
+  description: ' List all available bundles. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listbundles
+      description: ' List all available bundles. '
+    paths:
+      /bundles:
+        GET:
+          summary: Listbundles
+          description: ' List all available bundles. '
+          operationId: amazonWebServicesListBundles

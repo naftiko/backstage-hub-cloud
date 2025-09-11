@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesSearchDataSets
+  description: >-
+    Use the SearchDataSets operation to search for datasets that belong to an
+    account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Searchdatasets
+      description: >-
+        Use the SearchDataSets operation to search for datasets that belong to an
+        account.
+    paths:
+      /accounts/{AwsAccountId}/search/data-sets:
+        POST:
+          summary: Searchdatasets
+          description: >-
+            Use the SearchDataSets operation to search for datasets that belong to
+            an account.
+          operationId: amazonWebServicesSearchDataSets

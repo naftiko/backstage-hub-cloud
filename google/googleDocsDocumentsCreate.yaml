@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googleDocsDocumentsCreate
+  description: >-
+    Creates a blank document using the title given in the request. Other fields
+    in the request, including any provided content, are ignored. Returns the
+    created document.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post  Documents
+      description: >-
+        Creates a blank document using the title given in the request. Other fields
+        in the request, including any provided content, are ignored. Returns the
+        created document.
+    paths:
+      /v1/documents:
+        post:
+          summary: Post  Documents
+          description: >-
+            Creates a blank document using the title given in the request. Other
+            fields in the request, including any provided content, are ignored.
+            Returns the created document.
+          operationId: googleDocsDocumentsCreate
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Document'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/Document'
+              description: Successful response

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesExportApi
+  description: >-
+    Exports a definition of an API in a particular output format and
+    specification.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Exportapi
+      description: >-
+        Exports a definition of an API in a particular output format and
+        specification.
+    paths:
+      /v2/apis/{apiId}/exports/{specification}:
+        GET:
+          summary: Exportapi
+          description: >-
+            Exports a definition of an API in a particular output format and
+            specification.
+          operationId: amazonWebServicesExportApi

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureStaticsitesCreateorupdatestaticsitefunctionappsettings
+  description: >-
+    Description for Creates or updates the function app settings of a static
+    site.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Creates Or Updates The Function App Settings Of A Static Site '
+      description: >-
+        Description for Creates or updates the function app settings of a static
+        site.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/config/functionappsettings:
+        put:
+          summary: 'Creates Or Updates The Function App Settings Of A Static Site '
+          description: >-
+            Description for Creates or updates the function app settings of a static
+            site.
+          operationId: microsoftAzureStaticsitesCreateorupdatestaticsitefunctionappsettings
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

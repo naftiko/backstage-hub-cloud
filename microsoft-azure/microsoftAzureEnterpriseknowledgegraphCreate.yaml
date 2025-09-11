@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureEnterpriseknowledgegraphCreate
+  description: >-
+    Creates a EnterpriseKnowledgeGraph Service. EnterpriseKnowledgeGraph Service
+    is a resource group wide resource type.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Enterpriseknowledgegraph Services Resourcename
+      description: >-
+        Creates a EnterpriseKnowledgeGraph Service. EnterpriseKnowledgeGraph Service
+        is a resource group wide resource type.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EnterpriseKnowledgeGraph/services/{resourceName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Enterpriseknowledgegraph Services Resourcename
+          description: >-
+            Creates a EnterpriseKnowledgeGraph Service. EnterpriseKnowledgeGraph
+            Service is a resource group wide resource type.
+          operationId: microsoftAzureEnterpriseknowledgegraphCreate
+          responses:
+            default:
+              description: Error response describing why the operation failed
+              schema:
+                $ref: '#/definitions/Error'

@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDeleteVPCAssociationAuthorization
+  description: >-
+    Removes authorization to submit an AssociateVPCWithHostedZone request to
+    associate a specified VPC with a hosted zone that was created by a different
+    account. You must use the account that created the hosted zone to submit a
+    DeleteVPCAssociationAuthorization request.  Sending this request only
+    prevents the Amazon Web Services account that created the VPC from
+    associating the VPC with the Amazon Route 53 hosted zone in the future. If
+    the VPC is already associated with the hosted zone,
+    DeleteVPCAssociationAuthorization won't disassociate the VPC from the hosted
+    zone. If you want to delete an existing association, use
+    DisassociateVPCFromHostedZone. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletevpcassociationauthorization
+      description: >-
+        Removes authorization to submit an AssociateVPCWithHostedZone request to
+        associate a specified VPC with a hosted zone that was created by a different
+        account. You must use the account that created the hosted zone to submit a
+        DeleteVPCAssociationAuthorization request.  Sending this request only
+        prevents the Amazon Web Services account that created the VPC from
+        associating the VPC with the Amazon Route 53 hosted zone in the future. If
+        the VPC is already associated with the hosted zone,
+        DeleteVPCAssociationAuthorization won't disassociate the VPC from the hosted
+        zone. If you want to delete an existing association, use
+        DisassociateVPCFromHostedZone. 
+    paths:
+      /2013-04-01/hostedzone/{Id}/deauthorizevpcassociation:
+        POST:
+          summary: Deletevpcassociationauthorization
+          description: >-
+            Removes authorization to submit an AssociateVPCWithHostedZone request to
+            associate a specified VPC with a hosted zone that was created by a
+            different account. You must use the account that created the hosted zone
+            to submit a DeleteVPCAssociationAuthorization request.  Sending this
+            request only prevents the Amazon Web Services account that created the
+            VPC from associating the VPC with the Amazon Route 53 hosted zone in the
+            future. If the VPC is already associated with the hosted zone,
+            DeleteVPCAssociationAuthorization won't disassociate the VPC from the
+            hosted zone. If you want to delete an existing association, use
+            DisassociateVPCFromHostedZone. 
+          operationId: amazonWebServicesDeleteVPCAssociationAuthorization

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateLensReview
+  description: Update lens review for a particular workload.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatelensreview
+      description: Update lens review for a particular workload.
+    paths:
+      /workloads/{WorkloadId}/lensReviews/{LensAlias}:
+        PATCH:
+          summary: Updatelensreview
+          description: Update lens review for a particular workload.
+          operationId: amazonWebServicesUpdateLensReview

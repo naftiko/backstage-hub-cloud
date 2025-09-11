@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureLocationbasedrecommendedactionsessionsoperationstatusGet
+  description: Recommendation action session operation status.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft Dbformariadb Locations
+        Locationname Recommendedactionsessionsazureasyncoperation Operationid
+      description: Recommendation action session operation status.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.DBforMariaDB/locations/{locationName}/recommendedActionSessionsAzureAsyncOperation/{operationId}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft Dbformariadb
+            Locations Locationname Recommendedactionsessionsazureasyncoperation
+            Operationid
+          description: Recommendation action session operation status.
+          operationId: microsoftAzureLocationbasedrecommendedactionsessionsoperationstatusGet
+          responses:
+            '200':
+              description: OK.
+              schema:
+                $ref: '#/definitions/RecommendedActionSessionsOperationStatus'

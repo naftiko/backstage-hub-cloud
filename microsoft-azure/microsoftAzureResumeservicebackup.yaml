@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureResumeservicebackup
+  description: >-
+    The previously suspended Service Fabric service resumes taking periodic
+    backup as per the backup policy currently configured for the same.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Resumes Periodic Backup Of A Service Fabric Service Which Was Previously
+        Suspended 
+      description: >-
+        The previously suspended Service Fabric service resumes taking periodic
+        backup as per the backup policy currently configured for the same.
+    paths:
+      /Services/{serviceId}/$/ResumeBackup:
+        post:
+          summary: >-
+            Resumes Periodic Backup Of A Service Fabric Service Which Was Previously
+            Suspended 
+          description: >-
+            The previously suspended Service Fabric service resumes taking periodic
+            backup as per the backup policy currently configured for the same.
+          operationId: microsoftAzureResumeservicebackup
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

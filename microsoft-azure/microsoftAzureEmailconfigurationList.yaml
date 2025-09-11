@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureEmailconfigurationList
+  description: Gets the list of alert configuration settings for the given vault.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Lists The Email Configuration Settings '
+      description: Gets the list of alert configuration settings for the given vault.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/alertSettings:
+        get:
+          summary: 'Lists The Email Configuration Settings '
+          description: Gets the list of alert configuration settings for the given vault.
+          operationId: microsoftAzureEmailconfigurationList
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

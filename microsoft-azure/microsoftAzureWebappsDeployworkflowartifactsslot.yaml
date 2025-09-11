@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebappsDeployworkflowartifactsslot
+  description: Description for Creates the artifacts for web site, or a deployment slot.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Creates The Artifacts For Web Site, Or A Deployment Slot '
+      description: Description for Creates the artifacts for web site, or a deployment slot.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/deployWorkflowArtifacts:
+        post:
+          summary: 'Creates The Artifacts For Web Site, Or A Deployment Slot '
+          description: >-
+            Description for Creates the artifacts for web site, or a deployment
+            slot.
+          operationId: microsoftAzureWebappsDeployworkflowartifactsslot
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

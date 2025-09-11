@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureLabsListall
+  description: >-
+    Get a list of labs associated with the provided billing account name and
+    billing profile name.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Providers Microsoft Billing Billingaccounts Billingaccountname
+        Billingprofiles Billingprofilename Providers Microsoft Education Labs
+      description: >-
+        Get a list of labs associated with the provided billing account name and
+        billing profile name.
+    paths:
+      /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/providers/Microsoft.Education/labs:
+        get:
+          summary: >-
+            Get Providers Microsoft Billing Billingaccounts Billingaccountname
+            Billingprofiles Billingprofilename Providers Microsoft Education Labs
+          description: >-
+            Get a list of labs associated with the provided billing account name and
+            billing profile name.
+          operationId: microsoftAzureLabsListall
+          responses:
+            default:
+              description: Describes the error if the operation is not successful.
+              schema:
+                $ref: '#/definitions/ErrorResponseBody'

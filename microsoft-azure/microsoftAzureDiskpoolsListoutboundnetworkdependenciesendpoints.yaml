@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDiskpoolsListoutboundnetworkdependenciesendpoints
+  description: Gets the network endpoints of all outbound dependencies of a Disk Pool
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Storagepool Diskpools Diskpoolname
+        Outboundnetworkdependenciesendpoints
+      description: Gets the network endpoints of all outbound dependencies of a Disk Pool
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StoragePool/diskPools/{diskPoolName}/outboundNetworkDependenciesEndpoints:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Storagepool Diskpools Diskpoolname
+            Outboundnetworkdependenciesendpoints
+          description: Gets the network endpoints of all outbound dependencies of a Disk Pool
+          operationId: microsoftAzureDiskpoolsListoutboundnetworkdependenciesendpoints
+          responses:
+            default:
+              description: Error from the RP
+              schema:
+                $ref: '#/definitions/Error'

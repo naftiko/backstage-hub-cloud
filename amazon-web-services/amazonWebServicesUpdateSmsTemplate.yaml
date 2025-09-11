@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateSmsTemplate
+  description: >-
+    Updates an existing message template for messages that are sent through the
+    SMS channel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatesmstemplate
+      description: >-
+        Updates an existing message template for messages that are sent through the
+        SMS channel.
+    paths:
+      /v1/templates/{template-name}/sms:
+        PUT:
+          summary: Updatesmstemplate
+          description: >-
+            Updates an existing message template for messages that are sent through
+            the SMS channel.
+          operationId: amazonWebServicesUpdateSmsTemplate

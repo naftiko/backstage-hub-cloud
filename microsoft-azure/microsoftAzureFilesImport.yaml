@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureFilesImport
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Creates A New File Entity By Importing Data From A Provided Url Uploaded
+        Files Can, For Example, Be Used For Training Or Evaluating Fine Tuned
+        Models 
+      description: Needs a more full description created.
+    paths:
+      /files/import:
+        post:
+          summary: >-
+            Creates A New File Entity By Importing Data From A Provided Url Uploaded
+            Files Can, For Example, Be Used For Training Or Evaluating Fine Tuned
+            Models 
+          description: Needs a more full description created.
+          operationId: microsoftAzureFilesImport
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

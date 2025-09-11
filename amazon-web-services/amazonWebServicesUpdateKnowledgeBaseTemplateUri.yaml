@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateKnowledgeBaseTemplateUri
+  description: >-
+    Updates the template URI of a knowledge base. This is only supported for
+    knowledge bases of type EXTERNAL. Include a single variable in ${variable}
+    format; this interpolated by Wisdom using ingested content. For example, if
+    you ingest a Salesforce article, it has an Id value, and you can set the
+    template URI to
+    https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*/view. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateknowledgebasetemplateuri
+      description: >-
+        Updates the template URI of a knowledge base. This is only supported for
+        knowledge bases of type EXTERNAL. Include a single variable in ${variable}
+        format; this interpolated by Wisdom using ingested content. For example, if
+        you ingest a Salesforce article, it has an Id value, and you can set the
+        template URI to
+        https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*/view. 
+    paths:
+      /knowledgeBases/{knowledgeBaseId}/templateUri:
+        POST:
+          summary: Updateknowledgebasetemplateuri
+          description: >-
+            Updates the template URI of a knowledge base. This is only supported for
+            knowledge bases of type EXTERNAL. Include a single variable in
+            ${variable} format; this interpolated by Wisdom using ingested content.
+            For example, if you ingest a Salesforce article, it has an Id value, and
+            you can set the template URI to
+            https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*/view. 
+          operationId: amazonWebServicesUpdateKnowledgeBaseTemplateUri

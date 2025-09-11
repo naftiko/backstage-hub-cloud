@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureFirewallrulesListbyaccount
+  description: >-
+    Lists the Data Lake Store firewall rules within the specified Data Lake
+    Store account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Datalakestore Accounts Accountname Firewallrules
+      description: >-
+        Lists the Data Lake Store firewall rules within the specified Data Lake
+        Store account.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeStore/accounts/{accountName}/firewallRules:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Datalakestore Accounts Accountname Firewallrules
+          description: >-
+            Lists the Data Lake Store firewall rules within the specified Data Lake
+            Store account.
+          operationId: microsoftAzureFirewallrulesListbyaccount
+          responses:
+            '200':
+              description: Successfully retrieved the list of firewall rules.
+              schema:
+                $ref: '#/definitions/FirewallRuleListResult'

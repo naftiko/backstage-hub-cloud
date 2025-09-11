@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetCurrentUserData
+  description: >-
+    Gets the real-time active user data from the specified Amazon Connect
+    instance. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getcurrentuserdata
+      description: >-
+        Gets the real-time active user data from the specified Amazon Connect
+        instance. 
+    paths:
+      /metrics/userdata/{InstanceId}:
+        POST:
+          summary: Getcurrentuserdata
+          description: >-
+            Gets the real-time active user data from the specified Amazon Connect
+            instance. 
+          operationId: amazonWebServicesGetCurrentUserData

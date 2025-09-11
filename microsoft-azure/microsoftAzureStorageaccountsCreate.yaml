@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureStorageaccountsCreate
+  description: >-
+    Asynchronously creates a new storage account with the specified parameters.
+    If an account is already created and a subsequent create request is issued
+    with different properties, the account properties will be updated. If an
+    account is already created and a subsequent create or update request is
+    issued with the exact same set of properties, the request will succeed.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Storage Storageaccounts Accountname
+      description: >-
+        Asynchronously creates a new storage account with the specified parameters.
+        If an account is already created and a subsequent create request is issued
+        with different properties, the account properties will be updated. If an
+        account is already created and a subsequent create or update request is
+        issued with the exact same set of properties, the request will succeed.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Storage Storageaccounts Accountname
+          description: >-
+            Asynchronously creates a new storage account with the specified
+            parameters. If an account is already created and a subsequent create
+            request is issued with different properties, the account properties will
+            be updated. If an account is already created and a subsequent create or
+            update request is issued with the exact same set of properties, the
+            request will succeed.
+          operationId: microsoftAzureStorageaccountsCreate
+          responses:
+            '202':
+              description: >-
+                Accepted -- Create or update request accepted; operation will
+                complete asynchronously.

@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDigitaltwinsAdd
+  description: >-
+    Adds or replaces a digital twin.<br>Status codes:<br>* 200 OK<br>* 400 Bad
+    Request<br>  * InvalidArgument - The digital twin id or payload is
+    invalid.<br>  * ModelDecommissioned - The model for the digital twin is
+    decommissioned.<br>  * TwinLimitReached - The maximum number of digital
+    twins allowed has been reached.<br>  * ValidationFailed - The digital twin
+    payload is not valid.<br>* 412 Precondition Failed<br>  * PreconditionFailed
+    - The precondition check (If-Match or If-None-Match) failed.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Digitaltwins Id
+      description: >-
+        Adds or replaces a digital twin.<br>Status codes:<br>* 200 OK<br>* 400 Bad
+        Request<br>  * InvalidArgument - The digital twin id or payload is
+        invalid.<br>  * ModelDecommissioned - The model for the digital twin is
+        decommissioned.<br>  * TwinLimitReached - The maximum number of digital
+        twins allowed has been reached.<br>  * ValidationFailed - The digital twin
+        payload is not valid.<br>* 412 Precondition Failed<br>  * PreconditionFailed
+        - The precondition check (If-Match or If-None-Match) failed.
+    paths:
+      /digitaltwins/{id}:
+        put:
+          summary: Put Digitaltwins Id
+          description: >-
+            Adds or replaces a digital twin.<br>Status codes:<br>* 200 OK<br>* 400
+            Bad Request<br>  * InvalidArgument - The digital twin id or payload is
+            invalid.<br>  * ModelDecommissioned - The model for the digital twin is
+            decommissioned.<br>  * TwinLimitReached - The maximum number of digital
+            twins allowed has been reached.<br>  * ValidationFailed - The digital
+            twin payload is not valid.<br>* 412 Precondition Failed<br>  *
+            PreconditionFailed - The precondition check (If-Match or If-None-Match)
+            failed.
+          operationId: microsoftAzureDigitaltwinsAdd
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

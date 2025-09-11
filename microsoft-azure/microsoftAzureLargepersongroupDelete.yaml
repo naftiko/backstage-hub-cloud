@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureLargepersongroupDelete
+  description: >-
+    Delete an existing large person group. Persisted face features of all people
+    in the large person group will also be deleted.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete Largepersongroups Largepersongroupid
+      description: >-
+        Delete an existing large person group. Persisted face features of all people
+        in the large person group will also be deleted.
+    paths:
+      /largepersongroups/{largePersonGroupId}:
+        delete:
+          summary: Delete Largepersongroups Largepersongroupid
+          description: >-
+            Delete an existing large person group. Persisted face features of all
+            people in the large person group will also be deleted.
+          operationId: microsoftAzureLargepersongroupDelete
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

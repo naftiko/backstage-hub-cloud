@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesAcceptInboundCrossClusterSearchConnection
+  description: >-
+    Allows the destination domain owner to accept an inbound cross-cluster
+    search connection request.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Acceptinboundcrossclustersearchconnection
+      description: >-
+        Allows the destination domain owner to accept an inbound cross-cluster
+        search connection request.
+    paths:
+      /2015-01-01/es/ccs/inboundConnection/{ConnectionId}/accept:
+        PUT:
+          summary: Acceptinboundcrossclustersearchconnection
+          description: >-
+            Allows the destination domain owner to accept an inbound cross-cluster
+            search connection request.
+          operationId: amazonWebServicesAcceptInboundCrossClusterSearchConnection

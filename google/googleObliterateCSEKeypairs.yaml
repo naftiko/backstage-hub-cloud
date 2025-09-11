@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googleObliterateCSEKeypairs
+  description: >-
+    Deletes a client-side encryption key pair permanently and immediately. You
+    can only permanently delete key pairs that have been turned off for more
+    than 30 days. To turn off a key pair, use the DisableCseKeyPair method.
+    Gmail can't restore or decrypt any messages that were encrypted by an
+    obliterated key. Authenticated users and Google Workspace administrators
+    lose access to reading the encrypted messages.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Obliterate Cse Keypairs
+      description: >-
+        Deletes a client-side encryption key pair permanently and immediately. You
+        can only permanently delete key pairs that have been turned off for more
+        than 30 days. To turn off a key pair, use the DisableCseKeyPair method.
+        Gmail can't restore or decrypt any messages that were encrypted by an
+        obliterated key. Authenticated users and Google Workspace administrators
+        lose access to reading the encrypted messages.
+    paths:
+      /gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:obliterate:
+        post:
+          summary: Obliterate Cse Keypairs
+          description: >-
+            Deletes a client-side encryption key pair permanently and immediately.
+            You can only permanently delete key pairs that have been turned off for
+            more than 30 days. To turn off a key pair, use the DisableCseKeyPair
+            method. Gmail can't restore or decrypt any messages that were encrypted
+            by an obliterated key. Authenticated users and Google Workspace
+            administrators lose access to reading the encrypted messages.
+          operationId: googleObliterateCSEKeypairs
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example: {}
+          responses:
+            '204':
+              description: No Content
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: ''

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGetmamuserdevices
+  description: Get devices for a user.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Providers Microsoft Intune Locations Hostname Users Username Devices
+      description: Get devices for a user.
+    paths:
+      /providers/Microsoft.Intune/locations/{hostName}/users/{userName}/devices:
+        get:
+          summary: Get Providers Microsoft Intune Locations Hostname Users Username Devices
+          description: Get devices for a user.
+          operationId: microsoftAzureGetmamuserdevices
+          responses:
+            default:
+              description: unexpected error
+              schema:
+                $ref: '#/definitions/Error'

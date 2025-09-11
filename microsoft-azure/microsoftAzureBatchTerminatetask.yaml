@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureBatchTerminatetask
+  description: >-
+    When the Task has been terminated, it moves to the completed state.
+    For<br>multi-instance Tasks, the terminate Task operation applies
+    synchronously to the<br>primary task; subtasks are then terminated
+    asynchronously in the background.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Terminates The Specified Task '
+      description: >-
+        When the Task has been terminated, it moves to the completed state.
+        For<br>multi-instance Tasks, the terminate Task operation applies
+        synchronously to the<br>primary task; subtasks are then terminated
+        asynchronously in the background.
+    paths:
+      /jobs/{jobId}/tasks/{taskId}/terminate:
+        post:
+          summary: 'Terminates The Specified Task '
+          description: >-
+            When the Task has been terminated, it moves to the completed state.
+            For<br>multi-instance Tasks, the terminate Task operation applies
+            synchronously to the<br>primary task; subtasks are then terminated
+            asynchronously in the background.
+          operationId: microsoftAzureBatchTerminatetask
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

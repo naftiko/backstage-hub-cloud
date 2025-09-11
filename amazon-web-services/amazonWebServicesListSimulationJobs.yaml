@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListSimulationJobs
+  description: >-
+    Returns a list of simulation jobs. You can optionally provide filters to
+    retrieve specific simulation jobs. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listsimulationjobs
+      description: >-
+        Returns a list of simulation jobs. You can optionally provide filters to
+        retrieve specific simulation jobs. 
+    paths:
+      /listSimulationJobs:
+        POST:
+          summary: Listsimulationjobs
+          description: >-
+            Returns a list of simulation jobs. You can optionally provide filters to
+            retrieve specific simulation jobs. 
+          operationId: amazonWebServicesListSimulationJobs

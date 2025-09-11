@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureVirtualnetworksListbyresourcegroup
+  description: List of VirtualNetworks in a resource group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Implements Get Virtualnetworks In A Resource Group '
+      description: List of VirtualNetworks in a resource group.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/virtualNetworks:
+        get:
+          summary: 'Implements Get Virtualnetworks In A Resource Group '
+          description: List of VirtualNetworks in a resource group.
+          operationId: microsoftAzureVirtualnetworksListbyresourcegroup
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

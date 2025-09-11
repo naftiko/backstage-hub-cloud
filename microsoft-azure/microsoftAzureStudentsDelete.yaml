@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureStudentsDelete
+  description: Delete the specified student based on the student alias.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Providers Microsoft Billing Billingaccounts Billingaccountname
+        Billingprofiles Billingprofilename Invoicesections Invoicesectionname
+        Providers Microsoft Education Labs Default Students Studentalias
+      description: Delete the specified student based on the student alias.
+    paths:
+      /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/providers/Microsoft.Education/labs/default/students/{studentAlias}:
+        delete:
+          summary: >-
+            Delete Providers Microsoft Billing Billingaccounts Billingaccountname
+            Billingprofiles Billingprofilename Invoicesections Invoicesectionname
+            Providers Microsoft Education Labs Default Students Studentalias
+          description: Delete the specified student based on the student alias.
+          operationId: microsoftAzureStudentsDelete
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponseBody'

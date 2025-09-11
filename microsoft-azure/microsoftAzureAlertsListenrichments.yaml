@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAlertsListenrichments
+  description: >-
+    List the enrichments of an alert. It returns a collection of one object
+    named default.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Scope Providers Microsoft Alertsmanagement Alerts Alertid Enrichments
+      description: >-
+        List the enrichments of an alert. It returns a collection of one object
+        named default.
+    paths:
+      /{scope}/providers/Microsoft.AlertsManagement/alerts/{alertId}/enrichments:
+        get:
+          summary: >-
+            Get Scope Providers Microsoft Alertsmanagement Alerts Alertid
+            Enrichments
+          description: >-
+            List the enrichments of an alert. It returns a collection of one object
+            named default.
+          operationId: microsoftAzureAlertsListenrichments
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

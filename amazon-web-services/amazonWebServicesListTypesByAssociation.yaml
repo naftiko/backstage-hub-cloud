@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListTypesByAssociation
+  description: Lists Type objects by the source API association ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listtypesbyassociation
+      description: Lists Type objects by the source API association ID.
+    paths:
+      /v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/types:
+        GET:
+          summary: Listtypesbyassociation
+          description: Lists Type objects by the source API association ID.
+          operationId: amazonWebServicesListTypesByAssociation

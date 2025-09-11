@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGroupsAddmember
+  description: Add a member to a group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Tenantid Groups Groupobjectid $links Members
+      description: Add a member to a group.
+    paths:
+      /{tenantID}/groups/{groupObjectId}/$links/members:
+        post:
+          summary: Post Tenantid Groups Groupobjectid $links Members
+          description: Add a member to a group.
+          operationId: microsoftAzureGroupsAddmember
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/GraphError'

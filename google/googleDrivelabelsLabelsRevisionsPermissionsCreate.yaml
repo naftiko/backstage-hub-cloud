@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googleDrivelabelsLabelsRevisionsPermissionsCreate
+  description: >-
+    Updates a Label's permissions. If a permission for the indicated principal
+    doesn't exist, a new Label Permission is created, otherwise the existing
+    permission is updated. Permissions affect the Label resource as a whole, are
+    not revisioned, and do not require publishing.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Parent Permissions
+      description: >-
+        Updates a Label's permissions. If a permission for the indicated principal
+        doesn't exist, a new Label Permission is created, otherwise the existing
+        permission is updated. Permissions affect the Label resource as a whole, are
+        not revisioned, and do not require publishing.
+    paths:
+      /v2/{parent}/permissions:
+        post:
+          summary: Create Parent Permissions
+          description: >-
+            Updates a Label's permissions. If a permission for the indicated
+            principal doesn't exist, a new Label Permission is created, otherwise
+            the existing permission is updated. Permissions affect the Label
+            resource as a whole, are not revisioned, and do not require publishing.
+          operationId: googleDrivelabelsLabelsRevisionsPermissionsCreate
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/GoogleAppsDriveLabelsV2LabelPermission'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/GoogleAppsDriveLabelsV2LabelPermission'
+              description: Successful response

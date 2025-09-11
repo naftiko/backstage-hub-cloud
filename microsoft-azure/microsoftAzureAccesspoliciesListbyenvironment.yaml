@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAccesspoliciesListbyenvironment
+  description: Lists all the available access policies associated with the environment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Timeseriesinsights Environments Environmentname Accesspolicies
+      description: Lists all the available access policies associated with the environment.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/accessPolicies:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Timeseriesinsights Environments Environmentname
+            Accesspolicies
+          description: Lists all the available access policies associated with the environment.
+          operationId: microsoftAzureAccesspoliciesListbyenvironment
+          responses:
+            default:
+              description: >-
+                HTTP 404 (Not Found): The subscription, resource group, or
+                environment could not be found.
+              schema:
+                $ref: '#/definitions/CloudError'

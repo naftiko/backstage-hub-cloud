@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureUpdatestorageaccount
+  description: >-
+    Updates the specified attributes associated with the given storage account.
+    This operation requires the storage/set/update permission.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Patch Storage Storage Account Name
+      description: >-
+        Updates the specified attributes associated with the given storage account.
+        This operation requires the storage/set/update permission.
+    paths:
+      /storage/{storage-account-name}:
+        patch:
+          summary: Patch Storage Storage Account Name
+          description: >-
+            Updates the specified attributes associated with the given storage
+            account. This operation requires the storage/set/update permission.
+          operationId: microsoftAzureUpdatestorageaccount
+          responses:
+            default:
+              description: Key Vault error response describing why the operation failed.
+              schema:
+                $ref: common.json#/definitions/KeyVaultError

@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureTemplatespecsDelete
+  description: >-
+    Deletes a Template Spec by name. When operation completes, status code 200
+    returned without content.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft Resources Templatespecs Templatespecname
+      description: >-
+        Deletes a Template Spec by name. When operation completes, status code 200
+        returned without content.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Resources/templateSpecs/{templateSpecName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Resources Templatespecs Templatespecname
+          description: >-
+            Deletes a Template Spec by name. When operation completes, status code
+            200 returned without content.
+          operationId: microsoftAzureTemplatespecsDelete
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/TemplateSpecsError'

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListEarthObservationJobs
+  description: >-
+    Use this operation to get a list of the Earth Observation jobs associated
+    with the calling Amazon Web Services account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listearthobservationjobs
+      description: >-
+        Use this operation to get a list of the Earth Observation jobs associated
+        with the calling Amazon Web Services account.
+    paths:
+      /list-earth-observation-jobs:
+        POST:
+          summary: Listearthobservationjobs
+          description: >-
+            Use this operation to get a list of the Earth Observation jobs
+            associated with the calling Amazon Web Services account.
+          operationId: amazonWebServicesListEarthObservationJobs

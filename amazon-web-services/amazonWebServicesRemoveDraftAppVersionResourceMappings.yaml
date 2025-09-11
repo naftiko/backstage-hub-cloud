@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesRemoveDraftAppVersionResourceMappings
+  description: Removes resource mappings from a draft application version.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Removedraftappversionresourcemappings
+      description: Removes resource mappings from a draft application version.
+    paths:
+      /remove-draft-app-version-resource-mappings:
+        POST:
+          summary: Removedraftappversionresourcemappings
+          description: Removes resource mappings from a draft application version.
+          operationId: amazonWebServicesRemoveDraftAppVersionResourceMappings

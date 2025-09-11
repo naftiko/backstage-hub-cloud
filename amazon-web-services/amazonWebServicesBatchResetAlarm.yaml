@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesBatchResetAlarm
+  description: >-
+    Resets one or more alarms. The alarms return to the NORMAL state after you
+    reset them.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchresetalarm
+      description: >-
+        Resets one or more alarms. The alarms return to the NORMAL state after you
+        reset them.
+    paths:
+      /alarms/reset:
+        POST:
+          summary: Batchresetalarm
+          description: >-
+            Resets one or more alarms. The alarms return to the NORMAL state after
+            you reset them.
+          operationId: amazonWebServicesBatchResetAlarm

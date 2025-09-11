@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetReusableDelegationSet
+  description: >-
+    Retrieves information about a specified reusable delegation set, including
+    the four name servers that are assigned to the delegation set.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getreusabledelegationset
+      description: >-
+        Retrieves information about a specified reusable delegation set, including
+        the four name servers that are assigned to the delegation set.
+    paths:
+      /2013-04-01/delegationset/{Id}:
+        GET:
+          summary: Getreusabledelegationset
+          description: >-
+            Retrieves information about a specified reusable delegation set,
+            including the four name servers that are assigned to the delegation set.
+          operationId: amazonWebServicesGetReusableDelegationSet

@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureServerazureadadministratorsGet
+  description: Returns an server Administrator.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Sql Servers Servername Administrators Administratorname
+      description: Returns an server Administrator.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/administrators/{administratorName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Sql Servers Servername Administrators
+            Administratorname
+          description: Returns an server Administrator.
+          operationId: microsoftAzureServerazureadadministratorsGet
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/ServerAzureADAdministrator'

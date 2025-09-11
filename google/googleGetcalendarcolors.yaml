@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googleGetcalendarcolors
+  description: Returns the color definitions for calendars and events.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Calendar Colors
+      description: Returns the color definitions for calendars and events.
+    paths:
+      /colors:
+        get:
+          summary: Get Calendar Colors
+          description: Returns the color definitions for calendars and events.
+          operationId: googleGetcalendarcolors
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    calendar:
+                      qui_15:
+                        background: dolore et occaecat
+                        foreground: et est cupidatat ullamco
+                      nulla_2:
+                        background: cupidatat ipsum Duis
+                        foreground: officia elit Excepteur dolore
+                      laborisaf:
+                        background: ex proident culpa consectetur veniam
+                        foreground: cupidatat dolore mollit laborum
+                    event:
+                      Excepteure8:
+                        background: in
+                        foreground: Ut reprehenderit officia Duis
+                    kind: calendar#colors
+                    updated: '1990-01-21T16:25:35.908Z'

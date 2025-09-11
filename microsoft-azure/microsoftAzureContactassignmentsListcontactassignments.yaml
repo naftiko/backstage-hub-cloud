@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureContactassignmentsListcontactassignments
+  description: List the contactAssignments in the account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Contactassignments
+      description: List the contactAssignments in the account.
+    paths:
+      /contactAssignments:
+        get:
+          summary: Get Contactassignments
+          description: List the contactAssignments in the account.
+          operationId: microsoftAzureContactassignmentsListcontactassignments
+          responses:
+            default:
+              description: An error response received from the provider.
+              schema:
+                $ref: '#/definitions/ErrorResponseModel'

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateDiscoverer
+  description: Updates the discoverer
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatediscoverer
+      description: Updates the discoverer
+    paths:
+      /v1/discoverers/id/{discovererId}:
+        PUT:
+          summary: Updatediscoverer
+          description: Updates the discoverer
+          operationId: amazonWebServicesUpdateDiscoverer

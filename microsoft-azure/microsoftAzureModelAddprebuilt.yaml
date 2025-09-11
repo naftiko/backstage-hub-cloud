@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureModelAddprebuilt
+  description: Adds a list of prebuilt entities to a version of the application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Apps Appid Versions Versionid Prebuilts
+      description: Adds a list of prebuilt entities to a version of the application.
+    paths:
+      /apps/{appId}/versions/{versionId}/prebuilts:
+        post:
+          summary: Post Apps Appid Versions Versionid Prebuilts
+          description: Adds a list of prebuilt entities to a version of the application.
+          operationId: microsoftAzureModelAddprebuilt
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

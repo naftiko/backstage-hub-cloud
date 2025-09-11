@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDeploymentscriptsDelete
+  description: >-
+    Deletes a deployment script. When operation completes, status code 200
+    returned without content.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft Resources Deploymentscripts Scriptname
+      description: >-
+        Deletes a deployment script. When operation completes, status code 200
+        returned without content.
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{scriptName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Resources Deploymentscripts Scriptname
+          description: >-
+            Deletes a deployment script. When operation completes, status code 200
+            returned without content.
+          operationId: microsoftAzureDeploymentscriptsDelete
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/DeploymentScriptsError'

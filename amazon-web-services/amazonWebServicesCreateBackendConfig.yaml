@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreateBackendConfig
+  description: Creates a config object for a backend.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createbackendconfig
+      description: Creates a config object for a backend.
+    paths:
+      /backend/{appId}/config:
+        POST:
+          summary: Createbackendconfig
+          description: Creates a config object for a backend.
+          operationId: amazonWebServicesCreateBackendConfig

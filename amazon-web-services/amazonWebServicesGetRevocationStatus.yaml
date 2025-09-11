@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetRevocationStatus
+  description: >-
+    Retrieves the revocation status of one or more of the signing profile,
+    signing job, and signing certificate.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getrevocationstatus
+      description: >-
+        Retrieves the revocation status of one or more of the signing profile,
+        signing job, and signing certificate.
+    paths:
+      /revocations:
+        GET:
+          summary: Getrevocationstatus
+          description: >-
+            Retrieves the revocation status of one or more of the signing profile,
+            signing job, and signing certificate.
+          operationId: amazonWebServicesGetRevocationStatus

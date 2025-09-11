@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureReservationssummariesListbyreservationorderandreservation
+  description: Lists the reservations summaries for daily or monthly grain.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Providers Microsoft Capacity Reservationorders Reservationorderid
+        Reservations Reservationid Providers Microsoft Consumption
+        Reservationsummaries
+      description: Lists the reservations summaries for daily or monthly grain.
+    paths:
+      /providers/Microsoft.Capacity/reservationorders/{reservationOrderId}/reservations/{reservationId}/providers/Microsoft.Consumption/reservationSummaries:
+        get:
+          summary: >-
+            Get Providers Microsoft Capacity Reservationorders Reservationorderid
+            Reservations Reservationid Providers Microsoft Consumption
+            Reservationsummaries
+          description: Lists the reservations summaries for daily or monthly grain.
+          operationId: microsoftAzureReservationssummariesListbyreservationorderandreservation
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

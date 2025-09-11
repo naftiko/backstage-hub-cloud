@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWorkspacegroupGetentitytag
+  description: >-
+    Gets the entity state (Etag) version of the group specified by its
+    identifier.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Head Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Apimanagement Service Servicename Workspaces Workspaceid Groups
+        Groupid
+      description: >-
+        Gets the entity state (Etag) version of the group specified by its
+        identifier.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/groups/{groupId}:
+        head:
+          summary: >-
+            Head Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Apimanagement Service Servicename Workspaces
+            Workspaceid Groups Groupid
+          description: >-
+            Gets the entity state (Etag) version of the group specified by its
+            identifier.
+          operationId: microsoftAzureWorkspacegroupGetentitytag
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./apimanagement.json#/definitions/ErrorResponse

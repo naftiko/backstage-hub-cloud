@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureIotdpsresourceListprivatelinkresources
+  description: List private link resources for the given provisioning service
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Private Link Resources
+      description: List private link resources for the given provisioning service
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{resourceName}/privateLinkResources:
+        get:
+          summary: List Private Link Resources
+          description: List private link resources for the given provisioning service
+          operationId: microsoftAzureIotdpsresourceListprivatelinkresources
+          responses:
+            default:
+              description: DefaultErrorResponse
+              schema:
+                $ref: '#/definitions/ErrorDetails'

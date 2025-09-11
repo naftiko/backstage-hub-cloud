@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWorkflowsGenerateupgradeddefinition
+  description: Generates the upgraded definition for a workflow.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Logic Workflows Workflowname Generateupgradeddefinition
+      description: Generates the upgraded definition for a workflow.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/generateUpgradedDefinition:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Logic Workflows Workflowname
+            Generateupgradeddefinition
+          description: Generates the upgraded definition for a workflow.
+          operationId: microsoftAzureWorkflowsGenerateupgradeddefinition
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/Object'

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateSchedulingPolicy
+  description: Updates a scheduling policy.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateschedulingpolicy
+      description: Updates a scheduling policy.
+    paths:
+      /v1/updateschedulingpolicy:
+        POST:
+          summary: Updateschedulingpolicy
+          description: Updates a scheduling policy.
+          operationId: amazonWebServicesUpdateSchedulingPolicy

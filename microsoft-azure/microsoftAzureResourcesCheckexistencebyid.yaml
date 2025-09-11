@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureResourcesCheckexistencebyid
+  description: >-
+    Checks by ID whether a resource exists. This API currently works only for a
+    limited set of Resource providers. In the event that a Resource provider
+    does not implement this API, ARM will respond with a 405. The alternative
+    then is to use the GET API to check for the existence of the resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Head Resourceid
+      description: >-
+        Checks by ID whether a resource exists. This API currently works only for a
+        limited set of Resource providers. In the event that a Resource provider
+        does not implement this API, ARM will respond with a 405. The alternative
+        then is to use the GET API to check for the existence of the resource.
+    paths:
+      /{resourceId}:
+        head:
+          summary: Head Resourceid
+          description: >-
+            Checks by ID whether a resource exists. This API currently works only
+            for a limited set of Resource providers. In the event that a Resource
+            provider does not implement this API, ARM will respond with a 405. The
+            alternative then is to use the GET API to check for the existence of the
+            resource.
+          operationId: microsoftAzureResourcesCheckexistencebyid
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

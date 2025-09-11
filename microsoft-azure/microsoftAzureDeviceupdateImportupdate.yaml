@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDeviceupdateImportupdate
+  description: >-
+    Import new update version. This is a long-running-operation; use
+    Operation-Location response header value to check for operation status.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Deviceupdate Instanceid Updates:import
+      description: >-
+        Import new update version. This is a long-running-operation; use
+        Operation-Location response header value to check for operation status.
+    paths:
+      /deviceUpdate/{instanceId}/updates:import:
+        post:
+          summary: Post Deviceupdate Instanceid Updates:import
+          description: >-
+            Import new update version. This is a long-running-operation; use
+            Operation-Location response header value to check for operation status.
+          operationId: microsoftAzureDeviceupdateImportupdate
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

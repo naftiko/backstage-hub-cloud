@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGetoperators
+  description: This endpoint gets a list of all operators
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get A List Of All Operators
+      description: This endpoint gets a list of all operators
+    paths:
+      /operatorconnect/operators:
+        get:
+          summary: Get A List Of All Operators
+          description: This endpoint gets a list of all operators
+          operationId: microsoftAzureGetoperators
+          responses:
+            default:
+              description: Failure
+              schema:
+                $ref: >-
+                  ../../../Common/stable/2021-03-07/common.json#/definitions/CommunicationErrorResponse
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: Error code

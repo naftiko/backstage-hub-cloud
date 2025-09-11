@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureFrontdoorsListbyresourcegroup
+  description: Lists all of the Front Doors within a resource group under a subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Network Frontdoors
+      description: Lists all of the Front Doors within a resource group under a subscription.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoors:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Network Frontdoors
+          description: >-
+            Lists all of the Front Doors within a resource group under a
+            subscription.
+          operationId: microsoftAzureFrontdoorsListbyresourcegroup
+          responses:
+            default:
+              description: Front Door error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

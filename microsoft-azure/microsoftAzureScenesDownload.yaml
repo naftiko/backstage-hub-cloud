@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureScenesDownload
+  description: Downloads and returns file Stream as response for the given input filePath.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Scenes Downloadfiles
+      description: Downloads and returns file Stream as response for the given input filePath.
+    paths:
+      /scenes/downloadFiles:
+        get:
+          summary: Get Scenes Downloadfiles
+          description: >-
+            Downloads and returns file Stream as response for the given input
+            filePath.
+          operationId: microsoftAzureScenesDownload
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  x-ms-client-name: ErrorCode
+              x-ms-error-response: true

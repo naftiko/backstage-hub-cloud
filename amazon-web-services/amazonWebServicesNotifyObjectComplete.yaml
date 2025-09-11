@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesNotifyObjectComplete
+  description: Complete upload
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Notifyobjectcomplete
+      description: Complete upload
+    paths:
+      /backup-jobs/{jobId}/object/{uploadId}/complete:
+        PUT:
+          summary: Notifyobjectcomplete
+          description: Complete upload
+          operationId: amazonWebServicesNotifyObjectComplete

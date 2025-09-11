@@ -1,0 +1,131 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureEmbeddingsCreate
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get A Vector Representation Of A Given Input That Can Be Easily Consumed By
+        Machine Learning Models And Algorithms 
+      description: Needs a more full description created.
+    paths:
+      /deployments/{deployment-id}/embeddings:
+        post:
+          summary: >-
+            Get A Vector Representation Of A Given Input That Can Be Easily Consumed
+            By Machine Learning Models And Algorithms 
+          description: Needs a more full description created.
+          operationId: microsoftAzureEmbeddingsCreate
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  additionalProperties: true
+                  properties:
+                    input:
+                      description: >-
+                        Input text to get embeddings for, encoded as a string. To
+                        get embeddings for multiple inputs in a single request, pass
+                        an array of strings. Each input must not exceed 2048 tokens
+                        in length.
+
+                        Unless you are embedding code, we suggest replacing newlines
+                        (\n) in your input with a single space, as we have observed
+                        inferior results when newlines are present.
+                      oneOf:
+                        - type: string
+                          default: ''
+                          example: This is a test.
+                          nullable: true
+                        - type: array
+                          minItems: 1
+                          maxItems: 2048
+                          items:
+                            type: string
+                            minLength: 1
+                            example: This is a test.
+                            nullable: false
+                    user:
+                      description: >-
+                        A unique identifier representing your end-user, which can
+                        help monitoring and detecting abuse.
+                      type: string
+                      nullable: false
+                    input_type:
+                      description: input type of embedding search to use
+                      type: string
+                      example: query
+                    encoding_format:
+                      description: >-
+                        The format to return the embeddings in. Can be either
+                        `float` or `base64`. Defaults to `float`.
+                      type: string
+                      example: base64
+                      nullable: true
+                    dimensions:
+                      description: >-
+                        The number of dimensions the resulting output embeddings
+                        should have. Only supported in `text-embedding-3` and later
+                        models.
+                      type: integer
+                      example: 1
+                      nullable: true
+                  required:
+                    - input
+          responses:
+            '200':
+              description: OK
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      object:
+                        type: string
+                      model:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: integer
+                            object:
+                              type: string
+                            embedding:
+                              type: array
+                              items:
+                                type: number
+                          required:
+                            - index
+                            - object
+                            - embedding
+                      usage:
+                        type: object
+                        properties:
+                          prompt_tokens:
+                            type: integer
+                          total_tokens:
+                            type: integer
+                        required:
+                          - prompt_tokens
+                          - total_tokens
+                    required:
+                      - object
+                      - model
+                      - data
+                      - usage

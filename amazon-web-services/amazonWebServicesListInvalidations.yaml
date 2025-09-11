@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListInvalidations
+  description: Lists invalidation batches.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listinvalidations
+      description: Lists invalidation batches.
+    paths:
+      /2020-05-31/distribution/{DistributionId}/invalidation:
+        GET:
+          summary: Listinvalidations
+          description: Lists invalidation batches.
+          operationId: amazonWebServicesListInvalidations

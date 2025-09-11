@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureReviewsCreatereviews
+  description: >-
+    The created reviews appear for reviewers on your team. As reviewers finish
+    reviewing, results of the reviews are posted (that is, HTTP POST) on the
+    specified CallBackEndpoint value.<br><br>CallBack Schemas <br>Review
+    Completion CallBack Sample<br><br>{<br>  "ReviewId": "",<br>  "ModifiedOn":
+    "2016-10-11T22:36:32.9934851Z",<br>  "ModifiedBy": "",<br>  "CallBackType":
+    "Review",<br>  "ContentId": "",<br>  "Metadata": {<br>    "adultscore":
+    "0.xxx",<br>    "a": "False",<br>    "racyscore": "0.xxx",<br>    "r":
+    "True"<br>  },<br>  "ReviewerResultTags": {<br>    "a": "False",<br>    "r":
+    "True"<br>  }<br>}<br><br>.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Contentmoderator Review 0 Teams Teamname Reviews
+      description: >-
+        The created reviews appear for reviewers on your team. As reviewers finish
+        reviewing, results of the reviews are posted (that is, HTTP POST) on the
+        specified CallBackEndpoint value.<br><br>CallBack Schemas <br>Review
+        Completion CallBack Sample<br><br>{<br>  "ReviewId": "",<br>  "ModifiedOn":
+        "2016-10-11T22:36:32.9934851Z",<br>  "ModifiedBy": "",<br>  "CallBackType":
+        "Review",<br>  "ContentId": "",<br>  "Metadata": {<br>    "adultscore":
+        "0.xxx",<br>    "a": "False",<br>    "racyscore": "0.xxx",<br>    "r":
+        "True"<br>  },<br>  "ReviewerResultTags": {<br>    "a": "False",<br>    "r":
+        "True"<br>  }<br>}<br><br>.
+    paths:
+      /contentmoderator/review/v1.0/teams/{teamName}/reviews:
+        post:
+          summary: Post Contentmoderator Review 0 Teams Teamname Reviews
+          description: >-
+            The created reviews appear for reviewers on your team. As reviewers
+            finish reviewing, results of the reviews are posted (that is, HTTP POST)
+            on the specified CallBackEndpoint value.<br><br>CallBack Schemas
+            <br>Review Completion CallBack Sample<br><br>{<br>  "ReviewId": "",<br> 
+            "ModifiedOn": "2016-10-11T22:36:32.9934851Z",<br>  "ModifiedBy":
+            "",<br>  "CallBackType": "Review",<br>  "ContentId": "",<br> 
+            "Metadata": {<br>    "adultscore": "0.xxx",<br>    "a": "False",<br>   
+            "racyscore": "0.xxx",<br>    "r": "True"<br>  },<br> 
+            "ReviewerResultTags": {<br>    "a": "False",<br>    "r": "True"<br> 
+            }<br>}<br><br>.
+          operationId: microsoftAzureReviewsCreatereviews
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

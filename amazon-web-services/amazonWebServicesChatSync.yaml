@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesChatSync
+  description: Starts or continues a non-streaming Amazon Q conversation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Chatsync
+      description: Starts or continues a non-streaming Amazon Q conversation.
+    paths:
+      /applications/{applicationId}/conversations?sync:
+        POST:
+          summary: Chatsync
+          description: Starts or continues a non-streaming Amazon Q conversation.
+          operationId: amazonWebServicesChatSync

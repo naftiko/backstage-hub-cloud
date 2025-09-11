@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePrivateendpointconnectionproxycontrollerValidate
+  description: >-
+    Validates private endpoint connection using a project and private endpoint
+    connection proxy
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Validates Private Endpoint Connection Proxy '
+      description: >-
+        Validates private endpoint connection using a project and private endpoint
+        connection proxy
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName}/privateEndpointConnectionProxies/{pecProxyName}/validate:
+        post:
+          summary: 'Validates Private Endpoint Connection Proxy '
+          description: >-
+            Validates private endpoint connection using a project and private
+            endpoint connection proxy
+          operationId: microsoftAzurePrivateendpointconnectionproxycontrollerValidate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

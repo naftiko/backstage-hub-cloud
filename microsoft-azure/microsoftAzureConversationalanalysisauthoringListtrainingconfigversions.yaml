@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureConversationalanalysisauthoringListtrainingconfigversions
+  description: Lists the support training config version for a given project type.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Authoring Analyze Conversations Projects Global Training Config Versions
+      description: Lists the support training config version for a given project type.
+    paths:
+      /authoring/analyze-conversations/projects/global/training-config-versions:
+        get:
+          summary: >-
+            Get Authoring Analyze Conversations Projects Global Training Config
+            Versions
+          description: Lists the support training config version for a given project type.
+          operationId: microsoftAzureConversationalanalysisauthoringListtrainingconfigversions
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: common.json#/definitions/ErrorResponse

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreateAsset
+  description: Creates an asset in Amazon DataZone catalog.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createasset
+      description: Creates an asset in Amazon DataZone catalog.
+    paths:
+      /v2/domains/{domainIdentifier}/assets:
+        POST:
+          summary: Createasset
+          description: Creates an asset in Amazon DataZone catalog.
+          operationId: amazonWebServicesCreateAsset

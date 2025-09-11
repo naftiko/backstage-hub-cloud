@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDeleteStage
+  description: Shuts down and deletes the specified stage (disconnecting all participants).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletestage
+      description: Shuts down and deletes the specified stage (disconnecting all participants).
+    paths:
+      /DeleteStage:
+        POST:
+          summary: Deletestage
+          description: >-
+            Shuts down and deletes the specified stage (disconnecting all
+            participants).
+          operationId: amazonWebServicesDeleteStage

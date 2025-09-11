@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSessionhostconfigurationsoperationstatusGet
+  description: Get Operation status for SessionHostManagement
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Desktopvirtualization Hostpools Hostpoolname
+        Sessionhostconfigurations Default Operationstatuses Operationid
+      description: Get Operation status for SessionHostManagement
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/sessionHostConfigurations/default/operationStatuses/{operationId}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Desktopvirtualization Hostpools Hostpoolname
+            Sessionhostconfigurations Default Operationstatuses Operationid
+          description: Get Operation status for SessionHostManagement
+          operationId: microsoftAzureSessionhostconfigurationsoperationstatusGet
+          responses:
+            default:
+              description: Automation error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

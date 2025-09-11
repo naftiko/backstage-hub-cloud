@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSubaccountListmonitoredresources
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        List The Resources Currently Being Monitored By The Logz Sub Account
+        Resource 
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logz/monitors/{monitorName}/accounts/{subAccountName}/listMonitoredResources:
+        post:
+          summary: >-
+            List The Resources Currently Being Monitored By The Logz Sub Account
+            Resource 
+          description: Needs a more full description created.
+          operationId: microsoftAzureSubaccountListmonitoredresources
+          responses:
+            default:
+              description: Default error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

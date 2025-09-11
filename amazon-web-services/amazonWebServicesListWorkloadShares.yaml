@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListWorkloadShares
+  description: List the workload shares associated with the workload.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listworkloadshares
+      description: List the workload shares associated with the workload.
+    paths:
+      /workloads/{WorkloadId}/shares:
+        GET:
+          summary: Listworkloadshares
+          description: List the workload shares associated with the workload.
+          operationId: amazonWebServicesListWorkloadShares

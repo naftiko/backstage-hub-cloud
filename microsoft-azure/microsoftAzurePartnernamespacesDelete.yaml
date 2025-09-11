@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePartnernamespacesDelete
+  description: Delete existing partner namespace.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Delete A Partner Namespace '
+      description: Delete existing partner namespace.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerNamespaces/{partnerNamespaceName}:
+        delete:
+          summary: 'Delete A Partner Namespace '
+          description: Delete existing partner namespace.
+          operationId: microsoftAzurePartnernamespacesDelete
+          responses:
+            default:
+              description: |-
+                *** Error Responses: ***
+
+                 * 400 Bad Request.
+
+                 * 404 Not Found.
+
+                 * 500 Internal Server Error.

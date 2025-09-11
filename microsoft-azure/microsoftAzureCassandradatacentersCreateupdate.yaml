@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureCassandradatacentersCreateupdate
+  description: >-
+    Create or update a managed Cassandra data center. When updating, overwrite
+    all properties. To update only some properties, use PATCH.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Documentdb Cassandraclusters Clustername Datacenters
+        Datacentername
+      description: >-
+        Create or update a managed Cassandra data center. When updating, overwrite
+        all properties. To update only some properties, use PATCH.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/cassandraClusters/{clusterName}/dataCenters/{dataCenterName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Documentdb Cassandraclusters Clustername Datacenters
+            Datacentername
+          description: >-
+            Create or update a managed Cassandra data center. When updating,
+            overwrite all properties. To update only some properties, use PATCH.
+          operationId: microsoftAzureCassandradatacentersCreateupdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: cosmos-db.json#/definitions/CloudError

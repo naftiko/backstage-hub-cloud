@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureMeshapplicationDelete
+  description: Deletes the Application resource identified by the name.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Deletes The Application Resource '
+      description: Deletes the Application resource identified by the name.
+    paths:
+      /Resources/Applications/{applicationResourceName}:
+        delete:
+          summary: 'Deletes The Application Resource '
+          description: Deletes the Application resource identified by the name.
+          operationId: microsoftAzureMeshapplicationDelete
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/FabricError'

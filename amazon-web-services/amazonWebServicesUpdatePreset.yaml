@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdatePreset
+  description: Modify one of your existing presets.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatepreset
+      description: Modify one of your existing presets.
+    paths:
+      /2017-08-29/presets/{name}:
+        PUT:
+          summary: Updatepreset
+          description: Modify one of your existing presets.
+          operationId: amazonWebServicesUpdatePreset

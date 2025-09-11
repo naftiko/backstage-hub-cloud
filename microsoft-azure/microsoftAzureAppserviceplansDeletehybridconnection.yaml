@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAppserviceplansDeletehybridconnection
+  description: Description for Delete a Hybrid Connection in use in an App Service plan.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Delete A Hybrid Connection In Use In An App Service Plan '
+      description: Description for Delete a Hybrid Connection in use in an App Service plan.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName}:
+        delete:
+          summary: 'Delete A Hybrid Connection In Use In An App Service Plan '
+          description: >-
+            Description for Delete a Hybrid Connection in use in an App Service
+            plan.
+          operationId: microsoftAzureAppserviceplansDeletehybridconnection
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

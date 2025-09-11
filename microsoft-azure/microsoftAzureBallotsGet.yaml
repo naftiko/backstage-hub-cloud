@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureBallotsGet
+  description: Returns a member's submitted ballot.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Gov Members Proposals Proposalid Ballots Memberid
+      description: Returns a member's submitted ballot.
+    paths:
+      /gov/members/proposals/{proposalId}/ballots/{memberId}:
+        get:
+          summary: Get Gov Members Proposals Proposalid Ballots Memberid
+          description: Returns a member's submitted ballot.
+          operationId: microsoftAzureBallotsGet
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/Azure.Core.Foundations.ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: String error code indicating what went wrong.

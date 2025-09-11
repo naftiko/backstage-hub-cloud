@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAppserviceenvironmentsGetworkerpool
+  description: Description for Get properties of a worker pool.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Get Properties Of A Worker Pool '
+      description: Description for Get properties of a worker pool.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/workerPools/{workerPoolName}:
+        get:
+          summary: 'Get Properties Of A Worker Pool '
+          description: Description for Get properties of a worker pool.
+          operationId: microsoftAzureAppserviceenvironmentsGetworkerpool
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

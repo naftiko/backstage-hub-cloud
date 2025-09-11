@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureEntitySetlabelsbyuniqueattribute
+  description: >-
+    Set labels to a given entity identified by its type and unique attributes,
+    if labels is null/empty, existing labels will all be removed. In addition to
+    the typeName path parameter, attribute key-value pair(s) can be provided in
+    the following format: attr:=. NOTE: The attrName and attrValue should be
+    unique across entities, eg. qualifiedName. The REST request would look
+    something like this: POST
+    /v2/entity/uniqueAttribute/type/aType?attr:aTypeAttribute=someValue.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Atlas Entity Uniqueattribute Type Typename Labels
+      description: >-
+        Set labels to a given entity identified by its type and unique attributes,
+        if labels is null/empty, existing labels will all be removed. In addition to
+        the typeName path parameter, attribute key-value pair(s) can be provided in
+        the following format: attr:=. NOTE: The attrName and attrValue should be
+        unique across entities, eg. qualifiedName. The REST request would look
+        something like this: POST
+        /v2/entity/uniqueAttribute/type/aType?attr:aTypeAttribute=someValue.
+    paths:
+      /atlas/v2/entity/uniqueAttribute/type/{typeName}/labels:
+        post:
+          summary: Post Atlas Entity Uniqueattribute Type Typename Labels
+          description: >-
+            Set labels to a given entity identified by its type and unique
+            attributes, if labels is null/empty, existing labels will all be
+            removed. In addition to the typeName path parameter, attribute key-value
+            pair(s) can be provided in the following format: attr:=. NOTE: The
+            attrName and attrValue should be unique across entities, eg.
+            qualifiedName. The REST request would look something like this: POST
+            /v2/entity/uniqueAttribute/type/aType?attr:aTypeAttribute=someValue.
+          operationId: microsoftAzureEntitySetlabelsbyuniqueattribute
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

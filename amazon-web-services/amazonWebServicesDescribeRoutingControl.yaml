@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDescribeRoutingControl
+  description: >-
+    Displays details about a routing control. A routing control has one of two
+    states: ON and OFF. You can map the routing control state to the state of an
+    Amazon Route 53 health check, which can be used to control routing. To get
+    or update the routing control state, see the Recovery Cluster (data plane)
+    API actions for Amazon Route 53 Application Recovery Controller.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeroutingcontrol
+      description: >-
+        Displays details about a routing control. A routing control has one of two
+        states: ON and OFF. You can map the routing control state to the state of an
+        Amazon Route 53 health check, which can be used to control routing. To get
+        or update the routing control state, see the Recovery Cluster (data plane)
+        API actions for Amazon Route 53 Application Recovery Controller.
+    paths:
+      /routingcontrol/{RoutingControlArn}:
+        GET:
+          summary: Describeroutingcontrol
+          description: >-
+            Displays details about a routing control. A routing control has one of
+            two states: ON and OFF. You can map the routing control state to the
+            state of an Amazon Route 53 health check, which can be used to control
+            routing. To get or update the routing control state, see the Recovery
+            Cluster (data plane) API actions for Amazon Route 53 Application
+            Recovery Controller.
+          operationId: amazonWebServicesDescribeRoutingControl

@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebappsGetvnetconnection
+  description: >-
+    Description for Gets a virtual network the app (or deployment slot) is
+    connected to by name.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Gets A Virtual Network The App Or Deployment Slot Is Connected To By Name '
+      description: >-
+        Description for Gets a virtual network the app (or deployment slot) is
+        connected to by name.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/virtualNetworkConnections/{vnetName}:
+        get:
+          summary: >-
+            Gets A Virtual Network The App Or Deployment Slot Is Connected To By
+            Name 
+          description: >-
+            Description for Gets a virtual network the app (or deployment slot) is
+            connected to by name.
+          operationId: microsoftAzureWebappsGetvnetconnection
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

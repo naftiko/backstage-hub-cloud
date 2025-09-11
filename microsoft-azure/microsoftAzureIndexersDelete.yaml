@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureIndexersDelete
+  description: Deletes an indexer.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Delete Indexers Indexername '
+      description: Deletes an indexer.
+    paths:
+      /indexers('{indexerName}'):
+        delete:
+          summary: 'Delete Indexers Indexername '
+          description: Deletes an indexer.
+          operationId: microsoftAzureIndexersDelete
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/SearchError'

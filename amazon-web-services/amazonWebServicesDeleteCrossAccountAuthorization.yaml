@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDeleteCrossAccountAuthorization
+  description: Deletes cross account readiness authorization.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletecrossaccountauthorization
+      description: Deletes cross account readiness authorization.
+    paths:
+      /crossaccountauthorizations/{crossAccountAuthorization}:
+        DELETE:
+          summary: Deletecrossaccountauthorization
+          description: Deletes cross account readiness authorization.
+          operationId: amazonWebServicesDeleteCrossAccountAuthorization

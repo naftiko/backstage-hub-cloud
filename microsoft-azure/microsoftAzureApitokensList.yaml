@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureApitokensList
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get The List Of Api Tokens In An Application The Token Value Will Never Be
+        Returned For Security Reasons 
+      description: Needs a more full description created.
+    paths:
+      /apiTokens:
+        get:
+          summary: >-
+            Get The List Of Api Tokens In An Application The Token Value Will Never
+            Be Returned For Security Reasons 
+          description: Needs a more full description created.
+          operationId: microsoftAzureApitokensList
+          responses:
+            default:
+              description: An error response received from the IoT Central Service.
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: Error code for specific error that occurred.
+              schema:
+                $ref: '#/definitions/Error'

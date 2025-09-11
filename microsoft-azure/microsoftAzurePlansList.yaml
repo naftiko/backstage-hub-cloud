@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePlansList
+  description: List plans data
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Subscriptions Subscriptionid Providers Newrelic Observability Plans
+      description: List plans data
+    paths:
+      /subscriptions/{subscriptionId}/providers/NewRelic.Observability/plans:
+        get:
+          summary: Get Subscriptions Subscriptionid Providers Newrelic Observability Plans
+          description: List plans data
+          operationId: microsoftAzurePlansList
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

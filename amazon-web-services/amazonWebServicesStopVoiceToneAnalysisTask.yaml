@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesStopVoiceToneAnalysisTask
+  description: Stops a voice tone analysis task.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Stopvoicetoneanalysistask
+      description: Stops a voice tone analysis task.
+    paths:
+      /voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}?operation=stop:
+        POST:
+          summary: Stopvoicetoneanalysistask
+          description: Stops a voice tone analysis task.
+          operationId: amazonWebServicesStopVoiceToneAnalysisTask

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateZonalShift
+  description: >-
+    Update an active zonal shift in Amazon Route 53 Application Recovery
+    Controller in your Amazon Web Services account. You can update a zonal shift
+    to set a new expiration, or edit or replace the comment for the zonal
+    shift. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatezonalshift
+      description: >-
+        Update an active zonal shift in Amazon Route 53 Application Recovery
+        Controller in your Amazon Web Services account. You can update a zonal shift
+        to set a new expiration, or edit or replace the comment for the zonal
+        shift. 
+    paths:
+      /zonalshifts/{zonalShiftId}:
+        PATCH:
+          summary: Updatezonalshift
+          description: >-
+            Update an active zonal shift in Amazon Route 53 Application Recovery
+            Controller in your Amazon Web Services account. You can update a zonal
+            shift to set a new expiration, or edit or replace the comment for the
+            zonal shift. 
+          operationId: amazonWebServicesUpdateZonalShift

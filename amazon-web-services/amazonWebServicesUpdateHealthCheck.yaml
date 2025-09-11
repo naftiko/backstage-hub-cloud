@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateHealthCheck
+  description: >-
+    Updates an existing health check. Note that some values can't be updated. 
+    For more information about updating health checks, see Creating, Updating,
+    and Deleting Health Checks in the Amazon Route 53 Developer Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatehealthcheck
+      description: >-
+        Updates an existing health check. Note that some values can't be updated. 
+        For more information about updating health checks, see Creating, Updating,
+        and Deleting Health Checks in the Amazon Route 53 Developer Guide.
+    paths:
+      /2013-04-01/healthcheck/{HealthCheckId}:
+        POST:
+          summary: Updatehealthcheck
+          description: >-
+            Updates an existing health check. Note that some values can't be
+            updated.  For more information about updating health checks, see
+            Creating, Updating, and Deleting Health Checks in the Amazon Route 53
+            Developer Guide.
+          operationId: amazonWebServicesUpdateHealthCheck

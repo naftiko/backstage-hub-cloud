@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePricesheetGet
+  description: >-
+    Gets the price sheet for a scope by subscriptionId. Price sheet is available
+    via this API only for May 1, 2014 or later.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft Consumption Pricesheets
+        Default
+      description: >-
+        Gets the price sheet for a scope by subscriptionId. Price sheet is available
+        via this API only for May 1, 2014 or later.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Consumption/pricesheets/default:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft Consumption
+            Pricesheets Default
+          description: >-
+            Gets the price sheet for a scope by subscriptionId. Price sheet is
+            available via this API only for May 1, 2014 or later.
+          operationId: microsoftAzurePricesheetGet
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

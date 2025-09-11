@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetResourcePermission
+  description: Gets permissions associated with the target database.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getresourcepermission
+      description: Gets permissions associated with the target database.
+    paths:
+      /get-resource-permission:
+        POST:
+          summary: Getresourcepermission
+          description: Gets permissions associated with the target database.
+          operationId: amazonWebServicesGetResourcePermission

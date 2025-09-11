@@ -1,0 +1,54 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureBatchCancelcertificatedeletion
+  description: >-
+    If you try to delete a Certificate that is being used by a Pool or
+    Compute<br>Node, the status of the Certificate changes to deleteFailed. If
+    you decide that<br>you want to continue using the Certificate, you can use
+    this operation to set<br>the status of the Certificate back to active. If
+    you intend to delete the<br>Certificate, you do not need to run this
+    operation after the deletion failed.<br>You must make sure that the
+    Certificate is not being used by any resources, and<br>then you can try
+    again to delete the Certificate.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Cancels A Failed Deletion Of A Certificate From The Specified Account '
+      description: >-
+        If you try to delete a Certificate that is being used by a Pool or
+        Compute<br>Node, the status of the Certificate changes to deleteFailed. If
+        you decide that<br>you want to continue using the Certificate, you can use
+        this operation to set<br>the status of the Certificate back to active. If
+        you intend to delete the<br>Certificate, you do not need to run this
+        operation after the deletion failed.<br>You must make sure that the
+        Certificate is not being used by any resources, and<br>then you can try
+        again to delete the Certificate.
+    paths:
+      /certificates(thumbprintAlgorithm={thumbprintAlgorithm},thumbprint={thumbprint})/canceldelete:
+        post:
+          summary: 'Cancels A Failed Deletion Of A Certificate From The Specified Account '
+          description: >-
+            If you try to delete a Certificate that is being used by a Pool or
+            Compute<br>Node, the status of the Certificate changes to deleteFailed.
+            If you decide that<br>you want to continue using the Certificate, you
+            can use this operation to set<br>the status of the Certificate back to
+            active. If you intend to delete the<br>Certificate, you do not need to
+            run this operation after the deletion failed.<br>You must make sure that
+            the Certificate is not being used by any resources, and<br>then you can
+            try again to delete the Certificate.
+          operationId: microsoftAzureBatchCancelcertificatedeletion
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetFunctionConcurrency
+  description: >-
+    Returns details about the reserved concurrency configuration for a function.
+    To set a concurrency limit for a function, use PutFunctionConcurrency.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getfunctionconcurrency
+      description: >-
+        Returns details about the reserved concurrency configuration for a function.
+        To set a concurrency limit for a function, use PutFunctionConcurrency.
+    paths:
+      /2019-09-30/functions/{FunctionName}/concurrency:
+        GET:
+          summary: Getfunctionconcurrency
+          description: >-
+            Returns details about the reserved concurrency configuration for a
+            function. To set a concurrency limit for a function, use
+            PutFunctionConcurrency.
+          operationId: amazonWebServicesGetFunctionConcurrency

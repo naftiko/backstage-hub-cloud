@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesInvokeAsync
+  description: ' For asynchronous function invocation, use Invoke.  Invokes a function asynchronously.'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Invokeasync
+      description: ' For asynchronous function invocation, use Invoke.  Invokes a function asynchronously.'
+    paths:
+      /2014-11-13/functions/{FunctionName}/invoke-async/:
+        POST:
+          summary: Invokeasync
+          description: ' For asynchronous function invocation, use Invoke.  Invokes a function asynchronously.'
+          operationId: amazonWebServicesInvokeAsync

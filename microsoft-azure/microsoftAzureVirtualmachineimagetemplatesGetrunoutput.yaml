@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureVirtualmachineimagetemplatesGetrunoutput
+  description: Get the specified run output for the specified image template resource
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Virtualmachineimages Imagetemplates Imagetemplatename Runoutputs
+        Runoutputname
+      description: Get the specified run output for the specified image template resource
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VirtualMachineImages/imageTemplates/{imageTemplateName}/runOutputs/{runOutputName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Virtualmachineimages Imagetemplates
+            Imagetemplatename Runoutputs Runoutputname
+          description: Get the specified run output for the specified image template resource
+          operationId: microsoftAzureVirtualmachineimagetemplatesGetrunoutput
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ApiError'

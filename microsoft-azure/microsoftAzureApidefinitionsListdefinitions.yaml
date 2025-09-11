@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureApidefinitionsListdefinitions
+  description: List a collection of API definitions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Workspaces Workspacename Apis Apiname Versions Versionname Definitions
+      description: List a collection of API definitions.
+    paths:
+      /workspaces/{workspaceName}/apis/{apiName}/versions/{versionName}/definitions:
+        get:
+          summary: >-
+            Get Workspaces Workspacename Apis Apiname Versions Versionname
+            Definitions
+          description: List a collection of API definitions.
+          operationId: microsoftAzureApidefinitionsListdefinitions
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/Azure.Core.Foundations.ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: String error code indicating what went wrong.

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureManagedapisGet
+  description: Gets a managed API
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Gets Managed Api
+      description: Gets a managed API
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Web/locations/{location}/managedApis/{apiName}:
+        get:
+          summary: Gets Managed Api
+          description: Gets a managed API
+          operationId: microsoftAzureManagedapisGet
+          responses:
+            '200':
+              description: A managed API definition
+              schema:
+                $ref: '#/definitions/ManagedApiDefinition'

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDescribeSigningJob
+  description: >-
+    Returns information about a specific code signing job. You specify the job
+    by using the jobId value that is returned by the StartSigningJob operation. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describesigningjob
+      description: >-
+        Returns information about a specific code signing job. You specify the job
+        by using the jobId value that is returned by the StartSigningJob operation. 
+    paths:
+      /signing-jobs/{jobId}:
+        GET:
+          summary: Describesigningjob
+          description: >-
+            Returns information about a specific code signing job. You specify the
+            job by using the jobId value that is returned by the StartSigningJob
+            operation. 
+          operationId: amazonWebServicesDescribeSigningJob

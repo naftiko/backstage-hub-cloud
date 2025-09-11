@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListOutgoingCertificates
+  description: >-
+    Lists certificates that are being transferred but not yet accepted. Requires
+    permission to access the ListOutgoingCertificates action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listoutgoingcertificates
+      description: >-
+        Lists certificates that are being transferred but not yet accepted. Requires
+        permission to access the ListOutgoingCertificates action.
+    paths:
+      /certificates-out-going:
+        GET:
+          summary: Listoutgoingcertificates
+          description: >-
+            Lists certificates that are being transferred but not yet accepted.
+            Requires permission to access the ListOutgoingCertificates action.
+          operationId: amazonWebServicesListOutgoingCertificates

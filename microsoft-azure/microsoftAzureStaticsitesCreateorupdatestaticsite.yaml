@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureStaticsitesCreateorupdatestaticsite
+  description: >-
+    Description for Creates a new static site in an existing resource group, or
+    updates an existing static site.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Creates A New Static Site In An Existing Resource Group, Or Updates An
+        Existing Static Site 
+      description: >-
+        Description for Creates a new static site in an existing resource group, or
+        updates an existing static site.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}:
+        put:
+          summary: >-
+            Creates A New Static Site In An Existing Resource Group, Or Updates An
+            Existing Static Site 
+          description: >-
+            Description for Creates a new static site in an existing resource group,
+            or updates an existing static site.
+          operationId: microsoftAzureStaticsitesCreateorupdatestaticsite
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetEnabledStandards
+  description: Returns a list of the standards that are currently enabled.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getenabledstandards
+      description: Returns a list of the standards that are currently enabled.
+    paths:
+      /standards/get:
+        POST:
+          summary: Getenabledstandards
+          description: Returns a list of the standards that are currently enabled.
+          operationId: amazonWebServicesGetEnabledStandards

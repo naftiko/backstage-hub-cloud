@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSnapshotDownload
+  description: >-
+    Download compliance needs from snapshot, like: Compliance Report, Resource
+    List.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Providers Microsoft Appcomplianceautomation Reports Reportname
+        Snapshots Snapshotname Download
+      description: >-
+        Download compliance needs from snapshot, like: Compliance Report, Resource
+        List.
+    paths:
+      /providers/Microsoft.AppComplianceAutomation/reports/{reportName}/snapshots/{snapshotName}/download:
+        post:
+          summary: >-
+            Post Providers Microsoft Appcomplianceautomation Reports Reportname
+            Snapshots Snapshotname Download
+          description: >-
+            Download compliance needs from snapshot, like: Compliance Report,
+            Resource List.
+          operationId: microsoftAzureSnapshotDownload
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

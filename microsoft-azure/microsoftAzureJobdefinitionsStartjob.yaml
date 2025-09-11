@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureJobdefinitionsStartjob
+  description: >-
+    Requests an Agent to start a new instance of this Job Definition, generating
+    a new Job Run resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Storagemover Storagemovers Storagemovername Projects Projectname
+        Jobdefinitions Jobdefinitionname Startjob
+      description: >-
+        Requests an Agent to start a new instance of this Job Definition, generating
+        a new Job Run resource.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageMover/storageMovers/{storageMoverName}/projects/{projectName}/jobDefinitions/{jobDefinitionName}/startJob:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Storagemover Storagemovers Storagemovername Projects
+            Projectname Jobdefinitions Jobdefinitionname Startjob
+          description: >-
+            Requests an Agent to start a new instance of this Job Definition,
+            generating a new Job Run resource.
+          operationId: microsoftAzureJobdefinitionsStartjob
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse

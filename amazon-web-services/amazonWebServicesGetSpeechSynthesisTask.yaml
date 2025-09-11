@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetSpeechSynthesisTask
+  description: >-
+    Retrieves a specific SpeechSynthesisTask object based on its TaskID. This
+    object contains information about the given speech synthesis task, including
+    the status of the task, and a link to the S3 bucket containing the output of
+    the task.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getspeechsynthesistask
+      description: >-
+        Retrieves a specific SpeechSynthesisTask object based on its TaskID. This
+        object contains information about the given speech synthesis task, including
+        the status of the task, and a link to the S3 bucket containing the output of
+        the task.
+    paths:
+      /v1/synthesisTasks/{TaskId}:
+        GET:
+          summary: Getspeechsynthesistask
+          description: >-
+            Retrieves a specific SpeechSynthesisTask object based on its TaskID.
+            This object contains information about the given speech synthesis task,
+            including the status of the task, and a link to the S3 bucket containing
+            the output of the task.
+          operationId: amazonWebServicesGetSpeechSynthesisTask

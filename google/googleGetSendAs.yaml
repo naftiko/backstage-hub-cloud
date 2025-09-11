@@ -1,0 +1,76 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googleGetSendAs
+  description: >-
+    Lists the send-as aliases for the specified account. The result includes the
+    primary send-as address associated with the account as well as any custom
+    "from" aliases.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Send As
+      description: >-
+        Lists the send-as aliases for the specified account. The result includes the
+        primary send-as address associated with the account as well as any custom
+        "from" aliases.
+    paths:
+      /gmail/v1/users/{userId}/settings/sendAs:
+        get:
+          summary: Get Send As
+          description: >-
+            Lists the send-as aliases for the specified account. The result includes
+            the primary send-as address associated with the account as well as any
+            custom "from" aliases.
+          operationId: googleGetSendAs
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    sendAs:
+                      - sendAsEmail: exercitation
+                        displayName: proident Duis
+                        replyToAddress: deserunt do ut id
+                        signature: tempor irure dolore qui dol
+                        isPrimary: false
+                        isDefault: true
+                        treatAsAlias: true
+                        smtpMsa:
+                          host: irure sit non
+                          port: -14344492
+                          username: ipsum ad non
+                          password: proident sunt eiusmod Lorem
+                          securityMode: starttls
+                        verificationStatus: accepted
+                      - sendAsEmail: commodo et exercitatio
+                        displayName: pariatur Ut sit deserunt quis
+                        replyToAddress: in consectetur qui aliqua
+                        signature: velit fug
+                        isPrimary: false
+                        isDefault: false
+                        treatAsAlias: false
+                        smtpMsa:
+                          host: occaecat laborum magna aute
+                          port: 42884741
+                          username: voluptate sit adipisicing
+                          password: incididunt ullamco
+                          securityMode: ssl
+                        verificationStatus: verificationStatusUnspecified

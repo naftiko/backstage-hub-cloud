@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListEnabledProductsForImport
+  description: >-
+    Lists all findings-generating solutions (products) that you are subscribed
+    to receive findings from in Security Hub.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listenabledproductsforimport
+      description: >-
+        Lists all findings-generating solutions (products) that you are subscribed
+        to receive findings from in Security Hub.
+    paths:
+      /productSubscriptions:
+        GET:
+          summary: Listenabledproductsforimport
+          description: >-
+            Lists all findings-generating solutions (products) that you are
+            subscribed to receive findings from in Security Hub.
+          operationId: amazonWebServicesListEnabledProductsForImport

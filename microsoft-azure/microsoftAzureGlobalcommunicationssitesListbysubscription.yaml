@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGlobalcommunicationssitesListbysubscription
+  description: >-
+    Returns a list of the global communications sites that a subscription is
+    authorized to use.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft Orbital
+        Globalcommunicationssites
+      description: >-
+        Returns a list of the global communications sites that a subscription is
+        authorized to use.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Orbital/globalCommunicationsSites:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft Orbital
+            Globalcommunicationssites
+          description: >-
+            Returns a list of the global communications sites that a subscription is
+            authorized to use.
+          operationId: microsoftAzureGlobalcommunicationssitesListbysubscription
+          responses:
+            default:
+              description: >-
+                Error response describing why the operation failed. If the resource
+                group does not exist, 404 (NotFound) will be returned.
+              schema:
+                $ref: >-
+                  ../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

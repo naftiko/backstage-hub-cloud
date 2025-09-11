@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDisassociateRecoveryPoint
+  description: >-
+    Deletes the specified continuous backup recovery point from Backup and
+    releases control of that continuous backup to the source service, such as
+    Amazon RDS. The source service will continue to create and retain continuous
+    backups using the lifecycle that you specified in your original backup plan.
+    Does not support snapshot backup recovery points.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disassociaterecoverypoint
+      description: >-
+        Deletes the specified continuous backup recovery point from Backup and
+        releases control of that continuous backup to the source service, such as
+        Amazon RDS. The source service will continue to create and retain continuous
+        backups using the lifecycle that you specified in your original backup plan.
+        Does not support snapshot backup recovery points.
+    paths:
+      /backup-vaults/{backupVaultName}/recovery-points/{recoveryPointArn}/disassociate:
+        POST:
+          summary: Disassociaterecoverypoint
+          description: >-
+            Deletes the specified continuous backup recovery point from Backup and
+            releases control of that continuous backup to the source service, such
+            as Amazon RDS. The source service will continue to create and retain
+            continuous backups using the lifecycle that you specified in your
+            original backup plan. Does not support snapshot backup recovery points.
+          operationId: amazonWebServicesDisassociateRecoveryPoint

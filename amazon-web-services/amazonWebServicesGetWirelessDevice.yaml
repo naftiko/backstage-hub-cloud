@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetWirelessDevice
+  description: Gets information about a wireless device.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getwirelessdevice
+      description: Gets information about a wireless device.
+    paths:
+      /wireless-devices/{Identifier}:
+        GET:
+          summary: Getwirelessdevice
+          description: Gets information about a wireless device.
+          operationId: amazonWebServicesGetWirelessDevice

@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetConnections
+  description: Gets information about one or more of your connections in a global network.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getconnections
+      description: Gets information about one or more of your connections in a global network.
+    paths:
+      /global-networks/{globalNetworkId}/connections:
+        GET:
+          summary: Getconnections
+          description: >-
+            Gets information about one or more of your connections in a global
+            network.
+          operationId: amazonWebServicesGetConnections

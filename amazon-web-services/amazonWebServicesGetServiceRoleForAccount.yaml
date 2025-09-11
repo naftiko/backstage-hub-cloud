@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetServiceRoleForAccount
+  description: >-
+    Gets the service role associated with IoT Greengrass for your Amazon Web
+    Services account in this Amazon Web Services Region. IoT Greengrass uses
+    this role to verify the identity of client devices and manage core device
+    connectivity information. For more information, see Greengrass service role
+    in the IoT Greengrass Version 2 Developer Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getserviceroleforaccount
+      description: >-
+        Gets the service role associated with IoT Greengrass for your Amazon Web
+        Services account in this Amazon Web Services Region. IoT Greengrass uses
+        this role to verify the identity of client devices and manage core device
+        connectivity information. For more information, see Greengrass service role
+        in the IoT Greengrass Version 2 Developer Guide.
+    paths:
+      /greengrass/servicerole:
+        GET:
+          summary: Getserviceroleforaccount
+          description: >-
+            Gets the service role associated with IoT Greengrass for your Amazon Web
+            Services account in this Amazon Web Services Region. IoT Greengrass uses
+            this role to verify the identity of client devices and manage core
+            device connectivity information. For more information, see Greengrass
+            service role in the IoT Greengrass Version 2 Developer Guide.
+          operationId: amazonWebServicesGetServiceRoleForAccount

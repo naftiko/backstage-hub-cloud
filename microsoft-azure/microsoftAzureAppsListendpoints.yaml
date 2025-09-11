@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAppsListendpoints
+  description: Returns the available endpoint deployment regions and URLs.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Apps Appid Endpoints
+      description: Returns the available endpoint deployment regions and URLs.
+    paths:
+      /apps/{appId}/endpoints:
+        get:
+          summary: Get Apps Appid Endpoints
+          description: Returns the available endpoint deployment regions and URLs.
+          operationId: microsoftAzureAppsListendpoints
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

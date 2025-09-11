@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetQuery
+  description: >-
+    Retrieves the status of a specified query.   When invoking this operation in
+    a Neptune Analytics cluster, the IAM user or role making the request must
+    have the neptune-graph:GetQueryStatus IAM action attached.  
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getquery
+      description: >-
+        Retrieves the status of a specified query.   When invoking this operation in
+        a Neptune Analytics cluster, the IAM user or role making the request must
+        have the neptune-graph:GetQueryStatus IAM action attached.  
+    paths:
+      /queries/{queryId}:
+        GET:
+          summary: Getquery
+          description: >-
+            Retrieves the status of a specified query.   When invoking this
+            operation in a Neptune Analytics cluster, the IAM user or role making
+            the request must have the neptune-graph:GetQueryStatus IAM action
+            attached.  
+          operationId: amazonWebServicesGetQuery

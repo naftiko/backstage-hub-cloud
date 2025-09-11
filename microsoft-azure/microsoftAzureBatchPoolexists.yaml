@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureBatchPoolexists
+  description: Gets basic properties of a Pool.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Head Pools Poolid
+      description: Gets basic properties of a Pool.
+    paths:
+      /pools/{poolId}:
+        head:
+          summary: Head Pools Poolid
+          description: Gets basic properties of a Pool.
+          operationId: microsoftAzureBatchPoolexists
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

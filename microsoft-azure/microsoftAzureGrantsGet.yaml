@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGrantsGet
+  description: >-
+    Get details for a specific grant linked to the provided billing account and
+    billing profile.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Providers Microsoft Billing Billingaccounts Billingaccountname
+        Billingprofiles Billingprofilename Providers Microsoft Education Grants
+        Default
+      description: >-
+        Get details for a specific grant linked to the provided billing account and
+        billing profile.
+    paths:
+      /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/providers/Microsoft.Education/grants/default:
+        get:
+          summary: >-
+            Get Providers Microsoft Billing Billingaccounts Billingaccountname
+            Billingprofiles Billingprofilename Providers Microsoft Education Grants
+            Default
+          description: >-
+            Get details for a specific grant linked to the provided billing account
+            and billing profile.
+          operationId: microsoftAzureGrantsGet
+          responses:
+            default:
+              description: Describes the error if the operation is not successful.
+              schema:
+                $ref: '#/definitions/ErrorResponseBody'

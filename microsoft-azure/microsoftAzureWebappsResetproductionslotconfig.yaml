@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebappsResetproductionslotconfig
+  description: >-
+    Description for Resets the configuration settings of the current slot if
+    they were previously modified by calling the API with POST.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Resets The Configuration Settings Of The Current Slot If They Were
+        Previously Modified By Calling The Api With Post 
+      description: >-
+        Description for Resets the configuration settings of the current slot if
+        they were previously modified by calling the API with POST.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/resetSlotConfig:
+        post:
+          summary: >-
+            Resets The Configuration Settings Of The Current Slot If They Were
+            Previously Modified By Calling The Api With Post 
+          description: >-
+            Description for Resets the configuration settings of the current slot if
+            they were previously modified by calling the API with POST.
+          operationId: microsoftAzureWebappsResetproductionslotconfig
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

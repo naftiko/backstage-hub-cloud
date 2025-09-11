@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePrivatelinkscopesGetvalidationdetails
+  description: Returns a Azure Arc PrivateLinkScope's validation details.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft Hybridcompute Locations
+        Location Privatelinkscopes Privatelinkscopeid
+      description: Returns a Azure Arc PrivateLinkScope's validation details.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.HybridCompute/locations/{location}/privateLinkScopes/{privateLinkScopeId}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft Hybridcompute
+            Locations Location Privatelinkscopes Privatelinkscopeid
+          description: Returns a Azure Arc PrivateLinkScope's validation details.
+          operationId: microsoftAzurePrivatelinkscopesGetvalidationdetails
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

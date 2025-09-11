@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDatasetsCommitblocks
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Commit Block List To Complete The Upload Of The Dataset '
+      description: Needs a more full description created.
+    paths:
+      /datasets/{id}/blocks:commit:
+        post:
+          summary: 'Commit Block List To Complete The Upload Of The Dataset '
+          description: Needs a more full description created.
+          operationId: microsoftAzureDatasetsCommitblocks
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/Error'

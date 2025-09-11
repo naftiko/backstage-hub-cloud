@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureReplicationprotecteditemsFailovercommit
+  description: Operation to commit the failover of the replication protected item.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Execute Commit Failover '
+      description: Operation to commit the failover of the replication protected item.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicatedProtectedItemName}/failoverCommit:
+        post:
+          summary: 'Execute Commit Failover '
+          description: Operation to commit the failover of the replication protected item.
+          operationId: microsoftAzureReplicationprotecteditemsFailovercommit
+          responses:
+            '202':
+              description: Accepted

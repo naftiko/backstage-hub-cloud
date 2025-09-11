@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureMoveprimaryreplica
+  description: >-
+    This command moves the primary replica of a partition of a stateful service,
+    respecting all constraints.<br>If NodeName parameter is specified, primary
+    will be moved to the specified node (if constraints allow it).<br>If
+    NodeName parameter is not specified, primary replica will be moved to a
+    random node in the cluster.<br>If IgnoreConstraints parameter is specified
+    and set to true, then primary will be moved regardless of the constraints.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Moves The Primary Replica Of A Partition Of A Stateful Service '
+      description: >-
+        This command moves the primary replica of a partition of a stateful service,
+        respecting all constraints.<br>If NodeName parameter is specified, primary
+        will be moved to the specified node (if constraints allow it).<br>If
+        NodeName parameter is not specified, primary replica will be moved to a
+        random node in the cluster.<br>If IgnoreConstraints parameter is specified
+        and set to true, then primary will be moved regardless of the constraints.
+    paths:
+      /Partitions/{partitionId}/$/MovePrimaryReplica:
+        post:
+          summary: 'Moves The Primary Replica Of A Partition Of A Stateful Service '
+          description: >-
+            This command moves the primary replica of a partition of a stateful
+            service, respecting all constraints.<br>If NodeName parameter is
+            specified, primary will be moved to the specified node (if constraints
+            allow it).<br>If NodeName parameter is not specified, primary replica
+            will be moved to a random node in the cluster.<br>If IgnoreConstraints
+            parameter is specified and set to true, then primary will be moved
+            regardless of the constraints.
+          operationId: microsoftAzureMoveprimaryreplica
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

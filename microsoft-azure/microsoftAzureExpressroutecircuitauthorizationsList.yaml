@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureExpressroutecircuitauthorizationsList
+  description: >-
+    The List authorization operation retrieves all the authorizations in an
+    ExpressRouteCircuit.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Network Expressroutecircuits Circuitname Authorizations
+      description: >-
+        The List authorization operation retrieves all the authorizations in an
+        ExpressRouteCircuit.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/authorizations:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Network Expressroutecircuits Circuitname
+            Authorizations
+          description: >-
+            The List authorization operation retrieves all the authorizations in an
+            ExpressRouteCircuit.
+          operationId: microsoftAzureExpressroutecircuitauthorizationsList
+          responses:
+            '200':
+              description: ''
+              schema:
+                $ref: '#/definitions/AuthorizationListResult'

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdatePackageConfiguration
+  description: >-
+    Updates the software package configuration. Requires permission to access
+    the UpdatePackageConfiguration and iam:PassRole actions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatepackageconfiguration
+      description: >-
+        Updates the software package configuration. Requires permission to access
+        the UpdatePackageConfiguration and iam:PassRole actions.
+    paths:
+      /package-configuration:
+        PATCH:
+          summary: Updatepackageconfiguration
+          description: >-
+            Updates the software package configuration. Requires permission to
+            access the UpdatePackageConfiguration and iam:PassRole actions.
+          operationId: amazonWebServicesUpdatePackageConfiguration

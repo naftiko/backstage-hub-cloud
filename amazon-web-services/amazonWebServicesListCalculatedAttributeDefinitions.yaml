@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListCalculatedAttributeDefinitions
+  description: Lists calculated attribute definitions for Customer Profiles
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listcalculatedattributedefinitions
+      description: Lists calculated attribute definitions for Customer Profiles
+    paths:
+      /domains/{DomainName}/calculated-attributes:
+        GET:
+          summary: Listcalculatedattributedefinitions
+          description: Lists calculated attribute definitions for Customer Profiles
+          operationId: amazonWebServicesListCalculatedAttributeDefinitions

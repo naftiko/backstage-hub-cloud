@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetBackupPlan
+  description: >-
+    Returns BackupPlan details for the specified BackupPlanId. The details are
+    the body of a backup plan in JSON format, in addition to plan metadata.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getbackupplan
+      description: >-
+        Returns BackupPlan details for the specified BackupPlanId. The details are
+        the body of a backup plan in JSON format, in addition to plan metadata.
+    paths:
+      /backup/plans/{backupPlanId}/:
+        GET:
+          summary: Getbackupplan
+          description: >-
+            Returns BackupPlan details for the specified BackupPlanId. The details
+            are the body of a backup plan in JSON format, in addition to plan
+            metadata.
+          operationId: amazonWebServicesGetBackupPlan

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureMetricsCreate
+  description: '**Post the metric values for a resource**.'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Resourceprovider Resourcetypename Resourcename Metrics
+      description: '**Post the metric values for a resource**.'
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProvider}/{resourceTypeName}/{resourceName}/metrics:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Resourceprovider Resourcetypename Resourcename Metrics
+          description: '**Post the metric values for a resource**.'
+          operationId: microsoftAzureMetricsCreate
+          responses:
+            default:
+              description: >-
+                An unexpected error from the server. See response object for the
+                reason
+              schema:
+                $ref: '#/definitions/AzureMetricsResult'

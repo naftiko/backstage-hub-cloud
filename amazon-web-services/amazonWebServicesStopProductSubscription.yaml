@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesStopProductSubscription
+  description: >-
+    Stops a product subscription for a user with the specified identity
+    provider.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Stopproductsubscription
+      description: >-
+        Stops a product subscription for a user with the specified identity
+        provider.
+    paths:
+      /user/StopProductSubscription:
+        POST:
+          summary: Stopproductsubscription
+          description: >-
+            Stops a product subscription for a user with the specified identity
+            provider.
+          operationId: amazonWebServicesStopProductSubscription

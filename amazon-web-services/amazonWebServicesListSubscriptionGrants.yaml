@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListSubscriptionGrants
+  description: Lists subscription grants.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listsubscriptiongrants
+      description: Lists subscription grants.
+    paths:
+      /v2/domains/{domainIdentifier}/subscription-grants:
+        GET:
+          summary: Listsubscriptiongrants
+          description: Lists subscription grants.
+          operationId: amazonWebServicesListSubscriptionGrants

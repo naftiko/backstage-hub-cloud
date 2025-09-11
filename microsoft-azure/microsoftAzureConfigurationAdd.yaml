@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureConfigurationAdd
+  description: Onboards a tenant in Azure Active Directory Connect Health.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Providers Microsoft Adhybridhealthservice Configuration
+      description: Onboards a tenant in Azure Active Directory Connect Health.
+    paths:
+      /providers/Microsoft.ADHybridHealthService/configuration:
+        post:
+          summary: Post Providers Microsoft Adhybridhealthservice Configuration
+          description: Onboards a tenant in Azure Active Directory Connect Health.
+          operationId: microsoftAzureConfigurationAdd
+          responses:
+            '200':
+              description: Successfully added the tenant.
+              schema:
+                $ref: '#/definitions/Tenant'

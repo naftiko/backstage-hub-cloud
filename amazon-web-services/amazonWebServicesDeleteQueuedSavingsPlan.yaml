@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDeleteQueuedSavingsPlan
+  description: Deletes the queued purchase for the specified Savings Plan.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletequeuedsavingsplan
+      description: Deletes the queued purchase for the specified Savings Plan.
+    paths:
+      /DeleteQueuedSavingsPlan:
+        POST:
+          summary: Deletequeuedsavingsplan
+          description: Deletes the queued purchase for the specified Savings Plan.
+          operationId: amazonWebServicesDeleteQueuedSavingsPlan

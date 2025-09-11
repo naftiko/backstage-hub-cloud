@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureBackupschedulegroupsGet
+  description: Returns the properties of the specified backup schedule group name.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Storsimple Managers Managername Devices Devicename
+        Backupschedulegroups Schedulegroupname
+      description: Returns the properties of the specified backup schedule group name.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorSimple/managers/{managerName}/devices/{deviceName}/backupScheduleGroups/{scheduleGroupName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Storsimple Managers Managername Devices Devicename
+            Backupschedulegroups Schedulegroupname
+          description: Returns the properties of the specified backup schedule group name.
+          operationId: microsoftAzureBackupschedulegroupsGet
+          responses:
+            default:
+              description: >-
+                Default Response. It will be deserialized as per the Error
+                definition specified in the schema. Exception will be thrown.
+              schema:
+                $ref: '#/definitions/Error'

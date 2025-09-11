@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureOperationalizationclustersListbysubscriptionid
+  description: Gets the operationalization clusters in the specified subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft Machinelearningcompute
+        Operationalizationclusters
+      description: Gets the operationalization clusters in the specified subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.MachineLearningCompute/operationalizationClusters:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft
+            Machinelearningcompute Operationalizationclusters
+          description: Gets the operationalization clusters in the specified subscription.
+          operationId: microsoftAzureOperationalizationclustersListbysubscriptionid
+          responses:
+            '200':
+              description: >-
+                OK. The response includes a paginated array of cluster objects and a
+                URI to the next set of results, if any. Note that the cluster
+                objects are sparsely populated to conserve space in the response
+                content. To get the full cluster object, call the GET operation on
+                the cluster.
+              schema:
+                $ref: '#/definitions/PaginatedOperationalizationClustersList'

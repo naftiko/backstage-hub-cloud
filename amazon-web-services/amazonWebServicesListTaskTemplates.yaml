@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListTaskTemplates
+  description: Lists task templates for the specified Amazon Connect instance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listtasktemplates
+      description: Lists task templates for the specified Amazon Connect instance.
+    paths:
+      /instance/{InstanceId}/task/template:
+        GET:
+          summary: Listtasktemplates
+          description: Lists task templates for the specified Amazon Connect instance.
+          operationId: amazonWebServicesListTaskTemplates

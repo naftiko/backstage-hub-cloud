@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureJobGetdebugdatapath
+  description: Gets the job debug data information specified by the job ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Jobs Jobidentity Getdebugdatapath
+      description: Gets the job debug data information specified by the job ID.
+    paths:
+      /jobs/{jobIdentity}/GetDebugDataPath:
+        get:
+          summary: Get Jobs Jobidentity Getdebugdatapath
+          description: Gets the job debug data information specified by the job ID.
+          operationId: microsoftAzureJobGetdebugdatapath
+          responses:
+            '200':
+              description: Successfully retrieved debug data paths of the specified job.
+              schema:
+                $ref: '#/definitions/JobDataPath'

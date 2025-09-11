@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureReplicationstorageclassificationsList
+  description: Lists the storage classifications in the vault.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Gets The List Of Storage Classification Objects Under A Vault '
+      description: Lists the storage classifications in the vault.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationStorageClassifications:
+        get:
+          summary: 'Gets The List Of Storage Classification Objects Under A Vault '
+          description: Lists the storage classifications in the vault.
+          operationId: microsoftAzureReplicationstorageclassificationsList
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/StorageClassificationCollection'

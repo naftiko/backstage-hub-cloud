@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGetcorrelatedeventlist
+  description: The response is list of FabricEvents.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Gets All Correlated Events For A Given Event '
+      description: The response is list of FabricEvents.
+    paths:
+      /EventsStore/CorrelatedEvents/{eventInstanceId}/$/Events:
+        get:
+          summary: 'Gets All Correlated Events For A Given Event '
+          description: The response is list of FabricEvents.
+          operationId: microsoftAzureGetcorrelatedeventlist
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

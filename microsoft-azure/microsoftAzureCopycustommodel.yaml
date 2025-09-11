@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureCopycustommodel
+  description: >-
+    Copy custom model stored in this resource (the source) to user specified
+    target Form Recognizer resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Copy Custom Model
+      description: >-
+        Copy custom model stored in this resource (the source) to user specified
+        target Form Recognizer resource.
+    paths:
+      /custom/models/{modelId}/copy:
+        post:
+          summary: Copy Custom Model
+          description: >-
+            Copy custom model stored in this resource (the source) to user specified
+            target Form Recognizer resource.
+          operationId: microsoftAzureCopycustommodel
+          responses:
+            default:
+              description: >-
+                Response entity accompanying non-successful responses containing
+                additional details about the error.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

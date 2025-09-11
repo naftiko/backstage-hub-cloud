@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesPing
+  description: Checks the health of the service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Ping
+      description: Checks the health of the service.
+    paths:
+      /ping:
+        GET:
+          summary: Ping
+          description: Checks the health of the service.
+          operationId: amazonWebServicesPing

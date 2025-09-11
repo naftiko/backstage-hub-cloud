@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureConversionGetoperation
+  description: >-
+    This path will be obtained from a call to POST /conversions.  While in
+    progress, an http200 will be returned with no extra headers -  followed by
+    an http200 with Resource-Location header once successfully completed.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Conversions Operations Operationid
+      description: >-
+        This path will be obtained from a call to POST /conversions.  While in
+        progress, an http200 will be returned with no extra headers -  followed by
+        an http200 with Resource-Location header once successfully completed.
+    paths:
+      /conversions/operations/{operationId}:
+        get:
+          summary: Get Conversions Operations Operationid
+          description: >-
+            This path will be obtained from a call to POST /conversions.  While in
+            progress, an http200 will be returned with no extra headers -  followed
+            by an http200 with Resource-Location header once successfully completed.
+          operationId: microsoftAzureConversionGetoperation
+          responses:
+            '400':
+              $ref: '#/responses/400'

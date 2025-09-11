@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesRemoveProfilePermission
+  description: Removes cross-account permissions from a signing profile.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Removeprofilepermission
+      description: Removes cross-account permissions from a signing profile.
+    paths:
+      /signing-profiles/{profileName}/permissions/{statementId}:
+        DELETE:
+          summary: Removeprofilepermission
+          description: Removes cross-account permissions from a signing profile.
+          operationId: amazonWebServicesRemoveProfilePermission

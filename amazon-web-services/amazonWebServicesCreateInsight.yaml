@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreateInsight
+  description: >-
+    Creates a custom insight in Security Hub. An insight is a consolidation of
+    findings that relate to a security issue that requires attention or
+    remediation. To group the related findings in the insight, use the
+    GroupByAttribute.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createinsight
+      description: >-
+        Creates a custom insight in Security Hub. An insight is a consolidation of
+        findings that relate to a security issue that requires attention or
+        remediation. To group the related findings in the insight, use the
+        GroupByAttribute.
+    paths:
+      /insights:
+        POST:
+          summary: Createinsight
+          description: >-
+            Creates a custom insight in Security Hub. An insight is a consolidation
+            of findings that relate to a security issue that requires attention or
+            remediation. To group the related findings in the insight, use the
+            GroupByAttribute.
+          operationId: amazonWebServicesCreateInsight

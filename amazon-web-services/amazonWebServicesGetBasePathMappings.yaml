@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetBasePathMappings
+  description: Represents a collection of BasePathMapping resources.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getbasepathmappings
+      description: Represents a collection of BasePathMapping resources.
+    paths:
+      /domainnames/{domain_name}/basepathmappings:
+        GET:
+          summary: Getbasepathmappings
+          description: Represents a collection of BasePathMapping resources.
+          operationId: amazonWebServicesGetBasePathMappings

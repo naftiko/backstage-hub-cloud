@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureNotificationregistrationsGet
+  description: Gets the notification registration details.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft Providerhub
+        Providerregistrations Providernamespace Notificationregistrations
+        Notificationregistrationname
+      description: Gets the notification registration details.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/notificationRegistrations/{notificationRegistrationName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft Providerhub
+            Providerregistrations Providernamespace Notificationregistrations
+            Notificationregistrationname
+          description: Gets the notification registration details.
+          operationId: microsoftAzureNotificationregistrationsGet
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'

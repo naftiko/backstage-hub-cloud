@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureProjectsCreate
+  description: >-
+    Creates a Team Services project in the collection with the specified name.
+    'VersionControlOption' and 'ProcessTemplateId' must be specified in the
+    resource properties. Valid values for VersionControlOption: Git, Tfvc. Valid
+    values for ProcessTemplateId: 6B724908-EF14-45CF-84F8-768B5384DA45,
+    ADCC42AB-9882-485E-A3ED-7678F01F66BC, 27450541-8E31-4150-9947-DC59F998FC01
+    (these IDs correspond to Scrum, Agile, and CMMI process templates).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Projects Create
+      description: >-
+        Creates a Team Services project in the collection with the specified name.
+        'VersionControlOption' and 'ProcessTemplateId' must be specified in the
+        resource properties. Valid values for VersionControlOption: Git, Tfvc. Valid
+        values for ProcessTemplateId: 6B724908-EF14-45CF-84F8-768B5384DA45,
+        ADCC42AB-9882-485E-A3ED-7678F01F66BC, 27450541-8E31-4150-9947-DC59F998FC01
+        (these IDs correspond to Scrum, Agile, and CMMI process templates).
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.visualstudio/account/{rootResourceName}/project/{resourceName}:
+        put:
+          summary: Projects Create
+          description: >-
+            Creates a Team Services project in the collection with the specified
+            name. 'VersionControlOption' and 'ProcessTemplateId' must be specified
+            in the resource properties. Valid values for VersionControlOption: Git,
+            Tfvc. Valid values for ProcessTemplateId:
+            6B724908-EF14-45CF-84F8-768B5384DA45,
+            ADCC42AB-9882-485E-A3ED-7678F01F66BC,
+            27450541-8E31-4150-9947-DC59F998FC01 (these IDs correspond to Scrum,
+            Agile, and CMMI process templates).
+          operationId: microsoftAzureProjectsCreate
+          responses:
+            '202':
+              description: >-
+                The operation succeeded. A job to create the team project resource
+                has been queued. The URI to monitor the status of the job is
+                provided in the 'location' header.

@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetSolFunctionPackageDescriptor
+  description: >-
+    Gets a function package descriptor in a function package. A function package
+    descriptor is a .yaml file in a function package that uses the TOSCA
+    standard to describe how the network function in the function package should
+    run on your network. A function package is a .zip file in CSAR (Cloud
+    Service Archive) format that contains a network function (an ETSI standard
+    telecommunication application) and function package descriptor that uses the
+    TOSCA standard to describe how the network functions should run on your
+    network.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getsolfunctionpackagedescriptor
+      description: >-
+        Gets a function package descriptor in a function package. A function package
+        descriptor is a .yaml file in a function package that uses the TOSCA
+        standard to describe how the network function in the function package should
+        run on your network. A function package is a .zip file in CSAR (Cloud
+        Service Archive) format that contains a network function (an ETSI standard
+        telecommunication application) and function package descriptor that uses the
+        TOSCA standard to describe how the network functions should run on your
+        network.
+    paths:
+      /sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/vnfd:
+        GET:
+          summary: Getsolfunctionpackagedescriptor
+          description: >-
+            Gets a function package descriptor in a function package. A function
+            package descriptor is a .yaml file in a function package that uses the
+            TOSCA standard to describe how the network function in the function
+            package should run on your network. A function package is a .zip file in
+            CSAR (Cloud Service Archive) format that contains a network function (an
+            ETSI standard telecommunication application) and function package
+            descriptor that uses the TOSCA standard to describe how the network
+            functions should run on your network.
+          operationId: amazonWebServicesGetSolFunctionPackageDescriptor

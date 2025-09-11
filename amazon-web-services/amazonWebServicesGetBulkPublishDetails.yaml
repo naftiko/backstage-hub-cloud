@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetBulkPublishDetails
+  description: >-
+    Get the status of the last BulkPublish operation for an identity pool.This
+    API can only be called with developer credentials. You cannot call this API
+    with the temporary user credentials provided by Cognito Identity.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getbulkpublishdetails
+      description: >-
+        Get the status of the last BulkPublish operation for an identity pool.This
+        API can only be called with developer credentials. You cannot call this API
+        with the temporary user credentials provided by Cognito Identity.
+    paths:
+      /identitypools/{IdentityPoolId}/getBulkPublishDetails:
+        POST:
+          summary: Getbulkpublishdetails
+          description: >-
+            Get the status of the last BulkPublish operation for an identity
+            pool.This API can only be called with developer credentials. You cannot
+            call this API with the temporary user credentials provided by Cognito
+            Identity.
+          operationId: amazonWebServicesGetBulkPublishDetails

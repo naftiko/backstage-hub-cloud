@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreatePracticeRunConfiguration
+  description: >-
+    A practice run configuration for zonal autoshift is required when you enable
+    zonal autoshift. A practice run configuration includes specifications for
+    blocked dates and blocked time windows, and for Amazon CloudWatch alarms
+    that you create to use with practice runs. The alarms that you specify are
+    an outcome alarm, to monitor application health during practice runs and,
+    optionally, a blocking alarm, to block practice runs from starting. For more
+    information, see  Considerations when you configure zonal autoshift in the
+    Amazon Route 53 Application Recovery Controller Developer Guide.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createpracticerunconfiguration
+      description: >-
+        A practice run configuration for zonal autoshift is required when you enable
+        zonal autoshift. A practice run configuration includes specifications for
+        blocked dates and blocked time windows, and for Amazon CloudWatch alarms
+        that you create to use with practice runs. The alarms that you specify are
+        an outcome alarm, to monitor application health during practice runs and,
+        optionally, a blocking alarm, to block practice runs from starting. For more
+        information, see  Considerations when you configure zonal autoshift in the
+        Amazon Route 53 Application Recovery Controller Developer Guide.
+    paths:
+      /configuration:
+        POST:
+          summary: Createpracticerunconfiguration
+          description: >-
+            A practice run configuration for zonal autoshift is required when you
+            enable zonal autoshift. A practice run configuration includes
+            specifications for blocked dates and blocked time windows, and for
+            Amazon CloudWatch alarms that you create to use with practice runs. The
+            alarms that you specify are an outcome alarm, to monitor application
+            health during practice runs and, optionally, a blocking alarm, to block
+            practice runs from starting. For more information, see  Considerations
+            when you configure zonal autoshift in the Amazon Route 53 Application
+            Recovery Controller Developer Guide.
+          operationId: amazonWebServicesCreatePracticeRunConfiguration

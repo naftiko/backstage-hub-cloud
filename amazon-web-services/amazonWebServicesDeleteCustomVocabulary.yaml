@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDeleteCustomVocabulary
+  description: Removes a custom vocabulary from the specified locale in the specified bot.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deletecustomvocabulary
+      description: Removes a custom vocabulary from the specified locale in the specified bot.
+    paths:
+      /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary:
+        DELETE:
+          summary: Deletecustomvocabulary
+          description: >-
+            Removes a custom vocabulary from the specified locale in the specified
+            bot.
+          operationId: amazonWebServicesDeleteCustomVocabulary

@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googleDrivelabelsLabelsRevisionsLocksList
+  description: Lists the LabelLocks on a Label.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve Parent Locks
+      description: Lists the LabelLocks on a Label.
+    paths:
+      /v2/{parent}/locks:
+        get:
+          summary: Retrieve Parent Locks
+          description: Lists the LabelLocks on a Label.
+          operationId: googleDrivelabelsLabelsRevisionsLocksList
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: >-
+                      #/components/schemas/GoogleAppsDriveLabelsV2ListLabelLocksResponse
+              description: Successful response

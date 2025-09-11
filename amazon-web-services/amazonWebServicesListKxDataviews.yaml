@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListKxDataviews
+  description: ' Returns a list of all the dataviews in the database.'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listkxdataviews
+      description: ' Returns a list of all the dataviews in the database.'
+    paths:
+      /kx/environments/{environmentId}/databases/{databaseName}/dataviews:
+        GET:
+          summary: Listkxdataviews
+          description: ' Returns a list of all the dataviews in the database.'
+          operationId: amazonWebServicesListKxDataviews

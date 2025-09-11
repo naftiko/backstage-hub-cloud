@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureTranslatorTransliterate
+  description: >-
+    Converts the text of a language in one script into another type of script.
+    Example- <br>Japanese script "こんにちは"<br>Same word in Latin script
+    "konnichiha"<br>
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Transliterate
+      description: >-
+        Converts the text of a language in one script into another type of script.
+        Example- <br>Japanese script "こんにちは"<br>Same word in Latin script
+        "konnichiha"<br>
+    paths:
+      /transliterate:
+        post:
+          summary: Post Transliterate
+          description: >-
+            Converts the text of a language in one script into another type of
+            script. Example- <br>Japanese script "こんにちは"<br>Same word in Latin
+            script "konnichiha"<br>
+          operationId: microsoftAzureTranslatorTransliterate
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/ErrorMessage'

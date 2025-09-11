@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePaymentmethodsGetbyuser
+  description: Gets a payment method owned by the caller.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Providers Microsoft Billing Paymentmethods Paymentmethodname
+      description: Gets a payment method owned by the caller.
+    paths:
+      /providers/Microsoft.Billing/paymentMethods/{paymentMethodName}:
+        get:
+          summary: Get Providers Microsoft Billing Paymentmethods Paymentmethodname
+          description: Gets a payment method owned by the caller.
+          operationId: microsoftAzurePaymentmethodsGetbyuser
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./types.json#/definitions/ErrorResponse

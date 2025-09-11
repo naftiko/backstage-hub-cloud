@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureEmailGetsendstatus
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Gets The Status Of A Message Sent Previously '
+      description: Needs a more full description created.
+    paths:
+      /emails/{messageId}/status:
+        get:
+          summary: 'Gets The Status Of A Message Sent Previously '
+          description: Needs a more full description created.
+          operationId: microsoftAzureEmailGetsendstatus
+          responses:
+            default:
+              description: Error
+              headers:
+                x-ms-error-code:
+                  description: >-
+                    Error code - this will be the same as the code in the error
+                    property in the response body.
+                  type: string
+              schema:
+                $ref: >-
+                  ../../../Common/stable/2021-03-07/common.json#/definitions/CommunicationErrorResponse

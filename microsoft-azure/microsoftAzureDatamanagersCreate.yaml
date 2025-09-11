@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDatamanagersCreate
+  description: >-
+    Creates a new data manager resource with the specified parameters. Existing
+    resources cannot be updated with this API<br>and should instead be updated
+    with the Update data manager resource API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Hybriddata Datamanagers Datamanagername
+      description: >-
+        Creates a new data manager resource with the specified parameters. Existing
+        resources cannot be updated with this API<br>and should instead be updated
+        with the Update data manager resource API.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridData/dataManagers/{dataManagerName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Hybriddata Datamanagers Datamanagername
+          description: >-
+            Creates a new data manager resource with the specified parameters.
+            Existing resources cannot be updated with this API<br>and should instead
+            be updated with the Update data manager resource API.
+          operationId: microsoftAzureDatamanagersCreate
+          responses:
+            '202':
+              description: Accepted request for create/update.

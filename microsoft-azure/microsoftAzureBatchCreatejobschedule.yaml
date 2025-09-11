@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureBatchCreatejobschedule
+  description: Creates a Job Schedule to the specified Account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Creates A Job Schedule To The Specified Account '
+      description: Creates a Job Schedule to the specified Account.
+    paths:
+      /jobschedules:
+        post:
+          summary: 'Creates A Job Schedule To The Specified Account '
+          description: Creates a Job Schedule to the specified Account.
+          operationId: microsoftAzureBatchCreatejobschedule
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/BatchError'

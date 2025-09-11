@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesPutIntegration
+  description: >-
+    Adds an integration between the service and a third-party service, which
+    includes Amazon AppFlow and Amazon Connect. An integration can belong to
+    only one domain. To add or remove tags on an existing Integration, see 
+    TagResource / UntagResource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putintegration
+      description: >-
+        Adds an integration between the service and a third-party service, which
+        includes Amazon AppFlow and Amazon Connect. An integration can belong to
+        only one domain. To add or remove tags on an existing Integration, see 
+        TagResource / UntagResource.
+    paths:
+      /domains/{DomainName}/integrations:
+        PUT:
+          summary: Putintegration
+          description: >-
+            Adds an integration between the service and a third-party service, which
+            includes Amazon AppFlow and Amazon Connect. An integration can belong to
+            only one domain. To add or remove tags on an existing Integration, see 
+            TagResource / UntagResource.
+          operationId: amazonWebServicesPutIntegration

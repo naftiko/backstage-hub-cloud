@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreateParticipant
+  description: >-
+    Adds a new participant into an on-going chat contact. For more information,
+    see Customize chat flow experiences by integrating custom participants.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createparticipant
+      description: >-
+        Adds a new participant into an on-going chat contact. For more information,
+        see Customize chat flow experiences by integrating custom participants.
+    paths:
+      /contact/create-participant:
+        POST:
+          summary: Createparticipant
+          description: >-
+            Adds a new participant into an on-going chat contact. For more
+            information, see Customize chat flow experiences by integrating custom
+            participants.
+          operationId: amazonWebServicesCreateParticipant

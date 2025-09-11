@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureImagesGenerate
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Generates A Batch Of Images From A Text Caption
+      description: Needs a more full description created.
+    paths:
+      /images/generations:submit:
+        post:
+          summary: Generates A Batch Of Images From A Text Caption
+          description: Needs a more full description created.
+          operationId: microsoftAzureImagesGenerate
+          responses:
+            default:
+              description: An error occurred.
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: The error code indicating what went wrong.
+                x-ms-request-id:
+                  type: string
+                  format: uuid
+                  description: >-
+                    Service generated correlation id identifying the request, in the
+                    form of a GUID.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

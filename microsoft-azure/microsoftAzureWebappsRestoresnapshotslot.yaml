@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebappsRestoresnapshotslot
+  description: Description for Restores a web app from a snapshot.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Restores A Web App From A Snapshot '
+      description: Description for Restores a web app from a snapshot.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/restoreSnapshot:
+        post:
+          summary: 'Restores A Web App From A Snapshot '
+          description: Description for Restores a web app from a snapshot.
+          operationId: microsoftAzureWebappsRestoresnapshotslot
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

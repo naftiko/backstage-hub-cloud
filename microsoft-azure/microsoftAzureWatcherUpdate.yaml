@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWatcherUpdate
+  description: Update the watcher identified by watcher name.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft Automation Automationaccounts Automationaccountname
+        Watchers Watchername
+      description: Update the watcher identified by watcher name.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/watchers/{watcherName}:
+        patch:
+          summary: >-
+            Patch Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Automation Automationaccounts Automationaccountname
+            Watchers Watchername
+          description: Update the watcher identified by watcher name.
+          operationId: microsoftAzureWatcherUpdate
+          responses:
+            default:
+              description: Automation error response describing why the operation failed.
+              schema:
+                $ref: ../../common/v1/definitions.json#/definitions/ErrorResponse

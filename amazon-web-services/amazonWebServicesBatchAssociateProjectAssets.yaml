@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesBatchAssociateProjectAssets
+  description: Associates a group (batch) of assets with an IoT SiteWise Monitor project.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchassociateprojectassets
+      description: Associates a group (batch) of assets with an IoT SiteWise Monitor project.
+    paths:
+      /projects/{projectId}/assets/associate:
+        POST:
+          summary: Batchassociateprojectassets
+          description: >-
+            Associates a group (batch) of assets with an IoT SiteWise Monitor
+            project.
+          operationId: amazonWebServicesBatchAssociateProjectAssets

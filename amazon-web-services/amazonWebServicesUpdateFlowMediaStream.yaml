@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateFlowMediaStream
+  description: Updates an existing media stream.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateflowmediastream
+      description: Updates an existing media stream.
+    paths:
+      /v1/flows/{flowArn}/mediaStreams/{mediaStreamName}:
+        PUT:
+          summary: Updateflowmediastream
+          description: Updates an existing media stream.
+          operationId: amazonWebServicesUpdateFlowMediaStream

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureEventscontrollerDelete
+  description: >-
+    Delete the migrate event. Deleting non-existent migrate event is a
+    no-operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Delete The Migrate Event
+      description: >-
+        Delete the migrate event. Deleting non-existent migrate event is a
+        no-operation.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName}/migrateEvents/{eventName}:
+        delete:
+          summary: Delete The Migrate Event
+          description: >-
+            Delete the migrate event. Deleting non-existent migrate event is a
+            no-operation.
+          operationId: microsoftAzureEventscontrollerDelete
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

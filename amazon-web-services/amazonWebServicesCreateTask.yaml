@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreateTask
+  description: >-
+    Instructs one or more devices to start a task, such as unlocking or
+    rebooting.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createtask
+      description: >-
+        Instructs one or more devices to start a task, such as unlocking or
+        rebooting.
+    paths:
+      /task:
+        POST:
+          summary: Createtask
+          description: >-
+            Instructs one or more devices to start a task, such as unlocking or
+            rebooting.
+          operationId: amazonWebServicesCreateTask

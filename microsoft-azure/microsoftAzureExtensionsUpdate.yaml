@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureExtensionsUpdate
+  description: >-
+    Updates an existing extension registration for the Visual Studio Team
+    Services account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Extensions Update
+      description: >-
+        Updates an existing extension registration for the Visual Studio Team
+        Services account.
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.visualstudio/account/{accountResourceName}/extension/{extensionResourceName}:
+        patch:
+          summary: Extensions Update
+          description: >-
+            Updates an existing extension registration for the Visual Studio Team
+            Services account.
+          operationId: microsoftAzureExtensionsUpdate
+          responses:
+            '200':
+              description: >-
+                The operation succeeded. The extension resource was updated for the
+                specified account.
+              schema:
+                $ref: '#/definitions/ExtensionResource'

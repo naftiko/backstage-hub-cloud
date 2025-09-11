@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureCreateimagesfromurls
+  description: >-
+    This API accepts a batch of urls, and optionally tags, to create images.
+    There is a limit of 64 images and 20 tags.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Add The Provided Images Urls To The Set Of Training Images
+      description: >-
+        This API accepts a batch of urls, and optionally tags, to create images.
+        There is a limit of 64 images and 20 tags.
+    paths:
+      /projects/{projectId}/images/urls:
+        post:
+          summary: Add The Provided Images Urls To The Set Of Training Images
+          description: >-
+            This API accepts a batch of urls, and optionally tags, to create images.
+            There is a limit of 64 images and 20 tags.
+          operationId: microsoftAzureCreateimagesfromurls
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/ImageCreateSummary'

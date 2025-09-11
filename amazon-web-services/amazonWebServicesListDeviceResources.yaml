@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListDeviceResources
+  description: >-
+    Returns a list of the Amazon Web Services resources available for a device.
+    Currently, Amazon EC2 instances are the only supported resource type.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listdeviceresources
+      description: >-
+        Returns a list of the Amazon Web Services resources available for a device.
+        Currently, Amazon EC2 instances are the only supported resource type.
+    paths:
+      /managed-device/{managedDeviceId}/resources:
+        GET:
+          summary: Listdeviceresources
+          description: >-
+            Returns a list of the Amazon Web Services resources available for a
+            device. Currently, Amazon EC2 instances are the only supported resource
+            type.
+          operationId: amazonWebServicesListDeviceResources

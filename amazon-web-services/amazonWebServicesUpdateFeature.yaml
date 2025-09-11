@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateFeature
+  description: >-
+    Updates an existing feature. You can't use this operation to update the tags
+    of an existing feature. Instead, use TagResource. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatefeature
+      description: >-
+        Updates an existing feature. You can't use this operation to update the tags
+        of an existing feature. Instead, use TagResource. 
+    paths:
+      /projects/{project}/features/{feature}:
+        PATCH:
+          summary: Updatefeature
+          description: >-
+            Updates an existing feature. You can't use this operation to update the
+            tags of an existing feature. Instead, use TagResource. 
+          operationId: amazonWebServicesUpdateFeature

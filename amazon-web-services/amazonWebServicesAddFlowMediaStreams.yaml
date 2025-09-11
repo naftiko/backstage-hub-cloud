@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesAddFlowMediaStreams
+  description: >-
+    Adds media streams to an existing flow. After you add a media stream to a
+    flow, you can associate it with a source and/or an output that uses the ST
+    2110 JPEG XS or CDI protocol.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Addflowmediastreams
+      description: >-
+        Adds media streams to an existing flow. After you add a media stream to a
+        flow, you can associate it with a source and/or an output that uses the ST
+        2110 JPEG XS or CDI protocol.
+    paths:
+      /v1/flows/{flowArn}/mediaStreams:
+        POST:
+          summary: Addflowmediastreams
+          description: >-
+            Adds media streams to an existing flow. After you add a media stream to
+            a flow, you can associate it with a source and/or an output that uses
+            the ST 2110 JPEG XS or CDI protocol.
+          operationId: amazonWebServicesAddFlowMediaStreams

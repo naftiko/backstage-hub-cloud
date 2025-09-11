@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDeleteResourcePolicy
+  description: Deletes a resource policy from the target Amazon Web Services account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deleteresourcepolicy
+      description: Deletes a resource policy from the target Amazon Web Services account.
+    paths:
+      /DeleteResourcePolicy:
+        POST:
+          summary: Deleteresourcepolicy
+          description: Deletes a resource policy from the target Amazon Web Services account.
+          operationId: amazonWebServicesDeleteResourcePolicy

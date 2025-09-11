@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureRunsGetbyquery
+  description: Get all Runs for a specific Experiment with the specified query filters.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Get All Runs For A Specific Experiment '
+      description: Get all Runs for a specific Experiment with the specified query filters.
+    paths:
+      /history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/runs:query:
+        post:
+          summary: 'Get All Runs For A Specific Experiment '
+          description: Get all Runs for a specific Experiment with the specified query filters.
+          operationId: microsoftAzureRunsGetbyquery
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

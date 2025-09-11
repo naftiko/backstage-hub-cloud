@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListLaunches
+  description: >-
+    Returns configuration details about all the launches in the specified
+    project.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listlaunches
+      description: >-
+        Returns configuration details about all the launches in the specified
+        project.
+    paths:
+      /projects/{project}/launches:
+        GET:
+          summary: Listlaunches
+          description: >-
+            Returns configuration details about all the launches in the specified
+            project.
+          operationId: amazonWebServicesListLaunches

@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureTextdependentVerifyprofile
+  description: >-
+    Verifies existing profiles against input audio.<br><br>Limitations:<br>*
+    Minimum audio input length per request is **1 second**<br>* Maximum audio
+    input length per request is **10 seconds**<br>* Minimum audio
+    Signal-to-noise ratio (SNR) is **10 dB**
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Verify Profile
+      description: >-
+        Verifies existing profiles against input audio.<br><br>Limitations:<br>*
+        Minimum audio input length per request is **1 second**<br>* Maximum audio
+        input length per request is **10 seconds**<br>* Minimum audio
+        Signal-to-noise ratio (SNR) is **10 dB**
+    paths:
+      /text-dependent/profiles/{profileId}/verify:
+        post:
+          summary: Verify Profile
+          description: >-
+            Verifies existing profiles against input audio.<br><br>Limitations:<br>*
+            Minimum audio input length per request is **1 second**<br>* Maximum
+            audio input length per request is **10 seconds**<br>* Minimum audio
+            Signal-to-noise ratio (SNR) is **10 dB**
+          operationId: microsoftAzureTextdependentVerifyprofile
+          responses:
+            '500':
+              $ref: '#/responses/ServerError'

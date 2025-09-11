@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureKubernetesclustersCreateorupdate
+  description: >-
+    Create a new Kubernetes cluster or update the properties of the existing
+    one.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Create Or Update The Kubernetes Cluster '
+      description: >-
+        Create a new Kubernetes cluster or update the properties of the existing
+        one.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters/{kubernetesClusterName}:
+        put:
+          summary: 'Create Or Update The Kubernetes Cluster '
+          description: >-
+            Create a new Kubernetes cluster or update the properties of the existing
+            one.
+          operationId: microsoftAzureKubernetesclustersCreateorupdate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

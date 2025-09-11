@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAppserviceenvironmentsListmultirolemetricdefinitions
+  description: >-
+    Description for Get metric definitions for a multi-role pool of an App
+    Service Environment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Get Metric Definitions For A Multi Role Pool Of An App Service Environment '
+      description: >-
+        Description for Get metric definitions for a multi-role pool of an App
+        Service Environment.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/multiRolePools/default/metricdefinitions:
+        get:
+          summary: >-
+            Get Metric Definitions For A Multi Role Pool Of An App Service
+            Environment 
+          description: >-
+            Description for Get metric definitions for a multi-role pool of an App
+            Service Environment.
+          operationId: microsoftAzureAppserviceenvironmentsListmultirolemetricdefinitions
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

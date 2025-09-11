@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListCACertificates
+  description: >-
+    Lists the CA certificates registered for your Amazon Web Services account.
+    The results are paginated with a default page size of 25. You can use the
+    returned marker to retrieve additional results. Requires permission to
+    access the ListCACertificates action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listcacertificates
+      description: >-
+        Lists the CA certificates registered for your Amazon Web Services account.
+        The results are paginated with a default page size of 25. You can use the
+        returned marker to retrieve additional results. Requires permission to
+        access the ListCACertificates action.
+    paths:
+      /cacertificates:
+        GET:
+          summary: Listcacertificates
+          description: >-
+            Lists the CA certificates registered for your Amazon Web Services
+            account. The results are paginated with a default page size of 25. You
+            can use the returned marker to retrieve additional results. Requires
+            permission to access the ListCACertificates action.
+          operationId: amazonWebServicesListCACertificates

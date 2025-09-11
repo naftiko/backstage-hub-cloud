@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSecurityconnectorsCreateorupdate
+  description: >-
+    Creates or updates a security connector. If a security connector is already
+    created and a subsequent request is issued for the same security connector
+    id, then it will be updated.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Security Securityconnectors Securityconnectorname
+      description: >-
+        Creates or updates a security connector. If a security connector is already
+        created and a subsequent request is issued for the same security connector
+        id, then it will be updated.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Security Securityconnectors Securityconnectorname
+          description: >-
+            Creates or updates a security connector. If a security connector is
+            already created and a subsequent request is issued for the same security
+            connector id, then it will be updated.
+          operationId: microsoftAzureSecurityconnectorsCreateorupdate
+          responses:
+            default:
+              description: Error response that describes why the operation failed.
+              schema:
+                $ref: ../../../common/v1/types.json#/definitions/CloudError

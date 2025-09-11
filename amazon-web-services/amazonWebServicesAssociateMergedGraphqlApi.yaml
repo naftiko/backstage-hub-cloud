@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesAssociateMergedGraphqlApi
+  description: >-
+    Creates an association between a Merged API and source API using the source
+    API's identifier.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Associatemergedgraphqlapi
+      description: >-
+        Creates an association between a Merged API and source API using the source
+        API's identifier.
+    paths:
+      /v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations:
+        POST:
+          summary: Associatemergedgraphqlapi
+          description: >-
+            Creates an association between a Merged API and source API using the
+            source API's identifier.
+          operationId: amazonWebServicesAssociateMergedGraphqlApi

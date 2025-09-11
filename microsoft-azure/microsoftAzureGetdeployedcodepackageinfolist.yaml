@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGetdeployedcodepackageinfolist
+  description: >-
+    Gets the list of code packages deployed on a Service Fabric node for the
+    given application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Gets The List Of Code Packages Deployed On A Service Fabric Node '
+      description: >-
+        Gets the list of code packages deployed on a Service Fabric node for the
+        given application.
+    paths:
+      /Nodes/{nodeName}/$/GetApplications/{applicationId}/$/GetCodePackages:
+        get:
+          summary: 'Gets The List Of Code Packages Deployed On A Service Fabric Node '
+          description: >-
+            Gets the list of code packages deployed on a Service Fabric node for the
+            given application.
+          operationId: microsoftAzureGetdeployedcodepackageinfolist
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

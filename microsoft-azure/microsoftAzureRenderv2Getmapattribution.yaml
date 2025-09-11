@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureRenderv2Getmapattribution
+  description: >-
+    **Applies to**: S0 and S1 pricing tiers.<br><br>The Get Map Attribution API
+    allows users to request map copyright attribution information for a section
+    of a tileset.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Map Attribution
+      description: >-
+        **Applies to**: S0 and S1 pricing tiers.<br><br>The Get Map Attribution API
+        allows users to request map copyright attribution information for a section
+        of a tileset.
+    paths:
+      /map/attribution:
+        get:
+          summary: Get Map Attribution
+          description: >-
+            **Applies to**: S0 and S1 pricing tiers.<br><br>The Get Map Attribution
+            API allows users to request map copyright attribution information for a
+            section of a tileset.
+          operationId: microsoftAzureRenderv2Getmapattribution
+          responses:
+            '500':
+              $ref: '#/responses/500'

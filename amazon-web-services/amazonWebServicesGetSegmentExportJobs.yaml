@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetSegmentExportJobs
+  description: >-
+    Retrieves information about the status and settings of the export jobs for a
+    segment.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getsegmentexportjobs
+      description: >-
+        Retrieves information about the status and settings of the export jobs for a
+        segment.
+    paths:
+      /v1/apps/{application-id}/segments/{segment-id}/jobs/export:
+        GET:
+          summary: Getsegmentexportjobs
+          description: >-
+            Retrieves information about the status and settings of the export jobs
+            for a segment.
+          operationId: amazonWebServicesGetSegmentExportJobs

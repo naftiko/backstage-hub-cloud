@@ -1,0 +1,64 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateDatasetEntries
+  description: >-
+    Adds or updates one or more JSON Line entries in a dataset. A JSON Line
+    includes information about an image used for training or testing an Amazon
+    Lookout for Vision model. To update an existing JSON Line, use the
+    source-ref field to identify the JSON Line. The JSON line that you supply
+    replaces the existing JSON line. Any existing annotations that are not in
+    the new JSON line are removed from the dataset.  For more information, see
+    Defining JSON lines for anomaly classification in the Amazon Lookout for
+    Vision Developer Guide.   The images you reference in the source-ref field
+    of a JSON line, must be in the same S3 bucket as the existing images in the
+    dataset.   Updating a dataset might take a while to complete. To check the
+    current status, call DescribeDataset and check the Status field in the
+    response. This operation requires permissions to perform the
+    lookoutvision:UpdateDatasetEntries operation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatedatasetentries
+      description: >-
+        Adds or updates one or more JSON Line entries in a dataset. A JSON Line
+        includes information about an image used for training or testing an Amazon
+        Lookout for Vision model. To update an existing JSON Line, use the
+        source-ref field to identify the JSON Line. The JSON line that you supply
+        replaces the existing JSON line. Any existing annotations that are not in
+        the new JSON line are removed from the dataset.  For more information, see
+        Defining JSON lines for anomaly classification in the Amazon Lookout for
+        Vision Developer Guide.   The images you reference in the source-ref field
+        of a JSON line, must be in the same S3 bucket as the existing images in the
+        dataset.   Updating a dataset might take a while to complete. To check the
+        current status, call DescribeDataset and check the Status field in the
+        response. This operation requires permissions to perform the
+        lookoutvision:UpdateDatasetEntries operation.
+    paths:
+      /2020-11-20/projects/{projectName}/datasets/{datasetType}/entries:
+        PATCH:
+          summary: Updatedatasetentries
+          description: >-
+            Adds or updates one or more JSON Line entries in a dataset. A JSON Line
+            includes information about an image used for training or testing an
+            Amazon Lookout for Vision model. To update an existing JSON Line, use
+            the source-ref field to identify the JSON Line. The JSON line that you
+            supply replaces the existing JSON line. Any existing annotations that
+            are not in the new JSON line are removed from the dataset.  For more
+            information, see Defining JSON lines for anomaly classification in the
+            Amazon Lookout for Vision Developer Guide.   The images you reference in
+            the source-ref field of a JSON line, must be in the same S3 bucket as
+            the existing images in the dataset.   Updating a dataset might take a
+            while to complete. To check the current status, call DescribeDataset and
+            check the Status field in the response. This operation requires
+            permissions to perform the lookoutvision:UpdateDatasetEntries operation.
+          operationId: amazonWebServicesUpdateDatasetEntries

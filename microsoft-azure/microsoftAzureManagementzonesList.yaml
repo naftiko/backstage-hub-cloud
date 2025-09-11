@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureManagementzonesList
+  description: Returns a paginated list of management zone resources across all parties.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Management Zones
+      description: Returns a paginated list of management zone resources across all parties.
+    paths:
+      /management-zones:
+        get:
+          summary: Get Management Zones
+          description: >-
+            Returns a paginated list of management zone resources across all
+            parties.
+          operationId: microsoftAzureManagementzonesList
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  x-ms-client-name: ErrorCode
+              x-ms-error-response: true

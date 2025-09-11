@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureJobsExport
+  description: >-
+    Triggers export of jobs specified by filters and returns an OperationID to
+    track.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Recoveryservices Vaults Vaultname Backupjobsexport
+      description: >-
+        Triggers export of jobs specified by filters and returns an OperationID to
+        track.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobsExport:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Recoveryservices Vaults Vaultname Backupjobsexport
+          description: >-
+            Triggers export of jobs specified by filters and returns an OperationID
+            to track.
+          operationId: microsoftAzureJobsExport
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

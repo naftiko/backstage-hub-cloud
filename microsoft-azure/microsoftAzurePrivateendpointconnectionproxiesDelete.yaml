@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePrivateendpointconnectionproxiesDelete
+  description: >-
+    (INTERNAL - DO NOT USE) Deletes the specified private endpoint connection
+    proxy associated with the device update account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft Deviceupdate Accounts Accountname
+        Privateendpointconnectionproxies Privateendpointconnectionproxyid
+      description: >-
+        (INTERNAL - DO NOT USE) Deletes the specified private endpoint connection
+        proxy associated with the device update account.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceUpdate/accounts/{accountName}/privateEndpointConnectionProxies/{privateEndpointConnectionProxyId}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Deviceupdate Accounts Accountname
+            Privateendpointconnectionproxies Privateendpointconnectionproxyid
+          description: >-
+            (INTERNAL - DO NOT USE) Deletes the specified private endpoint
+            connection proxy associated with the device update account.
+          operationId: microsoftAzurePrivateendpointconnectionproxiesDelete
+          responses:
+            default:
+              description: Error response describing the reason for operation failure.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

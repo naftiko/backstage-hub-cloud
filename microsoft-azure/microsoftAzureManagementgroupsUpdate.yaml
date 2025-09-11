@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureManagementgroupsUpdate
+  description: Update a management group.<br>
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Patch Providers Microsoft Management Managementgroups Groupid
+      description: Update a management group.<br>
+    paths:
+      /providers/Microsoft.Management/managementGroups/{groupId}:
+        patch:
+          summary: Patch Providers Microsoft Management Managementgroups Groupid
+          description: Update a management group.<br>
+          operationId: microsoftAzureManagementgroupsUpdate
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'

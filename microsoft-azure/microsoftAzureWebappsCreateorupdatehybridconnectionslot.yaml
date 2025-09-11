@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebappsCreateorupdatehybridconnectionslot
+  description: Description for Creates a new Hybrid Connection using a Service Bus relay.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Creates A New Hybrid Connection Using A Service Bus Relay '
+      description: Description for Creates a new Hybrid Connection using a Service Bus relay.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName}:
+        put:
+          summary: 'Creates A New Hybrid Connection Using A Service Bus Relay '
+          description: >-
+            Description for Creates a new Hybrid Connection using a Service Bus
+            relay.
+          operationId: microsoftAzureWebappsCreateorupdatehybridconnectionslot
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

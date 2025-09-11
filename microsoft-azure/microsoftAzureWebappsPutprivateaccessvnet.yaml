@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebappsPutprivateaccessvnet
+  description: >-
+    Description for Sets data around private site access enablement and
+    authorized Virtual Networks that can access the site.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Sets Data Around Private Site Access Enablement And Authorized Virtual
+        Networks That Can Access The Site 
+      description: >-
+        Description for Sets data around private site access enablement and
+        authorized Virtual Networks that can access the site.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/privateAccess/virtualNetworks:
+        put:
+          summary: >-
+            Sets Data Around Private Site Access Enablement And Authorized Virtual
+            Networks That Can Access The Site 
+          description: >-
+            Description for Sets data around private site access enablement and
+            authorized Virtual Networks that can access the site.
+          operationId: microsoftAzureWebappsPutprivateaccessvnet
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

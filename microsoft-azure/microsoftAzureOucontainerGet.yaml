@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureOucontainerGet
+  description: Get OuContainer in DomainService instance.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Particular Oucontainer In Domainservice Instance
+      description: Get OuContainer in DomainService instance.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Aad/domainServices/{domainServiceName}/ouContainer/{ouContainerName}:
+        get:
+          summary: Get Particular Oucontainer In Domainservice Instance
+          description: Get OuContainer in DomainService instance.
+          operationId: microsoftAzureOucontainerGet
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./domainservices.json#/definitions/CloudError

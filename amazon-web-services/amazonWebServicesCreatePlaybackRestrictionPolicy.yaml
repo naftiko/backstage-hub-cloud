@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreatePlaybackRestrictionPolicy
+  description: >-
+    Creates a new playback restriction policy, for constraining playback by
+    countries and/or origins.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createplaybackrestrictionpolicy
+      description: >-
+        Creates a new playback restriction policy, for constraining playback by
+        countries and/or origins.
+    paths:
+      /CreatePlaybackRestrictionPolicy:
+        POST:
+          summary: Createplaybackrestrictionpolicy
+          description: >-
+            Creates a new playback restriction policy, for constraining playback by
+            countries and/or origins.
+          operationId: amazonWebServicesCreatePlaybackRestrictionPolicy

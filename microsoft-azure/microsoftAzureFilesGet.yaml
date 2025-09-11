@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureFilesGet
+  description: Returns details of a specific file in a work space.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft Support Fileworkspaces
+        Fileworkspacename Files Filename
+      description: Returns details of a specific file in a work space.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Support/fileWorkspaces/{fileWorkspaceName}/files/{fileName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft Support
+            Fileworkspaces Fileworkspacename Files Filename
+          description: Returns details of a specific file in a work space.
+          operationId: microsoftAzureFilesGet
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

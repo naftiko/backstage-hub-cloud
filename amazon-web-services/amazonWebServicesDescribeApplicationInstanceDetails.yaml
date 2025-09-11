@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDescribeApplicationInstanceDetails
+  description: Returns information about an application instance's configuration manifest.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeapplicationinstancedetails
+      description: Returns information about an application instance's configuration manifest.
+    paths:
+      /application-instances/{ApplicationInstanceId}/details:
+        GET:
+          summary: Describeapplicationinstancedetails
+          description: >-
+            Returns information about an application instance's configuration
+            manifest.
+          operationId: amazonWebServicesDescribeApplicationInstanceDetails

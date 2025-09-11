@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebappsGetonedeploystatus
+  description: >-
+    Description for Invoke onedeploy status API /api/deployments and gets the
+    deployment status for the site
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Invoke Onedeploy Status Api Api Deployments And Gets The Deployment Status
+        For The Site
+      description: >-
+        Description for Invoke onedeploy status API /api/deployments and gets the
+        deployment status for the site
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/extensions/onedeploy:
+        get:
+          summary: >-
+            Invoke Onedeploy Status Api Api Deployments And Gets The Deployment
+            Status For The Site
+          description: >-
+            Description for Invoke onedeploy status API /api/deployments and gets
+            the deployment status for the site
+          operationId: microsoftAzureWebappsGetonedeploystatus
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

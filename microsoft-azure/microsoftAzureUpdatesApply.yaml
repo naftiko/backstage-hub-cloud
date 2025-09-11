@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureUpdatesApply
+  description: Apply a specific update at an update location.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Update Admin Updatelocations Updatelocation Updates Updatename
+        Apply
+      description: Apply a specific update at an update location.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Update.Admin/updateLocations/{updateLocation}/updates/{updateName}/Apply:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Update Admin Updatelocations Updatelocation Updates
+            Updatename Apply
+          description: Apply a specific update at an update location.
+          operationId: microsoftAzureUpdatesApply
+          responses:
+            '202':
+              description: ACCEPTED
+              schema:
+                $ref: UpdateRuns.json#/definitions/UpdateRun

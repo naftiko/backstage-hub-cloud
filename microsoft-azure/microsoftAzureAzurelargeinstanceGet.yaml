@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAzurelargeinstanceGet
+  description: >-
+    Gets an Azure Large Instance for the specified subscription, resource
+    group,<br>and instance name.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Azurelargeinstance Azurelargeinstances Azurelargeinstancename
+      description: >-
+        Gets an Azure Large Instance for the specified subscription, resource
+        group,<br>and instance name.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureLargeInstance/azureLargeInstances/{azureLargeInstanceName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Azurelargeinstance Azurelargeinstances
+            Azurelargeinstancename
+          description: >-
+            Gets an Azure Large Instance for the specified subscription, resource
+            group,<br>and instance name.
+          operationId: microsoftAzureAzurelargeinstanceGet
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

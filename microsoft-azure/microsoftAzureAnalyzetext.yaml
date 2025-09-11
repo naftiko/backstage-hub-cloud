@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAnalyzetext
+  description: >-
+    Submit a collection of text documents for analysis.  Specify a single unique
+    task to be executed immediately.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Request Text Analysis Over A Collection Of Documents '
+      description: >-
+        Submit a collection of text documents for analysis.  Specify a single unique
+        task to be executed immediately.
+    paths:
+      /:analyze-text:
+        post:
+          summary: 'Request Text Analysis Over A Collection Of Documents '
+          description: >-
+            Submit a collection of text documents for analysis.  Specify a single
+            unique task to be executed immediately.
+          operationId: microsoftAzureAnalyzetext
+          responses:
+            default:
+              description: Unexpected error
+              schema:
+                $ref: common.json#/definitions/ErrorResponse

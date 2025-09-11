@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateTLSInspectionConfiguration
+  description: >-
+    Updates the TLS inspection configuration settings for the specified TLS
+    inspection configuration. You use a TLS inspection configuration by
+    referencing it in one or more firewall policies. When you modify a TLS
+    inspection configuration, you modify all firewall policies that use the TLS
+    inspection configuration.  To update a TLS inspection configuration, first
+    call DescribeTLSInspectionConfiguration to retrieve the current
+    TLSInspectionConfiguration object, update the object as needed, and then
+    provide the updated object to this call. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatetlsinspectionconfiguration
+      description: >-
+        Updates the TLS inspection configuration settings for the specified TLS
+        inspection configuration. You use a TLS inspection configuration by
+        referencing it in one or more firewall policies. When you modify a TLS
+        inspection configuration, you modify all firewall policies that use the TLS
+        inspection configuration.  To update a TLS inspection configuration, first
+        call DescribeTLSInspectionConfiguration to retrieve the current
+        TLSInspectionConfiguration object, update the object as needed, and then
+        provide the updated object to this call. 
+    paths:
+      /:
+        POST:
+          summary: Updatetlsinspectionconfiguration
+          description: >-
+            Updates the TLS inspection configuration settings for the specified TLS
+            inspection configuration. You use a TLS inspection configuration by
+            referencing it in one or more firewall policies. When you modify a TLS
+            inspection configuration, you modify all firewall policies that use the
+            TLS inspection configuration.  To update a TLS inspection configuration,
+            first call DescribeTLSInspectionConfiguration to retrieve the current
+            TLSInspectionConfiguration object, update the object as needed, and then
+            provide the updated object to this call. 
+          operationId: amazonWebServicesUpdateTLSInspectionConfiguration

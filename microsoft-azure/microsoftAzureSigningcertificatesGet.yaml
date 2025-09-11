@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSigningcertificatesGet
+  description: Retrieves metadata signing certificates in use by the attestation service
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieves The Attestation Signing Keys In Use By The Attestation Service
+      description: Retrieves metadata signing certificates in use by the attestation service
+    paths:
+      /certs:
+        get:
+          summary: Retrieves The Attestation Signing Keys In Use By The Attestation Service
+          description: >-
+            Retrieves metadata signing certificates in use by the attestation
+            service
+          operationId: microsoftAzureSigningcertificatesGet
+          responses:
+            default:
+              description: Error response describing why the operation failed
+              schema:
+                $ref: '#/definitions/CloudError'

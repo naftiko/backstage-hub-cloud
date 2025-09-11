@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureLinkerListconfigurations
+  description: list source configurations for a Linker.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Resourceuri Providers Microsoft Servicelinker Linkers Linkername
+        Listconfigurations
+      description: list source configurations for a Linker.
+    paths:
+      /{resourceUri}/providers/Microsoft.ServiceLinker/linkers/{linkerName}/listConfigurations:
+        post:
+          summary: >-
+            Post Resourceuri Providers Microsoft Servicelinker Linkers Linkername
+            Listconfigurations
+          description: list source configurations for a Linker.
+          operationId: microsoftAzureLinkerListconfigurations
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

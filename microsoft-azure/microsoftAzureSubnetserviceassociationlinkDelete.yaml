@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSubnetserviceassociationlinkDelete
+  description: >-
+    Delete container group virtual network association links. The operation does
+    not delete other resources provided by the user.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Delete Container Group Virtual Network Association Links '
+      description: >-
+        Delete container group virtual network association links. The operation does
+        not delete other resources provided by the user.
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default:
+        delete:
+          summary: 'Delete Container Group Virtual Network Association Links '
+          description: >-
+            Delete container group virtual network association links. The operation
+            does not delete other resources provided by the user.
+          operationId: microsoftAzureSubnetserviceassociationlinkDelete
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

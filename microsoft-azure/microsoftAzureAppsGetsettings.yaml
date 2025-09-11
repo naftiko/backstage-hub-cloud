@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAppsGetsettings
+  description: Get the application settings including 'UseAllTrainingData'.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Apps Appid Settings
+      description: Get the application settings including 'UseAllTrainingData'.
+    paths:
+      /apps/{appId}/settings:
+        get:
+          summary: Get Apps Appid Settings
+          description: Get the application settings including 'UseAllTrainingData'.
+          operationId: microsoftAzureAppsGetsettings
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

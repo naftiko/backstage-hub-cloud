@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListDelegatedAdminAccounts
+  description: >-
+    Lists information about the Amazon Inspector delegated administrator of your
+    organization.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listdelegatedadminaccounts
+      description: >-
+        Lists information about the Amazon Inspector delegated administrator of your
+        organization.
+    paths:
+      /delegatedadminaccounts/list:
+        POST:
+          summary: Listdelegatedadminaccounts
+          description: >-
+            Lists information about the Amazon Inspector delegated administrator of
+            your organization.
+          operationId: amazonWebServicesListDelegatedAdminAccounts

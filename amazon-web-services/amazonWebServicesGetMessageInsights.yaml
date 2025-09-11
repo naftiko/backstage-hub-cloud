@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetMessageInsights
+  description: >-
+    Provides information about a specific message, including the from address,
+    the subject, the recipient address, email tags, as well as events associated
+    with the message. You can execute this operation no more than once per
+    second.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getmessageinsights
+      description: >-
+        Provides information about a specific message, including the from address,
+        the subject, the recipient address, email tags, as well as events associated
+        with the message. You can execute this operation no more than once per
+        second.
+    paths:
+      /v2/email/insights/{MessageId}/:
+        GET:
+          summary: Getmessageinsights
+          description: >-
+            Provides information about a specific message, including the from
+            address, the subject, the recipient address, email tags, as well as
+            events associated with the message. You can execute this operation no
+            more than once per second.
+          operationId: amazonWebServicesGetMessageInsights

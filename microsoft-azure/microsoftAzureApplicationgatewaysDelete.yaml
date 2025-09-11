@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureApplicationgatewaysDelete
+  description: >-
+    The delete application gateway operation deletes the specified application
+    gateway.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft Network Applicationgateways Applicationgatewayname
+      description: >-
+        The delete application gateway operation deletes the specified application
+        gateway.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Network Applicationgateways Applicationgatewayname
+          description: >-
+            The delete application gateway operation deletes the specified
+            application gateway.
+          operationId: microsoftAzureApplicationgatewaysDelete
+          responses:
+            '204':
+              description: ''

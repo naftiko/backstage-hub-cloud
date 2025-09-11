@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesViewBilling
+  description: >-
+    Returns all the domain-related billing records for the current Amazon Web
+    Services account for a specified period
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Viewbilling
+      description: >-
+        Returns all the domain-related billing records for the current Amazon Web
+        Services account for a specified period
+    paths:
+      /:
+        POST:
+          summary: Viewbilling
+          description: >-
+            Returns all the domain-related billing records for the current Amazon
+            Web Services account for a specified period
+          operationId: amazonWebServicesViewBilling

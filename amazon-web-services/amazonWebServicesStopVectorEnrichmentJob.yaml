@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesStopVectorEnrichmentJob
+  description: Stops the Vector Enrichment job for a given job ARN.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Stopvectorenrichmentjob
+      description: Stops the Vector Enrichment job for a given job ARN.
+    paths:
+      /vector-enrichment-jobs/stop:
+        POST:
+          summary: Stopvectorenrichmentjob
+          description: Stops the Vector Enrichment job for a given job ARN.
+          operationId: amazonWebServicesStopVectorEnrichmentJob

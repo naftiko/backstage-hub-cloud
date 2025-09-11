@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDisassociatePhoneNumberFromUser
+  description: >-
+    Disassociates the primary provisioned phone number from the specified Amazon
+    Chime user.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Disassociatephonenumberfromuser
+      description: >-
+        Disassociates the primary provisioned phone number from the specified Amazon
+        Chime user.
+    paths:
+      /accounts/{accountId}/users/{userId}?operation=disassociate-phone-number:
+        POST:
+          summary: Disassociatephonenumberfromuser
+          description: >-
+            Disassociates the primary provisioned phone number from the specified
+            Amazon Chime user.
+          operationId: amazonWebServicesDisassociatePhoneNumberFromUser

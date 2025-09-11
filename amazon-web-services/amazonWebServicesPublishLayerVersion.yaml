@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesPublishLayerVersion
+  description: >-
+    Creates an Lambda layer from a ZIP archive. Each time you call
+    PublishLayerVersion with the same layer name, a new version is created. Add
+    layers to your function with CreateFunction or UpdateFunctionConfiguration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Publishlayerversion
+      description: >-
+        Creates an Lambda layer from a ZIP archive. Each time you call
+        PublishLayerVersion with the same layer name, a new version is created. Add
+        layers to your function with CreateFunction or UpdateFunctionConfiguration.
+    paths:
+      /2018-10-31/layers/{LayerName}/versions:
+        POST:
+          summary: Publishlayerversion
+          description: >-
+            Creates an Lambda layer from a ZIP archive. Each time you call
+            PublishLayerVersion with the same layer name, a new version is created.
+            Add layers to your function with CreateFunction or
+            UpdateFunctionConfiguration.
+          operationId: amazonWebServicesPublishLayerVersion

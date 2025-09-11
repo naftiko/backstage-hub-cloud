@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureRunsStartrun
+  description: >-
+    Starts an experiment run using the provided definition.json file to define
+    the run.<br>            The source code and configuration is defined in a
+    zip archive in project.zip.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Start A Run On A Remote Compute Target '
+      description: >-
+        Starts an experiment run using the provided definition.json file to define
+        the run.<br>            The source code and configuration is defined in a
+        zip archive in project.zip.
+    paths:
+      /execution/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/startrun:
+        post:
+          summary: 'Start A Run On A Remote Compute Target '
+          description: >-
+            Starts an experiment run using the provided definition.json file to
+            define the run.<br>            The source code and configuration is
+            defined in a zip archive in project.zip.
+          operationId: microsoftAzureRunsStartrun
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

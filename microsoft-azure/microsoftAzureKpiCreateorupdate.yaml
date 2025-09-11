@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureKpiCreateorupdate
+  description: Creates a KPI or updates an existing KPI in the hub.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Customerinsights Hubs Hubname Kpi Kpiname
+      description: Creates a KPI or updates an existing KPI in the hub.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/kpi/{kpiName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Customerinsights Hubs Hubname Kpi Kpiname
+          description: Creates a KPI or updates an existing KPI in the hub.
+          operationId: microsoftAzureKpiCreateorupdate
+          responses:
+            '202':
+              description: Accepted. The create KPI operation is accepted.

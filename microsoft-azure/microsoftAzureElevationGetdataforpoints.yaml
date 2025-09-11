@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureElevationGetdataforpoints
+  description: >-
+    **Applies to**: S1 pricing tier.<br><br>The Get Data for Points API provides
+    elevation data for one or more points.  A point is defined in lat,long
+    coordinate format.<br><br> Due to the URL character  length limit of 2048,
+    it's not possible to pass more than 100 coordinates  as a pipeline delimited
+    string in a URL GET request. If you intend to pass  more than 100
+    coordinates as a pipeline delimited string, use the [POST Data<br> For
+    Points](https://docs.microsoft.com/en-us/rest/api/maps/elevation/postdataforpoints).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Elevation Data On One Or More Points
+      description: >-
+        **Applies to**: S1 pricing tier.<br><br>The Get Data for Points API provides
+        elevation data for one or more points.  A point is defined in lat,long
+        coordinate format.<br><br> Due to the URL character  length limit of 2048,
+        it's not possible to pass more than 100 coordinates  as a pipeline delimited
+        string in a URL GET request. If you intend to pass  more than 100
+        coordinates as a pipeline delimited string, use the [POST Data<br> For
+        Points](https://docs.microsoft.com/en-us/rest/api/maps/elevation/postdataforpoints).
+    paths:
+      /elevation/point/{format}:
+        get:
+          summary: Get Elevation Data On One Or More Points
+          description: >-
+            **Applies to**: S1 pricing tier.<br><br>The Get Data for Points API
+            provides elevation data for one or more points.  A point is defined in
+            lat,long coordinate format.<br><br> Due to the URL character  length
+            limit of 2048, it's not possible to pass more than 100 coordinates  as a
+            pipeline delimited string in a URL GET request. If you intend to pass 
+            more than 100 coordinates as a pipeline delimited string, use the [POST
+            Data<br> For
+            Points](https://docs.microsoft.com/en-us/rest/api/maps/elevation/postdataforpoints).
+          operationId: microsoftAzureElevationGetdataforpoints
+          responses:
+            '500':
+              $ref: '#/responses/500'

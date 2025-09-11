@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDigitaltwinsListincomingrelationships
+  description: >-
+    Retrieves all incoming relationship for a digital twin.<br>Status
+    codes:<br>* 200 OK<br>* 400 Bad Request<br>  * InvalidArgument - The digital
+    twin id is invalid.<br>* 404 Not Found<br>  * DigitalTwinNotFound - The
+    digital twin was not found.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Digitaltwins Id Incomingrelationships
+      description: >-
+        Retrieves all incoming relationship for a digital twin.<br>Status
+        codes:<br>* 200 OK<br>* 400 Bad Request<br>  * InvalidArgument - The digital
+        twin id is invalid.<br>* 404 Not Found<br>  * DigitalTwinNotFound - The
+        digital twin was not found.
+    paths:
+      /digitaltwins/{id}/incomingrelationships:
+        get:
+          summary: Get Digitaltwins Id Incomingrelationships
+          description: >-
+            Retrieves all incoming relationship for a digital twin.<br>Status
+            codes:<br>* 200 OK<br>* 400 Bad Request<br>  * InvalidArgument - The
+            digital twin id is invalid.<br>* 404 Not Found<br>  *
+            DigitalTwinNotFound - The digital twin was not found.
+          operationId: microsoftAzureDigitaltwinsListincomingrelationships
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureTextanalysisauthoringListdeployments
+  description: Lists the deployments belonging to a project.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Authoring Analyze Text Projects Projectname Deployments
+      description: Lists the deployments belonging to a project.
+    paths:
+      /authoring/analyze-text/projects/{projectName}/deployments:
+        get:
+          summary: Get Authoring Analyze Text Projects Projectname Deployments
+          description: Lists the deployments belonging to a project.
+          operationId: microsoftAzureTextanalysisauthoringListdeployments
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: common.json#/definitions/ErrorResponse

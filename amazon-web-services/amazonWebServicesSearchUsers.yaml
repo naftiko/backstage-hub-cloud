@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesSearchUsers
+  description: >-
+    Searches users in an Amazon Connect instance, with optional filtering.   
+    AfterContactWorkTimeLimit is returned in milliseconds.  
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Searchusers
+      description: >-
+        Searches users in an Amazon Connect instance, with optional filtering.   
+        AfterContactWorkTimeLimit is returned in milliseconds.  
+    paths:
+      /search-users:
+        POST:
+          summary: Searchusers
+          description: >-
+            Searches users in an Amazon Connect instance, with optional
+            filtering.    AfterContactWorkTimeLimit is returned in milliseconds.  
+          operationId: amazonWebServicesSearchUsers

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureEventsGetevent
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Gets An Event In The Migrate Project '
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName}/migrateEvents/{eventName}:
+        get:
+          summary: 'Gets An Event In The Migrate Project '
+          description: Needs a more full description created.
+          operationId: microsoftAzureEventsGetevent
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/MigrateEvent'

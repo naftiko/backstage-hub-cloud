@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureEventsubscriptionsGetfullurl
+  description: Get the full endpoint URL for an event subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Get Full Url Of An Event Subscription '
+      description: Get the full endpoint URL for an event subscription.
+    paths:
+      /{scope}/providers/Microsoft.EventGrid/eventSubscriptions/{eventSubscriptionName}/getFullUrl:
+        post:
+          summary: 'Get Full Url Of An Event Subscription '
+          description: Get the full endpoint URL for an event subscription.
+          operationId: microsoftAzureEventsubscriptionsGetfullurl
+          responses:
+            default:
+              description: |-
+                *** Error Responses: ***
+
+                 * 400 Bad Request.
+
+                 * 500 Internal Server Error.

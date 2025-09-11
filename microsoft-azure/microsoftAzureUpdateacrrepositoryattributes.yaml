@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureUpdateacrrepositoryattributes
+  description: >-
+    Update the attribute identified by `name` where `reference` is the name of
+    the repository.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Patch Acr Name
+      description: >-
+        Update the attribute identified by `name` where `reference` is the name of
+        the repository.
+    paths:
+      /acr/v1/{name}:
+        patch:
+          summary: Patch Acr Name
+          description: >-
+            Update the attribute identified by `name` where `reference` is the name
+            of the repository.
+          operationId: microsoftAzureUpdateacrrepositoryattributes
+          responses:
+            default:
+              description: ACR error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/AcrErrors'

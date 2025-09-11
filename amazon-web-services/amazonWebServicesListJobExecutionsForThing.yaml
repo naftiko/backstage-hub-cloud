@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListJobExecutionsForThing
+  description: >-
+    Lists the job executions for the specified thing. Requires permission to
+    access the ListJobExecutionsForThing action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listjobexecutionsforthing
+      description: >-
+        Lists the job executions for the specified thing. Requires permission to
+        access the ListJobExecutionsForThing action.
+    paths:
+      /things/{thingName}/jobs:
+        GET:
+          summary: Listjobexecutionsforthing
+          description: >-
+            Lists the job executions for the specified thing. Requires permission to
+            access the ListJobExecutionsForThing action.
+          operationId: amazonWebServicesListJobExecutionsForThing

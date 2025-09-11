@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureLoadtestrunGetappcomponents
+  description: >-
+    Get associated app component (collection of azure resources) for the given
+    test<br>run.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Associated App Component Collection Of Azure Resources For The Given
+        Test
+
+        run 
+      description: >-
+        Get associated app component (collection of azure resources) for the given
+        test<br>run.
+    paths:
+      /test-runs/{testRunId}/app-components:
+        get:
+          summary: >-
+            Get Associated App Component Collection Of Azure Resources For The Given
+            Test
+
+            run 
+          description: >-
+            Get associated app component (collection of azure resources) for the
+            given test<br>run.
+          operationId: microsoftAzureLoadtestrunGetappcomponents
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/Azure.Core.Foundations.ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: String error code indicating what went wrong.

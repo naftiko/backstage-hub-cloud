@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWorkspaceapireleaseListbyservice
+  description: >-
+    Lists all releases of an API. An API release is created when making an API
+    Revision current. Releases are also used to rollback to previous revisions.
+    Results will be paged and can be constrained by the $top and $skip
+    parameters.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Apimanagement Service Servicename Workspaces Workspaceid Apis
+        Apiid Releases
+      description: >-
+        Lists all releases of an API. An API release is created when making an API
+        Revision current. Releases are also used to rollback to previous revisions.
+        Results will be paged and can be constrained by the $top and $skip
+        parameters.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}/releases:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Apimanagement Service Servicename Workspaces
+            Workspaceid Apis Apiid Releases
+          description: >-
+            Lists all releases of an API. An API release is created when making an
+            API Revision current. Releases are also used to rollback to previous
+            revisions. Results will be paged and can be constrained by the $top and
+            $skip parameters.
+          operationId: microsoftAzureWorkspaceapireleaseListbyservice
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./apimanagement.json#/definitions/ErrorResponse

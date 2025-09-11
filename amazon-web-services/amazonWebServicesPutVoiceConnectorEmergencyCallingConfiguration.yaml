@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesPutVoiceConnectorEmergencyCallingConfiguration
+  description: Updates a Voice Connector's emergency calling configuration.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putvoiceconnectoremergencycallingconfiguration
+      description: Updates a Voice Connector's emergency calling configuration.
+    paths:
+      /voice-connectors/{voiceConnectorId}/emergency-calling-configuration:
+        PUT:
+          summary: Putvoiceconnectoremergencycallingconfiguration
+          description: Updates a Voice Connector's emergency calling configuration.
+          operationId: amazonWebServicesPutVoiceConnectorEmergencyCallingConfiguration

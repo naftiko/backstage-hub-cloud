@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePlantingdataListbypartyid
+  description: >-
+    Returns a paginated list of planting data resources under a particular
+    party.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Parties Partyid Planting Data
+      description: >-
+        Returns a paginated list of planting data resources under a particular
+        party.
+    paths:
+      /parties/{partyId}/planting-data:
+        get:
+          summary: Get Parties Partyid Planting Data
+          description: >-
+            Returns a paginated list of planting data resources under a particular
+            party.
+          operationId: microsoftAzurePlantingdataListbypartyid
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  x-ms-client-name: ErrorCode
+              x-ms-error-response: true

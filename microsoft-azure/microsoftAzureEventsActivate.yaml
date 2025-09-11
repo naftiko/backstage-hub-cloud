@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureEventsActivate
+  description: >-
+    Report that the specified event was actually used (e.g. by being displayed
+    to the user) and a reward should be expected for it.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Activate Event '
+      description: >-
+        Report that the specified event was actually used (e.g. by being displayed
+        to the user) and a reward should be expected for it.
+    paths:
+      /events/{eventId}/activate:
+        post:
+          summary: 'Activate Event '
+          description: >-
+            Report that the specified event was actually used (e.g. by being
+            displayed to the user) and a reward should be expected for it.
+          operationId: microsoftAzureEventsActivate
+          responses:
+            default:
+              description: Invalid activate event request.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

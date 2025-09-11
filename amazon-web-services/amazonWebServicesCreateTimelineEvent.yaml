@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreateTimelineEvent
+  description: >-
+    Creates a custom timeline event on the incident details page of an incident
+    record. Incident Manager automatically creates timeline events that mark key
+    moments during an incident. You can create custom timeline events to mark
+    important events that Incident Manager can detect automatically.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createtimelineevent
+      description: >-
+        Creates a custom timeline event on the incident details page of an incident
+        record. Incident Manager automatically creates timeline events that mark key
+        moments during an incident. You can create custom timeline events to mark
+        important events that Incident Manager can detect automatically.
+    paths:
+      /createTimelineEvent:
+        POST:
+          summary: Createtimelineevent
+          description: >-
+            Creates a custom timeline event on the incident details page of an
+            incident record. Incident Manager automatically creates timeline events
+            that mark key moments during an incident. You can create custom timeline
+            events to mark important events that Incident Manager can detect
+            automatically.
+          operationId: amazonWebServicesCreateTimelineEvent

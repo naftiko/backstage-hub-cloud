@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateDistributionWithStagingConfig
+  description: >-
+    Copies the staging distribution's configuration to its corresponding primary
+    distribution. The primary distribution retains its Aliases (also known as
+    alternate domain names or CNAMEs) and ContinuousDeploymentPolicyId value,
+    but otherwise its configuration is overwritten to match the staging
+    distribution. You can use this operation in a continuous deployment workflow
+    after you have tested configuration changes on the staging distribution.
+    After using a continuous deployment policy to move a portion of your domain
+    name's traffic to the staging distribution and verifying that it works as
+    intended, you can use this operation to copy the staging distribution's
+    configuration to the primary distribution. This action will disable the
+    continuous deployment policy and move your domain's traffic back to the
+    primary distribution. This API operation requires the following IAM
+    permissions:    GetDistribution     UpdateDistribution   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatedistributionwithstagingconfig
+      description: >-
+        Copies the staging distribution's configuration to its corresponding primary
+        distribution. The primary distribution retains its Aliases (also known as
+        alternate domain names or CNAMEs) and ContinuousDeploymentPolicyId value,
+        but otherwise its configuration is overwritten to match the staging
+        distribution. You can use this operation in a continuous deployment workflow
+        after you have tested configuration changes on the staging distribution.
+        After using a continuous deployment policy to move a portion of your domain
+        name's traffic to the staging distribution and verifying that it works as
+        intended, you can use this operation to copy the staging distribution's
+        configuration to the primary distribution. This action will disable the
+        continuous deployment policy and move your domain's traffic back to the
+        primary distribution. This API operation requires the following IAM
+        permissions:    GetDistribution     UpdateDistribution   
+    paths:
+      /2020-05-31/distribution/{Id}/promote-staging-config:
+        PUT:
+          summary: Updatedistributionwithstagingconfig
+          description: >-
+            Copies the staging distribution's configuration to its corresponding
+            primary distribution. The primary distribution retains its Aliases (also
+            known as alternate domain names or CNAMEs) and
+            ContinuousDeploymentPolicyId value, but otherwise its configuration is
+            overwritten to match the staging distribution. You can use this
+            operation in a continuous deployment workflow after you have tested
+            configuration changes on the staging distribution. After using a
+            continuous deployment policy to move a portion of your domain name's
+            traffic to the staging distribution and verifying that it works as
+            intended, you can use this operation to copy the staging distribution's
+            configuration to the primary distribution. This action will disable the
+            continuous deployment policy and move your domain's traffic back to the
+            primary distribution. This API operation requires the following IAM
+            permissions:    GetDistribution     UpdateDistribution   
+          operationId: amazonWebServicesUpdateDistributionWithStagingConfig

@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureReplicationjobsRestart
+  description: The operation to restart an Azure Site Recovery job.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Restarts The Specified Job '
+      description: The operation to restart an Azure Site Recovery job.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationJobs/{jobName}/restart:
+        post:
+          summary: 'Restarts The Specified Job '
+          description: The operation to restart an Azure Site Recovery job.
+          operationId: microsoftAzureReplicationjobsRestart
+          responses:
+            '202':
+              description: Accepted

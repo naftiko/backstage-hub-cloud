@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreateRobot
+  description: >-
+    Creates a robot.  This API is no longer supported and will throw an error if
+    used. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createrobot
+      description: >-
+        Creates a robot.  This API is no longer supported and will throw an error if
+        used. 
+    paths:
+      /createRobot:
+        POST:
+          summary: Createrobot
+          description: >-
+            Creates a robot.  This API is no longer supported and will throw an
+            error if used. 
+          operationId: amazonWebServicesCreateRobot

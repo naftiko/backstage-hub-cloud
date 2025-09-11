@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetSegment
+  description: >-
+    Returns information about the specified segment. Specify the segment you
+    want to view by specifying its ARN.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getsegment
+      description: >-
+        Returns information about the specified segment. Specify the segment you
+        want to view by specifying its ARN.
+    paths:
+      /segments/{segment}:
+        GET:
+          summary: Getsegment
+          description: >-
+            Returns information about the specified segment. Specify the segment you
+            want to view by specifying its ARN.
+          operationId: amazonWebServicesGetSegment

@@ -1,0 +1,66 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googlePatchcalendar
+  description: Updates metadata for a calendar. This method supports patch semantics.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Patch Calendar
+      description: Updates metadata for a calendar. This method supports patch semantics.
+    paths:
+      /calendars/{calendarId}:
+        patch:
+          summary: Patch Calendar
+          description: Updates metadata for a calendar. This method supports patch semantics.
+          operationId: googlePatchcalendar
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    conferenceProperties:
+                      allowedConferenceSolutionTypes:
+                        - anim enim ut veniam
+                        - sit labore
+                    description: officia enim aliquip ex
+                    etag: labore adipisicing fugiat
+                    id: est pro
+                    kind: calendar#calendar
+                    location: in voluptate commodo
+                    summary: labore adipisicing enim
+                    timeZone: cupidatat sed
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    conferenceProperties:
+                      allowedConferenceSolutionTypes:
+                        - anim enim ut veniam
+                        - sit labore
+                    description: officia enim aliquip ex
+                    etag: labore adipisicing fugiat
+                    id: est pro
+                    kind: calendar#calendar
+                    location: in voluptate commodo
+                    summary: labore adipisicing enim
+                    timeZone: cupidatat sed

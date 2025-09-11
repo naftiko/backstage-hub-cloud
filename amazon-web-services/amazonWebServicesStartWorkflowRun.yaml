@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesStartWorkflowRun
+  description: Begins a run of a specified workflow.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startworkflowrun
+      description: Begins a run of a specified workflow.
+    paths:
+      /v1/spaces/{spaceName}/projects/{projectName}/workflowRuns:
+        PUT:
+          summary: Startworkflowrun
+          description: Begins a run of a specified workflow.
+          operationId: amazonWebServicesStartWorkflowRun

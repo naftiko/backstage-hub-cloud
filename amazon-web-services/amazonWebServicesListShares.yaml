@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListShares
+  description: ' Lists all shares associated with an account. '
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listshares
+      description: ' Lists all shares associated with an account. '
+    paths:
+      /shares:
+        POST:
+          summary: Listshares
+          description: ' Lists all shares associated with an account. '
+          operationId: amazonWebServicesListShares

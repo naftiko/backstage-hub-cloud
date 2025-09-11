@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListIngestions
+  description: Lists the history of SPICE ingestions for a dataset.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listingestions
+      description: Lists the history of SPICE ingestions for a dataset.
+    paths:
+      /accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions:
+        GET:
+          summary: Listingestions
+          description: Lists the history of SPICE ingestions for a dataset.
+          operationId: amazonWebServicesListIngestions

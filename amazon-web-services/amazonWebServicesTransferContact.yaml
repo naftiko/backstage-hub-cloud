@@ -1,0 +1,56 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesTransferContact
+  description: >-
+    Transfers contacts from one agent or queue to another agent or queue at any
+    point after a contact is created. You can transfer a contact to another
+    queue by providing the flow which orchestrates the contact to the
+    destination queue. This gives you more control over contact handling and
+    helps you adhere to the service level agreement (SLA) guaranteed to your
+    customers. Note the following requirements:   Transfer is supported for only
+    TASK contacts.   Do not use both QueueId and UserId in the same call.   The
+    following flow types are supported: Inbound flow, Transfer to agent flow,
+    and Transfer to queue flow.   The TransferContact API can be called only on
+    active contacts.   A contact cannot be transferred more than 11 times.  
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Transfercontact
+      description: >-
+        Transfers contacts from one agent or queue to another agent or queue at any
+        point after a contact is created. You can transfer a contact to another
+        queue by providing the flow which orchestrates the contact to the
+        destination queue. This gives you more control over contact handling and
+        helps you adhere to the service level agreement (SLA) guaranteed to your
+        customers. Note the following requirements:   Transfer is supported for only
+        TASK contacts.   Do not use both QueueId and UserId in the same call.   The
+        following flow types are supported: Inbound flow, Transfer to agent flow,
+        and Transfer to queue flow.   The TransferContact API can be called only on
+        active contacts.   A contact cannot be transferred more than 11 times.  
+    paths:
+      /contact/transfer:
+        POST:
+          summary: Transfercontact
+          description: >-
+            Transfers contacts from one agent or queue to another agent or queue at
+            any point after a contact is created. You can transfer a contact to
+            another queue by providing the flow which orchestrates the contact to
+            the destination queue. This gives you more control over contact handling
+            and helps you adhere to the service level agreement (SLA) guaranteed to
+            your customers. Note the following requirements:   Transfer is supported
+            for only TASK contacts.   Do not use both QueueId and UserId in the same
+            call.   The following flow types are supported: Inbound flow, Transfer
+            to agent flow, and Transfer to queue flow.   The TransferContact API can
+            be called only on active contacts.   A contact cannot be transferred
+            more than 11 times.  
+          operationId: amazonWebServicesTransferContact

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreateToken
+  description: >-
+    Creates and returns access and refresh tokens for clients that are
+    authenticated using client secrets. The access token can be used to fetch
+    short-term credentials for the assigned AWS accounts or to access
+    application APIs using bearer authentication.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createtoken
+      description: >-
+        Creates and returns access and refresh tokens for clients that are
+        authenticated using client secrets. The access token can be used to fetch
+        short-term credentials for the assigned AWS accounts or to access
+        application APIs using bearer authentication.
+    paths:
+      /token:
+        POST:
+          summary: Createtoken
+          description: >-
+            Creates and returns access and refresh tokens for clients that are
+            authenticated using client secrets. The access token can be used to
+            fetch short-term credentials for the assigned AWS accounts or to access
+            application APIs using bearer authentication.
+          operationId: amazonWebServicesCreateToken

@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDiscoverygroupsListruns
+  description: >-
+    Retrieve a collection of discovery run results for a discovery group with a
+    given groupName.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Discogroups Groupname Runs
+      description: >-
+        Retrieve a collection of discovery run results for a discovery group with a
+        given groupName.
+    paths:
+      /discoGroups/{groupName}/runs:
+        get:
+          summary: Get Discogroups Groupname Runs
+          description: >-
+            Retrieve a collection of discovery run results for a discovery group
+            with a given groupName.
+          operationId: microsoftAzureDiscoverygroupsListruns
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/Azure.Core.Foundations.ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: String error code indicating what went wrong.

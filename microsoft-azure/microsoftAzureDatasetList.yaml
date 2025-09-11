@@ -1,0 +1,170 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDatasetList
+  description: >-
+    **Applies to:** see pricing
+    [tiers](https://aka.ms/AzureMapsPricingTier).<br><br>Creator makes it
+    possible to develop applications based on your private indoor map data using
+    Azure Maps API and SDK.
+    [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+    article introduces concepts and tools that apply to Azure Maps
+    Creator.<br><br>This API allows the caller to fetch a list of all previously
+    successfully created datasets.<br><br>### Submit List Request<br><br>To list
+    all your datasets, you will issue a `GET` request with no additional
+    parameters.<br><br><br>### List Data Response<br><br>The List API returns
+    the complete list of all datasets in `json` format. The response contains
+    the following fields (if they are not null or empty):<br>> created - The
+    timestamp the dataset was created.<br>> datasetId - The id for the
+    dataset.<br>> description - The description for the dataset.<br>>
+    datasetSources - The source data that was used when the create request was
+    issued.<br>> ontology - The source
+    [ontology](https://docs.microsoft.com/en-us/azure/azure-maps/creator-facility-ontology)
+    that was used in the conversion service for the input data.<br><br>The
+    `datasetSources` describes the source data that was used when the create
+    request was issued and contains the following elements (if they are not null
+    or empty):<br><br>> conversionIds - The list of `conversionId` (null if none
+    were provided).<br>> appendDatasetId - The `datasetId` that was used for an
+    append operation (null if none was used).<br>>featureCounts - The counts for
+    each feature type in the dataset.<br><br>Here's a sample response returning
+    the `timestamp`, `datasetId`, `description`, `datasetSources`, and
+    `ontology` of 3 dataset resources:<br><br><br>```json<br>{<br>  "datasets":
+    [<br>    {<br>      "timestamp": "2020-01-01T22:50:48.123Z",<br>     
+    "datasetId": "f6495f62-94f8-0ec2-c252-45626f82fcb2",<br>      "description":
+    "Some description or comment for the dataset.",<br>      "datasetSources":
+    {<br>        "conversionIds": [<br>         
+    "15d21452-c9bb-27b6-5e79-743ca5c3205d"<br>        ],      },<br>     
+    "ontology": "facility-2.0",<br>      "featureCounts": {<br>       
+    "directoryInfo": 2,<br>        "category": 10,<br>        "facility":
+    1,<br>        "level": 3,<br>        "unit": 183,<br>        "zone":
+    3,<br>        "verticalPenetration": 6,<br>        "opening": 48,<br>       
+    "areaElement": 108<br>      }<br>    },<br>    {<br>      "timestamp":
+    "2020-01-01T22:57:53.123Z",<br>      "datasetId":
+    "8b1288fa-1958-4a2b-b68e-13a7i5af7d7c",<br>      "description": "Create from
+    upload '0c1288fa-2058-4a1b-b68d-13a5f5af7d7c'.",<br>      "datasetSources":
+    {<br>        "conversionIds": [<br>         
+    "0c1288fa-2058-4a1b-b68d-13a5f5af7d7c"<br>        ],<br>       
+    "appendDatasetId": "46d1edb6-d29e-4786-9589-dbd4efd7a977"<br>     
+    },<br>      "ontology": "facility-2.0",<br>      "featureCounts":
+    {<br>        "directoryInfo": 2,<br>        "category": 10,<br>       
+    "facility": 1,<br>        "level": 3,<br>        "unit": 183,<br>       
+    "zone": 3,<br>        "verticalPenetration": 6,<br>        "opening":
+    48,<br>        "areaElement": 108<br>      }<br>    }<br>  ]<br>}<br>```
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Datasets
+      description: >-
+        **Applies to:** see pricing
+        [tiers](https://aka.ms/AzureMapsPricingTier).<br><br>Creator makes it
+        possible to develop applications based on your private indoor map data using
+        Azure Maps API and SDK.
+        [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+        article introduces concepts and tools that apply to Azure Maps
+        Creator.<br><br>This API allows the caller to fetch a list of all previously
+        successfully created datasets.<br><br>### Submit List Request<br><br>To list
+        all your datasets, you will issue a `GET` request with no additional
+        parameters.<br><br><br>### List Data Response<br><br>The List API returns
+        the complete list of all datasets in `json` format. The response contains
+        the following fields (if they are not null or empty):<br>> created - The
+        timestamp the dataset was created.<br>> datasetId - The id for the
+        dataset.<br>> description - The description for the dataset.<br>>
+        datasetSources - The source data that was used when the create request was
+        issued.<br>> ontology - The source
+        [ontology](https://docs.microsoft.com/en-us/azure/azure-maps/creator-facility-ontology)
+        that was used in the conversion service for the input data.<br><br>The
+        `datasetSources` describes the source data that was used when the create
+        request was issued and contains the following elements (if they are not null
+        or empty):<br><br>> conversionIds - The list of `conversionId` (null if none
+        were provided).<br>> appendDatasetId - The `datasetId` that was used for an
+        append operation (null if none was used).<br>>featureCounts - The counts for
+        each feature type in the dataset.<br><br>Here's a sample response returning
+        the `timestamp`, `datasetId`, `description`, `datasetSources`, and
+        `ontology` of 3 dataset resources:<br><br><br>```json<br>{<br>  "datasets":
+        [<br>    {<br>      "timestamp": "2020-01-01T22:50:48.123Z",<br>     
+        "datasetId": "f6495f62-94f8-0ec2-c252-45626f82fcb2",<br>      "description":
+        "Some description or comment for the dataset.",<br>      "datasetSources":
+        {<br>        "conversionIds": [<br>         
+        "15d21452-c9bb-27b6-5e79-743ca5c3205d"<br>        ],      },<br>     
+        "ontology": "facility-2.0",<br>      "featureCounts": {<br>       
+        "directoryInfo": 2,<br>        "category": 10,<br>        "facility":
+        1,<br>        "level": 3,<br>        "unit": 183,<br>        "zone":
+        3,<br>        "verticalPenetration": 6,<br>        "opening": 48,<br>       
+        "areaElement": 108<br>      }<br>    },<br>    {<br>      "timestamp":
+        "2020-01-01T22:57:53.123Z",<br>      "datasetId":
+        "8b1288fa-1958-4a2b-b68e-13a7i5af7d7c",<br>      "description": "Create from
+        upload '0c1288fa-2058-4a1b-b68d-13a5f5af7d7c'.",<br>      "datasetSources":
+        {<br>        "conversionIds": [<br>         
+        "0c1288fa-2058-4a1b-b68d-13a5f5af7d7c"<br>        ],<br>       
+        "appendDatasetId": "46d1edb6-d29e-4786-9589-dbd4efd7a977"<br>     
+        },<br>      "ontology": "facility-2.0",<br>      "featureCounts":
+        {<br>        "directoryInfo": 2,<br>        "category": 10,<br>       
+        "facility": 1,<br>        "level": 3,<br>        "unit": 183,<br>       
+        "zone": 3,<br>        "verticalPenetration": 6,<br>        "opening":
+        48,<br>        "areaElement": 108<br>      }<br>    }<br>  ]<br>}<br>```
+    paths:
+      /datasets:
+        get:
+          summary: Get Datasets
+          description: >-
+            **Applies to:** see pricing
+            [tiers](https://aka.ms/AzureMapsPricingTier).<br><br>Creator makes it
+            possible to develop applications based on your private indoor map data
+            using Azure Maps API and SDK.
+            [This](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps)
+            article introduces concepts and tools that apply to Azure Maps
+            Creator.<br><br>This API allows the caller to fetch a list of all
+            previously successfully created datasets.<br><br>### Submit List
+            Request<br><br>To list all your datasets, you will issue a `GET` request
+            with no additional parameters.<br><br><br>### List Data
+            Response<br><br>The List API returns the complete list of all datasets
+            in `json` format. The response contains the following fields (if they
+            are not null or empty):<br>> created - The timestamp the dataset was
+            created.<br>> datasetId - The id for the dataset.<br>> description - The
+            description for the dataset.<br>> datasetSources - The source data that
+            was used when the create request was issued.<br>> ontology - The source
+            [ontology](https://docs.microsoft.com/en-us/azure/azure-maps/creator-facility-ontology)
+            that was used in the conversion service for the input data.<br><br>The
+            `datasetSources` describes the source data that was used when the create
+            request was issued and contains the following elements (if they are not
+            null or empty):<br><br>> conversionIds - The list of `conversionId`
+            (null if none were provided).<br>> appendDatasetId - The `datasetId`
+            that was used for an append operation (null if none was
+            used).<br>>featureCounts - The counts for each feature type in the
+            dataset.<br><br>Here's a sample response returning the `timestamp`,
+            `datasetId`, `description`, `datasetSources`, and `ontology` of 3
+            dataset resources:<br><br><br>```json<br>{<br>  "datasets": [<br>   
+            {<br>      "timestamp": "2020-01-01T22:50:48.123Z",<br>     
+            "datasetId": "f6495f62-94f8-0ec2-c252-45626f82fcb2",<br>     
+            "description": "Some description or comment for the dataset.",<br>     
+            "datasetSources": {<br>        "conversionIds": [<br>         
+            "15d21452-c9bb-27b6-5e79-743ca5c3205d"<br>        ],      },<br>     
+            "ontology": "facility-2.0",<br>      "featureCounts": {<br>       
+            "directoryInfo": 2,<br>        "category": 10,<br>        "facility":
+            1,<br>        "level": 3,<br>        "unit": 183,<br>        "zone":
+            3,<br>        "verticalPenetration": 6,<br>        "opening":
+            48,<br>        "areaElement": 108<br>      }<br>    },<br>    {<br>     
+            "timestamp": "2020-01-01T22:57:53.123Z",<br>      "datasetId":
+            "8b1288fa-1958-4a2b-b68e-13a7i5af7d7c",<br>      "description": "Create
+            from upload '0c1288fa-2058-4a1b-b68d-13a5f5af7d7c'.",<br>     
+            "datasetSources": {<br>        "conversionIds": [<br>         
+            "0c1288fa-2058-4a1b-b68d-13a5f5af7d7c"<br>        ],<br>       
+            "appendDatasetId": "46d1edb6-d29e-4786-9589-dbd4efd7a977"<br>     
+            },<br>      "ontology": "facility-2.0",<br>      "featureCounts":
+            {<br>        "directoryInfo": 2,<br>        "category": 10,<br>       
+            "facility": 1,<br>        "level": 3,<br>        "unit": 183,<br>       
+            "zone": 3,<br>        "verticalPenetration": 6,<br>        "opening":
+            48,<br>        "areaElement": 108<br>      }<br>    }<br>  ]<br>}<br>```
+          operationId: microsoftAzureDatasetList
+          responses:
+            '500':
+              $ref: '#/responses/500'

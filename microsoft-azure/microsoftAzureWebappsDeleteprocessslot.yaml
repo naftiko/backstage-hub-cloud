@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebappsDeleteprocessslot
+  description: >-
+    Description for Terminate a process by its ID for a web site, or a
+    deployment slot, or specific scaled-out instance in a web site.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Terminate A Process By Its Id For A Web Site, Or A Deployment Slot, Or
+        Specific Scaled Out Instance In A Web Site 
+      description: >-
+        Description for Terminate a process by its ID for a web site, or a
+        deployment slot, or specific scaled-out instance in a web site.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/processes/{processId}:
+        delete:
+          summary: >-
+            Terminate A Process By Its Id For A Web Site, Or A Deployment Slot, Or
+            Specific Scaled Out Instance In A Web Site 
+          description: >-
+            Description for Terminate a process by its ID for a web site, or a
+            deployment slot, or specific scaled-out instance in a web site.
+          operationId: microsoftAzureWebappsDeleteprocessslot
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

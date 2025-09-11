@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesRebootBroker
+  description: 'Reboots a broker. Note: This API is asynchronous.'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Rebootbroker
+      description: 'Reboots a broker. Note: This API is asynchronous.'
+    paths:
+      /v1/brokers/{broker-id}/reboot:
+        POST:
+          summary: Rebootbroker
+          description: 'Reboots a broker. Note: This API is asynchronous.'
+          operationId: amazonWebServicesRebootBroker

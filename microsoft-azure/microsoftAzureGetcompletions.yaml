@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGetcompletions
+  description: >-
+    Gets completions for the provided input prompts.<br>Completions support a
+    wide variety of tasks and generate text that continues from or
+    "completes"<br>provided prompt data.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Deployments Deploymentid Completions
+      description: >-
+        Gets completions for the provided input prompts.<br>Completions support a
+        wide variety of tasks and generate text that continues from or
+        "completes"<br>provided prompt data.
+    paths:
+      /deployments/{deploymentId}/completions:
+        post:
+          summary: Post Deployments Deploymentid Completions
+          description: >-
+            Gets completions for the provided input prompts.<br>Completions support
+            a wide variety of tasks and generate text that continues from or
+            "completes"<br>provided prompt data.
+          operationId: microsoftAzureGetcompletions
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/Azure.Core.Foundations.ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: String error code indicating what went wrong.

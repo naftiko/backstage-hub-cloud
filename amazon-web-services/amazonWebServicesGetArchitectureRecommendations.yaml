@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetArchitectureRecommendations
+  description: >-
+    Gets recommendations about architecture designs for improving resiliency for
+    an application, based on a recovery group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getarchitecturerecommendations
+      description: >-
+        Gets recommendations about architecture designs for improving resiliency for
+        an application, based on a recovery group.
+    paths:
+      /recoverygroups/{recoveryGroupName}/architectureRecommendations:
+        GET:
+          summary: Getarchitecturerecommendations
+          description: >-
+            Gets recommendations about architecture designs for improving resiliency
+            for an application, based on a recovery group.
+          operationId: amazonWebServicesGetArchitectureRecommendations

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureNotificationGet
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscription Providers Microsoft Marketplacenotifications
+        Reviewsnotification Notification
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscription}/providers/Microsoft.MarketplaceNotifications/reviewsNotification/{notification}:
+        get:
+          summary: >-
+            Get Subscriptions Subscription Providers Microsoft
+            Marketplacenotifications Reviewsnotification Notification
+          description: Needs a more full description created.
+          operationId: microsoftAzureNotificationGet
+          responses:
+            default:
+              description: >-
+                Microsoft.MarketplaceNotifications error response describing why the
+                operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

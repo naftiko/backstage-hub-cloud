@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesPutAccountDedicatedIpWarmupAttributes
+  description: Enable or disable the automatic warm-up feature for dedicated IP addresses.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putaccountdedicatedipwarmupattributes
+      description: Enable or disable the automatic warm-up feature for dedicated IP addresses.
+    paths:
+      /v2/email/account/dedicated-ips/warmup:
+        PUT:
+          summary: Putaccountdedicatedipwarmupattributes
+          description: >-
+            Enable or disable the automatic warm-up feature for dedicated IP
+            addresses.
+          operationId: amazonWebServicesPutAccountDedicatedIpWarmupAttributes

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListLoggerDefinitionVersions
+  description: Lists the versions of a logger definition.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listloggerdefinitionversions
+      description: Lists the versions of a logger definition.
+    paths:
+      /greengrass/definition/loggers/{LoggerDefinitionId}/versions:
+        GET:
+          summary: Listloggerdefinitionversions
+          description: Lists the versions of a logger definition.
+          operationId: amazonWebServicesListLoggerDefinitionVersions

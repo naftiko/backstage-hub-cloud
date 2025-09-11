@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGetunplacedreplicainformation
+  description: >-
+    Returns the information about the unplaced replicas of the service.<br>If
+    PartitionId is specified, then result will contain information only about
+    unplaced replicas for that partition.<br>If PartitionId is not specified,
+    then result will contain information about unplaced replicas for all
+    partitions of that service.<br>If OnlyQueryPrimaries is set to true, then
+    result will contain information only about primary replicas, and will ignore
+    unplaced secondary replicas.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Gets The Information About Unplaced Replica Of The Service '
+      description: >-
+        Returns the information about the unplaced replicas of the service.<br>If
+        PartitionId is specified, then result will contain information only about
+        unplaced replicas for that partition.<br>If PartitionId is not specified,
+        then result will contain information about unplaced replicas for all
+        partitions of that service.<br>If OnlyQueryPrimaries is set to true, then
+        result will contain information only about primary replicas, and will ignore
+        unplaced secondary replicas.
+    paths:
+      /Services/{serviceId}/$/GetUnplacedReplicaInformation:
+        get:
+          summary: 'Gets The Information About Unplaced Replica Of The Service '
+          description: >-
+            Returns the information about the unplaced replicas of the
+            service.<br>If PartitionId is specified, then result will contain
+            information only about unplaced replicas for that partition.<br>If
+            PartitionId is not specified, then result will contain information about
+            unplaced replicas for all partitions of that service.<br>If
+            OnlyQueryPrimaries is set to true, then result will contain information
+            only about primary replicas, and will ignore unplaced secondary
+            replicas.
+          operationId: microsoftAzureGetunplacedreplicainformation
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

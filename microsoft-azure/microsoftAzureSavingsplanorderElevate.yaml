@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureSavingsplanorderElevate
+  description: Elevate as owner on savings plan order based on billing permissions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Providers Microsoft Billingbenefits Savingsplanorders
+        Savingsplanorderid Elevate
+      description: Elevate as owner on savings plan order based on billing permissions.
+    paths:
+      /providers/Microsoft.BillingBenefits/savingsPlanOrders/{savingsPlanOrderId}/elevate:
+        post:
+          summary: >-
+            Post Providers Microsoft Billingbenefits Savingsplanorders
+            Savingsplanorderid Elevate
+          description: Elevate as owner on savings plan order based on billing permissions.
+          operationId: microsoftAzureSavingsplanorderElevate
+          responses:
+            default:
+              description: Unexpected error.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateComponent
+  description: Updates an existing component.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatecomponent
+      description: Updates an existing component.
+    paths:
+      /app/{appId}/environment/{environmentName}/components/{id}:
+        PATCH:
+          summary: Updatecomponent
+          description: Updates an existing component.
+          operationId: amazonWebServicesUpdateComponent

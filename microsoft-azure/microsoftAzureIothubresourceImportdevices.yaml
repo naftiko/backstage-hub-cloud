@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureIothubresourceImportdevices
+  description: >-
+    Import, update, or delete device identities in the IoT hub identity registry
+    from a blob. For more information, see:
+    https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#import-and-export-device-identities.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Import, Update, Or Delete Device Identities In The Iot Hub Identity Registry
+        From A Blob For More Information, See: Https: Docs Microsoft Com Azure Iot
+        Hub Iot Hub Devguide Identity Registry#import And Export Device Identities
+      description: >-
+        Import, update, or delete device identities in the IoT hub identity registry
+        from a blob. For more information, see:
+        https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#import-and-export-device-identities.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/importDevices:
+        post:
+          summary: >-
+            Import, Update, Or Delete Device Identities In The Iot Hub Identity
+            Registry From A Blob For More Information, See: Https: Docs Microsoft
+            Com Azure Iot Hub Iot Hub Devguide Identity Registry#import And Export
+            Device Identities
+          description: >-
+            Import, update, or delete device identities in the IoT hub identity
+            registry from a blob. For more information, see:
+            https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#import-and-export-device-identities.
+          operationId: microsoftAzureIothubresourceImportdevices
+          responses:
+            default:
+              description: DefaultErrorResponse
+              schema:
+                $ref: '#/definitions/ErrorDetails'

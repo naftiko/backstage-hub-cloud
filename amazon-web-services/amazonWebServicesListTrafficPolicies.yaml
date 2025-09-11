@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListTrafficPolicies
+  description: >-
+    Gets information about the latest version for every traffic policy that is
+    associated with the current Amazon Web Services account. Policies are listed
+    in the order that they were created in.  For information about how of
+    deleting a traffic policy affects the response from ListTrafficPolicies, see
+    DeleteTrafficPolicy. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listtrafficpolicies
+      description: >-
+        Gets information about the latest version for every traffic policy that is
+        associated with the current Amazon Web Services account. Policies are listed
+        in the order that they were created in.  For information about how of
+        deleting a traffic policy affects the response from ListTrafficPolicies, see
+        DeleteTrafficPolicy. 
+    paths:
+      /2013-04-01/trafficpolicies:
+        GET:
+          summary: Listtrafficpolicies
+          description: >-
+            Gets information about the latest version for every traffic policy that
+            is associated with the current Amazon Web Services account. Policies are
+            listed in the order that they were created in.  For information about
+            how of deleting a traffic policy affects the response from
+            ListTrafficPolicies, see DeleteTrafficPolicy. 
+          operationId: amazonWebServicesListTrafficPolicies

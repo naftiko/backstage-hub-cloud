@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureConfigurationassignmentsList
+  description: List configurationAssignments for resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Configurationassignments For Resource
+      description: List configurationAssignments for resource.
+    paths:
+      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceName}/providers/Microsoft.Maintenance/configurationAssignments:
+        get:
+          summary: List Configurationassignments For Resource
+          description: List configurationAssignments for resource.
+          operationId: microsoftAzureConfigurationassignmentsList
+          responses:
+            default:
+              description: BadRequest
+              schema:
+                $ref: '#/definitions/MaintenanceError'

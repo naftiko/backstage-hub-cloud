@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePersongrouppersonGet
+  description: >-
+    Retrieve a person's information, including registered persisted faces, name
+    and userData.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Persongroups Persongroupid Persons Personid
+      description: >-
+        Retrieve a person's information, including registered persisted faces, name
+        and userData.
+    paths:
+      /persongroups/{personGroupId}/persons/{personId}:
+        get:
+          summary: Get Persongroups Persongroupid Persons Personid
+          description: >-
+            Retrieve a person's information, including registered persisted faces,
+            name and userData.
+          operationId: microsoftAzurePersongrouppersonGet
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/APIError'

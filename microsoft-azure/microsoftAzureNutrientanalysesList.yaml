@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureNutrientanalysesList
+  description: Returns a paginated list of nutrient analysis resources across all parties.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Nutrient Analyses
+      description: Returns a paginated list of nutrient analysis resources across all parties.
+    paths:
+      /nutrient-analyses:
+        get:
+          summary: Get Nutrient Analyses
+          description: >-
+            Returns a paginated list of nutrient analysis resources across all
+            parties.
+          operationId: microsoftAzureNutrientanalysesList
+          responses:
+            default:
+              description: Error
+              schema:
+                $ref: '#/definitions/ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  x-ms-client-name: ErrorCode
+              x-ms-error-response: true

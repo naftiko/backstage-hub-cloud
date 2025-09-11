@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesBatchAcknowledgeAlarm
+  description: >-
+    Acknowledges one or more alarms. The alarms change to the ACKNOWLEDGED state
+    after you acknowledge them.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Batchacknowledgealarm
+      description: >-
+        Acknowledges one or more alarms. The alarms change to the ACKNOWLEDGED state
+        after you acknowledge them.
+    paths:
+      /alarms/acknowledge:
+        POST:
+          summary: Batchacknowledgealarm
+          description: >-
+            Acknowledges one or more alarms. The alarms change to the ACKNOWLEDGED
+            state after you acknowledge them.
+          operationId: amazonWebServicesBatchAcknowledgeAlarm

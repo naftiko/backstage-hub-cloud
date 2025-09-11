@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreateWorkflowStep
+  description: Create a step in the migration workflow.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createworkflowstep
+      description: Create a step in the migration workflow.
+    paths:
+      /workflowstep:
+        POST:
+          summary: Createworkflowstep
+          description: Create a step in the migration workflow.
+          operationId: amazonWebServicesCreateWorkflowStep

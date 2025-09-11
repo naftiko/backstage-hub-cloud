@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureExtendedzonesGet
+  description: Gets an Azure Extended Zone for a subscription
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft Edgezones Extendedzones
+        Extendedzonename
+      description: Gets an Azure Extended Zone for a subscription
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.EdgeZones/extendedZones/{extendedZoneName}:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft Edgezones
+            Extendedzones Extendedzonename
+          description: Gets an Azure Extended Zone for a subscription
+          operationId: microsoftAzureExtendedzonesGet
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

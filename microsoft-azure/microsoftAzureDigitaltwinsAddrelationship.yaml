@@ -1,0 +1,60 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDigitaltwinsAddrelationship
+  description: >-
+    Adds a relationship between two digital twins.<br>Status codes:<br>* 200
+    OK<br>* 400 Bad Request<br>  * InvalidArgument - The digital twin id,
+    relationship id, or payload is invalid.<br>  * InvalidRelationship - The
+    relationship is invalid.<br>  * OperationNotAllowed - The relationship
+    cannot connect to the same digital twin.<br>  * ValidationFailed - The
+    relationship content is invalid.<br>* 404 Not Found<br>  *
+    DigitalTwinNotFound - The digital twin was not found.<br>  *
+    TargetTwinNotFound - The digital twin target of the relationship was not
+    found.<br>* 412 Precondition Failed<br>  * PreconditionFailed - The
+    precondition check (If-Match or If-None-Match) failed.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Put Digitaltwins Id Relationships Relationshipid
+      description: >-
+        Adds a relationship between two digital twins.<br>Status codes:<br>* 200
+        OK<br>* 400 Bad Request<br>  * InvalidArgument - The digital twin id,
+        relationship id, or payload is invalid.<br>  * InvalidRelationship - The
+        relationship is invalid.<br>  * OperationNotAllowed - The relationship
+        cannot connect to the same digital twin.<br>  * ValidationFailed - The
+        relationship content is invalid.<br>* 404 Not Found<br>  *
+        DigitalTwinNotFound - The digital twin was not found.<br>  *
+        TargetTwinNotFound - The digital twin target of the relationship was not
+        found.<br>* 412 Precondition Failed<br>  * PreconditionFailed - The
+        precondition check (If-Match or If-None-Match) failed.
+    paths:
+      /digitaltwins/{id}/relationships/{relationshipId}:
+        put:
+          summary: Put Digitaltwins Id Relationships Relationshipid
+          description: >-
+            Adds a relationship between two digital twins.<br>Status codes:<br>* 200
+            OK<br>* 400 Bad Request<br>  * InvalidArgument - The digital twin id,
+            relationship id, or payload is invalid.<br>  * InvalidRelationship - The
+            relationship is invalid.<br>  * OperationNotAllowed - The relationship
+            cannot connect to the same digital twin.<br>  * ValidationFailed - The
+            relationship content is invalid.<br>* 404 Not Found<br>  *
+            DigitalTwinNotFound - The digital twin was not found.<br>  *
+            TargetTwinNotFound - The digital twin target of the relationship was not
+            found.<br>* 412 Precondition Failed<br>  * PreconditionFailed - The
+            precondition check (If-Match or If-None-Match) failed.
+          operationId: microsoftAzureDigitaltwinsAddrelationship
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

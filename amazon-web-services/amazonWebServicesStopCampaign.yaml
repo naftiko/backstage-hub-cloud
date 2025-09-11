@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesStopCampaign
+  description: Stops a campaign for the specified Amazon Connect account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Stopcampaign
+      description: Stops a campaign for the specified Amazon Connect account.
+    paths:
+      /campaigns/{id}/stop:
+        POST:
+          summary: Stopcampaign
+          description: Stops a campaign for the specified Amazon Connect account.
+          operationId: amazonWebServicesStopCampaign

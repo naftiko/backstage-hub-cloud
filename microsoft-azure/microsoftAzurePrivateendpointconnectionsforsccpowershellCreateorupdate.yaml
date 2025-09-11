@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePrivateendpointconnectionsforsccpowershellCreateorupdate
+  description: >-
+    Update the state of the specified private endpoint connection associated
+    with the service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Securityandcompliance Privatelinkservicesforsccpowershell
+        Resourcename Privateendpointconnections Privateendpointconnectionname
+      description: >-
+        Update the state of the specified private endpoint connection associated
+        with the service.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SecurityAndCompliance/privateLinkServicesForSCCPowershell/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Securityandcompliance
+            Privatelinkservicesforsccpowershell Resourcename
+            Privateendpointconnections Privateendpointconnectionname
+          description: >-
+            Update the state of the specified private endpoint connection associated
+            with the service.
+          operationId: microsoftAzurePrivateendpointconnectionsforsccpowershellCreateorupdate
+          responses:
+            default:
+              description: DefaultErrorResponse
+              schema:
+                $ref: ./common-types.json#/definitions/ErrorDetails

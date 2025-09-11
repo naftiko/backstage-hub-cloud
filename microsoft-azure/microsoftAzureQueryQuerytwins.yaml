@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureQueryQuerytwins
+  description: >-
+    Executes a query that allows traversing relationships and filtering by
+    property values.<br>Status codes:<br>* 200 OK<br>* 400 Bad Request<br>  *
+    BadRequest - The continuation token is invalid.<br>  * SqlQueryError - The
+    query contains some errors.<br>  * TimeoutError - The query execution timed
+    out after 60 seconds. Try simplifying the query or adding conditions to
+    reduce the result size.<br> * 429 Too Many Requests<br>  * QuotaReachedError
+    - The maximum query rate limit has been reached.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Query
+      description: >-
+        Executes a query that allows traversing relationships and filtering by
+        property values.<br>Status codes:<br>* 200 OK<br>* 400 Bad Request<br>  *
+        BadRequest - The continuation token is invalid.<br>  * SqlQueryError - The
+        query contains some errors.<br>  * TimeoutError - The query execution timed
+        out after 60 seconds. Try simplifying the query or adding conditions to
+        reduce the result size.<br> * 429 Too Many Requests<br>  * QuotaReachedError
+        - The maximum query rate limit has been reached.
+    paths:
+      /query:
+        post:
+          summary: Post Query
+          description: >-
+            Executes a query that allows traversing relationships and filtering by
+            property values.<br>Status codes:<br>* 200 OK<br>* 400 Bad Request<br> 
+            * BadRequest - The continuation token is invalid.<br>  * SqlQueryError -
+            The query contains some errors.<br>  * TimeoutError - The query
+            execution timed out after 60 seconds. Try simplifying the query or
+            adding conditions to reduce the result size.<br> * 429 Too Many
+            Requests<br>  * QuotaReachedError - The maximum query rate limit has
+            been reached.
+          operationId: microsoftAzureQueryQuerytwins
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

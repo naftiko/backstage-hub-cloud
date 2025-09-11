@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureCloudendpointsRestoreheartbeat
+  description: Restore Heartbeat a given CloudEndpoint.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Storagesync Storagesyncservices Storagesyncservicename Syncgroups
+        Syncgroupname Cloudendpoints Cloudendpointname Restoreheartbeat
+      description: Restore Heartbeat a given CloudEndpoint.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints/{cloudEndpointName}/restoreheartbeat:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Storagesync Storagesyncservices
+            Storagesyncservicename Syncgroups Syncgroupname Cloudendpoints
+            Cloudendpointname Restoreheartbeat
+          description: Restore Heartbeat a given CloudEndpoint.
+          operationId: microsoftAzureCloudendpointsRestoreheartbeat
+          responses:
+            default:
+              description: Error message indicating why the operation failed.
+              schema:
+                $ref: '#/definitions/StorageSyncError'

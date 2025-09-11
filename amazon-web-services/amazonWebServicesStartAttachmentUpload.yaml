@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesStartAttachmentUpload
+  description: >-
+    Provides a pre-signed Amazon S3 URL in response for uploading the file
+    directly to S3.   ConnectionToken is used for invoking this API instead of
+    ParticipantToken.  The Amazon Connect Participant Service APIs do not use
+    Signature Version 4 authentication.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Startattachmentupload
+      description: >-
+        Provides a pre-signed Amazon S3 URL in response for uploading the file
+        directly to S3.   ConnectionToken is used for invoking this API instead of
+        ParticipantToken.  The Amazon Connect Participant Service APIs do not use
+        Signature Version 4 authentication.
+    paths:
+      /participant/start-attachment-upload:
+        POST:
+          summary: Startattachmentupload
+          description: >-
+            Provides a pre-signed Amazon S3 URL in response for uploading the file
+            directly to S3.   ConnectionToken is used for invoking this API instead
+            of ParticipantToken.  The Amazon Connect Participant Service APIs do not
+            use Signature Version 4 authentication.
+          operationId: amazonWebServicesStartAttachmentUpload

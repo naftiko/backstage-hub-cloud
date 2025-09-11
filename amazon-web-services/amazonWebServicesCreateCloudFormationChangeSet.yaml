@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesCreateCloudFormationChangeSet
+  description: Creates an AWS CloudFormation change set for the given application.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Createcloudformationchangeset
+      description: Creates an AWS CloudFormation change set for the given application.
+    paths:
+      /applications/{applicationId}/changesets:
+        POST:
+          summary: Createcloudformationchangeset
+          description: Creates an AWS CloudFormation change set for the given application.
+          operationId: amazonWebServicesCreateCloudFormationChangeSet

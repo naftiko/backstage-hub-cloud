@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureBalancesGetforbillingperiodbybillingaccount
+  description: >-
+    Gets the balances for a scope by billing period and billingAccountId.
+    Balances are available via this API only for May 1, 2014 or later.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Providers Microsoft Billing Billingaccounts Billingaccountid Providers
+        Microsoft Billing Billingperiods Billingperiodname Providers Microsoft
+        Consumption Balances
+      description: >-
+        Gets the balances for a scope by billing period and billingAccountId.
+        Balances are available via this API only for May 1, 2014 or later.
+    paths:
+      /providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/balances:
+        get:
+          summary: >-
+            Get Providers Microsoft Billing Billingaccounts Billingaccountid
+            Providers Microsoft Billing Billingperiods Billingperiodname Providers
+            Microsoft Consumption Balances
+          description: >-
+            Gets the balances for a scope by billing period and billingAccountId.
+            Balances are available via this API only for May 1, 2014 or later.
+          operationId: microsoftAzureBalancesGetforbillingperiodbybillingaccount
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

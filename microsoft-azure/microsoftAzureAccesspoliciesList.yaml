@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAccesspoliciesList
+  description: >-
+    Retrieves all existing access policy resources, along with their JSON
+    representations.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'List All Existing Access Policy Resources '
+      description: >-
+        Retrieves all existing access policy resources, along with their JSON
+        representations.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/accessPolicies:
+        get:
+          summary: 'List All Existing Access Policy Resources '
+          description: >-
+            Retrieves all existing access policy resources, along with their JSON
+            representations.
+          operationId: microsoftAzureAccesspoliciesList
+          responses:
+            default:
+              description: Detailed error information.
+              schema:
+                $ref: >-
+                  ../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse

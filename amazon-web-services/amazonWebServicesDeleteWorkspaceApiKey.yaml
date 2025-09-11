@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDeleteWorkspaceApiKey
+  description: Deletes a Grafana API key for the workspace.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deleteworkspaceapikey
+      description: Deletes a Grafana API key for the workspace.
+    paths:
+      /workspaces/{workspaceId}/apikeys/{keyName}:
+        DELETE:
+          summary: Deleteworkspaceapikey
+          description: Deletes a Grafana API key for the workspace.
+          operationId: amazonWebServicesDeleteWorkspaceApiKey

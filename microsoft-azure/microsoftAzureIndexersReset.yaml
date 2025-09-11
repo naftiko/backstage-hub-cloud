@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureIndexersReset
+  description: Resets the change tracking state associated with an indexer.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Indexers Indexername  Search Reset
+      description: Resets the change tracking state associated with an indexer.
+    paths:
+      /indexers('{indexerName}')/search.reset:
+        post:
+          summary: Post Indexers Indexername  Search Reset
+          description: Resets the change tracking state associated with an indexer.
+          operationId: microsoftAzureIndexersReset
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: '#/definitions/SearchError'

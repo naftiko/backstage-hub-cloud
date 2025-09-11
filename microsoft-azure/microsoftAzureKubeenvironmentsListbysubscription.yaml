@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureKubeenvironmentsListbysubscription
+  description: Description for Get all Kubernetes Environments for a subscription.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Get All Kubernetes Environments For A Subscription '
+      description: Description for Get all Kubernetes Environments for a subscription.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Web/kubeEnvironments:
+        get:
+          summary: 'Get All Kubernetes Environments For A Subscription '
+          description: Description for Get all Kubernetes Environments for a subscription.
+          operationId: microsoftAzureKubeenvironmentsListbysubscription
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureUpdateproject
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update A Specific Project
+      description: Needs a more full description created.
+    paths:
+      /projects/{projectId}:
+        patch:
+          summary: Update A Specific Project
+          description: Needs a more full description created.
+          operationId: microsoftAzureUpdateproject
+          responses:
+            '200':
+              description: OK
+              schema:
+                $ref: '#/definitions/Project'

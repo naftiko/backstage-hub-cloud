@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureEnrollmentgroupsGenerateverificationcodex509
+  description: >-
+    Generate a verification code for the primary or secondary x509 certificate
+    of an enrollment group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Generate A Verification Code For The Primary Or Secondary X509 Certificate
+        Of An Enrollment Group
+      description: >-
+        Generate a verification code for the primary or secondary x509 certificate
+        of an enrollment group.
+    paths:
+      /enrollmentGroups/{enrollmentGroupId}/certificates/{entry}/generateVerificationCode:
+        post:
+          summary: >-
+            Generate A Verification Code For The Primary Or Secondary X509
+            Certificate Of An Enrollment Group
+          description: >-
+            Generate a verification code for the primary or secondary x509
+            certificate of an enrollment group.
+          operationId: microsoftAzureEnrollmentgroupsGenerateverificationcodex509
+          responses:
+            default:
+              description: An error response received from the IoT Central Service.
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: Error code for specific error that occurred.
+              schema:
+                $ref: '#/definitions/Error'

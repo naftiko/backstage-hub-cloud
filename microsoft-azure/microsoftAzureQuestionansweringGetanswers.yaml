@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureQuestionansweringGetanswers
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Answers The Specified Question Using Your Knowledge Base '
+      description: Needs a more full description created.
+    paths:
+      /:query-knowledgebases:
+        post:
+          summary: 'Answers The Specified Question Using Your Knowledge Base '
+          description: Needs a more full description created.
+          operationId: microsoftAzureQuestionansweringGetanswers
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: common.json#/definitions/ErrorResponse

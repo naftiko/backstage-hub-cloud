@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAvailableclusterpoolversionsListbylocation
+  description: Returns a list of available cluster pool versions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Providers Microsoft Hdinsight Locations
+        Location Availableclusterpoolversions
+      description: Returns a list of available cluster pool versions.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.HDInsight/locations/{location}/availableClusterPoolVersions:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Providers Microsoft Hdinsight Locations
+            Location Availableclusterpoolversions
+          description: Returns a list of available cluster pool versions.
+          operationId: microsoftAzureAvailableclusterpoolversionsListbylocation
+          responses:
+            default:
+              description: Error Response describing why the operation failed.
+              schema:
+                $ref: >-
+                  ../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse

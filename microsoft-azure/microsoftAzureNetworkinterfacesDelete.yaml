@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureNetworkinterfacesDelete
+  description: >-
+    The delete networkInterface operation deletes the specified
+    networkInterface.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+        Providers Microsoft Network Networkinterfaces Networkinterfacename
+      description: >-
+        The delete networkInterface operation deletes the specified
+        networkInterface.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}:
+        delete:
+          summary: >-
+            Delete Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Network Networkinterfaces Networkinterfacename
+          description: >-
+            The delete networkInterface operation deletes the specified
+            networkInterface.
+          operationId: microsoftAzureNetworkinterfacesDelete
+          responses:
+            '204':
+              description: ''

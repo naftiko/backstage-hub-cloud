@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesInvokeModelWithResponseStream
+  description: >-
+    Invoke the specified Bedrock model to run inference using the input
+    provided. Return the response in a stream. For more information, see Run
+    inference in the Bedrock User Guide. For an example request and response,
+    see Examples (after the Errors section).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Invokemodelwithresponsestream
+      description: >-
+        Invoke the specified Bedrock model to run inference using the input
+        provided. Return the response in a stream. For more information, see Run
+        inference in the Bedrock User Guide. For an example request and response,
+        see Examples (after the Errors section).
+    paths:
+      /model/{modelId}/invoke-with-response-stream:
+        POST:
+          summary: Invokemodelwithresponsestream
+          description: >-
+            Invoke the specified Bedrock model to run inference using the input
+            provided. Return the response in a stream. For more information, see Run
+            inference in the Bedrock User Guide. For an example request and
+            response, see Examples (after the Errors section).
+          operationId: amazonWebServicesInvokeModelWithResponseStream

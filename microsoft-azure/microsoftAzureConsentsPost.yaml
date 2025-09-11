@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureConsentsPost
+  description: Creates a new voice talent consent with the provided audio file.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Consents Id
+      description: Creates a new voice talent consent with the provided audio file.
+    paths:
+      /consents/{id}:
+        post:
+          summary: Post Consents Id
+          description: Creates a new voice talent consent with the provided audio file.
+          operationId: microsoftAzureConsentsPost
+          responses:
+            default:
+              description: An error occurred.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

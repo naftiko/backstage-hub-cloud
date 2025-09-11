@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureOpenaiGetstatus
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Get Openai Integration Status For A Given Integration '
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Elastic/monitors/{monitorName}/openAIIntegrations/{integrationName}/getStatus:
+        post:
+          summary: 'Get Openai Integration Status For A Given Integration '
+          description: Needs a more full description created.
+          operationId: microsoftAzureOpenaiGetstatus
+          responses:
+            default:
+              description: Default error response.
+              schema:
+                $ref: '#/definitions/ResourceProviderDefaultErrorResponse'

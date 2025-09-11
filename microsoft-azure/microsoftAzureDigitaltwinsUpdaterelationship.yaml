@@ -1,0 +1,63 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDigitaltwinsUpdaterelationship
+  description: >-
+    Updates the properties on a relationship between two digital
+    twins.<br>Status codes:<br>* 204 No Content<br>* 400 Bad Request<br>  *
+    InvalidArgument - The digital twin id or relationship id is invalid.<br>  *
+    InvalidRelationship - The relationship is invalid.<br>  * JsonPatchInvalid -
+    The JSON Patch provided is invalid.<br>  * ValidationFailed - The
+    relationship content is invalid.<br>* 404 Not Found<br>  *
+    DigitalTwinNotFound - The digital twin was not found.<br>  *
+    RelationshipNotFound - The relationship was not found.<br>* 409
+    Conflict<br>  * RelationshipAlreadyExists - The relationship already
+    exists.<br>* 412 Precondition Failed<br>  * PreconditionFailed - The
+    precondition check (If-Match or If-None-Match) failed.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Patch Digitaltwins Id Relationships Relationshipid
+      description: >-
+        Updates the properties on a relationship between two digital
+        twins.<br>Status codes:<br>* 204 No Content<br>* 400 Bad Request<br>  *
+        InvalidArgument - The digital twin id or relationship id is invalid.<br>  *
+        InvalidRelationship - The relationship is invalid.<br>  * JsonPatchInvalid -
+        The JSON Patch provided is invalid.<br>  * ValidationFailed - The
+        relationship content is invalid.<br>* 404 Not Found<br>  *
+        DigitalTwinNotFound - The digital twin was not found.<br>  *
+        RelationshipNotFound - The relationship was not found.<br>* 409
+        Conflict<br>  * RelationshipAlreadyExists - The relationship already
+        exists.<br>* 412 Precondition Failed<br>  * PreconditionFailed - The
+        precondition check (If-Match or If-None-Match) failed.
+    paths:
+      /digitaltwins/{id}/relationships/{relationshipId}:
+        patch:
+          summary: Patch Digitaltwins Id Relationships Relationshipid
+          description: >-
+            Updates the properties on a relationship between two digital
+            twins.<br>Status codes:<br>* 204 No Content<br>* 400 Bad Request<br>  *
+            InvalidArgument - The digital twin id or relationship id is
+            invalid.<br>  * InvalidRelationship - The relationship is invalid.<br> 
+            * JsonPatchInvalid - The JSON Patch provided is invalid.<br>  *
+            ValidationFailed - The relationship content is invalid.<br>* 404 Not
+            Found<br>  * DigitalTwinNotFound - The digital twin was not found.<br> 
+            * RelationshipNotFound - The relationship was not found.<br>* 409
+            Conflict<br>  * RelationshipAlreadyExists - The relationship already
+            exists.<br>* 412 Precondition Failed<br>  * PreconditionFailed - The
+            precondition check (If-Match or If-None-Match) failed.
+          operationId: microsoftAzureDigitaltwinsUpdaterelationship
+          responses:
+            default:
+              description: Default response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

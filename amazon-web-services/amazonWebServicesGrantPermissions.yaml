@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGrantPermissions
+  description: >-
+    Grants permissions to the principal to access metadata in the Data Catalog
+    and data organized in underlying data storage such as Amazon S3. For
+    information about permissions, see Security and Access Control to Metadata
+    and Data.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Grantpermissions
+      description: >-
+        Grants permissions to the principal to access metadata in the Data Catalog
+        and data organized in underlying data storage such as Amazon S3. For
+        information about permissions, see Security and Access Control to Metadata
+        and Data.
+    paths:
+      /GrantPermissions:
+        POST:
+          summary: Grantpermissions
+          description: >-
+            Grants permissions to the principal to access metadata in the Data
+            Catalog and data organized in underlying data storage such as Amazon S3.
+            For information about permissions, see Security and Access Control to
+            Metadata and Data.
+          operationId: amazonWebServicesGrantPermissions

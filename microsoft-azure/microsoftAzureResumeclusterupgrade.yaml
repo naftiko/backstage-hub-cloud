@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureResumeclusterupgrade
+  description: >-
+    Make the cluster code or configuration upgrade move on to the next upgrade
+    domain if appropriate.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Make The Cluster Upgrade Move On To The Next Upgrade Domain '
+      description: >-
+        Make the cluster code or configuration upgrade move on to the next upgrade
+        domain if appropriate.
+    paths:
+      /$/MoveToNextUpgradeDomain:
+        post:
+          summary: 'Make The Cluster Upgrade Move On To The Next Upgrade Domain '
+          description: >-
+            Make the cluster code or configuration upgrade move on to the next
+            upgrade domain if appropriate.
+          operationId: microsoftAzureResumeclusterupgrade
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

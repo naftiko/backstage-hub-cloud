@@ -1,0 +1,77 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureMapconfigurationDelete
+  description: >-
+    <br><br>The Map Configuration `Delete` API is an HTTP `DELETE` request used
+    to delete a map configuration. For more information on what a map
+    configuration is, see the [Creator for indoor
+    maps](/azure/azure-maps/creator-indoor-maps#map-configuration) concepts
+    article.<br><br>### Submit Delete Request<br><br>An `HTTP DELETE` request
+    with the `mapConfigurationId` in the path of the request is required to
+    remove an existing map configuration from your Azure Maps account.   
+    <br><br>#### Delete request "Successful"<br><br>The Map Configuration Delete
+    API returns a HTTP `204 No Content` response with an empty body, if the map
+    configuration was deleted successfully.    <br><br>#### Delete request
+    "Failed"<br><br>A HTTP `400 Bad Request` error response will be returned if
+    the map configuration with the passed-in `mapConfigurationId` is not found.
+    <br><br>Here is a sample error response:<br><br><br><br>```json<br>{<br> 
+    "error": {<br>      "code": "400 BadRequest",<br>      "message": "Bad
+    request - MapConfiguration Id: d85b5b27-5fc4-4599-8b50-47160e90f8ce does not
+    exist."<br>  }<br>}<br>```
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Use To Delete A Map Configuration '
+      description: >-
+        <br><br>The Map Configuration `Delete` API is an HTTP `DELETE` request used
+        to delete a map configuration. For more information on what a map
+        configuration is, see the [Creator for indoor
+        maps](/azure/azure-maps/creator-indoor-maps#map-configuration) concepts
+        article.<br><br>### Submit Delete Request<br><br>An `HTTP DELETE` request
+        with the `mapConfigurationId` in the path of the request is required to
+        remove an existing map configuration from your Azure Maps account.   
+        <br><br>#### Delete request "Successful"<br><br>The Map Configuration Delete
+        API returns a HTTP `204 No Content` response with an empty body, if the map
+        configuration was deleted successfully.    <br><br>#### Delete request
+        "Failed"<br><br>A HTTP `400 Bad Request` error response will be returned if
+        the map configuration with the passed-in `mapConfigurationId` is not found.
+        <br><br>Here is a sample error response:<br><br><br><br>```json<br>{<br> 
+        "error": {<br>      "code": "400 BadRequest",<br>      "message": "Bad
+        request - MapConfiguration Id: d85b5b27-5fc4-4599-8b50-47160e90f8ce does not
+        exist."<br>  }<br>}<br>```
+    paths:
+      /styles/mapconfigurations/{mapConfigurationId}:
+        delete:
+          summary: 'Use To Delete A Map Configuration '
+          description: >-
+            <br><br>The Map Configuration `Delete` API is an HTTP `DELETE` request
+            used to delete a map configuration. For more information on what a map
+            configuration is, see the [Creator for indoor
+            maps](/azure/azure-maps/creator-indoor-maps#map-configuration) concepts
+            article.<br><br>### Submit Delete Request<br><br>An `HTTP DELETE`
+            request with the `mapConfigurationId` in the path of the request is
+            required to remove an existing map configuration from your Azure Maps
+            account.    <br><br>#### Delete request "Successful"<br><br>The Map
+            Configuration Delete API returns a HTTP `204 No Content` response with
+            an empty body, if the map configuration was deleted successfully.   
+            <br><br>#### Delete request "Failed"<br><br>A HTTP `400 Bad Request`
+            error response will be returned if the map configuration with the
+            passed-in `mapConfigurationId` is not found. <br><br>Here is a sample
+            error response:<br><br><br><br>```json<br>{<br>  "error": {<br>     
+            "code": "400 BadRequest",<br>      "message": "Bad request -
+            MapConfiguration Id: d85b5b27-5fc4-4599-8b50-47160e90f8ce does not
+            exist."<br>  }<br>}<br>```
+          operationId: microsoftAzureMapconfigurationDelete
+          responses:
+            default:
+              $ref: ../../../Common/preview/1.0/common.json#/responses/default

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesPutDeploymentParameter
+  description: >-
+    Creates or updates a deployment parameter and is targeted by catalog and
+    agreementId.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Putdeploymentparameter
+      description: >-
+        Creates or updates a deployment parameter and is targeted by catalog and
+        agreementId.
+    paths:
+      /catalogs/{catalog}/products/{productId}/deployment-parameters:
+        POST:
+          summary: Putdeploymentparameter
+          description: >-
+            Creates or updates a deployment parameter and is targeted by catalog and
+            agreementId.
+          operationId: amazonWebServicesPutDeploymentParameter

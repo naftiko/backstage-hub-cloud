@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDomainsUpdatedomain
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Creates A Domain
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}:
+        patch:
+          summary: Creates A Domain
+          description: Needs a more full description created.
+          operationId: microsoftAzureDomainsUpdatedomain
+          responses:
+            '202':
+              description: Domain purchase is in progress
+              schema:
+                $ref: '#/definitions/Domain'

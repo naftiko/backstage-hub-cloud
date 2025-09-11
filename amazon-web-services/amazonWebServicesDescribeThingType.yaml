@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDescribeThingType
+  description: >-
+    Gets information about the specified thing type. Requires permission to
+    access the DescribeThingType action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describethingtype
+      description: >-
+        Gets information about the specified thing type. Requires permission to
+        access the DescribeThingType action.
+    paths:
+      /thing-types/{thingTypeName}:
+        GET:
+          summary: Describethingtype
+          description: >-
+            Gets information about the specified thing type. Requires permission to
+            access the DescribeThingType action.
+          operationId: amazonWebServicesDescribeThingType

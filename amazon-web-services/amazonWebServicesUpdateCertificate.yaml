@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateCertificate
+  description: >-
+    Updates the status of the specified certificate. This operation is
+    idempotent. Requires permission to access the UpdateCertificate action.
+    Certificates must be in the ACTIVE state to authenticate devices that use a
+    certificate to connect to IoT. Within a few minutes of updating a
+    certificate from the ACTIVE state to any other state, IoT disconnects all
+    devices that used that certificate to connect. Devices cannot use a
+    certificate that is not in the ACTIVE state to reconnect.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatecertificate
+      description: >-
+        Updates the status of the specified certificate. This operation is
+        idempotent. Requires permission to access the UpdateCertificate action.
+        Certificates must be in the ACTIVE state to authenticate devices that use a
+        certificate to connect to IoT. Within a few minutes of updating a
+        certificate from the ACTIVE state to any other state, IoT disconnects all
+        devices that used that certificate to connect. Devices cannot use a
+        certificate that is not in the ACTIVE state to reconnect.
+    paths:
+      /certificates/{certificateId}:
+        PUT:
+          summary: Updatecertificate
+          description: >-
+            Updates the status of the specified certificate. This operation is
+            idempotent. Requires permission to access the UpdateCertificate action.
+            Certificates must be in the ACTIVE state to authenticate devices that
+            use a certificate to connect to IoT. Within a few minutes of updating a
+            certificate from the ACTIVE state to any other state, IoT disconnects
+            all devices that used that certificate to connect. Devices cannot use a
+            certificate that is not in the ACTIVE state to reconnect.
+          operationId: amazonWebServicesUpdateCertificate

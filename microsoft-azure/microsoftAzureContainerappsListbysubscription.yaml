@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureContainerappsListbysubscription
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Get The Container Apps In A Given Subscription '
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Web/containerApps:
+        get:
+          summary: 'Get The Container Apps In A Given Subscription '
+          description: Needs a more full description created.
+          operationId: microsoftAzureContainerappsListbysubscription
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

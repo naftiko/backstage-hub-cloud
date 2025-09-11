@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureGetRun
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Retrieves A Run '
+      description: Needs a more full description created.
+    paths:
+      /threads/{thread_id}/runs/{run_id}:
+        get:
+          summary: 'Retrieves A Run '
+          description: Needs a more full description created.
+          operationId: microsoftAzureGetRun
+          responses:
+            '200':
+              description: OK
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/runObject'

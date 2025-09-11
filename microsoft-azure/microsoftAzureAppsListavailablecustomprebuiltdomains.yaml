@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureAppsListavailablecustomprebuiltdomains
+  description: Gets all the available custom prebuilt domains for all cultures.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Apps Customprebuiltdomains
+      description: Gets all the available custom prebuilt domains for all cultures.
+    paths:
+      /apps/customprebuiltdomains:
+        get:
+          summary: Get Apps Customprebuiltdomains
+          description: Gets all the available custom prebuilt domains for all cultures.
+          operationId: microsoftAzureAppsListavailablecustomprebuiltdomains
+          responses:
+            default:
+              description: Error Response.
+              schema:
+                $ref: '#/definitions/ErrorResponse'

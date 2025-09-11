@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetSimilarProfiles
+  description: >-
+    Returns a set of profiles that belong to the same matching group using the
+    matchId or profileId. You can also specify the type of matching that you
+    want for finding similar profiles using either RULE_BASED_MATCHING or
+    ML_BASED_MATCHING.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getsimilarprofiles
+      description: >-
+        Returns a set of profiles that belong to the same matching group using the
+        matchId or profileId. You can also specify the type of matching that you
+        want for finding similar profiles using either RULE_BASED_MATCHING or
+        ML_BASED_MATCHING.
+    paths:
+      /domains/{DomainName}/matches:
+        POST:
+          summary: Getsimilarprofiles
+          description: >-
+            Returns a set of profiles that belong to the same matching group using
+            the matchId or profileId. You can also specify the type of matching that
+            you want for finding similar profiles using either RULE_BASED_MATCHING
+            or ML_BASED_MATCHING.
+          operationId: amazonWebServicesGetSimilarProfiles

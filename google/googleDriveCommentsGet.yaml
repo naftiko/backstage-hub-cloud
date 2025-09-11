@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: googleDriveCommentsGet
+  description: Gets a comment by ID.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Files Fileid Comments Commentid
+      description: Gets a comment by ID.
+    paths:
+      /files/{fileId}/comments/{commentId}:
+        get:
+          summary: Get Files Fileid Comments Commentid
+          description: Gets a comment by ID.
+          operationId: googleDriveCommentsGet
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/Comment'
+              description: Successful response

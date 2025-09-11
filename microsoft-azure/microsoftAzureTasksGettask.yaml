@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureTasksGettask
+  description: Retrieve a task by taskId.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Tasks Taskid
+      description: Retrieve a task by taskId.
+    paths:
+      /tasks/{taskId}:
+        get:
+          summary: Get Tasks Taskid
+          description: Retrieve a task by taskId.
+          operationId: microsoftAzureTasksGettask
+          responses:
+            default:
+              description: An unexpected error response.
+              schema:
+                $ref: '#/definitions/Azure.Core.Foundations.ErrorResponse'
+              headers:
+                x-ms-error-code:
+                  type: string
+                  description: String error code indicating what went wrong.

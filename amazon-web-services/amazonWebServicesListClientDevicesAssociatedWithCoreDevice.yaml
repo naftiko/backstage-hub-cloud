@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListClientDevicesAssociatedWithCoreDevice
+  description: >-
+    Retrieves a paginated list of client devices that are associated with a core
+    device.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listclientdevicesassociatedwithcoredevice
+      description: >-
+        Retrieves a paginated list of client devices that are associated with a core
+        device.
+    paths:
+      /greengrass/v2/coreDevices/{coreDeviceThingName}/associatedClientDevices:
+        GET:
+          summary: Listclientdevicesassociatedwithcoredevice
+          description: >-
+            Retrieves a paginated list of client devices that are associated with a
+            core device.
+          operationId: amazonWebServicesListClientDevicesAssociatedWithCoreDevice

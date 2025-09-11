@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesReverseReplication
+  description: >-
+    Start replication to origin / target region - applies only to protected
+    instances that originated in EC2. For recovery instances on target region -
+    starts replication back to origin region. For failback instances on origin
+    region - starts replication to target region to re-protect them. 
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Reversereplication
+      description: >-
+        Start replication to origin / target region - applies only to protected
+        instances that originated in EC2. For recovery instances on target region -
+        starts replication back to origin region. For failback instances on origin
+        region - starts replication to target region to re-protect them. 
+    paths:
+      /ReverseReplication:
+        POST:
+          summary: Reversereplication
+          description: >-
+            Start replication to origin / target region - applies only to protected
+            instances that originated in EC2. For recovery instances on target
+            region - starts replication back to origin region. For failback
+            instances on origin region - starts replication to target region to
+            re-protect them. 
+          operationId: amazonWebServicesReverseReplication

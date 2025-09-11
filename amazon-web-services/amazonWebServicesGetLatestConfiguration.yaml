@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetLatestConfiguration
+  description: >-
+    Retrieves the latest deployed configuration. This API may return empty
+    configuration data if the client already has the latest version. For more
+    information about this API action and to view example CLI commands that show
+    how to use it with the StartConfigurationSession API action, see Retrieving
+    the configuration in the AppConfig User Guide.   Note the following
+    important information.   Each configuration token is only valid for one call
+    to GetLatestConfiguration. The GetLatestConfiguration response includes a
+    NextPollConfigurationToken that should always replace the token used for the
+    just-completed call in preparation for the next one.    
+    GetLatestConfiguration is a priced call. For more information, see
+    Pricing.   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getlatestconfiguration
+      description: >-
+        Retrieves the latest deployed configuration. This API may return empty
+        configuration data if the client already has the latest version. For more
+        information about this API action and to view example CLI commands that show
+        how to use it with the StartConfigurationSession API action, see Retrieving
+        the configuration in the AppConfig User Guide.   Note the following
+        important information.   Each configuration token is only valid for one call
+        to GetLatestConfiguration. The GetLatestConfiguration response includes a
+        NextPollConfigurationToken that should always replace the token used for the
+        just-completed call in preparation for the next one.    
+        GetLatestConfiguration is a priced call. For more information, see
+        Pricing.   
+    paths:
+      /configuration:
+        GET:
+          summary: Getlatestconfiguration
+          description: >-
+            Retrieves the latest deployed configuration. This API may return empty
+            configuration data if the client already has the latest version. For
+            more information about this API action and to view example CLI commands
+            that show how to use it with the StartConfigurationSession API action,
+            see Retrieving the configuration in the AppConfig User Guide.   Note the
+            following important information.   Each configuration token is only
+            valid for one call to GetLatestConfiguration. The GetLatestConfiguration
+            response includes a NextPollConfigurationToken that should always
+            replace the token used for the just-completed call in preparation for
+            the next one.     GetLatestConfiguration is a priced call. For more
+            information, see Pricing.   
+          operationId: amazonWebServicesGetLatestConfiguration

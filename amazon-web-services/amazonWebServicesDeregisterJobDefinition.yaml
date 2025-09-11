@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDeregisterJobDefinition
+  description: >-
+    Deregisters an Batch job definition. Job definitions are permanently deleted
+    after 180 days.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Deregisterjobdefinition
+      description: >-
+        Deregisters an Batch job definition. Job definitions are permanently deleted
+        after 180 days.
+    paths:
+      /v1/deregisterjobdefinition:
+        POST:
+          summary: Deregisterjobdefinition
+          description: >-
+            Deregisters an Batch job definition. Job definitions are permanently
+            deleted after 180 days.
+          operationId: amazonWebServicesDeregisterJobDefinition

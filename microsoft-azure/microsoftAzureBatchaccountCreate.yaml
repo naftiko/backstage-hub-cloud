@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureBatchaccountCreate
+  description: >-
+    Creates a new Batch account with the specified parameters. Existing accounts
+    cannot be updated with this API and should instead be updated with the
+    Update Batch Account API.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Batch Batchaccounts Accountname
+      description: >-
+        Creates a new Batch account with the specified parameters. Existing accounts
+        cannot be updated with this API and should instead be updated with the
+        Update Batch Account API.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}:
+        put:
+          summary: >-
+            Put Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Batch Batchaccounts Accountname
+          description: >-
+            Creates a new Batch account with the specified parameters. Existing
+            accounts cannot be updated with this API and should instead be updated
+            with the Update Batch Account API.
+          operationId: microsoftAzureBatchaccountCreate
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

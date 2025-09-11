@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesEnableTopicRule
+  description: Enables the rule. Requires permission to access the EnableTopicRule action.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Enabletopicrule
+      description: Enables the rule. Requires permission to access the EnableTopicRule action.
+    paths:
+      /rules/{ruleName}/enable:
+        POST:
+          summary: Enabletopicrule
+          description: >-
+            Enables the rule. Requires permission to access the EnableTopicRule
+            action.
+          operationId: amazonWebServicesEnableTopicRule

@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureP2svpngatewaysDisconnectp2svpnconnections
+  description: >-
+    Disconnect P2S vpn connections of the virtual wan P2SVpnGateway in the
+    specified resource group.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Network P2svpngateways P2svpngatewayname
+        Disconnectp2svpnconnections
+      description: >-
+        Disconnect P2S vpn connections of the virtual wan P2SVpnGateway in the
+        specified resource group.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/p2svpnGateways/{p2sVpnGatewayName}/disconnectP2sVpnConnections:
+        post:
+          summary: >-
+            Post Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Network P2svpngateways P2svpngatewayname
+            Disconnectp2svpnconnections
+          description: >-
+            Disconnect P2S vpn connections of the virtual wan P2SVpnGateway in the
+            specified resource group.
+          operationId: microsoftAzureP2svpngatewaysDisconnectp2svpnconnections
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: ./network.json#/definitions/CloudError

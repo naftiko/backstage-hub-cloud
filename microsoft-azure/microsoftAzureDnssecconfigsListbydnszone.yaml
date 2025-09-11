@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDnssecconfigsListbydnszone
+  description: Lists the DNSSEC configurations in a DNS zone.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname Providers
+        Microsoft Network Dnszones Zonename Dnssecconfigs
+      description: Lists the DNSSEC configurations in a DNS zone.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName}/dnssecConfigs:
+        get:
+          summary: >-
+            Get Subscriptions Subscriptionid Resourcegroups Resourcegroupname
+            Providers Microsoft Network Dnszones Zonename Dnssecconfigs
+          description: Lists the DNSSEC configurations in a DNS zone.
+          operationId: microsoftAzureDnssecconfigsListbydnszone
+          responses:
+            default:
+              description: >-
+                Default response. It will be deserialized as per the Error
+                definition.
+              schema:
+                $ref: '#/definitions/CloudError'

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureContainergroupsRestart
+  description: >-
+    Restarts all containers in a container group in place. If container image
+    has updates, new image will be downloaded.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Restarts All Containers In A Container Group '
+      description: >-
+        Restarts all containers in a container group in place. If container image
+        has updates, new image will be downloaded.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/restart:
+        post:
+          summary: 'Restarts All Containers In A Container Group '
+          description: >-
+            Restarts all containers in a container group in place. If container
+            image has updates, new image will be downloaded.
+          operationId: microsoftAzureContainergroupsRestart
+          responses:
+            default:
+              description: Error response describing why the operation failed.
+              schema:
+                $ref: '#/definitions/CloudError'

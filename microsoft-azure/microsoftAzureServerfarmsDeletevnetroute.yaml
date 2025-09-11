@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureServerfarmsDeletevnetroute
+  description: Needs a more full description created.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Deletes An Existing Route For A Vnet In An App Service Plan '
+      description: Needs a more full description created.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}/routes/{routeName}:
+        delete:
+          summary: 'Deletes An Existing Route For A Vnet In An App Service Plan '
+          description: Needs a more full description created.
+          operationId: microsoftAzureServerfarmsDeletevnetroute
+          responses:
+            '404':
+              description: Specified route does not exist.

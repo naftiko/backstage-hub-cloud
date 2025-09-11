@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateOriginRequestPolicy
+  description: >-
+    Updates an origin request policy configuration. When you update an origin
+    request policy configuration, all the fields are updated with the values
+    provided in the request. You cannot update some fields independent of
+    others. To update an origin request policy configuration:   Use
+    GetOriginRequestPolicyConfig to get the current configuration.   Locally
+    modify the fields in the origin request policy configuration that you want
+    to update.   Call UpdateOriginRequestPolicy by providing the entire origin
+    request policy configuration, including the fields that you modified and
+    those that you didn't.  
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updateoriginrequestpolicy
+      description: >-
+        Updates an origin request policy configuration. When you update an origin
+        request policy configuration, all the fields are updated with the values
+        provided in the request. You cannot update some fields independent of
+        others. To update an origin request policy configuration:   Use
+        GetOriginRequestPolicyConfig to get the current configuration.   Locally
+        modify the fields in the origin request policy configuration that you want
+        to update.   Call UpdateOriginRequestPolicy by providing the entire origin
+        request policy configuration, including the fields that you modified and
+        those that you didn't.  
+    paths:
+      /2020-05-31/origin-request-policy/{Id}:
+        PUT:
+          summary: Updateoriginrequestpolicy
+          description: >-
+            Updates an origin request policy configuration. When you update an
+            origin request policy configuration, all the fields are updated with the
+            values provided in the request. You cannot update some fields
+            independent of others. To update an origin request policy
+            configuration:   Use GetOriginRequestPolicyConfig to get the current
+            configuration.   Locally modify the fields in the origin request policy
+            configuration that you want to update.   Call UpdateOriginRequestPolicy
+            by providing the entire origin request policy configuration, including
+            the fields that you modified and those that you didn't.  
+          operationId: amazonWebServicesUpdateOriginRequestPolicy

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePolicyGet
+  description: Get the Learning Settings currently used by the Personalizer service.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Get Policy '
+      description: Get the Learning Settings currently used by the Personalizer service.
+    paths:
+      /configurations/policy:
+        get:
+          summary: 'Get Policy '
+          description: Get the Learning Settings currently used by the Personalizer service.
+          operationId: microsoftAzurePolicyGet
+          responses:
+            '200':
+              description: Success
+              schema:
+                $ref: '#/definitions/PolicyContract'

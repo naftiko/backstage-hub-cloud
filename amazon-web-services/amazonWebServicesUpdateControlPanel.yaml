@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateControlPanel
+  description: >-
+    Updates a control panel. The only update you can make to a control panel is
+    to change the name of the control panel.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatecontrolpanel
+      description: >-
+        Updates a control panel. The only update you can make to a control panel is
+        to change the name of the control panel.
+    paths:
+      /controlpanel:
+        PUT:
+          summary: Updatecontrolpanel
+          description: >-
+            Updates a control panel. The only update you can make to a control panel
+            is to change the name of the control panel.
+          operationId: amazonWebServicesUpdateControlPanel

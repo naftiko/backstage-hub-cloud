@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListLayers
+  description: >-
+    Lists Lambda layers and shows information about the latest version of each.
+    Specify a runtime identifier to list only layers that indicate that they're
+    compatible with that runtime. Specify a compatible architecture to include
+    only layers that are compatible with that instruction set architecture.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listlayers
+      description: >-
+        Lists Lambda layers and shows information about the latest version of each.
+        Specify a runtime identifier to list only layers that indicate that they're
+        compatible with that runtime. Specify a compatible architecture to include
+        only layers that are compatible with that instruction set architecture.
+    paths:
+      /2018-10-31/layers:
+        GET:
+          summary: Listlayers
+          description: >-
+            Lists Lambda layers and shows information about the latest version of
+            each. Specify a runtime identifier to list only layers that indicate
+            that they're compatible with that runtime. Specify a compatible
+            architecture to include only layers that are compatible with that
+            instruction set architecture.
+          operationId: amazonWebServicesListLayers

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureJobList
+  description: >-
+    Lists the jobs, if any, associated with the specified Data Lake Analytics
+    account. The response includes a link to the next page of results, if any.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Jobs
+      description: >-
+        Lists the jobs, if any, associated with the specified Data Lake Analytics
+        account. The response includes a link to the next page of results, if any.
+    paths:
+      /jobs:
+        get:
+          summary: Get Jobs
+          description: >-
+            Lists the jobs, if any, associated with the specified Data Lake
+            Analytics account. The response includes a link to the next page of
+            results, if any.
+          operationId: microsoftAzureJobList
+          responses:
+            '200':
+              description: Successfully retrieved the list of jobs.
+              schema:
+                $ref: '#/definitions/JobInfoListResult'

@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetDataSourceIntrospection
+  description: >-
+    Retrieves the record of an existing introspection. If the retrieval is
+    successful, the result of the instrospection will also be returned. If the
+    retrieval fails the operation, an error message will be returned instead.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getdatasourceintrospection
+      description: >-
+        Retrieves the record of an existing introspection. If the retrieval is
+        successful, the result of the instrospection will also be returned. If the
+        retrieval fails the operation, an error message will be returned instead.
+    paths:
+      /v1/datasources/introspections/{introspectionId}:
+        GET:
+          summary: Getdatasourceintrospection
+          description: >-
+            Retrieves the record of an existing introspection. If the retrieval is
+            successful, the result of the instrospection will also be returned. If
+            the retrieval fails the operation, an error message will be returned
+            instead.
+          operationId: amazonWebServicesGetDataSourceIntrospection

@@ -1,0 +1,96 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesTranslatePinData
+  description: >-
+    Translates encrypted PIN block from and to ISO 9564 formats 0,1,3,4. For
+    more information, see Translate PIN data in the Amazon Web Services Payment
+    Cryptography User Guide. PIN block translation involves changing the
+    encrytion of PIN block from one encryption key to another encryption key and
+    changing PIN block format from one to another without PIN block data leaving
+    Amazon Web Services Payment Cryptography. The encryption key transformation
+    can be from PEK (Pin Encryption Key) to BDK (Base Derivation Key) for DUKPT
+    or from BDK for DUKPT to PEK. Amazon Web Services Payment Cryptography
+    supports TDES and AES key derivation type for DUKPT tranlations. You can use
+    this operation for P2PE (Point to Point Encryption) use cases where the
+    encryption keys should change but the processing system either does not need
+    to, or is not permitted to, decrypt the data. The allowed combinations of
+    PIN block format translations are guided by PCI. It is important to note
+    that not all encrypted PIN block formats (example, format 1) require PAN
+    (Primary Account Number) as input. And as such, PIN block format that
+    requires PAN (example, formats 0,3,4) cannot be translated to a format
+    (format 1) that does not require a PAN for generation.  For information
+    about valid keys for this operation, see Understanding key attributes and
+    Key types for specific data operations in the Amazon Web Services Payment
+    Cryptography User Guide.  At this time, Amazon Web Services Payment
+    Cryptography does not support translations to PIN format 4.   Cross-account
+    use: This operation can't be used across different Amazon Web Services
+    accounts.  Related operations:     GeneratePinData     VerifyPinData   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Translatepindata
+      description: >-
+        Translates encrypted PIN block from and to ISO 9564 formats 0,1,3,4. For
+        more information, see Translate PIN data in the Amazon Web Services Payment
+        Cryptography User Guide. PIN block translation involves changing the
+        encrytion of PIN block from one encryption key to another encryption key and
+        changing PIN block format from one to another without PIN block data leaving
+        Amazon Web Services Payment Cryptography. The encryption key transformation
+        can be from PEK (Pin Encryption Key) to BDK (Base Derivation Key) for DUKPT
+        or from BDK for DUKPT to PEK. Amazon Web Services Payment Cryptography
+        supports TDES and AES key derivation type for DUKPT tranlations. You can use
+        this operation for P2PE (Point to Point Encryption) use cases where the
+        encryption keys should change but the processing system either does not need
+        to, or is not permitted to, decrypt the data. The allowed combinations of
+        PIN block format translations are guided by PCI. It is important to note
+        that not all encrypted PIN block formats (example, format 1) require PAN
+        (Primary Account Number) as input. And as such, PIN block format that
+        requires PAN (example, formats 0,3,4) cannot be translated to a format
+        (format 1) that does not require a PAN for generation.  For information
+        about valid keys for this operation, see Understanding key attributes and
+        Key types for specific data operations in the Amazon Web Services Payment
+        Cryptography User Guide.  At this time, Amazon Web Services Payment
+        Cryptography does not support translations to PIN format 4.   Cross-account
+        use: This operation can't be used across different Amazon Web Services
+        accounts.  Related operations:     GeneratePinData     VerifyPinData   
+    paths:
+      /pindata/translate:
+        POST:
+          summary: Translatepindata
+          description: >-
+            Translates encrypted PIN block from and to ISO 9564 formats 0,1,3,4. For
+            more information, see Translate PIN data in the Amazon Web Services
+            Payment Cryptography User Guide. PIN block translation involves changing
+            the encrytion of PIN block from one encryption key to another encryption
+            key and changing PIN block format from one to another without PIN block
+            data leaving Amazon Web Services Payment Cryptography. The encryption
+            key transformation can be from PEK (Pin Encryption Key) to BDK (Base
+            Derivation Key) for DUKPT or from BDK for DUKPT to PEK. Amazon Web
+            Services Payment Cryptography supports TDES and AES key derivation type
+            for DUKPT tranlations. You can use this operation for P2PE (Point to
+            Point Encryption) use cases where the encryption keys should change but
+            the processing system either does not need to, or is not permitted to,
+            decrypt the data. The allowed combinations of PIN block format
+            translations are guided by PCI. It is important to note that not all
+            encrypted PIN block formats (example, format 1) require PAN (Primary
+            Account Number) as input. And as such, PIN block format that requires
+            PAN (example, formats 0,3,4) cannot be translated to a format (format 1)
+            that does not require a PAN for generation.  For information about valid
+            keys for this operation, see Understanding key attributes and Key types
+            for specific data operations in the Amazon Web Services Payment
+            Cryptography User Guide.  At this time, Amazon Web Services Payment
+            Cryptography does not support translations to PIN format 4.  
+            Cross-account use: This operation can't be used across different Amazon
+            Web Services accounts.  Related operations:     GeneratePinData    
+            VerifyPinData   
+          operationId: amazonWebServicesTranslatePinData

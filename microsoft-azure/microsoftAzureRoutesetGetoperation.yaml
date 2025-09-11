@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureRoutesetGetoperation
+  description: >-
+    <br><br>The `Get Operation` API is an HTTP `GET` request used to check the
+    status of the routeset creation process and retrieve the
+    `routesetId`.<br><br>### Submit Operations Request<br><br>To view the
+    current progress of a routeset operation, you will use a `GET` request where
+    the `operationId` given the path is the ID that represents the
+    operation.<br><br>### Operation Response<br><br>While in progress, a
+    `200-OK` http status code is returned with no extra headers. If the
+    operation succeeds, a `200-OK` http status code is returned with the
+    `Resource-Location` in the header.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Use To Check The Status Of The Routeset Creation Process '
+      description: >-
+        <br><br>The `Get Operation` API is an HTTP `GET` request used to check the
+        status of the routeset creation process and retrieve the
+        `routesetId`.<br><br>### Submit Operations Request<br><br>To view the
+        current progress of a routeset operation, you will use a `GET` request where
+        the `operationId` given the path is the ID that represents the
+        operation.<br><br>### Operation Response<br><br>While in progress, a
+        `200-OK` http status code is returned with no extra headers. If the
+        operation succeeds, a `200-OK` http status code is returned with the
+        `Resource-Location` in the header.
+    paths:
+      /routesets/operations/{operationId}:
+        get:
+          summary: 'Use To Check The Status Of The Routeset Creation Process '
+          description: >-
+            <br><br>The `Get Operation` API is an HTTP `GET` request used to check
+            the status of the routeset creation process and retrieve the
+            `routesetId`.<br><br>### Submit Operations Request<br><br>To view the
+            current progress of a routeset operation, you will use a `GET` request
+            where the `operationId` given the path is the ID that represents the
+            operation.<br><br>### Operation Response<br><br>While in progress, a
+            `200-OK` http status code is returned with no extra headers. If the
+            operation succeeds, a `200-OK` http status code is returned with the
+            `Resource-Location` in the header.
+          operationId: microsoftAzureRoutesetGetoperation
+          responses:
+            default:
+              $ref: ../../../Common/preview/1.0/common.json#/responses/default

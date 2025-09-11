@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureWebappsListdomainownershipidentifiers
+  description: >-
+    Description for Lists ownership identifiers for domain associated with web
+    app.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Lists Ownership Identifiers For Domain Associated With Web App '
+      description: >-
+        Description for Lists ownership identifiers for domain associated with web
+        app.
+    paths:
+      /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/domainOwnershipIdentifiers:
+        get:
+          summary: 'Lists Ownership Identifiers For Domain Associated With Web App '
+          description: >-
+            Description for Lists ownership identifiers for domain associated with
+            web app.
+          operationId: microsoftAzureWebappsListdomainownershipidentifiers
+          responses:
+            default:
+              description: App Service error response.
+              schema:
+                $ref: ./CommonDefinitions.json#/definitions/DefaultErrorResponse

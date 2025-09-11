@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureStartapplicationupgrade
+  description: >-
+    Validates the supplied application upgrade parameters and starts upgrading
+    the application if the parameters are valid.<br>Note,
+    [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters)s
+    are not preserved across an application upgrade.<br>In order to preserve
+    current application parameters, the user should get the parameters using
+    [GetApplicationInfo](./GetApplicationInfo.md) operation first and pass them
+    into the upgrade API call as shown in the example.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: 'Starts Upgrading An Application In The Service Fabric Cluster '
+      description: >-
+        Validates the supplied application upgrade parameters and starts upgrading
+        the application if the parameters are valid.<br>Note,
+        [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters)s
+        are not preserved across an application upgrade.<br>In order to preserve
+        current application parameters, the user should get the parameters using
+        [GetApplicationInfo](./GetApplicationInfo.md) operation first and pass them
+        into the upgrade API call as shown in the example.
+    paths:
+      /Applications/{applicationId}/$/Upgrade:
+        post:
+          summary: 'Starts Upgrading An Application In The Service Fabric Cluster '
+          description: >-
+            Validates the supplied application upgrade parameters and starts
+            upgrading the application if the parameters are valid.<br>Note,
+            [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters)s
+            are not preserved across an application upgrade.<br>In order to preserve
+            current application parameters, the user should get the parameters using
+            [GetApplicationInfo](./GetApplicationInfo.md) operation first and pass
+            them into the upgrade API call as shown in the example.
+          operationId: microsoftAzureStartapplicationupgrade
+          responses:
+            default:
+              description: The detailed error response.
+              schema:
+                $ref: '#/definitions/FabricError'

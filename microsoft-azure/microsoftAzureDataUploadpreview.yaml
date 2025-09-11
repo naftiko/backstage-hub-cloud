@@ -1,0 +1,140 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureDataUploadpreview
+  description: >-
+    **Applies to:** S1 pricing tier.<br><br>The Data Upload API allows the
+    caller to upload data content to the Azure Maps service.<br>You can use this
+    API in a scenario like uploading a collection of Geofences in `GeoJSON`
+    <br>format, for use in our [Azure Maps Geofencing
+    Service](/rest/api/maps/spatial).<br><br>> [!NOTE]<br>><br>> **Azure Maps
+    Data service retirement**<br>><br>> The Azure Maps Data service (both
+    [v1](/rest/api/maps/data?view=rest-maps-1.0) and [v2](/rest/api/maps/data))
+    is now deprecated and will be retired on 9/16/24. To avoid service
+    disruptions, all calls to the Data service will need to be updated to use
+    the Azure Maps [Data Registry](/rest/api/maps/data-registry) service by
+    9/16/24. For more information, see [How to create data
+    registry](/azure/azure-maps/how-to-create-data-registries).<br><br>## Submit
+    Upload Request<br><br>To upload your content you will use a `POST` request.
+    The request body will contain the data to upload. The `Content-Type` header
+    will be set to the content type of the <br>data.<br><br>For example, to
+    upload a collection of geofences  in `GeoJSON` format, set the request body
+    to the geofence <br>content. Set the `dataFormat` query parameter to
+    _geojson_, and set the `Content-Type` header to either one <br>of the
+    following media types:<br><br>- `application/json`<br>-
+    `application/vnd.geo+json`<br>- `application/octet-stream`<br><br>Here's a
+    sample request body for uploading a simple Geofence represented as a circle
+    geometry using a center <br>point and a radius. The sample below is in
+    `GeoJSON`:<br><br>```json<br>{<br>    "type": "FeatureCollection",<br>   
+    "features": [{<br>        "type": "Feature",<br>        "geometry":
+    {<br>            "type": "Point",<br>            "coordinates":
+    [-122.126986, 47.639754]<br>        },<br>        "properties":
+    {<br>            "geometryId": "001",<br>            "radius":
+    500<br>        }<br>    }]<br>}<br>```<br><br>The Data Upload API performs a
+    <br>long-running operation.<br><br>## Data Upload Limits<br><br>Please, be
+    aware that currently every Azure Maps account has a [data storage
+    limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-maps-limits).
+    <br>Once the storage limit is reached, all the new upload API calls will
+    return a `409 Conflict` http error response. <br>You can always use the
+    [Data Delete API](/rest/api/maps/data/delete?view=rest-maps-1.0) to
+    <br>delete old/unused content and create space for new uploads.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: >-
+        The Upload Request Allows The Caller To Upload Data Content To Their Azure
+        Maps Account 
+      description: >-
+        **Applies to:** S1 pricing tier.<br><br>The Data Upload API allows the
+        caller to upload data content to the Azure Maps service.<br>You can use this
+        API in a scenario like uploading a collection of Geofences in `GeoJSON`
+        <br>format, for use in our [Azure Maps Geofencing
+        Service](/rest/api/maps/spatial).<br><br>> [!NOTE]<br>><br>> **Azure Maps
+        Data service retirement**<br>><br>> The Azure Maps Data service (both
+        [v1](/rest/api/maps/data?view=rest-maps-1.0) and [v2](/rest/api/maps/data))
+        is now deprecated and will be retired on 9/16/24. To avoid service
+        disruptions, all calls to the Data service will need to be updated to use
+        the Azure Maps [Data Registry](/rest/api/maps/data-registry) service by
+        9/16/24. For more information, see [How to create data
+        registry](/azure/azure-maps/how-to-create-data-registries).<br><br>## Submit
+        Upload Request<br><br>To upload your content you will use a `POST` request.
+        The request body will contain the data to upload. The `Content-Type` header
+        will be set to the content type of the <br>data.<br><br>For example, to
+        upload a collection of geofences  in `GeoJSON` format, set the request body
+        to the geofence <br>content. Set the `dataFormat` query parameter to
+        _geojson_, and set the `Content-Type` header to either one <br>of the
+        following media types:<br><br>- `application/json`<br>-
+        `application/vnd.geo+json`<br>- `application/octet-stream`<br><br>Here's a
+        sample request body for uploading a simple Geofence represented as a circle
+        geometry using a center <br>point and a radius. The sample below is in
+        `GeoJSON`:<br><br>```json<br>{<br>    "type": "FeatureCollection",<br>   
+        "features": [{<br>        "type": "Feature",<br>        "geometry":
+        {<br>            "type": "Point",<br>            "coordinates":
+        [-122.126986, 47.639754]<br>        },<br>        "properties":
+        {<br>            "geometryId": "001",<br>            "radius":
+        500<br>        }<br>    }]<br>}<br>```<br><br>The Data Upload API performs a
+        <br>long-running operation.<br><br>## Data Upload Limits<br><br>Please, be
+        aware that currently every Azure Maps account has a [data storage
+        limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-maps-limits).
+        <br>Once the storage limit is reached, all the new upload API calls will
+        return a `409 Conflict` http error response. <br>You can always use the
+        [Data Delete API](/rest/api/maps/data/delete?view=rest-maps-1.0) to
+        <br>delete old/unused content and create space for new uploads.
+    paths:
+      /mapData/upload:
+        post:
+          summary: >-
+            The Upload Request Allows The Caller To Upload Data Content To Their
+            Azure Maps Account 
+          description: >-
+            **Applies to:** S1 pricing tier.<br><br>The Data Upload API allows the
+            caller to upload data content to the Azure Maps service.<br>You can use
+            this API in a scenario like uploading a collection of Geofences in
+            `GeoJSON` <br>format, for use in our [Azure Maps Geofencing
+            Service](/rest/api/maps/spatial).<br><br>> [!NOTE]<br>><br>> **Azure
+            Maps Data service retirement**<br>><br>> The Azure Maps Data service
+            (both [v1](/rest/api/maps/data?view=rest-maps-1.0) and
+            [v2](/rest/api/maps/data)) is now deprecated and will be retired on
+            9/16/24. To avoid service disruptions, all calls to the Data service
+            will need to be updated to use the Azure Maps [Data
+            Registry](/rest/api/maps/data-registry) service by 9/16/24. For more
+            information, see [How to create data
+            registry](/azure/azure-maps/how-to-create-data-registries).<br><br>##
+            Submit Upload Request<br><br>To upload your content you will use a
+            `POST` request. The request body will contain the data to upload. The
+            `Content-Type` header will be set to the content type of the
+            <br>data.<br><br>For example, to upload a collection of geofences  in
+            `GeoJSON` format, set the request body to the geofence <br>content. Set
+            the `dataFormat` query parameter to _geojson_, and set the
+            `Content-Type` header to either one <br>of the following media
+            types:<br><br>- `application/json`<br>- `application/vnd.geo+json`<br>-
+            `application/octet-stream`<br><br>Here's a sample request body for
+            uploading a simple Geofence represented as a circle geometry using a
+            center <br>point and a radius. The sample below is in
+            `GeoJSON`:<br><br>```json<br>{<br>    "type":
+            "FeatureCollection",<br>    "features": [{<br>        "type":
+            "Feature",<br>        "geometry": {<br>            "type":
+            "Point",<br>            "coordinates": [-122.126986,
+            47.639754]<br>        },<br>        "properties": {<br>           
+            "geometryId": "001",<br>            "radius": 500<br>        }<br>   
+            }]<br>}<br>```<br><br>The Data Upload API performs a <br>long-running
+            operation.<br><br>## Data Upload Limits<br><br>Please, be aware that
+            currently every Azure Maps account has a [data storage
+            limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-maps-limits).
+            <br>Once the storage limit is reached, all the new upload API calls will
+            return a `409 Conflict` http error response. <br>You can always use the
+            [Data Delete API](/rest/api/maps/data/delete?view=rest-maps-1.0) to
+            <br>delete old/unused content and create space for new uploads.
+          operationId: microsoftAzureDataUploadpreview
+          responses:
+            '500':
+              $ref: '#/responses/500'

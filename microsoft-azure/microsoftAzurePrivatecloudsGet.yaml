@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzurePrivatecloudsGet
+  description: Returns private cloud by its name
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Implements Private Cloud Get Method
+      description: Returns private cloud by its name
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.VMwareCloudSimple/locations/{regionId}/privateClouds/{pcName}:
+        get:
+          summary: Implements Private Cloud Get Method
+          description: Returns private cloud by its name
+          operationId: microsoftAzurePrivatecloudsGet
+          responses:
+            default:
+              description: General Error
+              schema:
+                $ref: '#/definitions/CSRPError'

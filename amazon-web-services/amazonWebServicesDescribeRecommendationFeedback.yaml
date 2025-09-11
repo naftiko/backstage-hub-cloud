@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDescribeRecommendationFeedback
+  description: Describes the customer feedback for a CodeGuru Reviewer recommendation.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describerecommendationfeedback
+      description: Describes the customer feedback for a CodeGuru Reviewer recommendation.
+    paths:
+      /feedback/{CodeReviewArn}:
+        GET:
+          summary: Describerecommendationfeedback
+          description: Describes the customer feedback for a CodeGuru Reviewer recommendation.
+          operationId: amazonWebServicesDescribeRecommendationFeedback

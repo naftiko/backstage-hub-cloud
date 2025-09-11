@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListCustomLineItemVersions
+  description: A paginated call to get a list of all custom line item versions.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listcustomlineitemversions
+      description: A paginated call to get a list of all custom line item versions.
+    paths:
+      /list-custom-line-item-versions:
+        POST:
+          summary: Listcustomlineitemversions
+          description: A paginated call to get a list of all custom line item versions.
+          operationId: amazonWebServicesListCustomLineItemVersions

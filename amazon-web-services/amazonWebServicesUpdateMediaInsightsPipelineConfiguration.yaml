@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesUpdateMediaInsightsPipelineConfiguration
+  description: Updates the media insights pipeline's configuration settings.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Updatemediainsightspipelineconfiguration
+      description: Updates the media insights pipeline's configuration settings.
+    paths:
+      /media-insights-pipeline-configurations/{identifier}:
+        PUT:
+          summary: Updatemediainsightspipelineconfiguration
+          description: Updates the media insights pipeline's configuration settings.
+          operationId: amazonWebServicesUpdateMediaInsightsPipelineConfiguration

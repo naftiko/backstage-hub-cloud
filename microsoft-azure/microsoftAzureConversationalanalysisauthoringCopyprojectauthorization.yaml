@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureConversationalanalysisauthoringCopyprojectauthorization
+  description: >-
+    Generates a copy project operation authorization to the current target Azure
+    resource.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Post Authoring Analyze Conversations Projects Projectname :authorize Copy
+      description: >-
+        Generates a copy project operation authorization to the current target Azure
+        resource.
+    paths:
+      /authoring/analyze-conversations/projects/{projectName}/:authorize-copy:
+        post:
+          summary: >-
+            Post Authoring Analyze Conversations Projects Projectname :authorize
+            Copy
+          description: >-
+            Generates a copy project operation authorization to the current target
+            Azure resource.
+          operationId: microsoftAzureConversationalanalysisauthoringCopyprojectauthorization
+          responses:
+            default:
+              description: Error response.
+              schema:
+                $ref: common.json#/definitions/ErrorResponse

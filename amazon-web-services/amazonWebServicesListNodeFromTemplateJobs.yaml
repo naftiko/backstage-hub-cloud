@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesListNodeFromTemplateJobs
+  description: Returns a list of camera stream node jobs.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Listnodefromtemplatejobs
+      description: Returns a list of camera stream node jobs.
+    paths:
+      /packages/template-job:
+        GET:
+          summary: Listnodefromtemplatejobs
+          description: Returns a list of camera stream node jobs.
+          operationId: amazonWebServicesListNodeFromTemplateJobs

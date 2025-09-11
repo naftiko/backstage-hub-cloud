@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesDescribeClusterOperationV2
+  description: Returns a description of the cluster operation specified by the ARN.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Describeclusteroperationv2
+      description: Returns a description of the cluster operation specified by the ARN.
+    paths:
+      /api/v2/operations/{clusterOperationArn}:
+        GET:
+          summary: Describeclusteroperationv2
+          description: Returns a description of the cluster operation specified by the ARN.
+          operationId: amazonWebServicesDescribeClusterOperationV2

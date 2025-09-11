@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesGetPlace
+  description: >-
+    Finds a place by its unique ID. A PlaceId is returned by other search
+    operations.  A PlaceId is valid only if all of the following are the same in
+    the original search request and the call to GetPlace.   Customer Amazon Web
+    Services account   Amazon Web Services Region   Data provider specified in
+    the place index resource   
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Getplace
+      description: >-
+        Finds a place by its unique ID. A PlaceId is returned by other search
+        operations.  A PlaceId is valid only if all of the following are the same in
+        the original search request and the call to GetPlace.   Customer Amazon Web
+        Services account   Amazon Web Services Region   Data provider specified in
+        the place index resource   
+    paths:
+      /places/v0/indexes/{IndexName}/places/{PlaceId}:
+        GET:
+          summary: Getplace
+          description: >-
+            Finds a place by its unique ID. A PlaceId is returned by other search
+            operations.  A PlaceId is valid only if all of the following are the
+            same in the original search request and the call to GetPlace.   Customer
+            Amazon Web Services account   Amazon Web Services Region   Data provider
+            specified in the place index resource   
+          operationId: amazonWebServicesGetPlace

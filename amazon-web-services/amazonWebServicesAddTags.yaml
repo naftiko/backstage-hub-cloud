@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: amazonWebServicesAddTags
+  description: >-
+    Attaches tags to an existing Amazon OpenSearch Service domain. Tags are a
+    set of case-sensitive key-value pairs. A domain can have up to 10 tags. For
+    more information, see Tagging Amazon OpenSearch Service domains.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Addtags
+      description: >-
+        Attaches tags to an existing Amazon OpenSearch Service domain. Tags are a
+        set of case-sensitive key-value pairs. A domain can have up to 10 tags. For
+        more information, see Tagging Amazon OpenSearch Service domains.
+    paths:
+      /2021-01-01/tags:
+        POST:
+          summary: Addtags
+          description: >-
+            Attaches tags to an existing Amazon OpenSearch Service domain. Tags are
+            a set of case-sensitive key-value pairs. A domain can have up to 10
+            tags. For more information, see Tagging Amazon OpenSearch Service
+            domains.
+          operationId: amazonWebServicesAddTags

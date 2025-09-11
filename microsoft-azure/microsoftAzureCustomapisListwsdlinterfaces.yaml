@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: microsoftAzureCustomapisListwsdlinterfaces
+  description: This returns the list of interfaces in the WSDL
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Lists Wsdl Interfaces
+      description: This returns the list of interfaces in the WSDL
+    paths:
+      /subscriptions/{subscriptionId}/providers/Microsoft.Web/locations/{location}/listWsdlInterfaces:
+        post:
+          summary: Lists Wsdl Interfaces
+          description: This returns the list of interfaces in the WSDL
+          operationId: microsoftAzureCustomapisListwsdlinterfaces
+          responses:
+            '200':
+              description: A list of interfaces
+              schema:
+                $ref: '#/definitions/WsdlServiceCollection'
