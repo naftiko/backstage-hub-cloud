@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: "Delete A Model Evaluation. A Model Evaluation Can Be Deleted If It Is In The 'succeeded' Or 'failed' States.\r\n  \r\nstatus Codes Returned:\r\n- 204: Operation Completed Successfully.\r\n- 400: The Request Was Malformed.\r\n- 404: A Model Evaluation With The Specified Name Was Not Found."
+  name: "Delete A Model Evaluation. A Model Evaluation Can Be Deleted If It Is In The 'succeeded' Or 'failed' States.\r\n \r\nstatus Codes Returned:\r\n- 204: Operation Completed Successfully.\r\n- 400: The Request Was Malformed.\r\n- 404: A Model Evaluation With The Specified Name Was Not Found."
   description: Needs a more full description created.
   tags: []
   links:
@@ -15,12 +15,12 @@ spec:
   definition: |
     openapi: 3.1.0
     info:
-      title: "Delete A Model Evaluation. A Model Evaluation Can Be Deleted If It Is In The 'succeeded' Or 'failed' States.\r\n  \r\nstatus Codes Returned:\r\n- 204: Operation Completed Successfully.\r\n- 400: The Request Was Malformed.\r\n- 404: A Model Evaluation With The Specified Name Was Not Found."
+      title: "Delete A Model Evaluation. A Model Evaluation Can Be Deleted If It Is In The 'succeeded' Or 'failed' States.\r\n \r\nstatus Codes Returned:\r\n- 204: Operation Completed Successfully.\r\n- 400: The Request Was Malformed.\r\n- 404: A Model Evaluation With The Specified Name Was Not Found."
       description: Needs a more full description created.
     paths:
       /models/{name}/evaluations/{evaluationName}:
         delete:
-          summary: "Delete A Model Evaluation. A Model Evaluation Can Be Deleted If It Is In The 'succeeded' Or 'failed' States.\r\n  \r\nstatus Codes Returned:\r\n- 204: Operation Completed Successfully.\r\n- 400: The Request Was Malformed.\r\n- 404: A Model Evaluation With The Specified Name Was Not Found."
+          summary: "Delete A Model Evaluation. A Model Evaluation Can Be Deleted If It Is In The 'succeeded' Or 'failed' States.\r\n \r\nstatus Codes Returned:\r\n- 204: Operation Completed Successfully.\r\n- 400: The Request Was Malformed.\r\n- 404: A Model Evaluation With The Specified Name Was Not Found."
           description: Needs a more full description created.
           operationId: modelEvaluationsDelete
           responses:

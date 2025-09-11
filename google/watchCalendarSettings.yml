@@ -1,0 +1,68 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Watch Calendar Settings
+  description: Watch for changes to Settings resources.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Watch Calendar Settings
+      description: Watch for changes to Settings resources.
+    paths:
+      /users/me/settings/watch:
+        post:
+          summary: Watch Calendar Settings
+          description: Watch for changes to Settings resources.
+          operationId: watchCalendarSettings
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    address: incididunt sed consequat
+                    expiration: velit ad aliq
+                    id: velit eiusmod
+                    kind: api#channel
+                    params:
+                      reprehenderit5c: non
+                      sint_b: cupidatat do
+                    payload: false
+                    resourceId: aute
+                    resourceUri: fugiat consequat
+                    token: ullamco officia in
+                    type: ex eiusmod adipisicing mollit
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    address: incididunt sed consequat
+                    expiration: velit ad aliq
+                    id: velit eiusmod
+                    kind: api#channel
+                    params:
+                      reprehenderit5c: non
+                      sint_b: cupidatat do
+                    payload: false
+                    resourceId: aute
+                    resourceUri: fugiat consequat
+                    token: ullamco officia in
+                    type: ex eiusmod adipisicing mollit

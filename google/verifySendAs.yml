@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Verify Send As
+  description: >-
+    Sends a verification email to the specified send-as alias address. The
+    verification status must be `pending`. This method is only available to
+    service account clients that have been delegated domain-wide authority.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Verify Send As
+      description: >-
+        Sends a verification email to the specified send-as alias address. The
+        verification status must be `pending`. This method is only available to
+        service account clients that have been delegated domain-wide authority.
+    paths:
+      /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/verify:
+        post:
+          summary: Verify Send As
+          description: >-
+            Sends a verification email to the specified send-as alias address. The
+            verification status must be `pending`. This method is only available to
+            service account clients that have been delegated domain-wide authority.
+          operationId: verifySendAs
+          requestBody:
+            content: {}
+          responses:
+            '204':
+              description: No Content
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: ''

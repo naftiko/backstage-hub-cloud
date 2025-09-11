@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: List Calendar Settings
+  description: Returns all user settings for the authenticated user.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: List Calendar Settings
+      description: Returns all user settings for the authenticated user.
+    paths:
+      /users/me/settings:
+        get:
+          summary: List Calendar Settings
+          description: Returns all user settings for the authenticated user.
+          operationId: listCalendarSettings
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    etag: in officia sed exercitation sit
+                    items:
+                      - etag: do commodo
+                        id: dolor Ut
+                        kind: calendar#setting
+                        value: non labore occaecat ut
+                      - etag: culpa labore ut
+                        id: ullamco ut quis
+                        kind: calendar#setting
+                        value: laborum consectetur eu in
+                    kind: calendar#settings
+                    nextPageToken: ullamco
+                    nextSyncToken: mag

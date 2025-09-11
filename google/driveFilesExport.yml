@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Files Fileid Export
+  description: >-
+    Exports a Google Workspace document to the requested MIME type and returns
+    exported byte content. Note that the exported content is limited to 10MB.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Files Fileid Export
+      description: >-
+        Exports a Google Workspace document to the requested MIME type and returns
+        exported byte content. Note that the exported content is limited to 10MB.
+    paths:
+      /files/{fileId}/export:
+        get:
+          summary: Get Files Fileid Export
+          description: >-
+            Exports a Google Workspace document to the requested MIME type and
+            returns exported byte content. Note that the exported content is limited
+            to 10MB.
+          operationId: driveFilesExport
+          responses:
+            '200':
+              description: Successful response

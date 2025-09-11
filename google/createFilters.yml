@@ -1,0 +1,82 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Filters
+  description: 'Creates a filter. Note: you can only create a maximum of 1,000 filters.'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Filters
+      description: 'Creates a filter. Note: you can only create a maximum of 1,000 filters.'
+    paths:
+      /gmail/v1/users/{userId}/settings/filters:
+        post:
+          summary: Create Filters
+          description: 'Creates a filter. Note: you can only create a maximum of 1,000 filters.'
+          operationId: createFilters
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    id: in aute anim
+                    criteria:
+                      from: nulla adipisicing veniam et mollit
+                      to: veniam commodo
+                      subject: sit exercitation
+                      query: nulla cupidatat officia commodo laborum
+                      negatedQuery: exercitation laboris
+                      hasAttachment: true
+                      excludeChats: false
+                      size: -52983385
+                      sizeComparison: smaller
+                    action:
+                      addLabelIds:
+                        - nostrud laboris sed esse
+                        - et ad
+                      removeLabelIds:
+                        - Lorem consequat l
+                        - minim Excepteur
+                      forward: culpa do
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    id: in aute anim
+                    criteria:
+                      from: nulla adipisicing veniam et mollit
+                      to: veniam commodo
+                      subject: sit exercitation
+                      query: nulla cupidatat officia commodo laborum
+                      negatedQuery: exercitation laboris
+                      hasAttachment: true
+                      excludeChats: false
+                      size: -52983385
+                      sizeComparison: smaller
+                    action:
+                      addLabelIds:
+                        - nostrud laboris sed esse
+                        - et ad
+                      removeLabelIds:
+                        - Lorem consequat l
+                        - minim Excepteur
+                      forward: culpa do

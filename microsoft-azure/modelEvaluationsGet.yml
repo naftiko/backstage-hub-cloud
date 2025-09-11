@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: "Get Information About A Specific Model Evaluation.\r\n  \r\nstatus Codes Returned:\r\n- 200: Operation Completed Successfully.\r\n- 400: The Request Was Malformed.\r\n- 404: A Model Evaluation With The Specified Name Was Not Found."
+  name: "Get Information About A Specific Model Evaluation.\r\n \r\nstatus Codes Returned:\r\n- 200: Operation Completed Successfully.\r\n- 400: The Request Was Malformed.\r\n- 404: A Model Evaluation With The Specified Name Was Not Found."
   description: Needs a more full description created.
   tags: []
   links:
@@ -15,12 +15,12 @@ spec:
   definition: |
     openapi: 3.1.0
     info:
-      title: "Get Information About A Specific Model Evaluation.\r\n  \r\nstatus Codes Returned:\r\n- 200: Operation Completed Successfully.\r\n- 400: The Request Was Malformed.\r\n- 404: A Model Evaluation With The Specified Name Was Not Found."
+      title: "Get Information About A Specific Model Evaluation.\r\n \r\nstatus Codes Returned:\r\n- 200: Operation Completed Successfully.\r\n- 400: The Request Was Malformed.\r\n- 404: A Model Evaluation With The Specified Name Was Not Found."
       description: Needs a more full description created.
     paths:
       /models/{name}/evaluations/{evaluationName}:
         get:
-          summary: "Get Information About A Specific Model Evaluation.\r\n  \r\nstatus Codes Returned:\r\n- 200: Operation Completed Successfully.\r\n- 400: The Request Was Malformed.\r\n- 404: A Model Evaluation With The Specified Name Was Not Found."
+          summary: "Get Information About A Specific Model Evaluation.\r\n \r\nstatus Codes Returned:\r\n- 200: Operation Completed Successfully.\r\n- 400: The Request Was Malformed.\r\n- 404: A Model Evaluation With The Specified Name Was Not Found."
           description: Needs a more full description created.
           operationId: modelEvaluationsGet
           responses:

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Patch Files Fileid Revisions Revisionid
+  description: Updates a revision with patch semantics.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Patch Files Fileid Revisions Revisionid
+      description: Updates a revision with patch semantics.
+    paths:
+      /files/{fileId}/revisions/{revisionId}:
+        patch:
+          summary: Patch Files Fileid Revisions Revisionid
+          description: Updates a revision with patch semantics.
+          operationId: driveRevisionsUpdate
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Revision'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/Revision'
+              description: Successful response

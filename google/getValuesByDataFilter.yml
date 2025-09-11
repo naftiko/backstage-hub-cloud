@@ -1,0 +1,111 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Values By Data Filter
+  description: >-
+    Returns one or more ranges of values that match the specified data filters.
+    The caller must specify the spreadsheet ID and one or more DataFilters.
+    Ranges that match any of the data filters in the request will be returned.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Values By Data Filter
+      description: >-
+        Returns one or more ranges of values that match the specified data filters.
+        The caller must specify the spreadsheet ID and one or more DataFilters.
+        Ranges that match any of the data filters in the request will be returned.
+    paths:
+      /v4/spreadsheets/{spreadsheetId}/values:batchGetByDataFilter:
+        post:
+          summary: Get Values By Data Filter
+          description: >-
+            Returns one or more ranges of values that match the specified data
+            filters. The caller must specify the spreadsheet ID and one or more
+            DataFilters. Ranges that match any of the data filters in the request
+            will be returned.
+          operationId: getValuesByDataFilter
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    dataFilters:
+                      - a1Range: eiusmod anim enim culpa
+                        developerMetadataLookup:
+                          locationMatchingStrategy: INTERSECTING_LOCATION
+                          locationType: SPREADSHEET
+                          metadataId: -64798951
+                          metadataKey: sint minim commodo
+                          metadataLocation:
+                            dimensionRange:
+                              dimension: ROWS
+                              endIndex: 34518543
+                              sheetId: 68337575
+                              startIndex: 91706381
+                            locationType: ROW
+                            sheetId: -33783740
+                            spreadsheet: true
+                          metadataValue: sunt
+                          visibility: DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED
+                        gridRange:
+                          endColumnIndex: -96821047
+                          endRowIndex: -9277805
+                          sheetId: 7522437
+                          startColumnIndex: 85603635
+                          startRowIndex: -31384652
+                      - a1Range: sunt irure dolor
+                        developerMetadataLookup:
+                          locationMatchingStrategy: >-
+                            DEVELOPER_METADATA_LOCATION_MATCHING_STRATEGY_UNSPECIFIED
+                          locationType: SHEET
+                          metadataId: 26360577
+                          metadataKey: in minim nulla aliquip laboris
+                          metadataLocation:
+                            dimensionRange:
+                              dimension: COLUMNS
+                              endIndex: -14426665
+                              sheetId: 88787400
+                              startIndex: -98846780
+                            locationType: COLUMN
+                            sheetId: -14062757
+                            spreadsheet: true
+                          metadataValue: proident au
+                          visibility: DOCUMENT
+                        gridRange:
+                          endColumnIndex: -11696202
+                          endRowIndex: -87528654
+                          sheetId: 32991035
+                          startColumnIndex: -95148112
+                          startRowIndex: -72465558
+                    dateTimeRenderOption: FORMATTED_STRING
+                    majorDimension: DIMENSION_UNSPECIFIED
+                    valueRenderOption: FORMULA
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  examples:
+                    example-0:
+                      summary: Successful response
+                      value: null
+                    example-1:
+                      summary: Successful response
+                      value: null

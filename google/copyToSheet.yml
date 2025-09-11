@@ -1,0 +1,137 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Copy To Sheet
+  description: >-
+    Copies a single sheet from a spreadsheet to another spreadsheet. Returns the
+    properties of the newly created sheet.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Copy To Sheet
+      description: >-
+        Copies a single sheet from a spreadsheet to another spreadsheet. Returns the
+        properties of the newly created sheet.
+    paths:
+      /v4/spreadsheets/{spreadsheetId}/sheets/{sheetId}:copyTo:
+        post:
+          summary: Copy To Sheet
+          description: >-
+            Copies a single sheet from a spreadsheet to another spreadsheet. Returns
+            the properties of the newly created sheet.
+          operationId: copyToSheet
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    destinationSpreadsheetId: eu fugiat
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  examples:
+                    example-0:
+                      summary: Successful response
+                      value:
+                        dataSourceSheetProperties:
+                          columns:
+                            - formula: id et ex reprehenderit
+                              reference:
+                                name: minim in
+                            - formula: culpa sint et
+                              reference:
+                                name: velit
+                          dataExecutionStatus:
+                            errorCode: DATA_EXECUTION_ERROR_CODE_UNSPECIFIED
+                            errorMessage: officia incididunt ipsum
+                            lastRefreshTime: incidid
+                            state: DATA_EXECUTION_STATE_UNSPECIFIED
+                          dataSourceId: in Ut dolore sunt
+                        gridProperties:
+                          columnCount: -39728991
+                          columnGroupControlAfter: false
+                          frozenColumnCount: -34736494
+                          frozenRowCount: -70465816
+                          hideGridlines: false
+                          rowCount: 14366497
+                          rowGroupControlAfter: true
+                        hidden: true
+                        index: 34136900
+                        rightToLeft: false
+                        sheetId: -19636375
+                        sheetType: OBJECT
+                        tabColor:
+                          alpha: 9104888.265400872
+                          blue: -38148126.52548318
+                          green: -49770222.52454422
+                          red: 11795874.261146635
+                        tabColorStyle:
+                          rgbColor:
+                            alpha: -27908346.978851378
+                            blue: 85938099.78494695
+                            green: -35336997.9560505
+                            red: -70387559.7048357
+                          themeColor: ACCENT2
+                        title: nisi reprehenderit cupidatat enim
+                    example-1:
+                      summary: Successful response
+                      value:
+                        dataSourceSheetProperties:
+                          columns:
+                            - formula: id et ex reprehenderit
+                              reference:
+                                name: minim in
+                            - formula: culpa sint et
+                              reference:
+                                name: velit
+                          dataExecutionStatus:
+                            errorCode: DATA_EXECUTION_ERROR_CODE_UNSPECIFIED
+                            errorMessage: officia incididunt ipsum
+                            lastRefreshTime: incidid
+                            state: DATA_EXECUTION_STATE_UNSPECIFIED
+                          dataSourceId: in Ut dolore sunt
+                        gridProperties:
+                          columnCount: -39728991
+                          columnGroupControlAfter: false
+                          frozenColumnCount: -34736494
+                          frozenRowCount: -70465816
+                          hideGridlines: false
+                          rowCount: 14366497
+                          rowGroupControlAfter: true
+                        hidden: true
+                        index: 34136900
+                        rightToLeft: false
+                        sheetId: -19636375
+                        sheetType: OBJECT
+                        tabColor:
+                          alpha: 9104888.265400872
+                          blue: -38148126.52548318
+                          green: -49770222.52454422
+                          red: 11795874.261146635
+                        tabColorStyle:
+                          rgbColor:
+                            alpha: -27908346.978851378
+                            blue: 85938099.78494695
+                            green: -35336997.9560505
+                            red: -70387559.7048357
+                          themeColor: ACCENT2
+                        title: nisi reprehenderit cupidatat enim

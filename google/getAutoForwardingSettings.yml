@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Auto Forwarding Settings
+  description: Gets the auto-forwarding setting for the specified account.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Auto Forwarding Settings
+      description: Gets the auto-forwarding setting for the specified account.
+    paths:
+      /gmail/v1/users/{userId}/settings/autoForwarding:
+        get:
+          summary: Get Auto Forwarding Settings
+          description: Gets the auto-forwarding setting for the specified account.
+          operationId: getAutoForwardingSettings
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    enabled: false
+                    emailAddress: officia ullamco Ut laboris eu
+                    disposition: trash

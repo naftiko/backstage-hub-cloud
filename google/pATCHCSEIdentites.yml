@@ -1,0 +1,63 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Patch Cse Identites
+  description: >-
+    Associates a different key pair with an existing client-side encryption
+    identity. The updated key pair must validate against Google's [S/MIME
+    certificate profiles](https://support.google.com/a/answer/7300887).
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Patch Cse Identites
+      description: >-
+        Associates a different key pair with an existing client-side encryption
+        identity. The updated key pair must validate against Google's [S/MIME
+        certificate profiles](https://support.google.com/a/answer/7300887).
+    paths:
+      /gmail/v1/users/{userId}/settings/cse/identities/{emailAddress}:
+        patch:
+          summary: Patch Cse Identites
+          description: >-
+            Associates a different key pair with an existing client-side encryption
+            identity. The updated key pair must validate against Google's [S/MIME
+            certificate profiles](https://support.google.com/a/answer/7300887).
+          operationId: pATCHCSEIdentites
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    emailAddress: aliquip quis id
+                    primaryKeyPairId: in exercitation esse
+                    signAndEncryptKeyPairs:
+                      signingKeyPairId: est deserunt
+                      encryptionKeyPairId: elit nulla esse ut
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    emailAddress: aliquip quis id
+                    primaryKeyPairId: in exercitation esse
+                    signAndEncryptKeyPairs:
+                      signingKeyPairId: est deserunt
+                      encryptionKeyPairId: elit nulla esse ut

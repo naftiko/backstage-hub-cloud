@@ -1,0 +1,106 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Update Calendar List
+  description: Updates an existing calendar on the user's calendar list.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Update Calendar List
+      description: Updates an existing calendar on the user's calendar list.
+    paths:
+      /users/me/calendarList/{calendarId}:
+        put:
+          summary: Update Calendar List
+          description: Updates an existing calendar on the user's calendar list.
+          operationId: updateCalendarList
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example:
+                    accessRole: dolore deserunt nisi sunt
+                    backgroundColor: consequat tempor esse voluptate
+                    colorId: eiusmod pariatur et
+                    conferenceProperties:
+                      allowedConferenceSolutionTypes:
+                        - culpa elit
+                        - cillum
+                    defaultReminders:
+                      - method: Excepteur
+                        minutes: 35541699
+                      - method: in magna culpa consequat
+                        minutes: 74169785
+                    deleted: 'false'
+                    description: nulla
+                    etag: incididunt elit in
+                    foregroundColor: labore fugiat
+                    hidden: 'false'
+                    id: nulla
+                    kind: calendar#calendarListEntry
+                    location: aliqua
+                    notificationSettings:
+                      notifications:
+                        - method: id dolor minim
+                          type: ut occaecat sit e
+                        - method: consequat minim nisi consecte
+                          type: nulla id
+                    primary: 'false'
+                    selected: 'false'
+                    summary: anim Duis culpa quis consequ
+                    summaryOverride: deserunt elit reprehenderit
+                    timeZone: minim commodo incididunt reprehenderit sed
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    accessRole: dolore deserunt nisi sunt
+                    backgroundColor: consequat tempor esse voluptate
+                    colorId: eiusmod pariatur et
+                    conferenceProperties:
+                      allowedConferenceSolutionTypes:
+                        - culpa elit
+                        - cillum
+                    defaultReminders:
+                      - method: Excepteur
+                        minutes: 35541699
+                      - method: in magna culpa consequat
+                        minutes: 74169785
+                    deleted: 'false'
+                    description: nulla
+                    etag: incididunt elit in
+                    foregroundColor: labore fugiat
+                    hidden: 'false'
+                    id: nulla
+                    kind: calendar#calendarListEntry
+                    location: aliqua
+                    notificationSettings:
+                      notifications:
+                        - method: id dolor minim
+                          type: ut occaecat sit e
+                        - method: consequat minim nisi consecte
+                          type: nulla id
+                    primary: 'false'
+                    selected: 'false'
+                    summary: anim Duis culpa quis consequ
+                    summaryOverride: deserunt elit reprehenderit
+                    timeZone: minim commodo incididunt reprehenderit sed

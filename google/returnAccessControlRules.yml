@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Return Access Control Rules
+  description: Returns the rules in the access control list for the calendar.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Return Access Control Rules
+      description: Returns the rules in the access control list for the calendar.
+    paths:
+      /calendars/{calendarId}/acl:
+        get:
+          summary: Return Access Control Rules
+          description: Returns the rules in the access control list for the calendar.
+          operationId: returnAccessControlRules
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    etag: laborum ea d
+                    items:
+                      - etag: in in qui non dolore
+                        id: occaecat dolor qui eu ut
+                        kind: calendar#aclRule
+                        role: culpa magna tempor Excepteur
+                        scope:
+                          type: culpa qui sint velit
+                          value: Lorem consectetur aliquip
+                      - etag: quis id Lorem la
+                        id: quis
+                        kind: calendar#aclRule
+                        role: culpa deserunt officia commodo
+                        scope:
+                          type: irure in quis ea
+                          value: ex dolore
+                    kind: calendar#acl
+                    nextPageToken: dolore ex
+                    nextSyncToken: amet labore quis

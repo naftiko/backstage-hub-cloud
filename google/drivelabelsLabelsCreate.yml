@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Create Labels
+  description: Creates a new Label.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Create Labels
+      description: Creates a new Label.
+    paths:
+      /v2/labels:
+        post:
+          summary: Create Labels
+          description: Creates a new Label.
+          operationId: drivelabelsLabelsCreate
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/GoogleAppsDriveLabelsV2Label'
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/GoogleAppsDriveLabelsV2Label'
+              description: Successful response

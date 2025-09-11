@@ -1,0 +1,78 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Append Values
+  description: >-
+    Appends values to a spreadsheet. The input range is used to search for
+    existing data and find a "table" within that range. Values will be appended
+    to the next row of the table, starting with the first column of the table.
+    See the [guide](/sheets/api/guides/values#appending_values) and [sample
+    code](/sheets/api/samples/writing#append_values) for specific details of how
+    tables are detected and data is appended. The caller must specify the
+    spreadsheet ID, range, and a valueInputOption. The `valueInputOption` only
+    controls how the input data will be added to the sheet (column-wise or
+    row-wise), it does not influence what cell the data starts being written to.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Append Values
+      description: >-
+        Appends values to a spreadsheet. The input range is used to search for
+        existing data and find a "table" within that range. Values will be appended
+        to the next row of the table, starting with the first column of the table.
+        See the [guide](/sheets/api/guides/values#appending_values) and [sample
+        code](/sheets/api/samples/writing#append_values) for specific details of how
+        tables are detected and data is appended. The caller must specify the
+        spreadsheet ID, range, and a valueInputOption. The `valueInputOption` only
+        controls how the input data will be added to the sheet (column-wise or
+        row-wise), it does not influence what cell the data starts being written to.
+    paths:
+      /v4/spreadsheets/{spreadsheetId}/values/{range}:append:
+        post:
+          summary: Append Values
+          description: >-
+            Appends values to a spreadsheet. The input range is used to search for
+            existing data and find a "table" within that range. Values will be
+            appended to the next row of the table, starting with the first column of
+            the table. See the [guide](/sheets/api/guides/values#appending_values)
+            and [sample code](/sheets/api/samples/writing#append_values) for
+            specific details of how tables are detected and data is appended. The
+            caller must specify the spreadsheet ID, range, and a valueInputOption.
+            The `valueInputOption` only controls how the input data will be added to
+            the sheet (column-wise or row-wise), it does not influence what cell the
+            data starts being written to.
+          operationId: appendValues
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  example: null
+          responses:
+            '200':
+              description: OK
+              headers:
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  examples:
+                    example-0:
+                      summary: Successful response
+                      value: null
+                    example-1:
+                      summary: Successful response
+                      value: null

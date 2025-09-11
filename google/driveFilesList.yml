@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Get Files
+  description: ' Lists the user''s files. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for files & folders](/drive/api/guides/search-files) guide. *Note:* This method returns *all* files by default, including trashed files. If you don''t want trashed files to appear in the list, use the `trashed=false` query parameter to remove trashed files from the results.'
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Get Files
+      description: ' Lists the user''s files. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for files & folders](/drive/api/guides/search-files) guide. *Note:* This method returns *all* files by default, including trashed files. If you don''t want trashed files to appear in the list, use the `trashed=false` query parameter to remove trashed files from the results.'
+    paths:
+      /files:
+        get:
+          summary: Get Files
+          description: ' Lists the user''s files. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for files & folders](/drive/api/guides/search-files) guide. *Note:* This method returns *all* files by default, including trashed files. If you don''t want trashed files to appear in the list, use the `trashed=false` query parameter to remove trashed files from the results.'
+          operationId: driveFilesList
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/FileList'
+              description: Successful response

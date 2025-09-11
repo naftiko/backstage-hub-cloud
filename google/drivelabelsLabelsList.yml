@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: Retrieve Labels
+  description: List labels.
+  tags: []
+  links:
+    - title: Link
+      icon: code
+      url: https://example.com
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition: |
+    openapi: 3.1.0
+    info:
+      title: Retrieve Labels
+      description: List labels.
+    paths:
+      /v2/labels:
+        get:
+          summary: Retrieve Labels
+          description: List labels.
+          operationId: drivelabelsLabelsList
+          responses:
+            '200':
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/GoogleAppsDriveLabelsV2ListLabelsResponse'
+              description: Successful response
